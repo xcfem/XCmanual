@@ -1,0 +1,2 @@
+# XCmanual
+XC user manual

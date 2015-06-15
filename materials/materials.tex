@@ -1,4 +1,4 @@
-\chapter{Materials}
+\chapter{Materials and sections}
 \section{Stardard uniaxial materials}
 \subsection{defElasticMaterial}
 \noindent Construct an elastic uniaxial material
@@ -189,6 +189,71 @@ defConcrete01(mdlr,name,epsc0,fpc,fpcu,epscu)
 \caption{Concrete01: uniaxial Kent-Scott-Park concrete material. Stress-strain diagram}\label{Concrete01}
 \end{figure}
 
+\section{ND materials}
+An ND material is an object that represents the stress-strain relationship at the gauss-point of a continuum element.
+
+\subsection{defElasticIsotropic3d}
+\noindent Construct an elastic isotropic material.
+\begin{verbatim}
+defElasticIsotropic3d(mdlr,name,E,nu,rho)
+\end{verbatim}
+\vspace{-10pt}
+{\color{grayLines} \rule{\linewidth}{0.25pt}}
+\begin{center}
+\begin{tabular}{lp{10cm}}
+{\tt mdlr} & modeler name \\
+{\tt name} & name identifying the material\\
+{\tt E} & elastic modulus \\
+{\tt nu} & Poisson's ratio \\
+{\tt rho} &  mass density, optional (default = 0.0)\\
+\end{tabular}
+\end{center}
+\paragraph{Example}
+\begin{verbatim}
+*
+\end{verbatim}
+
+\subsection{defElasticIsotropicPlaneStrain}
+\noindent Construct an elastic isotropic plane-strain material.
+\begin{verbatim}
+defElasticIsotropicPlaneStrain(mdlr,name,E,nu,rho)
+\end{verbatim}
+\vspace{-10pt}
+{\color{grayLines} \rule{\linewidth}{0.25pt}}
+\begin{center}
+\begin{tabular}{lp{10cm}}
+{\tt mdlr} & modeler name \\
+{\tt name} & name identifying the material\\
+{\tt E} & elastic modulus \\
+{\tt nu} & Poisson's ratio \\
+{\tt rho} &  mass density, optional (default = 0.0)\\
+\end{tabular}
+\end{center}
+\paragraph{Example}
+\begin{verbatim}
+*
+\end{verbatim}
+
+\subsection{defElasticIsotropicPlaneStress}
+\noindent Construct an elastic isotropic plane-stress material.
+\begin{verbatim}
+defElasticIsotropicPlaneStress(mdlr,name,E,nu,rho)
+\end{verbatim}
+\vspace{-10pt}
+{\color{grayLines} \rule{\linewidth}{0.25pt}}
+\begin{center}
+\begin{tabular}{lp{10cm}}
+{\tt mdlr} & modeler name \\
+{\tt name} & name identifying the material\\
+{\tt E} & elastic modulus \\
+{\tt nu} & Poisson's ratio \\
+{\tt rho} &  mass density, optional (default = 0.0)\\
+\end{tabular}
+\end{center}
+\paragraph{Example}
+\begin{verbatim}
+*
+\end{verbatim}
 \section{Sections}
 A section represents a force-deformation (or resultant stress-strain) relationship at beam-column and plate sample points. 
 \subsection{defElasticSection2d}
@@ -317,6 +382,50 @@ defElasticSectionFromMechProp3d(mdlr,name,mechProp3d)
 {\tt mdlr} & modeler name \\
 {\tt name} & name identifying the section \\
 {\tt mechProp3d} & object that contains mechanical properties of the section  \\
+\end{tabular}
+\end{center}
+\paragraph{Example}
+\begin{verbatim}
+*
+\end{verbatim}
+
+\subsection{defElasticMembranePlateSection}
+\noindent Construct an an isotropic elastic section appropriate for plate and shell analysis.
+\begin{verbatim}
+defElasticMembranePlateSection(mdlr,name,E,nu,rho,h)
+\end{verbatim}
+\vspace{-10pt}
+{\color{grayLines} \rule{\linewidth}{0.25pt}}
+\begin{center}
+\begin{tabular}{lp{10cm}}
+{\tt mdlr} & modeler name \\
+{\tt name} & name identifying the section\\
+{\tt E} &  Young's modulus\\
+{\tt nu} &  Poisson's modulus\\
+{\tt rho} &  mass density\\
+{\tt h} &  depth of section\\
+\end{tabular}
+\end{center}
+\paragraph{Example}
+\begin{verbatim}
+*
+\end{verbatim}
+
+\subsection{defElasticPlateSection}
+\noindent Construct an an isotropic elastic section appropriate for plate analysis.
+\begin{verbatim}
+defElasticPlateSection(mdlr,name,E,nu,rho,h)
+\end{verbatim}
+\vspace{-10pt}
+{\color{grayLines} \rule{\linewidth}{0.25pt}}
+\begin{center}
+\begin{tabular}{lp{10cm}}
+{\tt mdlr} & modeler name \\
+{\tt name} & name identifying the section\\
+{\tt E} &  Young's modulus\\
+{\tt nu} &  Poisson's modulus\\
+{\tt rho} &  mass density\\
+{\tt h} &  depth of section\\
 \end{tabular}
 \end{center}
 \paragraph{Example}

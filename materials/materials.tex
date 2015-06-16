@@ -157,6 +157,43 @@ defSteel02(mdlr,name,E,fy,b,initialStress)
 \caption{Steel002: uniaxial bilinear steel material with isotropic strain hardening. Stress-strain diagram}\label{Steel02}
 \end{figure}
 
+\subsection{ReinforcingSteel}
+\noindent This class constructs a bilinear stress-strain diagram to carry out the analysis of reinforced concrete according to Eurocode 2. Other national standards, like the spanish EHE and the swiss SIA also adopt this diagram.
+
+\begin{center}
+\begin{tabular}{lp{10cm}}
+\multicolumn{2}{p{11cm}}{\color{grayText} \large{Parameters}} \\
+\multicolumn{2}{p{13cm}}{\color{grayLines} \rule{\linewidth}{0.25pt}} \\
+{\tt nmbMaterial} & name identifying the material \\
+{\tt nmbDiagK} & name identifying the characteristic stress-strain diagram (default: {\tt "dgK"+nmbMaterial}) \\
+{\tt tagDiagK} & tag of the uniaxial material with the characteristic stress-strain diagram\\
+{\tt nmbDiagD} &  name identifying the design stress-strain diagram (default: {\tt "dgD"+nmbMaterial}) \\
+{\tt tagDiagD} & tag of the uniaxial material with the design stress-strain diagram\\
+{\tt fyk} & characteristic value of the yield strength\\
+{\tt gammaS} & partial factor for material (default: 1.15)\\
+{\tt Es} & elastic modulus of the material (default: 2e11)\\
+{\tt emax} & maximum strain at failure point\\
+{\tt k} & ratio between characteristic ultimate stress and characteristic yield stress $^{(1)}$ (default: 1.05)\\
+\multicolumn{2}{p{13cm}}{\color{grayLines} \rule{\linewidth}{0.25pt}} \\
+\multicolumn{2}{p{13cm}}{\footnotesize{(1): according to annex C of EC2: for class A k$\ge$1,05, for class B k$\ge$1,08}}
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{lp{9cm}}
+\multicolumn{2}{p{11cm}}{\color{grayText} \large{Methods}} \\
+\multicolumn{2}{p{13cm}}{\color{grayLines} \rule{\linewidth}{0.25pt}} \\
+{\tt fmaxk()} & characteristic ultimate strength \\
+{\tt fyd()} & design yield stress \\
+{\tt eyk()} & characteristic strain at yield point\\
+{\tt eyd()} & design strain at yield point\\
+{\tt Esh()} &  post-yield tangent\\
+{\tt bsh()} & ratio between post-yield tangent and initial elastic tangent\\
+{\tt defDiagK(mdlr)} & returns XC uniaxial material (characteristic values)\\
+{\tt defDiagD(mdlr)} & returns XC uniaxial material (design values)\\
+\end{tabular}
+\end{center}
+
 \section{Concrete materials}
 \subsection{defConcrete01}
 \noindent Construct a uniaxial Kent-Scott-Park concrete material object with degraded linear unloading/reloading stiffness according to the work of Karsan-Jirsa and no tensile strength.

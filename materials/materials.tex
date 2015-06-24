@@ -1,4 +1,4 @@
-\chapter{Materials}
+\chapter{Materials and sections}
 \section{Stardard uniaxial materials}
 \subsection{defElasticMaterial}
 \noindent Construct an elastic uniaxial material
@@ -101,7 +101,7 @@ defCableMaterial(mdlr,name,E,prestress,rho)
 
 
 \subsection{defSteel01}
-\noindent Construct a uniaxial bilinear steel material object with kinematic hardening% and optional isotropic hardening described by a non-linear evolution equation.
+\noindent Construct a uniaxial bilinear steel material object with kinematic hardening
 \begin{verbatim}
 defSteel01(mdlr,name,E,fy,b)
 \end{verbatim}
@@ -157,6 +157,43 @@ defSteel02(mdlr,name,E,fy,b,initialStress)
 \caption{Steel002: uniaxial bilinear steel material with isotropic strain hardening. Stress-strain diagram}\label{Steel02}
 \end{figure}
 
+\subsection{ReinforcingSteel}
+\noindent This class constructs a bilinear stress-strain diagram to carry out the analysis of reinforced concrete according to Eurocode 2. Other national standards, like the spanish EHE and the swiss SIA also adopt this diagram.
+
+\begin{center}
+\begin{tabular}{lp{10cm}}
+\multicolumn{2}{p{11cm}}{\color{grayText} \large{Parameters}} \\
+\multicolumn{2}{p{13cm}}{\color{grayLines} \rule{\linewidth}{0.25pt}} \\
+{\tt nmbMaterial} & name identifying the material \\
+{\tt nmbDiagK} & name identifying the characteristic stress-strain diagram (default: {\tt "dgK"+nmbMaterial}) \\
+{\tt tagDiagK} & tag of the uniaxial material with the characteristic stress-strain diagram\\
+{\tt nmbDiagD} &  name identifying the design stress-strain diagram (default: {\tt "dgD"+nmbMaterial}) \\
+{\tt tagDiagD} & tag of the uniaxial material with the design stress-strain diagram\\
+{\tt fyk} & characteristic value of the yield strength\\
+{\tt gammaS} & partial factor for material (default: 1.15)\\
+{\tt Es} & elastic modulus of the material (default: 2e11)\\
+{\tt emax} & maximum strain at failure point\\
+{\tt k} & ratio between characteristic ultimate stress and characteristic yield stress $^{(1)}$ (default: 1.05)\\
+\multicolumn{2}{p{13cm}}{\color{grayLines} \rule{\linewidth}{0.25pt}} \\
+\multicolumn{2}{p{13cm}}{\footnotesize{(1): according to annex C of EC2: for class A k$\ge$1,05, for class B k$\ge$1,08}}
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{lp{9cm}}
+\multicolumn{2}{p{11cm}}{\color{grayText} \large{Methods}} \\
+\multicolumn{2}{p{13cm}}{\color{grayLines} \rule{\linewidth}{0.25pt}} \\
+{\tt fmaxk()} & characteristic ultimate strength \\
+{\tt fyd()} & design yield stress \\
+{\tt eyk()} & characteristic strain at yield point\\
+{\tt eyd()} & design strain at yield point\\
+{\tt Esh()} &  post-yield tangent\\
+{\tt bsh()} & ratio between post-yield tangent and initial elastic tangent\\
+{\tt defDiagK(mdlr)} & returns XC uniaxial material (characteristic values)\\
+{\tt defDiagD(mdlr)} & returns XC uniaxial material (design values)\\
+\end{tabular}
+\end{center}
+
 \section{Concrete materials}
 \subsection{defConcrete01}
 \noindent Construct a uniaxial Kent-Scott-Park concrete material object with degraded linear unloading/reloading stiffness according to the work of Karsan-Jirsa and no tensile strength.
@@ -189,9 +226,82 @@ defConcrete01(mdlr,name,epsc0,fpc,fpcu,epscu)
 \caption{Concrete01: uniaxial Kent-Scott-Park concrete material. Stress-strain diagram}\label{Concrete01}
 \end{figure}
 
+\section{ND materials}
+An ND material is an object that represents the stress-strain relationship at the gauss-point of a continuum element.
+
+\subsection{defElasticIsotropic3d}
+\noindent Construct an elastic isotropic material.
+\begin{verbatim}
+defElasticIsotropic3d(mdlr,name,E,nu,rho)
+\end{verbatim}
+\vspace{-10pt}
+{\color{grayLines} \rule{\linewidth}{0.25pt}}
+\begin{center}
+\begin{tabular}{lp{10cm}}
+{\tt mdlr} & modeler name \\
+{\tt name} & name identifying the material\\
+{\tt E} & elastic modulus \\
+{\tt nu} & Poisson's ratio \\
+{\tt rho} &  mass density, optional (default = 0.0)\\
+\end{tabular}
+\end{center}
+\paragraph{Example}
+\begin{verbatim}
+*
+\end{verbatim}
+
+\subsection{defElasticIsotropicPlaneStrain}
+\noindent Construct an elastic isotropic plane-strain material.
+\begin{verbatim}
+defElasticIsotropicPlaneStrain(mdlr,name,E,nu,rho)
+\end{verbatim}
+\vspace{-10pt}
+{\color{grayLines} \rule{\linewidth}{0.25pt}}
+\begin{center}
+\begin{tabular}{lp{10cm}}
+{\tt mdlr} & modeler name \\
+{\tt name} & name identifying the material\\
+{\tt E} & elastic modulus \\
+{\tt nu} & Poisson's ratio \\
+{\tt rho} &  mass density, optional (default = 0.0)\\
+\end{tabular}
+\end{center}
+\paragraph{Example}
+\begin{verbatim}
+*
+\end{verbatim}
+
+\subsection{defElasticIsotropicPlaneStress}
+\noindent Construct an elastic isotropic plane-stress material.
+\begin{verbatim}
+defElasticIsotropicPlaneStress(mdlr,name,E,nu,rho)
+\end{verbatim}
+\vspace{-10pt}
+{\color{grayLines} \rule{\linewidth}{0.25pt}}
+\begin{center}
+\begin{tabular}{lp{10cm}}
+{\tt mdlr} & modeler name \\
+{\tt name} & name identifying the material\\
+{\tt E} & elastic modulus \\
+{\tt nu} & Poisson's ratio \\
+{\tt rho} &  mass density, optional (default = 0.0)\\
+\end{tabular}
+\end{center}
+\paragraph{Example}
+\begin{verbatim}
+*
+\end{verbatim}
 \section{Sections}
-A section represents a force-deformation (or resultant stress-strain) relationship at beam-column and plate sample points. 
-\subsection{defElasticSection2d}
+A section represents a force-deformation (or resultant stress-strain) relationship at beam-column or plate element.
+
+Three types of sections are going to be considered:
+\begin{description}
+\item{Elastic:} defined by material and geometric constants;
+\item{Resultant:} general nonlinear description of force-deformation response, e.g. moment-curvature;
+\item{Fiber:} section is discretized into smaller regions for which the material stress-strain response is integrated to give resultant behavior, e.g. reinforced concrete.
+\end{description}
+\subsection{Elastic sections}
+\subsubsection{defElasticSection2d}
 \noindent Construct an elastic section appropiate for 2D beam analysis.
 \begin{verbatim}
 defElasticSection2d(mdlr,name,A,E,I)
@@ -213,7 +323,7 @@ defElasticSection2d(mdlr,name,A,E,I)
 \end{verbatim}
 
 
-\subsection{defElasticShearSection2d}
+\subsubsection{defElasticShearSection2d}
 \noindent Construct an elastic section appropiate for 2D beam analysis, including shear deformations.
 \begin{verbatim}
 defElasticShearSection2d(mdlr,name,A,E,G,I,alpha)
@@ -236,7 +346,7 @@ defElasticShearSection2d(mdlr,name,A,E,G,I,alpha)
 *
 \end{verbatim}
 
-\subsection{defElasticSectionFromMechProp2d}
+\subsubsection{defElasticSectionFromMechProp2d}
 \noindent Construct an elastic section appropiate for 2D beam analysis, taking mechanical properties of the section form a MechProp2d object.
 \begin{verbatim}
 defElasticSectionFromMechProp2d(mdlr,name,mechProp2d)
@@ -256,7 +366,7 @@ defElasticSectionFromMechProp2d(mdlr,name,mechProp2d)
 \end{verbatim}
 
 %%%
-\subsection{defElasticSection3d}
+\subsubsection{defElasticSection3d}
 \noindent Construct an elastic section appropiate for 3D beam analysis.
 \begin{verbatim}
 defElasticSection3d(mdlr,name,A,E,G,Iz,Iy,J)
@@ -280,7 +390,7 @@ defElasticSection3d(mdlr,name,A,E,G,Iz,Iy,J)
 \end{verbatim}
 
 
-\subsection{defElasticShearSection3d}
+\subsubsection{defElasticShearSection3d}
 \noindent Construct an elastic section appropiate for 3D beam analysis, including shear deformations.
 \begin{verbatim}
 defElasticShearSection3d(mdlr,name,A,E,G,Iz,Iy,J,alpha)
@@ -305,7 +415,7 @@ defElasticShearSection3d(mdlr,name,A,E,G,Iz,Iy,J,alpha)
 *
 \end{verbatim}
 
-\subsection{defElasticSectionFromMechProp3d}
+\subsubsection{defElasticSectionFromMechProp3d}
 \noindent Construct an elastic section appropiate for 3D beam analysis, taking mechanical properties of the section form a MechProp3d object.
 \begin{verbatim}
 defElasticSectionFromMechProp3d(mdlr,name,mechProp3d)
@@ -323,6 +433,52 @@ defElasticSectionFromMechProp3d(mdlr,name,mechProp3d)
 \begin{verbatim}
 *
 \end{verbatim}
+
+\subsubsection{defElasticMembranePlateSection}
+\noindent Construct an an isotropic elastic section appropriate for plate and shell analysis.
+\begin{verbatim}
+defElasticMembranePlateSection(mdlr,name,E,nu,rho,h)
+\end{verbatim}
+\vspace{-10pt}
+{\color{grayLines} \rule{\linewidth}{0.25pt}}
+\begin{center}
+\begin{tabular}{lp{10cm}}
+{\tt mdlr} & modeler name \\
+{\tt name} & name identifying the section\\
+{\tt E} &  Young's modulus\\
+{\tt nu} &  Poisson's modulus\\
+{\tt rho} &  mass density\\
+{\tt h} &  depth of section\\
+\end{tabular}
+\end{center}
+\paragraph{Example}
+\begin{verbatim}
+*
+\end{verbatim}
+
+\subsubsection{defElasticPlateSection}
+\noindent Construct an an isotropic elastic section appropriate for plate analysis.
+\begin{verbatim}
+defElasticPlateSection(mdlr,name,E,nu,rho,h)
+\end{verbatim}
+\vspace{-10pt}
+{\color{grayLines} \rule{\linewidth}{0.25pt}}
+\begin{center}
+\begin{tabular}{lp{10cm}}
+{\tt mdlr} & modeler name \\
+{\tt name} & name identifying the section\\
+{\tt E} &  Young's modulus\\
+{\tt nu} &  Poisson's modulus\\
+{\tt rho} &  mass density\\
+{\tt h} &  depth of section\\
+\end{tabular}
+\end{center}
+\paragraph{Example}
+\begin{verbatim}
+*
+\end{verbatim}
+
+\sbusection{Fiber sections}
 
 \end{document}
 

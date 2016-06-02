@@ -1,8 +1,5 @@
-materials.fiber_section package
-===============================
-
-Submodules
-----------
+Fiber sections
+==============
 
 materials.fiber_section.createFiberSets module
 ----------------------------------------------

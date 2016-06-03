@@ -1,0 +1,1302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ArchBridgeRoughModelBase &mdash; XC 3.0 documentation</title>
+    
+    <link rel="stylesheet" href="default.css" type="text/css" />
+    <link rel="stylesheet" href="pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="underscore.js"></script>
+    <script type="text/javascript" src="doctools.js"></script>
+    <link rel="top" title="XC 3.0 documentation" href="../index.html" />
+    <link rel="up" title="Rough calculations" href="rough_calculations.html" />
+    <link rel="prev" title="Rough calculations" href="rough_calculations.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="rough_calculations.html" title="Rough calculations"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">XC 3.0 documentation</a> &raquo;</li>
+          <li><a href="rough_calculations.html" accesskey="U">Rough calculations</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-rough_calculations.ArchBridgeRoughModelBase">
+<span id="archbridgeroughmodelbase"></span><h1>ArchBridgeRoughModelBase<a class="headerlink" href="#module-rough_calculations.ArchBridgeRoughModelBase" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="rough_calculations.ArchBridgeRoughModelBase.ArchBridgeRoughModelBase">
+<em class="property">class </em><tt class="descclassname">rough_calculations.ArchBridgeRoughModelBase.</tt><tt class="descname">ArchBridgeRoughModelBase</tt><big>(</big><em>L</em>, <em>d</em><big>)</big><a class="headerlink" href="#rough_calculations.ArchBridgeRoughModelBase.ArchBridgeRoughModelBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Base class for arch bridge rough models
+Attributes:</p>
+<blockquote>
+<div>d: rise (depth) of the arch at midspan
+L: horizontal distance between supports</div></blockquote>
+<dl class="method">
+<dt id="rough_calculations.ArchBridgeRoughModelBase.ArchBridgeRoughModelBase.getQunfHabtm">
+<tt class="descname">getQunfHabtm</tt><big>(</big><em>qunif</em><big>)</big><a class="headerlink" href="#rough_calculations.ArchBridgeRoughModelBase.ArchBridgeRoughModelBase.getQunfHabtm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Horizontal reaction at each abutment due to a uniform load.
+Attributes:</p>
+<blockquote>
+<div>qunif: uniformly distributed load applied to the arch</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ArchBridgeRoughModelBase.ArchBridgeRoughModelBase.getQunfVabtm">
+<tt class="descname">getQunfVabtm</tt><big>(</big><em>qunif</em><big>)</big><a class="headerlink" href="#rough_calculations.ArchBridgeRoughModelBase.ArchBridgeRoughModelBase.getQunfVabtm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vertical reaction at each abutment due to a uniform load.
+Attributes:</p>
+<blockquote>
+<div>qunif: uniformly distributed load applied on the deck</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-rough_calculations.arch_bridge_simple_model">
+<span id="arch-bridge-simple-model-module"></span><h1>arch_bridge_simple_model module<a class="headerlink" href="#module-rough_calculations.arch_bridge_simple_model" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="rough_calculations.arch_bridge_simple_model.ArchBridgeRoughModel">
+<em class="property">class </em><tt class="descclassname">rough_calculations.arch_bridge_simple_model.</tt><tt class="descname">ArchBridgeRoughModel</tt><big>(</big><em>L</em>, <em>d</em><big>)</big><a class="headerlink" href="#rough_calculations.arch_bridge_simple_model.ArchBridgeRoughModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rough_calculations.ArchBridgeRoughModelBase.ArchBridgeRoughModelBase" title="rough_calculations.ArchBridgeRoughModelBase.ArchBridgeRoughModelBase"><tt class="xref py py-class docutils literal"><span class="pre">rough_calculations.ArchBridgeRoughModelBase.ArchBridgeRoughModelBase</span></tt></a></p>
+<p>Arch bridge simple model</p>
+<dl class="method">
+<dt id="rough_calculations.arch_bridge_simple_model.ArchBridgeRoughModel.getMmaxQconc">
+<tt class="descname">getMmaxQconc</tt><big>(</big><em>Qconc</em><big>)</big><a class="headerlink" href="#rough_calculations.arch_bridge_simple_model.ArchBridgeRoughModel.getMmaxQconc" title="Permalink to this definition">¶</a></dt>
+<dd><p>maximum bending moment in a parabolic three hinged arch
+produced by concentrated live forces placed at quarterspans
+The bending moment is maximum at the quarterpoints</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.arch_bridge_simple_model.ArchBridgeRoughModel.getQconcCompStress">
+<tt class="descname">getQconcCompStress</tt><big>(</big><em>Qconc</em>, <em>A</em><big>)</big><a class="headerlink" href="#rough_calculations.arch_bridge_simple_model.ArchBridgeRoughModel.getQconcCompStress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Approximation of the compressive stress in a section of the 
+three hinged arch with area=A, due to a two concentrated loads in quarterpoints.
+for simplicity, it&#8217;s considered the compressive force at the midspan
+(H, that, in turn, i equal to the horizontal reaction at the abutment)
+as an approximation for the compressive force in the arch at any location</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.arch_bridge_simple_model.ArchBridgeRoughModel.getQconcHabtm">
+<tt class="descname">getQconcHabtm</tt><big>(</big><em>Qconc</em><big>)</big><a class="headerlink" href="#rough_calculations.arch_bridge_simple_model.ArchBridgeRoughModel.getQconcHabtm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Horizontal reaction at each abutment of a three hinged arch 
+due to a two concentrated loads in quarterpoints</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.arch_bridge_simple_model.ArchBridgeRoughModel.getQconcVabtm">
+<tt class="descname">getQconcVabtm</tt><big>(</big><em>Qconc</em><big>)</big><a class="headerlink" href="#rough_calculations.arch_bridge_simple_model.ArchBridgeRoughModel.getQconcVabtm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vertical reaction at each abutment of a three hinged arch 
+due to two concentrated loads in quarterpoints</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.arch_bridge_simple_model.ArchBridgeRoughModel.getQunfCompStress">
+<tt class="descname">getQunfCompStress</tt><big>(</big><em>qunif</em>, <em>A</em><big>)</big><a class="headerlink" href="#rough_calculations.arch_bridge_simple_model.ArchBridgeRoughModel.getQunfCompStress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Approximation of the compressive stress in a section of the 
+arch with area=A, due to a uniform load qunif.
+for simplicity, it&#8217;s considered the compressive force at the midspan
+(H, that, in turn, i equal to the horizontal reaction at the abutment)
+as an approximation for the compressive force in the arch at any location</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-rough_calculations.cable_stayed_bridge_simple_model">
+<span id="cable-stayed-bridge-simple-model-module"></span><h1>cable_stayed_bridge_simple_model module<a class="headerlink" href="#module-rough_calculations.cable_stayed_bridge_simple_model" title="Permalink to this headline">¶</a></h1>
+<p>From the notes of María E. Moreyra Garlock in the context of
+the course &#8216;The Art of Structural Engineering: Bridges</p>
+<dl class="class">
+<dt id="rough_calculations.cable_stayed_bridge_simple_model.CableStayedBridgeRoughModel">
+<em class="property">class </em><tt class="descclassname">rough_calculations.cable_stayed_bridge_simple_model.</tt><tt class="descname">CableStayedBridgeRoughModel</tt><big>(</big><em>l1</em><big>)</big><a class="headerlink" href="#rough_calculations.cable_stayed_bridge_simple_model.CableStayedBridgeRoughModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cable stayed bridge simple model</p>
+<dl class="method">
+<dt id="rough_calculations.cable_stayed_bridge_simple_model.CableStayedBridgeRoughModel.getHCable">
+<tt class="descname">getHCable</tt><big>(</big><em>q</em>, <em>theta</em><big>)</big><a class="headerlink" href="#rough_calculations.cable_stayed_bridge_simple_model.CableStayedBridgeRoughModel.getHCable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Horizontal reaction at tower due to the cable.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.cable_stayed_bridge_simple_model.CableStayedBridgeRoughModel.getNCable">
+<tt class="descname">getNCable</tt><big>(</big><em>q</em>, <em>theta</em><big>)</big><a class="headerlink" href="#rough_calculations.cable_stayed_bridge_simple_model.CableStayedBridgeRoughModel.getNCable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Axial force in a cable
+theta: angle of the cable with the deck.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.cable_stayed_bridge_simple_model.CableStayedBridgeRoughModel.getVCable">
+<tt class="descname">getVCable</tt><big>(</big><em>q</em><big>)</big><a class="headerlink" href="#rough_calculations.cable_stayed_bridge_simple_model.CableStayedBridgeRoughModel.getVCable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vertical reaction at tower due to the cable.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-rough_calculations.flechas_vigas">
+<span id="flechas-vigas-module"></span><h1>flechas_vigas module<a class="headerlink" href="#module-rough_calculations.flechas_vigas" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="rough_calculations.flechas_vigas.deflCantBeamMend">
+<tt class="descclassname">rough_calculations.flechas_vigas.</tt><tt class="descname">deflCantBeamMend</tt><big>(</big><em>l</em>, <em>EI</em>, <em>M</em><big>)</big><a class="headerlink" href="#rough_calculations.flechas_vigas.deflCantBeamMend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum deflection in a cantilever beam with a couple moment at the free end</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="rough_calculations.flechas_vigas.deflCantBeamPconcentr">
+<tt class="descclassname">rough_calculations.flechas_vigas.</tt><tt class="descname">deflCantBeamPconcentr</tt><big>(</big><em>l</em>, <em>EI</em>, <em>P</em>, <em>a</em><big>)</big><a class="headerlink" href="#rough_calculations.flechas_vigas.deflCantBeamPconcentr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum deflection in a cantilever beam with a concentrated load at any point</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="rough_calculations.flechas_vigas.deflCantBeamQunif">
+<tt class="descclassname">rough_calculations.flechas_vigas.</tt><tt class="descname">deflCantBeamQunif</tt><big>(</big><em>l</em>, <em>EI</em>, <em>q</em><big>)</big><a class="headerlink" href="#rough_calculations.flechas_vigas.deflCantBeamQunif" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum deflection in a cantilever beam with a uniformly distributed load</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="rough_calculations.flechas_vigas.deflSimplSupBeamMend">
+<tt class="descclassname">rough_calculations.flechas_vigas.</tt><tt class="descname">deflSimplSupBeamMend</tt><big>(</big><em>l</em>, <em>EI</em>, <em>M</em><big>)</big><a class="headerlink" href="#rough_calculations.flechas_vigas.deflSimplSupBeamMend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum deflection in a beam simply supported at ends with a couple moment at the right end</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="rough_calculations.flechas_vigas.deflSimplSupBeamPconcentr">
+<tt class="descclassname">rough_calculations.flechas_vigas.</tt><tt class="descname">deflSimplSupBeamPconcentr</tt><big>(</big><em>l</em>, <em>EI</em>, <em>P</em>, <em>b</em><big>)</big><a class="headerlink" href="#rough_calculations.flechas_vigas.deflSimplSupBeamPconcentr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum deflection in a beam simply supported at ends with a concentrated load at any point</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="rough_calculations.flechas_vigas.deflSimplSupBeamQunif">
+<tt class="descclassname">rough_calculations.flechas_vigas.</tt><tt class="descname">deflSimplSupBeamQunif</tt><big>(</big><em>l</em>, <em>EI</em>, <em>q</em><big>)</big><a class="headerlink" href="#rough_calculations.flechas_vigas.deflSimplSupBeamQunif" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum deflection in a beam simply supported at ends with a uniformly distributed load</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="rough_calculations.flechas_vigas.getFlechaVigaBiapQUnif">
+<tt class="descclassname">rough_calculations.flechas_vigas.</tt><tt class="descname">getFlechaVigaBiapQUnif</tt><big>(</big><em>l</em>, <em>EI</em>, <em>q</em><big>)</big><a class="headerlink" href="#rough_calculations.flechas_vigas.getFlechaVigaBiapQUnif" title="Permalink to this definition">¶</a></dt>
+<dd><p>Devuelve la flecha en el centro de vano de una viga biapoyada
+bajo carga uniforme
+l: Luz entre apoyos.
+EI: Rigidez a flexión.
+q: Carga por unidad de longitud (uniforme).</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-rough_calculations.nb_poussee_terres">
+<span id="nb-poussee-terres-module"></span><h1>nb_poussee_terres module<a class="headerlink" href="#module-rough_calculations.nb_poussee_terres" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="rough_calculations.nb_poussee_terres.KreyEarthPressurUnderConcentratedLoad">
+<em class="property">class </em><tt class="descclassname">rough_calculations.nb_poussee_terres.</tt><tt class="descname">KreyEarthPressurUnderConcentratedLoad</tt><big>(</big><em>P</em>, <em>a</em>, <em>fi</em><big>)</big><a class="headerlink" href="#rough_calculations.nb_poussee_terres.KreyEarthPressurUnderConcentratedLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="attribute">
+<dt id="rough_calculations.nb_poussee_terres.KreyEarthPressurUnderConcentratedLoad.P">
+<tt class="descname">P</tt><em class="property"> = None</em><a class="headerlink" href="#rough_calculations.nb_poussee_terres.KreyEarthPressurUnderConcentratedLoad.P" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.nb_poussee_terres.KreyEarthPressurUnderConcentratedLoad.Q">
+<tt class="descname">Q</tt><em class="property"> = None</em><a class="headerlink" href="#rough_calculations.nb_poussee_terres.KreyEarthPressurUnderConcentratedLoad.Q" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.nb_poussee_terres.KreyEarthPressurUnderConcentratedLoad.a">
+<tt class="descname">a</tt><em class="property"> = None</em><a class="headerlink" href="#rough_calculations.nb_poussee_terres.KreyEarthPressurUnderConcentratedLoad.a" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.nb_poussee_terres.KreyEarthPressurUnderConcentratedLoad.b">
+<tt class="descname">b</tt><em class="property"> = None</em><a class="headerlink" href="#rough_calculations.nb_poussee_terres.KreyEarthPressurUnderConcentratedLoad.b" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.nb_poussee_terres.KreyEarthPressurUnderConcentratedLoad.fi">
+<tt class="descname">fi</tt><em class="property"> = None</em><a class="headerlink" href="#rough_calculations.nb_poussee_terres.KreyEarthPressurUnderConcentratedLoad.fi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.nb_poussee_terres.KreyEarthPressurUnderConcentratedLoad.getLateralPressure">
+<tt class="descname">getLateralPressure</tt><big>(</big><em>y</em>, <em>z</em><big>)</big><a class="headerlink" href="#rough_calculations.nb_poussee_terres.KreyEarthPressurUnderConcentratedLoad.getLateralPressure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.nb_poussee_terres.KreyEarthPressurUnderConcentratedLoad.getRatioY">
+<tt class="descname">getRatioY</tt><big>(</big><em>y</em>, <em>z</em><big>)</big><a class="headerlink" href="#rough_calculations.nb_poussee_terres.KreyEarthPressurUnderConcentratedLoad.getRatioY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.nb_poussee_terres.KreyEarthPressurUnderConcentratedLoad.getRatioZ">
+<tt class="descname">getRatioZ</tt><big>(</big><em>y</em>, <em>z</em><big>)</big><a class="headerlink" href="#rough_calculations.nb_poussee_terres.KreyEarthPressurUnderConcentratedLoad.getRatioZ" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.nb_poussee_terres.KreyEarthPressurUnderConcentratedLoad.getZLimInf">
+<tt class="descname">getZLimInf</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.nb_poussee_terres.KreyEarthPressurUnderConcentratedLoad.getZLimInf" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.nb_poussee_terres.KreyEarthPressurUnderConcentratedLoad.getZLimSup">
+<tt class="descname">getZLimSup</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.nb_poussee_terres.KreyEarthPressurUnderConcentratedLoad.getZLimSup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.nb_poussee_terres.KreyEarthPressurUnderConcentratedLoad.p_max">
+<tt class="descname">p_max</tt><em class="property"> = None</em><a class="headerlink" href="#rough_calculations.nb_poussee_terres.KreyEarthPressurUnderConcentratedLoad.p_max" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-rough_calculations.ng_beam">
+<span id="ng-beam-module"></span><h1>ng_beam module<a class="headerlink" href="#module-rough_calculations.ng_beam" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="rough_calculations.ng_beam.Beam">
+<em class="property">class </em><tt class="descclassname">rough_calculations.ng_beam.</tt><tt class="descname">Beam</tt><big>(</big><em>E=1.0</em>, <em>I=1.0</em>, <em>l=1.0</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_beam.Beam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="method">
+<dt id="rough_calculations.ng_beam.Beam.EI">
+<tt class="descname">EI</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_beam.Beam.EI" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-rough_calculations.ng_cantilever">
+<span id="ng-cantilever-module"></span><h1>ng_cantilever module<a class="headerlink" href="#module-rough_calculations.ng_cantilever" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="rough_calculations.ng_cantilever.Cantilever">
+<em class="property">class </em><tt class="descclassname">rough_calculations.ng_cantilever.</tt><tt class="descname">Cantilever</tt><big>(</big><em>E=1.0</em>, <em>I=1.0</em>, <em>l=1.0</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_cantilever.Cantilever" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rough_calculations.ng_beam.Beam" title="rough_calculations.ng_beam.Beam"><tt class="xref py py-class docutils literal"><span class="pre">rough_calculations.ng_beam.Beam</span></tt></a></p>
+<dl class="method">
+<dt id="rough_calculations.ng_cantilever.Cantilever.getBendingMomentUnderConcentratedLoad">
+<tt class="descname">getBendingMomentUnderConcentratedLoad</tt><big>(</big><em>P</em>, <em>a</em>, <em>x</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_cantilever.Cantilever.getBendingMomentUnderConcentratedLoad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_cantilever.Cantilever.getBendingMomentUnderUniformLoad">
+<tt class="descname">getBendingMomentUnderUniformLoad</tt><big>(</big><em>q</em>, <em>x</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_cantilever.Cantilever.getBendingMomentUnderUniformLoad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_cantilever.Cantilever.getDeflectionUnderConcentratedLoad">
+<tt class="descname">getDeflectionUnderConcentratedLoad</tt><big>(</big><em>P</em>, <em>a</em>, <em>x</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_cantilever.Cantilever.getDeflectionUnderConcentratedLoad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_cantilever.Cantilever.getReactionUnderConcentratedLoad">
+<tt class="descname">getReactionUnderConcentratedLoad</tt><big>(</big><em>P</em>, <em>a</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_cantilever.Cantilever.getReactionUnderConcentratedLoad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_cantilever.Cantilever.getReactionUnderUniformLoad">
+<tt class="descname">getReactionUnderUniformLoad</tt><big>(</big><em>q</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_cantilever.Cantilever.getReactionUnderUniformLoad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_cantilever.Cantilever.getShearUnderConcentratedLoad">
+<tt class="descname">getShearUnderConcentratedLoad</tt><big>(</big><em>P</em>, <em>a</em>, <em>x</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_cantilever.Cantilever.getShearUnderConcentratedLoad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_cantilever.Cantilever.getShearUnderUniformLoad">
+<tt class="descname">getShearUnderUniformLoad</tt><big>(</big><em>q</em>, <em>x</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_cantilever.Cantilever.getShearUnderUniformLoad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-rough_calculations.ng_concrete_slab">
+<span id="ng-concrete-slab-module"></span><h1>ng_concrete_slab module<a class="headerlink" href="#module-rough_calculations.ng_concrete_slab" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="rough_calculations.ng_concrete_slab.ConcreteSlab">
+<em class="property">class </em><tt class="descclassname">rough_calculations.ng_concrete_slab.</tt><tt class="descname">ConcreteSlab</tt><big>(</big><em>l</em>, <em>L</em>, <em>thickness</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_concrete_slab.ConcreteSlab" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="rough_calculations.ng_concrete_slab.FourSidesPinnedConcreteSlab">
+<em class="property">class </em><tt class="descclassname">rough_calculations.ng_concrete_slab.</tt><tt class="descname">FourSidesPinnedConcreteSlab</tt><big>(</big><em>l</em>, <em>L</em>, <em>thickness</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_concrete_slab.FourSidesPinnedConcreteSlab" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rough_calculations.ng_concrete_slab.ConcreteSlab" title="rough_calculations.ng_concrete_slab.ConcreteSlab"><tt class="xref py py-class docutils literal"><span class="pre">rough_calculations.ng_concrete_slab.ConcreteSlab</span></tt></a></p>
+<dl class="method">
+<dt id="rough_calculations.ng_concrete_slab.FourSidesPinnedConcreteSlab.getMMax">
+<tt class="descname">getMMax</tt><big>(</big><em>p</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_concrete_slab.FourSidesPinnedConcreteSlab.getMMax" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns maximum bending moment under the load p</p>
+<p>p: Total load over the slab.</p>
+<p>Formulas from Yvon Lescouarc&#8217;h ingénieur.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_concrete_slab.FourSidesPinnedConcreteSlab.predimThickness">
+<tt class="descname">predimThickness</tt><big>(</big><em>p</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_concrete_slab.FourSidesPinnedConcreteSlab.predimThickness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns thickness for a four side supported slab</p>
+<p>p: Total load over the slab (N/m2).</p>
+<p>Formulas from Yvon Lescouarc&#8217;h ingénieur.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-rough_calculations.ng_esf_pilares">
+<span id="ng-esf-pilares-module"></span><h1>ng_esf_pilares module<a class="headerlink" href="#module-rough_calculations.ng_esf_pilares" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="rough_calculations.ng_esf_pilares.getAreaInfluenciaPilar">
+<tt class="descclassname">rough_calculations.ng_esf_pilares.</tt><tt class="descname">getAreaInfluenciaPilar</tt><big>(</big><em>L1</em>, <em>L2</em>, <em>L3</em>, <em>L4</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_esf_pilares.getAreaInfluenciaPilar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Área de influencia de un pilar a partir de las luces de los vanos anejos
+ver «Números gordos en el proyecto de estructuras» página 44</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-rough_calculations.ng_pinned_fixed_beam">
+<span id="ng-pinned-fixed-beam-module"></span><h1>ng_pinned_fixed_beam module<a class="headerlink" href="#module-rough_calculations.ng_pinned_fixed_beam" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam">
+<em class="property">class </em><tt class="descclassname">rough_calculations.ng_pinned_fixed_beam.</tt><tt class="descname">PinnedFixedBeam</tt><big>(</big><em>E=1.0</em>, <em>I=1.0</em>, <em>l=1.0</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rough_calculations.ng_beam.Beam" title="rough_calculations.ng_beam.Beam"><tt class="xref py py-class docutils literal"><span class="pre">rough_calculations.ng_beam.Beam</span></tt></a></p>
+<dl class="method">
+<dt id="rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam.getBendingMomentUnderConcentratedLoad">
+<tt class="descname">getBendingMomentUnderConcentratedLoad</tt><big>(</big><em>P</em>, <em>a</em>, <em>x</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam.getBendingMomentUnderConcentratedLoad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam.getBendingMomentUnderUniformLoad">
+<tt class="descname">getBendingMomentUnderUniformLoad</tt><big>(</big><em>q</em>, <em>x</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam.getBendingMomentUnderUniformLoad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam.getBendingMomentUnderUniformLoadPartiallyDistributed">
+<tt class="descname">getBendingMomentUnderUniformLoadPartiallyDistributed</tt><big>(</big><em>q</em>, <em>a</em>, <em>b</em>, <em>x</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam.getBendingMomentUnderUniformLoadPartiallyDistributed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam.getDeflectionUnderConcentratedLoad">
+<tt class="descname">getDeflectionUnderConcentratedLoad</tt><big>(</big><em>P</em>, <em>a</em>, <em>x</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam.getDeflectionUnderConcentratedLoad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam.getDeflectionUnderUniformLoad">
+<tt class="descname">getDeflectionUnderUniformLoad</tt><big>(</big><em>q</em>, <em>x</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam.getDeflectionUnderUniformLoad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam.getReaction1UnderConcentratedLoad">
+<tt class="descname">getReaction1UnderConcentratedLoad</tt><big>(</big><em>P</em>, <em>a</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam.getReaction1UnderConcentratedLoad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam.getReaction1UnderUniformLoadPartiallyDistributed">
+<tt class="descname">getReaction1UnderUniformLoadPartiallyDistributed</tt><big>(</big><em>q</em>, <em>a</em>, <em>b</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam.getReaction1UnderUniformLoadPartiallyDistributed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam.getReaction2UnderConcentratedLoad">
+<tt class="descname">getReaction2UnderConcentratedLoad</tt><big>(</big><em>P</em>, <em>a</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam.getReaction2UnderConcentratedLoad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam.getReaction2UnderUniformLoadPartiallyDistributed">
+<tt class="descname">getReaction2UnderUniformLoadPartiallyDistributed</tt><big>(</big><em>q</em>, <em>a</em>, <em>b</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam.getReaction2UnderUniformLoadPartiallyDistributed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam.getReactionUnderUniformLoad">
+<tt class="descname">getReactionUnderUniformLoad</tt><big>(</big><em>q</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam.getReactionUnderUniformLoad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam.getShearUnderConcentratedLoad">
+<tt class="descname">getShearUnderConcentratedLoad</tt><big>(</big><em>P</em>, <em>a</em>, <em>x</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam.getShearUnderConcentratedLoad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam.getShearUnderUniformLoad">
+<tt class="descname">getShearUnderUniformLoad</tt><big>(</big><em>q</em>, <em>x</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam.getShearUnderUniformLoad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam.getShearUnderUniformLoadPartiallyDistributed">
+<tt class="descname">getShearUnderUniformLoadPartiallyDistributed</tt><big>(</big><em>q</em>, <em>a</em>, <em>b</em>, <em>x</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_pinned_fixed_beam.PinnedFixedBeam.getShearUnderUniformLoadPartiallyDistributed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="rough_calculations.ng_pinned_fixed_beam.macaulay">
+<tt class="descclassname">rough_calculations.ng_pinned_fixed_beam.</tt><tt class="descname">macaulay</tt><big>(</big><em>x</em>, <em>a</em>, <em>n=0</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_pinned_fixed_beam.macaulay" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-rough_calculations.ng_predim_pilotes">
+<span id="ng-predim-pilotes"></span><h1>ng_predim_pilotes<a class="headerlink" href="#module-rough_calculations.ng_predim_pilotes" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="module-rough_calculations.ng_prestressing_wire">
+<span id="ng-prestressing-wire-module"></span><h1>ng_prestressing_wire module<a class="headerlink" href="#module-rough_calculations.ng_prestressing_wire" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="rough_calculations.ng_prestressing_wire.prestressingWire">
+<em class="property">class </em><tt class="descclassname">rough_calculations.ng_prestressing_wire.</tt><tt class="descname">prestressingWire</tt><big>(</big><em>p0</em>, <em>p1</em>, <em>p2</em>, <em>x0</em>, <em>xL</em>, <em>y</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_prestressing_wire.prestressingWire" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="method">
+<dt id="rough_calculations.ng_prestressing_wire.prestressingWire.alpha">
+<tt class="descname">alpha</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_prestressing_wire.prestressingWire.alpha" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_prestressing_wire.prestressingWire.curvature">
+<tt class="descname">curvature</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_prestressing_wire.prestressingWire.curvature" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_prestressing_wire.prestressingWire.getForce">
+<tt class="descname">getForce</tt><big>(</big><em>x</em>, <em>P</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_prestressing_wire.prestressingWire.getForce" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_prestressing_wire.prestressingWire.getIntegratedU">
+<tt class="descname">getIntegratedU</tt><big>(</big><em>P</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_prestressing_wire.prestressingWire.getIntegratedU" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_prestressing_wire.prestressingWire.getL">
+<tt class="descname">getL</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_prestressing_wire.prestressingWire.getL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_prestressing_wire.prestressingWire.getPoint">
+<tt class="descname">getPoint</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_prestressing_wire.prestressingWire.getPoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_prestressing_wire.prestressingWire.getU">
+<tt class="descname">getU</tt><big>(</big><em>x</em>, <em>P</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_prestressing_wire.prestressingWire.getU" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_prestressing_wire.prestressingWire.trace">
+<tt class="descname">trace</tt><em class="property"> = None</em><a class="headerlink" href="#rough_calculations.ng_prestressing_wire.prestressingWire.trace" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_prestressing_wire.prestressingWire.x0">
+<tt class="descname">x0</tt><em class="property"> = 0.0</em><a class="headerlink" href="#rough_calculations.ng_prestressing_wire.prestressingWire.x0" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_prestressing_wire.prestressingWire.xL">
+<tt class="descname">xL</tt><em class="property"> = 1.0</em><a class="headerlink" href="#rough_calculations.ng_prestressing_wire.prestressingWire.xL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_prestressing_wire.prestressingWire.y">
+<tt class="descname">y</tt><em class="property"> = 0.0</em><a class="headerlink" href="#rough_calculations.ng_prestressing_wire.prestressingWire.y" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_prestressing_wire.prestressingWire.z">
+<tt class="descname">z</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_prestressing_wire.prestressingWire.z" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-rough_calculations.ng_punzonamiento">
+<span id="ng-punzonamiento-module"></span><h1>ng_punzonamiento module<a class="headerlink" href="#module-rough_calculations.ng_punzonamiento" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="rough_calculations.ng_punzonamiento.esfuerzoPunzonamiento">
+<tt class="descclassname">rough_calculations.ng_punzonamiento.</tt><tt class="descname">esfuerzoPunzonamiento</tt><big>(</big><em>qk</em>, <em>A</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_punzonamiento.esfuerzoPunzonamiento" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="rough_calculations.ng_punzonamiento.punzMaximo">
+<tt class="descclassname">rough_calculations.ng_punzonamiento.</tt><tt class="descname">punzMaximo</tt><big>(</big><em>fck</em>, <em>d</em>, <em>a</em>, <em>b</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_punzonamiento.punzMaximo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="rough_calculations.ng_punzonamiento.reinforcementPunz">
+<tt class="descclassname">rough_calculations.ng_punzonamiento.</tt><tt class="descname">reinforcementPunz</tt><big>(</big><em>Vd</em>, <em>fck</em>, <em>d</em>, <em>a</em>, <em>b</em>, <em>h</em>, <em>fyd</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_punzonamiento.reinforcementPunz" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-rough_calculations.ng_rc_section">
+<span id="ng-rc-section-module"></span><h1>ng_rc_section module<a class="headerlink" href="#module-rough_calculations.ng_rc_section" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="rough_calculations.ng_rc_section.RCSection">
+<em class="property">class </em><tt class="descclassname">rough_calculations.ng_rc_section.</tt><tt class="descname">RCSection</tt><big>(</big><em>tensionRebars</em>, <em>beton</em>, <em>exigFis</em>, <em>b</em>, <em>h</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_rc_section.RCSection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="attribute">
+<dt id="rough_calculations.ng_rc_section.RCSection.b">
+<tt class="descname">b</tt><em class="property"> = 0.25</em><a class="headerlink" href="#rough_calculations.ng_rc_section.RCSection.b" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_rc_section.RCSection.beton">
+<tt class="descname">beton</tt><em class="property"> = &lt;materials.sia262.concreteSIA262.ConcreteSIA262 object at 0x2b6685ac2790&gt;</em><a class="headerlink" href="#rough_calculations.ng_rc_section.RCSection.beton" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_rc_section.RCSection.exigeanceFisuration">
+<tt class="descname">exigeanceFisuration</tt><em class="property"> = 'B'</em><a class="headerlink" href="#rough_calculations.ng_rc_section.RCSection.exigeanceFisuration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rc_section.RCSection.getAsMinFlexion">
+<tt class="descname">getAsMinFlexion</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_rc_section.RCSection.getAsMinFlexion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rc_section.RCSection.getAsMinTraction">
+<tt class="descname">getAsMinTraction</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_rc_section.RCSection.getAsMinTraction" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rc_section.RCSection.getMR">
+<tt class="descname">getMR</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_rc_section.RCSection.getMR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rc_section.RCSection.getVR">
+<tt class="descname">getVR</tt><big>(</big><em>Nd</em>, <em>Md</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_rc_section.RCSection.getVR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_rc_section.RCSection.h">
+<tt class="descname">h</tt><em class="property"> = 0.25</em><a class="headerlink" href="#rough_calculations.ng_rc_section.RCSection.h" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rc_section.RCSection.setArmature">
+<tt class="descname">setArmature</tt><big>(</big><em>tensionRebars</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_rc_section.RCSection.setArmature" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_rc_section.RCSection.tensionRebars">
+<tt class="descname">tensionRebars</tt><em class="property"> = None</em><a class="headerlink" href="#rough_calculations.ng_rc_section.RCSection.tensionRebars" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rc_section.RCSection.writeResultFlexion">
+<tt class="descname">writeResultFlexion</tt><big>(</big><em>outputFile</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_rc_section.RCSection.writeResultFlexion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rc_section.RCSection.writeResultTraction">
+<tt class="descname">writeResultTraction</tt><big>(</big><em>outputFile</em>, <em>Nd</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_rc_section.RCSection.writeResultTraction" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-rough_calculations.ng_rebar_def">
+<span id="ng-rebar-def-module"></span><h1>ng_rebar_def module<a class="headerlink" href="#module-rough_calculations.ng_rebar_def" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily">
+<em class="property">class </em><tt class="descclassname">rough_calculations.ng_rebar_def.</tt><tt class="descname">DoubleRebarFamily</tt><big>(</big><em>f1</em>, <em>f2</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.d">
+<tt class="descname">d</tt><big>(</big><em>epaisseur</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.d" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.f1">
+<tt class="descname">f1</tt><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.f1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.f2">
+<tt class="descname">f2</tt><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.f2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.getAs">
+<tt class="descname">getAs</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getAs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.getAsMinFlexion">
+<tt class="descname">getAsMinFlexion</tt><big>(</big><em>beton</em>, <em>exigeanceFisuration</em>, <em>epaisseur</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getAsMinFlexion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.getAsMinTraction">
+<tt class="descname">getAsMinTraction</tt><big>(</big><em>beton</em>, <em>exigeanceFisuration</em>, <em>epaisseur</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getAsMinTraction" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.getBasicAnchorageLength">
+<tt class="descname">getBasicAnchorageLength</tt><big>(</big><em>beton</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getBasicAnchorageLength" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.getDefStrings">
+<tt class="descname">getDefStrings</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getDefStrings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.getEcartement">
+<tt class="descname">getEcartement</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getEcartement" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.getEnrobageMec">
+<tt class="descname">getEnrobageMec</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getEnrobageMec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.getMR">
+<tt class="descname">getMR</tt><big>(</big><em>beton</em>, <em>b</em>, <em>epaisseur</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getMR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.getVR">
+<tt class="descname">getVR</tt><big>(</big><em>beton</em>, <em>Nd</em>, <em>Md</em>, <em>b</em>, <em>epaisseur</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getVR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.writeDef">
+<tt class="descname">writeDef</tt><big>(</big><em>outputFile</em>, <em>beton</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.writeDef" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rough_calculations.ng_rebar_def.FamNBars">
+<em class="property">class </em><tt class="descclassname">rough_calculations.ng_rebar_def.</tt><tt class="descname">FamNBars</tt><big>(</big><em>acier</em>, <em>n</em>, <em>diam</em>, <em>ecartement</em>, <em>enrobage</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.FamNBars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rough_calculations.ng_rebar_def.RebarFamily" title="rough_calculations.ng_rebar_def.RebarFamily"><tt class="xref py py-class docutils literal"><span class="pre">rough_calculations.ng_rebar_def.RebarFamily</span></tt></a></p>
+<dl class="attribute">
+<dt id="rough_calculations.ng_rebar_def.FamNBars.n">
+<tt class="descname">n</tt><em class="property"> = 2</em><a class="headerlink" href="#rough_calculations.ng_rebar_def.FamNBars.n" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.FamNBars.writeDef">
+<tt class="descname">writeDef</tt><big>(</big><em>outputFile</em>, <em>beton</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.FamNBars.writeDef" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rough_calculations.ng_rebar_def.RebarFamily">
+<em class="property">class </em><tt class="descclassname">rough_calculations.ng_rebar_def.</tt><tt class="descname">RebarFamily</tt><big>(</big><em>acier</em>, <em>diam</em>, <em>ecartement</em>, <em>enrobage</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="attribute">
+<dt id="rough_calculations.ng_rebar_def.RebarFamily.acier">
+<tt class="descname">acier</tt><em class="property"> = B500B</em><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.acier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.RebarFamily.d">
+<tt class="descname">d</tt><big>(</big><em>epaisseur</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.d" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_rebar_def.RebarFamily.diam">
+<tt class="descname">diam</tt><em class="property"> = 0.008</em><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.diam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_rebar_def.RebarFamily.ecartement">
+<tt class="descname">ecartement</tt><em class="property"> = 0.15</em><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.ecartement" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_rebar_def.RebarFamily.enrobage">
+<tt class="descname">enrobage</tt><em class="property"> = 0.04</em><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.enrobage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.RebarFamily.getAs">
+<tt class="descname">getAs</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getAs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.RebarFamily.getAsMinFlexion">
+<tt class="descname">getAsMinFlexion</tt><big>(</big><em>beton</em>, <em>exigeanceFisuration</em>, <em>epaisseur</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getAsMinFlexion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.RebarFamily.getAsMinTraction">
+<tt class="descname">getAsMinTraction</tt><big>(</big><em>beton</em>, <em>exigeanceFisuration</em>, <em>epaisseur</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getAsMinTraction" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.RebarFamily.getBarArea">
+<tt class="descname">getBarArea</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getBarArea" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.RebarFamily.getBasicAnchorageLength">
+<tt class="descname">getBasicAnchorageLength</tt><big>(</big><em>beton</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getBasicAnchorageLength" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.RebarFamily.getDefStr">
+<tt class="descname">getDefStr</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getDefStr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.RebarFamily.getDefStrings">
+<tt class="descname">getDefStrings</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getDefStrings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.RebarFamily.getDiam">
+<tt class="descname">getDiam</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getDiam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.RebarFamily.getEnrobageMec">
+<tt class="descname">getEnrobageMec</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getEnrobageMec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.RebarFamily.getMR">
+<tt class="descname">getMR</tt><big>(</big><em>beton</em>, <em>b</em>, <em>epaisseur</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getMR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.RebarFamily.getNumBarsPerMeter">
+<tt class="descname">getNumBarsPerMeter</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getNumBarsPerMeter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.RebarFamily.getT">
+<tt class="descname">getT</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.RebarFamily.getVR">
+<tt class="descname">getVR</tt><big>(</big><em>beton</em>, <em>Nd</em>, <em>Md</em>, <em>b</em>, <em>epaisseur</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getVR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_rebar_def.RebarFamily.minDiams">
+<tt class="descname">minDiams</tt><em class="property"> = 50</em><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.minDiams" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.RebarFamily.writeDef">
+<tt class="descname">writeDef</tt><big>(</big><em>outputFile</em>, <em>beton</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.writeDef" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="rough_calculations.ng_rebar_def.writeF">
+<tt class="descclassname">rough_calculations.ng_rebar_def.</tt><tt class="descname">writeF</tt><big>(</big><em>outputFile</em>, <em>text</em>, <em>F</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.writeF" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="rough_calculations.ng_rebar_def.writeRebars">
+<tt class="descclassname">rough_calculations.ng_rebar_def.</tt><tt class="descname">writeRebars</tt><big>(</big><em>outputFile</em>, <em>beton</em>, <em>famArm</em>, <em>AsMin</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_rebar_def.writeRebars" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-rough_calculations.ng_retaining_wall">
+<span id="ng-retaining-wall-module"></span><h1>ng_retaining_wall module<a class="headerlink" href="#module-rough_calculations.ng_retaining_wall" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="rough_calculations.ng_retaining_wall.EffortsMur">
+<em class="property">class </em><tt class="descclassname">rough_calculations.ng_retaining_wall.</tt><tt class="descname">EffortsMur</tt><big>(</big><em>y</em>, <em>mdMax</em>, <em>vdMax</em>, <em>MdSemelle</em>, <em>VdSemelle</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.EffortsMur" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.EffortsMur.Md">
+<tt class="descname">Md</tt><big>(</big><em>yCoupe</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.EffortsMur.Md" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.EffortsMur.MdEncastrement">
+<tt class="descname">MdEncastrement</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.EffortsMur.MdEncastrement" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_retaining_wall.EffortsMur.MdSemelle">
+<tt class="descname">MdSemelle</tt><em class="property"> = 0.0</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.EffortsMur.MdSemelle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.EffortsMur.Vd">
+<tt class="descname">Vd</tt><big>(</big><em>yCoupe</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.EffortsMur.Vd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.EffortsMur.VdEncastrement">
+<tt class="descname">VdEncastrement</tt><big>(</big><em>epaisseurEncastrement</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.EffortsMur.VdEncastrement" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_retaining_wall.EffortsMur.VdSemelle">
+<tt class="descname">VdSemelle</tt><em class="property"> = 0.0</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.EffortsMur.VdSemelle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.EffortsMur.getYVoile">
+<tt class="descname">getYVoile</tt><big>(</big><em>hCoupe</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.EffortsMur.getYVoile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_retaining_wall.EffortsMur.hauteurVoile">
+<tt class="descname">hauteurVoile</tt><em class="property"> = 1</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.EffortsMur.hauteurVoile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_retaining_wall.EffortsMur.mdMax">
+<tt class="descname">mdMax</tt><em class="property"> = [0, 1]</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.EffortsMur.mdMax" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_retaining_wall.EffortsMur.mdMaxVoile">
+<tt class="descname">mdMaxVoile</tt><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object at 0x2b6690e0c350&gt;</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.EffortsMur.mdMaxVoile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_retaining_wall.EffortsMur.vdMax">
+<tt class="descname">vdMax</tt><em class="property"> = [0, 1]</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.EffortsMur.vdMax" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_retaining_wall.EffortsMur.vdMaxVoile">
+<tt class="descname">vdMaxVoile</tt><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object at 0x2b6690e0c390&gt;</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.EffortsMur.vdMaxVoile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.EffortsMur.writeGraphic">
+<tt class="descname">writeGraphic</tt><big>(</big><em>fileName</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.EffortsMur.writeGraphic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_retaining_wall.EffortsMur.y">
+<tt class="descname">y</tt><em class="property"> = [0, 1]</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.EffortsMur.y" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall">
+<em class="property">class </em><tt class="descclassname">rough_calculations.ng_retaining_wall.</tt><tt class="descname">RetainingWall</tt><big>(</big><em>name</em>, <em>enrobage</em>, <em>hEncastrement</em>, <em>hCouronnement</em>, <em>hSemelle</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="attribute">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.acier">
+<tt class="descname">acier</tt><em class="property"> = B500B</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.acier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.armatures">
+<tt class="descname">armatures</tt><em class="property"> = {}</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.armatures" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.b">
+<tt class="descname">b</tt><em class="property"> = 1.0</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.b" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.beton">
+<tt class="descname">beton</tt><em class="property"> = &lt;materials.sia262.concreteSIA262.ConcreteSIA262 object at 0x2b6685ac2790&gt;</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.beton" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.drawSchema">
+<tt class="descname">drawSchema</tt><big>(</big><em>pth</em>, <em>effortsMur</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.drawSchema" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.enrobage">
+<tt class="descname">enrobage</tt><em class="property"> = 0.04</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.enrobage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.exigeanceFisuration">
+<tt class="descname">exigeanceFisuration</tt><em class="property"> = 'B'</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.exigeanceFisuration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.getBasicAnchorageLength">
+<tt class="descname">getBasicAnchorageLength</tt><big>(</big><em>index</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getBasicAnchorageLength" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.getDepth">
+<tt class="descname">getDepth</tt><big>(</big><em>hauteurVoile</em>, <em>y</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getDepth" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.getSection1">
+<tt class="descname">getSection1</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getSection1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.getSection11">
+<tt class="descname">getSection11</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getSection11" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.getSection2">
+<tt class="descname">getSection2</tt><big>(</big><em>hauteurVoile</em>, <em>y</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getSection2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.getSection3">
+<tt class="descname">getSection3</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getSection3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.getSection4">
+<tt class="descname">getSection4</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getSection4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.getSection6">
+<tt class="descname">getSection6</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getSection6" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.getSection7">
+<tt class="descname">getSection7</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getSection7" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.getSection8">
+<tt class="descname">getSection8</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getSection8" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.hCouronnement">
+<tt class="descname">hCouronnement</tt><em class="property"> = 0.25</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.hCouronnement" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.hEncastrement">
+<tt class="descname">hEncastrement</tt><em class="property"> = 0.25</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.hEncastrement" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.hSemelle">
+<tt class="descname">hSemelle</tt><em class="property"> = 0.25</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.hSemelle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.name">
+<tt class="descname">name</tt><em class="property"> = 'prb'</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.setArmature">
+<tt class="descname">setArmature</tt><big>(</big><em>index</em>, <em>armature</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.setArmature" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.writeDef">
+<tt class="descname">writeDef</tt><big>(</big><em>pth</em>, <em>outputFile</em>, <em>effortsMur</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.writeDef" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.writeResult">
+<tt class="descname">writeResult</tt><big>(</big><em>pth</em>, <em>effortsMur</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.writeResult" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-rough_calculations.ng_simple_beam">
+<span id="ng-simple-beam-module"></span><h1>ng_simple_beam module<a class="headerlink" href="#module-rough_calculations.ng_simple_beam" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="rough_calculations.ng_simple_beam.SimpleBeam">
+<em class="property">class </em><tt class="descclassname">rough_calculations.ng_simple_beam.</tt><tt class="descname">SimpleBeam</tt><big>(</big><em>E=1.0</em>, <em>I=1.0</em>, <em>l=1.0</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_simple_beam.SimpleBeam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rough_calculations.ng_beam.Beam" title="rough_calculations.ng_beam.Beam"><tt class="xref py py-class docutils literal"><span class="pre">rough_calculations.ng_beam.Beam</span></tt></a></p>
+<dl class="method">
+<dt id="rough_calculations.ng_simple_beam.SimpleBeam.getBendingMomentUnderConcentratedLoad">
+<tt class="descname">getBendingMomentUnderConcentratedLoad</tt><big>(</big><em>P</em>, <em>a</em>, <em>x</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_simple_beam.SimpleBeam.getBendingMomentUnderConcentratedLoad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_simple_beam.SimpleBeam.getBendingMomentUnderUniformLoad">
+<tt class="descname">getBendingMomentUnderUniformLoad</tt><big>(</big><em>q</em>, <em>x</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_simple_beam.SimpleBeam.getBendingMomentUnderUniformLoad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_simple_beam.SimpleBeam.getBendingMomentUnderUniformLoadPartiallyDistributed">
+<tt class="descname">getBendingMomentUnderUniformLoadPartiallyDistributed</tt><big>(</big><em>q</em>, <em>a</em>, <em>b</em>, <em>x</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_simple_beam.SimpleBeam.getBendingMomentUnderUniformLoadPartiallyDistributed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_simple_beam.SimpleBeam.getDeflectionUnderConcentratedLoad">
+<tt class="descname">getDeflectionUnderConcentratedLoad</tt><big>(</big><em>P</em>, <em>a</em>, <em>x</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_simple_beam.SimpleBeam.getDeflectionUnderConcentratedLoad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_simple_beam.SimpleBeam.getDeflectionUnderUniformLoad">
+<tt class="descname">getDeflectionUnderUniformLoad</tt><big>(</big><em>q</em>, <em>x</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_simple_beam.SimpleBeam.getDeflectionUnderUniformLoad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_simple_beam.SimpleBeam.getReaction1UnderConcentratedLoad">
+<tt class="descname">getReaction1UnderConcentratedLoad</tt><big>(</big><em>P</em>, <em>a</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_simple_beam.SimpleBeam.getReaction1UnderConcentratedLoad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_simple_beam.SimpleBeam.getReaction1UnderUniformLoadPartiallyDistributed">
+<tt class="descname">getReaction1UnderUniformLoadPartiallyDistributed</tt><big>(</big><em>q</em>, <em>a</em>, <em>b</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_simple_beam.SimpleBeam.getReaction1UnderUniformLoadPartiallyDistributed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_simple_beam.SimpleBeam.getReaction2UnderConcentratedLoad">
+<tt class="descname">getReaction2UnderConcentratedLoad</tt><big>(</big><em>P</em>, <em>a</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_simple_beam.SimpleBeam.getReaction2UnderConcentratedLoad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_simple_beam.SimpleBeam.getReaction2UnderUniformLoadPartiallyDistributed">
+<tt class="descname">getReaction2UnderUniformLoadPartiallyDistributed</tt><big>(</big><em>q</em>, <em>a</em>, <em>b</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_simple_beam.SimpleBeam.getReaction2UnderUniformLoadPartiallyDistributed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_simple_beam.SimpleBeam.getReactionUnderUniformLoad">
+<tt class="descname">getReactionUnderUniformLoad</tt><big>(</big><em>q</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_simple_beam.SimpleBeam.getReactionUnderUniformLoad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_simple_beam.SimpleBeam.getShearUnderConcentratedLoad">
+<tt class="descname">getShearUnderConcentratedLoad</tt><big>(</big><em>P</em>, <em>a</em>, <em>x</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_simple_beam.SimpleBeam.getShearUnderConcentratedLoad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_simple_beam.SimpleBeam.getShearUnderUniformLoad">
+<tt class="descname">getShearUnderUniformLoad</tt><big>(</big><em>q</em>, <em>x</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_simple_beam.SimpleBeam.getShearUnderUniformLoad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_simple_beam.SimpleBeam.getShearUnderUniformLoadPartiallyDistributed">
+<tt class="descname">getShearUnderUniformLoadPartiallyDistributed</tt><big>(</big><em>q</em>, <em>a</em>, <em>b</em>, <em>x</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_simple_beam.SimpleBeam.getShearUnderUniformLoadPartiallyDistributed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-rough_calculations.ng_simple_bending_reinforcement">
+<span id="ng-simple-bending-reinforcement-module"></span><h1>ng_simple_bending_reinforcement module<a class="headerlink" href="#module-rough_calculations.ng_simple_bending_reinforcement" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="rough_calculations.ng_simple_bending_reinforcement.AsSimpleBending">
+<tt class="descclassname">rough_calculations.ng_simple_bending_reinforcement.</tt><tt class="descname">AsSimpleBending</tt><big>(</big><em>M</em>, <em>fcd</em>, <em>fsd</em>, <em>b</em>, <em>d</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_simple_bending_reinforcement.AsSimpleBending" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="rough_calculations.ng_simple_bending_reinforcement.Mlim">
+<tt class="descclassname">rough_calculations.ng_simple_bending_reinforcement.</tt><tt class="descname">Mlim</tt><big>(</big><em>fcd</em>, <em>b</em>, <em>d</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_simple_bending_reinforcement.Mlim" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="rough_calculations.ng_simple_bending_reinforcement.Mu">
+<tt class="descclassname">rough_calculations.ng_simple_bending_reinforcement.</tt><tt class="descname">Mu</tt><big>(</big><em>As</em>, <em>fcd</em>, <em>fsd</em>, <em>b</em>, <em>d</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_simple_bending_reinforcement.Mu" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="rough_calculations.ng_simple_bending_reinforcement.neutralFiberDepth">
+<tt class="descclassname">rough_calculations.ng_simple_bending_reinforcement.</tt><tt class="descname">neutralFiberDepth</tt><big>(</big><em>M</em>, <em>fcd</em>, <em>b</em>, <em>d</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_simple_bending_reinforcement.neutralFiberDepth" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-rough_calculations.ng_tied_arch_simple_model">
+<span id="ng-tied-arch-simple-model-module"></span><h1>ng_tied_arch_simple_model module<a class="headerlink" href="#module-rough_calculations.ng_tied_arch_simple_model" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="rough_calculations.ng_tied_arch_simple_model.TiedArchBridgeRoughModel">
+<em class="property">class </em><tt class="descclassname">rough_calculations.ng_tied_arch_simple_model.</tt><tt class="descname">TiedArchBridgeRoughModel</tt><big>(</big><em>L</em>, <em>d</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_tied_arch_simple_model.TiedArchBridgeRoughModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rough_calculations.ArchBridgeRoughModelBase.ArchBridgeRoughModelBase" title="rough_calculations.ArchBridgeRoughModelBase.ArchBridgeRoughModelBase"><tt class="xref py py-class docutils literal"><span class="pre">rough_calculations.ArchBridgeRoughModelBase.ArchBridgeRoughModelBase</span></tt></a></p>
+<p>Tied Arch bridge simple model
+Attributes:</p>
+<blockquote>
+<div>d: rise (depth) of the arch at midspan
+L: horizontal distance between supports</div></blockquote>
+<dl class="method">
+<dt id="rough_calculations.ng_tied_arch_simple_model.TiedArchBridgeRoughModel.getAxialForceArch">
+<tt class="descname">getAxialForceArch</tt><big>(</big><em>qunif</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_tied_arch_simple_model.TiedArchBridgeRoughModel.getAxialForceArch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compressive axial force in the arch due to a uniform load.
+Attributes:</p>
+<blockquote>
+<div>qunif: uniformly distributed load applied on the deck</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_tied_arch_simple_model.TiedArchBridgeRoughModel.getQunfCompStress">
+<tt class="descname">getQunfCompStress</tt><big>(</big><em>qunif</em>, <em>A</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_tied_arch_simple_model.TiedArchBridgeRoughModel.getQunfCompStress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Approximation of the compressive stress in a section of the 
+arch with area=A, due to a uniform load qunif.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_tied_arch_simple_model.TiedArchBridgeRoughModel.getTensionDeck">
+<tt class="descname">getTensionDeck</tt><big>(</big><em>qunif</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_tied_arch_simple_model.TiedArchBridgeRoughModel.getTensionDeck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tension in the deck tie due to a uniform load.
+Attributes:</p>
+<blockquote>
+<div>qunif: uniformly distributed load applied on the deck</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-rough_calculations.ng_zapata_aislada">
+<span id="ng-zapata-aislada-module"></span><h1>ng_zapata_aislada module<a class="headerlink" href="#module-rough_calculations.ng_zapata_aislada" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="module-rough_calculations.suspension_bridge_simple_model">
+<span id="suspension-bridge-simple-model-module"></span><h1>suspension_bridge_simple_model module<a class="headerlink" href="#module-rough_calculations.suspension_bridge_simple_model" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="rough_calculations.suspension_bridge_simple_model.SuspensionBridgeRoughModel">
+<em class="property">class </em><tt class="descclassname">rough_calculations.suspension_bridge_simple_model.</tt><tt class="descname">SuspensionBridgeRoughModel</tt><big>(</big><em>sag</em>, <em>da</em>, <em>Lm</em>, <em>Lb</em><big>)</big><a class="headerlink" href="#rough_calculations.suspension_bridge_simple_model.SuspensionBridgeRoughModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Suspension bridge simple model</p>
+<dl class="method">
+<dt id="rough_calculations.suspension_bridge_simple_model.SuspensionBridgeRoughModel.getCableAxialForceAtMidSpan">
+<tt class="descname">getCableAxialForceAtMidSpan</tt><big>(</big><em>q</em><big>)</big><a class="headerlink" href="#rough_calculations.suspension_bridge_simple_model.SuspensionBridgeRoughModel.getCableAxialForceAtMidSpan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the axial force of the cable at the tower</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.suspension_bridge_simple_model.SuspensionBridgeRoughModel.getCableAxialForceAtTower">
+<tt class="descname">getCableAxialForceAtTower</tt><big>(</big><em>q</em><big>)</big><a class="headerlink" href="#rough_calculations.suspension_bridge_simple_model.SuspensionBridgeRoughModel.getCableAxialForceAtTower" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the axial force of the cable at the tower</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.suspension_bridge_simple_model.SuspensionBridgeRoughModel.getCableSlopeAtTower">
+<tt class="descname">getCableSlopeAtTower</tt><big>(</big><em>q</em><big>)</big><a class="headerlink" href="#rough_calculations.suspension_bridge_simple_model.SuspensionBridgeRoughModel.getCableSlopeAtTower" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the slope (angle) of the cable at the tower</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.suspension_bridge_simple_model.SuspensionBridgeRoughModel.getHb">
+<tt class="descname">getHb</tt><big>(</big><em>q</em><big>)</big><a class="headerlink" href="#rough_calculations.suspension_bridge_simple_model.SuspensionBridgeRoughModel.getHb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Horizontal reaction at tower due to the back span.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.suspension_bridge_simple_model.SuspensionBridgeRoughModel.getHm">
+<tt class="descname">getHm</tt><big>(</big><em>q</em><big>)</big><a class="headerlink" href="#rough_calculations.suspension_bridge_simple_model.SuspensionBridgeRoughModel.getHm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Horizontal reaction at tower due to the main span.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.suspension_bridge_simple_model.SuspensionBridgeRoughModel.getVanchor">
+<tt class="descname">getVanchor</tt><big>(</big><em>q</em><big>)</big><a class="headerlink" href="#rough_calculations.suspension_bridge_simple_model.SuspensionBridgeRoughModel.getVanchor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vertical reaction at anchor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.suspension_bridge_simple_model.SuspensionBridgeRoughModel.getVb">
+<tt class="descname">getVb</tt><big>(</big><em>q</em><big>)</big><a class="headerlink" href="#rough_calculations.suspension_bridge_simple_model.SuspensionBridgeRoughModel.getVb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vertical reaction at tower due to the main span.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.suspension_bridge_simple_model.SuspensionBridgeRoughModel.getVm">
+<tt class="descname">getVm</tt><big>(</big><em>q</em><big>)</big><a class="headerlink" href="#rough_calculations.suspension_bridge_simple_model.SuspensionBridgeRoughModel.getVm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vertical reaction at tower due to the main span.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">ArchBridgeRoughModelBase</a></li>
+<li><a class="reference internal" href="#module-rough_calculations.arch_bridge_simple_model">arch_bridge_simple_model module</a></li>
+<li><a class="reference internal" href="#module-rough_calculations.cable_stayed_bridge_simple_model">cable_stayed_bridge_simple_model module</a></li>
+<li><a class="reference internal" href="#module-rough_calculations.flechas_vigas">flechas_vigas module</a></li>
+<li><a class="reference internal" href="#module-rough_calculations.nb_poussee_terres">nb_poussee_terres module</a></li>
+<li><a class="reference internal" href="#module-rough_calculations.ng_beam">ng_beam module</a></li>
+<li><a class="reference internal" href="#module-rough_calculations.ng_cantilever">ng_cantilever module</a></li>
+<li><a class="reference internal" href="#module-rough_calculations.ng_concrete_slab">ng_concrete_slab module</a></li>
+<li><a class="reference internal" href="#module-rough_calculations.ng_esf_pilares">ng_esf_pilares module</a></li>
+<li><a class="reference internal" href="#module-rough_calculations.ng_pinned_fixed_beam">ng_pinned_fixed_beam module</a></li>
+<li><a class="reference internal" href="#module-rough_calculations.ng_predim_pilotes">ng_predim_pilotes</a></li>
+<li><a class="reference internal" href="#module-rough_calculations.ng_prestressing_wire">ng_prestressing_wire module</a></li>
+<li><a class="reference internal" href="#module-rough_calculations.ng_punzonamiento">ng_punzonamiento module</a></li>
+<li><a class="reference internal" href="#module-rough_calculations.ng_rc_section">ng_rc_section module</a></li>
+<li><a class="reference internal" href="#module-rough_calculations.ng_rebar_def">ng_rebar_def module</a></li>
+<li><a class="reference internal" href="#module-rough_calculations.ng_retaining_wall">ng_retaining_wall module</a></li>
+<li><a class="reference internal" href="#module-rough_calculations.ng_simple_beam">ng_simple_beam module</a></li>
+<li><a class="reference internal" href="#module-rough_calculations.ng_simple_bending_reinforcement">ng_simple_bending_reinforcement module</a></li>
+<li><a class="reference internal" href="#module-rough_calculations.ng_tied_arch_simple_model">ng_tied_arch_simple_model module</a></li>
+<li><a class="reference internal" href="#module-rough_calculations.ng_zapata_aislada">ng_zapata_aislada module</a></li>
+<li><a class="reference internal" href="#module-rough_calculations.suspension_bridge_simple_model">suspension_bridge_simple_model module</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="rough_calculations.html"
+                        title="previous chapter">Rough calculations</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/_static/roughCalcGenTopics.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="rough_calculations.html" title="Rough calculations"
+             >previous</a> |</li>
+        <li><a href="../index.html">XC 3.0 documentation</a> &raquo;</li>
+          <li><a href="rough_calculations.html" >Rough calculations</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Luis Pérez Tato (LCPT) &amp; Ana Ortega (A_OO).
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Postprocessor &mdash; XC 3.0 documentation</title>
+    
+    <link rel="stylesheet" href="default.css" type="text/css" />
+    <link rel="stylesheet" href="pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="underscore.js"></script>
+    <script type="text/javascript" src="doctools.js"></script>
+    <link rel="top" title="XC 3.0 documentation" href="../index.html" />
+    <link rel="next" title="General topics" href="postprGenTopics.html" />
+    <link rel="prev" title="FE mesh" href="xcVtk.malla_ef.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="postprGenTopics.html" title="General topics"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="xcVtk.malla_ef.html" title="FE mesh"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">XC 3.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="postprocessor">
+<h1>Postprocessor<a class="headerlink" href="#postprocessor" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="postprGenTopics.html">General topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="postprGenTopics.html#module-postprocess.ControlVars">ControlVars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprGenTopics.html#module-postprocess.ElementSectionMap">ElementSectionMap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprGenTopics.html#module-postprocess.LimitStateData">LimitStateData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprGenTopics.html#module-postprocess.PhantomModel">PhantomModel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprGenTopics.html#module-postprocess.callback_controls">callback_controls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprGenTopics.html#module-postprocess.def_params_control">def_params_control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprGenTopics.html#module-postprocess.def_vars_control">def_vars_control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprGenTopics.html#module-postprocess.extrapolate_elem_attr">extrapolate_elem_attr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprGenTopics.html#module-postprocess.figure_collection">figure_collection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprGenTopics.html#module-postprocess.get_reactions">get_reactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprGenTopics.html#module-postprocess.med_xc_vars">med_xc_vars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprGenTopics.html#module-postprocess.prop_statistics">prop_statistics module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprGenTopics.html#module-postprocess.recorders">recorders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprGenTopics.html#module-postprocess.utils_display">utils_display</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="postprocess.elastic_beam_3d.html">3D elastric beam postpro</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="postprocess.elastic_beam_3d.html#module-postprocess.elastic_beam_3d.callback_control_tn_ha">callback_control_tn_ha</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="postprocess.reports.html">Reports</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="postprocess.reports.html#module-postprocess.reports.common_formats">common_formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprocess.reports.html#module-postprocess.reports.draw_schema_armature_mur">draw_schema_armature_mur</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprocess.reports.html#module-postprocess.reports.export_displacements">export_displacements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprocess.reports.html#module-postprocess.reports.export_internal_forces">export_internal_forces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprocess.reports.html#module-postprocess.reports.graphLoadCase">graphLoadCase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprocess.reports.html#module-postprocess.reports.listados">listados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprocess.reports.html#module-postprocess.reports.listados_cargas">listados_cargas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprocess.reports.html#module-postprocess.reports.listados_comprob_cortante">listados_comprob_cortante</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprocess.reports.html#module-postprocess.reports.listados_datos">listados_datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprocess.reports.html#module-postprocess.reports.listados_desplaz_extremos">listados_desplaz_extremos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprocess.reports.html#module-postprocess.reports.listados_desplazamientos">listados_desplazamientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprocess.reports.html#module-postprocess.reports.listados_esfuerzos">listados_esfuerzos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprocess.reports.html#module-postprocess.reports.listados_factor_capacidad">listados_factor_capacidad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprocess.reports.html#module-postprocess.reports.listados_fisuracion">listados_fisuracion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprocess.reports.html#module-postprocess.reports.listados_reacciones">listados_reacciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprocess.reports.html#module-postprocess.reports.listados_resistencia_perfiles_metalicos">listados_resistencia_perfiles_metalicos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprocess.reports.html#module-postprocess.reports.listados_resistencia_tirantes">listados_resistencia_tirantes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="postprocess.reports.html#module-postprocess.reports.listados_resultados">listados_resultados</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="xcVtk.malla_ef.html"
+                        title="previous chapter">FE mesh</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="postprGenTopics.html"
+                        title="next chapter">General topics</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/_static/postprocess.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="postprGenTopics.html" title="General topics"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="xcVtk.malla_ef.html" title="FE mesh"
+             >previous</a> |</li>
+        <li><a href="../index.html">XC 3.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Luis Pérez Tato (LCPT) &amp; Ana Ortega (A_OO).
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

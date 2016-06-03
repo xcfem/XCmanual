@@ -1,27 +1,24 @@
-solution package
-================
+Solution
+========
 
-Submodules
-----------
-
-solution.database_helper module
--------------------------------
+database_helper
+---------------
 
 .. automodule:: solution.database_helper
     :members:
     :undoc-members:
     :show-inheritance:
 
-solution.predefined_solutions module
-------------------------------------
+predefined_solutions
+--------------------
 
 .. automodule:: solution.predefined_solutions
     :members:
     :undoc-members:
     :show-inheritance:
 
-solution.resuelve_combinacion module
-------------------------------------
+resuelve_combinacion
+--------------------
 
 .. automodule:: solution.resuelve_combinacion
     :members:
@@ -29,10 +26,3 @@ solution.resuelve_combinacion module
     :show-inheritance:
 
 
-Module contents
----------------
-
-.. automodule:: solution
-    :members:
-    :undoc-members:
-    :show-inheritance:

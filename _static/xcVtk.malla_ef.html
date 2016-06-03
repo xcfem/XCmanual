@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>xcVtk.malla_ef package &mdash; XC 3.0 documentation</title>
+    <title>FE mesh &mdash; XC 3.0 documentation</title>
     
     <link rel="stylesheet" href="default.css" type="text/css" />
     <link rel="stylesheet" href="pygments.css" type="text/css" />
@@ -23,7 +23,10 @@
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="underscore.js"></script>
     <script type="text/javascript" src="doctools.js"></script>
-    <link rel="top" title="XC 3.0 documentation" href="../index.html" /> 
+    <link rel="top" title="XC 3.0 documentation" href="../index.html" />
+    <link rel="up" title="xcVtk" href="xcVtk.html" />
+    <link rel="next" title="Postprocessor" href="postprocess.html" />
+    <link rel="prev" title="CAD model" href="xcVtk.malla_cad.html" /> 
   </head>
   <body>
     <div class="related">
@@ -35,7 +38,14 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../index.html">XC 3.0 documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="postprocess.html" title="Postprocessor"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="xcVtk.malla_cad.html" title="CAD model"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">XC 3.0 documentation</a> &raquo;</li>
+          <li><a href="xcVtk.html" accesskey="U">xcVtk</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -44,13 +54,10 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="xcvtk-malla-ef-package">
-<h1>xcVtk.malla_ef package<a class="headerlink" href="#xcvtk-malla-ef-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
-</div>
+  <div class="section" id="fe-mesh">
+<h1>FE mesh<a class="headerlink" href="#fe-mesh" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-xcVtk.malla_ef.Fields">
-<span id="xcvtk-malla-ef-fields-module"></span><h2>xcVtk.malla_ef.Fields module<a class="headerlink" href="#module-xcVtk.malla_ef.Fields" title="Permalink to this headline">¶</a></h2>
+<span id="fields"></span><h2>Fields<a class="headerlink" href="#module-xcVtk.malla_ef.Fields" title="Permalink to this headline">¶</a></h2>
 <p>Graphic representation of fields over the mesh.</p>
 <dl class="class">
 <dt id="xcVtk.malla_ef.Fields.ExtrapolatedProperty">
@@ -94,7 +101,7 @@
 <dl class="class">
 <dt id="xcVtk.malla_ef.Fields.ScalarField">
 <em class="property">class </em><tt class="descclassname">xcVtk.malla_ef.Fields.</tt><tt class="descname">ScalarField</tt><big>(</big><em>name</em>, <em>functionName</em>, <em>component=None</em>, <em>fUnitConv=1.0</em><big>)</big><a class="headerlink" href="#xcVtk.malla_ef.Fields.ScalarField" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="xcVtk.html#xcVtk.FieldBase.FieldBase" title="xcVtk.FieldBase.FieldBase"><tt class="xref py py-class docutils literal"><span class="pre">xcVtk.FieldBase.FieldBase</span></tt></a></p>
+<dd><p>Bases: <a class="reference internal" href="xcVtkGenTopics.html#xcVtk.FieldBase.FieldBase" title="xcVtk.FieldBase.FieldBase"><tt class="xref py py-class docutils literal"><span class="pre">xcVtk.FieldBase.FieldBase</span></tt></a></p>
 <p>Scalar field defined at nodes.</p>
 <dl class="method">
 <dt id="xcVtk.malla_ef.Fields.ScalarField.fillArray">
@@ -120,80 +127,8 @@
 <dd></dd></dl>
 
 </div>
-<div class="section" id="module-xcVtk.malla_ef.QuickGraphics">
-<span id="xcvtk-malla-ef-quickgraphics-module"></span><h2>xcVtk.malla_ef.QuickGraphics module<a class="headerlink" href="#module-xcVtk.malla_ef.QuickGraphics" title="Permalink to this headline">¶</a></h2>
-<p>Providing the user with a quick and easy way to 
-display results (internal forces, displacements) of an user-defined
-load case.</p>
-<dl class="class">
-<dt id="xcVtk.malla_ef.QuickGraphics.QuickGraphics">
-<em class="property">class </em><tt class="descclassname">xcVtk.malla_ef.QuickGraphics.</tt><tt class="descname">QuickGraphics</tt><big>(</big><em>feProblem</em><big>)</big><a class="headerlink" href="#xcVtk.malla_ef.QuickGraphics.QuickGraphics" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-<p>This class is aimed at providing the user with a quick and easy way to 
-display results (internal forces, displacements) of an user-defined
-load case.
-Attributes:</p>
-<blockquote>
-<div><p>loadCaseName:   name of the load case to be created
-loadCaseExpr:   expression that defines de load case as a</p>
-<blockquote>
-<div>combination of previously defined actions
-e.g. &#8216;1.0*GselfWeight+1.0*GearthPress&#8217;</div></blockquote>
-</div></blockquote>
-<dl class="method">
-<dt id="xcVtk.malla_ef.QuickGraphics.QuickGraphics.displayDispRot">
-<tt class="descname">displayDispRot</tt><big>(</big><em>itemToDisp=''</em>, <em>setToDisplay=None</em>, <em>fConvUnits=1.0</em>, <em>unitDescription=''</em><big>)</big><a class="headerlink" href="#xcVtk.malla_ef.QuickGraphics.QuickGraphics.displayDispRot" title="Permalink to this definition">¶</a></dt>
-<dd><p>displays the component of the displacement or rotations in the 
-set of entities.
-Parameters:</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>itemToDisp: component of the displacement (&#8216;uX&#8217;, &#8216;uY&#8217; or &#8216;uZ&#8217;) or the </dt>
-<dd>rotation (&#8216;rotX&#8217;, rotY&#8217;, &#8216;rotZ&#8217;) to be depicted</dd>
-</dl>
-<p>setToDisplay:   set of entities to be represented (default to all entities)
-fConvUnits:     factor of conversion to be applied to the results (defalts to 1)
-unitDescription: string describing units like &#8216;[mm] or [cm]&#8217;</p>
-</div></blockquote>
-</dd></dl>
-
-<dl class="method">
-<dt id="xcVtk.malla_ef.QuickGraphics.QuickGraphics.displayIntForc">
-<tt class="descname">displayIntForc</tt><big>(</big><em>itemToDisp=''</em>, <em>setToDisplay=None</em>, <em>fConvUnits=1.0</em>, <em>unitDescription=''</em><big>)</big><a class="headerlink" href="#xcVtk.malla_ef.QuickGraphics.QuickGraphics.displayIntForc" title="Permalink to this definition">¶</a></dt>
-<dd><p>displays the component of internal forces in the 
-set of entities.
-Parameters:</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>itemToDisp: component of the internal forces (&#8216;N1&#8217;, &#8216;N2&#8217;, &#8216;N12&#8217;, &#8216;M1&#8217;, &#8216;M2&#8217;, &#8216;M12&#8217;, &#8216;Q1&#8217;, &#8216;Q2&#8217;)</dt>
-<dd>to be depicted</dd>
-</dl>
-<p>setToDisplay:   set of entities to be represented (default to all entities)
-fConvUnits:     factor of conversion to be applied to the results (defalts to 1)
-unitDescription: string like &#8216;[kN/m] or [kN m/m]&#8217;</p>
-</div></blockquote>
-</dd></dl>
-
-<dl class="method">
-<dt id="xcVtk.malla_ef.QuickGraphics.QuickGraphics.getDispComponentFromName">
-<tt class="descname">getDispComponentFromName</tt><big>(</big><em>compName</em><big>)</big><a class="headerlink" href="#xcVtk.malla_ef.QuickGraphics.QuickGraphics.getDispComponentFromName" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="xcVtk.malla_ef.QuickGraphics.QuickGraphics.getIntForceComponentFromName">
-<tt class="descname">getIntForceComponentFromName</tt><big>(</big><em>componentName</em><big>)</big><a class="headerlink" href="#xcVtk.malla_ef.QuickGraphics.QuickGraphics.getIntForceComponentFromName" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="xcVtk.malla_ef.QuickGraphics.QuickGraphics.solve">
-<tt class="descname">solve</tt><big>(</big><em>loadCaseName=''</em>, <em>loadCaseExpr=''</em><big>)</big><a class="headerlink" href="#xcVtk.malla_ef.QuickGraphics.QuickGraphics.solve" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-</div>
 <div class="section" id="module-xcVtk.malla_ef.vtk_define_malla_cells_ef">
-<span id="xcvtk-malla-ef-vtk-define-malla-cells-ef-module"></span><h2>xcVtk.malla_ef.vtk_define_malla_cells_ef module<a class="headerlink" href="#module-xcVtk.malla_ef.vtk_define_malla_cells_ef" title="Permalink to this headline">¶</a></h2>
+<span id="vtk-define-malla-cells-ef"></span><h2>vtk_define_malla_cells_ef<a class="headerlink" href="#module-xcVtk.malla_ef.vtk_define_malla_cells_ef" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="xcVtk.malla_ef.vtk_define_malla_cells_ef.VtkCargaIdsElem">
 <tt class="descclassname">xcVtk.malla_ef.vtk_define_malla_cells_ef.</tt><tt class="descname">VtkCargaIdsElem</tt><big>(</big><em>nmbUGrid</em>, <em>setName</em><big>)</big><a class="headerlink" href="#xcVtk.malla_ef.vtk_define_malla_cells_ef.VtkCargaIdsElem" title="Permalink to this definition">¶</a></dt>
@@ -206,10 +141,10 @@ unitDescription: string like &#8216;[kN/m] or [kN m/m]&#8217;</p>
 
 </div>
 <div class="section" id="module-xcVtk.malla_ef.vtk_define_malla_elementos">
-<span id="xcvtk-malla-ef-vtk-define-malla-elementos-module"></span><h2>xcVtk.malla_ef.vtk_define_malla_elementos module<a class="headerlink" href="#module-xcVtk.malla_ef.vtk_define_malla_elementos" title="Permalink to this headline">¶</a></h2>
+<span id="vtk-define-malla-elementos"></span><h2>vtk_define_malla_elementos<a class="headerlink" href="#module-xcVtk.malla_ef.vtk_define_malla_elementos" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-xcVtk.malla_ef.vtk_define_malla_nodos">
-<span id="xcvtk-malla-ef-vtk-define-malla-nodos-module"></span><h2>xcVtk.malla_ef.vtk_define_malla_nodos module<a class="headerlink" href="#module-xcVtk.malla_ef.vtk_define_malla_nodos" title="Permalink to this headline">¶</a></h2>
+<span id="vtk-define-malla-nodos"></span><h2>vtk_define_malla_nodos<a class="headerlink" href="#module-xcVtk.malla_ef.vtk_define_malla_nodos" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="xcVtk.malla_ef.vtk_define_malla_nodos.VtkCargaIdsNodos">
 <tt class="descclassname">xcVtk.malla_ef.vtk_define_malla_nodos.</tt><tt class="descname">VtkCargaIdsNodos</tt><big>(</big><em>recordGrid</em><big>)</big><a class="headerlink" href="#xcVtk.malla_ef.vtk_define_malla_nodos.VtkCargaIdsNodos" title="Permalink to this definition">¶</a></dt>
@@ -222,7 +157,7 @@ unitDescription: string like &#8216;[kN/m] or [kN m/m]&#8217;</p>
 
 </div>
 <div class="section" id="module-xcVtk.malla_ef.vtk_dibuja_elementos">
-<span id="xcvtk-malla-ef-vtk-dibuja-elementos-module"></span><h2>xcVtk.malla_ef.vtk_dibuja_elementos module<a class="headerlink" href="#module-xcVtk.malla_ef.vtk_dibuja_elementos" title="Permalink to this headline">¶</a></h2>
+<span id="vtk-dibuja-elementos"></span><h2>vtk_dibuja_elementos<a class="headerlink" href="#module-xcVtk.malla_ef.vtk_dibuja_elementos" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="xcVtk.malla_ef.vtk_dibuja_elementos.VtkDibujaElementos1D">
 <tt class="descclassname">xcVtk.malla_ef.vtk_dibuja_elementos.</tt><tt class="descname">VtkDibujaElementos1D</tt><big>(</big><em>nmbActor</em><big>)</big><a class="headerlink" href="#xcVtk.malla_ef.vtk_dibuja_elementos.VtkDibujaElementos1D" title="Permalink to this definition">¶</a></dt>
@@ -230,7 +165,7 @@ unitDescription: string like &#8216;[kN/m] or [kN m/m]&#8217;</p>
 
 </div>
 <div class="section" id="module-xcVtk.malla_ef.vtk_dibuja_ids_elementos">
-<span id="xcvtk-malla-ef-vtk-dibuja-ids-elementos-module"></span><h2>xcVtk.malla_ef.vtk_dibuja_ids_elementos module<a class="headerlink" href="#module-xcVtk.malla_ef.vtk_dibuja_ids_elementos" title="Permalink to this headline">¶</a></h2>
+<span id="vtk-dibuja-ids-elementos"></span><h2>vtk_dibuja_ids_elementos<a class="headerlink" href="#module-xcVtk.malla_ef.vtk_dibuja_ids_elementos" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="xcVtk.malla_ef.vtk_dibuja_ids_elementos.VtkDibujaIdsElementos">
 <tt class="descclassname">xcVtk.malla_ef.vtk_dibuja_ids_elementos.</tt><tt class="descname">VtkDibujaIdsElementos</tt><big>(</big><em>ids</em><big>)</big><a class="headerlink" href="#xcVtk.malla_ef.vtk_dibuja_ids_elementos.VtkDibujaIdsElementos" title="Permalink to this definition">¶</a></dt>
@@ -238,7 +173,7 @@ unitDescription: string like &#8216;[kN/m] or [kN m/m]&#8217;</p>
 
 </div>
 <div class="section" id="module-xcVtk.malla_ef.vtk_dibuja_nodos">
-<span id="xcvtk-malla-ef-vtk-dibuja-nodos-module"></span><h2>xcVtk.malla_ef.vtk_dibuja_nodos module<a class="headerlink" href="#module-xcVtk.malla_ef.vtk_dibuja_nodos" title="Permalink to this headline">¶</a></h2>
+<span id="vtk-dibuja-nodos"></span><h2>vtk_dibuja_nodos<a class="headerlink" href="#module-xcVtk.malla_ef.vtk_dibuja_nodos" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="xcVtk.malla_ef.vtk_dibuja_nodos.VtkDibujaNodos">
 <tt class="descclassname">xcVtk.malla_ef.vtk_dibuja_nodos.</tt><tt class="descname">VtkDibujaNodos</tt><big>(</big><em>nmbActor</em><big>)</big><a class="headerlink" href="#xcVtk.malla_ef.vtk_dibuja_nodos.VtkDibujaNodos" title="Permalink to this definition">¶</a></dt>
@@ -246,11 +181,11 @@ unitDescription: string like &#8216;[kN/m] or [kN m/m]&#8217;</p>
 
 </div>
 <div class="section" id="module-xcVtk.malla_ef.vtk_grafico_ef">
-<span id="xcvtk-malla-ef-vtk-grafico-ef-module"></span><h2>xcVtk.malla_ef.vtk_grafico_ef module<a class="headerlink" href="#module-xcVtk.malla_ef.vtk_grafico_ef" title="Permalink to this headline">¶</a></h2>
+<span id="vtk-grafico-ef"></span><h2>vtk_grafico_ef<a class="headerlink" href="#module-xcVtk.malla_ef.vtk_grafico_ef" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="xcVtk.malla_ef.vtk_grafico_ef.RecordDefDisplayEF">
 <em class="property">class </em><tt class="descclassname">xcVtk.malla_ef.vtk_grafico_ef.</tt><tt class="descname">RecordDefDisplayEF</tt><a class="headerlink" href="#xcVtk.malla_ef.vtk_grafico_ef.RecordDefDisplayEF" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="xcVtk.html#xcVtk.vtk_grafico_base.RecordDefDisplay" title="xcVtk.vtk_grafico_base.RecordDefDisplay"><tt class="xref py py-class docutils literal"><span class="pre">xcVtk.vtk_grafico_base.RecordDefDisplay</span></tt></a></p>
+<dd><p>Bases: <a class="reference internal" href="xcVtkGenTopics.html#xcVtk.vtk_grafico_base.RecordDefDisplay" title="xcVtk.vtk_grafico_base.RecordDefDisplay"><tt class="xref py py-class docutils literal"><span class="pre">xcVtk.vtk_grafico_base.RecordDefDisplay</span></tt></a></p>
 <p>Define las variables que se emplean para definir
 el dispositivo de salida.</p>
 <dl class="method">
@@ -336,7 +271,7 @@ caption: text to display in the graphic.</p>
 
 </div>
 <div class="section" id="module-xcVtk.malla_ef.vtk_load_elem">
-<span id="xcvtk-malla-ef-vtk-load-elem-module"></span><h2>xcVtk.malla_ef.vtk_load_elem module<a class="headerlink" href="#module-xcVtk.malla_ef.vtk_load_elem" title="Permalink to this headline">¶</a></h2>
+<span id="vtk-load-elem"></span><h2>vtk_load_elem<a class="headerlink" href="#module-xcVtk.malla_ef.vtk_load_elem" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="xcVtk.malla_ef.vtk_load_elem.VtkLoadElementos">
 <tt class="descclassname">xcVtk.malla_ef.vtk_load_elem.</tt><tt class="descname">VtkLoadElementos</tt><big>(</big><em>setName</em><big>)</big><a class="headerlink" href="#xcVtk.malla_ef.vtk_load_elem.VtkLoadElementos" title="Permalink to this definition">¶</a></dt>
@@ -344,15 +279,84 @@ caption: text to display in the graphic.</p>
 
 </div>
 <div class="section" id="module-xcVtk.malla_ef.vtk_load_nodos">
-<span id="xcvtk-malla-ef-vtk-load-nodos-module"></span><h2>xcVtk.malla_ef.vtk_load_nodos module<a class="headerlink" href="#module-xcVtk.malla_ef.vtk_load_nodos" title="Permalink to this headline">¶</a></h2>
+<span id="vtk-load-nodos"></span><h2>vtk_load_nodos<a class="headerlink" href="#module-xcVtk.malla_ef.vtk_load_nodos" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="xcVtk.malla_ef.vtk_load_nodos.VtkLoadNodos">
 <tt class="descclassname">xcVtk.malla_ef.vtk_load_nodos.</tt><tt class="descname">VtkLoadNodos</tt><big>(</big><em>setName</em>, <em>nmbContndr</em><big>)</big><a class="headerlink" href="#xcVtk.malla_ef.vtk_load_nodos.VtkLoadNodos" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
-<div class="section" id="module-xcVtk.malla_ef">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-xcVtk.malla_ef" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-xcVtk.malla_ef.QuickGraphics">
+<span id="quickgraphics"></span><h2>QuickGraphics<a class="headerlink" href="#module-xcVtk.malla_ef.QuickGraphics" title="Permalink to this headline">¶</a></h2>
+<p>Providing the user with a quick and easy way to 
+display results (internal forces, displacements) of an user-defined
+load case.</p>
+<dl class="class">
+<dt id="xcVtk.malla_ef.QuickGraphics.QuickGraphics">
+<em class="property">class </em><tt class="descclassname">xcVtk.malla_ef.QuickGraphics.</tt><tt class="descname">QuickGraphics</tt><big>(</big><em>feProblem</em><big>)</big><a class="headerlink" href="#xcVtk.malla_ef.QuickGraphics.QuickGraphics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>This class is aimed at providing the user with a quick and easy way to 
+display results (internal forces, displacements) of an user-defined
+load case.
+Attributes:</p>
+<blockquote>
+<div><p>loadCaseName:   name of the load case to be created
+loadCaseExpr:   expression that defines de load case as a</p>
+<blockquote>
+<div>combination of previously defined actions
+e.g. &#8216;1.0*GselfWeight+1.0*GearthPress&#8217;</div></blockquote>
+</div></blockquote>
+<dl class="method">
+<dt id="xcVtk.malla_ef.QuickGraphics.QuickGraphics.displayDispRot">
+<tt class="descname">displayDispRot</tt><big>(</big><em>itemToDisp=''</em>, <em>setToDisplay=None</em>, <em>fConvUnits=1.0</em>, <em>unitDescription=''</em><big>)</big><a class="headerlink" href="#xcVtk.malla_ef.QuickGraphics.QuickGraphics.displayDispRot" title="Permalink to this definition">¶</a></dt>
+<dd><p>displays the component of the displacement or rotations in the 
+set of entities.
+Parameters:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>itemToDisp: component of the displacement (&#8216;uX&#8217;, &#8216;uY&#8217; or &#8216;uZ&#8217;) or the </dt>
+<dd>rotation (&#8216;rotX&#8217;, rotY&#8217;, &#8216;rotZ&#8217;) to be depicted</dd>
+</dl>
+<p>setToDisplay:   set of entities to be represented (default to all entities)
+fConvUnits:     factor of conversion to be applied to the results (defalts to 1)
+unitDescription: string describing units like &#8216;[mm] or [cm]&#8217;</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="xcVtk.malla_ef.QuickGraphics.QuickGraphics.displayIntForc">
+<tt class="descname">displayIntForc</tt><big>(</big><em>itemToDisp=''</em>, <em>setToDisplay=None</em>, <em>fConvUnits=1.0</em>, <em>unitDescription=''</em><big>)</big><a class="headerlink" href="#xcVtk.malla_ef.QuickGraphics.QuickGraphics.displayIntForc" title="Permalink to this definition">¶</a></dt>
+<dd><p>displays the component of internal forces in the 
+set of entities.
+Parameters:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>itemToDisp: component of the internal forces (&#8216;N1&#8217;, &#8216;N2&#8217;, &#8216;N12&#8217;, &#8216;M1&#8217;, &#8216;M2&#8217;, &#8216;M12&#8217;, &#8216;Q1&#8217;, &#8216;Q2&#8217;)</dt>
+<dd>to be depicted</dd>
+</dl>
+<p>setToDisplay:   set of entities to be represented (default to all entities)
+fConvUnits:     factor of conversion to be applied to the results (defalts to 1)
+unitDescription: string like &#8216;[kN/m] or [kN m/m]&#8217;</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="xcVtk.malla_ef.QuickGraphics.QuickGraphics.getDispComponentFromName">
+<tt class="descname">getDispComponentFromName</tt><big>(</big><em>compName</em><big>)</big><a class="headerlink" href="#xcVtk.malla_ef.QuickGraphics.QuickGraphics.getDispComponentFromName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xcVtk.malla_ef.QuickGraphics.QuickGraphics.getIntForceComponentFromName">
+<tt class="descname">getIntForceComponentFromName</tt><big>(</big><em>componentName</em><big>)</big><a class="headerlink" href="#xcVtk.malla_ef.QuickGraphics.QuickGraphics.getIntForceComponentFromName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xcVtk.malla_ef.QuickGraphics.QuickGraphics.solve">
+<tt class="descname">solve</tt><big>(</big><em>loadCaseName=''</em>, <em>loadCaseExpr=''</em><big>)</big><a class="headerlink" href="#xcVtk.malla_ef.QuickGraphics.QuickGraphics.solve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 </div>
 
@@ -364,24 +368,28 @@ caption: text to display in the graphic.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">xcVtk.malla_ef package</a><ul>
-<li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-xcVtk.malla_ef.Fields">xcVtk.malla_ef.Fields module</a></li>
-<li><a class="reference internal" href="#module-xcVtk.malla_ef.QuickGraphics">xcVtk.malla_ef.QuickGraphics module</a></li>
-<li><a class="reference internal" href="#module-xcVtk.malla_ef.vtk_define_malla_cells_ef">xcVtk.malla_ef.vtk_define_malla_cells_ef module</a></li>
-<li><a class="reference internal" href="#module-xcVtk.malla_ef.vtk_define_malla_elementos">xcVtk.malla_ef.vtk_define_malla_elementos module</a></li>
-<li><a class="reference internal" href="#module-xcVtk.malla_ef.vtk_define_malla_nodos">xcVtk.malla_ef.vtk_define_malla_nodos module</a></li>
-<li><a class="reference internal" href="#module-xcVtk.malla_ef.vtk_dibuja_elementos">xcVtk.malla_ef.vtk_dibuja_elementos module</a></li>
-<li><a class="reference internal" href="#module-xcVtk.malla_ef.vtk_dibuja_ids_elementos">xcVtk.malla_ef.vtk_dibuja_ids_elementos module</a></li>
-<li><a class="reference internal" href="#module-xcVtk.malla_ef.vtk_dibuja_nodos">xcVtk.malla_ef.vtk_dibuja_nodos module</a></li>
-<li><a class="reference internal" href="#module-xcVtk.malla_ef.vtk_grafico_ef">xcVtk.malla_ef.vtk_grafico_ef module</a></li>
-<li><a class="reference internal" href="#module-xcVtk.malla_ef.vtk_load_elem">xcVtk.malla_ef.vtk_load_elem module</a></li>
-<li><a class="reference internal" href="#module-xcVtk.malla_ef.vtk_load_nodos">xcVtk.malla_ef.vtk_load_nodos module</a></li>
-<li><a class="reference internal" href="#module-xcVtk.malla_ef">Module contents</a></li>
+<li><a class="reference internal" href="#">FE mesh</a><ul>
+<li><a class="reference internal" href="#module-xcVtk.malla_ef.Fields">Fields</a></li>
+<li><a class="reference internal" href="#module-xcVtk.malla_ef.vtk_define_malla_cells_ef">vtk_define_malla_cells_ef</a></li>
+<li><a class="reference internal" href="#module-xcVtk.malla_ef.vtk_define_malla_elementos">vtk_define_malla_elementos</a></li>
+<li><a class="reference internal" href="#module-xcVtk.malla_ef.vtk_define_malla_nodos">vtk_define_malla_nodos</a></li>
+<li><a class="reference internal" href="#module-xcVtk.malla_ef.vtk_dibuja_elementos">vtk_dibuja_elementos</a></li>
+<li><a class="reference internal" href="#module-xcVtk.malla_ef.vtk_dibuja_ids_elementos">vtk_dibuja_ids_elementos</a></li>
+<li><a class="reference internal" href="#module-xcVtk.malla_ef.vtk_dibuja_nodos">vtk_dibuja_nodos</a></li>
+<li><a class="reference internal" href="#module-xcVtk.malla_ef.vtk_grafico_ef">vtk_grafico_ef</a></li>
+<li><a class="reference internal" href="#module-xcVtk.malla_ef.vtk_load_elem">vtk_load_elem</a></li>
+<li><a class="reference internal" href="#module-xcVtk.malla_ef.vtk_load_nodos">vtk_load_nodos</a></li>
+<li><a class="reference internal" href="#module-xcVtk.malla_ef.QuickGraphics">QuickGraphics</a></li>
 </ul>
 </li>
 </ul>
 
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="xcVtk.malla_cad.html"
+                        title="previous chapter">CAD model</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="postprocess.html"
+                        title="next chapter">Postprocessor</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/_static/xcVtk.malla_ef.txt"
@@ -413,7 +421,14 @@ caption: text to display in the graphic.</p>
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="../index.html">XC 3.0 documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="postprocess.html" title="Postprocessor"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="xcVtk.malla_cad.html" title="CAD model"
+             >previous</a> |</li>
+        <li><a href="../index.html">XC 3.0 documentation</a> &raquo;</li>
+          <li><a href="xcVtk.html" >xcVtk</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

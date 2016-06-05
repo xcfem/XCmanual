@@ -62,16 +62,13 @@
 <dt id="materials.ehe.EHE_concrete.EHEConcrete">
 <em class="property">class </em><tt class="descclassname">materials.ehe.EHE_concrete.</tt><tt class="descname">EHEConcrete</tt><big>(</big><em>nmbConcrete</em>, <em>fck</em>, <em>gammaC</em><big>)</big><a class="headerlink" href="#materials.ehe.EHE_concrete.EHEConcrete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="matGenTopics.html#materials.concreteBase.Concrete" title="materials.concreteBase.Concrete"><tt class="xref py py-class docutils literal"><span class="pre">materials.concreteBase.Concrete</span></tt></a></p>
-<p>Concrete model according to EHE
-Attributes:</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>typeAggregate:types of aggregate= </dt>
+<p>Concrete model according to EHE</p>
+<dl class="docutils">
+<dt>:ivar typeAggregate:types of aggregate= </dt>
 <dd>&#8220;cuarcita&#8221;, &#8220;arenisca&#8221;, &#8220;caliza normal&#8221;, 
 &#8220;caliza densa&#8221;, &#8220;volcanica porosa&#8221;, 
 &#8220;volcanica normal&#8221;, &#8220;granito&#8221;, &#8220;diabasa&#8221;</dd>
 </dl>
-</div></blockquote>
 <dl class="method">
 <dt id="materials.ehe.EHE_concrete.EHEConcrete.fctMedEHE08">
 <tt class="descname">fctMedEHE08</tt><big>(</big><big>)</big><a class="headerlink" href="#materials.ehe.EHE_concrete.EHEConcrete.fctMedEHE08" title="Permalink to this definition">¶</a></dt>
@@ -111,23 +108,32 @@ del árido.</p>
 <dl class="method">
 <dt id="materials.ehe.EHE_concrete.EHEConcrete.getDeformacionFluencia">
 <tt class="descname">getDeformacionFluencia</tt><big>(</big><em>t</em>, <em>t0</em>, <em>RH</em>, <em>h0mm</em>, <em>sigmaT0</em><big>)</big><a class="headerlink" href="#materials.ehe.EHE_concrete.EHEConcrete.getDeformacionFluencia" title="Permalink to this definition">¶</a></dt>
-<dd><p>Devuelve el valor de la deformación por fluencia en el hormigón
-que se produce entre los instantes t0 y t.
-Attributes:</p>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the creep deformation between t0 and t</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>t</strong> &#8211; age of concrete in days at the moment considered</li>
+<li><strong>t0</strong> &#8211; age of concrete in days at loading</li>
+<li><strong>RH</strong> &#8211; ambient relative humidity(%)</li>
+<li><strong>h0mm</strong> &#8211; <p>notional size of the member in mm 
+h0mm=2*Ac/u, where:</p>
 <blockquote>
-<div><p>t:     age of concrete in days at the moment considered
-t0:    age of concrete in days at loading
-RH:    ambient relative humidity(%)
-h0mm:  notional size of the member in mm</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>h0mm=2*Ac/u, where:</dt>
-<dd>Ac= cross sectional area
-u = perimeter of the member in contact with the atmosphere
-sigmaT0: Tensión constante aplicada en t0.</dd>
-</dl>
+<div><ul>
+<li>Ac= cross sectional area</li>
+<li>u = perimeter of the member in contact with the atmosphere</li>
+<li>sigmaT0: Tensión constante aplicada en t0.</li>
+</ul>
 </div></blockquote>
-</div></blockquote>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -148,31 +154,50 @@ en [Pa] [+] de acuerdo con el artículo 39.6 de EHE-08.</p>
 <dt id="materials.ehe.EHE_concrete.EHEConcrete.getEcmT">
 <tt class="descname">getEcmT</tt><big>(</big><em>t</em><big>)</big><a class="headerlink" href="#materials.ehe.EHE_concrete.EHEConcrete.getEcmT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Módulo de deformación longitudinal secante a t días expresado
-en [Pa] [+] de acuerdo con los comentarios al artículo 39.6 de EHE-08.
-Attributes:</p>
-<blockquote>
-<div>t: Edad del hormigón expresada en días.</div></blockquote>
+en [Pa] [+] de acuerdo con los comentarios al artículo 39.6 de EHE-08.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>t</strong> &#8211; Edad del hormigón expresada en días.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.ehe.EHE_concrete.EHEConcrete.getEpsc2">
 <tt class="descname">getEpsc2</tt><big>(</big><big>)</big><a class="headerlink" href="#materials.ehe.EHE_concrete.EHEConcrete.getEpsc2" title="Permalink to this definition">¶</a></dt>
-<dd><p>epsc2: strain [-] at peak stress at parabola-rectangle diagram 
-(art. 39.5 EHE, figure 39.5.a EHE)</p>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">strain [-] at peak stress at parabola-rectangle diagram</td>
+</tr>
+</tbody>
+</table>
+<p>(art. 39.5 EHE, figure 39.5.a EHE)</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.ehe.EHE_concrete.EHEConcrete.getEpscu2">
 <tt class="descname">getEpscu2</tt><big>(</big><big>)</big><a class="headerlink" href="#materials.ehe.EHE_concrete.EHEConcrete.getEpscu2" title="Permalink to this definition">¶</a></dt>
-<dd><p>epscu2: nominal ultimate strain [-] at parabola-rectangle diagram 
+<dd><p>:returns:: nominal ultimate strain [-] at parabola-rectangle diagram 
 (art. 39.5 EHE, figure 39.5.a EHE)</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.ehe.EHE_concrete.EHEConcrete.getExpN">
 <tt class="descname">getExpN</tt><big>(</big><big>)</big><a class="headerlink" href="#materials.ehe.EHE_concrete.EHEConcrete.getExpN" title="Permalink to this definition">¶</a></dt>
-<dd><p>expN: exponent n for the parabola-rectangle diagram 
-(art. 39.5 EHE, figure 39.5.a EHE)</p>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">exponent n for the parabola-rectangle diagram</td>
+</tr>
+</tbody>
+</table>
+<p>(art. 39.5 EHE, figure 39.5.a EHE)</p>
 </dd></dl>
 
 <dl class="method">
@@ -191,7 +216,7 @@ Attributes:</p>
 
 <dl class="data">
 <dt id="materials.ehe.EHE_concrete.HP50">
-<tt class="descclassname">materials.ehe.EHE_concrete.</tt><tt class="descname">HP50</tt><em class="property"> = &lt;materials.ehe.EHE_concrete.EHEConcrete object at 0x2b4cc5d73ad0&gt;</em><a class="headerlink" href="#materials.ehe.EHE_concrete.HP50" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">materials.ehe.EHE_concrete.</tt><tt class="descname">HP50</tt><em class="property"> = &lt;materials.ehe.EHE_concrete.EHEConcrete object at 0x2b9d9600e4d0&gt;</em><a class="headerlink" href="#materials.ehe.EHE_concrete.HP50" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Factor a aplicar a la resistencia característica del hormigón a compresión en función de su edad en días.</dt>
 <dd>para hormigones de endurecimiento normal (tabla 30.4.b EHE)</dd>
@@ -200,7 +225,7 @@ Attributes:</p>
 
 <dl class="data">
 <dt id="materials.ehe.EHE_concrete.factorRCompJDiasNormal">
-<tt class="descclassname">materials.ehe.EHE_concrete.</tt><tt class="descname">factorRCompJDiasNormal</tt><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object at 0x2b4cc5d73650&gt;</em><a class="headerlink" href="#materials.ehe.EHE_concrete.factorRCompJDiasNormal" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">materials.ehe.EHE_concrete.</tt><tt class="descname">factorRCompJDiasNormal</tt><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object at 0x2b9d9600e510&gt;</em><a class="headerlink" href="#materials.ehe.EHE_concrete.factorRCompJDiasNormal" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Factor a aplicar a la resistencia característica del hormigón a compresión en función de su edad en días.</dt>
 <dd>para hormigones de endurecimiento rápido (tabla 30.4.b EHE)</dd>
@@ -209,7 +234,7 @@ Attributes:</p>
 
 <dl class="data">
 <dt id="materials.ehe.EHE_concrete.factorRCompJDiasRapido">
-<tt class="descclassname">materials.ehe.EHE_concrete.</tt><tt class="descname">factorRCompJDiasRapido</tt><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object at 0x2b4cc5d73d90&gt;</em><a class="headerlink" href="#materials.ehe.EHE_concrete.factorRCompJDiasRapido" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">materials.ehe.EHE_concrete.</tt><tt class="descname">factorRCompJDiasRapido</tt><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object at 0x2b9d953c9410&gt;</em><a class="headerlink" href="#materials.ehe.EHE_concrete.factorRCompJDiasRapido" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Factor a aplicar a la resistencia característica del hormigón a tracción en función de su edad en días.</dt>
 <dd>para hormigones de endurecimiento normal(tabla 30.4.c EHE)</dd>
@@ -349,7 +374,7 @@ tInic: Valor de la tensión de pretensado a tiempo infinito.</p>
 
 <dl class="attribute">
 <dt id="materials.ehe.torsionEHE.TorsionParameters.contornoSecc">
-<tt class="descname">contornoSecc</tt><em class="property"> = &lt;geom.Poligono2d object at 0x2b4ccf955368&gt;</em><a class="headerlink" href="#materials.ehe.torsionEHE.TorsionParameters.contornoSecc" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">contornoSecc</tt><em class="property"> = &lt;geom.Poligono2d object at 0x2b9d8e262310&gt;</em><a class="headerlink" href="#materials.ehe.torsionEHE.TorsionParameters.contornoSecc" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -364,17 +389,17 @@ tInic: Valor de la tensión de pretensado a tiempo infinito.</p>
 
 <dl class="attribute">
 <dt id="materials.ehe.torsionEHE.TorsionParameters.lineaInt">
-<tt class="descname">lineaInt</tt><em class="property"> = &lt;geom.Poligono2d object at 0x2b4ccf955418&gt;</em><a class="headerlink" href="#materials.ehe.torsionEHE.TorsionParameters.lineaInt" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">lineaInt</tt><em class="property"> = &lt;geom.Poligono2d object at 0x2b9d8e2623c0&gt;</em><a class="headerlink" href="#materials.ehe.torsionEHE.TorsionParameters.lineaInt" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="materials.ehe.torsionEHE.TorsionParameters.lineaMedia">
-<tt class="descname">lineaMedia</tt><em class="property"> = &lt;geom.Poligono2d object at 0x2b4ccf9553c0&gt;</em><a class="headerlink" href="#materials.ehe.torsionEHE.TorsionParameters.lineaMedia" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">lineaMedia</tt><em class="property"> = &lt;geom.Poligono2d object at 0x2b9d8e262368&gt;</em><a class="headerlink" href="#materials.ehe.torsionEHE.TorsionParameters.lineaMedia" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="materials.ehe.torsionEHE.TorsionParameters.seccionHuecaEficaz">
-<tt class="descname">seccionHuecaEficaz</tt><em class="property"> = &lt;geom.PoligonoConAgujeros2d object at 0x2b4ccf955470&gt;</em><a class="headerlink" href="#materials.ehe.torsionEHE.TorsionParameters.seccionHuecaEficaz" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">seccionHuecaEficaz</tt><em class="property"> = &lt;geom.PoligonoConAgujeros2d object at 0x2b9d8e262418&gt;</em><a class="headerlink" href="#materials.ehe.torsionEHE.TorsionParameters.seccionHuecaEficaz" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1284,7 +1309,7 @@ el apartado 64.1.2.1.1 de EHE-08.</p>
 
 <dl class="data">
 <dt id="materials.ehe.relajacion_acero.ptsRO1000AlambresEHE">
-<tt class="descclassname">materials.ehe.relajacion_acero.</tt><tt class="descname">ptsRO1000AlambresEHE</tt><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object at 0x2b4cce1ddd90&gt;</em><a class="headerlink" href="#materials.ehe.relajacion_acero.ptsRO1000AlambresEHE" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">materials.ehe.relajacion_acero.</tt><tt class="descname">ptsRO1000AlambresEHE</tt><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object at 0x2b9d8e2055d0&gt;</em><a class="headerlink" href="#materials.ehe.relajacion_acero.ptsRO1000AlambresEHE" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Puntos que definen la tabla 38.7.a de la EHE-08 para determinar la</dt>
 <dd>relajación a 1000 horas, en el caso de barras, que intervienen
@@ -1294,7 +1319,7 @@ en la expresión de la relajación para tiempos superiores a 1000 horas.</dd>
 
 <dl class="data">
 <dt id="materials.ehe.relajacion_acero.ptsRO1000BarrasEHE">
-<tt class="descclassname">materials.ehe.relajacion_acero.</tt><tt class="descname">ptsRO1000BarrasEHE</tt><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object at 0x2b4cce1dd550&gt;</em><a class="headerlink" href="#materials.ehe.relajacion_acero.ptsRO1000BarrasEHE" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">materials.ehe.relajacion_acero.</tt><tt class="descname">ptsRO1000BarrasEHE</tt><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object at 0x2b9d8e205690&gt;</em><a class="headerlink" href="#materials.ehe.relajacion_acero.ptsRO1000BarrasEHE" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Devuelve el valor de la relajación a 1000 horas</dt>
 <dd>Ver tabla 38.9.a en la página en EHE-08
@@ -1305,7 +1330,7 @@ alpha: Fracción de la tensión de rotura con la que se tesa el alambre.</dd>
 
 <dl class="data">
 <dt id="materials.ehe.relajacion_acero.ptsRO1000Clase1CEB">
-<tt class="descclassname">materials.ehe.relajacion_acero.</tt><tt class="descname">ptsRO1000Clase1CEB</tt><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object at 0x2b4cce1dd690&gt;</em><a class="headerlink" href="#materials.ehe.relajacion_acero.ptsRO1000Clase1CEB" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">materials.ehe.relajacion_acero.</tt><tt class="descname">ptsRO1000Clase1CEB</tt><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object at 0x2b9d8e205710&gt;</em><a class="headerlink" href="#materials.ehe.relajacion_acero.ptsRO1000Clase1CEB" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Puntos que definen la figura 2.3.3. del código modelo CEB-FIP 1990 para determinar la</dt>
 <dd>relajación a 1000 horas, en el caso de alambres y cordones de baja relajación
@@ -1316,7 +1341,7 @@ para tiempos superiores a 1000 horas.</dd>
 
 <dl class="data">
 <dt id="materials.ehe.relajacion_acero.ptsRO1000Clase2CEB">
-<tt class="descclassname">materials.ehe.relajacion_acero.</tt><tt class="descname">ptsRO1000Clase2CEB</tt><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object at 0x2b4cce1ddf10&gt;</em><a class="headerlink" href="#materials.ehe.relajacion_acero.ptsRO1000Clase2CEB" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">materials.ehe.relajacion_acero.</tt><tt class="descname">ptsRO1000Clase2CEB</tt><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object at 0x2b9d8e205750&gt;</em><a class="headerlink" href="#materials.ehe.relajacion_acero.ptsRO1000Clase2CEB" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Puntos que definen la figura 2.3.3. del código modelo CEB-FIP 1990 para determinar la</dt>
 <dd>relajación a 1000 horas, en el caso de barras (clase 3),
@@ -1326,7 +1351,7 @@ que intervienen en la expresión de la relajación para tiempos superiores a 100
 
 <dl class="data">
 <dt id="materials.ehe.relajacion_acero.ptsRO1000Clase3CEB">
-<tt class="descclassname">materials.ehe.relajacion_acero.</tt><tt class="descname">ptsRO1000Clase3CEB</tt><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object at 0x2b4cce1ddbd0&gt;</em><a class="headerlink" href="#materials.ehe.relajacion_acero.ptsRO1000Clase3CEB" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">materials.ehe.relajacion_acero.</tt><tt class="descname">ptsRO1000Clase3CEB</tt><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object at 0x2b9d8e205790&gt;</em><a class="headerlink" href="#materials.ehe.relajacion_acero.ptsRO1000Clase3CEB" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Devuelve el valor de la relajación a 1000 horas</dt>
 <dd>Ver figura 2.3.3. del código modelo CEB-FIP 1990
@@ -1338,7 +1363,7 @@ alpha: Fracción de la tensión de rotura con la que se tesa el alambre.</dd>
 
 <dl class="data">
 <dt id="materials.ehe.relajacion_acero.ptsRelajacionCortoPlazo">
-<tt class="descclassname">materials.ehe.relajacion_acero.</tt><tt class="descname">ptsRelajacionCortoPlazo</tt><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object at 0x2b4cce1dd750&gt;</em><a class="headerlink" href="#materials.ehe.relajacion_acero.ptsRelajacionCortoPlazo" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">materials.ehe.relajacion_acero.</tt><tt class="descname">ptsRelajacionCortoPlazo</tt><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object at 0x2b9d8e2056d0&gt;</em><a class="headerlink" href="#materials.ehe.relajacion_acero.ptsRelajacionCortoPlazo" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Devuelve el valor de la relajación para el instante t en función</dt>
 <dd><p class="first">de la relajación obtenida para 1000 horas y del tipo de acero.

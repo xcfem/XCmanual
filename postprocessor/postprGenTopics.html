@@ -1,0 +1,1298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>General topics &mdash; XC 3.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="XC 3.0 documentation" href="../index.html" />
+    <link rel="up" title="Postprocessor" href="postprocess.html" />
+    <link rel="next" title="3D elastric beam postpro" href="postprocess.elastic_beam_3d.html" />
+    <link rel="prev" title="Postprocessor" href="postprocess.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="postprocess.elastic_beam_3d.html" title="3D elastric beam postpro"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="postprocess.html" title="Postprocessor"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">XC 3.0 documentation</a> &raquo;</li>
+          <li><a href="postprocess.html" accesskey="U">Postprocessor</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="general-topics">
+<h1>General topics<a class="headerlink" href="#general-topics" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-postprocess.ControlVars">
+<span id="controlvars"></span><h2>ControlVars<a class="headerlink" href="#module-postprocess.ControlVars" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="postprocess.ControlVars.BiaxialBendingControlVars">
+<em class="property">class </em><tt class="descclassname">postprocess.ControlVars.</tt><tt class="descname">BiaxialBendingControlVars</tt><big>(</big><em>idSection='nil'</em>, <em>combName='nil'</em>, <em>CF=-1.0</em>, <em>N=0.0</em>, <em>My=0.0</em>, <em>Mz=0.0</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.BiaxialBendingControlVars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.ControlVars.UniaxialBendingControlVars" title="postprocess.ControlVars.UniaxialBendingControlVars"><tt class="xref py py-class docutils literal"><span class="pre">postprocess.ControlVars.UniaxialBendingControlVars</span></tt></a></p>
+<p>Biaxial bending. Normal stresses limit state variables.</p>
+<dl class="method">
+<dt id="postprocess.ControlVars.BiaxialBendingControlVars.getAnsysStrings">
+<tt class="descname">getAnsysStrings</tt><big>(</big><em>eTag</em>, <em>axis</em>, <em>factor=0.001</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.BiaxialBendingControlVars.getAnsysStrings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string to represent fields in ANSYS (R).
+eTag: element identifier.
+axis: section 1 or 2
+factor: factor for units (default 1e-3 -&gt; kN)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.BiaxialBendingControlVars.getLaTeXFields">
+<tt class="descname">getLaTeXFields</tt><big>(</big><em>factor=0.001</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.BiaxialBendingControlVars.getLaTeXFields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string with the intermediate fields of the LaTeX string.
+factor: factor for units (default 1e-3 -&gt; kN)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.BiaxialBendingControlVars.getStrArguments">
+<tt class="descname">getStrArguments</tt><big>(</big><em>factor</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.BiaxialBendingControlVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string for a &#8216;copy&#8217; (kind of) constructor.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.ControlVars.CFNMy">
+<em class="property">class </em><tt class="descclassname">postprocess.ControlVars.</tt><tt class="descname">CFNMy</tt><big>(</big><em>combName='nil'</em>, <em>CF=-1.0</em>, <em>N=0.0</em>, <em>My=0.0</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.CFNMy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.ControlVars.NMy" title="postprocess.ControlVars.NMy"><tt class="xref py py-class docutils literal"><span class="pre">postprocess.ControlVars.NMy</span></tt></a></p>
+<p>Uniaxial bending. Normal stresses limit state variables.</p>
+<dl class="method">
+<dt id="postprocess.ControlVars.CFNMy.getCF">
+<tt class="descname">getCF</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.ControlVars.CFNMy.getCF" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.ControlVars.CFNMyMz">
+<em class="property">class </em><tt class="descclassname">postprocess.ControlVars.</tt><tt class="descname">CFNMyMz</tt><big>(</big><em>combName='nil'</em>, <em>CF=-1.0</em>, <em>N=0.0</em>, <em>My=0.0</em>, <em>Mz=0.0</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.CFNMyMz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.ControlVars.CFNMy" title="postprocess.ControlVars.CFNMy"><tt class="xref py py-class docutils literal"><span class="pre">postprocess.ControlVars.CFNMy</span></tt></a></p>
+<p>Biaxial bending. Normal stresses limit state variables.</p>
+<dl class="method">
+<dt id="postprocess.ControlVars.CFNMyMz.getAnsysStrings">
+<tt class="descname">getAnsysStrings</tt><big>(</big><em>eTag</em>, <em>axis</em>, <em>factor=0.001</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.CFNMyMz.getAnsysStrings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string to represent fields in ANSYS (R).
+eTag: element identifier.
+axis: section 1 or 2
+factor: factor for units (default 1e-3 -&gt; kN)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.CFNMyMz.getLaTeXFields">
+<tt class="descname">getLaTeXFields</tt><big>(</big><em>factor=0.001</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.CFNMyMz.getLaTeXFields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string with the intermediate fields of the LaTeX string.
+factor: factor for units (default 1e-3 -&gt; kN)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.CFNMyMz.getStrArguments">
+<tt class="descname">getStrArguments</tt><big>(</big><em>factor</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.CFNMyMz.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string for a &#8216;copy&#8217; (kind of) constructor.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.ControlVars.ControlVarsBase">
+<em class="property">class </em><tt class="descclassname">postprocess.ControlVars.</tt><tt class="descname">ControlVarsBase</tt><big>(</big><em>combName='nil'</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.ControlVarsBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Base class for control variabless.</p>
+<dl class="method">
+<dt id="postprocess.ControlVars.ControlVarsBase.getAnsysStrings">
+<tt class="descname">getAnsysStrings</tt><big>(</big><em>eTag</em>, <em>axis</em>, <em>factor=0.001</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.ControlVarsBase.getAnsysStrings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string to represent fields in ANSYS (R).
+eTag: element identifier.
+axis: section 1 or 2
+factor: factor for units (default 1e-3 -&gt; kN)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.ControlVarsBase.getCF">
+<tt class="descname">getCF</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.ControlVars.ControlVarsBase.getCF" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.ControlVarsBase.getFieldNames">
+<tt class="descname">getFieldNames</tt><big>(</big><em>parent=''</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.ControlVarsBase.getFieldNames" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.ControlVarsBase.getLaTeXFields">
+<tt class="descname">getLaTeXFields</tt><big>(</big><em>factor=0.001</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.ControlVarsBase.getLaTeXFields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string with the intermediate fields of the LaTeX string.
+factor: factor for units (default 1e-3 -&gt; kN)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.ControlVarsBase.getLaTeXString">
+<tt class="descname">getLaTeXString</tt><big>(</big><em>eTag</em>, <em>factor=0.001</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.ControlVarsBase.getLaTeXString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string that we can insert in a LaTeX table.
+eTag: element identifier.
+factor: factor for units (default 1e-3 -&gt; kN)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.ControlVarsBase.getStrArguments">
+<tt class="descname">getStrArguments</tt><big>(</big><em>factor</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.ControlVarsBase.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string for a &#8216;copy&#8217; (kind of) constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.ControlVarsBase.getStrConstructor">
+<tt class="descname">getStrConstructor</tt><big>(</big><em>factor=0.001</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.ControlVarsBase.getStrConstructor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.ControlVarsBase.strElementProp">
+<tt class="descname">strElementProp</tt><big>(</big><em>eTag</em>, <em>nmbProp</em>, <em>factor=0.001</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.ControlVarsBase.strElementProp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a string that will serve to read the element property from file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.ControlVars.CrackControlBaseVars">
+<em class="property">class </em><tt class="descclassname">postprocess.ControlVars.</tt><tt class="descname">CrackControlBaseVars</tt><big>(</big><em>combName='nil'</em>, <em>CF=-1.0</em>, <em>N=0.0</em>, <em>My=0.0</em>, <em>Mz=0.0</em>, <em>steelStress=0.0</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.CrackControlBaseVars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.ControlVars.CFNMyMz" title="postprocess.ControlVars.CFNMyMz"><tt class="xref py py-class docutils literal"><span class="pre">postprocess.ControlVars.CFNMyMz</span></tt></a></p>
+<p>Biaxial bending. Normal stresses limit state variables.</p>
+<dl class="method">
+<dt id="postprocess.ControlVars.CrackControlBaseVars.getAnsysStrings">
+<tt class="descname">getAnsysStrings</tt><big>(</big><em>eTag</em>, <em>axis</em>, <em>factor=0.001</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.CrackControlBaseVars.getAnsysStrings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string to represent fields in ANSYS (R).
+eTag: element identifier.
+axis: section 1 or 2
+factor: factor for units (default 1e-3 -&gt; kN)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.CrackControlBaseVars.getLaTeXFields">
+<tt class="descname">getLaTeXFields</tt><big>(</big><em>factor=0.001</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.CrackControlBaseVars.getLaTeXFields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string with the intermediate fields of the LaTeX string.
+factor: factor for units (default 1e-3 -&gt; kN)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.CrackControlBaseVars.getStrArguments">
+<tt class="descname">getStrArguments</tt><big>(</big><em>factor</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.CrackControlBaseVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string for a &#8216;copy&#8217; (kind of) constructor.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.ControlVars.CrackControlVars">
+<em class="property">class </em><tt class="descclassname">postprocess.ControlVars.</tt><tt class="descname">CrackControlVars</tt><big>(</big><em>idSection='nil'</em>, <em>crackControlBaseVarsPos=&lt;postprocess.ControlVars.CrackControlBaseVars object at 0x2b4cbc4a09d0&gt;</em>, <em>crackControlBaseVarsNeg=&lt;postprocess.ControlVars.CrackControlBaseVars object at 0x2b4cbc4a0150&gt;</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.CrackControlVars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.ControlVars.ControlVarsBase" title="postprocess.ControlVars.ControlVarsBase"><tt class="xref py py-class docutils literal"><span class="pre">postprocess.ControlVars.ControlVarsBase</span></tt></a></p>
+<p>Crack limit state control variables.</p>
+<dl class="method">
+<dt id="postprocess.ControlVars.CrackControlVars.getCF">
+<tt class="descname">getCF</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.ControlVars.CrackControlVars.getCF" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.CrackControlVars.getLaTeXFields">
+<tt class="descname">getLaTeXFields</tt><big>(</big><em>factor=0.001</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.CrackControlVars.getLaTeXFields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string with the intermediate fields of the LaTeX string.
+factor: factor for units (default 1e-3 -&gt; kN)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.CrackControlVars.getMaxSteelStress">
+<tt class="descname">getMaxSteelStress</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.ControlVars.CrackControlVars.getMaxSteelStress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum value for rebar stresses.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.CrackControlVars.getStrArguments">
+<tt class="descname">getStrArguments</tt><big>(</big><em>factor</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.CrackControlVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string for a &#8216;copy&#8217; (kind of) constructor.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.ControlVars.FatigueControlBaseVars">
+<em class="property">class </em><tt class="descclassname">postprocess.ControlVars.</tt><tt class="descname">FatigueControlBaseVars</tt><big>(</big><em>combName='nil'</em>, <em>N=0.0</em>, <em>My=0.0</em>, <em>Mz=0.0</em>, <em>Vy=0.0</em>, <em>posSteelStress=0.0</em>, <em>negSteelStress=0.0</em>, <em>concreteStress=0.0</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.FatigueControlBaseVars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.ControlVars.NMyMz" title="postprocess.ControlVars.NMyMz"><tt class="xref py py-class docutils literal"><span class="pre">postprocess.ControlVars.NMyMz</span></tt></a></p>
+<p>Biaxial bending. Normal stresses limit state variables.</p>
+<dl class="method">
+<dt id="postprocess.ControlVars.FatigueControlBaseVars.getAnsysStrings">
+<tt class="descname">getAnsysStrings</tt><big>(</big><em>eTag</em>, <em>axis</em>, <em>factor=0.001</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.FatigueControlBaseVars.getAnsysStrings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string to represent fields in ANSYS (R).
+eTag: element identifier.
+axis: section 1 or 2
+factor: factor for units (default 1e-3 -&gt; kN)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.FatigueControlBaseVars.getLaTeXFields">
+<tt class="descname">getLaTeXFields</tt><big>(</big><em>factor=0.001</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.FatigueControlBaseVars.getLaTeXFields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string with the intermediate fields of the LaTeX string.
+factor: factor for units (default 1e-3 -&gt; kN)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.FatigueControlBaseVars.getStrArguments">
+<tt class="descname">getStrArguments</tt><big>(</big><em>factor</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.FatigueControlBaseVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string for a &#8216;copy&#8217; (kind of) constructor.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.ControlVars.FatigueControlVars">
+<em class="property">class </em><tt class="descclassname">postprocess.ControlVars.</tt><tt class="descname">FatigueControlVars</tt><big>(</big><em>idSection='nil'</em>, <em>state0=&lt;postprocess.ControlVars.FatigueControlBaseVars object at 0x2b4cbc4a0090&gt;</em>, <em>state1=&lt;postprocess.ControlVars.FatigueControlBaseVars object at 0x2b4cbc4a00d0&gt;</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.FatigueControlVars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.ControlVars.ControlVarsBase" title="postprocess.ControlVars.ControlVarsBase"><tt class="xref py py-class docutils literal"><span class="pre">postprocess.ControlVars.ControlVarsBase</span></tt></a></p>
+<p>Fatigue limit state control variables.</p>
+<dl class="method">
+<dt id="postprocess.ControlVars.FatigueControlVars.getAbsSteelStressIncrement">
+<tt class="descname">getAbsSteelStressIncrement</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.ControlVars.FatigueControlVars.getAbsSteelStressIncrement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns maximun stress increment in rebars (absolute value).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.FatigueControlVars.getConcreteMaxMinStresses">
+<tt class="descname">getConcreteMaxMinStresses</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.ControlVars.FatigueControlVars.getConcreteMaxMinStresses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used in FatigueController.concreteLimitStress.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.FatigueControlVars.getConcreteMinStress">
+<tt class="descname">getConcreteMinStress</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.ControlVars.FatigueControlVars.getConcreteMinStress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns minimum (max. compressive) concrete stress between loaded and unloaded states.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.FatigueControlVars.getConcreteStressIncrement">
+<tt class="descname">getConcreteStressIncrement</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.ControlVars.FatigueControlVars.getConcreteStressIncrement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns stress increment in concrete.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.FatigueControlVars.getLaTeXFields">
+<tt class="descname">getLaTeXFields</tt><big>(</big><em>factor=0.001</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.FatigueControlVars.getLaTeXFields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string with the intermediate fields of the LaTeX string.
+factor: factor for units (default 1e-3 -&gt; kN)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.FatigueControlVars.getSteelNegStressIncrement">
+<tt class="descname">getSteelNegStressIncrement</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.ControlVars.FatigueControlVars.getSteelNegStressIncrement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns negative stress increment in rebars.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.FatigueControlVars.getSteelPosStressIncrement">
+<tt class="descname">getSteelPosStressIncrement</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.ControlVars.FatigueControlVars.getSteelPosStressIncrement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns positive stress increment in rebars.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.FatigueControlVars.getStrArguments">
+<tt class="descname">getStrArguments</tt><big>(</big><em>factor</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.FatigueControlVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string for a &#8216;copy&#8217; (kind of) constructor.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.ControlVars.NMy">
+<em class="property">class </em><tt class="descclassname">postprocess.ControlVars.</tt><tt class="descname">NMy</tt><big>(</big><em>combName='nil'</em>, <em>N=0.0</em>, <em>My=0.0</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.NMy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.ControlVars.ControlVarsBase" title="postprocess.ControlVars.ControlVarsBase"><tt class="xref py py-class docutils literal"><span class="pre">postprocess.ControlVars.ControlVarsBase</span></tt></a></p>
+<p>Uniaxial bending. Internal forces for a combination.</p>
+<dl class="method">
+<dt id="postprocess.ControlVars.NMy.getAnsysStrings">
+<tt class="descname">getAnsysStrings</tt><big>(</big><em>eTag</em>, <em>axis</em>, <em>factor=0.001</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.NMy.getAnsysStrings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string to represent fields in ANSYS (R).
+eTag: element identifier.
+axis: section 1 or 2
+factor: factor for units (default 1e-3 -&gt; kN)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.NMy.getLaTeXFields">
+<tt class="descname">getLaTeXFields</tt><big>(</big><em>factor=0.001</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.NMy.getLaTeXFields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string with the intermediate fields of the LaTeX string.
+factor: factor for units (default 1e-3 -&gt; kN)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.NMy.getStrArguments">
+<tt class="descname">getStrArguments</tt><big>(</big><em>factor</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.NMy.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string for a &#8216;copy&#8217; (kind of) constructor.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.ControlVars.NMyMz">
+<em class="property">class </em><tt class="descclassname">postprocess.ControlVars.</tt><tt class="descname">NMyMz</tt><big>(</big><em>combName='nil'</em>, <em>N=0.0</em>, <em>My=0.0</em>, <em>Mz=0.0</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.NMyMz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.ControlVars.NMy" title="postprocess.ControlVars.NMy"><tt class="xref py py-class docutils literal"><span class="pre">postprocess.ControlVars.NMy</span></tt></a></p>
+<p>Uniaxial bending. Internal forces for a combination.</p>
+<dl class="method">
+<dt id="postprocess.ControlVars.NMyMz.getAnsysStrings">
+<tt class="descname">getAnsysStrings</tt><big>(</big><em>eTag</em>, <em>axis</em>, <em>factor=0.001</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.NMyMz.getAnsysStrings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string to represent fields in ANSYS (R).
+eTag: element identifier.
+axis: section 1 or 2
+factor: factor for units (default 1e-3 -&gt; kN)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.NMyMz.getLaTeXFields">
+<tt class="descname">getLaTeXFields</tt><big>(</big><em>factor=0.001</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.NMyMz.getLaTeXFields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string with the intermediate fields of the LaTeX string.
+factor: factor for units (default 1e-3 -&gt; kN)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.NMyMz.getStrArguments">
+<tt class="descname">getStrArguments</tt><big>(</big><em>factor</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.NMyMz.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string for a &#8216;copy&#8217; (kind of) constructor.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.ControlVars.RCShearControlVars">
+<em class="property">class </em><tt class="descclassname">postprocess.ControlVars.</tt><tt class="descname">RCShearControlVars</tt><big>(</big><em>idSection=-1</em>, <em>combName='nil'</em>, <em>CF=-1.0</em>, <em>N=0.0</em>, <em>My=0.0</em>, <em>Mz=0.0</em>, <em>Mu=0.0</em>, <em>Vy=0.0</em>, <em>Vz=0.0</em>, <em>theta=0.0</em>, <em>Vcu=0.0</em>, <em>Vsu=0.0</em>, <em>Vu=0.0</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.RCShearControlVars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.ControlVars.BiaxialBendingControlVars" title="postprocess.ControlVars.BiaxialBendingControlVars"><tt class="xref py py-class docutils literal"><span class="pre">postprocess.ControlVars.BiaxialBendingControlVars</span></tt></a></p>
+<p>Control variables for biaxial bending shear limit state
+verification.</p>
+<dl class="method">
+<dt id="postprocess.ControlVars.RCShearControlVars.getAnsysStrings">
+<tt class="descname">getAnsysStrings</tt><big>(</big><em>eTag</em>, <em>axis</em>, <em>factor=0.001</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.RCShearControlVars.getAnsysStrings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string to represent fields in ANSYS (R).
+eTag: element identifier.
+axis: section 1 or 2
+factor: factor for units (default 1e-3 -&gt; kN)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.RCShearControlVars.getLaTeXFields">
+<tt class="descname">getLaTeXFields</tt><big>(</big><em>factor=0.001</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.RCShearControlVars.getLaTeXFields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string with the intermediate fields of the LaTeX string.
+factor: factor for units (default 1e-3 -&gt; kN)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.RCShearControlVars.getStrArguments">
+<tt class="descname">getStrArguments</tt><big>(</big><em>factor</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.RCShearControlVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string for a &#8216;copy&#8217; (kind of) constructor.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.ControlVars.UniaxialBendingControlVars">
+<em class="property">class </em><tt class="descclassname">postprocess.ControlVars.</tt><tt class="descname">UniaxialBendingControlVars</tt><big>(</big><em>idSection='nil'</em>, <em>combName='nil'</em>, <em>CF=-1.0</em>, <em>N=0.0</em>, <em>My=0.0</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.UniaxialBendingControlVars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.ControlVars.CFNMy" title="postprocess.ControlVars.CFNMy"><tt class="xref py py-class docutils literal"><span class="pre">postprocess.ControlVars.CFNMy</span></tt></a></p>
+<p>Uniaxial bending. Normal stresses limit state variables.</p>
+<dl class="method">
+<dt id="postprocess.ControlVars.UniaxialBendingControlVars.getLaTeXFields">
+<tt class="descname">getLaTeXFields</tt><big>(</big><em>factor=0.001</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.UniaxialBendingControlVars.getLaTeXFields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string with the intermediate fields of the LaTeX string.
+factor: factor for units (default 1e-3 -&gt; kN)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ControlVars.UniaxialBendingControlVars.getStrArguments">
+<tt class="descname">getStrArguments</tt><big>(</big><em>factor</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.UniaxialBendingControlVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string for a &#8216;copy&#8217; (kind of) constructor.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="postprocess.ControlVars.extrapolate_control_var">
+<tt class="descclassname">postprocess.ControlVars.</tt><tt class="descname">extrapolate_control_var</tt><big>(</big><em>elemSet</em>, <em>propName</em>, <em>argument</em>, <em>initialValue=0.0</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.extrapolate_control_var" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extrapolates element&#8217;s function values to the nodes.
+elemSet: set of elements.
+propName: name of the property that contains the control variables.
+function: name of the function to call for each element.
+argument: name of the control variable to extrapolate.
+initialValue: initial value for the prop defined at the nodes.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="postprocess.ControlVars.writeControlVarsFromElements">
+<tt class="descclassname">postprocess.ControlVars.</tt><tt class="descname">writeControlVarsFromElements</tt><big>(</big><em>controlVarName</em>, <em>preprocessor</em>, <em>outputFileName</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.writeControlVarsFromElements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes control var values from element into a file for
+doing graphics and into a latex file.</p>
+<p>Parameters:
+controlVarName: name of the control var. 
+preprocessor:    preprocessor from FEA model.
+outputFileName: name of the files to write (.py and .tex)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="postprocess.ControlVars.writeControlVarsFromElementsForAnsys">
+<tt class="descclassname">postprocess.ControlVars.</tt><tt class="descname">writeControlVarsFromElementsForAnsys</tt><big>(</big><em>controlVarName</em>, <em>preprocessor</em>, <em>outputFileName</em>, <em>sectionName1</em>, <em>sectionName2</em><big>)</big><a class="headerlink" href="#postprocess.ControlVars.writeControlVarsFromElementsForAnsys" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Parameters:</dt>
+<dd><p class="first">preprocessor:    preprocessor name
+outputFileName:  name of the output file containing tue results of the</p>
+<blockquote class="last">
+<div>verification</div></blockquote>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-postprocess.ElementSectionMap">
+<span id="elementsectionmap"></span><h2>ElementSectionMap<a class="headerlink" href="#module-postprocess.ElementSectionMap" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="postprocess.ElementSectionMap.ShellElementSectionMap">
+<em class="property">class </em><tt class="descclassname">postprocess.ElementSectionMap.</tt><tt class="descname">ShellElementSectionMap</tt><a class="headerlink" href="#postprocess.ElementSectionMap.ShellElementSectionMap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">dict</span></tt></p>
+<dl class="method">
+<dt id="postprocess.ElementSectionMap.ShellElementSectionMap.assign">
+<tt class="descname">assign</tt><big>(</big><em>elemSet</em>, <em>sectionName</em><big>)</big><a class="headerlink" href="#postprocess.ElementSectionMap.ShellElementSectionMap.assign" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assigns the sections sectionName+&#8216;1&#8217; and sectionName+&#8216;2&#8217;
+to the elements of the set.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.ElementSectionMap.ShellElementSectionMap.dump">
+<tt class="descname">dump</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.ElementSectionMap.ShellElementSectionMap.dump" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="postprocess.ElementSectionMap.ShellElementSectionMap.mapSectionsFileName">
+<tt class="descname">mapSectionsFileName</tt><em class="property"> = './mapSectionsReinforcement.pkl'</em><a class="headerlink" href="#postprocess.ElementSectionMap.ShellElementSectionMap.mapSectionsFileName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Map with asssings to each shell element two
+reinforced concrete section names. This map that will be readed to
+create fiber section models during reinforcement verification.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="postprocess.ElementSectionMap.loadShellElementSectionMap">
+<tt class="descclassname">postprocess.ElementSectionMap.</tt><tt class="descname">loadShellElementSectionMap</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.ElementSectionMap.loadShellElementSectionMap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-postprocess.LimitStateData">
+<span id="limitstatedata"></span><h2>LimitStateData<a class="headerlink" href="#module-postprocess.LimitStateData" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="postprocess.LimitStateData.FatigueResistanceRCLimitStateData">
+<em class="property">class </em><tt class="descclassname">postprocess.LimitStateData.</tt><tt class="descname">FatigueResistanceRCLimitStateData</tt><a class="headerlink" href="#postprocess.LimitStateData.FatigueResistanceRCLimitStateData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.LimitStateData.LimitStateData" title="postprocess.LimitStateData.LimitStateData"><tt class="xref py py-class docutils literal"><span class="pre">postprocess.LimitStateData.LimitStateData</span></tt></a></p>
+<p>Reinforced concrete shear resistance limit state data.</p>
+<dl class="method">
+<dt id="postprocess.LimitStateData.FatigueResistanceRCLimitStateData.check">
+<tt class="descname">check</tt><big>(</big><em>sections</em>, <em>sectionsNamesForEveryElement</em><big>)</big><a class="headerlink" href="#postprocess.LimitStateData.FatigueResistanceRCLimitStateData.check" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.LimitStateData.FatigueResistanceRCLimitStateData.dumpCombinations">
+<tt class="descname">dumpCombinations</tt><big>(</big><em>combContainer</em>, <em>loadCombinations</em><big>)</big><a class="headerlink" href="#postprocess.LimitStateData.FatigueResistanceRCLimitStateData.dumpCombinations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load into the solver the combinations needed for this limit state.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.LimitStateData.FreqLoadsCrackControlRCLimitStateData">
+<em class="property">class </em><tt class="descclassname">postprocess.LimitStateData.</tt><tt class="descname">FreqLoadsCrackControlRCLimitStateData</tt><a class="headerlink" href="#postprocess.LimitStateData.FreqLoadsCrackControlRCLimitStateData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.LimitStateData.LimitStateData" title="postprocess.LimitStateData.LimitStateData"><tt class="xref py py-class docutils literal"><span class="pre">postprocess.LimitStateData.LimitStateData</span></tt></a></p>
+<p>Reinforced concrete crack control under frequent loads limit state data.</p>
+<dl class="method">
+<dt id="postprocess.LimitStateData.FreqLoadsCrackControlRCLimitStateData.check">
+<tt class="descname">check</tt><big>(</big><em>sections</em>, <em>sectionsNamesForEveryElement</em><big>)</big><a class="headerlink" href="#postprocess.LimitStateData.FreqLoadsCrackControlRCLimitStateData.check" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.LimitStateData.FreqLoadsCrackControlRCLimitStateData.dumpCombinations">
+<tt class="descname">dumpCombinations</tt><big>(</big><em>combContainer</em>, <em>loadCombinations</em><big>)</big><a class="headerlink" href="#postprocess.LimitStateData.FreqLoadsCrackControlRCLimitStateData.dumpCombinations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load into the solver the combinations needed for this limit state.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.LimitStateData.FreqLoadsDisplacementControlLimitStateData">
+<em class="property">class </em><tt class="descclassname">postprocess.LimitStateData.</tt><tt class="descname">FreqLoadsDisplacementControlLimitStateData</tt><a class="headerlink" href="#postprocess.LimitStateData.FreqLoadsDisplacementControlLimitStateData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.LimitStateData.LimitStateData" title="postprocess.LimitStateData.LimitStateData"><tt class="xref py py-class docutils literal"><span class="pre">postprocess.LimitStateData.LimitStateData</span></tt></a></p>
+<p>Displacement control under frequent loads limit state data.</p>
+<dl class="method">
+<dt id="postprocess.LimitStateData.FreqLoadsDisplacementControlLimitStateData.check">
+<tt class="descname">check</tt><big>(</big><em>sections</em>, <em>sectionsNamesForEveryElement</em><big>)</big><a class="headerlink" href="#postprocess.LimitStateData.FreqLoadsDisplacementControlLimitStateData.check" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.LimitStateData.FreqLoadsDisplacementControlLimitStateData.dumpCombinations">
+<tt class="descname">dumpCombinations</tt><big>(</big><em>combContainer</em>, <em>loadCombinations</em><big>)</big><a class="headerlink" href="#postprocess.LimitStateData.FreqLoadsDisplacementControlLimitStateData.dumpCombinations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load into the solver the combinations needed for this limit state.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.LimitStateData.LimitStateData">
+<em class="property">class </em><tt class="descclassname">postprocess.LimitStateData.</tt><tt class="descname">LimitStateData</tt><big>(</big><em>limitStateLabel</em>, <em>outputDataBaseFileName</em><big>)</big><a class="headerlink" href="#postprocess.LimitStateData.LimitStateData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="attribute">
+<dt id="postprocess.LimitStateData.LimitStateData.check_results_directory">
+<tt class="descname">check_results_directory</tt><em class="property"> = './'</em><a class="headerlink" href="#postprocess.LimitStateData.LimitStateData.check_results_directory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.LimitStateData.LimitStateData.getDisplacementsFileName">
+<tt class="descname">getDisplacementsFileName</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.LimitStateData.LimitStateData.getDisplacementsFileName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.LimitStateData.LimitStateData.getInternalForcesFileName">
+<tt class="descname">getInternalForcesFileName</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.LimitStateData.LimitStateData.getInternalForcesFileName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.LimitStateData.LimitStateData.getOutputDataBaseFileName">
+<tt class="descname">getOutputDataBaseFileName</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.LimitStateData.LimitStateData.getOutputDataBaseFileName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the output file name without extension.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.LimitStateData.LimitStateData.getOutputDataFileName">
+<tt class="descname">getOutputDataFileName</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.LimitStateData.LimitStateData.getOutputDataFileName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the Python executable file name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="postprocess.LimitStateData.LimitStateData.internal_forces_results_directory">
+<tt class="descname">internal_forces_results_directory</tt><em class="property"> = './'</em><a class="headerlink" href="#postprocess.LimitStateData.LimitStateData.internal_forces_results_directory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.LimitStateData.LimitStateData.loadPickleObject">
+<tt class="descname">loadPickleObject</tt><big>(</big><em>objName</em><big>)</big><a class="headerlink" href="#postprocess.LimitStateData.LimitStateData.loadPickleObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.LimitStateData.LimitStateData.saveAll">
+<tt class="descname">saveAll</tt><big>(</big><em>model</em>, <em>combContainer</em>, <em>setCalc</em>, <em>fConvIntForc=1.0</em><big>)</big><a class="headerlink" href="#postprocess.LimitStateData.LimitStateData.saveAll" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes internal forces, displacements, .., for each combination
+Parameters:</p>
+<blockquote>
+<div><p>setCalc:      set of entities for which the analysis is going to be performed
+fConvIntForc: conversion factor between the unit of force in which the calculation</p>
+<blockquote>
+<div>is performed and that one desired for the displaying of internal forces
+(The use of this factor won&#8217;t be allowed in future versions)</div></blockquote>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.LimitStateData.NormalStressesRCLimitStateData">
+<em class="property">class </em><tt class="descclassname">postprocess.LimitStateData.</tt><tt class="descname">NormalStressesRCLimitStateData</tt><a class="headerlink" href="#postprocess.LimitStateData.NormalStressesRCLimitStateData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.LimitStateData.LimitStateData" title="postprocess.LimitStateData.LimitStateData"><tt class="xref py py-class docutils literal"><span class="pre">postprocess.LimitStateData.LimitStateData</span></tt></a></p>
+<p>Reinforced concrete normal stresses limit state data.</p>
+<dl class="method">
+<dt id="postprocess.LimitStateData.NormalStressesRCLimitStateData.check">
+<tt class="descname">check</tt><big>(</big><em>sections</em>, <em>sectionsNamesForEveryElement</em><big>)</big><a class="headerlink" href="#postprocess.LimitStateData.NormalStressesRCLimitStateData.check" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.LimitStateData.NormalStressesRCLimitStateData.dumpCombinations">
+<tt class="descname">dumpCombinations</tt><big>(</big><em>combContainer</em>, <em>loadCombinations</em><big>)</big><a class="headerlink" href="#postprocess.LimitStateData.NormalStressesRCLimitStateData.dumpCombinations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load into the solver the combinations needed for this limit state.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.LimitStateData.QPLoadsCrackControlRCLimitStateData">
+<em class="property">class </em><tt class="descclassname">postprocess.LimitStateData.</tt><tt class="descname">QPLoadsCrackControlRCLimitStateData</tt><a class="headerlink" href="#postprocess.LimitStateData.QPLoadsCrackControlRCLimitStateData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.LimitStateData.LimitStateData" title="postprocess.LimitStateData.LimitStateData"><tt class="xref py py-class docutils literal"><span class="pre">postprocess.LimitStateData.LimitStateData</span></tt></a></p>
+<p>Reinforced concrete crack control under quasi-permanent loads limit state data.</p>
+<dl class="method">
+<dt id="postprocess.LimitStateData.QPLoadsCrackControlRCLimitStateData.check">
+<tt class="descname">check</tt><big>(</big><em>sections</em>, <em>sectionsNamesForEveryElement</em><big>)</big><a class="headerlink" href="#postprocess.LimitStateData.QPLoadsCrackControlRCLimitStateData.check" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.LimitStateData.QPLoadsCrackControlRCLimitStateData.dumpCombinations">
+<tt class="descname">dumpCombinations</tt><big>(</big><em>combContainer</em>, <em>loadCombinations</em><big>)</big><a class="headerlink" href="#postprocess.LimitStateData.QPLoadsCrackControlRCLimitStateData.dumpCombinations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load into the solver the combinations needed for this limit state.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.LimitStateData.ShearResistanceRCLimitStateData">
+<em class="property">class </em><tt class="descclassname">postprocess.LimitStateData.</tt><tt class="descname">ShearResistanceRCLimitStateData</tt><a class="headerlink" href="#postprocess.LimitStateData.ShearResistanceRCLimitStateData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.LimitStateData.LimitStateData" title="postprocess.LimitStateData.LimitStateData"><tt class="xref py py-class docutils literal"><span class="pre">postprocess.LimitStateData.LimitStateData</span></tt></a></p>
+<p>Reinforced concrete shear resistance limit state data.</p>
+<dl class="method">
+<dt id="postprocess.LimitStateData.ShearResistanceRCLimitStateData.check">
+<tt class="descname">check</tt><big>(</big><em>sections</em>, <em>sectionsNamesForEveryElement</em><big>)</big><a class="headerlink" href="#postprocess.LimitStateData.ShearResistanceRCLimitStateData.check" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.LimitStateData.ShearResistanceRCLimitStateData.dumpCombinations">
+<tt class="descname">dumpCombinations</tt><big>(</big><em>combContainer</em>, <em>loadCombinations</em><big>)</big><a class="headerlink" href="#postprocess.LimitStateData.ShearResistanceRCLimitStateData.dumpCombinations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load into the solver the combinations needed for this limit state.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-postprocess.PhantomModel">
+<span id="phantommodel"></span><h2>PhantomModel<a class="headerlink" href="#module-postprocess.PhantomModel" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="postprocess.PhantomModel.PhantomModel">
+<em class="property">class </em><tt class="descclassname">postprocess.PhantomModel.</tt><tt class="descname">PhantomModel</tt><big>(</big><em>preprocessor</em>, <em>sectionNamesForEveryElement</em>, <em>mapSectionsDefinition</em>, <em>mapInteractionDiagrams</em><big>)</big><a class="headerlink" href="#postprocess.PhantomModel.PhantomModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="method">
+<dt id="postprocess.PhantomModel.PhantomModel.build">
+<tt class="descname">build</tt><big>(</big><em>intForcCombFileName</em>, <em>controller</em>, <em>fakeSection=True</em><big>)</big><a class="headerlink" href="#postprocess.PhantomModel.PhantomModel.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the phantom model from the data readed from the file.
+Parameters:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>intForcCombFileName: name of the file containing the forces and bending moments </dt>
+<dd>obtained for each element for the combinations analyzed</dd>
+</dl>
+<p>controller:     object that takes the results and checks the limit state.
+fakeSection:  true if a fiber section model of the section is not needed for control.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.PhantomModel.PhantomModel.check">
+<tt class="descname">check</tt><big>(</big><em>analysis</em>, <em>controller</em><big>)</big><a class="headerlink" href="#postprocess.PhantomModel.PhantomModel.check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lanza el análisis (lineal) y la comprobación en las combinaciones que se pasan como parámetros
+Parameters:</p>
+<blockquote>
+<div>elements: elements to check
+analysis: type of analysis
+controller: object that controls limit state in elements.</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.PhantomModel.PhantomModel.createElements">
+<tt class="descname">createElements</tt><big>(</big><em>intForcCombFileName</em>, <em>controller</em>, <em>fakeSection=True</em><big>)</big><a class="headerlink" href="#postprocess.PhantomModel.PhantomModel.createElements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the phantom model elements from the data readed on the file.
+Parameters:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>intForcCombFileName: name of the file containing the forces and bending moments </dt>
+<dd>obtained for each element for the combinations analyzed</dd>
+</dl>
+<p>controller:     object that takes the results and checks the limit state.
+fakeSection:  true if a fiber section model of the section is not needed for control.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.PhantomModel.PhantomModel.createLoads">
+<tt class="descname">createLoads</tt><big>(</big><em>intForcCombFileName</em>, <em>controller</em><big>)</big><a class="headerlink" href="#postprocess.PhantomModel.PhantomModel.createLoads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the loads from the data readed on the file.
+Parameters:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>intForcCombFileName: name of the file containing the forces and bending moments </dt>
+<dd>obtained for each element for the combinations analyzed</dd>
+</dl>
+<p>controller:     object that takes the results and checks the limit state.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.PhantomModel.PhantomModel.runChecking">
+<tt class="descname">runChecking</tt><big>(</big><em>intForcCombFileName</em>, <em>analysis</em>, <em>controller</em>, <em>outputFileName</em><big>)</big><a class="headerlink" href="#postprocess.PhantomModel.PhantomModel.runChecking" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the analysis, check the results and write them into a file)
+Parameters:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>intForcCombFileName: name of the file containing the forces and bending moments </dt>
+<dd>obtained for each element for the combinations analyzed</dd>
+</dl>
+<p>analysis: type of analysis
+controller: object that controls limit state in elements.
+outputFileName: base name of output file (extensions .py and .tex)</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.PhantomModel.PhantomModel.write">
+<tt class="descname">write</tt><big>(</big><em>controller</em>, <em>outputFileName</em><big>)</big><a class="headerlink" href="#postprocess.PhantomModel.PhantomModel.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes results into the file
+Parameters:</p>
+<blockquote>
+<div>controller: object that controls limit state in elements.
+outputFileName: base name of output file (extensions .py and .tex)</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-postprocess.callback_controls">
+<span id="callback-controls"></span><h2>callback_controls<a class="headerlink" href="#module-postprocess.callback_controls" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="postprocess.callback_controls.controTensRecElastico2d">
+<tt class="descclassname">postprocess.callback_controls.</tt><tt class="descname">controTensRecElastico2d</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.callback_controls.controTensRecElastico2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Code to execute in every commit to check stress criterion (bars in plane problems).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="postprocess.callback_controls.controTensRecElastico3d">
+<tt class="descclassname">postprocess.callback_controls.</tt><tt class="descname">controTensRecElastico3d</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.callback_controls.controTensRecElastico3d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Code to execute in every commit to check stress criterion (bars in 3D problems).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="postprocess.callback_controls.controlMovModulusUV">
+<tt class="descclassname">postprocess.callback_controls.</tt><tt class="descname">controlMovModulusUV</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.callback_controls.controlMovModulusUV" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="postprocess.callback_controls.controlMovModulusUVW">
+<tt class="descclassname">postprocess.callback_controls.</tt><tt class="descname">controlMovModulusUVW</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.callback_controls.controlMovModulusUVW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="postprocess.callback_controls.controlMovU">
+<tt class="descclassname">postprocess.callback_controls.</tt><tt class="descname">controlMovU</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.callback_controls.controlMovU" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="postprocess.callback_controls.controlMovUV">
+<tt class="descclassname">postprocess.callback_controls.</tt><tt class="descname">controlMovUV</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.callback_controls.controlMovUV" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="postprocess.callback_controls.controlMovUVW">
+<tt class="descclassname">postprocess.callback_controls.</tt><tt class="descname">controlMovUVW</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.callback_controls.controlMovUVW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="postprocess.callback_controls.controlMovV">
+<tt class="descclassname">postprocess.callback_controls.</tt><tt class="descname">controlMovV</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.callback_controls.controlMovV" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="postprocess.callback_controls.controlMovW">
+<tt class="descclassname">postprocess.callback_controls.</tt><tt class="descname">controlMovW</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.callback_controls.controlMovW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="postprocess.callback_controls.controlMovs">
+<tt class="descclassname">postprocess.callback_controls.</tt><tt class="descname">controlMovs</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.callback_controls.controlMovs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="postprocess.callback_controls.fnControlMovComponent">
+<tt class="descclassname">postprocess.callback_controls.</tt><tt class="descname">fnControlMovComponent</tt><big>(</big><em>recorder</em>, <em>obj</em>, <em>codeComponent</em>, <em>value</em><big>)</big><a class="headerlink" href="#postprocess.callback_controls.fnControlMovComponent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="postprocess.callback_controls.fnControlMovUVW">
+<tt class="descclassname">postprocess.callback_controls.</tt><tt class="descname">fnControlMovUVW</tt><big>(</big><em>recorder</em>, <em>obj</em><big>)</big><a class="headerlink" href="#postprocess.callback_controls.fnControlMovUVW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="postprocess.callback_controls.fnControlMovs">
+<tt class="descclassname">postprocess.callback_controls.</tt><tt class="descname">fnControlMovs</tt><big>(</big><em>recorder</em>, <em>obj</em><big>)</big><a class="headerlink" href="#postprocess.callback_controls.fnControlMovs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-postprocess.def_params_control">
+<span id="def-params-control"></span><h2>def_params_control<a class="headerlink" href="#module-postprocess.def_params_control" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="postprocess.def_params_control.defParamsPerfilMetalicoRegElasticoElem">
+<tt class="descclassname">postprocess.def_params_control.</tt><tt class="descname">defParamsPerfilMetalicoRegElasticoElem</tt><big>(</big><em>e</em>, <em>perfil</em><big>)</big><a class="headerlink" href="#postprocess.def_params_control.defParamsPerfilMetalicoRegElasticoElem" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="postprocess.def_params_control.defParamsPerfilMetalicoRegElasticoSet">
+<tt class="descclassname">postprocess.def_params_control.</tt><tt class="descname">defParamsPerfilMetalicoRegElasticoSet</tt><big>(</big><em>elems</em>, <em>perfil</em><big>)</big><a class="headerlink" href="#postprocess.def_params_control.defParamsPerfilMetalicoRegElasticoSet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-postprocess.def_vars_control">
+<span id="def-vars-control"></span><h2>def_vars_control<a class="headerlink" href="#module-postprocess.def_vars_control" title="Permalink to this headline">¶</a></h2>
+<p>THIS PROPERTIES MUST BE REPLACED BY THE CLASSES 
+DEFINED IN ControlVars.py 
+THIS FILE MUST DISSAPEAR.</p>
+<dl class="function">
+<dt id="postprocess.def_vars_control.defVarControlMov">
+<tt class="descclassname">postprocess.def_vars_control.</tt><tt class="descname">defVarControlMov</tt><big>(</big><em>obj</em>, <em>code</em><big>)</big><a class="headerlink" href="#postprocess.def_vars_control.defVarControlMov" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="postprocess.def_vars_control.defVarsControlMovModulus">
+<tt class="descclassname">postprocess.def_vars_control.</tt><tt class="descname">defVarsControlMovModulus</tt><big>(</big><em>nodes</em><big>)</big><a class="headerlink" href="#postprocess.def_vars_control.defVarsControlMovModulus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="postprocess.def_vars_control.defVarsControlMovs">
+<tt class="descclassname">postprocess.def_vars_control.</tt><tt class="descname">defVarsControlMovs</tt><big>(</big><em>nodes</em>, <em>flags</em><big>)</big><a class="headerlink" href="#postprocess.def_vars_control.defVarsControlMovs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="postprocess.def_vars_control.defVarsControlTensRegElastico2d">
+<tt class="descclassname">postprocess.def_vars_control.</tt><tt class="descname">defVarsControlTensRegElastico2d</tt><big>(</big><em>elems</em><big>)</big><a class="headerlink" href="#postprocess.def_vars_control.defVarsControlTensRegElastico2d" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="postprocess.def_vars_control.defVarsControlTensRegElastico3d">
+<tt class="descclassname">postprocess.def_vars_control.</tt><tt class="descname">defVarsControlTensRegElastico3d</tt><big>(</big><em>elems</em><big>)</big><a class="headerlink" href="#postprocess.def_vars_control.defVarsControlTensRegElastico3d" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="postprocess.def_vars_control.defVarsEnvelopeInternalForcesBeamElems">
+<tt class="descclassname">postprocess.def_vars_control.</tt><tt class="descname">defVarsEnvelopeInternalForcesBeamElems</tt><big>(</big><em>elems</em><big>)</big><a class="headerlink" href="#postprocess.def_vars_control.defVarsEnvelopeInternalForcesBeamElems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines properties to store extreme values of internal forces.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="postprocess.def_vars_control.updateEnvelopeInternalForcesBeamElem">
+<tt class="descclassname">postprocess.def_vars_control.</tt><tt class="descname">updateEnvelopeInternalForcesBeamElem</tt><big>(</big><em>beamElem</em><big>)</big><a class="headerlink" href="#postprocess.def_vars_control.updateEnvelopeInternalForcesBeamElem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update values for extreme values of internal forces.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="postprocess.def_vars_control.updateEnvelopeInternalForcesBeamElem2D">
+<tt class="descclassname">postprocess.def_vars_control.</tt><tt class="descname">updateEnvelopeInternalForcesBeamElem2D</tt><big>(</big><em>beamElem2D</em><big>)</big><a class="headerlink" href="#postprocess.def_vars_control.updateEnvelopeInternalForcesBeamElem2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update values for extreme values of internal forces in 2D elements.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-postprocess.extrapolate_elem_attr">
+<span id="extrapolate-elem-attr"></span><h2>extrapolate_elem_attr<a class="headerlink" href="#module-postprocess.extrapolate_elem_attr" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="postprocess.extrapolate_elem_attr.create_attribute_at_nodes">
+<tt class="descclassname">postprocess.extrapolate_elem_attr.</tt><tt class="descname">create_attribute_at_nodes</tt><big>(</big><em>elemSet</em>, <em>attributeName</em>, <em>initialValue</em><big>)</big><a class="headerlink" href="#postprocess.extrapolate_elem_attr.create_attribute_at_nodes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="postprocess.extrapolate_elem_attr.extrapolate_elem_function_attr">
+<tt class="descclassname">postprocess.extrapolate_elem_attr.</tt><tt class="descname">extrapolate_elem_function_attr</tt><big>(</big><em>elemSet</em>, <em>attributeName</em>, <em>function</em>, <em>argument</em>, <em>initialValue=0.0</em><big>)</big><a class="headerlink" href="#postprocess.extrapolate_elem_attr.extrapolate_elem_function_attr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extrapolates element&#8217;s function values to the nodes.
+elemSet: set of elements.
+attributeName: name of the property which will be defined at the nodes.
+function: name of the function to call for each element.
+argument: name of the argument to send to the function (optional).
+initialValue: initial value for the attribute defined at the nodes.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="postprocess.extrapolate_elem_attr.flatten_attribute">
+<tt class="descclassname">postprocess.extrapolate_elem_attr.</tt><tt class="descname">flatten_attribute</tt><big>(</big><em>elemSet</em>, <em>attributeName</em>, <em>treshold</em>, <em>limit</em><big>)</big><a class="headerlink" href="#postprocess.extrapolate_elem_attr.flatten_attribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>reduce higher values which hide attribute variation over the model.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-postprocess.figure_collection">
+<span id="figure-collection"></span><h2>figure_collection<a class="headerlink" href="#module-postprocess.figure_collection" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="postprocess.figure_collection.FigsCollectionPlotter">
+<em class="property">class </em><tt class="descclassname">postprocess.figure_collection.</tt><tt class="descname">FigsCollectionPlotter</tt><a class="headerlink" href="#postprocess.figure_collection.FigsCollectionPlotter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="attribute">
+<dt id="postprocess.figure_collection.FigsCollectionPlotter.fUnits">
+<tt class="descname">fUnits</tt><em class="property"> = '[kN/m]'</em><a class="headerlink" href="#postprocess.figure_collection.FigsCollectionPlotter.fUnits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="postprocess.figure_collection.FigsCollectionPlotter.fieldFilesPath">
+<tt class="descname">fieldFilesPath</tt><em class="property"> = 'armatures/results/'</em><a class="headerlink" href="#postprocess.figure_collection.FigsCollectionPlotter.fieldFilesPath" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="postprocess.figure_collection.FigsCollectionPlotter.graphicOutputPath">
+<tt class="descname">graphicOutputPath</tt><em class="property"> = 'post_process/results/figures/'</em><a class="headerlink" href="#postprocess.figure_collection.FigsCollectionPlotter.graphicOutputPath" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="postprocess.figure_collection.FigsCollectionPlotter.latexOutputPath">
+<tt class="descname">latexOutputPath</tt><em class="property"> = 'post_process/results/'</em><a class="headerlink" href="#postprocess.figure_collection.FigsCollectionPlotter.latexOutputPath" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="postprocess.figure_collection.FigsCollectionPlotter.mUnits">
+<tt class="descname">mUnits</tt><em class="property"> = '[kN m/m]'</em><a class="headerlink" href="#postprocess.figure_collection.FigsCollectionPlotter.mUnits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.figure_collection.FigsCollectionPlotter.plotFatigue">
+<tt class="descname">plotFatigue</tt><big>(</big><em>preprocessor</em>, <em>partName</em>, <em>elemSetName</em><big>)</big><a class="headerlink" href="#postprocess.figure_collection.FigsCollectionPlotter.plotFatigue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.figure_collection.FigsCollectionPlotter.plotFissurationFreq">
+<tt class="descname">plotFissurationFreq</tt><big>(</big><em>preprocessor</em>, <em>partName</em>, <em>elemSetName</em><big>)</big><a class="headerlink" href="#postprocess.figure_collection.FigsCollectionPlotter.plotFissurationFreq" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.figure_collection.FigsCollectionPlotter.plotFissurationQP">
+<tt class="descname">plotFissurationQP</tt><big>(</big><em>preprocessor</em>, <em>partName</em>, <em>elemSetName</em><big>)</big><a class="headerlink" href="#postprocess.figure_collection.FigsCollectionPlotter.plotFissurationQP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.figure_collection.FigsCollectionPlotter.plotNormalStresses">
+<tt class="descname">plotNormalStresses</tt><big>(</big><em>preprocessor</em>, <em>partName</em>, <em>elemSetName</em><big>)</big><a class="headerlink" href="#postprocess.figure_collection.FigsCollectionPlotter.plotNormalStresses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.figure_collection.FigsCollectionPlotter.plotShear">
+<tt class="descname">plotShear</tt><big>(</big><em>preprocessor</em>, <em>partName</em>, <em>elemSetName</em><big>)</big><a class="headerlink" href="#postprocess.figure_collection.FigsCollectionPlotter.plotShear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="postprocess.figure_collection.FigsCollectionPlotter.sUnits">
+<tt class="descname">sUnits</tt><em class="property"> = '[MPa]'</em><a class="headerlink" href="#postprocess.figure_collection.FigsCollectionPlotter.sUnits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="postprocess.figure_collection.FigsCollectionPlotter.txtArmature1">
+<tt class="descname">txtArmature1</tt><em class="property"> = 'Armature en dir. long.'</em><a class="headerlink" href="#postprocess.figure_collection.FigsCollectionPlotter.txtArmature1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="postprocess.figure_collection.FigsCollectionPlotter.txtArmature2">
+<tt class="descname">txtArmature2</tt><em class="property"> = 'Armature en dir. trsv.'</em><a class="headerlink" href="#postprocess.figure_collection.FigsCollectionPlotter.txtArmature2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-postprocess.get_reactions">
+<span id="get-reactions"></span><h2>get_reactions<a class="headerlink" href="#module-postprocess.get_reactions" title="Permalink to this headline">¶</a></h2>
+<p>Reactions on nodes.</p>
+<dl class="class">
+<dt id="postprocess.get_reactions.Reactions">
+<em class="property">class </em><tt class="descclassname">postprocess.get_reactions.</tt><tt class="descname">Reactions</tt><big>(</big><em>preprocessor</em>, <em>supportNodes</em><big>)</big><a class="headerlink" href="#postprocess.get_reactions.Reactions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="method">
+<dt id="postprocess.get_reactions.Reactions.getReactionForces">
+<tt class="descname">getReactionForces</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.get_reactions.Reactions.getReactionForces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary with the reactions forces at the nodes.
+The key of the map is the node tag.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.get_reactions.Reactions.getReactionMoments">
+<tt class="descname">getReactionMoments</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.get_reactions.Reactions.getReactionMoments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary with the reactions moments at the nodes.
+The key of the map is the node tag.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.get_reactions.Reactions.getResultant">
+<tt class="descname">getResultant</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.get_reactions.Reactions.getResultant" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-postprocess.med_xc_vars">
+<span id="med-xc-vars"></span><h2>med_xc_vars<a class="headerlink" href="#module-postprocess.med_xc_vars" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-postprocess.prop_statistics">
+<span id="prop-statistics-module"></span><h2>prop_statistics module<a class="headerlink" href="#module-postprocess.prop_statistics" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="postprocess.prop_statistics.getItemWithMaxProp">
+<tt class="descclassname">postprocess.prop_statistics.</tt><tt class="descname">getItemWithMaxProp</tt><big>(</big><em>iterable</em>, <em>attrName</em>, <em>argv=''</em><big>)</big><a class="headerlink" href="#postprocess.prop_statistics.getItemWithMaxProp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return item wich maximizes property named as indicated in attrName</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="postprocess.prop_statistics.getItemWithMinProp">
+<tt class="descclassname">postprocess.prop_statistics.</tt><tt class="descname">getItemWithMinProp</tt><big>(</big><em>iterable</em>, <em>attrName</em><big>)</big><a class="headerlink" href="#postprocess.prop_statistics.getItemWithMinProp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return item wich minimizes property named as indicated in attrName</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="postprocess.prop_statistics.rec_getattr">
+<tt class="descclassname">postprocess.prop_statistics.</tt><tt class="descname">rec_getattr</tt><big>(</big><em>obj</em>, <em>attr</em>, <em>argv=''</em><big>)</big><a class="headerlink" href="#postprocess.prop_statistics.rec_getattr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get object&#8217;s attribute. May use dot notation.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span> <span class="k">pass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">b</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rec_getattr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s">&#39;b.c&#39;</span><span class="p">)</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="postprocess.prop_statistics.rec_setattr">
+<tt class="descclassname">postprocess.prop_statistics.</tt><tt class="descname">rec_setattr</tt><big>(</big><em>obj</em>, <em>attr</em>, <em>value</em><big>)</big><a class="headerlink" href="#postprocess.prop_statistics.rec_setattr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set object&#8217;s attribute. May use dot notation.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span> <span class="k">pass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">b</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rec_setattr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s">&#39;b.c&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">b</span><span class="o">.</span><span class="n">c</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-postprocess.recorders">
+<span id="recorders"></span><h2>recorders<a class="headerlink" href="#module-postprocess.recorders" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="postprocess.recorders.installNodeDisplacementRecorder">
+<tt class="descclassname">postprocess.recorders.</tt><tt class="descname">installNodeDisplacementRecorder</tt><big>(</big><em>recorderName</em>, <em>nodeSet</em><big>)</big><a class="headerlink" href="#postprocess.recorders.installNodeDisplacementRecorder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-postprocess.utils_display">
+<span id="utils-display"></span><h2>utils_display<a class="headerlink" href="#module-postprocess.utils_display" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="postprocess.utils_display.FigureBase">
+<em class="property">class </em><tt class="descclassname">postprocess.utils_display.</tt><tt class="descname">FigureBase</tt><big>(</big><em>pLabel</em>, <em>limitStateLabel</em>, <em>figDescr</em>, <em>reinfDescr=None</em>, <em>units=None</em>, <em>sz='90mm'</em><big>)</big><a class="headerlink" href="#postprocess.utils_display.FigureBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="method">
+<dt id="postprocess.utils_display.FigureBase.getCaption">
+<tt class="descname">getCaption</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.utils_display.FigureBase.getCaption" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.utils_display.FigureBase.getFileName">
+<tt class="descname">getFileName</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.utils_display.FigureBase.getFileName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.utils_display.FigureBase.insertIntoLatex">
+<tt class="descname">insertIntoLatex</tt><big>(</big><em>fichLatexFigs</em>, <em>fichLatexList</em>, <em>fichFig</em>, <em>labelText</em><big>)</big><a class="headerlink" href="#postprocess.utils_display.FigureBase.insertIntoLatex" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.utils_display.FigureDefinition">
+<em class="property">class </em><tt class="descclassname">postprocess.utils_display.</tt><tt class="descname">FigureDefinition</tt><big>(</big><em>pLabel</em>, <em>limitStateLabel</em>, <em>attrName</em>, <em>argument</em>, <em>figDescr</em>, <em>reinfDescr=None</em>, <em>units=None</em>, <em>sz='90mm'</em><big>)</big><a class="headerlink" href="#postprocess.utils_display.FigureDefinition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.utils_display.SlideDefinition" title="postprocess.utils_display.SlideDefinition"><tt class="xref py py-class docutils literal"><span class="pre">postprocess.utils_display.SlideDefinition</span></tt></a></p>
+<dl class="method">
+<dt id="postprocess.utils_display.FigureDefinition.defField">
+<tt class="descname">defField</tt><big>(</big><em>xcSet</em><big>)</big><a class="headerlink" href="#postprocess.utils_display.FigureDefinition.defField" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="postprocess.utils_display.FigureDefinition.diagrams">
+<tt class="descname">diagrams</tt><em class="property"> = None</em><a class="headerlink" href="#postprocess.utils_display.FigureDefinition.diagrams" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.utils_display.FigureDefinition.genGraphicFile">
+<tt class="descname">genGraphicFile</tt><big>(</big><em>defDisplay</em>, <em>xcSet</em>, <em>nmbFichGraf</em><big>)</big><a class="headerlink" href="#postprocess.utils_display.FigureDefinition.genGraphicFile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.utils_display.PartToDisplay">
+<em class="property">class </em><tt class="descclassname">postprocess.utils_display.</tt><tt class="descname">PartToDisplay</tt><big>(</big><em>partName</em>, <em>surfaceList</em>, <em>reinforcementLabels</em><big>)</big><a class="headerlink" href="#postprocess.utils_display.PartToDisplay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="method">
+<dt id="postprocess.utils_display.PartToDisplay.display">
+<tt class="descname">display</tt><big>(</big><em>preprocessor</em>, <em>tp</em>, <em>resultsToDisplay</em><big>)</big><a class="headerlink" href="#postprocess.utils_display.PartToDisplay.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate an image for every result to display
+resultToDisplay: collection of results to be displayed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.utils_display.PartToDisplay.getElementSet">
+<tt class="descname">getElementSet</tt><big>(</big><em>preprocessor</em><big>)</big><a class="headerlink" href="#postprocess.utils_display.PartToDisplay.getElementSet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.utils_display.PartToDisplay.getElements">
+<tt class="descname">getElements</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.utils_display.PartToDisplay.getElements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of the elements of this part.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.utils_display.PartToDisplay.getShortName">
+<tt class="descname">getShortName</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.utils_display.PartToDisplay.getShortName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.utils_display.PartToDisplayContainer">
+<em class="property">class </em><tt class="descclassname">postprocess.utils_display.</tt><tt class="descname">PartToDisplayContainer</tt><big>(</big><em>lst</em><big>)</big><a class="headerlink" href="#postprocess.utils_display.PartToDisplayContainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">dict</span></tt></p>
+<p>Parts to display in figures...</p>
+<dl class="method">
+<dt id="postprocess.utils_display.PartToDisplayContainer.add">
+<tt class="descname">add</tt><big>(</big><em>part</em><big>)</big><a class="headerlink" href="#postprocess.utils_display.PartToDisplayContainer.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.utils_display.PartToDisplayContainer.display">
+<tt class="descname">display</tt><big>(</big><em>preprocessor</em>, <em>tp</em>, <em>resultsToDisplay</em><big>)</big><a class="headerlink" href="#postprocess.utils_display.PartToDisplayContainer.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display results for each part.
+resultToDisplay: collection of results to be displayed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.utils_display.SlideDefinition">
+<em class="property">class </em><tt class="descclassname">postprocess.utils_display.</tt><tt class="descname">SlideDefinition</tt><big>(</big><em>pLabel</em>, <em>limitStateLabel</em>, <em>figDescr</em>, <em>reinfDescr=None</em>, <em>units=None</em>, <em>sz='90mm'</em><big>)</big><a class="headerlink" href="#postprocess.utils_display.SlideDefinition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.utils_display.FigureBase" title="postprocess.utils_display.FigureBase"><tt class="xref py py-class docutils literal"><span class="pre">postprocess.utils_display.FigureBase</span></tt></a></p>
+<dl class="method">
+<dt id="postprocess.utils_display.SlideDefinition.genGraphicFile">
+<tt class="descname">genGraphicFile</tt><big>(</big><em>preprocessor</em>, <em>defDisplay</em>, <em>xcSet</em>, <em>nmbFichGraf</em><big>)</big><a class="headerlink" href="#postprocess.utils_display.SlideDefinition.genGraphicFile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.utils_display.SlideDefinition.setupDiagrams">
+<tt class="descname">setupDiagrams</tt><big>(</big><big>)</big><a class="headerlink" href="#postprocess.utils_display.SlideDefinition.setupDiagrams" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.utils_display.TakePhotos">
+<em class="property">class </em><tt class="descclassname">postprocess.utils_display.</tt><tt class="descname">TakePhotos</tt><big>(</big><em>xcSet</em><big>)</big><a class="headerlink" href="#postprocess.utils_display.TakePhotos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Generation of bitmaps with analysis and design results.</p>
+<dl class="method">
+<dt id="postprocess.utils_display.TakePhotos.displayFigures">
+<tt class="descname">displayFigures</tt><big>(</big><em>figDefinitionList</em>, <em>LatexFigsFilename</em>, <em>LatexListFilename</em><big>)</big><a class="headerlink" href="#postprocess.utils_display.TakePhotos.displayFigures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates graphics files from figure definition list.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.utils_display.TakePhotos.insertFigureLatex">
+<tt class="descname">insertFigureLatex</tt><big>(</big><em>figDef</em>, <em>conta</em>, <em>fichFig</em>, <em>labelText</em><big>)</big><a class="headerlink" href="#postprocess.utils_display.TakePhotos.insertFigureLatex" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.utils_display.TakePhotos.plotFigures">
+<tt class="descname">plotFigures</tt><big>(</big><em>preprocessor</em>, <em>figDefinitionList</em>, <em>LatexFigsFilename</em>, <em>LatexListFilename</em><big>)</big><a class="headerlink" href="#postprocess.utils_display.TakePhotos.plotFigures" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">General topics</a><ul>
+<li><a class="reference internal" href="#module-postprocess.ControlVars">ControlVars</a></li>
+<li><a class="reference internal" href="#module-postprocess.ElementSectionMap">ElementSectionMap</a></li>
+<li><a class="reference internal" href="#module-postprocess.LimitStateData">LimitStateData</a></li>
+<li><a class="reference internal" href="#module-postprocess.PhantomModel">PhantomModel</a></li>
+<li><a class="reference internal" href="#module-postprocess.callback_controls">callback_controls</a></li>
+<li><a class="reference internal" href="#module-postprocess.def_params_control">def_params_control</a></li>
+<li><a class="reference internal" href="#module-postprocess.def_vars_control">def_vars_control</a></li>
+<li><a class="reference internal" href="#module-postprocess.extrapolate_elem_attr">extrapolate_elem_attr</a></li>
+<li><a class="reference internal" href="#module-postprocess.figure_collection">figure_collection</a></li>
+<li><a class="reference internal" href="#module-postprocess.get_reactions">get_reactions</a></li>
+<li><a class="reference internal" href="#module-postprocess.med_xc_vars">med_xc_vars</a></li>
+<li><a class="reference internal" href="#module-postprocess.prop_statistics">prop_statistics module</a></li>
+<li><a class="reference internal" href="#module-postprocess.recorders">recorders</a></li>
+<li><a class="reference internal" href="#module-postprocess.utils_display">utils_display</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="postprocess.html"
+                        title="previous chapter">Postprocessor</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="postprocess.elastic_beam_3d.html"
+                        title="next chapter">3D elastric beam postpro</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/postprocessor/postprGenTopics.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="postprocess.elastic_beam_3d.html" title="3D elastric beam postpro"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="postprocess.html" title="Postprocessor"
+             >previous</a> |</li>
+        <li><a href="../index.html">XC 3.0 documentation</a> &raquo;</li>
+          <li><a href="postprocess.html" >Postprocessor</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, Luis Pérez Tato (LCPT) &amp; Ana Ortega (A_OO).
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

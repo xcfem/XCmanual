@@ -445,8 +445,8 @@ e.g. [dispX,dispY,dispZ]</li>
 <p>gridModelData.py: model generation based on a grid of 3D positions. Data structures.</p>
 <dl class="class">
 <dt id="model.grid_based.GridModel.BeamMaterialData">
-<em class="property">class </em><tt class="descclassname">model.grid_based.GridModel.</tt><tt class="descname">BeamMaterialData</tt><big>(</big><em>name</em>, <em>E</em>, <em>nu</em>, <em>rho</em>, <em>b</em>, <em>h</em><big>)</big><a class="headerlink" href="#model.grid_based.GridModel.BeamMaterialData" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#model.grid_based.GridModel.MaterialData" title="model.grid_based.GridModel.MaterialData"><tt class="xref py py-class docutils literal"><span class="pre">model.grid_based.GridModel.MaterialData</span></tt></a></p>
+<em class="property">class </em><tt class="descclassname">model.grid_based.GridModel.</tt><tt class="descname">BeamMaterialData</tt><big>(</big><em>name</em>, <em>section</em>, <em>material</em><big>)</big><a class="headerlink" href="#model.grid_based.GridModel.BeamMaterialData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>Constructs an elastic section appropiate for 3D beam analysis, including shear deformations.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -454,11 +454,11 @@ e.g. [dispX,dispY,dispZ]</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><strong>name</strong> &#8211; name identifying the section</li>
-<li><strong>E</strong> &#8211; Young’s modulus of the material</li>
-<li><strong>nu</strong> &#8211; Poisson’s ratio</li>
-<li><strong>rho</strong> &#8211; mass density</li>
-<li><strong>b</strong> &#8211; cross-section width (parallel to local z axis)</li>
-<li><strong>h</strong> &#8211; cross-section height (parallel to local y axis)</li>
+<li><strong>section</strong> &#8211; instance of a class that defines the geometric and
+mechanical characteristiscs of a section
+e.g: RectangularSection, CircularSection, ISection, ...</li>
+<li><strong>material</strong> &#8211; instance of a class that defines the elastic modulus, shear modulus
+and mass density of the material</li>
 </ul>
 </td>
 </tr>
@@ -496,12 +496,26 @@ e.g. [dispX,dispY,dispZ]</li>
 <dt id="model.grid_based.GridModel.ConstrainedRanges">
 <em class="property">class </em><tt class="descclassname">model.grid_based.GridModel.</tt><tt class="descname">ConstrainedRanges</tt><big>(</big><em>name</em>, <em>grid</em>, <em>constraints</em><big>)</big><a class="headerlink" href="#model.grid_based.GridModel.ConstrainedRanges" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#model.grid_based.GridModel.IJKRangeList" title="model.grid_based.GridModel.IJKRangeList"><tt class="xref py py-class docutils literal"><span class="pre">model.grid_based.GridModel.IJKRangeList</span></tt></a></p>
-<p>Region of constrained nodes [uX, uY, uZ,rotX, rotY, rotZ], where</p>
-<ul class="simple">
+<p>Constrains in the nodes belonging to the lines in a range-region</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> &#8211; name to identify the boundary condition</li>
+<li><strong>grid</strong> &#8211; name of the grid-based model</li>
+<li><strong>constraints</strong> &#8211; <p>constraint conditions, expressed as [uX, uY, uZ,rotX, rotY, rotZ], where:</p>
+<ul>
 <li>uX, uY, uZ: translations in the X, Y and Z directions;</li>
 <li>rotX, rotY, rotZ: rotations about the X, Y and Z axis</li>
-<li>free: means no constraint</li>
+<li>&#8216;free&#8217;: means no constraint</li>
 </ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="model.grid_based.GridModel.ConstrainedRanges.generateContraintsInLines">
 <tt class="descname">generateContraintsInLines</tt><big>(</big><big>)</big><a class="headerlink" href="#model.grid_based.GridModel.ConstrainedRanges.generateContraintsInLines" title="Permalink to this definition">¶</a></dt>
@@ -523,8 +537,8 @@ e.g. [dispX,dispY,dispZ]</li>
 
 <dl class="class">
 <dt id="model.grid_based.GridModel.DeckMaterialData">
-<em class="property">class </em><tt class="descclassname">model.grid_based.GridModel.</tt><tt class="descname">DeckMaterialData</tt><big>(</big><em>name</em>, <em>E</em>, <em>nu</em>, <em>rho</em>, <em>thickness</em><big>)</big><a class="headerlink" href="#model.grid_based.GridModel.DeckMaterialData" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#model.grid_based.GridModel.MaterialData" title="model.grid_based.GridModel.MaterialData"><tt class="xref py py-class docutils literal"><span class="pre">model.grid_based.GridModel.MaterialData</span></tt></a></p>
+<em class="property">class </em><tt class="descclassname">model.grid_based.GridModel.</tt><tt class="descname">DeckMaterialData</tt><big>(</big><em>name</em>, <em>thickness</em>, <em>material</em><big>)</big><a class="headerlink" href="#model.grid_based.GridModel.DeckMaterialData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
 <p>Isotropic elastic section-material appropiate for plate and shell analysis</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -532,10 +546,9 @@ e.g. [dispX,dispY,dispZ]</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><strong>name</strong> &#8211; name identifying the section</li>
-<li><strong>E</strong> &#8211; Young’s modulus of the material</li>
-<li><strong>nu</strong> &#8211; Poisson’s ratio</li>
-<li><strong>rho</strong> &#8211; mass density</li>
 <li><strong>thickness</strong> &#8211; overall depth of the section</li>
+<li><strong>material</strong> &#8211; instance of a class that defines the elastic modulus, shear modulus
+and mass density of the material</li>
 </ul>
 </td>
 </tr>
@@ -809,7 +822,27 @@ e.g. [dispX,dispY,dispZ]</li>
 <dl class="method">
 <dt id="model.grid_based.GridModel.GridModel.newConstrainedRanges">
 <tt class="descname">newConstrainedRanges</tt><big>(</big><em>name</em>, <em>constraints</em><big>)</big><a class="headerlink" href="#model.grid_based.GridModel.GridModel.newConstrainedRanges" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Creates a new range-region of constained nodes (only those nodes
+that belong to the lines contained in the region)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> &#8211; name to identify the boundary condition</li>
+<li><strong>constraints</strong> &#8211; <p>constraint conditions, expressed as [uX, uY, uZ,rotX, rotY, rotZ], where:</p>
+<ul>
+<li>uX, uY, uZ: translations in the X, Y and Z directions;</li>
+<li>rotX, rotY, rotZ: rotations about the X, Y and Z axis</li>
+<li>&#8216;free&#8217;: means no constraint</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="model.grid_based.GridModel.GridModel.newElasticFoundationRanges">
@@ -835,7 +868,7 @@ the contact plane (springs in X, Y directions)</li>
 
 <dl class="method">
 <dt id="model.grid_based.GridModel.GridModel.newMaterialLine">
-<tt class="descname">newMaterialLine</tt><big>(</big><em>name</em>, <em>material</em>, <em>elemType</em>, <em>elemSize</em><big>)</big><a class="headerlink" href="#model.grid_based.GridModel.GridModel.newMaterialLine" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">newMaterialLine</tt><big>(</big><em>name</em>, <em>material</em>, <em>elemType</em>, <em>elemSize</em>, <em>vDirLAxY</em><big>)</big><a class="headerlink" href="#model.grid_based.GridModel.GridModel.newMaterialLine" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -854,6 +887,7 @@ the contact plane (springs in X, Y directions)</li>
 <li><strong>material</strong> &#8211; name of the material that makes up the surface</li>
 <li><strong>elemType</strong> &#8211; element type be used in the discretization</li>
 <li><strong>elemSize</strong> &#8211; mean size of the elements</li>
+<li><strong>vDirLAxY</strong> &#8211; direction vector for the element local axis Y</li>
 </ul>
 </td>
 </tr>
@@ -1208,27 +1242,6 @@ performing a limit state analysis</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="model.grid_based.GridModel.MaterialData">
-<em class="property">class </em><tt class="descclassname">model.grid_based.GridModel.</tt><tt class="descname">MaterialData</tt><big>(</big><em>name</em>, <em>E</em>, <em>nu</em>, <em>rho</em><big>)</big><a class="headerlink" href="#model.grid_based.GridModel.MaterialData" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
-<p>Base class to construct some material definition classes</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>name</strong> &#8211; name identifying the material or section</li>
-<li><strong>E</strong> &#8211; Young’s modulus of the material</li>
-<li><strong>nu</strong> &#8211; Poisson’s ratio</li>
-<li><strong>rho</strong> &#8211; mass density</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="class">
 <dt id="model.grid_based.GridModel.MaterialDataMap">
 <em class="property">class </em><tt class="descclassname">model.grid_based.GridModel.</tt><tt class="descname">MaterialDataMap</tt><big>(</big><em>materialDataList</em><big>)</big><a class="headerlink" href="#model.grid_based.GridModel.MaterialDataMap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#model.grid_based.GridModel.NamedObjectsMap" title="model.grid_based.GridModel.NamedObjectsMap"><tt class="xref py py-class docutils literal"><span class="pre">model.grid_based.GridModel.NamedObjectsMap</span></tt></a></p>
@@ -1242,9 +1255,25 @@ performing a limit state analysis</p>
 
 <dl class="class">
 <dt id="model.grid_based.GridModel.MaterialLine">
-<em class="property">class </em><tt class="descclassname">model.grid_based.GridModel.</tt><tt class="descname">MaterialLine</tt><big>(</big><em>name</em>, <em>grid</em>, <em>material</em>, <em>elemType</em>, <em>elemSize</em><big>)</big><a class="headerlink" href="#model.grid_based.GridModel.MaterialLine" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">model.grid_based.GridModel.</tt><tt class="descname">MaterialLine</tt><big>(</big><em>name</em>, <em>grid</em>, <em>material</em>, <em>elemType</em>, <em>elemSize</em>, <em>vDirLAxY</em><big>)</big><a class="headerlink" href="#model.grid_based.GridModel.MaterialLine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#model.grid_based.GridModel.MaterialBase" title="model.grid_based.GridModel.MaterialBase"><tt class="xref py py-class docutils literal"><span class="pre">model.grid_based.GridModel.MaterialBase</span></tt></a></p>
-<p>Line defined by a range list, a material and an element type and size.</p>
+<p>Line defined by a range list, a material and an element type, size and direction vector.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> &#8211; name to identify the material-line</li>
+<li><strong>material</strong> &#8211; name of the material that makes up the line</li>
+<li><strong>elemType</strong> &#8211; element type to be used in the discretization</li>
+<li><strong>elemSize</strong> &#8211; mean size of the elements</li>
+<li><strong>vDirLAxY</strong> &#8211; direction vector for the element local axis Y</li>
+<li><strong>ranges</strong> &#8211; lists of grid ranges to delimit the lines of the type in question</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="model.grid_based.GridModel.MaterialLine.generateLines">
 <tt class="descname">generateLines</tt><big>(</big><em>dicLin</em><big>)</big><a class="headerlink" href="#model.grid_based.GridModel.MaterialLine.generateLines" title="Permalink to this definition">¶</a></dt>
@@ -1258,7 +1287,14 @@ performing a limit state analysis</p>
 <dl class="method">
 <dt id="model.grid_based.GridModel.MaterialLine.getElements">
 <tt class="descname">getElements</tt><big>(</big><big>)</big><a class="headerlink" href="#model.grid_based.GridModel.MaterialLine.getElements" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a list of the elements of the material line.</p>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a list of the elements of the material line.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">

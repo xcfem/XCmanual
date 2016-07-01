@@ -234,8 +234,6 @@ as an approximation for the compressive force in the arch at any location</p>
 </div>
 <div class="section" id="module-rough_calculations.cable_stayed_bridge_simple_model">
 <span id="cable-stayed-bridge-simple-model"></span><h1>cable_stayed_bridge_simple_model<a class="headerlink" href="#module-rough_calculations.cable_stayed_bridge_simple_model" title="Permalink to this headline">¶</a></h1>
-<p>From the notes of María E. Moreyra Garlock in the context of
-the course &#8216;The Art of Structural Engineering: Bridges</p>
 <dl class="class">
 <dt id="rough_calculations.cable_stayed_bridge_simple_model.CableStayedBridgeRoughModel">
 <em class="property">class </em><tt class="descclassname">rough_calculations.cable_stayed_bridge_simple_model.</tt><tt class="descname">CableStayedBridgeRoughModel</tt><big>(</big><em>l1</em><big>)</big><a class="headerlink" href="#rough_calculations.cable_stayed_bridge_simple_model.CableStayedBridgeRoughModel" title="Permalink to this definition">¶</a></dt>
@@ -685,7 +683,7 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 
 <dl class="attribute">
 <dt id="rough_calculations.ng_rc_section.RCSection.beton">
-<tt class="descname">beton</tt><em class="property"> = &lt;materials.sia262.concreteSIA262.ConcreteSIA262 object at 0x2b87dbfd0cd0&gt;</em><a class="headerlink" href="#rough_calculations.ng_rc_section.RCSection.beton" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">beton</tt><em class="property"> = C25-30</em><a class="headerlink" href="#rough_calculations.ng_rc_section.RCSection.beton" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -953,15 +951,19 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 <dt id="rough_calculations.ng_retaining_wall.EffortsMur">
 <em class="property">class </em><tt class="descclassname">rough_calculations.ng_retaining_wall.</tt><tt class="descname">EffortsMur</tt><big>(</big><em>y</em>, <em>mdMax</em>, <em>vdMax</em>, <em>MdSemelle</em>, <em>VdSemelle</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.EffortsMur" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Internal forces for a retaining wall obtained from
+Laryx (Cubus suite) software.</p>
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.EffortsMur.Md">
 <tt class="descname">Md</tt><big>(</big><em>yCoupe</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.EffortsMur.Md" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Bending moment (envelope) at height yCoupe.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.EffortsMur.MdEncastrement">
 <tt class="descname">MdEncastrement</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.EffortsMur.MdEncastrement" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Bending moment (envelope) at stem base.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="rough_calculations.ng_retaining_wall.EffortsMur.MdSemelle">
@@ -971,12 +973,14 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.EffortsMur.Vd">
 <tt class="descname">Vd</tt><big>(</big><em>yCoupe</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.EffortsMur.Vd" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Shear (envelope) at height yCoupe.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.EffortsMur.VdEncastrement">
 <tt class="descname">VdEncastrement</tt><big>(</big><em>epaisseurEncastrement</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.EffortsMur.VdEncastrement" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Shear force (envelope) at stem base.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="rough_calculations.ng_retaining_wall.EffortsMur.VdSemelle">
@@ -1000,7 +1004,7 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 
 <dl class="attribute">
 <dt id="rough_calculations.ng_retaining_wall.EffortsMur.mdMaxVoile">
-<tt class="descname">mdMaxVoile</tt><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object at 0x2b87dc4d7950&gt;</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.EffortsMur.mdMaxVoile" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">mdMaxVoile</tt><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object at 0x2b6831c3f090&gt;</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.EffortsMur.mdMaxVoile" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -1010,13 +1014,15 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 
 <dl class="attribute">
 <dt id="rough_calculations.ng_retaining_wall.EffortsMur.vdMaxVoile">
-<tt class="descname">vdMaxVoile</tt><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object at 0x2b87dc4d7990&gt;</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.EffortsMur.vdMaxVoile" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">vdMaxVoile</tt><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object at 0x2b6831c3f0d0&gt;</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.EffortsMur.vdMaxVoile" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.EffortsMur.writeGraphic">
 <tt class="descname">writeGraphic</tt><big>(</big><em>fileName</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.EffortsMur.writeGraphic" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Draws a graphic of internal forces (envelopes) in
+the wall stem.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="rough_calculations.ng_retaining_wall.EffortsMur.y">
@@ -1029,6 +1035,7 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall">
 <em class="property">class </em><tt class="descclassname">rough_calculations.ng_retaining_wall.</tt><tt class="descname">RetainingWall</tt><big>(</big><em>name</em>, <em>enrobage</em>, <em>hEncastrement</em>, <em>hCouronnement</em>, <em>hSemelle</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Cantilever retaining wall.</p>
 <dl class="attribute">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.acier">
 <tt class="descname">acier</tt><em class="property"> = B500B</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.acier" title="Permalink to this definition">¶</a></dt>
@@ -1046,13 +1053,14 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 
 <dl class="attribute">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.beton">
-<tt class="descname">beton</tt><em class="property"> = &lt;materials.sia262.concreteSIA262.ConcreteSIA262 object at 0x2b87dbfd0cd0&gt;</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.beton" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">beton</tt><em class="property"> = C25-30</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.beton" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.drawSchema">
-<tt class="descname">drawSchema</tt><big>(</big><em>pth</em>, <em>effortsMur</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.drawSchema" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<tt class="descname">drawSchema</tt><big>(</big><em>pth</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.drawSchema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retaining wall scheme drawing in LaTeX format.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.enrobage">
@@ -1067,52 +1075,62 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.getBasicAnchorageLength">
 <tt class="descname">getBasicAnchorageLength</tt><big>(</big><em>index</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getBasicAnchorageLength" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns basic anchorage length for the armatures at &#8220;index&#8221;.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.getDepth">
-<tt class="descname">getDepth</tt><big>(</big><em>hauteurVoile</em>, <em>y</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getDepth" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<tt class="descname">getDepth</tt><big>(</big><em>y</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getDepth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return sections depth for height &#8220;y&#8221;)</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.getSection1">
 <tt class="descname">getSection1</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getSection1" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns RC section for armature in position 1.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.getSection11">
 <tt class="descname">getSection11</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getSection11" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns RC section for armature in position 11.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.getSection2">
-<tt class="descname">getSection2</tt><big>(</big><em>hauteurVoile</em>, <em>y</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getSection2" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<tt class="descname">getSection2</tt><big>(</big><em>y</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getSection2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns RC section for armature in position 2.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.getSection3">
 <tt class="descname">getSection3</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getSection3" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns RC section for armature in position 3.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.getSection4">
 <tt class="descname">getSection4</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getSection4" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns RC section for armature in position 4.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.getSection6">
 <tt class="descname">getSection6</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getSection6" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns RC section for armature in position 6.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.getSection7">
 <tt class="descname">getSection7</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getSection7" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns RC section for armature in position 7.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.getSection8">
 <tt class="descname">getSection8</tt><big>(</big><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getSection8" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns RC section for armature in position 8.</p>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.hCouronnement">
@@ -1137,17 +1155,26 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.setArmature">
 <tt class="descname">setArmature</tt><big>(</big><em>index</em>, <em>armature</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.setArmature" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Assigns armature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.setInternalForcesEnvelope">
+<tt class="descname">setInternalForcesEnvelope</tt><big>(</big><em>effortsMur</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.setInternalForcesEnvelope" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assigns the infernal forces envelope for the stem.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.writeDef">
-<tt class="descname">writeDef</tt><big>(</big><em>pth</em>, <em>outputFile</em>, <em>effortsMur</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.writeDef" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<tt class="descname">writeDef</tt><big>(</big><em>pth</em>, <em>outputFile</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.writeDef" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write wall definition in LaTeX format.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.writeResult">
-<tt class="descname">writeResult</tt><big>(</big><em>pth</em>, <em>effortsMur</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.writeResult" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<tt class="descname">writeResult</tt><big>(</big><em>pth</em><big>)</big><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.writeResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write reinforcement verification results in LaTeX format.</p>
+</dd></dl>
 
 </dd></dl>
 

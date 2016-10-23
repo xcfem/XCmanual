@@ -1000,7 +1000,8 @@
 <dd><dl class="method">
 <dt id="geom.ListaPos2d.agregaPunto">
 <code class="descname">agregaPunto</code><span class="sig-paren">(</span><em>(ListaPos2d)arg1</em>, <em>(Pos2d)arg2</em><span class="sig-paren">)</span> &rarr; Pos2d :<a class="headerlink" href="#geom.ListaPos2d.agregaPunto" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>appends a point to the end of the list.</p>
+<dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>Pos2d const* agregaPunto(ListaPos2d {lvalue},Pos2d)</dd>
 </dl>
@@ -1009,7 +1010,8 @@
 <dl class="method">
 <dt id="geom.ListaPos2d.getArea">
 <code class="descname">getArea</code><span class="sig-paren">(</span><em>(ListaPos2d)arg1</em><span class="sig-paren">)</span> &rarr; float :<a class="headerlink" href="#geom.ListaPos2d.getArea" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>returns enclosed area.</p>
+<dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>double getArea(ListaPos2d {lvalue})</dd>
 </dl>
@@ -1018,9 +1020,20 @@
 <dl class="method">
 <dt id="geom.ListaPos2d.getCdg">
 <code class="descname">getCdg</code><span class="sig-paren">(</span><em>(ListaPos2d)arg1</em><span class="sig-paren">)</span> &rarr; Pos2d :<a class="headerlink" href="#geom.ListaPos2d.getCdg" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>returns center of gravity.</p>
+<dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>Pos2d getCdg(ListaPos2d {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="geom.ListaPos2d.getNumberOfVertices">
+<code class="descname">getNumberOfVertices</code><span class="sig-paren">(</span><em>(ListaPos2d)arg1</em><span class="sig-paren">)</span> &rarr; int :<a class="headerlink" href="#geom.ListaPos2d.getNumberOfVertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the number of vertices.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>unsigned long getNumberOfVertices(ListaPos2d {lvalue})</dd>
 </dl>
 </dd></dl>
 
@@ -1623,11 +1636,31 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="geom.Polilinea2d.isClosed">
+<code class="descname">isClosed</code><span class="sig-paren">(</span><em>(Polilinea2d)arg1</em>, <em>(float)arg2</em><span class="sig-paren">)</span> &rarr; bool :<a class="headerlink" href="#geom.Polilinea2d.isClosed" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns true if the last vertex is coincident with the first one -dist(first,last)&lt;tol*length-.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>bool isClosed(Polilinea2d {lvalue},double)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="geom.Polilinea2d.offset">
 <code class="descname">offset</code><span class="sig-paren">(</span><em>(Polilinea2d)arg1</em>, <em>(float)arg2</em><span class="sig-paren">)</span> &rarr; Polilinea2d :<a class="headerlink" href="#geom.Polilinea2d.offset" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>Polilinea2d offset(Polilinea2d {lvalue},double)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="geom.Polilinea2d.simplify">
+<code class="descname">simplify</code><span class="sig-paren">(</span><em>(Polilinea2d)arg1</em>, <em>(float)arg2</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#geom.Polilinea2d.simplify" title="Permalink to this definition">¶</a></dt>
+<dd><p>simplification of the polyline (Douglas-Peucker algorithm).</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void simplify(Polilinea2d {lvalue},double)</dd>
 </dl>
 </dd></dl>
 
@@ -1678,6 +1711,26 @@
 <dd><dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>unsigned long getNumVertices(Polilinea3d {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="geom.Polilinea3d.isClosed">
+<code class="descname">isClosed</code><span class="sig-paren">(</span><em>(Polilinea3d)arg1</em>, <em>(float)arg2</em><span class="sig-paren">)</span> &rarr; bool :<a class="headerlink" href="#geom.Polilinea3d.isClosed" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns true if the last vertex is coincident with the first one -dist(first,last)&lt;tol*length-.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>bool isClosed(Polilinea3d {lvalue},double)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="geom.Polilinea3d.simplify">
+<code class="descname">simplify</code><span class="sig-paren">(</span><em>(Polilinea3d)arg1</em>, <em>(float)arg2</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#geom.Polilinea3d.simplify" title="Permalink to this definition">¶</a></dt>
+<dd><p>simplification of the polyline (Douglas-Peucker algorithm).</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void simplify(Polilinea3d {lvalue},double)</dd>
 </dl>
 </dd></dl>
 

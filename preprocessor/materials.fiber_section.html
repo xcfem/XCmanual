@@ -407,7 +407,7 @@ Parameters:</dd>
 <span id="defseccionhasimple"></span><h2>defSeccionHASimple<a class="headerlink" href="#module-materials.fiber_section.defSeccionHASimple" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="materials.fiber_section.defSeccionHASimple.BasicRecordRCSection">
-<em class="property">class </em><code class="descclassname">materials.fiber_section.defSeccionHASimple.</code><code class="descname">BasicRecordRCSection</code><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.BasicRecordRCSection" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">materials.fiber_section.defSeccionHASimple.</code><code class="descname">BasicRecordRCSection</code><span class="sig-paren">(</span><em>width=0.25</em>, <em>depth=0.25</em>, <em>concrType=None</em>, <em>reinfSteelType=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.BasicRecordRCSection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>This class is used to define the basic variables that make up a reinforced 
 concrete section.</p>
@@ -539,7 +539,7 @@ between the 2d positions p1 and p2.</p>
 
 <dl class="class">
 <dt id="materials.fiber_section.defSeccionHASimple.RecordRCSimpleSection">
-<em class="property">class </em><code class="descclassname">materials.fiber_section.defSeccionHASimple.</code><code class="descname">RecordRCSimpleSection</code><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.RecordRCSimpleSection" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">materials.fiber_section.defSeccionHASimple.</code><code class="descname">RecordRCSimpleSection</code><span class="sig-paren">(</span><em>width=0.25</em>, <em>depth=0.25</em>, <em>concrType=None</em>, <em>reinfSteelType=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.RecordRCSimpleSection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#materials.fiber_section.defSeccionHASimple.BasicRecordRCSection" title="materials.fiber_section.defSeccionHASimple.BasicRecordRCSection"><code class="xref py py-class docutils literal"><span class="pre">materials.fiber_section.defSeccionHASimple.BasicRecordRCSection</span></code></a></p>
 <p>This class is used to define the variables that make up a reinforced 
 concrete section with top and bottom reinforcement layers.</p>
@@ -798,7 +798,7 @@ in the positive face</p>
 <dl class="class">
 <dt id="materials.fiber_section.defSeccionHASimple.RecordRCSlabSection">
 <em class="property">class </em><code class="descclassname">materials.fiber_section.defSeccionHASimple.</code><code class="descname">RecordRCSlabSection</code><span class="sig-paren">(</span><em>name</em>, <em>sectionDescr</em>, <em>depth</em>, <em>concrType</em>, <em>reinfSteelType</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.RecordRCSlabSection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="#materials.fiber_section.defSeccionHASimple.setRCSections2SetElVerif" title="materials.fiber_section.defSeccionHASimple.setRCSections2SetElVerif"><code class="xref py py-class docutils literal"><span class="pre">materials.fiber_section.defSeccionHASimple.setRCSections2SetElVerif</span></code></a></p>
 <p>This class is used to define the variables that make up a reinforced concrete slab 
 section with several reinforcement layers in the top and bottom faces</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -883,12 +883,6 @@ negative face of the section (list of MainReinfLayer)</li>
 <dt id="materials.fiber_section.defSeccionHASimple.RecordRCSlabSection.getMainReinfProperty">
 <code class="descname">getMainReinfProperty</code><span class="sig-paren">(</span><em>code</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.RecordRCSlabSection.getMainReinfProperty" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.fiber_section.defSeccionHASimple.RecordRCSlabSection.getNBar">
-<code class="descname">getNBar</code><span class="sig-paren">(</span><em>code</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.RecordRCSlabSection.getNBar" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of number of bars.</p>
-</dd></dl>
 
 <dl class="method">
 <dt id="materials.fiber_section.defSeccionHASimple.RecordRCSlabSection.getNBar1neg">
@@ -1008,6 +1002,168 @@ and the axis of the member</li>
 desired property (As1+,As1-,...,d1+,d1-,...).</p>
 </dd></dl>
 
+<dl class="class">
+<dt id="materials.fiber_section.defSeccionHASimple.setRCSections2SetElVerif">
+<em class="property">class </em><code class="descclassname">materials.fiber_section.defSeccionHASimple.</code><code class="descname">setRCSections2SetElVerif</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.setRCSections2SetElVerif" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>This class defines the set of reinforced concrete sections that are going to
+be associated to a set of elements in order to carry out the verifications of the
+limit states.
+:ivar name:       name given to the list of reinforced concrete sections
+:ivar lstRCSects: list of reinforced concrete sections that will be associated to</p>
+<blockquote>
+<div>a set of elements in order to carry out their LS verifications.
+The items of the list are instances of the object RecordRCSimpleSection
+lstRCSects[0]=section in 1 direction
+lstRCSects[1]=section in 2 direction ...</div></blockquote>
+<dl class="method">
+<dt id="materials.fiber_section.defSeccionHASimple.setRCSections2SetElVerif.append_section">
+<code class="descname">append_section</code><span class="sig-paren">(</span><em>RCSimplSect</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.setRCSections2SetElVerif.append_section" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.fiber_section.defSeccionHASimple.setRCSections2SetElVerif.getAsneg">
+<code class="descname">getAsneg</code><span class="sig-paren">(</span><em>sectNmb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.setRCSections2SetElVerif.getAsneg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Steel area in local negative face of the simple section identified by the sectNmb</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectNmb</strong> &#8211; integer number identifying the section (1 correponds to the section stored
+in  lstRCSects[0] ...)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.fiber_section.defSeccionHASimple.setRCSections2SetElVerif.getAspos">
+<code class="descname">getAspos</code><span class="sig-paren">(</span><em>sectNmb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.setRCSections2SetElVerif.getAspos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Steel area in local positive face of the simple section identified by the sectNmb</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectNmb</strong> &#8211; integer number identifying the section (1 correponds to the section stored
+in  lstRCSects[0] ...)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.fiber_section.defSeccionHASimple.setRCSections2SetElVerif.getDiamneg">
+<code class="descname">getDiamneg</code><span class="sig-paren">(</span><em>sectNmb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.setRCSections2SetElVerif.getDiamneg" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of bar diameter in rows of the local negative face  of the simple section identified by the sectNmb</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectNmb</strong> &#8211; integer number identifying the section (1 correponds to the section stored
+in  lstRCSects[0] ...)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.fiber_section.defSeccionHASimple.setRCSections2SetElVerif.getDiampos">
+<code class="descname">getDiampos</code><span class="sig-paren">(</span><em>sectNmb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.setRCSections2SetElVerif.getDiampos" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of bar diameter in rows of the local positive face of the simple section identified by the sectNmb</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectNmb</strong> &#8211; integer number identifying the section (1 correponds to the section stored
+in  lstRCSects[0] ...)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.fiber_section.defSeccionHASimple.setRCSections2SetElVerif.getNBarneg">
+<code class="descname">getNBarneg</code><span class="sig-paren">(</span><em>sectNmb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.setRCSections2SetElVerif.getNBarneg" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of number of bars in rows of the local negative face of the simple section identified by the sectNmb</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectNmb</strong> &#8211; integer number identifying the section (1 correponds to the section stored
+in  lstRCSects[0] ...)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.fiber_section.defSeccionHASimple.setRCSections2SetElVerif.getNBarpos">
+<code class="descname">getNBarpos</code><span class="sig-paren">(</span><em>sectNmb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.setRCSections2SetElVerif.getNBarpos" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of number of bars in rows of the local positive face of the simple section identified by the sectNmb</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectNmb</strong> &#8211; integer number identifying the section (1 correponds to the section stored
+in  lstRCSects[0] ...)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.fiber_section.defSeccionHASimple.setRCSections2SetElVerif.getSneg">
+<code class="descname">getSneg</code><span class="sig-paren">(</span><em>sectNmb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.setRCSections2SetElVerif.getSneg" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of distances between bars of rows  in the local negative face of the simple section identified by the sectNmb</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectNmb</strong> &#8211; integer number identifying the section (1 correponds to the section stored
+in  lstRCSects[0] ...)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.fiber_section.defSeccionHASimple.setRCSections2SetElVerif.getSpos">
+<code class="descname">getSpos</code><span class="sig-paren">(</span><em>sectNmb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.setRCSections2SetElVerif.getSpos" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of distances between bars of rows the in local positive face of the simple section identified by the sectNmb</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectNmb</strong> &#8211; integer number identifying the section (1 correponds to the section stored
+in  lstRCSects[0] ...)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.fiber_section.defSeccionHASimple.setRCSections2SetElVerif.setShearReinf">
+<code class="descname">setShearReinf</code><span class="sig-paren">(</span><em>sectNmb</em>, <em>nShReinfBranches</em>, <em>areaShReinfBranch</em>, <em>spacing</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.setRCSections2SetElVerif.setShearReinf" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets parameters of the shear reinforcement of the simple section identified by the sectNmb</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sectNmb</strong> &#8211; integer number identifying the section (1 correponds to the section stored
+in  lstRCSects[0] ...)</li>
+<li><strong>nShReinfBranches</strong> &#8211; number of shear reinforcing branches</li>
+<li><strong>areaShReinfBranch</strong> &#8211; area of the cross-section of each stirrup</li>
+<li><strong>spacing</strong> &#8211; spacing of the stirrups</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-materials.fiber_section.fiberUtils">
 <span id="fiberutils"></span><h2>fiberUtils<a class="headerlink" href="#module-materials.fiber_section.fiberUtils" title="Permalink to this headline">¶</a></h2>
@@ -1066,14 +1222,27 @@ methodName: name of the method that returns the fiber property searched</div></b
 
 <dl class="class">
 <dt id="materials.fiber_section.sectionReport.SectionInfo">
-<em class="property">class </em><code class="descclassname">materials.fiber_section.sectionReport.</code><code class="descname">SectionInfo</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>section</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.sectionReport.SectionInfo" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">materials.fiber_section.sectionReport.</code><code class="descname">SectionInfo</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>sectName</em>, <em>sectDescr</em>, <em>concrete</em>, <em>rfSteel</em>, <em>concrDiag</em>, <em>rfStDiag</em>, <em>geomSection</em>, <em>width</em>, <em>depth</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.sectionReport.SectionInfo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
-<p>Obtains section parameters for report</p>
+<p>Obtains the fiber section parameters for writing its report page
+:ivar preprocessor: preprocessor
+:ivar sectName:     section name (used as title for the table and as caption, also)
+:ivar sectDescr:    section description (used as subtitle for the table}
+:ivar concrete:     concrete (its name and elastic modulus are reported on the table)
+:ivar rfSteel:      reinforcing steeĺ (its name and elastic modulus are reported on the table)
+:ivar concrDiag:    concrete diagram 
+:ivar rfStDiag:     reinforcing steel diagram
+:ivar geomSection:  material fiber section
+:ivar width:        width of the rectangular section (reported on the table and used to calculate</p>
+<blockquote>
+<div>the torsional inertia, also)</div></blockquote>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>depth</strong> &#8211; depth of the rectangular section (reported on the table and used to calculate
+the torsional inertia, also)</li>
 <li><strong>G,A,I</strong> &#8211; match center of gravity, area and inertia tensor, respectively</li>
 <li><strong>B,H</strong> &#8211; match gross and homogenized sections, respectively</li>
 <li><strong>cover</strong> &#8211; refers to effective cover</li>
@@ -1087,6 +1256,25 @@ methodName: name of the method that returns the fiber property searched</div></b
 <code class="descname">writeReport</code><span class="sig-paren">(</span><em>archTex</em>, <em>pathFigura</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.sectionReport.SectionInfo.writeReport" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.fiber_section.sectionReport.SectionInfoHASimple">
+<em class="property">class </em><code class="descclassname">materials.fiber_section.sectionReport.</code><code class="descname">SectionInfoHASimple</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>sectHASimple</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.sectionReport.SectionInfoHASimple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.fiber_section.sectionReport.SectionInfo" title="materials.fiber_section.sectionReport.SectionInfo"><code class="xref py py-class docutils literal"><span class="pre">materials.fiber_section.sectionReport.SectionInfo</span></code></a></p>
+<p>Obtains the parameters of a HASimple fiber section for writing its report page</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> &#8211; preprocessor</li>
+<li><strong>sectHASimple</strong> &#8211; fiber section defined as a HASimple</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">

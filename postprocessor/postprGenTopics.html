@@ -657,24 +657,24 @@ verification</li>
 <div class="section" id="module-postprocess.ElementSectionMap">
 <span id="elementsectionmap"></span><h2>ElementSectionMap<a class="headerlink" href="#module-postprocess.ElementSectionMap" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="postprocess.ElementSectionMap.ShellElementSectionMap">
-<em class="property">class </em><code class="descclassname">postprocess.ElementSectionMap.</code><code class="descname">ShellElementSectionMap</code><a class="headerlink" href="#postprocess.ElementSectionMap.ShellElementSectionMap" title="Permalink to this definition">¶</a></dt>
+<dt id="postprocess.ElementSectionMap.ElementSectionMap">
+<em class="property">class </em><code class="descclassname">postprocess.ElementSectionMap.</code><code class="descname">ElementSectionMap</code><a class="headerlink" href="#postprocess.ElementSectionMap.ElementSectionMap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dict</span></code></p>
 <dl class="method">
-<dt id="postprocess.ElementSectionMap.ShellElementSectionMap.assign">
-<code class="descname">assign</code><span class="sig-paren">(</span><em>elemSet</em>, <em>sectionName</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.ElementSectionMap.ShellElementSectionMap.assign" title="Permalink to this definition">¶</a></dt>
-<dd><p>Assigns the sections sectionName+&#8216;1&#8217; and sectionName+&#8216;2&#8217;
+<dt id="postprocess.ElementSectionMap.ElementSectionMap.assign">
+<code class="descname">assign</code><span class="sig-paren">(</span><em>elemSet</em>, <em>setRCSects</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.ElementSectionMap.ElementSectionMap.assign" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assigns the sections setRCSEctsName+&#8216;1&#8217;, setRCSEctsName+&#8216;2&#8217;, ...
 to the elements of the set.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="postprocess.ElementSectionMap.ShellElementSectionMap.dump">
-<code class="descname">dump</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.ElementSectionMap.ShellElementSectionMap.dump" title="Permalink to this definition">¶</a></dt>
+<dt id="postprocess.ElementSectionMap.ElementSectionMap.dump">
+<code class="descname">dump</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.ElementSectionMap.ElementSectionMap.dump" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="postprocess.ElementSectionMap.ShellElementSectionMap.mapSectionsFileName">
-<code class="descname">mapSectionsFileName</code><em class="property"> = './mapSectionsReinforcement.pkl'</em><a class="headerlink" href="#postprocess.ElementSectionMap.ShellElementSectionMap.mapSectionsFileName" title="Permalink to this definition">¶</a></dt>
+<dt id="postprocess.ElementSectionMap.ElementSectionMap.mapSectionsFileName">
+<code class="descname">mapSectionsFileName</code><em class="property"> = './mapSectionsReinforcement.pkl'</em><a class="headerlink" href="#postprocess.ElementSectionMap.ElementSectionMap.mapSectionsFileName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Map with asssings to each shell element two
 reinforced concrete section names. This map that will be readed to
 create fiber section models during reinforcement verification.</p>
@@ -683,8 +683,8 @@ create fiber section models during reinforcement verification.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="postprocess.ElementSectionMap.loadShellElementSectionMap">
-<code class="descclassname">postprocess.ElementSectionMap.</code><code class="descname">loadShellElementSectionMap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.ElementSectionMap.loadShellElementSectionMap" title="Permalink to this definition">¶</a></dt>
+<dt id="postprocess.ElementSectionMap.loadElementSectionMap">
+<code class="descclassname">postprocess.ElementSectionMap.</code><code class="descname">loadElementSectionMap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.ElementSectionMap.loadElementSectionMap" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -756,12 +756,14 @@ create fiber section models during reinforcement verification.</p>
 <dl class="method">
 <dt id="postprocess.LimitStateData.LimitStateData.getDisplacementsFileName">
 <code class="descname">getDisplacementsFileName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.LimitStateData.LimitStateData.getDisplacementsFileName" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns the file name to read: combination name, node number and displacements (ux,uy,uz,rotX,rotY,rotZ).</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="postprocess.LimitStateData.LimitStateData.getInternalForcesFileName">
 <code class="descname">getInternalForcesFileName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.LimitStateData.LimitStateData.getInternalForcesFileName" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns the file name to read: combination name, element number and internal forces.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="postprocess.LimitStateData.LimitStateData.getOutputDataBaseFileName">
@@ -783,20 +785,33 @@ create fiber section models during reinforcement verification.</p>
 <dl class="method">
 <dt id="postprocess.LimitStateData.LimitStateData.loadPickleObject">
 <code class="descname">loadPickleObject</code><span class="sig-paren">(</span><em>objName</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.LimitStateData.LimitStateData.loadPickleObject" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>reads a Python object from a pickle file.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="postprocess.LimitStateData.LimitStateData.saveAll">
-<code class="descname">saveAll</code><span class="sig-paren">(</span><em>model</em>, <em>combContainer</em>, <em>setCalc</em>, <em>fConvIntForc=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.LimitStateData.LimitStateData.saveAll" title="Permalink to this definition">¶</a></dt>
-<dd><p>Writes internal forces, displacements, .., for each combination
-Parameters:</p>
+<code class="descname">saveAll</code><span class="sig-paren">(</span><em>feProblem</em>, <em>combContainer</em>, <em>setCalc</em>, <em>fConvIntForc=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.LimitStateData.LimitStateData.saveAll" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes internal forces, displacements, .., for each combination</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>feProblem</strong> &#8211; XC finite element problem to deal with.</li>
+<li><strong>setCalc</strong> &#8211; set of entities for which the verification is 
+going to be performed</li>
+<li><strong>fConvIntForc</strong> &#8211; <p>conversion factor between the unit of force 
+in which the calculation is performed and that 
+one desired for the displaying of internal forces
+(The use of this factor won&#8217;t be allowed in</p>
 <blockquote>
-<div><p>setCalc:      set of entities for which the analysis is going to be performed
-fConvIntForc: conversion factor between the unit of force in which the calculation</p>
-<blockquote>
-<div>is performed and that one desired for the displaying of internal forces
-(The use of this factor won&#8217;t be allowed in future versions)</div></blockquote>
-</div></blockquote>
+<div>future versions)</div></blockquote>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -805,7 +820,7 @@ fConvIntForc: conversion factor between the unit of force in which the calculati
 <dt id="postprocess.LimitStateData.NormalStressesRCLimitStateData">
 <em class="property">class </em><code class="descclassname">postprocess.LimitStateData.</code><code class="descname">NormalStressesRCLimitStateData</code><a class="headerlink" href="#postprocess.LimitStateData.NormalStressesRCLimitStateData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#postprocess.LimitStateData.LimitStateData" title="postprocess.LimitStateData.LimitStateData"><code class="xref py py-class docutils literal"><span class="pre">postprocess.LimitStateData.LimitStateData</span></code></a></p>
-<p>Reinforced concrete normal stresses limit state data.</p>
+<p>Reinforced concrete normal stresses data for limit state checking.</p>
 <dl class="method">
 <dt id="postprocess.LimitStateData.NormalStressesRCLimitStateData.check">
 <code class="descname">check</code><span class="sig-paren">(</span><em>sections</em>, <em>sectionsNamesForEveryElement</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.LimitStateData.NormalStressesRCLimitStateData.check" title="Permalink to this definition">¶</a></dt>

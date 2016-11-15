@@ -299,8 +299,7 @@ Parameters:</p>
 </div>
 <div class="section" id="module-materials.sia262.fatigueControlSIA262">
 <span id="fatiguecontrolsia262"></span><h2>fatigueControlSIA262<a class="headerlink" href="#module-materials.sia262.fatigueControlSIA262" title="Permalink to this headline">¶</a></h2>
-<p>Funciones para comprobación de una sección a fisuración según el
-artículo 49.2.4 de la EHE-08.</p>
+<p>Control of fatigue limit state according to SIA 262.</p>
 <dl class="class">
 <dt id="materials.sia262.fatigueControlSIA262.FatigueController">
 <em class="property">class </em><code class="descclassname">materials.sia262.fatigueControlSIA262.</code><code class="descname">FatigueController</code><span class="sig-paren">(</span><em>limitStateLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sia262.fatigueControlSIA262.FatigueController" title="Permalink to this definition">¶</a></dt>
@@ -309,18 +308,29 @@ artículo 49.2.4 de la EHE-08.</p>
 <dl class="method">
 <dt id="materials.sia262.fatigueControlSIA262.FatigueController.check">
 <code class="descname">check</code><span class="sig-paren">(</span><em>elements</em>, <em>combNm</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sia262.fatigueControlSIA262.FatigueController.check" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks fatigue limit state.
-Parameters:</p>
-<blockquote>
-<div><p>elements:    elements to check
-combNm: combination name i.e.:</p>
-<blockquote>
-<div>ELUF0: unloaded structure.
-ELUF1: fatigue load in position 1.
-ELUF2: fatigue load in position 2 (XXX not yet implemented!!!).
-ELUF3: fatigue load in position 3 (XXX not yet implemented!!!).
-...</div></blockquote>
-</div></blockquote>
+<dd><p>Checks the fatigue limit state for all the elements in the given set and
+for the  combination passed as a parameter. The verification is carried out
+following the procedure proposed in the standard SIA262 (art. 4.3.8)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>elements</strong> &#8211; xc set of elements to be checked</li>
+<li><strong>combNm</strong> &#8211; <p>combination name e.g.:</p>
+<ul>
+<li>ELUF0: unloaded structure (permanent loads)</li>
+<li>ELUF1: fatigue load in position 1.</li>
+<li>ELUF2: fatigue load in position 2 (XXX not yet implemented!!!).</li>
+<li>ELUF3: fatigue load in position 3 (XXX not yet implemented!!!).</li>
+<li>...</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">

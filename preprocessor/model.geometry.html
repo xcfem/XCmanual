@@ -64,6 +64,71 @@
 <dd></dd></dl>
 
 </div>
+<div class="section" id="module-model.geometry.tensegrity">
+<span id="tensegrity"></span><h2>tensegrity<a class="headerlink" href="#module-model.geometry.tensegrity" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="model.geometry.tensegrity.tensegrityPrism">
+<em class="property">class </em><code class="descclassname">model.geometry.tensegrity.</code><code class="descname">tensegrityPrism</code><span class="sig-paren">(</span><em>nSidPol</em>, <em>RbaseC</em>, <em>RtopC</em>, <em>Hprism=0</em>, <em>Lstruts=0</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.tensegrity.tensegrityPrism" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>This class is aimed at constructing the model of a rotationally symetric     tensegrity prism with n-polygons on two parallel planes, twisted over angle 
+alfa with respect to each other. The twist angle is obtained by the 
+theorem of Tobie and Kenner as: alfa=pi/2-pi/n.
+The origin of the cartesian coordinate system is placed at the center of 
+the base circle, with the z-axis in the axis of the cylinder and joint 
+n+1.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nSidPol</strong> &#8211; number of sides of the regular n-polygon</li>
+<li><strong>RbaseC</strong> &#8211; radius of the base circle circunscribing the n-polygon</li>
+<li><strong>RtopC</strong> &#8211; radius of the top circle circunscribing the n-polygon</li>
+<li><strong>Hprism</strong> &#8211; heigth of the prism (defaults to 0, change its value only if we want to fix 
+the height of the prism, otherwise Hprism is calculated as a function of the
+given length of the struts)</li>
+<li><strong>Lstruts</strong> &#8211; length of the stuts (defaults to 0, only change this value if we want to 
+fix the length of the struts and calculate the height of the prism as a 
+function of Lstruts)</li>
+<li><a class="reference internal" href="../miscellany/roughCalcGenTopics.html#rough_calculations.ng_prestressing_wire.prestressingWire.alpha" title="rough_calculations.ng_prestressing_wire.prestressingWire.alpha"><strong>alpha</strong></a> &#8211; twist angle</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="model.geometry.tensegrity.tensegrityPrism.genJointsCoor">
+<code class="descname">genJointsCoor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.tensegrity.tensegrityPrism.genJointsCoor" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the cart. coord. of the joinst of a rotationally symetric</td>
+</tr>
+</tbody>
+</table>
+<p>tensegrity prism with n-polygons on two parallel planes, twisted over angle 
+alfa with respect to each other. The twist angle is obtained by the 
+theorem of Tobie and Kenner as: alfa=pi/2-pi/n.
+The origin of the cartesian coordinate system is placed at the center of 
+the base circle, with the z-axis in the axis of the cylinder and joint 
+n+1.
+&#8216;jt&#8217; corresponds to joints in the top circle
+&#8216;jb&#8217; corresponds to joints in the base circle</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.tensegrity.tensegrityPrism.genLineLinkedJoints">
+<code class="descname">genLineLinkedJoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.tensegrity.tensegrityPrism.genLineLinkedJoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the joints id linked by each line (strut or cable)
+&#8216;strut&#8217; corresponds to compression bars
+&#8216;sadd&#8217; corresponds to saddle strings (cables forming the n-polygons)
+&#8216;diag&#8217; corresponds to diagonal strings</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 </div>
 
 
@@ -76,6 +141,7 @@
   <ul>
 <li><a class="reference internal" href="#">geometry</a><ul>
 <li><a class="reference internal" href="#module-model.geometry.utils_geom">utils_geom</a></li>
+<li><a class="reference internal" href="#module-model.geometry.tensegrity">tensegrity</a></li>
 </ul>
 </li>
 </ul>

@@ -404,8 +404,8 @@ taking mechanical properties of the section form a MechProp3d object.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>preprocessor</strong> &#8211; preprocessor name</li>
 <li><strong>name</strong> &#8211; name identifying the section</li>
-<li><strong>mechProp2d</strong> &#8211; instance of the class MechProp3d that contains the mechanical 
-properties of the section</li>
+<li><strong>mechProp2d</strong> &#8211; instance of the class MechProp3d that contains the 
+mechanical properties of the section</li>
 </ul>
 </td>
 </tr>
@@ -1983,16 +1983,17 @@ made of the specified material</p>
 <span id="paramcircularsection"></span><h2>paramCircularSection<a class="headerlink" href="#module-materials.paramCircularSection" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="materials.paramCircularSection.CircularSection">
-<em class="property">class </em><code class="descclassname">materials.paramCircularSection.</code><code class="descname">CircularSection</code><span class="sig-paren">(</span><em>name</em>, <em>r</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramCircularSection.CircularSection" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">materials.paramCircularSection.</code><code class="descname">CircularSection</code><span class="sig-paren">(</span><em>name</em>, <em>Rext</em>, <em>Rint=0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramCircularSection.CircularSection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#materials.sectionProperties.sectionProperties" title="materials.sectionProperties.sectionProperties"><code class="xref py py-class docutils literal"><span class="pre">materials.sectionProperties.sectionProperties</span></code></a></p>
-<p>Circular section geometric parameters</p>
+<p>Geometric parameters of a circular or circular hollow section</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><a class="reference internal" href="code.html#xc_base.EntConNmb.name" title="xc_base.EntConNmb.name"><strong>name</strong></a> &#8211; name identifying the section</li>
-<li><a class="reference internal" href="#materials.paramCircularSection.CircularSection.r" title="materials.paramCircularSection.CircularSection.r"><strong>r</strong></a> &#8211; radius</li>
+<li><strong>Rext</strong> &#8211; external radius</li>
+<li><strong>Rint</strong> &#8211; internal radius (defaults to 0)</li>
 </ul>
 </td>
 </tr>
@@ -2061,6 +2062,7 @@ made of the specified material</p>
 </tr>
 </tbody>
 </table>
+<p>(see Oñate, Cálculo de estructuras por el MEF pág. 122)</p>
 </dd></dl>
 
 <dl class="method">
@@ -2657,6 +2659,19 @@ monocelular según el artículo «Perfil doble T» de la Wikipedia.</p>
 <code class="descname">getDesignElasticPerfectlyPlasticMaterial</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aceros_estructurales.EC3Steel.getDesignElasticPerfectlyPlasticMaterial" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="method">
+<dt id="materials.aceros_estructurales.EC3Steel.getLambda1">
+<code class="descname">getLambda1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aceros_estructurales.EC3Steel.getLambda1" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">lambda_1 value as specified in EC3 part 1 5.5.1.2</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="materials.aceros_estructurales.EC3Steel.nu">
 <code class="descname">nu</code><em class="property"> = 0.3</em><a class="headerlink" href="#materials.aceros_estructurales.EC3Steel.nu" title="Permalink to this definition">¶</a></dt>
@@ -2768,7 +2783,7 @@ epsCMax: Deformación máxima del acero.</p>
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><a class="reference internal" href="code.html#xc_base.EntConNmb.name" title="xc_base.EntConNmb.name"><strong>name</strong></a> &#8211; name identifying the section</li>
 <li><a class="reference internal" href="code.html#geom.BND3d.area" title="geom.BND3d.area"><strong>area</strong></a> &#8211; cross-sectional area</li>
-<li><a class="reference internal" href="#materials.paramGenericSection.GenericSection.Iy" title="materials.paramGenericSection.GenericSection.Iy"><strong>Iy</strong></a> &#8211; second moment of area about the local y-axis</li>
+<li><a class="reference internal" href="#materials.paramRectangularSection.RectangularSection.Iy" title="materials.paramRectangularSection.RectangularSection.Iy"><strong>Iy</strong></a> &#8211; second moment of area about the local y-axis</li>
 <li><a class="reference internal" href="#materials.paramRectangularSection.RectangularSection.Iz" title="materials.paramRectangularSection.RectangularSection.Iz"><strong>Iz</strong></a> &#8211; second moment of area about the local z-axis</li>
 <li><strong>Jtors</strong> &#8211; torsional moment of inertia of the section</li>
 <li><strong>Wy</strong> &#8211; section modulus with respect to local y-axis</li>

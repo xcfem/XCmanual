@@ -429,9 +429,11 @@ diagram of the concrete material</li>
 <li><strong>reinfSteelType</strong> &#8211; type of reinforcement steel</li>
 <li><strong>reinfDiagName</strong> &#8211; name identifying the characteristic stress-strain 
 diagram of the reinforcing steel material</li>
-<li><strong>shReinfZ</strong> &#8211; record of type.defRCSimpleSection.RecordShearReinforcement()
+<li><strong>shReinfZ</strong> &#8211; record of type 
+defRCSimpleSection.RecordShearReinforcement()
 defining the shear reinforcement in Z direction</li>
-<li><strong>shReinfY</strong> &#8211; record of type.defRCSimpleSection.RecordShearReinforcement()
+<li><strong>shReinfY</strong> &#8211; record of type 
+defRCSimpleSection.RecordShearReinforcement()
 defining the shear reinforcement in Y direction</li>
 </ul>
 </td>
@@ -495,7 +497,7 @@ defining the shear reinforcement in Y direction</li>
 <em class="property">class </em><code class="descclassname">materials.fiber_section.defSeccionHASimple.</code><code class="descname">MainReinfLayer</code><span class="sig-paren">(</span><em>rebarsDiam=0.01</em>, <em>areaRebar=7.9e-05</em>, <em>rebarsSpacing=0.2</em>, <em>width=1.0</em>, <em>nominalCover=0.03</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.MainReinfLayer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Definition of the variables that make up a family (row) of main 
-(longitudinal) reinforcing bars</p>
+(longitudinal) reinforcing bars.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -512,6 +514,8 @@ defining the shear reinforcement in Y direction</li>
 </tr>
 </tbody>
 </table>
+<p>Note: If we define the instance variable &#8216;nRebars&#8217; that value overrides the 
+&#8216;rebarsSpacing&#8217;</p>
 <dl class="method">
 <dt id="materials.fiber_section.defSeccionHASimple.MainReinfLayer.centerRebars">
 <code class="descname">centerRebars</code><span class="sig-paren">(</span><em>width</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.MainReinfLayer.centerRebars" title="Permalink to this definition">¶</a></dt>
@@ -562,9 +566,11 @@ diagram of the concrete material</li>
 <li><strong>reinfSteelType</strong> &#8211; type of reinforcement steel</li>
 <li><strong>reinfDiagName</strong> &#8211; name identifying the characteristic stress-strain 
 diagram of the reinforcing steel material</li>
-<li><strong>shReinfZ</strong> &#8211; record of type.defRCSimpleSection.RecordShearReinforcement()
+<li><strong>shReinfZ</strong> &#8211; record of type 
+defRCSimpleSection.RecordShearReinforcement()
 defining the shear reinforcement in Z direction</li>
-<li><strong>shReinfY</strong> &#8211; record of type.defRCSimpleSection.RecordShearReinforcement() 
+<li><strong>shReinfY</strong> &#8211; record of type 
+defRCSimpleSection.RecordShearReinforcement() 
 defining the shear reinforcement in Y direction</li>
 <li><strong>coverMin</strong> &#8211; minimum value of end or clear concrete cover of main 
 bars from both the positive and negative faces</li>
@@ -717,6 +723,20 @@ the width</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="materials.fiber_section.defSeccionHASimple.RecordRCSimpleSection.getIy_RClocalYax">
+<code class="descname">getIy_RClocalYax</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.RecordRCSimpleSection.getIy_RClocalYax" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the second moment of area about the middle axis parallel to 
+the depth (RClocalYaxis)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.fiber_section.defSeccionHASimple.RecordRCSimpleSection.getIz_RClocalZax">
+<code class="descname">getIz_RClocalZax</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.RecordRCSimpleSection.getIz_RClocalZax" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the second moment of area about the middle axis parallel to 
+the width (RClocalZaxis)</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.fiber_section.defSeccionHASimple.RecordRCSimpleSection.getJTorsion">
 <code class="descname">getJTorsion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.RecordRCSimpleSection.getJTorsion" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -771,13 +791,21 @@ to the positive face of the section</p>
 <dl class="method">
 <dt id="materials.fiber_section.defSeccionHASimple.RecordRCSimpleSection.getRespVy">
 <code class="descname">getRespVy</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.RecordRCSimpleSection.getRespVy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Material for modeling z shear response of section</p>
+<dd><p>Material for modeling Y shear response of section</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.fiber_section.defSeccionHASimple.RecordRCSimpleSection.getRespVz">
 <code class="descname">getRespVz</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.RecordRCSimpleSection.getRespVz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Material for modeling z shear response of section</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.fiber_section.defSeccionHASimple.RecordRCSimpleSection.getRoughVcuEstimation">
+<code class="descname">getRoughVcuEstimation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.RecordRCSimpleSection.getRoughVcuEstimation" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a minimal value (normally shear strength will be greater)
+of the shear strength of the concrete section Vcu expressed
+in newtons.</p>
 </dd></dl>
 
 <dl class="method">
@@ -987,7 +1015,7 @@ code=&#8217;s2-&#8216; for direction 2, negative face</p>
 
 <dl class="class">
 <dt id="materials.fiber_section.defSeccionHASimple.RecordShearReinforcement">
-<em class="property">class </em><code class="descclassname">materials.fiber_section.defSeccionHASimple.</code><code class="descname">RecordShearReinforcement</code><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.RecordShearReinforcement" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">materials.fiber_section.defSeccionHASimple.</code><code class="descname">RecordShearReinforcement</code><span class="sig-paren">(</span><em>familyName='noName'</em>, <em>nShReinfBranches=0.0</em>, <em>areaShReinfBranch=0.0</em>, <em>shReinfSpacing=0.2</em>, <em>angAlphaShReinf=1.5707963267948966</em>, <em>angThetaConcrStruts=0.7853981633974483</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.RecordShearReinforcement" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Definition of the variables that make up a family of shear 
 reinforcing bars</p>
@@ -998,6 +1026,7 @@ reinforcing bars</p>
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><strong>familyName</strong> &#8211; name identifying the family of shear reinforcing bars</li>
 <li><strong>nShReinfBranches</strong> &#8211; number of effective branches</li>
+<li><strong>areaShReinfBranch</strong> &#8211; area of the shear reinforcing bar</li>
 <li><strong>shReinfSpacing</strong> &#8211; longitudinal distance between transverse 
 reinforcements</li>
 <li><strong>angAlphaShReinf</strong> &#8211; angle between the shear reinforcing bars and the 

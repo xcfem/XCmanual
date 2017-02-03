@@ -83,6 +83,27 @@
 <code class="descname">getNeutralFormat</code><span class="sig-paren">(</span><em>mapLoadCases</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.CombContainer.CombContainer.getNeutralFormat" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="method">
+<dt id="actions.CombContainer.CombContainer.getRecordLoadCaseDisp">
+<code class="descname">getRecordLoadCaseDisp</code><span class="sig-paren">(</span><em>combName</em>, <em>setsToDispLoads</em>, <em>setsToDispDspRot</em>, <em>setsToDispIntForc</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.CombContainer.CombContainer.getRecordLoadCaseDisp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a suitable RecordLoadCaseDisp for the combination.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>setsToDispLoads</strong> &#8211; ordered list of sets of elements to display loads.</li>
+<li><strong>setsToDispDspRot</strong> &#8211; ordered list of sets of elements to display 
+displacements.</li>
+<li><strong>setsToDispIntForc</strong> &#8211; ordered list of sets of elements to display 
+internal forces.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -93,7 +114,28 @@
 <dl class="method">
 <dt id="actions.CombContainer.CombinationRecord.createCombination">
 <code class="descname">createCombination</code><span class="sig-paren">(</span><em>xcCombLoader</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.CombContainer.CombinationRecord.createCombination" title="Permalink to this definition">¶</a></dt>
-<dd><p>Introduce the combination into the XC combination loader.</p>
+<dd><p>Introduces the combination into the XC combination loader.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="actions.CombContainer.CombinationRecord.getRecordLoadCaseDisp">
+<code class="descname">getRecordLoadCaseDisp</code><span class="sig-paren">(</span><em>setsToDispLoads</em>, <em>setsToDispDspRot</em>, <em>setsToDispIntForc</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.CombContainer.CombinationRecord.getRecordLoadCaseDisp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a suitable RecordLoadCaseDisp for the combination.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>setsToDispLoads</strong> &#8211; ordered list of sets of elements to display loads.</li>
+<li><strong>setsToDispDspRot</strong> &#8211; ordered list of sets of elements to display 
+displacements.</li>
+<li><strong>setsToDispIntForc</strong> &#8211; ordered list of sets of elements to display 
+internal forces.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -101,14 +143,14 @@
 <dl class="class">
 <dt id="actions.CombContainer.SLSCombinations">
 <em class="property">class </em><code class="descclassname">actions.CombContainer.</code><code class="descname">SLSCombinations</code><a class="headerlink" href="#actions.CombContainer.SLSCombinations" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="#actions.CombContainer.SituationsSet" title="actions.CombContainer.SituationsSet"><code class="xref py py-class docutils literal"><span class="pre">actions.CombContainer.SituationsSet</span></code></a></p>
 <p>Combinations of actions for serviceability limit states</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="code.html#xc_base.EntConNmb.name" title="xc_base.EntConNmb.name"><strong>name</strong></a> &#8211; name to identify the combination</li>
+<li><a class="reference internal" href="code.html#xc_base.EntConNmb.name" title="xc_base.EntConNmb.name"><strong>name</strong></a> &#8211; name to identify the limit state (serviceability, ultimate,...)</li>
 <li><strong>rare</strong> &#8211; combination for a rare design situation</li>
 <li><strong>freq</strong> &#8211; combination for a frequent design situation</li>
 <li><a class="reference internal" href="actions.wind.html#actions.wind.windSIA261.qp" title="actions.wind.windSIA261.qp"><strong>qp</strong></a> &#8211; combination for a quasi-permanent design situation</li>
@@ -118,18 +160,6 @@
 </tr>
 </tbody>
 </table>
-<dl class="method">
-<dt id="actions.CombContainer.SLSCombinations.dumpCombinations">
-<code class="descname">dumpCombinations</code><span class="sig-paren">(</span><em>xcCombLoader</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.CombContainer.SLSCombinations.dumpCombinations" title="Permalink to this definition">¶</a></dt>
-<dd><p>Introduces the combinations into the XC combination loader.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="actions.CombContainer.SLSCombinations.getNames">
-<code class="descname">getNames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.CombContainer.SLSCombinations.getNames" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns a list of the combination names.</p>
-</dd></dl>
-
 <dl class="method">
 <dt id="actions.CombContainer.SLSCombinations.getNeutralFormat">
 <code class="descname">getNeutralFormat</code><span class="sig-paren">(</span><em>counter</em>, <em>mapLoadCases</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.CombContainer.SLSCombinations.getNeutralFormat" title="Permalink to this definition">¶</a></dt>
@@ -164,19 +194,92 @@
 <code class="descname">getNeutralFormat</code><span class="sig-paren">(</span><em>counter</em>, <em>typ</em>, <em>mapLoadCases</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.CombContainer.SituationCombs.getNeutralFormat" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="method">
+<dt id="actions.CombContainer.SituationCombs.getRecordLoadCaseDisp">
+<code class="descname">getRecordLoadCaseDisp</code><span class="sig-paren">(</span><em>combName</em>, <em>setsToDispLoads</em>, <em>setsToDispDspRot</em>, <em>setsToDispIntForc</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.CombContainer.SituationCombs.getRecordLoadCaseDisp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a suitable RecordLoadCaseDisp for the combination.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>setsToDispLoads</strong> &#8211; ordered list of sets of elements to display loads.</li>
+<li><strong>setsToDispDspRot</strong> &#8211; ordered list of sets of elements to display 
+displacements.</li>
+<li><strong>setsToDispIntForc</strong> &#8211; ordered list of sets of elements to display 
+internal forces.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="actions.CombContainer.SituationsSet">
+<em class="property">class </em><code class="descclassname">actions.CombContainer.</code><code class="descname">SituationsSet</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.CombContainer.SituationsSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Set of situations as used in limit states</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="code.html#xc_base.EntConNmb.name" title="xc_base.EntConNmb.name"><strong>name</strong></a> &#8211; name to identify the situation set</li>
+<li><strong>situations</strong> &#8211; set of situations</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="actions.CombContainer.SituationsSet.dumpCombinations">
+<code class="descname">dumpCombinations</code><span class="sig-paren">(</span><em>xcCombLoader</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.CombContainer.SituationsSet.dumpCombinations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Introduces the combinations into the XC combination loader.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="actions.CombContainer.SituationsSet.getNames">
+<code class="descname">getNames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.CombContainer.SituationsSet.getNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list of the combination names.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="actions.CombContainer.SituationsSet.getRecordLoadCaseDisp">
+<code class="descname">getRecordLoadCaseDisp</code><span class="sig-paren">(</span><em>combName</em>, <em>setsToDispLoads</em>, <em>setsToDispDspRot</em>, <em>setsToDispIntForc</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.CombContainer.SituationsSet.getRecordLoadCaseDisp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a suitable RecordLoadCaseDisp for the combination.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>setsToDispLoads</strong> &#8211; ordered list of sets of elements to display loads.</li>
+<li><strong>setsToDispDspRot</strong> &#8211; ordered list of sets of elements to display 
+displacements.</li>
+<li><strong>setsToDispIntForc</strong> &#8211; ordered list of sets of elements to display 
+internal forces.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="actions.CombContainer.ULSCombinations">
 <em class="property">class </em><code class="descclassname">actions.CombContainer.</code><code class="descname">ULSCombinations</code><a class="headerlink" href="#actions.CombContainer.ULSCombinations" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="#actions.CombContainer.SituationsSet" title="actions.CombContainer.SituationsSet"><code class="xref py py-class docutils literal"><span class="pre">actions.CombContainer.SituationsSet</span></code></a></p>
 <p>Combinations of actions for ultimate limit states</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="code.html#xc_base.EntConNmb.name" title="xc_base.EntConNmb.name"><strong>name</strong></a> &#8211; name to identify the combination</li>
+<li><a class="reference internal" href="code.html#xc_base.EntConNmb.name" title="xc_base.EntConNmb.name"><strong>name</strong></a> &#8211; name to identify the limit state (ultimate,...)</li>
 <li><strong>perm</strong> &#8211; combination for a persistent or transient design situation</li>
 <li><strong>acc</strong> &#8211; combination for a accidental design situation</li>
 <li><strong>fatigue</strong> &#8211; combination for a fatigue design situation</li>
@@ -186,18 +289,6 @@
 </tr>
 </tbody>
 </table>
-<dl class="method">
-<dt id="actions.CombContainer.ULSCombinations.dumpCombinations">
-<code class="descname">dumpCombinations</code><span class="sig-paren">(</span><em>xcCombLoader</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.CombContainer.ULSCombinations.dumpCombinations" title="Permalink to this definition">¶</a></dt>
-<dd><p>Introduces the combinations into the XC combination loader.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="actions.CombContainer.ULSCombinations.getNames">
-<code class="descname">getNames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.CombContainer.ULSCombinations.getNames" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns a list of the combination names.</p>
-</dd></dl>
-
 <dl class="method">
 <dt id="actions.CombContainer.ULSCombinations.getNeutralFormat">
 <code class="descname">getNeutralFormat</code><span class="sig-paren">(</span><em>counter</em>, <em>mapLoadCases</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.CombContainer.ULSCombinations.getNeutralFormat" title="Permalink to this definition">¶</a></dt>

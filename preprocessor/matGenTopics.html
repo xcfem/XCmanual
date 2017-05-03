@@ -59,6 +59,18 @@
 <div class="section" id="module-materials.typical_materials">
 <span id="typical-materials"></span><h2>Typical materials<a class="headerlink" href="#module-materials.typical_materials" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
+<dt id="materials.typical_materials.BasicElasticMaterial">
+<em class="property">class </em><code class="descclassname">materials.typical_materials.</code><code class="descname">BasicElasticMaterial</code><span class="sig-paren">(</span><em>E</em>, <em>nu</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.BasicElasticMaterial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Basic elastic material</p>
+<dl class="method">
+<dt id="materials.typical_materials.BasicElasticMaterial.G">
+<code class="descname">G</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.BasicElasticMaterial.G" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="materials.typical_materials.MaterialData">
 <em class="property">class </em><code class="descclassname">materials.typical_materials.</code><code class="descname">MaterialData</code><span class="sig-paren">(</span><em>name</em>, <em>E</em>, <em>nu</em>, <em>rho</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.MaterialData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
@@ -69,8 +81,8 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><a class="reference internal" href="code.html#xc_base.EntConNmb.name" title="xc_base.EntConNmb.name"><strong>name</strong></a> &#8211; name identifying the material</li>
-<li><a class="reference internal" href="#materials.aceros_estructurales.ASTMSteel.E" title="materials.aceros_estructurales.ASTMSteel.E"><strong>E</strong></a> &#8211; Young’s modulus of the material</li>
-<li><a class="reference internal" href="#materials.aceros_estructurales.ASTMSteel.nu" title="materials.aceros_estructurales.ASTMSteel.nu"><strong>nu</strong></a> &#8211; Poisson’s ratio</li>
+<li><strong>E</strong> &#8211; Young’s modulus of the material</li>
+<li><a class="reference internal" href="#materials.concreteBase.paramTensStiffenes.nu" title="materials.concreteBase.paramTensStiffenes.nu"><strong>nu</strong></a> &#8211; Poisson’s ratio</li>
 <li><strong>rho</strong> &#8211; mass density</li>
 </ul>
 </td>
@@ -2581,26 +2593,31 @@ monocelular según el artículo «Perfil doble T» de la Wikipedia.</p>
 <dl class="class">
 <dt id="materials.aceros_estructurales.ASTMSteel">
 <em class="property">class </em><code class="descclassname">materials.aceros_estructurales.</code><code class="descname">ASTMSteel</code><span class="sig-paren">(</span><em>fy=250000000.0</em>, <em>fu=400000000.0</em>, <em>gammaM=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aceros_estructurales.ASTMSteel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="#materials.aceros_estructurales.BasicSteel" title="materials.aceros_estructurales.BasicSteel"><code class="xref py py-class docutils literal"><span class="pre">materials.aceros_estructurales.BasicSteel</span></code></a></p>
 <p>ASTM structural steel.</p>
-<dl class="attribute">
-<dt id="materials.aceros_estructurales.ASTMSteel.E">
-<code class="descname">E</code><em class="property"> = 200000000000.0</em><a class="headerlink" href="#materials.aceros_estructurales.ASTMSteel.E" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+</dd></dl>
 
+<dl class="class">
+<dt id="materials.aceros_estructurales.BasicSteel">
+<em class="property">class </em><code class="descclassname">materials.aceros_estructurales.</code><code class="descname">BasicSteel</code><span class="sig-paren">(</span><em>E</em>, <em>nu</em>, <em>fy</em>, <em>fu</em>, <em>gammaM</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aceros_estructurales.BasicSteel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.typical_materials.BasicElasticMaterial" title="materials.typical_materials.BasicElasticMaterial"><code class="xref py py-class docutils literal"><span class="pre">materials.typical_materials.BasicElasticMaterial</span></code></a></p>
+<p>Base class for structural steels.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fy</strong> &#8211; Yield stress.</li>
+<li><strong>fu</strong> &#8211; ultimate stress.</li>
+<li><strong>gammaM</strong> &#8211; partial factor for cross-section resistance.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
-<dt id="materials.aceros_estructurales.ASTMSteel.G">
-<code class="descname">G</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aceros_estructurales.ASTMSteel.G" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.aceros_estructurales.ASTMSteel.fyd">
-<code class="descname">fyd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aceros_estructurales.ASTMSteel.fyd" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="materials.aceros_estructurales.ASTMSteel.nu">
-<code class="descname">nu</code><em class="property"> = 0.3</em><a class="headerlink" href="#materials.aceros_estructurales.ASTMSteel.nu" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.aceros_estructurales.BasicSteel.fyd">
+<code class="descname">fyd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aceros_estructurales.BasicSteel.fyd" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -2608,37 +2625,26 @@ monocelular según el artículo «Perfil doble T» de la Wikipedia.</p>
 <dl class="class">
 <dt id="materials.aceros_estructurales.EC3Steel">
 <em class="property">class </em><code class="descclassname">materials.aceros_estructurales.</code><code class="descname">EC3Steel</code><span class="sig-paren">(</span><em>fy</em>, <em>fy16</em>, <em>fy40</em>, <em>fy63</em>, <em>fy80</em>, <em>fy100</em>, <em>fy125</em>, <em>fu</em>, <em>gammaM</em>, <em>gammaM1=1.0</em>, <em>gammaM2=1.1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aceros_estructurales.EC3Steel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="#materials.aceros_estructurales.BasicSteel" title="materials.aceros_estructurales.BasicSteel"><code class="xref py py-class docutils literal"><span class="pre">materials.aceros_estructurales.BasicSteel</span></code></a></p>
 <p>Eurocode 3 structural steel.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>fy</strong> &#8211; Yield stress.</li>
 <li><strong>fy16</strong> &#8211; 0&lt;t&lt;16mm</li>
 <li><strong>fy40</strong> &#8211; 16&lt;t&lt;40mm</li>
 <li><strong>fy63</strong> &#8211; 40&lt;t&lt;63mm</li>
 <li><strong>fy80</strong> &#8211; 63&lt;t&lt;80mm</li>
 <li><strong>fy100</strong> &#8211; 80&lt;t&lt;100mm</li>
 <li><strong>fy125</strong> &#8211; 80&lt;t&lt;125mm</li>
-<li><strong>fu</strong> &#8211; ultimate stress</li>
-<li><strong>gammaM</strong> &#8211; </li>
+<li><strong>gammaM1</strong> &#8211; Partial factor for buckling resistance.</li>
+<li><strong>gammaM2</strong> &#8211; Partial factor for cross-sections in tension to fracture.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
-<dt id="materials.aceros_estructurales.EC3Steel.E">
-<code class="descname">E</code><em class="property"> = 210000000000.0</em><a class="headerlink" href="#materials.aceros_estructurales.EC3Steel.E" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.aceros_estructurales.EC3Steel.G">
-<code class="descname">G</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aceros_estructurales.EC3Steel.G" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="method">
 <dt id="materials.aceros_estructurales.EC3Steel.fyd">
 <code class="descname">fyd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aceros_estructurales.EC3Steel.fyd" title="Permalink to this definition">¶</a></dt>
@@ -2671,11 +2677,6 @@ monocelular según el artículo «Perfil doble T» de la Wikipedia.</p>
 </tbody>
 </table>
 </dd></dl>
-
-<dl class="attribute">
-<dt id="materials.aceros_estructurales.EC3Steel.nu">
-<code class="descname">nu</code><em class="property"> = 0.3</em><a class="headerlink" href="#materials.aceros_estructurales.EC3Steel.nu" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 </dd></dl>
 
@@ -2783,8 +2784,8 @@ epsCMax: Deformación máxima del acero.</p>
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><a class="reference internal" href="code.html#xc_base.EntConNmb.name" title="xc_base.EntConNmb.name"><strong>name</strong></a> &#8211; name identifying the section</li>
 <li><a class="reference internal" href="code.html#geom.BND3d.area" title="geom.BND3d.area"><strong>area</strong></a> &#8211; cross-sectional area</li>
-<li><a class="reference internal" href="#materials.paramRectangularSection.RectangularSection.Iy" title="materials.paramRectangularSection.RectangularSection.Iy"><strong>Iy</strong></a> &#8211; second moment of area about the local y-axis</li>
-<li><a class="reference internal" href="#materials.paramRectangularSection.RectangularSection.Iz" title="materials.paramRectangularSection.RectangularSection.Iz"><strong>Iz</strong></a> &#8211; second moment of area about the local z-axis</li>
+<li><a class="reference internal" href="#materials.paramGenericSection.GenericSection.Iy" title="materials.paramGenericSection.GenericSection.Iy"><strong>Iy</strong></a> &#8211; second moment of area about the local y-axis</li>
+<li><a class="reference internal" href="#materials.paramGenericSection.GenericSection.Iz" title="materials.paramGenericSection.GenericSection.Iz"><strong>Iz</strong></a> &#8211; second moment of area about the local z-axis</li>
 <li><strong>Jtors</strong> &#8211; torsional moment of inertia of the section</li>
 <li><strong>Wy</strong> &#8211; section modulus with respect to local y-axis</li>
 <li><strong>Wz</strong> &#8211; section modulus with respect to local z-axis</li>

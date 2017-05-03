@@ -95,70 +95,66 @@ graphical user interface where renderers draw their images.</li>
 <li><strong>bgRComp</strong> &#8211; red component (defaults to 0.65)</li>
 <li><strong>bgGComp</strong> &#8211; green component (defaults to 0.65)</li>
 <li><strong>bgBComp</strong> &#8211; blue component (defaults to 0.65)</li>
+<li><strong>hCamFct</strong> &#8211; factor that applies to the height of the camera position 
+in order to change perspective of isometric views 
+(defaults to 1, usual values 0.1 to 10)</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
-<dt id="xcVtk.vtk_grafico_base.RecordDefDisplay.ViewXNeg">
-<code class="descname">ViewXNeg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.vtk_grafico_base.RecordDefDisplay.ViewXNeg" title="Permalink to this definition">¶</a></dt>
-<dd><p>View from negative X axis (X-)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="xcVtk.vtk_grafico_base.RecordDefDisplay.ViewXPos">
-<code class="descname">ViewXPos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.vtk_grafico_base.RecordDefDisplay.ViewXPos" title="Permalink to this definition">¶</a></dt>
-<dd><p>View from positive X axis (X+)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="xcVtk.vtk_grafico_base.RecordDefDisplay.ViewXYZPos">
-<code class="descname">ViewXYZPos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.vtk_grafico_base.RecordDefDisplay.ViewXYZPos" title="Permalink to this definition">¶</a></dt>
-<dd><p>View from point (1,1,1)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="xcVtk.vtk_grafico_base.RecordDefDisplay.ViewYNeg">
-<code class="descname">ViewYNeg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.vtk_grafico_base.RecordDefDisplay.ViewYNeg" title="Permalink to this definition">¶</a></dt>
-<dd><p>View from negative Y axis (Y-)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="xcVtk.vtk_grafico_base.RecordDefDisplay.ViewYPos">
-<code class="descname">ViewYPos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.vtk_grafico_base.RecordDefDisplay.ViewYPos" title="Permalink to this definition">¶</a></dt>
-<dd><p>View from positive Y axis (Y+)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="xcVtk.vtk_grafico_base.RecordDefDisplay.ViewZNeg">
-<code class="descname">ViewZNeg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.vtk_grafico_base.RecordDefDisplay.ViewZNeg" title="Permalink to this definition">¶</a></dt>
-<dd><p>View from negative Z axis (Z-)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="xcVtk.vtk_grafico_base.RecordDefDisplay.ViewZPos">
-<code class="descname">ViewZPos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.vtk_grafico_base.RecordDefDisplay.ViewZPos" title="Permalink to this definition">¶</a></dt>
-<dd><p>View from positive Z axis (Z+)</p>
-</dd></dl>
-
-<dl class="method">
 <dt id="xcVtk.vtk_grafico_base.RecordDefDisplay.defineView">
 <code class="descname">defineView</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.vtk_grafico_base.RecordDefDisplay.defineView" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the view for the following predefined viewNames:
-&#8220;ZPos&#8221;,&#8221;ZNeg&#8221;,&#8221;YPos&#8221;,&#8221;YNeg&#8221;,&#8221;XPos&#8221;,&#8221;XNeg&#8221;,&#8221;XYZPos&#8221;</p>
+&#8220;ZPos&#8221;,&#8221;ZNeg&#8221;,&#8221;YPos&#8221;,&#8221;YNeg&#8221;,&#8221;XPos&#8221;,&#8221;XNeg&#8221;,&#8221;XYZPos&#8221;
+Zpos: View from positive Z axis (Z+)
+Zneg: View from negative Z axis (Z-)
+Ypos: View from positive Y axis (Y+)
+Yneg: View from negative Y axis (Y-)
+Xpos: View from positive X axis (X+)
+Xneg: View from negative X axis (X-)
+XYZPos or +X+Y+Z: View from point (1,1,1)
++X+Y-Z: View from point (1,1,-1)
++X-Y+Z: View from point (1,-1,1)
++X-Y-Z: View from point (1,-1,-1)
+-X+Y+Z: View from point (-1,1,1)
+-X+Y-Z: View from point (-1,1,-1)
+-X-Y+Z: View from point (-1,-1,1)
+XYZNeg or -X-Y-Z: View from point (-1,-1,-1)</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="xcVtk.vtk_grafico_base.RecordDefDisplay.displayGrid">
 <code class="descname">displayGrid</code><span class="sig-paren">(</span><em>caption=''</em><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.vtk_grafico_base.RecordDefDisplay.displayGrid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Displays the grid in the output device</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>caption</strong> &#8211; caption to display with the scene.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="xcVtk.vtk_grafico_base.RecordDefDisplay.displayScene">
 <code class="descname">displayScene</code><span class="sig-paren">(</span><em>caption=''</em>, <em>fName=None</em><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.vtk_grafico_base.RecordDefDisplay.displayScene" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Displaying scene</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>caption</strong> &#8211; caption to display with the scene.</li>
+<li><strong>fName</strong> &#8211; name of the image file, in none -&gt; screen window.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="xcVtk.vtk_grafico_base.RecordDefDisplay.muestraEscena">
@@ -169,6 +165,25 @@ graphical user interface where renderers draw their images.</li>
 <dt id="xcVtk.vtk_grafico_base.RecordDefDisplay.plot">
 <code class="descname">plot</code><span class="sig-paren">(</span><em>fName</em><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.vtk_grafico_base.RecordDefDisplay.plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots window contents</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xcVtk.vtk_grafico_base.RecordDefDisplay.setView">
+<code class="descname">setView</code><span class="sig-paren">(</span><em>viewUpVc</em>, <em>posCVc</em><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.vtk_grafico_base.RecordDefDisplay.setView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the view</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>viewUpVc</strong> &#8211; vector defined as [x,y,z] to orient the view. This vector of the
+model is placed in vertical orientation in the display</li>
+<li><strong>posCVc</strong> &#8211; vector defined as [x,y,z] that points to the camera position</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -546,12 +561,12 @@ valDest: Valor del campo escalar en el extremo frontal.</p>
 </div>
 <div class="section" id="module-xcVtk.NodePropertyDiagram">
 <span id="nodepropertydiagram"></span><h2>NodePropertyDiagram<a class="headerlink" href="#module-xcVtk.NodePropertyDiagram" title="Permalink to this headline">¶</a></h2>
-<p>Diagram display a property defined at nodes over linear elements.</p>
+<p>Diagram to display a property defined at nodes over linear elements.</p>
 <dl class="class">
 <dt id="xcVtk.NodePropertyDiagram.NodePropertyDiagram">
-<em class="property">class </em><code class="descclassname">xcVtk.NodePropertyDiagram.</code><code class="descname">NodePropertyDiagram</code><span class="sig-paren">(</span><em>scale</em>, <em>fUnitConv</em>, <em>sets</em>, <em>propertyName</em><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.NodePropertyDiagram.NodePropertyDiagram" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">xcVtk.NodePropertyDiagram.</code><code class="descname">NodePropertyDiagram</code><span class="sig-paren">(</span><em>scaleFactor</em>, <em>fUnitConv</em>, <em>sets</em>, <em>attributeName</em><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.NodePropertyDiagram.NodePropertyDiagram" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#xcVtk.ColoredDiagram.ColoredDiagram" title="xcVtk.ColoredDiagram.ColoredDiagram"><code class="xref py py-class docutils literal"><span class="pre">xcVtk.ColoredDiagram.ColoredDiagram</span></code></a></p>
-<p>Diagram of internal forces (N,My,Mz,T,Vy,Vz)</p>
+<p>Diagram to display a property defined at nodes over linear elements.</p>
 <dl class="method">
 <dt id="xcVtk.NodePropertyDiagram.NodePropertyDiagram.agregaDiagrama">
 <code class="descname">agregaDiagrama</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.NodePropertyDiagram.NodePropertyDiagram.agregaDiagrama" title="Permalink to this definition">¶</a></dt>
@@ -560,6 +575,11 @@ valDest: Valor del campo escalar en el extremo frontal.</p>
 <dl class="method">
 <dt id="xcVtk.NodePropertyDiagram.NodePropertyDiagram.appendDataToDiagram">
 <code class="descname">appendDataToDiagram</code><span class="sig-paren">(</span><em>eSet</em>, <em>indxDiagrama</em><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.NodePropertyDiagram.NodePropertyDiagram.appendDataToDiagram" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="xcVtk.NodePropertyDiagram.NodePropertyDiagram.getValueForNode">
+<code class="descname">getValueForNode</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.NodePropertyDiagram.NodePropertyDiagram.getValueForNode" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

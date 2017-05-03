@@ -599,7 +599,7 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 <span id="ng-rc-section"></span><h1>ng_rc_section<a class="headerlink" href="#module-rough_calculations.ng_rc_section" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="rough_calculations.ng_rc_section.RCSection">
-<em class="property">class </em><code class="descclassname">rough_calculations.ng_rc_section.</code><code class="descname">RCSection</code><span class="sig-paren">(</span><em>tensionRebars</em>, <em>beton</em>, <em>exigFis</em>, <em>b</em>, <em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rc_section.RCSection" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">rough_calculations.ng_rc_section.</code><code class="descname">RCSection</code><span class="sig-paren">(</span><em>tensionRebars</em>, <em>beton</em>, <em>b</em>, <em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rc_section.RCSection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <dl class="attribute">
 <dt id="rough_calculations.ng_rc_section.RCSection.b">
@@ -609,11 +609,6 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 <dl class="attribute">
 <dt id="rough_calculations.ng_rc_section.RCSection.beton">
 <code class="descname">beton</code><em class="property"> = C25-30</em><a class="headerlink" href="#rough_calculations.ng_rc_section.RCSection.beton" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="rough_calculations.ng_rc_section.RCSection.exigeanceFisuration">
-<code class="descname">exigeanceFisuration</code><em class="property"> = 'B'</em><a class="headerlink" href="#rough_calculations.ng_rc_section.RCSection.exigeanceFisuration" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -652,9 +647,29 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="rough_calculations.ng_rc_section.RCSection.writeResultCompression">
+<code class="descname">writeResultCompression</code><span class="sig-paren">(</span><em>outputFile</em>, <em>Nd</em>, <em>AsTrsv</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rc_section.RCSection.writeResultCompression" title="Permalink to this definition">¶</a></dt>
+<dd><p>Results for compressed rebars.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>AsTrsv</strong> &#8211; Rebar area in transverse direction.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="rough_calculations.ng_rc_section.RCSection.writeResultFlexion">
 <code class="descname">writeResultFlexion</code><span class="sig-paren">(</span><em>outputFile</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rc_section.RCSection.writeResultFlexion" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rc_section.RCSection.writeResultStress">
+<code class="descname">writeResultStress</code><span class="sig-paren">(</span><em>outputFile</em>, <em>M</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rc_section.RCSection.writeResultStress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cheking of stresses under permanent loads (SIA 262 fig. 31)</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_rc_section.RCSection.writeResultTraction">
@@ -675,16 +690,6 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 <code class="descname">d</code><span class="sig-paren">(</span><em>epaisseur</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.d" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
-<dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.f1">
-<code class="descname">f1</code><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.f1" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.f2">
-<code class="descname">f2</code><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.f2" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="method">
 <dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.getAs">
 <code class="descname">getAs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getAs" title="Permalink to this definition">¶</a></dt>
@@ -692,17 +697,22 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 
 <dl class="method">
 <dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.getAsMinFlexion">
-<code class="descname">getAsMinFlexion</code><span class="sig-paren">(</span><em>beton</em>, <em>exigeanceFisuration</em>, <em>epaisseur</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getAsMinFlexion" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getAsMinFlexion</code><span class="sig-paren">(</span><em>beton</em>, <em>epaisseur</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getAsMinFlexion" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.getAsMinTraction">
-<code class="descname">getAsMinTraction</code><span class="sig-paren">(</span><em>beton</em>, <em>exigeanceFisuration</em>, <em>epaisseur</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getAsMinTraction" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getAsMinTraction</code><span class="sig-paren">(</span><em>beton</em>, <em>epaisseur</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getAsMinTraction" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.getBasicAnchorageLength">
 <code class="descname">getBasicAnchorageLength</code><span class="sig-paren">(</span><em>beton</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getBasicAnchorageLength" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.getCopy">
+<code class="descname">getCopy</code><span class="sig-paren">(</span><em>exigenceFissuration</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getCopy" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -718,6 +728,11 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 <dl class="method">
 <dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.getEnrobageMec">
 <code class="descname">getEnrobageMec</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getEnrobageMec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.getExigenceFissuration">
+<code class="descname">getExigenceFissuration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getExigenceFissuration" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -755,31 +770,11 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 
 <dl class="class">
 <dt id="rough_calculations.ng_rebar_def.RebarFamily">
-<em class="property">class </em><code class="descclassname">rough_calculations.ng_rebar_def.</code><code class="descname">RebarFamily</code><span class="sig-paren">(</span><em>acier</em>, <em>diam</em>, <em>ecartement</em>, <em>enrobage</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">rough_calculations.ng_rebar_def.</code><code class="descname">RebarFamily</code><span class="sig-paren">(</span><em>acier</em>, <em>diam</em>, <em>ecartement</em>, <em>enrobage</em>, <em>exigenceFissuration='B'</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
-<dl class="attribute">
-<dt id="rough_calculations.ng_rebar_def.RebarFamily.acier">
-<code class="descname">acier</code><em class="property"> = B500B</em><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.acier" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="method">
 <dt id="rough_calculations.ng_rebar_def.RebarFamily.d">
 <code class="descname">d</code><span class="sig-paren">(</span><em>epaisseur</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.d" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="rough_calculations.ng_rebar_def.RebarFamily.diam">
-<code class="descname">diam</code><em class="property"> = 0.008</em><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.diam" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="rough_calculations.ng_rebar_def.RebarFamily.ecartement">
-<code class="descname">ecartement</code><em class="property"> = 0.15</em><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.ecartement" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="rough_calculations.ng_rebar_def.RebarFamily.enrobage">
-<code class="descname">enrobage</code><em class="property"> = 0.04</em><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.enrobage" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -789,12 +784,12 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 
 <dl class="method">
 <dt id="rough_calculations.ng_rebar_def.RebarFamily.getAsMinFlexion">
-<code class="descname">getAsMinFlexion</code><span class="sig-paren">(</span><em>beton</em>, <em>exigeanceFisuration</em>, <em>epaisseur</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getAsMinFlexion" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getAsMinFlexion</code><span class="sig-paren">(</span><em>beton</em>, <em>epaisseur</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getAsMinFlexion" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_rebar_def.RebarFamily.getAsMinTraction">
-<code class="descname">getAsMinTraction</code><span class="sig-paren">(</span><em>beton</em>, <em>exigeanceFisuration</em>, <em>epaisseur</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getAsMinTraction" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getAsMinTraction</code><span class="sig-paren">(</span><em>beton</em>, <em>epaisseur</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getAsMinTraction" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -805,6 +800,11 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 <dl class="method">
 <dt id="rough_calculations.ng_rebar_def.RebarFamily.getBasicAnchorageLength">
 <code class="descname">getBasicAnchorageLength</code><span class="sig-paren">(</span><em>beton</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getBasicAnchorageLength" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.RebarFamily.getCopy">
+<code class="descname">getCopy</code><span class="sig-paren">(</span><em>exigenceFissuration</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getCopy" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -825,6 +825,11 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 <dl class="method">
 <dt id="rough_calculations.ng_rebar_def.RebarFamily.getEnrobageMec">
 <code class="descname">getEnrobageMec</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getEnrobageMec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_rebar_def.RebarFamily.getExigenceFissuration">
+<code class="descname">getExigenceFissuration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getExigenceFissuration" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -886,14 +891,9 @@ Laryx (Cubus suite) software.</p>
 
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.InternalForces.MdEncastrement">
-<code class="descname">MdEncastrement</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.InternalForces.MdEncastrement" title="Permalink to this definition">¶</a></dt>
+<code class="descname">MdEncastrement</code><span class="sig-paren">(</span><em>footingThickness</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.InternalForces.MdEncastrement" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bending moment (envelope) at stem base.</p>
 </dd></dl>
-
-<dl class="attribute">
-<dt id="rough_calculations.ng_retaining_wall.InternalForces.MdSemelle">
-<code class="descname">MdSemelle</code><em class="property"> = 0.0</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.InternalForces.MdSemelle" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.InternalForces.Vd">
@@ -907,9 +907,9 @@ Laryx (Cubus suite) software.</p>
 <dd><p>Shear force (envelope) at stem base.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="rough_calculations.ng_retaining_wall.InternalForces.VdSemelle">
-<code class="descname">VdSemelle</code><em class="property"> = 0.0</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.InternalForces.VdSemelle" title="Permalink to this definition">¶</a></dt>
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.InternalForces.clone">
+<code class="descname">clone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.InternalForces.clone" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -917,29 +917,9 @@ Laryx (Cubus suite) software.</p>
 <code class="descname">getYVoile</code><span class="sig-paren">(</span><em>hCoupe</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.InternalForces.getYVoile" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
-<dt id="rough_calculations.ng_retaining_wall.InternalForces.hauteurVoile">
-<code class="descname">hauteurVoile</code><em class="property"> = 1</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.InternalForces.hauteurVoile" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="rough_calculations.ng_retaining_wall.InternalForces.mdMax">
-<code class="descname">mdMax</code><em class="property"> = [0, 1]</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.InternalForces.mdMax" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="rough_calculations.ng_retaining_wall.InternalForces.mdMaxVoile">
-<code class="descname">mdMaxVoile</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.InternalForces.mdMaxVoile" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="rough_calculations.ng_retaining_wall.InternalForces.vdMax">
-<code class="descname">vdMax</code><em class="property"> = [0, 1]</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.InternalForces.vdMax" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="rough_calculations.ng_retaining_wall.InternalForces.vdMaxVoile">
-<code class="descname">vdMaxVoile</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.InternalForces.vdMaxVoile" title="Permalink to this definition">¶</a></dt>
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.InternalForces.interpolate">
+<code class="descname">interpolate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.InternalForces.interpolate" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -948,11 +928,6 @@ Laryx (Cubus suite) software.</p>
 <dd><p>Draws a graphic of internal forces (envelopes) in
 the wall stem.</p>
 </dd></dl>
-
-<dl class="attribute">
-<dt id="rough_calculations.ng_retaining_wall.InternalForces.y">
-<code class="descname">y</code><em class="property"> = [0, 1]</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.InternalForces.y" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 </dd></dl>
 
@@ -1049,9 +1024,15 @@ the wall stem.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="rough_calculations.ng_retaining_wall.RetainingWall.setInternalForcesEnvelope">
-<code class="descname">setInternalForcesEnvelope</code><span class="sig-paren">(</span><em>effortsMur</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.setInternalForcesEnvelope" title="Permalink to this definition">¶</a></dt>
-<dd><p>Assigns the infernal forces envelope for the stem.</p>
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.setSLSInternalForcesEnvelope">
+<code class="descname">setSLSInternalForcesEnvelope</code><span class="sig-paren">(</span><em>wallInternalForces</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.setSLSInternalForcesEnvelope" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assigns the serviceability limit state infernal forces envelope for the stem.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.setULSInternalForcesEnvelope">
+<code class="descname">setULSInternalForcesEnvelope</code><span class="sig-paren">(</span><em>wallInternalForces</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.setULSInternalForcesEnvelope" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assigns the ultimate limit state infernal forces envelope for the stem.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1067,6 +1048,11 @@ the wall stem.</p>
 </dd></dl>
 
 </dd></dl>
+
+<dl class="function">
+<dt id="rough_calculations.ng_retaining_wall.filterRepeatedValues">
+<code class="descclassname">rough_calculations.ng_retaining_wall.</code><code class="descname">filterRepeatedValues</code><span class="sig-paren">(</span><em>yList</em>, <em>mList</em>, <em>vList</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.filterRepeatedValues" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </div>
 <div class="section" id="module-rough_calculations.ng_simple_beam">

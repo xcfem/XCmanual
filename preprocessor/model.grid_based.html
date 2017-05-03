@@ -250,7 +250,7 @@
 <dl class="method">
 <dt id="model.grid_based.ijkGrid.ijkGrid.generateAreas">
 <code class="descname">generateAreas</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>dicQuadSurf</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.generateAreas" title="Permalink to this definition">¶</a></dt>
-<dd><p>genera las superficies contenidas en un rectángulo comprendido entre las coordenadas</p>
+<dd><p>generates the surfaces contained in a rectangle defined by the coordinates</p>
 </dd></dl>
 
 <dl class="method">
@@ -294,7 +294,7 @@ the generated lines to the dictionary <cite>dicLin={line_id: xc_line, ...}</cite
 <dl class="method">
 <dt id="model.grid_based.ijkGrid.ijkGrid.getSetInRange">
 <code class="descname">getSetInRange</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>dicQuadSurf</em>, <em>nmbrSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.getSetInRange" title="Permalink to this definition">¶</a></dt>
-<dd><p>devuelve el set de entidades (superficies y todas las asociadas a estas superficies)</p>
+<dd><p>devuelve el set de entidades (surfaced and all entities related to them)</p>
 </dd></dl>
 
 <dl class="method">
@@ -745,7 +745,7 @@ and mass density of the material</li>
 </table>
 <dl class="method">
 <dt id="model.grid_based.GridModel.GridModel.displayLoad">
-<code class="descname">displayLoad</code><span class="sig-paren">(</span><em>setToDisplay=None</em>, <em>loadCaseNm=''</em>, <em>unitsScale=1.0</em>, <em>vectorScale=1.0</em>, <em>multByElemArea=False</em>, <em>viewNm='XYZPos'</em>, <em>caption=''</em>, <em>fileName=None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.GridModel.displayLoad" title="Permalink to this definition">¶</a></dt>
+<code class="descname">displayLoad</code><span class="sig-paren">(</span><em>setToDisplay=None</em>, <em>loadCaseNm=''</em>, <em>unitsScale=1.0</em>, <em>vectorScale=1.0</em>, <em>multByElemArea=False</em>, <em>viewNm='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>caption=''</em>, <em>fileName=None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.GridModel.displayLoad" title="Permalink to this definition">¶</a></dt>
 <dd><p>vector field display of the loads applied to the chosen set of elements in the load case passed as parameter</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -757,7 +757,9 @@ and mass density of the material</li>
 <li><strong>unitsScale</strong> &#8211; factor to apply to the results if we want to change the units.</li>
 <li><strong>vectorScale</strong> &#8211; factor to apply to the vectors length in the representation</li>
 <li><strong>multByElemArea</strong> &#8211; boolean value that must be <cite>True</cite> if we want to represent the total load on each element (=load multiplied by element area) and <cite>False</cite> if we are going to depict the value of the uniform load per unit area</li>
-<li><strong>viewNm</strong> &#8211; name of the view  that contains the renderer (possible options: <cite>XYZPos</cite>, <cite>XPos</cite>, <cite>XNeg</cite>,`YPos`, <cite>YNeg</cite>, <cite>ZPos</cite>, <cite>ZNeg</cite>)</li>
+<li><strong>viewNm</strong> &#8211; name of the view  that contains the renderer (possible options: <cite>XYZPos</cite>, <cite>XYZNeg</cite>,`XPos`, <cite>XNeg</cite>,`YPos`, <cite>YNeg</cite>, <cite>ZPos</cite>, <cite>ZNeg</cite>)</li>
+<li><strong>hCamFct</strong> &#8211; factor that applies to the height of the camera position in order to
+change perspective of isometric views (defaults to 1). Usual values 0.1 to 10</li>
 <li><strong>fileName</strong> &#8211; full name of the graphic file to generate. Defaults to ` None`, in this case it returns a console output graphic.</li>
 <li><strong>caption</strong> &#8211; text to display in the graphic</li>
 </ul>
@@ -769,7 +771,7 @@ and mass density of the material</li>
 
 <dl class="method">
 <dt id="model.grid_based.GridModel.GridModel.displayLocalAxes">
-<code class="descname">displayLocalAxes</code><span class="sig-paren">(</span><em>setToDisplay=None</em>, <em>vectorScale=1.0</em>, <em>viewNm='XYZPos'</em>, <em>caption=''</em>, <em>fileName=None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.GridModel.displayLocalAxes" title="Permalink to this definition">¶</a></dt>
+<code class="descname">displayLocalAxes</code><span class="sig-paren">(</span><em>setToDisplay=None</em>, <em>vectorScale=1.0</em>, <em>viewNm='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>caption=''</em>, <em>fileName=None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.GridModel.displayLocalAxes" title="Permalink to this definition">¶</a></dt>
 <dd><p>vector field display of the loads applied to the chosen set of elements in the load case passed as parameter</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -779,6 +781,8 @@ and mass density of the material</li>
 <li><strong>setToDisplay</strong> &#8211; set of elements to be displayed (defaults to total set)</li>
 <li><strong>vectorScale</strong> &#8211; factor to apply to the vectors length in the representation</li>
 <li><strong>viewNm</strong> &#8211; name of the view  that contains the renderer (possible options: &#8220;XYZPos&#8221;, &#8220;XPos&#8221;, &#8220;XNeg&#8221;,&#8221;YPos&#8221;, &#8220;YNeg&#8221;, &#8220;ZPos&#8221;, &#8220;ZNeg&#8221;)</li>
+<li><strong>hCamFct</strong> &#8211; factor that applies to the height of the camera position in order to
+change perspective of isometric views (defaults to 1). Usual values 0.1 to 10</li>
 <li><strong>fileName</strong> &#8211; full name of the graphic file to generate. Defaults to <cite>None</cite>, in this case it returns a console output graphic.</li>
 <li><strong>caption</strong> &#8211; text to display in the graphic</li>
 </ul>
@@ -1673,6 +1677,29 @@ The uniform load is introduced as point loads in the nodes</p>
 <code class="descname">appendLoadToLoadPattern</code><span class="sig-paren">(</span><em>loadPattern</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.UniformLoadOnLinesInRange.appendLoadToLoadPattern" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</dd></dl>
+
+<dl class="function">
+<dt id="model.grid_based.GridModel.displayFieldDirs1and2">
+<code class="descclassname">model.grid_based.GridModel.</code><code class="descname">displayFieldDirs1and2</code><span class="sig-paren">(</span><em>limitStateLabel</em>, <em>argument</em>, <em>setDisp</em>, <em>component</em>, <em>fUnitConv</em>, <em>fileName</em>, <em>captionTexts</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.displayFieldDirs1and2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display a field defined over bi-dimensional elements in its two directions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>limitStateLabel</strong> &#8211; label that identifies the limit state.</li>
+<li><strong>argument</strong> &#8211; name of the control var to represent.</li>
+<li><strong>xcSet</strong> &#8211; represent the field over those elements with &#8220;genDescr&#8221; and &#8220;sectDescr&#8221; attributes.</li>
+<li><strong>component</strong> &#8211; component of the control var to represent.</li>
+<li><strong>fUnitConv</strong> &#8211; unit conversion factor (i.e N-&gt;kN =&gt; fUnitConv= 1e-3).</li>
+<li><strong>fileName</strong> &#8211; file name to store the image. If none -&gt; window on screen.</li>
+<li><strong>captionTexts</strong> &#8211; dictionary of caption texts.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">

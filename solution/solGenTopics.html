@@ -103,6 +103,53 @@
 <dt id="solution.predefined_solutions.SolutionProcedure">
 <em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">SolutionProcedure</code><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure.solu" title="solution.predefined_solutions.SolutionProcedure.solu"><strong>solu</strong></a> &#8211; </li>
+<li><a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure.solCtrl" title="solution.predefined_solutions.SolutionProcedure.solCtrl"><strong>solCtrl</strong></a> &#8211; </li>
+<li><a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure.sm" title="solution.predefined_solutions.SolutionProcedure.sm"><strong>sm</strong></a> &#8211; </li>
+<li><a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure.numberer" title="solution.predefined_solutions.SolutionProcedure.numberer"><strong>numberer</strong></a> &#8211; DOF numberer. Determines the mapping between equation 
+numbers and degrees of freedom (how DOF are numbered)</li>
+<li><a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure.cHandler" title="solution.predefined_solutions.SolutionProcedure.cHandler"><strong>cHandler</strong></a> &#8211; constraint handler. Determines how the constraint equations 
+are enforced in the analysis, how it handles the boundary
+conditions/imposed displacements</li>
+<li><a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure.smt" title="solution.predefined_solutions.SolutionProcedure.smt"><strong>smt</strong></a> &#8211; </li>
+<li><a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure.solAlgo" title="solution.predefined_solutions.SolutionProcedure.solAlgo"><strong>solAlgo</strong></a> &#8211; <p>solution algorithm, which determines the sequence of steps
+taken to solve the non-linear equation:</p>
+<ul>
+<li>linear</li>
+<li>Newton Raphson (the tangent is updated at each iteration)</li>
+<li>Newton with Line Search</li>
+<li>Modified Newton Raphson (the tangent is not updated at</li>
+</ul>
+<p>each iteration)
+- Kyrlov-Newton
+- BFGS, for symetric systems
+- Broyden</p>
+</li>
+<li><a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure.integ" title="solution.predefined_solutions.SolutionProcedure.integ"><strong>integ</strong></a> &#8211; <p>integrator, used to:</p>
+<ul>
+<li>determine the predictive step for time t+dt</li>
+<li>specify the tangent matrix and residual vectir at any
+iteration</li>
+<li>determine the corrective step based on the displacement 
+increment</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure.soe" title="solution.predefined_solutions.SolutionProcedure.soe"><strong>soe</strong></a> &#8211; sparse system of equations: band general, band SPD, 
+profile SPD, sparse general, umfPack, sparse SPD</li>
+<li><a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure.solver" title="solution.predefined_solutions.SolutionProcedure.solver"><strong>solver</strong></a> &#8211; </li>
+<li><a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure.analysis" title="solution.predefined_solutions.SolutionProcedure.analysis"><strong>analysis</strong></a> &#8211; determines what type of analysis is to be performed</li>
+<li><a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure.convergenceTestTol" title="solution.predefined_solutions.SolutionProcedure.convergenceTestTol"><strong>convergenceTestTol</strong></a> &#8211; convergence tolerance (defaults to 1e-9)</li>
+<li><a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure.maxNumIter" title="solution.predefined_solutions.SolutionProcedure.maxNumIter"><strong>maxNumIter</strong></a> &#8211; maximum number of iterations (defauts to 10)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="attribute">
 <dt id="solution.predefined_solutions.SolutionProcedure.analysis">
 <code class="descname">analysis</code><em class="property"> = None</em><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.analysis" title="Permalink to this definition">¶</a></dt>
@@ -173,6 +220,12 @@
 <code class="descname">simpleStaticModifiedNewton</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.simpleStaticModifiedNewton" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="method">
+<dt id="solution.predefined_solutions.SolutionProcedure.simpleTransformationStaticLinear">
+<code class="descname">simpleTransformationStaticLinear</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.simpleTransformationStaticLinear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple solution algorithm with a transformation constraint handler.</p>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="solution.predefined_solutions.SolutionProcedure.sm">
 <code class="descname">sm</code><em class="property"> = None</em><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.sm" title="Permalink to this definition">¶</a></dt>
@@ -221,6 +274,26 @@
 <dd></dd></dl>
 
 <dl class="function">
+<dt id="solution.predefined_solutions.resuelveCasoEstatNoLin">
+<code class="descclassname">solution.predefined_solutions.</code><code class="descname">resuelveCasoEstatNoLin</code><span class="sig-paren">(</span><em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.resuelveCasoEstatNoLin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="solution.predefined_solutions.resuelveComb">
+<code class="descclassname">solution.predefined_solutions.</code><code class="descname">resuelveComb</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>nmbComb</em>, <em>analysis</em>, <em>numSteps</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.resuelveComb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="solution.predefined_solutions.resuelveCombEstat2ndOrderLin">
+<code class="descclassname">solution.predefined_solutions.</code><code class="descname">resuelveCombEstat2ndOrderLin</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>nmbComb</em>, <em>analysis</em>, <em>numSteps</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.resuelveCombEstat2ndOrderLin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="solution.predefined_solutions.resuelveCombEstatLin">
+<code class="descclassname">solution.predefined_solutions.</code><code class="descname">resuelveCombEstatLin</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>nmbComb</em>, <em>analysis</em>, <em>numSteps</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.resuelveCombEstatLin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
 <dt id="solution.predefined_solutions.simple_newton_raphson">
 <code class="descclassname">solution.predefined_solutions.</code><code class="descname">simple_newton_raphson</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.simple_newton_raphson" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -241,28 +314,8 @@
 <dd></dd></dl>
 
 </div>
-<div class="section" id="module-solution.resuelve_combinacion">
-<span id="resuelve-combinacion"></span><h1>resuelve_combinacion<a class="headerlink" href="#module-solution.resuelve_combinacion" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
-<dt id="solution.resuelve_combinacion.resuelveCasoEstatNoLin">
-<code class="descclassname">solution.resuelve_combinacion.</code><code class="descname">resuelveCasoEstatNoLin</code><span class="sig-paren">(</span><em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.resuelve_combinacion.resuelveCasoEstatNoLin" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="solution.resuelve_combinacion.resuelveComb">
-<code class="descclassname">solution.resuelve_combinacion.</code><code class="descname">resuelveComb</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>nmbComb</em>, <em>analysis</em>, <em>numSteps</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.resuelve_combinacion.resuelveComb" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="solution.resuelve_combinacion.resuelveCombEstat2ndOrderLin">
-<code class="descclassname">solution.resuelve_combinacion.</code><code class="descname">resuelveCombEstat2ndOrderLin</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>nmbComb</em>, <em>analysis</em>, <em>numSteps</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.resuelve_combinacion.resuelveCombEstat2ndOrderLin" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="solution.resuelve_combinacion.resuelveCombEstatLin">
-<code class="descclassname">solution.resuelve_combinacion.</code><code class="descname">resuelveCombEstatLin</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>nmbComb</em>, <em>analysis</em>, <em>numSteps</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.resuelve_combinacion.resuelveCombEstatLin" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<div class="section" id="resuelve-combinacion">
+<h1>resuelve_combinacion<a class="headerlink" href="#resuelve-combinacion" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
@@ -275,7 +328,7 @@
   <ul>
 <li><a class="reference internal" href="#">database_helper</a></li>
 <li><a class="reference internal" href="#module-solution.predefined_solutions">predefined_solutions</a></li>
-<li><a class="reference internal" href="#module-solution.resuelve_combinacion">resuelve_combinacion</a></li>
+<li><a class="reference internal" href="#resuelve-combinacion">resuelve_combinacion</a></li>
 </ul>
 
   <h4>Previous topic</h4>

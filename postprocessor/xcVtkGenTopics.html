@@ -84,13 +84,14 @@
 controls the rendering process for objects. Rendering is the 
 process of converting geometry, a specification for lights, and
 a camera view into an image. (defaults to None)</li>
-<li><strong>renWin</strong> &#8211; rendering window (defaults to None). A rendering window is a window in a
-graphical user interface where renderers draw their images.</li>
-<li><strong>windowWidth</strong> &#8211; resolution expresed in pixels in the width direction of the window 
-(defaults to 800)</li>
-<li><strong>windowHeight</strong> &#8211; resolution expresed in pixels in the height direction of the window 
-(defaults to 600)</li>
-<li><strong>viewName</strong> &#8211; name of the view that contains the renderer (defaults to &#8220;XYZPos&#8221;)</li>
+<li><strong>renWin</strong> &#8211; rendering window (defaults to None). A rendering window is a 
+window in a graphical user interface where renderers draw their images.</li>
+<li><strong>windowWidth</strong> &#8211; resolution expresed in pixels in the width direction of 
+the window (defaults to 800)</li>
+<li><strong>windowHeight</strong> &#8211; resolution expresed in pixels in the height direction of 
+the window (defaults to 600)</li>
+<li><strong>viewName</strong> &#8211; name of the view that contains the renderer 
+(defaults to &#8220;XYZPos&#8221;)</li>
 <li><strong>zoom</strong> &#8211; (defaults to 1.0)</li>
 <li><strong>bgRComp</strong> &#8211; red component (defaults to 0.65)</li>
 <li><strong>bgGComp</strong> &#8211; green component (defaults to 0.65)</li>
@@ -189,7 +190,7 @@ model is placed in vertical orientation in the display</li>
 <dl class="method">
 <dt id="xcVtk.vtk_grafico_base.RecordDefDisplay.setupAxes">
 <code class="descname">setupAxes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.vtk_grafico_base.RecordDefDisplay.setupAxes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add an vtkAxesActor to the renerer.</p>
+<dd><p>Add an vtkAxesActor to the renderer.</p>
 </dd></dl>
 
 <dl class="method">
@@ -219,7 +220,7 @@ interaction mechanism for mouse/key/time events.</p>
 <dt id="xcVtk.vtk_grafico_base.RecordDefGrid">
 <em class="property">class </em><code class="descclassname">xcVtk.vtk_grafico_base.</code><code class="descname">RecordDefGrid</code><a class="headerlink" href="#xcVtk.vtk_grafico_base.RecordDefGrid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
-<p>Provides the variables involved in the VTK grid representation</p>
+<p>Provide the variables involved in the VTK grid representation</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -227,14 +228,14 @@ interaction mechanism for mouse/key/time events.</p>
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><strong>xcSet</strong> &#8211; set to be represented</li>
 <li><strong>entToLabel</strong> &#8211; entities to be labeled (defaults to &#8220;nodos&#8221;)</li>
-<li><strong>cellType</strong> &#8211; specifies the type of data cells (defaults to &#8220;nil&#8221;). Data cells are simple 
-topological elements like points, lines, polygons and tetrahedra of which 
-visualization data sets are composed.</li>
-<li><strong>uGrid</strong> &#8211; unstructure grid (defaults to None). An unstructure grid is a concrete 
-implementation of a vtk data set; represents any combination of any cell
-types. This includes 0D (e.g. points), 1D (e.g., lines, polylines), 
-2D (e.g., triangles, polygons), and 3D (e.g., hexahedron, tetrahedron, polyhedron, etc.).</li>
-<li><strong>dispScale</strong> &#8211; (defaults to 0.0)</li>
+<li><strong>cellType</strong> &#8211; specifies the type of data cells (defaults to &#8220;nil&#8221;). 
+Data cells are simple topological elements like points, lines, 
+polygons and tetrahedra of which visualization data sets are composed.</li>
+<li><strong>uGrid</strong> &#8211; unstructure grid (defaults to None). An unstructure grid is a 
+concrete implementation of a vtk data set; represents any combination 
+of any cell types. This includes 0D (e.g. points), 1D (e.g., lines, 
+polylines), 2D (e.g., triangles, polygons), and 3D (e.g., hexahedron, 
+tetrahedron, polyhedron, etc.).</li>
 </ul>
 </td>
 </tr>
@@ -263,7 +264,7 @@ types. This includes 0D (e.g. points), 1D (e.g., lines, polylines),
 elements for example).</p>
 <dl class="method">
 <dt id="xcVtk.ColoredDiagram.ColoredDiagram.agregaDatosADiagrama">
-<code class="descname">agregaDatosADiagrama</code><span class="sig-paren">(</span><em>elem</em>, <em>indxDiagrama</em>, <em>v0</em>, <em>v1</em><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.ColoredDiagram.ColoredDiagram.agregaDatosADiagrama" title="Permalink to this definition">¶</a></dt>
+<code class="descname">agregaDatosADiagrama</code><span class="sig-paren">(</span><em>elem</em>, <em>indxDiagrama</em>, <em>v0</em>, <em>v1</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.ColoredDiagram.ColoredDiagram.agregaDatosADiagrama" title="Permalink to this definition">¶</a></dt>
 <dd><p>Appends to the diagram the values being passed as parameter.</p>
 <blockquote>
 <div>___&#8212;-* value2</div></blockquote>
@@ -287,6 +288,11 @@ elements for example).</p>
 <li><strong>indxDiagrama</strong> &#8211; index-counter for the values to insert.</li>
 <li><strong>v0</strong> &#8211; value at the start node.</li>
 <li><strong>v1</strong> &#8211; value at the end node.</li>
+<li><strong>defFScale</strong> &#8211; factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
 </ul>
 </td>
 </tr>
@@ -456,8 +462,16 @@ valDest: Valor del campo escalar en el extremo frontal.</p>
 
 <dl class="method">
 <dt id="xcVtk.ElementPropertyDiagram.ElementPropertyDiagram.appendDataToDiagram">
-<code class="descname">appendDataToDiagram</code><span class="sig-paren">(</span><em>eSet</em>, <em>indxDiagrama</em><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.ElementPropertyDiagram.ElementPropertyDiagram.appendDataToDiagram" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">appendDataToDiagram</code><span class="sig-paren">(</span><em>eSet</em>, <em>indxDiagrama</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.ElementPropertyDiagram.ElementPropertyDiagram.appendDataToDiagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append property values to diagram .
+:param  eSet: Element set.
+:param defFScale: factor to apply to current displacement of nodes</p>
+<blockquote>
+<div>so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</div></blockquote>
+</dd></dl>
 
 <dl class="attribute">
 <dt id="xcVtk.ElementPropertyDiagram.ElementPropertyDiagram.envelopes">
@@ -510,13 +524,24 @@ valDest: Valor del campo escalar en el extremo frontal.</p>
 
 <dl class="method">
 <dt id="xcVtk.LoadVectorField.LoadVectorField.dumpLoads">
-<code class="descname">dumpLoads</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.LoadVectorField.LoadVectorField.dumpLoads" title="Permalink to this definition">¶</a></dt>
+<code class="descname">dumpLoads</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>defFScale</em><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.LoadVectorField.LoadVectorField.dumpLoads" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="xcVtk.LoadVectorField.LoadVectorField.dumpNodalLoads">
-<code class="descname">dumpNodalLoads</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>lp</em><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.LoadVectorField.LoadVectorField.dumpNodalLoads" title="Permalink to this definition">¶</a></dt>
+<code class="descname">dumpNodalLoads</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>lp</em>, <em>defFScale</em><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.LoadVectorField.LoadVectorField.dumpNodalLoads" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterate over loaded nodes dumping its loads into the graphic.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>defFScale</strong> &#8211; factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -574,8 +599,16 @@ valDest: Valor del campo escalar en el extremo frontal.</p>
 
 <dl class="method">
 <dt id="xcVtk.NodePropertyDiagram.NodePropertyDiagram.appendDataToDiagram">
-<code class="descname">appendDataToDiagram</code><span class="sig-paren">(</span><em>eSet</em>, <em>indxDiagrama</em><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.NodePropertyDiagram.NodePropertyDiagram.appendDataToDiagram" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">appendDataToDiagram</code><span class="sig-paren">(</span><em>eSet</em>, <em>indxDiagrama</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.NodePropertyDiagram.NodePropertyDiagram.appendDataToDiagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append property values to diagram .
+:param eSet: Element set.
+:param defFScale: factor to apply to current displacement of nodes</p>
+<blockquote>
+<div>so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</div></blockquote>
+</dd></dl>
 
 <dl class="method">
 <dt id="xcVtk.NodePropertyDiagram.NodePropertyDiagram.getValueForNode">
@@ -709,7 +742,8 @@ pushing: true: arrow ends in the point.</p>
 <dl class="function">
 <dt id="xcVtk.cadMesh.VtkDefineActorCells">
 <code class="descclassname">xcVtk.cadMesh.</code><code class="descname">VtkDefineActorCells</code><span class="sig-paren">(</span><em>recordGrid</em>, <em>renderer</em>, <em>tipoRepr</em><span class="sig-paren">)</span><a class="headerlink" href="#xcVtk.cadMesh.VtkDefineActorCells" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Actor for the surfaces.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="xcVtk.cadMesh.VtkDefineActorKPoint">
@@ -1006,7 +1040,7 @@ are respectively clamped to those minimum and maximum range values</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2016, Luis Pérez Tato (LCPT) &amp; Ana Ortega (A_OO).
+        &copy; Copyright 2016, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>

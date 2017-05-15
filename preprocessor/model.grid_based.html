@@ -58,19 +58,29 @@
 <h1>grid based models<a class="headerlink" href="#grid-based-models" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-model.grid_based.ijkGrid">
 <span id="ijkgrid"></span><h2>ijkGrid<a class="headerlink" href="#module-model.grid_based.ijkGrid" title="Permalink to this headline">¶</a></h2>
-<p>ijkGrid.py: model generation based on a grid of 3D positions.</p>
+<p>Particular geometry organization, linked to a framework of spaced points, 
+usually referenced by their indices (i,j,k) that point to the global 
+coordinates (x,y,z).</p>
+<p>Generally, an ijkGrid contains the grid of points itself and all the 
+geometric entities (lines, surfaces, ...) attached to it. Dictionaries with 
+those entities, identified by specific names, are created, in order to 
+facilitate and accelerate their creation, search, grouping in sets, ...</p>
+<p>Several grids can coexist in a FE problem.</p>
 <dl class="class">
 <dt id="model.grid_based.ijkGrid.IJKRange">
 <em class="property">class </em><code class="descclassname">model.grid_based.ijkGrid.</code><code class="descname">IJKRange</code><span class="sig-paren">(</span><em>ijkMin</em>, <em>ijkMax</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.IJKRange" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
-<p>Defines a range of indexes i,j,k in the grid to be used select the region bounded by the coordinates associated with those indexes.</p>
+<p>Range of indexes (i,j,k) in the 3D-grid that defines a region 
+bounded by the coordinates associated with those indexes.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>ijkMin</strong> &#8211; list with minimum value of indexes [minIindex,minJindex,minKindex]</li>
-<li><strong>ijkMax</strong> &#8211; list with maximum value of indexes [maxIindex,maxJindex,maxKindex]</li>
+<li><strong>ijkMin</strong> &#8211; tuple (or list) with minimum value of indexes 
+(minIindex,minJindex,minKindex) that point to (xmin,ymin,zmin)</li>
+<li><strong>ijkMax</strong> &#8211; tuple (or list) with maximum value of indexes 
+(maxIindex,maxJindex,maxKindex) that point to (xmax,ymax,zmax)</li>
 </ul>
 </td>
 </tr>
@@ -222,19 +232,38 @@
 <p>starting and ending points are those of tags <cite>tPto1</cite> and <cite>tPto2</cite></p>
 </dd></dl>
 
-<dl class="function">
-<dt id="model.grid_based.ijkGrid.getSupName">
-<code class="descclassname">model.grid_based.ijkGrid.</code><code class="descname">getSupName</code><span class="sig-paren">(</span><em>pt1</em>, <em>pt2</em>, <em>pt3</em>, <em>pt4</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.getSupName" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="class">
 <dt id="model.grid_based.ijkGrid.ijkGrid">
 <em class="property">class </em><code class="descclassname">model.grid_based.ijkGrid.</code><code class="descname">ijkGrid</code><span class="sig-paren">(</span><em>prep</em>, <em>xList</em>, <em>yList</em>, <em>zList</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
-<p>Possible (or allowed) X,Y,Z positions for the model</p>
+<p>Particular geometry organization, linked to a framework of spaced points, 
+usually referenced by their indices (i,j,k) that point to the global 
+coordinates (x,y,z).</p>
+<p>Generally, an ijkGrid contains the grid of points itself and all the 
+geometric entities (lines, surfaces, ...) attached to it. Dictionaries with 
+those entities, identified by specific names, are created, in order to 
+facilitate and accelerate their creation, search, grouping in sets, ...</p>
+<p>Several grids can coexist in a FE problem.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>prep</strong> &#8211; preprocessor</li>
+<li><strong>dicLin</strong> &#8211; dictionary with all the lines linked to the grid. 
+Each key is the name of a line, the value associated is the line 
+itself.</li>
+<li><strong>dicQuadSurf</strong> &#8211; dictionary with all the surfaces linked to the grid. 
+Each key is the name of a surface, the value associated is the surface 
+itself.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="model.grid_based.ijkGrid.ijkGrid.appendEarthPressureToCurrentLoadPattern">
-<code class="descname">appendEarthPressureToCurrentLoadPattern</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>dicQuadSurf</em>, <em>nmbrSet</em>, <em>earthPressLoadressure</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.appendEarthPressureToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
+<code class="descname">appendEarthPressureToCurrentLoadPattern</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>nmbrSet</em>, <em>earthPressLoadressure</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.appendEarthPressureToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -244,29 +273,19 @@
 
 <dl class="method">
 <dt id="model.grid_based.ijkGrid.ijkGrid.appendLoadInRangeToCurrentLoadPattern">
-<code class="descname">appendLoadInRangeToCurrentLoadPattern</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>dicQuadSurf</em>, <em>nmbrSet</em>, <em>loadVector</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.appendLoadInRangeToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
+<code class="descname">appendLoadInRangeToCurrentLoadPattern</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>nmbrSet</em>, <em>loadVector</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.appendLoadInRangeToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="model.grid_based.ijkGrid.ijkGrid.generateAreas">
-<code class="descname">generateAreas</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>dicQuadSurf</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.generateAreas" title="Permalink to this definition">¶</a></dt>
-<dd><p>generates the surfaces contained in a rectangle defined by the coordinates</p>
-</dd></dl>
-
-<dl class="method">
 <dt id="model.grid_based.ijkGrid.ijkGrid.generateLines">
-<code class="descname">generateLines</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>dicLin</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.generateLines" title="Permalink to this definition">¶</a></dt>
-<dd><p>generates the lines in an axe parallel to one of the global axes. The function also adds
+<code class="descname">generateLines</code><span class="sig-paren">(</span><em>ijkRange</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.generateLines" title="Permalink to this definition">¶</a></dt>
+<dd><p>generates the lines in an axis parallel to one of the global axes. The function also adds
 the generated lines to the dictionary <cite>dicLin={line_id: xc_line, ...}</cite></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>ijkRange</strong> &#8211; range where lines are included (only one coordinate varies)</li>
-<li><strong>dicLin</strong> &#8211; dictionary of lines <cite>{line_id: xc_line, ...}</cite></li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ijkRange</strong> &#8211; range where lines are included (only one coordinate varies)</td>
 </tr>
 </tbody>
 </table>
@@ -276,6 +295,16 @@ the generated lines to the dictionary <cite>dicLin={line_id: xc_line, ...}</cite
 <dt id="model.grid_based.ijkGrid.ijkGrid.generatePoints">
 <code class="descname">generatePoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.generatePoints" title="Permalink to this definition">¶</a></dt>
 <dd><p>Point generation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.grid_based.ijkGrid.ijkGrid.generateSurfaces">
+<code class="descname">generateSurfaces</code><span class="sig-paren">(</span><em>ijkRange</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.generateSurfaces" title="Permalink to this definition">¶</a></dt>
+<dd><p>generate the surfaces limited by a rectangle defined by the coordinates
+that correspond to the indices in the grid 
+ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
+ijkRange.ijkMax=(indXmax,indYmax,indZmax). 
+Add those surfaces to the dictionary dicQuadSurf.</p>
 </dd></dl>
 
 <dl class="method">
@@ -292,39 +321,77 @@ the generated lines to the dictionary <cite>dicLin={line_id: xc_line, ...}</cite
 </dd></dl>
 
 <dl class="method">
-<dt id="model.grid_based.ijkGrid.ijkGrid.getSetInRange">
-<code class="descname">getSetInRange</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>dicQuadSurf</em>, <em>nmbrSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.getSetInRange" title="Permalink to this definition">¶</a></dt>
-<dd><p>devuelve el set de entidades (surfaced and all entities related to them)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="model.grid_based.ijkGrid.ijkGrid.getSetPtosRange">
-<code class="descname">getSetPtosRange</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>nombre</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.getSetPtosRange" title="Permalink to this definition">¶</a></dt>
-<dd><p>devuelve un set de puntos contenidos en un rectángulo comprendido entre las coordenadas
-que corresponden a las posiciones en la rejilla ijkRange.ijkMin=[posXmin,posYmin,posZmin] y
-ijkRange.ijkMax=[posXmax,posYmax,posZmax]</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="model.grid_based.ijkGrid.ijkGrid.getTagIndices">
-<code class="descname">getTagIndices</code><span class="sig-paren">(</span><em>i</em>, <em>j</em>, <em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.getTagIndices" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dt id="model.grid_based.ijkGrid.ijkGrid.getNameQuadGridSurface">
+<code class="descname">getNameQuadGridSurface</code><span class="sig-paren">(</span><em>ind4Pnt</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.getNameQuadGridSurface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the quadrangle surface defined by the 4 vertices 
+whose indices in the grid are passed as parameters.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the tag of the point at <cite>i,j,k</cite> index of the grid</p>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ind4Pnt</strong> &#8211; tuple of ordered points defined by their grid indices 
+(i,j,k)</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>i</strong> &#8211; grid index that points to the global X coordinates</li>
-<li><strong>j</strong> &#8211; grid index that points to the global Y coordinates</li>
-<li><strong>k</strong> &#8211; grid index that points to the global Z coordinates</li>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the quadrangle surface</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.grid_based.ijkGrid.ijkGrid.getSetInRange">
+<code class="descname">getSetInRange</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>nmbrSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.getSetInRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the set of entities (surfaces and all lines, points, elements, 
+nodes, ... associated with them) in a region limited by the coordinates
+that correspond to the indices in the grid 
+ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
+ijkRange.ijkMax=(indXmax,indYmax,indZmax).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.grid_based.ijkGrid.ijkGrid.getSetPntRange">
+<code class="descname">getSetPntRange</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.getSetPntRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the set of points in a 3D grid-region limited by 
+ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
+ijkRange.ijkMax=(indXmax,indYmax,indZmax)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ijkRange</strong> &#8211; range for the search</li>
+<li><strong>dicPnt</strong> &#8211; dictionary of points</li>
+<li><strong>setName</strong> &#8211; name of the new set of points</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
+
+<dl class="method">
+<dt id="model.grid_based.ijkGrid.ijkGrid.getTagPntGrid">
+<code class="descname">getTagPntGrid</code><span class="sig-paren">(</span><em>indPnt</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.getTagPntGrid" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the tag of the point at indPnt=(i,j,k) index of the grid</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>indPnt</strong> &#8211; grid indices that point to the global (X, Y, Z)  coordinates</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.grid_based.ijkGrid.ijkGrid.gridLinName">
+<code class="descname">gridLinName</code><span class="sig-paren">(</span><em>pt1</em>, <em>pt2</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.gridLinName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="model.grid_based.ijkGrid.ijkGrid.gridSurfName">
+<code class="descname">gridSurfName</code><span class="sig-paren">(</span><em>pt1</em>, <em>pt2</em>, <em>pt3</em>, <em>pt4</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.gridSurfName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="model.grid_based.ijkGrid.ijkGrid.lastXIndex">
@@ -342,21 +409,38 @@ ijkRange.ijkMax=[posXmax,posYmax,posZmax]</p>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="model.grid_based.ijkGrid.ijkGrid.newQuadSurfaceConstI">
-<code class="descname">newQuadSurfaceConstI</code><span class="sig-paren">(</span><em>i</em>, <em>j</em>, <em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.newQuadSurfaceConstI" title="Permalink to this definition">¶</a></dt>
-<dd><p>return indexes for a const i.</p>
+<dt id="model.grid_based.ijkGrid.ijkGrid.newGridLine">
+<code class="descname">newGridLine</code><span class="sig-paren">(</span><em>ind2Pnt</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.newGridLine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate the line defined by the 2 end-points whose indices 
+in the grid are passed as parameters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ind2Pnt</strong> &#8211; tuple of ordered points defined by their grid indices 
+(i,j,k)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the line</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
-<dt id="model.grid_based.ijkGrid.ijkGrid.newQuadSurfaceConstJ">
-<code class="descname">newQuadSurfaceConstJ</code><span class="sig-paren">(</span><em>i</em>, <em>j</em>, <em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.newQuadSurfaceConstJ" title="Permalink to this definition">¶</a></dt>
-<dd><p>return indexes for a const j.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="model.grid_based.ijkGrid.ijkGrid.newQuadSurfaceConstK">
-<code class="descname">newQuadSurfaceConstK</code><span class="sig-paren">(</span><em>i</em>, <em>j</em>, <em>k</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.newQuadSurfaceConstK" title="Permalink to this definition">¶</a></dt>
-<dd><p>return indexes for a const k.</p>
+<dt id="model.grid_based.ijkGrid.ijkGrid.newQuadGridSurface">
+<code class="descname">newQuadGridSurface</code><span class="sig-paren">(</span><em>ind4Pnt</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.newQuadGridSurface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate the quadrangle surface defined by the 4 vertex whose indices 
+in the grid are passed as parameters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ind4Pnt</strong> &#8211; tuple of ordered points defined by their grid indices (i,j,k)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the quadrangle surface</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -398,7 +482,7 @@ ijkRange.ijkMax=[posXmax,posYmax,posZmax]</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><strong>range</strong> &#8211; range of indexes in the grid 
-e.g.: grid.IJKRange([minI,minJ,minK],[maxI,maxJ,maxK])</li>
+e.g.: grid.IJKRange((minI,minJ,minK),(maxI,maxJ,maxK))</li>
 <li><strong>vDisp</strong> &#8211; list of displacements in global X, Y, Z directions
 e.g. [dispX,dispY,dispZ]</li>
 </ul>
@@ -658,7 +742,7 @@ and mass density of the material</li>
 </table>
 <dl class="method">
 <dt id="model.grid_based.GridModel.EarthPressureOnSurfaces.appendEarthPressureToCurrentLoadPattern">
-<code class="descname">appendEarthPressureToCurrentLoadPattern</code><span class="sig-paren">(</span><em>dicQuadSurf</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.EarthPressureOnSurfaces.appendEarthPressureToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
+<code class="descname">appendEarthPressureToCurrentLoadPattern</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.EarthPressureOnSurfaces.appendEarthPressureToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -699,7 +783,7 @@ and mass density of the material</li>
 
 <dl class="method">
 <dt id="model.grid_based.GridModel.ElasticFoundationRanges.generateSprings">
-<code class="descname">generateSprings</code><span class="sig-paren">(</span><em>dicQuadSurf</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.ElasticFoundationRanges.generateSprings" title="Permalink to this definition">¶</a></dt>
+<code class="descname">generateSprings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.ElasticFoundationRanges.generateSprings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates the springs at the nodes.</p>
 </dd></dl>
 
@@ -725,7 +809,7 @@ and mass density of the material</li>
 <p>Constrained ranges dictionary.</p>
 <dl class="method">
 <dt id="model.grid_based.GridModel.ElasticFoundationRangesMap.generateSprings">
-<code class="descname">generateSprings</code><span class="sig-paren">(</span><em>prep</em>, <em>dicQuadSurf</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.ElasticFoundationRangesMap.generateSprings" title="Permalink to this definition">¶</a></dt>
+<code class="descname">generateSprings</code><span class="sig-paren">(</span><em>prep</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.ElasticFoundationRangesMap.generateSprings" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -745,7 +829,7 @@ and mass density of the material</li>
 </table>
 <dl class="method">
 <dt id="model.grid_based.GridModel.GridModel.displayLoad">
-<code class="descname">displayLoad</code><span class="sig-paren">(</span><em>setToDisplay=None</em>, <em>loadCaseNm=''</em>, <em>unitsScale=1.0</em>, <em>vectorScale=1.0</em>, <em>multByElemArea=False</em>, <em>viewNm='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>caption=''</em>, <em>fileName=None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.GridModel.displayLoad" title="Permalink to this definition">¶</a></dt>
+<code class="descname">displayLoad</code><span class="sig-paren">(</span><em>setToDisplay=None</em>, <em>loadCaseNm=''</em>, <em>unitsScale=1.0</em>, <em>vectorScale=1.0</em>, <em>multByElemArea=False</em>, <em>viewNm='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>caption=''</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.GridModel.displayLoad" title="Permalink to this definition">¶</a></dt>
 <dd><p>vector field display of the loads applied to the chosen set of elements in the load case passed as parameter</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -762,6 +846,11 @@ and mass density of the material</li>
 change perspective of isometric views (defaults to 1). Usual values 0.1 to 10</li>
 <li><strong>fileName</strong> &#8211; full name of the graphic file to generate. Defaults to ` None`, in this case it returns a console output graphic.</li>
 <li><strong>caption</strong> &#8211; text to display in the graphic</li>
+<li><strong>defFScale</strong> &#8211; factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
 </ul>
 </td>
 </tr>
@@ -771,7 +860,7 @@ change perspective of isometric views (defaults to 1). Usual values 0.1 to 10</l
 
 <dl class="method">
 <dt id="model.grid_based.GridModel.GridModel.displayLocalAxes">
-<code class="descname">displayLocalAxes</code><span class="sig-paren">(</span><em>setToDisplay=None</em>, <em>vectorScale=1.0</em>, <em>viewNm='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>caption=''</em>, <em>fileName=None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.GridModel.displayLocalAxes" title="Permalink to this definition">¶</a></dt>
+<code class="descname">displayLocalAxes</code><span class="sig-paren">(</span><em>setToDisplay=None</em>, <em>vectorScale=1.0</em>, <em>viewNm='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>caption=''</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.GridModel.displayLocalAxes" title="Permalink to this definition">¶</a></dt>
 <dd><p>vector field display of the loads applied to the chosen set of elements in the load case passed as parameter</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -785,6 +874,11 @@ change perspective of isometric views (defaults to 1). Usual values 0.1 to 10</l
 change perspective of isometric views (defaults to 1). Usual values 0.1 to 10</li>
 <li><strong>fileName</strong> &#8211; full name of the graphic file to generate. Defaults to <cite>None</cite>, in this case it returns a console output graphic.</li>
 <li><strong>caption</strong> &#8211; text to display in the graphic</li>
+<li><strong>defFScale</strong> &#8211; factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
 </ul>
 </td>
 </tr>
@@ -794,7 +888,7 @@ change perspective of isometric views (defaults to 1). Usual values 0.1 to 10</l
 
 <dl class="method">
 <dt id="model.grid_based.GridModel.GridModel.displayMesh">
-<code class="descname">displayMesh</code><span class="sig-paren">(</span><em>partToDisplay</em>, <em>caption=''</em>, <em>viewNm='XYZPos'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.GridModel.displayMesh" title="Permalink to this definition">¶</a></dt>
+<code class="descname">displayMesh</code><span class="sig-paren">(</span><em>partToDisplay</em>, <em>caption=''</em>, <em>viewNm='XYZPos'</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.GridModel.displayMesh" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -808,6 +902,11 @@ change perspective of isometric views (defaults to 1). Usual values 0.1 to 10</l
 <li><strong>viewNm</strong> &#8211; name of the view to use
 predefined view names: &#8216;XYZPos&#8217;,&#8217;XNeg&#8217;,&#8217;XPos&#8217;,&#8217;YNeg&#8217;,&#8217;YPos&#8217;,
 &#8216;ZNeg&#8217;,&#8217;ZPos&#8217;  (defaults to &#8216;XYZPos&#8217;)</li>
+<li><strong>defFScale</strong> &#8211; factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
 </ul>
 </td>
 </tr>
@@ -1122,7 +1221,7 @@ width of the rectangle)</li>
 
 <dl class="method">
 <dt id="model.grid_based.GridModel.IJKRangeList.appendEarthPressureToCurrentLoadPattern">
-<code class="descname">appendEarthPressureToCurrentLoadPattern</code><span class="sig-paren">(</span><em>dicQuadSurf</em>, <em>earthPressure</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.IJKRangeList.appendEarthPressureToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
+<code class="descname">appendEarthPressureToCurrentLoadPattern</code><span class="sig-paren">(</span><em>earthPressure</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.IJKRangeList.appendEarthPressureToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1133,7 +1232,7 @@ width of the rectangle)</li>
 
 <dl class="method">
 <dt id="model.grid_based.GridModel.IJKRangeList.appendLoadVectorToCurrentLoadPattern">
-<code class="descname">appendLoadVectorToCurrentLoadPattern</code><span class="sig-paren">(</span><em>dicQuadSurf</em>, <em>loadVector</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.IJKRangeList.appendLoadVectorToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
+<code class="descname">appendLoadVectorToCurrentLoadPattern</code><span class="sig-paren">(</span><em>loadVector</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.IJKRangeList.appendLoadVectorToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
 <dd><p>append the load to the current load pattern.</p>
 </dd></dl>
 
@@ -1154,7 +1253,7 @@ width of the rectangle)</li>
 
 <dl class="method">
 <dt id="model.grid_based.GridModel.IJKRangeList.getSet">
-<code class="descname">getSet</code><span class="sig-paren">(</span><em>dicQuadSurf</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.IJKRangeList.getSet" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getSet</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.IJKRangeList.getSet" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1312,7 +1411,7 @@ performing a limit state analysis</p>
 :ivar tempGrad:      list of temperature gradient loads</p>
 <dl class="method">
 <dt id="model.grid_based.GridModel.LoadState.appendEarthPressureLoadsToCurrentLoadPattern">
-<code class="descname">appendEarthPressureLoadsToCurrentLoadPattern</code><span class="sig-paren">(</span><em>dicQuadSurf</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.LoadState.appendEarthPressureLoadsToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
+<code class="descname">appendEarthPressureLoadsToCurrentLoadPattern</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.LoadState.appendEarthPressureLoadsToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1437,7 +1536,7 @@ width of the rectangle)</li>
 
 <dl class="method">
 <dt id="model.grid_based.GridModel.MaterialLine.generateLines">
-<code class="descname">generateLines</code><span class="sig-paren">(</span><em>dicLin</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.MaterialLine.generateLines" title="Permalink to this definition">¶</a></dt>
+<code class="descname">generateLines</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.MaterialLine.generateLines" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1473,7 +1572,7 @@ width of the rectangle)</li>
 <p>MaterialLines dictionary.</p>
 <dl class="method">
 <dt id="model.grid_based.GridModel.MaterialLinesMap.generateLines">
-<code class="descname">generateLines</code><span class="sig-paren">(</span><em>dicLin</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.MaterialLinesMap.generateLines" title="Permalink to this definition">¶</a></dt>
+<code class="descname">generateLines</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.MaterialLinesMap.generateLines" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1499,13 +1598,13 @@ width of the rectangle)</li>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="model.grid_based.GridModel.MaterialSurface.generateAreas">
-<code class="descname">generateAreas</code><span class="sig-paren">(</span><em>dicQuadSurf</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.MaterialSurface.generateAreas" title="Permalink to this definition">¶</a></dt>
+<dt id="model.grid_based.GridModel.MaterialSurface.generateMesh">
+<code class="descname">generateMesh</code><span class="sig-paren">(</span><em>seedElementLoader</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.MaterialSurface.generateMesh" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="model.grid_based.GridModel.MaterialSurface.generateMesh">
-<code class="descname">generateMesh</code><span class="sig-paren">(</span><em>seedElementLoader</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.MaterialSurface.generateMesh" title="Permalink to this definition">¶</a></dt>
+<dt id="model.grid_based.GridModel.MaterialSurface.generateSurfaces">
+<code class="descname">generateSurfaces</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.MaterialSurface.generateSurfaces" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1528,13 +1627,13 @@ width of the rectangle)</li>
 <dd><p>Bases: <a class="reference internal" href="#model.grid_based.GridModel.NamedObjectsMap" title="model.grid_based.GridModel.NamedObjectsMap"><code class="xref py py-class docutils literal"><span class="pre">model.grid_based.GridModel.NamedObjectsMap</span></code></a></p>
 <p>MaterialSurfaces dictionary.</p>
 <dl class="method">
-<dt id="model.grid_based.GridModel.MaterialSurfacesMap.generateAreas">
-<code class="descname">generateAreas</code><span class="sig-paren">(</span><em>dicQuadSurf</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.MaterialSurfacesMap.generateAreas" title="Permalink to this definition">¶</a></dt>
+<dt id="model.grid_based.GridModel.MaterialSurfacesMap.generateMesh">
+<code class="descname">generateMesh</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>dicQuadSurf</em>, <em>firstElementTag=1</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.MaterialSurfacesMap.generateMesh" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="model.grid_based.GridModel.MaterialSurfacesMap.generateMesh">
-<code class="descname">generateMesh</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>dicQuadSurf</em>, <em>firstElementTag=1</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.MaterialSurfacesMap.generateMesh" title="Permalink to this definition">¶</a></dt>
+<dt id="model.grid_based.GridModel.MaterialSurfacesMap.generateSurfaces">
+<code class="descname">generateSurfaces</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.MaterialSurfacesMap.generateSurfaces" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1681,7 +1780,7 @@ The uniform load is introduced as point loads in the nodes</p>
 
 <dl class="function">
 <dt id="model.grid_based.GridModel.displayFieldDirs1and2">
-<code class="descclassname">model.grid_based.GridModel.</code><code class="descname">displayFieldDirs1and2</code><span class="sig-paren">(</span><em>limitStateLabel</em>, <em>argument</em>, <em>setDisp</em>, <em>component</em>, <em>fUnitConv</em>, <em>fileName</em>, <em>captionTexts</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.displayFieldDirs1and2" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">model.grid_based.GridModel.</code><code class="descname">displayFieldDirs1and2</code><span class="sig-paren">(</span><em>limitStateLabel</em>, <em>argument</em>, <em>setDisp</em>, <em>component</em>, <em>fUnitConv</em>, <em>fileName</em>, <em>captionTexts</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.GridModel.displayFieldDirs1and2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display a field defined over bi-dimensional elements in its two directions.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1695,6 +1794,11 @@ The uniform load is introduced as point loads in the nodes</p>
 <li><strong>fUnitConv</strong> &#8211; unit conversion factor (i.e N-&gt;kN =&gt; fUnitConv= 1e-3).</li>
 <li><strong>fileName</strong> &#8211; file name to store the image. If none -&gt; window on screen.</li>
 <li><strong>captionTexts</strong> &#8211; dictionary of caption texts.</li>
+<li><strong>defFScale</strong> &#8211; factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
 </ul>
 </td>
 </tr>
@@ -1820,7 +1924,7 @@ a parameter</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2016, Luis Pérez Tato (LCPT) &amp; Ana Ortega (A_OO).
+        &copy; Copyright 2016, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>

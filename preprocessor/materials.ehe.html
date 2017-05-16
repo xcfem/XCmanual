@@ -496,17 +496,83 @@ a cortante.</p>
 <dl class="function">
 <dt id="materials.ehe.comprobVEHE.getFcv">
 <code class="descclassname">materials.ehe.comprobVEHE.</code><code class="descname">getFcv</code><span class="sig-paren">(</span><em>fact</em>, <em>fck</em>, <em>Nd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>AsPas</em>, <em>fyd</em>, <em>AsAct</em>, <em>fpd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE.getFcv" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="docutils">
+<dt>Devuelve el valor de fcv (resistencia virtual a cortante del hormigón)</dt>
+<dd>para piezas CON Ó SIN reinforcement de cortante, según el artículos 44.2.3.2.1 y  44.2.3.2.2 de EHE.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fact</strong> &#8211; Factor que toma el valor 0.12 para piezas SIN reinforcement de cortante y 0.10 para piezas CON</td>
+</tr>
+</tbody>
+</table>
+<p>reinforcement de cortante.
+:param fck: Concrete characteristic compressive strength.
+:param Nd: Axil de cálculo (positivo si es de tracción).
+:param Ac: Area total de la sección de hormigón.
+:param b0: Anchura neta mínima del elemento a comprobar, definida de acuerdo con el artículo 40.3.5.
+:param d: Canto útil (meters).
+:param AsPas: Área de la de la reinforcement longitudinal pasiva traccionada anclada
+a una distancia mayor que el depth útil de la sección en estudio.
+:param fyd: Resistencia de cálculo de las reinforcement pasivas (artículo 38.3 EHE).
+:param AsAct: Área de la de la reinforcement longitudinal activa traccionada anclada
+a una distancia mayor que el depth útil de la sección en estudio.
+:param fpd: Resistencia de cálculo del acero de las reinforcement activas (artículo 38.6 EHE).</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="materials.ehe.comprobVEHE.getFcvEH91">
 <code class="descclassname">materials.ehe.comprobVEHE.</code><code class="descname">getFcvEH91</code><span class="sig-paren">(</span><em>fcd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE.getFcvEH91" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="docutils">
+<dt>Devuelve el valor de fcv (resistencia virtual a cortante del hormigón)</dt>
+<dd>según la antigua EH-91.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fcd</strong> &#8211; Design compressive strength of concrete.</li>
+<li><strong>b</strong> &#8211; Anchura neta mínima del elemento a comprobar, definida de acuerdo con el artículo 40.3.5.</li>
+<li><strong>d</strong> &#8211; Canto útil (meters).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="materials.ehe.comprobVEHE.getVcu">
 <code class="descclassname">materials.ehe.comprobVEHE.</code><code class="descname">getVcu</code><span class="sig-paren">(</span><em>fck</em>, <em>Nd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>theta</em>, <em>AsPas</em>, <em>fyd</em>, <em>AsAct</em>, <em>fpd</em>, <em>sgxd</em>, <em>sgyd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE.getVcu" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Devuelve el valor de Vcu (contribución del hormigón a la resistencia a cortante) para piezas CON reinforcement de cortante, según el artículo 44.2.3.2.2 de EHE.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fck</strong> &#8211; Concrete characteristic compressive strength.</li>
+<li><strong>Nd</strong> &#8211; Axil de cálculo (positivo si es de tracción).</li>
+<li><strong>Ac</strong> &#8211; Area total de la sección de hormigón.</li>
+<li><strong>b0</strong> &#8211; Anchura neta mínima del elemento a comprobar, definida de acuerdo con el artículo 40.3.5.</li>
+<li><strong>d</strong> &#8211; Canto útil (meters).</li>
+<li><strong>theta</strong> &#8211; Angle between the concrete compressed struts and the member axis (figure 44.2.3.1.a EHE).</li>
+<li><strong>AsPas</strong> &#8211; Área de la de la reinforcement longitudinal pasiva traccionada anclada</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>a una distancia mayor que el depth útil de la sección en estudio.
+:param fyd: Resistencia de cálculo de las reinforcement pasivas (artículo 38.3 EHE).
+:param AsAct: Área de la de la reinforcement longitudinal activa traccionada anclada
+a una distancia mayor que el depth útil de la sección en estudio.
+:param fpd: Resistencia de cálculo del acero de las reinforcement activas (artículo 38.6 EHE).
+:param sgxd: Tensión normal de cálculo en el centro de gravedad de la sección paralela a la directriz de la pieza considerando el hormigón NO FISURADO (art. 44.2.3.2).
+:param sgyd: Tensión normal de cálculo en el centro de gravedad de la sección paralela al esfuerzo cortante.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="materials.ehe.comprobVEHE.getVsu">
@@ -515,35 +581,45 @@ a cortante.</p>
 <dt>Devuelve el valor de Vsu (contribución de la reinforcement transversal de alma a la resistencia a cortante)</dt>
 <dd>para piezas CON reinforcement de cortante, según el artículo 44.2.3.2.2 de EHE.</dd>
 </dl>
-<p>z: Brazo mecánico.
-alpha: Ángulo de las reinforcement de cortante con el eje de la pieza (figura 44.2.3.1.a EHE).
-theta: Angle between the concrete compressed struts and the member axis (figure 44.2.3.1.a EHE).
-AsTrsv: Área de la reinforcement transversal.
-fyd: Resistencia de cálculo de la reinforcement transversal.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>z</strong> &#8211; Lever arm.</li>
+<li><strong>alpha</strong> &#8211; Ángulo de las reinforcement de cortante con el eje de la pieza (figura 44.2.3.1.a EHE).</li>
+<li><strong>theta</strong> &#8211; Angle between the concrete compressed struts and the member axis (figure 44.2.3.1.a EHE).</li>
+<li><strong>AsTrsv</strong> &#8211; Área de la reinforcement transversal.</li>
+<li><strong>fyd</strong> &#8211; Resistencia de cálculo de la reinforcement transversal.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="materials.ehe.comprobVEHE.getVu">
 <code class="descclassname">materials.ehe.comprobVEHE.</code><code class="descname">getVu</code><span class="sig-paren">(</span><em>fck</em>, <em>fcd</em>, <em>Nd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>z</em>, <em>alpha</em>, <em>theta</em>, <em>AsPas</em>, <em>fyd</em>, <em>AsAct</em>, <em>fpd</em>, <em>sgxd</em>, <em>sgyd</em>, <em>AsTrsv</em>, <em>fydTrsv</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE.getVu" title="Permalink to this definition">¶</a></dt>
 <dd><p>Devuelve el valor de Vu= max(Vu1,Vu2) para piezas CON o SIN reinforcement de cortante, según el artículo 44.2.3.2.2 de EHE.
-fck: Concrete characteristic compressive strength.
-Nd: Axil de cálculo (positivo si es de tracción).
-Ac: Area total de la sección de hormigón.
-b0: Anchura neta mínima del elemento a comprobar, definida de acuerdo con el artículo 40.3.5.
-d: Canto útil expresado en metros.
-z: Brazo mecánico.
-alpha: Ángulo de las reinforcement de cortante con el eje de la pieza (figura 44.2.3.1.a EHE).
-theta: Angle between the concrete compressed struts and the member axis (figure 44.2.3.1.a EHE).
-AsPas: Área de la de la reinforcement longitudinal pasiva traccionada anclada
+:param fck: Concrete characteristic compressive strength.
+:param Nd: Axil de cálculo (positivo si es de tracción).
+:param Ac: Area total de la sección de hormigón.
+:param b0: Anchura neta mínima del elemento a comprobar, definida de acuerdo con el artículo 40.3.5.
+:param d: Canto útil (meters).
+:param z: Lever arm.
+:param alpha: Ángulo de las reinforcement de cortante con el eje de la pieza (figura 44.2.3.1.a EHE).
+:param theta: Angle between the concrete compressed struts and the member axis (figure 44.2.3.1.a EHE).
+:param AsPas: Área de la de la reinforcement longitudinal pasiva traccionada anclada
 a una distancia mayor que el depth útil de la sección en estudio.
-fyd: Resistencia de cálculo de las reinforcement pasivas (artículo 38.3 EHE).
-AsAct: Área de la de la reinforcement longitudinal activa traccionada anclada
+:param fyd: Resistencia de cálculo de las reinforcement pasivas (artículo 38.3 EHE).
+:param AsAct: Área de la de la reinforcement longitudinal activa traccionada anclada
 a una distancia mayor que el depth útil de la sección en estudio.
-fpd: Resistencia de cálculo del acero de las reinforcement activas (artículo 38.6 EHE).
-sgxd: Tensión normal de cálculo en el centro de gravedad de la sección paralela a la directriz de la pieza considerando el hormigón NO FISURADO (art. 44.2.3.2).
-sgyd: Tensión normal de cálculo en el centro de gravedad de la sección paralela al esfuerzo cortante.
-AsTrsv: Área de la reinforcement transversal.
-fyd: Resistencia de cálculo de la reinforcement transversal.</p>
+:param fpd: Resistencia de cálculo del acero de las reinforcement activas (artículo 38.6 EHE).
+:param sgxd: Tensión normal de cálculo en el centro de gravedad de la sección paralela a la directriz de la pieza considerando el hormigón NO FISURADO (art. 44.2.3.2).
+:param sgyd: Tensión normal de cálculo en el centro de gravedad de la sección paralela al esfuerzo cortante.
+:param AsTrsv: Área de la reinforcement transversal.
+:param fyd: Resistencia de cálculo de la reinforcement transversal.</p>
 </dd></dl>
 
 <dl class="function">
@@ -553,43 +629,88 @@ fyd: Resistencia de cálculo de la reinforcement transversal.</p>
 <dt>Devuelve el valor de Vu1 (cortante de agotamiento por compresión oblicua del alma)</dt>
 <dd>según el artículo 44.2.3.1 de EHE.</dd>
 </dl>
-<p>fcd: Resistencia de cálculo del hormigón a compresión.
-Nd: Axil de cálculo (positivo si es de tracción).
-Ac: Area total de la sección de hormigón.
-b0: Anchura neta mínima del elemento a comprobar, definida de acuerdo con el artículo 40.3.5.
-d: Canto útil.
-alpha: Angle between the shear rebars and the member axis (figure 44.2.3.1.a EHE).
-theta: Angle between the concrete compressed struts and the member axis (figure 44.2.3.1.a EHE).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fcd</strong> &#8211; Design compressive strength of concrete.</li>
+<li><strong>Nd</strong> &#8211; Axil de cálculo (positivo si es de tracción).</li>
+<li><strong>Ac</strong> &#8211; Area total de la sección de hormigón.</li>
+<li><strong>b0</strong> &#8211; Anchura neta mínima del elemento a comprobar, definida de acuerdo con el artículo 40.3.5.</li>
+<li><strong>d</strong> &#8211; Canto útil.</li>
+<li><strong>alpha</strong> &#8211; Angle between the shear rebars and the member axis (figure 44.2.3.1.a EHE).</li>
+<li><strong>theta</strong> &#8211; Angle between the concrete compressed struts and the member axis (figure 44.2.3.1.a EHE).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="materials.ehe.comprobVEHE.getVu2">
 <code class="descclassname">materials.ehe.comprobVEHE.</code><code class="descname">getVu2</code><span class="sig-paren">(</span><em>fck</em>, <em>Nd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>z</em>, <em>alpha</em>, <em>theta</em>, <em>AsPas</em>, <em>fyd</em>, <em>AsAct</em>, <em>fpd</em>, <em>sgxd</em>, <em>sgyd</em>, <em>AsTrsv</em>, <em>fydTrsv</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE.getVu2" title="Permalink to this definition">¶</a></dt>
-<dd><p>Devuelve el valor de Vu2 para piezas CON o SIN reinforcement de cortante, según el artículo 44.2.3.2.2 de EHE.
-fck: Concrete characteristic compressive strength.
-Nd: Axil de cálculo (positivo si es de tracción).
-Ac: Area total de la sección de hormigón.
-b0: Anchura neta mínima del elemento a comprobar, definida de acuerdo con el artículo 40.3.5.
-d: Canto útil expresado en metros.
-z: Brazo mecánico.
-alpha: Ángulo de las reinforcement de cortante con el eje de la pieza (figura 44.2.3.1.a EHE).
-theta: Angle between the concrete compressed struts and the member axis (figure 44.2.3.1.a EHE).
-AsPas: Área de la de la reinforcement longitudinal pasiva traccionada anclada
+<dd><p>Devuelve el valor de Vu2 para piezas CON o SIN reinforcement de cortante, según el artículo 44.2.3.2.2 de EHE.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fck</strong> &#8211; Concrete characteristic compressive strength.</li>
+<li><strong>Nd</strong> &#8211; Axil de cálculo (positivo si es de tracción).</li>
+<li><strong>Ac</strong> &#8211; Area total de la sección de hormigón.</li>
+<li><strong>b0</strong> &#8211; Anchura neta mínima del elemento a comprobar, definida de acuerdo con el artículo 40.3.5.</li>
+<li><strong>d</strong> &#8211; Canto útil (meters).</li>
+<li><strong>z</strong> &#8211; Lever arm.</li>
+<li><strong>alpha</strong> &#8211; Ángulo de las reinforcement de cortante con el eje de la pieza (figura 44.2.3.1.a EHE).</li>
+<li><strong>theta</strong> &#8211; Angle between the concrete compressed struts and the member axis (figure 44.2.3.1.a EHE).</li>
+<li><strong>AsPas</strong> &#8211; Área de la de la reinforcement longitudinal pasiva traccionada anclada</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>a una distancia mayor que el depth útil de la sección en estudio.
+:param fyd: Resistencia de cálculo de las reinforcement pasivas (artículo 38.3 EHE).
+:param AsAct: Área de la de la reinforcement longitudinal activa traccionada anclada
 a una distancia mayor que el depth útil de la sección en estudio.
-fyd: Resistencia de cálculo de las reinforcement pasivas (artículo 38.3 EHE).
-AsAct: Área de la de la reinforcement longitudinal activa traccionada anclada
-a una distancia mayor que el depth útil de la sección en estudio.
-fpd: Resistencia de cálculo del acero de las reinforcement activas (artículo 38.6 EHE).
-sgxd: Tensión normal de cálculo en el centro de gravedad de la sección paralela a la directriz de la pieza considerando el hormigón NO FISURADO (art. 44.2.3.2).
-sgyd: Tensión normal de cálculo en el centro de gravedad de la sección paralela al esfuerzo cortante.
-AsTrsv: Área de la reinforcement transversal.
-fyd: Resistencia de cálculo de la reinforcement transversal.</p>
+:param fpd: Resistencia de cálculo del acero de las reinforcement activas (artículo 38.6 EHE).
+:param sgxd: Tensión normal de cálculo en el centro de gravedad de la sección paralela a la directriz de la pieza considerando el hormigón NO FISURADO (art. 44.2.3.2).
+:param sgyd: Tensión normal de cálculo en el centro de gravedad de la sección paralela al esfuerzo cortante.
+:param AsTrsv: Área de la reinforcement transversal.
+:param fyd: Resistencia de cálculo de la reinforcement transversal.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="materials.ehe.comprobVEHE.getVu2SIN">
 <code class="descclassname">materials.ehe.comprobVEHE.</code><code class="descname">getVu2SIN</code><span class="sig-paren">(</span><em>fck</em>, <em>Nd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>AsPas</em>, <em>fyd</em>, <em>AsAct</em>, <em>fpd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE.getVu2SIN" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="docutils">
+<dt>Devuelve el valor de Vu2 (cortante de agotamiento por tracción en el alma)</dt>
+<dd>para piezas SIN reinforcement de cortante, según el artículo 44.2.3.2.1 de EHE.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fck</strong> &#8211; Concrete characteristic compressive strength.</li>
+<li><strong>Nd</strong> &#8211; Axil de cálculo (positivo si es de tracción).</li>
+<li><strong>Ac</strong> &#8211; Area total de la sección de hormigón.</li>
+<li><strong>b0</strong> &#8211; Anchura neta mínima del elemento a comprobar, definida de acuerdo con el artículo 40.3.5.</li>
+<li><strong>d</strong> &#8211; Canto útil (meters).</li>
+<li><strong>AsPas</strong> &#8211; Área de la de la reinforcement longitudinal pasiva traccionada anclada</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>a una distancia mayor que el depth útil de la sección en estudio.
+:param fyd: Resistencia de cálculo de las reinforcement pasivas (artículo 38.3 EHE).
+:param AsAct: Área de la de la reinforcement longitudinal activa traccionada anclada
+a una distancia mayor que el depth útil de la sección en estudio.
+:param fpd: Resistencia de cálculo del acero de las reinforcement activas (artículo 38.6 EHE).</p>
+</dd></dl>
 
 </div>
 <div class="section" id="module-materials.ehe.cortanteEHE">
@@ -658,14 +779,24 @@ a cortante.</dd>
 <dl class="function">
 <dt id="materials.ehe.comprobVEHE08.getAnguloInclinacionFisurasEHE08">
 <code class="descclassname">materials.ehe.comprobVEHE08.</code><code class="descname">getAnguloInclinacionFisurasEHE08</code><span class="sig-paren">(</span><em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em>, <em>z</em>, <em>AsPas</em>, <em>AsAct</em>, <em>Es</em>, <em>Ep</em>, <em>Fp</em>, <em>Ae</em>, <em>ue</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE08.getAnguloInclinacionFisurasEHE08" title="Permalink to this definition">¶</a></dt>
-<dd><p>getAnguloInclinacionFisurasEHE08(Nd,Md,Vd,Td,z,AsPas,AsAct,Es,Ep,Fp,Ae,ue) [uds: N, m, rad]
-:param Nd: Valor de cálculo del axil (aquí positivo si es de tracción)
-:param Md: Valor absoluto del momento de cálculo.
-:param Vd: Valor absoluto del cortante efectivo de cálculo (artículo 42.2.2).
-:param Td: Torsor de cálculo.
-:param z: Brazo mecánico.
-:param AsPas: Área de la de la reinforcement longitudinal pasiva traccionada anclada
-a una distancia mayor que el depth útil de la sección en estudio.
+<dd><p>getAnguloInclinacionFisurasEHE08(Nd,Md,Vd,Td,z,AsPas,AsAct,Es,Ep,Fp,Ae,ue) [uds: N, m, rad]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Nd</strong> &#8211; Valor de cálculo del axil (aquí positivo si es de tracción)</li>
+<li><strong>Md</strong> &#8211; Valor absoluto del momento de cálculo.</li>
+<li><strong>Vd</strong> &#8211; Valor absoluto del cortante efectivo de cálculo (artículo 42.2.2).</li>
+<li><strong>Td</strong> &#8211; Torsor de cálculo.</li>
+<li><strong>z</strong> &#8211; Lever arm.</li>
+<li><strong>AsPas</strong> &#8211; Área de la de la reinforcement longitudinal pasiva traccionada anclada</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>a una distancia mayor que el depth útil de la sección en estudio.
 :param AsAct: Área de la de la reinforcement longitudinal activa traccionada anclada
 a una distancia mayor que el depth útil de la sección en estudio.
 :param Es: Módulo elástico del acero de la reinforcement pasiva.
@@ -701,14 +832,24 @@ of Vcu according to the article 44.2.3.2.2 of EHE-08.</p>
 <dl class="function">
 <dt id="materials.ehe.comprobVEHE08.getEpsilonXEHE08">
 <code class="descclassname">materials.ehe.comprobVEHE08.</code><code class="descname">getEpsilonXEHE08</code><span class="sig-paren">(</span><em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em>, <em>z</em>, <em>AsPas</em>, <em>AsAct</em>, <em>Es</em>, <em>Ep</em>, <em>Fp</em>, <em>Ae</em>, <em>ue</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE08.getEpsilonXEHE08" title="Permalink to this definition">¶</a></dt>
-<dd><p>getEpsilonXEHE08(Nd,Md,Vd,Td,z,AsPas,AsAct,Es,Ep,Fp,Ae,ue) [uds: N, m, rad]
-:param Nd: Valor de cálculo del axil (aquí positivo si es de tracción)
-:param Md: Valor absoluto del momento de cálculo.
-:param Vd: Valor absoluto del cortante efectivo de cálculo (artículo 42.2.2).
-:param Td: Torsor de cálculo.
-:param z: Brazo mecánico.
-:param AsPas: Área de la de la reinforcement longitudinal pasiva traccionada anclada
-a una distancia mayor que el depth útil de la sección en estudio.
+<dd><p>getEpsilonXEHE08(Nd,Md,Vd,Td,z,AsPas,AsAct,Es,Ep,Fp,Ae,ue) [uds: N, m, rad]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Nd</strong> &#8211; Valor de cálculo del axil (aquí positivo si es de tracción)</li>
+<li><strong>Md</strong> &#8211; Valor absoluto del momento de cálculo.</li>
+<li><strong>Vd</strong> &#8211; Valor absoluto del cortante efectivo de cálculo (artículo 42.2.2).</li>
+<li><strong>Td</strong> &#8211; Torsor de cálculo.</li>
+<li><strong>z</strong> &#8211; Lever arm.</li>
+<li><strong>AsPas</strong> &#8211; Área de la de la reinforcement longitudinal pasiva traccionada anclada</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>a una distancia mayor que el depth útil de la sección en estudio.
 :param AsAct: Área de la de la reinforcement longitudinal activa traccionada anclada
 a una distancia mayor que el depth útil de la sección en estudio.
 :param Es: Módulo elástico del acero de la reinforcement pasiva.
@@ -742,15 +883,24 @@ according to the article 44.2.3.1 of EHE-08.</p>
 <dl class="function">
 <dt id="materials.ehe.comprobVEHE08.getFcvEHE08">
 <code class="descclassname">materials.ehe.comprobVEHE08.</code><code class="descname">getFcvEHE08</code><span class="sig-paren">(</span><em>fact</em>, <em>fcv</em>, <em>gammaC</em>, <em>b0</em>, <em>d</em>, <em>chi</em>, <em>sgpcd</em>, <em>AsPas</em>, <em>AsAct</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE08.getFcvEHE08" title="Permalink to this definition">¶</a></dt>
-<dd><p>getFcvEHE08(fact,fcv,gammaC,b0,d,chi,sgpcd,AsPas,AsAct)  [uds: N, m, rad]
-:param fact: Factor que toma el valor 0.18 para piezas SIN reinforcement de cortante y 0.15 para piezas CON
-reinforcement de cortante.
-:param fcv: Resistencia efectiva del hormigón a cortante. En piezas sin reinforcement de cortante
-será fcv= min(fck,60MPa). En piezas con reinforcement de cortante fcv= min(fck,100MPa).
+<dd><p>getFcvEHE08(fact,fcv,gammaC,b0,d,chi,sgpcd,AsPas,AsAct)  [uds: N, m, rad]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fact</strong> &#8211; Factor que toma el valor 0.18 para piezas SIN reinforcement de cortante y 0.15 para piezas CON reinforcement de cortante.</li>
+<li><strong>fcv</strong> &#8211; Resistencia efectiva del hormigón a cortante. En piezas sin reinforcement de cortante</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>será fcv= min(fck,60MPa). En piezas con reinforcement de cortante fcv= min(fck,100MPa).
 En ambos casos, si el control del hormigón es indirecto fcv=15MPa.
 :param gammaC: Coeficiente de minoración de la resistencia del hormigón.
 b0: Anchura neta mínima del elemento a comprobar, definida de acuerdo con el artículo 40.3.5.
-:param d: Canto útil expresado en metros.
+:param d: Canto útil (meters).
 :param chi: Coeficiente que introduce el efecto de los áridos en el depth útil.
 :param sgpcd: Tensión axial media en el alma (compresión positiva).
 :param AsPas: Área de la de la reinforcement longitudinal pasiva traccionada anclada
@@ -776,7 +926,7 @@ artículos 44.2.3.2.1.2 y  44.2.3.2.2 de EHE-08.</p>
 <p>será fcv= min(fck,60MPa). En piezas con reinforcement de cortante fcv= min(fck,100MPa).
 En ambos casos, si el control del hormigón es indirecto fcv=15MPa.
 :param gammaC: Coeficiente de minoración de la resistencia del hormigón.
-:param d: Canto útil expresado en metros.
+:param d: Canto útil (meters).
 :param chi: Coeficiente que introduce el efecto de los áridos en el depth útil.
 :param sgpcd: Tensión axial media en el alma (compresión positiva).</p>
 <p>Devuelve el valor mínimo de fcv (resistencia virtual a cortante del hormigón)
@@ -822,8 +972,8 @@ En ambos casos, si el control del hormigón es indirecto fcv=15MPa.
 :param Ncd: Axil de cálculo resistido por el hormigón (positivo si es de tracción).
 :param Ac: Area total de la sección de hormigón.
 b0: Anchura neta mínima del elemento a comprobar, definida de acuerdo con el artículo 40.3.5.
-:param d: Canto útil expresado en metros.
-:param z: Brazo mecánico.
+:param d: Canto útil (meters).
+:param z: Lever arm.
 :param AsPas: Área de la de la reinforcement longitudinal pasiva traccionada anclada
 a una distancia mayor que el depth útil de la sección en estudio.
 :param AsAct: Área de la de la reinforcement longitudinal activa traccionada anclada
@@ -851,7 +1001,7 @@ para piezas CON reinforcement de cortante, according to the article 44.2.3.2.2 d
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>z</strong> &#8211; Brazo mecánico.</li>
+<li><strong>z</strong> &#8211; Lever arm.</li>
 <li><strong>alpha</strong> &#8211; Ángulo de la reinforcement transversal con el eje de la pieza.</li>
 <li><strong>theta</strong> &#8211; Angle between the concrete compressed struts and the member axis (figure 44.2.3.1.a EHE).</li>
 <li><strong>AsTrsv</strong> &#8211; Área de la reinforcement transversal cuya contribución se calcula.</li>
@@ -895,10 +1045,20 @@ according to the article 44.2.3.1 de EHE-08.</p>
 <dl class="function">
 <dt id="materials.ehe.comprobVEHE08.getVu2EHE08NoAt">
 <code class="descclassname">materials.ehe.comprobVEHE08.</code><code class="descname">getVu2EHE08NoAt</code><span class="sig-paren">(</span><em>M</em>, <em>Mfis</em>, <em>fcv</em>, <em>fck</em>, <em>gammaC</em>, <em>I</em>, <em>S</em>, <em>alphaL</em>, <em>Ncd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>AsPas</em>, <em>AsAct</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE08.getVu2EHE08NoAt" title="Permalink to this definition">¶</a></dt>
-<dd><p>getVu2EHE08NoAt(M,Mfis,fcv,fck,gammaC,I,S,alphaL,Ncd,Ac,b0,d,AsPas,AsAct)   [uds: N, m, rad]
-:param M: Momento que actúa sobre la sección.
-:param Mfis: Momento de fisuración de la sección correspondiente al mismo plano y sentido
-flexión que M.
+<dd><p>getVu2EHE08NoAt(M,Mfis,fcv,fck,gammaC,I,S,alphaL,Ncd,Ac,b0,d,AsPas,AsAct)   [uds: N, m, rad]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>M</strong> &#8211; Momento que actúa sobre la sección.</li>
+<li><strong>Mfis</strong> &#8211; Momento de fisuración de la sección correspondiente al mismo plano y sentido</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>flexión que M.
 :param fcv: Resistencia efectiva del hormigón a cortante. En piezas sin reinforcement de cortante
 será fcv= min(fck,60MPa). En piezas con reinforcement de cortante fcv= min(fck,100MPa).
 En ambos casos, si el control del hormigón es indirecto fcv=15MPa.
@@ -907,7 +1067,7 @@ En ambos casos, si el control del hormigón es indirecto fcv=15MPa.
 :param Ncd: Axil de cálculo resistido por el hormigón (positivo si es de tracción).
 :param Ac: Area total de la sección de hormigón.
 b0: Anchura neta mínima del elemento a comprobar, definida de acuerdo con el artículo 40.3.5.
-:param d: Canto útil expresado en metros.
+:param d: Canto útil (meters).
 :param AsPas: Área de la de la reinforcement longitudinal pasiva traccionada anclada
 a una distancia mayor que el depth útil de la sección en estudio.
 :param AsAct: Área de la de la reinforcement longitudinal activa traccionada anclada
@@ -919,11 +1079,21 @@ para piezas SIN reinforcement de cortante, según los artículos 44.2.3.2.1.1 y 
 <dl class="function">
 <dt id="materials.ehe.comprobVEHE08.getVu2EHE08NoAtNoFis">
 <code class="descclassname">materials.ehe.comprobVEHE08.</code><code class="descname">getVu2EHE08NoAtNoFis</code><span class="sig-paren">(</span><em>fctd</em>, <em>I</em>, <em>S</em>, <em>b0</em>, <em>alphal</em>, <em>Ncd</em>, <em>Ac</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE08.getVu2EHE08NoAtNoFis" title="Permalink to this definition">¶</a></dt>
-<dd><p>getVu2EHE08NoAtNoFis(fctd,I,S,b0,alphal,Ncd,Ac) [uds: N, m, rad]
-:param fctd: Resistencia de cálculo del hormigón a tracción.
-:param I: Momento de inercia de la sección respecto a su CDG.
-:param S: Momento estático de la parte de la sección que queda por encima del CDG.
-b0: Anchura neta mínima del elemento a comprobar, definida de acuerdo con el artículo 40.3.5.
+<dd><p>getVu2EHE08NoAtNoFis(fctd,I,S,b0,alphal,Ncd,Ac) [uds: N, m, rad]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fctd</strong> &#8211; Resistencia de cálculo del hormigón a tracción.</li>
+<li><strong>I</strong> &#8211; Momento de inercia de la sección respecto a su CDG.</li>
+<li><strong>S</strong> &#8211; Momento estático de la parte de la sección que queda por encima del CDG.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>b0: Anchura neta mínima del elemento a comprobar, definida de acuerdo con el artículo 40.3.5.
 :param alphal: Coeficiente que, en su caso, introduce el efecto de la transferencia.
 :param Ncd: Axil de cálculo resistido por el hormigón (positivo si es de tracción).
 :param Ac: Area total de la sección de hormigón.
@@ -934,16 +1104,23 @@ according to the article 44.2.3.2.1.1 de EHE-08.</p>
 <dl class="function">
 <dt id="materials.ehe.comprobVEHE08.getVu2EHE08NoAtSiFis">
 <code class="descclassname">materials.ehe.comprobVEHE08.</code><code class="descname">getVu2EHE08NoAtSiFis</code><span class="sig-paren">(</span><em>fcv</em>, <em>fcd</em>, <em>gammaC</em>, <em>Ncd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>AsPas</em>, <em>AsAct</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE08.getVu2EHE08NoAtSiFis" title="Permalink to this definition">¶</a></dt>
-<dd><p>getVu2EHE08NoAtSiFis(fcv,fcd,gammaC,Ncd,Ac,b0,d,AsPas,AsAct) [uds: N, m]
-:param fcv: Resistencia efectiva del hormigón a cortante. En piezas sin reinforcement de cortante
-será fcv= min(fck,60MPa). En piezas con reinforcement de cortante fcv= min(fck,100MPa).
+<dd><p>getVu2EHE08NoAtSiFis(fcv,fcd,gammaC,Ncd,Ac,b0,d,AsPas,AsAct) [uds: N, m]</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fcv</strong> &#8211; Resistencia efectiva del hormigón a cortante. En piezas sin reinforcement de cortante</td>
+</tr>
+</tbody>
+</table>
+<p>será fcv= min(fck,60MPa). En piezas con reinforcement de cortante fcv= min(fck,100MPa).
 En ambos casos, si el control del hormigón es indirecto fcv=15MPa.
 :param fcd: Resistencia de cálculo del hormigón a compresión.
 :param gammaC: Coeficiente de minoración de la resistencia del hormigón.
 :param Ncd: Axil de cálculo resistido por el hormigón (positivo si es de tracción).
 :param Ac: Area total de la sección de hormigón.
 b0: Anchura neta mínima del elemento a comprobar, definida de acuerdo con el artículo 40.3.5.
-:param d: Canto útil expresado en metros.
+:param d: Canto útil (meters).
 :param AsPas: Área de la de la reinforcement longitudinal pasiva traccionada anclada
 a una distancia mayor que el depth útil de la sección en estudio.
 :param AsAct: Área de la de la reinforcement longitudinal activa traccionada anclada
@@ -965,8 +1142,8 @@ En ambos casos, si el control del hormigón es indirecto fcv=15MPa.
 :param Ncd: Axil de cálculo resistido por el hormigón (positivo si es de tracción).
 :param Ac: Area total de la sección de hormigón.
 b0: Anchura neta mínima del elemento a comprobar, definida de acuerdo con el artículo 40.3.5.
-:param d: Canto útil expresado en metros.
-:param z: Brazo mecánico.
+:param d: Canto útil (meters).
+:param z: Lever arm.
 :param AsPas: Área de la de la reinforcement longitudinal pasiva traccionada anclada
 a una distancia mayor que el depth útil de la sección en estudio.
 :param AsAct: Área de la de la reinforcement longitudinal activa traccionada anclada
@@ -1001,8 +1178,8 @@ En ambos casos, si el control del hormigón es indirecto fcv=15MPa.
 :param Ncd: Axil de cálculo resistido por el hormigón (positivo si es de tracción).
 :param Ac: Area total de la sección de hormigón.
 b0: Anchura neta mínima del elemento a comprobar, definida de acuerdo con el artículo 40.3.5.
-:param d: Canto útil expresado en metros.
-:param z: Brazo mecánico.
+:param d: Canto útil (meters).
+:param z: Lever arm.
 :param AsPas: Área de la de la reinforcement longitudinal pasiva traccionada anclada
 a una distancia mayor que el depth útil de la sección en estudio.
 :param AsAct: Área de la de la reinforcement longitudinal activa traccionada anclada

@@ -339,6 +339,15 @@ whose indices in the grid are passed as parameters.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.grid_based.ijkGrid.ijkGrid.getNmSurfInRange">
+<code class="descname">getNmSurfInRange</code><span class="sig-paren">(</span><em>ijkRange</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.getNmSurfInRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list with the names of the surfaces limited by a rectangle 
+defined by the coordinates that correspond to the indices in the grid 
+ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
+ijkRange.ijkMax=(indXmax,indYmax,indZmax).</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.grid_based.ijkGrid.ijkGrid.getSetInRange">
 <code class="descname">getSetInRange</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>nmbrSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.getSetInRange" title="Permalink to this definition">¶</a></dt>
 <dd><p>return the set of entities (surfaces and all lines, points, elements, 
@@ -386,12 +395,32 @@ ijkRange.ijkMax=(indXmax,indYmax,indZmax)</p>
 <dl class="method">
 <dt id="model.grid_based.ijkGrid.ijkGrid.gridLinName">
 <code class="descname">gridLinName</code><span class="sig-paren">(</span><em>pt1</em>, <em>pt2</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.gridLinName" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Name of the line defined by 2 points</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pt1,pt2</strong> &#8211; tags of the points (in right order) that define the 
+surface</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="model.grid_based.ijkGrid.ijkGrid.gridSurfName">
 <code class="descname">gridSurfName</code><span class="sig-paren">(</span><em>pt1</em>, <em>pt2</em>, <em>pt3</em>, <em>pt4</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.gridSurfName" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Name of the quadrangle surface defined by 4 points</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pt1,pt2,pt3,pt4</strong> &#8211; tags of the points (in right order) that define the 
+surface</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="model.grid_based.ijkGrid.ijkGrid.lastXIndex">
@@ -428,14 +457,14 @@ in the grid are passed as parameters.</p>
 
 <dl class="method">
 <dt id="model.grid_based.ijkGrid.ijkGrid.newQuadGridSurface">
-<code class="descname">newQuadGridSurface</code><span class="sig-paren">(</span><em>ind4Pnt</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.newQuadGridSurface" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generate the quadrangle surface defined by the 4 vertex whose indices 
-in the grid are passed as parameters.</p>
+<code class="descname">newQuadGridSurface</code><span class="sig-paren">(</span><em>surfName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.grid_based.ijkGrid.ijkGrid.newQuadGridSurface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate the quadrangle surface defined by the 4 vertex whose tags
+are implicit in the name of the surface.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ind4Pnt</strong> &#8211; tuple of ordered points defined by their grid indices (i,j,k)</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>surfName</strong> &#8211; name given to the grid surface</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the quadrangle surface</td>
 </tr>

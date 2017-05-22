@@ -407,8 +407,8 @@ Parameters:</dd>
 <span id="defseccionhasimple"></span><h2>defSeccionHASimple<a class="headerlink" href="#module-materials.fiber_section.defSeccionHASimple" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="materials.fiber_section.defSeccionHASimple.BasicRecordRCSection">
-<em class="property">class </em><code class="descclassname">materials.fiber_section.defSeccionHASimple.</code><code class="descname">BasicRecordRCSection</code><span class="sig-paren">(</span><em>width=0.25</em>, <em>depth=0.25</em>, <em>concrType=None</em>, <em>reinfSteelType=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.BasicRecordRCSection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<em class="property">class </em><code class="descclassname">materials.fiber_section.defSeccionHASimple.</code><code class="descname">BasicRecordRCSection</code><span class="sig-paren">(</span><em>name='noName'</em>, <em>width=0.25</em>, <em>depth=0.25</em>, <em>concrType=None</em>, <em>reinfSteelType=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.BasicRecordRCSection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">materials.section_properties.RectangularSection</span></code></p>
 <p>This class is used to define the basic variables that make up a reinforced 
 concrete section.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -421,8 +421,6 @@ concrete section.</p>
 <li><strong>concrType</strong> &#8211; type of concrete (e.g. hormigonesEHE.HA25)</li>
 <li><strong>concrDiagName</strong> &#8211; name identifying the characteristic stress-strain 
 diagram of the concrete material</li>
-<li><strong>depth</strong> &#8211; cross-section depth</li>
-<li><a class="reference internal" href="code.html#geom.BND3d.width" title="geom.BND3d.width"><strong>width</strong></a> &#8211; cross-section width</li>
 <li><strong>nDivIJ</strong> &#8211; number of cells in IJ (width) direction</li>
 <li><strong>nDivJK</strong> &#8211; number of cells in JK  (height) direction</li>
 <li><strong>fiberSectionRepr</strong> &#8211; fiber model of the section.</li>
@@ -544,7 +542,7 @@ between the 2d positions p1 and p2.</p>
 
 <dl class="class">
 <dt id="materials.fiber_section.defSeccionHASimple.RecordRCSimpleSection">
-<em class="property">class </em><code class="descclassname">materials.fiber_section.defSeccionHASimple.</code><code class="descname">RecordRCSimpleSection</code><span class="sig-paren">(</span><em>width=0.25</em>, <em>depth=0.25</em>, <em>concrType=None</em>, <em>reinfSteelType=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.RecordRCSimpleSection" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">materials.fiber_section.defSeccionHASimple.</code><code class="descname">RecordRCSimpleSection</code><span class="sig-paren">(</span><em>name='noName'</em>, <em>width=0.25</em>, <em>depth=0.25</em>, <em>concrType=None</em>, <em>reinfSteelType=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.RecordRCSimpleSection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#materials.fiber_section.defSeccionHASimple.BasicRecordRCSection" title="materials.fiber_section.defSeccionHASimple.BasicRecordRCSection"><code class="xref py py-class docutils literal"><span class="pre">materials.fiber_section.defSeccionHASimple.BasicRecordRCSection</span></code></a></p>
 <p>This class is used to define the variables that make up a reinforced 
 concrete section with top and bottom reinforcement layers.</p>
@@ -558,10 +556,6 @@ concrete section with top and bottom reinforcement layers.</p>
 <li><strong>concrType</strong> &#8211; type of concrete (e.g. hormigonesEHE.HA25)</li>
 <li><strong>concrDiagName</strong> &#8211; name identifying the characteristic stress-strain 
 diagram of the concrete material</li>
-<li><strong>depth</strong> &#8211; cross-section depth</li>
-<li><a class="reference internal" href="code.html#geom.BND3d.width" title="geom.BND3d.width"><strong>width</strong></a> &#8211; cross-section width</li>
-<li><strong>nDivIJ</strong> &#8211; number of cells in IJ (width) direction</li>
-<li><strong>nDivJK</strong> &#8211; number of cells in JK  (height) direction</li>
 <li><strong>fiberSectionRepr</strong> &#8211; fiber model of the section</li>
 <li><strong>reinfSteelType</strong> &#8211; type of reinforcement steel</li>
 <li><strong>reinfDiagName</strong> &#8211; name identifying the characteristic stress-strain 
@@ -735,11 +729,6 @@ the depth (RClocalYaxis)</p>
 <dd><p>returns the second moment of area about the middle axis parallel to 
 the width (RClocalZaxis)</p>
 </dd></dl>
-
-<dl class="method">
-<dt id="materials.fiber_section.defSeccionHASimple.RecordRCSimpleSection.getJTorsion">
-<code class="descname">getJTorsion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.fiber_section.defSeccionHASimple.RecordRCSimpleSection.getJTorsion" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 <dl class="method">
 <dt id="materials.fiber_section.defSeccionHASimple.RecordRCSimpleSection.getLatCoverNeg">

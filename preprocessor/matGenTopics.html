@@ -71,6 +71,95 @@
 </dd></dl>
 
 <dl class="class">
+<dt id="materials.typical_materials.BeamMaterialData">
+<em class="property">class </em><code class="descclassname">materials.typical_materials.</code><code class="descname">BeamMaterialData</code><span class="sig-paren">(</span><em>name</em>, <em>section</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.BeamMaterialData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.typical_materials.MaterialData" title="materials.typical_materials.MaterialData"><code class="xref py py-class docutils literal"><span class="pre">materials.typical_materials.MaterialData</span></code></a></p>
+<p>Elastic section appropiate for 3D beam analysis, including shear deformations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="code.html#xc_base.EntConNmb.name" title="xc_base.EntConNmb.name"><strong>name</strong></a> &#8211; name identifying the section</li>
+<li><strong>section</strong> &#8211; instance of a class that defines the geometric and
+mechanical characteristiscs of a section
+e.g: RectangularSection, CircularSection, ISection, ...</li>
+<li><strong>material</strong> &#8211; instance of a class that defines the elastic modulus, 
+shear modulus and mass density of the material</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.typical_materials.BeamMaterialData.getLongitudinalDensity">
+<code class="descname">getLongitudinalDensity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.BeamMaterialData.getLongitudinalDensity" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the mass per unit length</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.typical_materials.BeamMaterialData.setupElasticShear3DSection">
+<code class="descname">setupElasticShear3DSection</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.BeamMaterialData.setupElasticShear3DSection" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the elastic section appropiate for 3D beam analysis</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.typical_materials.DeckMaterialData">
+<em class="property">class </em><code class="descclassname">materials.typical_materials.</code><code class="descname">DeckMaterialData</code><span class="sig-paren">(</span><em>name</em>, <em>thickness</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.DeckMaterialData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.typical_materials.MaterialData" title="materials.typical_materials.MaterialData"><code class="xref py py-class docutils literal"><span class="pre">materials.typical_materials.MaterialData</span></code></a></p>
+<p>Isotropic elastic section-material appropiate for plate and shell analysis</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="code.html#xc_base.EntConNmb.name" title="xc_base.EntConNmb.name"><strong>name</strong></a> &#8211; name identifying the section</li>
+<li><strong>thickness</strong> &#8211; overall depth of the section</li>
+<li><strong>material</strong> &#8211; instance of a class that defines the elastic modulus, 
+shear modulus and mass density of the material</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.typical_materials.DeckMaterialData.getAreaDensity">
+<code class="descname">getAreaDensity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.DeckMaterialData.getAreaDensity" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the mass per unit area</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.typical_materials.DeckMaterialData.setupElasticSection">
+<code class="descname">setupElasticSection</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.DeckMaterialData.setupElasticSection" title="Permalink to this definition">¶</a></dt>
+<dd><p>create an elastic isotropic section appropiate for plate and shell analysis</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="materials.typical_materials.MaterialData">
 <em class="property">class </em><code class="descclassname">materials.typical_materials.</code><code class="descname">MaterialData</code><span class="sig-paren">(</span><em>name</em>, <em>E</em>, <em>nu</em>, <em>rho</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.MaterialData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>

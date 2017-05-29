@@ -295,62 +295,8 @@ the search</li>
 </dd></dl>
 
 </div>
-<div class="section" id="module-model.ElasticFoundation">
-<span id="elasticfoundation"></span><h2>ElasticFoundation<a class="headerlink" href="#module-model.ElasticFoundation" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="model.ElasticFoundation.ElasticFoundation">
-<em class="property">class </em><code class="descclassname">model.ElasticFoundation.</code><code class="descname">ElasticFoundation</code><span class="sig-paren">(</span><em>wModulus</em>, <em>cRoz</em><span class="sig-paren">)</span><a class="headerlink" href="#model.ElasticFoundation.ElasticFoundation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
-<p>Region resting on springs (Winkler elastic foundation)</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>wModulus</strong> &#8211; Winkler modulus of the foundation (springs in Z direction)</li>
-<li><strong>cRoz</strong> &#8211; fraction of the Winkler modulus to apply for friction in
-the contact plane (springs in X, Y directions)</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="model.ElasticFoundation.ElasticFoundation.calcPressures">
-<code class="descname">calcPressures</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.ElasticFoundation.ElasticFoundation.calcPressures" title="Permalink to this definition">¶</a></dt>
-<dd><p>Foundation pressures over the soil. Calculates pressures
-and forces in the free nodes of the springs
-(those that belongs to both the spring and the foundation)
-and stores these values as properties of those nodes:
-property &#8216;soilPressure:&#8217; [xStress,yStress,zStress]
-property &#8216;soilReaction:&#8217; [xForce,yForce,zForce]</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="model.ElasticFoundation.ElasticFoundation.createMaterials">
-<code class="descname">createMaterials</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#model.ElasticFoundation.ElasticFoundation.createMaterials" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="model.ElasticFoundation.ElasticFoundation.displayPressures">
-<code class="descname">displayPressures</code><span class="sig-paren">(</span><em>defDisplay</em>, <em>caption</em>, <em>fUnitConv</em>, <em>unitDescription</em><span class="sig-paren">)</span><a class="headerlink" href="#model.ElasticFoundation.ElasticFoundation.displayPressures" title="Permalink to this definition">¶</a></dt>
-<dd><p>Display foundation pressures.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="model.ElasticFoundation.ElasticFoundation.generateSprings">
-<code class="descname">generateSprings</code><span class="sig-paren">(</span><em>xcSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.ElasticFoundation.ElasticFoundation.generateSprings" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates the springs at the nodes.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="model.ElasticFoundation.ElasticFoundation.getCentroid">
-<code class="descname">getCentroid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.ElasticFoundation.ElasticFoundation.getCentroid" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the geometric baricenter of the springs.</p>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="elasticfoundation">
+<h2>ElasticFoundation<a class="headerlink" href="#elasticfoundation" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="fija-nodos-lineas">
 <h2>fija_nodos_lineas<a class="headerlink" href="#fija-nodos-lineas" title="Permalink to this headline">¶</a></h2>
@@ -642,7 +588,7 @@ bearingMaterial (string): material name for the zero length</p>
 <dl class="method">
 <dt id="model.predefined_spaces.PredefinedSpace.setFulcrumBetweenNodes">
 <code class="descname">setFulcrumBetweenNodes</code><span class="sig-paren">(</span><em>nodeTagA</em>, <em>pivotNode</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.setFulcrumBetweenNodes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a fulcrum between the nodes being passed as parameters.</p>
+<dd><p>Create a fulcrum between the nodes passed as parameters.</p>
 <p>Creates a rigid link between the nodes.
 It&#8217;s called fulcrumb because it&#8217;s pinned on pivotNode.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -677,7 +623,7 @@ and the number of DOFs for each node obtained from the argument.</p>
 <dl class="method">
 <dt id="model.predefined_spaces.PredefinedSpace.setRigidBeamBetweenNodes">
 <code class="descname">setRigidBeamBetweenNodes</code><span class="sig-paren">(</span><em>nodeTagA</em>, <em>nodeTagB</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.setRigidBeamBetweenNodes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a rigid rod between the nodes being passed as parameters.</p>
+<dd><p>Create a rigid rod between the nodes passed as parameters.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -695,7 +641,7 @@ and the number of DOFs for each node obtained from the argument.</p>
 <dl class="method">
 <dt id="model.predefined_spaces.PredefinedSpace.setRigidRodBetweenNodes">
 <code class="descname">setRigidRodBetweenNodes</code><span class="sig-paren">(</span><em>nodeTagA</em>, <em>nodeTagB</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.setRigidRodBetweenNodes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a rigid rod between the nodes being passed as parameters.</p>
+<dd><p>Create a rigid rod between the nodes passed as parameters.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1187,7 +1133,7 @@ and the number of DOFs for each node obtained from the preprocessor.</p>
 <li><a class="reference internal" href="#module-model.element_vectors">element_vectors</a></li>
 <li><a class="reference internal" href="#module-model.line_utils">line_utils</a></li>
 <li><a class="reference internal" href="#module-model.model_inquiry">model_inquiry</a></li>
-<li><a class="reference internal" href="#module-model.ElasticFoundation">ElasticFoundation</a></li>
+<li><a class="reference internal" href="#elasticfoundation">ElasticFoundation</a></li>
 <li><a class="reference internal" href="#fija-nodos-lineas">fija_nodos_lineas</a></li>
 <li><a class="reference internal" href="#fix-node-3dof">fix_node_3dof</a></li>
 <li><a class="reference internal" href="#fix-node-6dof">fix_node_6dof</a></li>

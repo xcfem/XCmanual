@@ -71,6 +71,95 @@
 </dd></dl>
 
 <dl class="class">
+<dt id="materials.typical_materials.BeamMaterialData">
+<em class="property">class </em><code class="descclassname">materials.typical_materials.</code><code class="descname">BeamMaterialData</code><span class="sig-paren">(</span><em>name</em>, <em>section</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.BeamMaterialData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.typical_materials.MaterialData" title="materials.typical_materials.MaterialData"><code class="xref py py-class docutils literal"><span class="pre">materials.typical_materials.MaterialData</span></code></a></p>
+<p>Elastic section appropiate for 3D beam analysis, including shear deformations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="code.html#xc_base.EntConNmb.name" title="xc_base.EntConNmb.name"><strong>name</strong></a> &#8211; name identifying the section</li>
+<li><strong>section</strong> &#8211; instance of a class that defines the geometric and
+mechanical characteristiscs of a section
+e.g: RectangularSection, CircularSection, ISection, ...</li>
+<li><strong>material</strong> &#8211; instance of a class that defines the elastic modulus, 
+shear modulus and mass density of the material</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.typical_materials.BeamMaterialData.getLongitudinalDensity">
+<code class="descname">getLongitudinalDensity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.BeamMaterialData.getLongitudinalDensity" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the mass per unit length</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.typical_materials.BeamMaterialData.setupElasticShear3DSection">
+<code class="descname">setupElasticShear3DSection</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.BeamMaterialData.setupElasticShear3DSection" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the elastic section appropiate for 3D beam analysis</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.typical_materials.DeckMaterialData">
+<em class="property">class </em><code class="descclassname">materials.typical_materials.</code><code class="descname">DeckMaterialData</code><span class="sig-paren">(</span><em>name</em>, <em>thickness</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.DeckMaterialData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.typical_materials.MaterialData" title="materials.typical_materials.MaterialData"><code class="xref py py-class docutils literal"><span class="pre">materials.typical_materials.MaterialData</span></code></a></p>
+<p>Isotropic elastic section-material appropiate for plate and shell analysis</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="code.html#xc_base.EntConNmb.name" title="xc_base.EntConNmb.name"><strong>name</strong></a> &#8211; name identifying the section</li>
+<li><strong>thickness</strong> &#8211; overall depth of the section</li>
+<li><strong>material</strong> &#8211; instance of a class that defines the elastic modulus, 
+shear modulus and mass density of the material</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.typical_materials.DeckMaterialData.getAreaDensity">
+<code class="descname">getAreaDensity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.DeckMaterialData.getAreaDensity" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the mass per unit area</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.typical_materials.DeckMaterialData.setupElasticSection">
+<code class="descname">setupElasticSection</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.DeckMaterialData.setupElasticSection" title="Permalink to this definition">¶</a></dt>
+<dd><p>create an elastic isotropic section appropiate for plate and shell analysis</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="materials.typical_materials.MaterialData">
 <em class="property">class </em><code class="descclassname">materials.typical_materials.</code><code class="descname">MaterialData</code><span class="sig-paren">(</span><em>name</em>, <em>E</em>, <em>nu</em>, <em>rho</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.MaterialData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
@@ -1718,6 +1807,7 @@ k:        fmaxk/fyk ratio (Annex C of EC2: class A k&gt;=1,05 , class B k&gt;=1,
 </div>
 <div class="section" id="module-materials.LimitStateControllerBase">
 <span id="limitstatecontrollerbase"></span><h2>LimitStateControllerBase<a class="headerlink" href="#module-materials.LimitStateControllerBase" title="Permalink to this headline">¶</a></h2>
+<p>Basic parameters for limit state control.</p>
 <dl class="class">
 <dt id="materials.LimitStateControllerBase.LimitStateControllerBase">
 <em class="property">class </em><code class="descclassname">materials.LimitStateControllerBase.</code><code class="descname">LimitStateControllerBase</code><span class="sig-paren">(</span><em>limitStateLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.LimitStateControllerBase.LimitStateControllerBase" title="Permalink to this definition">¶</a></dt>
@@ -1732,278 +1822,18 @@ k:        fmaxk/fyk ratio (Annex C of EC2: class A k&gt;=1,05 , class B k&gt;=1,
 </dd></dl>
 
 </div>
-<div class="section" id="module-materials.sccRectg">
-<span id="materials-sccrectg"></span><h2>materials.sccRectg<a class="headerlink" href="#module-materials.sccRectg" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="materials.sccRectg.sccRectang">
-<em class="property">class </em><code class="descclassname">materials.sccRectg.</code><code class="descname">sccRectang</code><a class="headerlink" href="#materials.sccRectg.sccRectang" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
-<p>Rectangular section.</p>
-<dl class="method">
-<dt id="materials.sccRectg.sccRectang.I1">
-<code class="descname">I1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sccRectg.sccRectang.I1" title="Permalink to this definition">¶</a></dt>
-<dd><p>Devuelve el momento de inercia respecto al eje paralelo al width que pasa por el CDG de la sección.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sccRectg.sccRectang.I2">
-<code class="descname">I2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sccRectg.sccRectang.I2" title="Permalink to this definition">¶</a></dt>
-<dd><p>Devuelve el momento de inercia respecto al eje paralelo al depth que pasa por el CDG de la sección.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sccRectg.sccRectang.Me1">
-<code class="descname">Me1</code><span class="sig-paren">(</span><em>fy</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sccRectg.sccRectang.Me1" title="Permalink to this definition">¶</a></dt>
-<dd><p>Devuelve el momento elástico respecto al eje paralelo al width que pasa por el CDG de la sección.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sccRectg.sccRectang.Me2">
-<code class="descname">Me2</code><span class="sig-paren">(</span><em>fy</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sccRectg.sccRectang.Me2" title="Permalink to this definition">¶</a></dt>
-<dd><p>Devuelve el momento elástico respecto al eje paralelo al depth que pasa por el CDG de la sección.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sccRectg.sccRectang.Mp1">
-<code class="descname">Mp1</code><span class="sig-paren">(</span><em>fy</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sccRectg.sccRectang.Mp1" title="Permalink to this definition">¶</a></dt>
-<dd><p>Devuelve el momento plástico respecto al eje paralelo al width que pasa por el CDG de la sección.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sccRectg.sccRectang.Mp2">
-<code class="descname">Mp2</code><span class="sig-paren">(</span><em>fy</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sccRectg.sccRectang.Mp2" title="Permalink to this definition">¶</a></dt>
-<dd><p>Devuelve el momento plástico respecto al eje paralelo al depth que pasa por el CDG de la sección.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sccRectg.sccRectang.S1PosG">
-<code class="descname">S1PosG</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sccRectg.sccRectang.S1PosG" title="Permalink to this definition">¶</a></dt>
-<dd><p>Momento estático de la mitad de la sección respecto al eje paralelo al width por el CDG.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sccRectg.sccRectang.S2PosG">
-<code class="descname">S2PosG</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sccRectg.sccRectang.S2PosG" title="Permalink to this definition">¶</a></dt>
-<dd><p>Momento estático de la mitad de la sección respecto al eje paralelo al width por el CDG.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sccRectg.sccRectang.area">
-<code class="descname">area</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sccRectg.sccRectang.area" title="Permalink to this definition">¶</a></dt>
-<dd><p>Devuelve el área de la sección,</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sccRectg.sccRectang.discretization">
-<code class="descname">discretization</code><span class="sig-paren">(</span><em>gm</em>, <em>nmbMat</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sccRectg.sccRectang.discretization" title="Permalink to this definition">¶</a></dt>
-<dd><p>generation of a quadrilateral region from the rectangular section 
-geometry (sizes and number of divisions for the cells)
-made of the specified material</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>gm</strong> &#8211; object of type section_geometry</li>
-<li><strong>nmbMat</strong> &#8211; name of the material (string)</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sccRectg.sccRectang.i1">
-<code class="descname">i1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sccRectg.sccRectang.i1" title="Permalink to this definition">¶</a></dt>
-<dd><p>Devuelve el radius de giro respecto al eje paralelo al width que pasa por el CDG de la sección.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sccRectg.sccRectang.i2">
-<code class="descname">i2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sccRectg.sccRectang.i2" title="Permalink to this definition">¶</a></dt>
-<dd><p>Devuelve el radius de giro respecto al eje paralelo al depth que pasa por el CDG de la sección.</p>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-materials.sectionProperties">
-<span id="materials-sectionproperties"></span><h2>materials.sectionProperties<a class="headerlink" href="#module-materials.sectionProperties" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="materials.sectionProperties.defSeccElastica2d">
-<code class="descclassname">materials.sectionProperties.</code><code class="descname">defSeccElastica2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>defSecc</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sectionProperties.defSeccElastica2d" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="materials.sectionProperties.defSeccElastica3d">
-<code class="descclassname">materials.sectionProperties.</code><code class="descname">defSeccElastica3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>defSecc</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sectionProperties.defSeccElastica3d" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="materials.sectionProperties.defSeccShElastica2d">
-<code class="descclassname">materials.sectionProperties.</code><code class="descname">defSeccShElastica2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>defSecc</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sectionProperties.defSeccShElastica2d" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="materials.sectionProperties.defSeccShElastica3d">
-<code class="descclassname">materials.sectionProperties.</code><code class="descname">defSeccShElastica3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>defSecc</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sectionProperties.defSeccShElastica3d" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="materials.sectionProperties.sectionProperties">
-<em class="property">class </em><code class="descclassname">materials.sectionProperties.</code><code class="descname">sectionProperties</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sectionProperties.sectionProperties" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
-<p>Abstract section properties (area, moments of inertia,...)</p>
-<dl class="method">
-<dt id="materials.sectionProperties.sectionProperties.A">
-<code class="descname">A</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sectionProperties.sectionProperties.A" title="Permalink to this definition">¶</a></dt>
-<dd><p>cross-sectional area (abstract method)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sectionProperties.sectionProperties.Iy">
-<code class="descname">Iy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sectionProperties.sectionProperties.Iy" title="Permalink to this definition">¶</a></dt>
-<dd><p>second moment of area about the local y-axis (abstract method)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sectionProperties.sectionProperties.Iz">
-<code class="descname">Iz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sectionProperties.sectionProperties.Iz" title="Permalink to this definition">¶</a></dt>
-<dd><p>second moment of area about the local z-axis (abstract method)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sectionProperties.sectionProperties.J">
-<code class="descname">J</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sectionProperties.sectionProperties.J" title="Permalink to this definition">¶</a></dt>
-<dd><p>torsional moment of inertia of the section (abstract method)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sectionProperties.sectionProperties.Wyel">
-<code class="descname">Wyel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sectionProperties.sectionProperties.Wyel" title="Permalink to this definition">¶</a></dt>
-<dd><p>section modulus with respect to local y-axis (abstract method)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sectionProperties.sectionProperties.Wzel">
-<code class="descname">Wzel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sectionProperties.sectionProperties.Wzel" title="Permalink to this definition">¶</a></dt>
-<dd><p>section modulus with respect to local z-axis (abstract method)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sectionProperties.sectionProperties.defSeccElastica2d">
-<code class="descname">defSeccElastica2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sectionProperties.sectionProperties.defSeccElastica2d" title="Permalink to this definition">¶</a></dt>
-<dd><p>elastic section appropiate for 2D beam analysis, including shear deformations</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>preprocessor</strong> &#8211; preprocessor name</li>
-<li><strong>material</strong> &#8211; material (for which E is the Young&#8217;s modulus)</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sectionProperties.sectionProperties.defSeccElastica3d">
-<code class="descname">defSeccElastica3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sectionProperties.sectionProperties.defSeccElastica3d" title="Permalink to this definition">¶</a></dt>
-<dd><p>elastic section appropiate for 3D beam analysis</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>preprocessor</strong> &#8211; preprocessor name</li>
-<li><strong>material</strong> &#8211; material (for which E is the Young&#8217;s modulus and G() the shear modulus)</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sectionProperties.sectionProperties.defSeccShElastica2d">
-<code class="descname">defSeccShElastica2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sectionProperties.sectionProperties.defSeccShElastica2d" title="Permalink to this definition">¶</a></dt>
-<dd><p>elastic section appropiate for 2D beam analysis, including shear deformations</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>preprocessor</strong> &#8211; preprocessor name</li>
-<li><strong>material</strong> &#8211; material (for which E is the Young&#8217;s modulus and G() the shear modulus)</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sectionProperties.sectionProperties.defSeccShElastica3d">
-<code class="descname">defSeccShElastica3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sectionProperties.sectionProperties.defSeccShElastica3d" title="Permalink to this definition">¶</a></dt>
-<dd><p>elastic section appropiate for 3D beam analysis, including shear deformations</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>preprocessor</strong> &#8211; preprocessor name</li>
-<li><strong>material</strong> &#8211; material (for which E is the Young&#8217;s modulus and G() the shear modulus)</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-materials.parametrosSeccionCajonMonocelular">
-<span id="parametrosseccioncajonmonocelular"></span><h2>parametrosSeccionCajonMonocelular<a class="headerlink" href="#module-materials.parametrosSeccionCajonMonocelular" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="materials.parametrosSeccionCajonMonocelular.getInerciaTorsionCajonMonocelular">
-<code class="descclassname">materials.parametrosSeccionCajonMonocelular.</code><code class="descname">getInerciaTorsionCajonMonocelular</code><span class="sig-paren">(</span><em>bs</em>, <em>bi</em>, <em>h</em>, <em>ts</em>, <em>ti</em>, <em>td</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.parametrosSeccionCajonMonocelular.getInerciaTorsionCajonMonocelular" title="Permalink to this definition">¶</a></dt>
-<dd><p>Devuelve el valor de la inercia a torsión de un cajón monocelular</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>bs</strong> &#8211; Ancho de la losa superior del cajón (esto es, descontando los voladizos)</li>
-<li><strong>bi</strong> &#8211; Ancho de la losa inferior del cajón.</li>
-<li><strong>ts</strong> &#8211; Espesor de la losa superior del cajón.</li>
-<li><strong>ti</strong> &#8211; Espesor de la losa inferior del cajón.</li>
-<li><strong>td</strong> &#8211; Espesor de las almas.</li>
-<li><strong>h</strong> &#8211; Canto del cajón (entre planos medios).</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</div>
-<div class="section" id="module-materials.paramCircularSection">
-<span id="paramcircularsection"></span><h2>paramCircularSection<a class="headerlink" href="#module-materials.paramCircularSection" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="materials.paramCircularSection.CircularSection">
-<em class="property">class </em><code class="descclassname">materials.paramCircularSection.</code><code class="descname">CircularSection</code><span class="sig-paren">(</span><em>name</em>, <em>Rext</em>, <em>Rint=0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramCircularSection.CircularSection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.sectionProperties.sectionProperties" title="materials.sectionProperties.sectionProperties"><code class="xref py py-class docutils literal"><span class="pre">materials.sectionProperties.sectionProperties</span></code></a></p>
+<div class="section" id="materials-section-properties">
+<h2>materials.section_properties<a class="headerlink" href="#materials-section-properties" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-materials.section_properties"></span><dl class="class">
+<dt id="materials.section_properties.CircularSection">
+<em class="property">class </em><code class="descclassname">materials.section_properties.</code><code class="descname">CircularSection</code><span class="sig-paren">(</span><em>name</em>, <em>Rext</em>, <em>Rint=0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.CircularSection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.section_properties.SectionProperties" title="materials.section_properties.SectionProperties"><code class="xref py py-class docutils literal"><span class="pre">materials.section_properties.SectionProperties</span></code></a></p>
 <p>Geometric parameters of a circular or circular hollow section</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="code.html#xc_base.EntConNmb.name" title="xc_base.EntConNmb.name"><strong>name</strong></a> &#8211; name identifying the section</li>
 <li><strong>Rext</strong> &#8211; external radius</li>
 <li><strong>Rint</strong> &#8211; internal radius (defaults to 0)</li>
 </ul>
@@ -2012,130 +1842,132 @@ made of the specified material</p>
 </tbody>
 </table>
 <dl class="method">
-<dt id="materials.paramCircularSection.CircularSection.A">
-<code class="descname">A</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramCircularSection.CircularSection.A" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">cross-sectional area of the section</td>
-</tr>
-</tbody>
-</table>
+<dt id="materials.section_properties.CircularSection.A">
+<code class="descname">A</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.CircularSection.A" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return cross-sectional area of the section</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.paramCircularSection.CircularSection.Iy">
-<code class="descname">Iy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramCircularSection.CircularSection.Iy" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">second moment of area about the local y-axis</td>
-</tr>
-</tbody>
-</table>
+<dt id="materials.section_properties.CircularSection.Iy">
+<code class="descname">Iy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.CircularSection.Iy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return second moment of area about the local y-axis</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.paramCircularSection.CircularSection.Iz">
-<code class="descname">Iz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramCircularSection.CircularSection.Iz" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">second moment of area about the local z-axis</td>
-</tr>
-</tbody>
-</table>
+<dt id="materials.section_properties.CircularSection.Iz">
+<code class="descname">Iz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.CircularSection.Iz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return second moment of area about the local z-axis</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.paramCircularSection.CircularSection.J">
-<code class="descname">J</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramCircularSection.CircularSection.J" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">torsional moment of inertia of the section</td>
-</tr>
-</tbody>
-</table>
+<dt id="materials.section_properties.CircularSection.J">
+<code class="descname">J</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.CircularSection.J" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return torsional moment of inertia of the section</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.paramCircularSection.CircularSection.alphaY">
-<code class="descname">alphaY</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramCircularSection.CircularSection.alphaY" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">distorsion coefficient with respect to local Y axis</td>
-</tr>
-</tbody>
-</table>
-<p>(see Oñate, Cálculo de estructuras por el MEF pág. 122)</p>
+<dt id="materials.section_properties.CircularSection.alphaY">
+<code class="descname">alphaY</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.CircularSection.alphaY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return distorsion coefficient with respect to local Y axis
+(see Oñate, Cálculo de estructuras por el MEF page 122)</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.paramCircularSection.CircularSection.alphaZ">
-<code class="descname">alphaZ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramCircularSection.CircularSection.alphaZ" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">distorsion coefficient with respect to local Z axis</td>
-</tr>
-</tbody>
-</table>
+<dt id="materials.section_properties.CircularSection.alphaZ">
+<code class="descname">alphaZ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.CircularSection.alphaZ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return distorsion coefficient with respect to local Z axis</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="materials.paramCircularSection.CircularSection.r">
-<code class="descname">r</code><em class="property"> = 0.0</em><a class="headerlink" href="#materials.paramCircularSection.CircularSection.r" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.section_properties.CircularSection.r">
+<code class="descname">r</code><em class="property"> = 0.0</em><a class="headerlink" href="#materials.section_properties.CircularSection.r" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="function">
-<dt id="materials.paramCircularSection.defSeccCircularElastica2d">
-<code class="descclassname">materials.paramCircularSection.</code><code class="descname">defSeccCircularElastica2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>defSecc</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramCircularSection.defSeccCircularElastica2d" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="materials.paramCircularSection.defSeccCircularElastica3d">
-<code class="descclassname">materials.paramCircularSection.</code><code class="descname">defSeccCircularElastica3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>defSecc</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramCircularSection.defSeccCircularElastica3d" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="materials.paramCircularSection.defSeccCircularShElastica2d">
-<code class="descclassname">materials.paramCircularSection.</code><code class="descname">defSeccCircularShElastica2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>defSecc</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramCircularSection.defSeccCircularShElastica2d" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="materials.paramCircularSection.defSeccCircularShElastica3d">
-<code class="descclassname">materials.paramCircularSection.</code><code class="descname">defSeccCircularShElastica3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>defSecc</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramCircularSection.defSeccCircularShElastica3d" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="materials.paramCircularSection.setupSeccCircular">
-<code class="descclassname">materials.paramCircularSection.</code><code class="descname">setupSeccCircular</code><span class="sig-paren">(</span><em>sectionName</em>, <em>r</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramCircularSection.setupSeccCircular" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</div>
-<div class="section" id="module-materials.paramIsection">
-<span id="paramisection"></span><h2>paramIsection<a class="headerlink" href="#module-materials.paramIsection" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="materials.paramIsection.ISection">
-<em class="property">class </em><code class="descclassname">materials.paramIsection.</code><code class="descname">ISection</code><span class="sig-paren">(</span><em>name</em>, <em>wdTopFlange</em>, <em>thTopFlange</em>, <em>thWeb</em>, <em>hgWeb</em>, <em>wdBotFlange</em>, <em>thBotFlange</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramIsection.ISection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.sectionProperties.sectionProperties" title="materials.sectionProperties.sectionProperties"><code class="xref py py-class docutils literal"><span class="pre">materials.sectionProperties.sectionProperties</span></code></a></p>
+<dt id="materials.section_properties.GenericSection">
+<em class="property">class </em><code class="descclassname">materials.section_properties.</code><code class="descname">GenericSection</code><span class="sig-paren">(</span><em>name</em>, <em>area</em>, <em>I_y</em>, <em>I_z</em>, <em>Jtors</em>, <em>W_y</em>, <em>W_z</em>, <em>alphY</em>, <em>alphZ</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.GenericSection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.section_properties.SectionProperties" title="materials.section_properties.SectionProperties"><code class="xref py py-class docutils literal"><span class="pre">materials.section_properties.SectionProperties</span></code></a></p>
+<p>Mechanical properties of generic section</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="code.html#geom.BND3d.area" title="geom.BND3d.area"><strong>area</strong></a> &#8211; cross-sectional area</li>
+<li><a class="reference internal" href="#materials.section_properties.SectionProperties.Iy" title="materials.section_properties.SectionProperties.Iy"><strong>Iy</strong></a> &#8211; second moment of area about the local y-axis</li>
+<li><a class="reference internal" href="#materials.section_properties.SectionProperties.Iz" title="materials.section_properties.SectionProperties.Iz"><strong>Iz</strong></a> &#8211; second moment of area about the local z-axis</li>
+<li><strong>Jtors</strong> &#8211; torsional moment of inertia of the section</li>
+<li><strong>Wy</strong> &#8211; section modulus with respect to local y-axis</li>
+<li><strong>Wz</strong> &#8211; section modulus with respect to local z-axis</li>
+<li><strong>alphY</strong> &#8211; shear shape factor with respect to local y-axis</li>
+<li><strong>alphZ</strong> &#8211; shear shape factor with respect to local z-axis</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.section_properties.GenericSection.A">
+<code class="descname">A</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.GenericSection.A" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return cross-sectional area</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.GenericSection.Iy">
+<code class="descname">Iy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.GenericSection.Iy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return second moment of area about the local y-axis</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.GenericSection.Iz">
+<code class="descname">Iz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.GenericSection.Iz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return second moment of area about the local z-axis</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.GenericSection.J">
+<code class="descname">J</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.GenericSection.J" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return torsional moment of inertia of the section</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.GenericSection.Wyel">
+<code class="descname">Wyel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.GenericSection.Wyel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return section modulus with respect to local y-axis</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.GenericSection.Wzel">
+<code class="descname">Wzel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.GenericSection.Wzel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return section modulus with respect to local z-axis</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.GenericSection.alphaY">
+<code class="descname">alphaY</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.GenericSection.alphaY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return shear shape factor with respect to local y-axis</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.GenericSection.alphaZ">
+<code class="descname">alphaZ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.GenericSection.alphaZ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return shear shape factor with respect to local z-axis</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.section_properties.ISection">
+<em class="property">class </em><code class="descclassname">materials.section_properties.</code><code class="descname">ISection</code><span class="sig-paren">(</span><em>name</em>, <em>wdTopFlange</em>, <em>thTopFlange</em>, <em>thWeb</em>, <em>hgWeb</em>, <em>wdBotFlange</em>, <em>thBotFlange</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.ISection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.section_properties.SectionProperties" title="materials.section_properties.SectionProperties"><code class="xref py py-class docutils literal"><span class="pre">materials.section_properties.SectionProperties</span></code></a></p>
 <p>I section geometric parameters</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="code.html#xc_base.EntConNmb.name" title="xc_base.EntConNmb.name"><strong>name</strong></a> &#8211; name identifying the section</li>
 <li><strong>wdTopFlange</strong> &#8211; width of the top flange (parallel to local z-axis)</li>
 <li><strong>thTopFlange</strong> &#8211; thickness of the top flange (parallel to local y-axis)</li>
 <li><strong>thWeb</strong> &#8211; thickness of the web (parallel to local z-axis)</li>
@@ -2170,364 +2002,209 @@ wdBotFlange</p>
 </tbody>
 </table>
 <dl class="method">
-<dt id="materials.paramIsection.ISection.A">
-<code class="descname">A</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramIsection.ISection.A" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">cross-sectional area of the section</td>
-</tr>
-</tbody>
-</table>
+<dt id="materials.section_properties.ISection.A">
+<code class="descname">A</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.ISection.A" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return cross-sectional area of the section</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.paramIsection.ISection.Iy">
-<code class="descname">Iy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramIsection.ISection.Iy" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">second moment of area about the local y-axis</td>
-</tr>
-</tbody>
-</table>
+<dt id="materials.section_properties.ISection.Iy">
+<code class="descname">Iy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.ISection.Iy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return second moment of area about the local y-axis</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.paramIsection.ISection.Iz">
-<code class="descname">Iz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramIsection.ISection.Iz" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">second moment of area about the local z-axis</td>
-</tr>
-</tbody>
-</table>
+<dt id="materials.section_properties.ISection.Iz">
+<code class="descname">Iz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.ISection.Iz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return second moment of area about the local z-axis</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.paramIsection.ISection.J">
-<code class="descname">J</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramIsection.ISection.J" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">torsional moment of inertia of the section</td>
-</tr>
-</tbody>
-</table>
+<dt id="materials.section_properties.ISection.J">
+<code class="descname">J</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.ISection.J" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return torsional moment of inertia of the section</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.paramIsection.ISection.Wyel">
-<code class="descname">Wyel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramIsection.ISection.Wyel" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">section modulus with respect to local y-axis</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.paramIsection.ISection.Wzel">
-<code class="descname">Wzel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramIsection.ISection.Wzel" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">section modulus with respect to local z-axis</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.paramIsection.ISection.alphaY">
-<code class="descname">alphaY</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramIsection.ISection.alphaY" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">shear shape factor with respect to local y-axis</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.paramIsection.ISection.alphaZ">
-<code class="descname">alphaZ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramIsection.ISection.alphaZ" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">shear shape factor with respect to local z-axis</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.paramIsection.ISection.hCOG">
-<code class="descname">hCOG</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramIsection.ISection.hCOG" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">distance from the bottom fiber of the inferior flange to the</td>
-</tr>
-</tbody>
-</table>
-<p>centre of gravity of the section</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.paramIsection.ISection.hTotal">
-<code class="descname">hTotal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramIsection.ISection.hTotal" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">total height (parallel to local y axis) of the section</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="function">
-<dt id="materials.paramIsection.getInerciaTorsionSeccDobleT">
-<code class="descclassname">materials.paramIsection.</code><code class="descname">getInerciaTorsionSeccDobleT</code><span class="sig-paren">(</span><em>b1</em>, <em>b2</em>, <em>ef</em>, <em>ew</em>, <em>ht</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramIsection.getInerciaTorsionSeccDobleT" title="Permalink to this definition">¶</a></dt>
-<dd><p>Devuelve el valor de la inercia a torsión de una sección doble T
-monocelular según el artículo «Perfil doble T» de la Wikipedia.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>b1</strong> &#8211; width of the top flange (parallel to local z-axis)</li>
-<li><strong>b2</strong> &#8211; width of the bottom flange (parallel to local z-axis)</li>
-<li><strong>ef</strong> &#8211; thickness of the flanges (parallel to local y-axis)</li>
-<li><strong>ew</strong> &#8211; thickness of the web  (parallel to local z-axis)</li>
-<li><strong>ht</strong> &#8211; height of the profile (parallel to local y-axis)</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="materials.paramIsection.getMomentoAlabeoSeccDobleT">
-<code class="descclassname">materials.paramIsection.</code><code class="descname">getMomentoAlabeoSeccDobleT</code><span class="sig-paren">(</span><em>b1</em>, <em>b2</em>, <em>ef</em>, <em>ew</em>, <em>ht</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramIsection.getMomentoAlabeoSeccDobleT" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">warping moment of a I-section</td>
-</tr>
-</tbody>
-</table>
+<dt id="materials.section_properties.ISection.Wxel">
+<code class="descname">Wxel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.ISection.Wxel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return torsional section modulus of the section.</p>
 <p>reference: article «Perfil doble T» of Wikipedia.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>b1</strong> &#8211; width of the top flange (parallel to local z-axis)</li>
-<li><strong>b2</strong> &#8211; width of the bottom flange (parallel to local z-axis)</li>
-<li><strong>ef</strong> &#8211; thickness of the top flange (parallel to local y-axis)</li>
-<li><strong>ew</strong> &#8211; thickness of the web (parallel to local z-axis)</li>
-<li><strong>ht</strong> &#8211; height of the profile (parallel to local y-axis)</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
-<dl class="function">
-<dt id="materials.paramIsection.getMomentoModuloTorsionSeccDobleT">
-<code class="descclassname">materials.paramIsection.</code><code class="descname">getMomentoModuloTorsionSeccDobleT</code><span class="sig-paren">(</span><em>b1</em>, <em>b2</em>, <em>ef</em>, <em>ew</em>, <em>ht</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramIsection.getMomentoModuloTorsionSeccDobleT" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">torsional section modulus of an I-section</td>
-</tr>
-</tbody>
-</table>
+<dl class="method">
+<dt id="materials.section_properties.ISection.Wyel">
+<code class="descname">Wyel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.ISection.Wyel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return section modulus with respect to local y-axis</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.ISection.Wzel">
+<code class="descname">Wzel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.ISection.Wzel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return section modulus with respect to local z-axis</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.ISection.alphaY">
+<code class="descname">alphaY</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.ISection.alphaY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return shear shape factor with respect to local y-axis</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.ISection.alphaZ">
+<code class="descname">alphaZ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.ISection.alphaZ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return shear shape factor with respect to local z-axis</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.ISection.getWarpingMoment">
+<code class="descname">getWarpingMoment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.ISection.getWarpingMoment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return warping moment of a I-section</p>
 <p>reference: article «Perfil doble T» of Wikipedia.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>b1</strong> &#8211; width of the top flange (parallel to local z-axis)</li>
-<li><strong>b2</strong> &#8211; width of the bottom flange (parallel to local z-axis)</li>
-<li><strong>ef</strong> &#8211; thickness of the top flange (parallel to local y-axis)</li>
-<li><strong>ew</strong> &#8211; thickness of the web (parallel to local z-axis)</li>
-<li><strong>ht</strong> &#8211; height of the profile (parallel to local y-axis)</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
-</div>
-<div class="section" id="module-materials.paramRectangularSection">
-<span id="paramrectangularsection"></span><h2>paramRectangularSection<a class="headerlink" href="#module-materials.paramRectangularSection" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="materials.section_properties.ISection.hCOG">
+<code class="descname">hCOG</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.ISection.hCOG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return distance from the bottom fiber of the inferior flange to the 
+centre of gravity of the section</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.ISection.hTotal">
+<code class="descname">hTotal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.ISection.hTotal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return total height (parallel to local y axis) of the section</p>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="class">
-<dt id="materials.paramRectangularSection.RectangularSection">
-<em class="property">class </em><code class="descclassname">materials.paramRectangularSection.</code><code class="descname">RectangularSection</code><span class="sig-paren">(</span><em>name</em>, <em>b</em>, <em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramRectangularSection.RectangularSection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.sectionProperties.sectionProperties" title="materials.sectionProperties.sectionProperties"><code class="xref py py-class docutils literal"><span class="pre">materials.sectionProperties.sectionProperties</span></code></a></p>
+<dt id="materials.section_properties.RectangularSection">
+<em class="property">class </em><code class="descclassname">materials.section_properties.</code><code class="descname">RectangularSection</code><span class="sig-paren">(</span><em>name</em>, <em>b</em>, <em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.RectangularSection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.section_properties.SectionProperties" title="materials.section_properties.SectionProperties"><code class="xref py py-class docutils literal"><span class="pre">materials.section_properties.SectionProperties</span></code></a></p>
 <p>Rectangular section geometric parameters</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="code.html#xc_base.EntConNmb.name" title="xc_base.EntConNmb.name"><strong>name</strong></a> &#8211; name identifying the section</li>
 <li><a class="reference internal" href="../miscellany/roughCalcGenTopics.html#rough_calculations.ng_rc_section.RCSection.b" title="rough_calculations.ng_rc_section.RCSection.b"><strong>b</strong></a> &#8211; cross-section width (parallel to local z-axis)</li>
-<li><a class="reference internal" href="../miscellany/roughCalcGenTopics.html#rough_calculations.ng_rc_section.RCSection.h" title="rough_calculations.ng_rc_section.RCSection.h"><strong>h</strong></a> &#8211; cross-section height (parallel to local y-axis)</li>
+<li><a class="reference internal" href="../miscellany/roughCalcGenTopics.html#rough_calculations.ng_rc_section.RCSection.h" title="rough_calculations.ng_rc_section.RCSection.h"><strong>h</strong></a> &#8211; cross-section depth (parallel to local y-axis)</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
-<dt id="materials.paramRectangularSection.RectangularSection.A">
-<code class="descname">A</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramRectangularSection.RectangularSection.A" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">cross-sectional area of the section</td>
-</tr>
-</tbody>
-</table>
+<dt id="materials.section_properties.RectangularSection.A">
+<code class="descname">A</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.RectangularSection.A" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return cross-sectional area of the section</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.paramRectangularSection.RectangularSection.Iy">
-<code class="descname">Iy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramRectangularSection.RectangularSection.Iy" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">second moment of area about the local y-axis</td>
-</tr>
-</tbody>
-</table>
+<dt id="materials.section_properties.RectangularSection.Iy">
+<code class="descname">Iy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.RectangularSection.Iy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return second moment of area about the local y-axis</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.paramRectangularSection.RectangularSection.Iz">
-<code class="descname">Iz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramRectangularSection.RectangularSection.Iz" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">second moment of area about the local z-axis</td>
-</tr>
-</tbody>
-</table>
+<dt id="materials.section_properties.RectangularSection.Iz">
+<code class="descname">Iz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.RectangularSection.Iz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return second moment of area about the local z-axis</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.paramRectangularSection.RectangularSection.J">
-<code class="descname">J</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramRectangularSection.RectangularSection.J" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">torsional moment of inertia of the section</td>
-</tr>
-</tbody>
-</table>
+<dt id="materials.section_properties.RectangularSection.J">
+<code class="descname">J</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.RectangularSection.J" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return torsional moment of inertia of the section</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.paramRectangularSection.RectangularSection.Wyel">
-<code class="descname">Wyel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramRectangularSection.RectangularSection.Wyel" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">section modulus with respect to local y-axis</td>
-</tr>
-</tbody>
-</table>
+<dt id="materials.section_properties.RectangularSection.Wyel">
+<code class="descname">Wyel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.RectangularSection.Wyel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return section modulus with respect to local y-axis</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.paramRectangularSection.RectangularSection.Wzel">
-<code class="descname">Wzel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramRectangularSection.RectangularSection.Wzel" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">section modulus with respect to local z-axis</td>
-</tr>
-</tbody>
-</table>
+<dt id="materials.section_properties.RectangularSection.Wzel">
+<code class="descname">Wzel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.RectangularSection.Wzel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return section modulus with respect to local z-axis</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="materials.section_properties.RectangularSection.alphaTable">
+<code class="descname">alphaTable</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.section_properties.RectangularSection.alphaTable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.RectangularSection.alphaY">
+<code class="descname">alphaY</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.RectangularSection.alphaY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return shear shape factor with respect to local y-axis</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.paramRectangularSection.RectangularSection.alphaY">
-<code class="descname">alphaY</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramRectangularSection.RectangularSection.alphaY" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">shear shape factor with respect to local y-axis</td>
-</tr>
-</tbody>
-</table>
+<dt id="materials.section_properties.RectangularSection.alphaZ">
+<code class="descname">alphaZ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.RectangularSection.alphaZ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return shear shape factor with respect to local z-axis</p>
 </dd></dl>
+
+<dl class="attribute">
+<dt id="materials.section_properties.RectangularSection.betaTable">
+<code class="descname">betaTable</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.section_properties.RectangularSection.betaTable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
-<dt id="materials.paramRectangularSection.RectangularSection.alphaZ">
-<code class="descname">alphaZ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramRectangularSection.RectangularSection.alphaZ" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">shear shape factor with respect to local z-axis</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="function">
-<dt id="materials.paramRectangularSection.getAlphaTorsion">
-<code class="descclassname">materials.paramRectangularSection.</code><code class="descname">getAlphaTorsion</code><span class="sig-paren">(</span><em>b</em>, <em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramRectangularSection.getAlphaTorsion" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">alpha coefficient of a rectangular sections, as a function of  h/b</td>
-</tr>
-</tbody>
-</table>
+<dt id="materials.section_properties.RectangularSection.getAlphaTorsion">
+<code class="descname">getAlphaTorsion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.RectangularSection.getAlphaTorsion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return alpha coefficient of the section.</p>
 <p>Reference: concrete book Jiménez Montoya 14a. edition page 405</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.RectangularSection.getBetaTorsion">
+<code class="descname">getBetaTorsion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.RectangularSection.getBetaTorsion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return beta coefficient of the section.</p>
+<p>Reference: concrete book Jiménez Montoya 14a. edition page 405</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.RectangularSection.getJTorsion">
+<code class="descname">getJTorsion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.RectangularSection.getJTorsion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return torsional moment of inertia of the section.</p>
+<p>Reference: concrete book Jiménez Montoya 14a. edition page 405</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.RectangularSection.getPlasticSectionModulusY">
+<code class="descname">getPlasticSectionModulusY</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.RectangularSection.getPlasticSectionModulusY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the plastic section modulus.</p>
+<p>Computes the plastic section modulus assuming that plastic neutral 
+axis passes through section centroid (which is true whenever the 
+rectangular section is homogeneous).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.RectangularSection.getPlasticSectionModulusZ">
+<code class="descname">getPlasticSectionModulusZ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.RectangularSection.getPlasticSectionModulusZ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the plastic section modulus.</p>
+<p>Computes the plastic section modulus assuming that plastic neutral 
+axis passes through section centroid (which is true whenever the 
+rectangular section is homogeneous).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.RectangularSection.getRegion">
+<code class="descname">getRegion</code><span class="sig-paren">(</span><em>gm</em>, <em>nmbMat</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.RectangularSection.getRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>generation of a quadrilateral region from the section 
+geometry (sizes and number of divisions for the cells)
+made of the specified material</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>b</strong> &#8211; cross-section width (parallel to local z-axis)</li>
-<li><strong>h</strong> &#8211; cross-section height (parallel to local y-axis)</li>
+<li><strong>gm</strong> &#8211; object of type section_geometry</li>
+<li><strong>nmbMat</strong> &#8211; name of the material (string)</li>
 </ul>
 </td>
 </tr>
@@ -2535,25 +2212,116 @@ monocelular según el artículo «Perfil doble T» de la Wikipedia.</p>
 </table>
 </dd></dl>
 
-<dl class="function">
-<dt id="materials.paramRectangularSection.getBetaTorsion">
-<code class="descclassname">materials.paramRectangularSection.</code><code class="descname">getBetaTorsion</code><span class="sig-paren">(</span><em>b</em>, <em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramRectangularSection.getBetaTorsion" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dl class="method">
+<dt id="materials.section_properties.RectangularSection.getYieldMomentY">
+<code class="descname">getYieldMomentY</code><span class="sig-paren">(</span><em>fy</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.RectangularSection.getYieldMomentY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return section yield moment.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">beta coefficient of a rectangular sections, as a function of  h/b</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fy</strong> &#8211; material yield stress.</td>
 </tr>
 </tbody>
 </table>
-<p>Reference: concrete book Jiménez Montoya 14a. edition page 405</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.RectangularSection.getYieldMomentZ">
+<code class="descname">getYieldMomentZ</code><span class="sig-paren">(</span><em>fy</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.RectangularSection.getYieldMomentZ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return section yield moment.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fy</strong> &#8211; material yield stress.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="materials.section_properties.RectangularSection.xAlpha">
+<code class="descname">xAlpha</code><em class="property"> = [1, 1.25, 1.5, 2, 3, 4, 6, 10, 10000]</em><a class="headerlink" href="#materials.section_properties.RectangularSection.xAlpha" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.section_properties.RectangularSection.xBeta">
+<code class="descname">xBeta</code><em class="property"> = [1, 1.25, 1.5, 2, 3, 4, 6, 8, 10, 10000]</em><a class="headerlink" href="#materials.section_properties.RectangularSection.xBeta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.section_properties.RectangularSection.yAlpha">
+<code class="descname">yAlpha</code><em class="property"> = [0.14, 0.171, 0.196, 0.229, 0.263, 0.281, 0.299, 0.313, 0.3333333333333333]</em><a class="headerlink" href="#materials.section_properties.RectangularSection.yAlpha" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.section_properties.RectangularSection.yBeta">
+<code class="descname">yBeta</code><em class="property"> = [0.208, 0.221, 0.231, 0.246, 0.267, 0.282, 0.299, 0.307, 0.313, 0.3333333333333333]</em><a class="headerlink" href="#materials.section_properties.RectangularSection.yBeta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.section_properties.SectionProperties">
+<em class="property">class </em><code class="descclassname">materials.section_properties.</code><code class="descname">SectionProperties</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.SectionProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Abstract section properties (area, moments of inertia,...)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><a class="reference internal" href="code.html#xc_base.EntConNmb.name" title="xc_base.EntConNmb.name"><strong>name</strong></a> &#8211; name identifying the section</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.section_properties.SectionProperties.A">
+<code class="descname">A</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.SectionProperties.A" title="Permalink to this definition">¶</a></dt>
+<dd><p>cross-sectional area (abstract method)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.SectionProperties.Iy">
+<code class="descname">Iy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.SectionProperties.Iy" title="Permalink to this definition">¶</a></dt>
+<dd><p>second moment of area about the local y-axis (abstract method)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.SectionProperties.Iz">
+<code class="descname">Iz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.SectionProperties.Iz" title="Permalink to this definition">¶</a></dt>
+<dd><p>second moment of area about the local z-axis (abstract method)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.SectionProperties.J">
+<code class="descname">J</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.SectionProperties.J" title="Permalink to this definition">¶</a></dt>
+<dd><p>torsional moment of inertia of the section (abstract method)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.SectionProperties.Wyel">
+<code class="descname">Wyel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.SectionProperties.Wyel" title="Permalink to this definition">¶</a></dt>
+<dd><p>section modulus with respect to local y-axis (abstract method)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.SectionProperties.Wzel">
+<code class="descname">Wzel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.SectionProperties.Wzel" title="Permalink to this definition">¶</a></dt>
+<dd><p>section modulus with respect to local z-axis (abstract method)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.SectionProperties.defSeccElastica2d">
+<code class="descname">defSeccElastica2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.SectionProperties.defSeccElastica2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>elastic section appropiate for 2D beam analysis, including shear deformations</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>b</strong> &#8211; cross-section width (parallel to local z-axis)</li>
-<li><strong>h</strong> &#8211; cross-section height (parallel to local y-axis)</li>
+<li><strong>preprocessor</strong> &#8211; preprocessor name</li>
+<li><strong>material</strong> &#8211; material (for which E is the Young&#8217;s modulus)</li>
 </ul>
 </td>
 </tr>
@@ -2561,25 +2329,17 @@ monocelular según el artículo «Perfil doble T» de la Wikipedia.</p>
 </table>
 </dd></dl>
 
-<dl class="function">
-<dt id="materials.paramRectangularSection.getJTorsion">
-<code class="descclassname">materials.paramRectangularSection.</code><code class="descname">getJTorsion</code><span class="sig-paren">(</span><em>b</em>, <em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramRectangularSection.getJTorsion" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">torsional moment of inertia of a rectangular section</td>
-</tr>
-</tbody>
-</table>
-<p>Reference: concrete book Jiménez Montoya 14a. edition page 405</p>
+<dl class="method">
+<dt id="materials.section_properties.SectionProperties.defSeccElastica3d">
+<code class="descname">defSeccElastica3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.SectionProperties.defSeccElastica3d" title="Permalink to this definition">¶</a></dt>
+<dd><p>elastic section appropiate for 3D beam analysis</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>b</strong> &#8211; cross-section width (parallel to local z-axis)</li>
-<li><strong>h</strong> &#8211; cross-section height (parallel to local y-axis)</li>
+<li><strong>preprocessor</strong> &#8211; preprocessor name</li>
+<li><strong>material</strong> &#8211; material (for which E is the Young&#8217;s modulus and G() the shear modulus)</li>
 </ul>
 </td>
 </tr>
@@ -2587,563 +2347,552 @@ monocelular según el artículo «Perfil doble T» de la Wikipedia.</p>
 </table>
 </dd></dl>
 
-</div>
-<div class="section" id="module-materials.aceros_estructurales">
-<span id="aceros-estructurales"></span><h2>aceros_estructurales<a class="headerlink" href="#module-materials.aceros_estructurales" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="materials.aceros_estructurales.ASTMSteel">
-<em class="property">class </em><code class="descclassname">materials.aceros_estructurales.</code><code class="descname">ASTMSteel</code><span class="sig-paren">(</span><em>fy=250000000.0</em>, <em>fu=400000000.0</em>, <em>gammaM=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aceros_estructurales.ASTMSteel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.aceros_estructurales.BasicSteel" title="materials.aceros_estructurales.BasicSteel"><code class="xref py py-class docutils literal"><span class="pre">materials.aceros_estructurales.BasicSteel</span></code></a></p>
-<p>ASTM structural steel.</p>
-</dd></dl>
-
-<dl class="class">
-<dt id="materials.aceros_estructurales.BasicSteel">
-<em class="property">class </em><code class="descclassname">materials.aceros_estructurales.</code><code class="descname">BasicSteel</code><span class="sig-paren">(</span><em>E</em>, <em>nu</em>, <em>fy</em>, <em>fu</em>, <em>gammaM</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aceros_estructurales.BasicSteel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.typical_materials.BasicElasticMaterial" title="materials.typical_materials.BasicElasticMaterial"><code class="xref py py-class docutils literal"><span class="pre">materials.typical_materials.BasicElasticMaterial</span></code></a></p>
-<p>Base class for structural steels.</p>
+<dl class="method">
+<dt id="materials.section_properties.SectionProperties.defSeccShElastica2d">
+<code class="descname">defSeccShElastica2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.SectionProperties.defSeccShElastica2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>elastic section appropiate for 2D beam analysis, including shear deformations</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>fy</strong> &#8211; Yield stress.</li>
-<li><strong>fu</strong> &#8211; ultimate stress.</li>
-<li><strong>gammaM</strong> &#8211; partial factor for cross-section resistance.</li>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> &#8211; preprocessor name</li>
+<li><strong>material</strong> &#8211; material (for which E is the Young&#8217;s modulus and G() the shear modulus)</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<dl class="method">
-<dt id="materials.aceros_estructurales.BasicSteel.fyd">
-<code class="descname">fyd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aceros_estructurales.BasicSteel.fyd" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 </dd></dl>
 
-<dl class="class">
-<dt id="materials.aceros_estructurales.EC3Steel">
-<em class="property">class </em><code class="descclassname">materials.aceros_estructurales.</code><code class="descname">EC3Steel</code><span class="sig-paren">(</span><em>fy</em>, <em>fy16</em>, <em>fy40</em>, <em>fy63</em>, <em>fy80</em>, <em>fy100</em>, <em>fy125</em>, <em>fu</em>, <em>gammaM</em>, <em>gammaM1=1.0</em>, <em>gammaM2=1.1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aceros_estructurales.EC3Steel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.aceros_estructurales.BasicSteel" title="materials.aceros_estructurales.BasicSteel"><code class="xref py py-class docutils literal"><span class="pre">materials.aceros_estructurales.BasicSteel</span></code></a></p>
-<p>Eurocode 3 structural steel.</p>
+<dl class="method">
+<dt id="materials.section_properties.SectionProperties.defSeccShElastica3d">
+<code class="descname">defSeccShElastica3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.SectionProperties.defSeccShElastica3d" title="Permalink to this definition">¶</a></dt>
+<dd><p>elastic section appropiate for 3D beam analysis, including shear deformations</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>fy16</strong> &#8211; 0&lt;t&lt;16mm</li>
-<li><strong>fy40</strong> &#8211; 16&lt;t&lt;40mm</li>
-<li><strong>fy63</strong> &#8211; 40&lt;t&lt;63mm</li>
-<li><strong>fy80</strong> &#8211; 63&lt;t&lt;80mm</li>
-<li><strong>fy100</strong> &#8211; 80&lt;t&lt;100mm</li>
-<li><strong>fy125</strong> &#8211; 80&lt;t&lt;125mm</li>
-<li><strong>gammaM1</strong> &#8211; Partial factor for buckling resistance.</li>
-<li><strong>gammaM2</strong> &#8211; Partial factor for cross-sections in tension to fracture.</li>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> &#8211; preprocessor name</li>
+<li><strong>material</strong> &#8211; material (for which E is the Young&#8217;s modulus and G() the shear modulus)</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<dl class="method">
-<dt id="materials.aceros_estructurales.EC3Steel.fyd">
-<code class="descname">fyd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aceros_estructurales.EC3Steel.fyd" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+</dd></dl>
 
 <dl class="method">
-<dt id="materials.aceros_estructurales.EC3Steel.fydV">
-<code class="descname">fydV</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aceros_estructurales.EC3Steel.fydV" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="materials.section_properties.SectionProperties.getPlasticMomentY">
+<code class="descname">getPlasticMomentY</code><span class="sig-paren">(</span><em>fy</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.SectionProperties.getPlasticMomentY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return section plastic moment around Y axis.</p>
+<p>Computes the plastic moment of the section assuming that plastic
+neutral axis passes through section centroid (which is true
+whenever the rectangular section is homogeneous).</p>
+</dd></dl>
 
 <dl class="method">
-<dt id="materials.aceros_estructurales.EC3Steel.gammaM0">
-<code class="descname">gammaM0</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aceros_estructurales.EC3Steel.gammaM0" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="materials.section_properties.SectionProperties.getPlasticMomentZ">
+<code class="descname">getPlasticMomentZ</code><span class="sig-paren">(</span><em>fy</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.SectionProperties.getPlasticMomentZ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return section plastic moment around Z axis.</p>
+<p>Computes the plastic moment of the section assuming that plastic
+neutral axis passes through section centroid (which is true
+whenever the rectangular section is homogeneous).</p>
+</dd></dl>
 
 <dl class="method">
-<dt id="materials.aceros_estructurales.EC3Steel.getDesignElasticPerfectlyPlasticMaterial">
-<code class="descname">getDesignElasticPerfectlyPlasticMaterial</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aceros_estructurales.EC3Steel.getDesignElasticPerfectlyPlasticMaterial" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="materials.section_properties.SectionProperties.getPlasticSectionModulusY">
+<code class="descname">getPlasticSectionModulusY</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.SectionProperties.getPlasticSectionModulusY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the plastic section modulus around Y axis.</p>
+<p>Computes the plastic section modulus assuming that plastic neutral 
+axis passes through section centroid (which is true whenever the 
+rectangular section is homogeneous).</p>
+</dd></dl>
 
 <dl class="method">
-<dt id="materials.aceros_estructurales.EC3Steel.getLambda1">
-<code class="descname">getLambda1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aceros_estructurales.EC3Steel.getLambda1" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">lambda_1 value as specified in EC3 part 1 5.5.1.2</td>
-</tr>
-</tbody>
-</table>
+<dt id="materials.section_properties.SectionProperties.getPlasticSectionModulusZ">
+<code class="descname">getPlasticSectionModulusZ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.SectionProperties.getPlasticSectionModulusZ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the plastic section modulus around Z axis.</p>
+<p>Computes the plastic section modulus assuming that plastic neutral 
+axis passes through section centroid (which is true whenever the 
+rectangular section is homogeneous).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.SectionProperties.iy">
+<code class="descname">iy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.SectionProperties.iy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the radius of gyration of the section around
+the axis parallel to Z that passes through section centroid.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.SectionProperties.iz">
+<code class="descname">iz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.SectionProperties.iz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the radious of gyration of the section around
+the axis parallel to Z that passes through section centroid.</p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
-<div class="section" id="module-materials.coefsDistorsion">
-<span id="coefsdistorsion"></span><h2>coefsDistorsion<a class="headerlink" href="#module-materials.coefsDistorsion" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="materials.coefsDistorsion.alphaSeccAnilloCircular">
-<code class="descclassname">materials.coefsDistorsion.</code><code class="descname">alphaSeccAnilloCircular</code><span class="sig-paren">(</span><em>R</em>, <em>r</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.coefsDistorsion.alphaSeccAnilloCircular" title="Permalink to this definition">¶</a></dt>
-<dd><p>Coeficientes de distorsión para diferentes tipos de secciones
-Ver &#8220;Cálculo de estructuras por el método de los elementos finitos&#8221;
-de Eugenio Oñate página 122.}</p>
+<dt id="materials.section_properties.getInerciaTorsionCajonMonocelular">
+<code class="descclassname">materials.section_properties.</code><code class="descname">getInerciaTorsionCajonMonocelular</code><span class="sig-paren">(</span><em>bs</em>, <em>bi</em>, <em>h</em>, <em>ts</em>, <em>ti</em>, <em>td</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.getInerciaTorsionCajonMonocelular" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return torsional section modulus of the section.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>bs</strong> &#8211; Ancho de la losa superior del cajón (esto es, descontando los voladizos)</li>
+<li><strong>bi</strong> &#8211; Ancho de la losa inferior del cajón.</li>
+<li><strong>ts</strong> &#8211; Espesor de la losa superior del cajón.</li>
+<li><strong>ti</strong> &#8211; Espesor de la losa inferior del cajón.</li>
+<li><strong>td</strong> &#8211; Espesor de las almas.</li>
+<li><strong>h</strong> &#8211; Canto del cajón (entre planos medios).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
-</div>
-<div class="section" id="module-materials.regimenSeccion">
-<span id="materials-regimenseccion"></span><h2>materials.regimenSeccion<a class="headerlink" href="#module-materials.regimenSeccion" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="materials.section_properties.solicitationType">
+<code class="descclassname">materials.section_properties.</code><code class="descname">solicitationType</code><span class="sig-paren">(</span><em>epsCMin</em>, <em>epsSMax</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.solicitationType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Solicitation type from maximum and minimum strain.</p>
 <dl class="docutils">
-<dt>Devuelve:</dt>
-<dd><p class="first">1: Si la sección está en tracción simple o compuesta (todas las fibras traccionadas).
-2: Si la sección está en flexotracción (fibras traccionadas y comprimidas).
-3: Si la sección está en compresión simple o compuesta (todas las fibras comprimidas).</p>
-<p class="last">epsCMin: Deformación mínima del hormigón.
-epsCMax: Deformación máxima del acero.</p>
+<dt>Return:</dt>
+<dd><p class="first">1: Pure or combined tension  (all fibers are tensioned).
+2: Pure or combined bending (tensioned and compressed fibers).
+3: Pure or combined compression (all fibers are compressed).</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param epsCMin:</th><td class="field-body">Minimal strain.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param epsCMax:</th><td class="field-body">Maximal strain.</td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
-<dl class="function">
-<dt id="materials.regimenSeccion.strTipoSolicitacion">
-<code class="descclassname">materials.regimenSeccion.</code><code class="descname">strTipoSolicitacion</code><span class="sig-paren">(</span><em>tipoSol</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.regimenSeccion.strTipoSolicitacion" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+</dd></dl>
 
 <dl class="function">
-<dt id="materials.regimenSeccion.tipoSolicitacion">
-<code class="descclassname">materials.regimenSeccion.</code><code class="descname">tipoSolicitacion</code><span class="sig-paren">(</span><em>epsCMin</em>, <em>epsSMax</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.regimenSeccion.tipoSolicitacion" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="materials.section_properties.solicitationTypeString">
+<code class="descclassname">materials.section_properties.</code><code class="descname">solicitationTypeString</code><span class="sig-paren">(</span><em>tipoSol</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.solicitationTypeString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string describing the solicitation type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>solType</strong> &#8211; number identifiying the solicitation type:
+1: Pure or combined tension  (all fibers are tensioned).
+2: Pure or combined bending (tensioned and compressed fibers).
+3: Pure or combined compression (all fibers are compressed).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </div>
-<div class="section" id="module-materials.paramMetallicProfile">
-<span id="parammetallicprofile"></span><h2>paramMetallicProfile<a class="headerlink" href="#module-materials.paramMetallicProfile" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="aceros-estructurales">
+<h2>aceros_estructurales<a class="headerlink" href="#aceros-estructurales" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="coefsdistorsion">
+<h2>coefsDistorsion<a class="headerlink" href="#coefsdistorsion" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="materials-regimenseccion">
+<h2>materials.regimenSeccion<a class="headerlink" href="#materials-regimenseccion" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="bridge-bearings">
+<h2>Bridge bearings<a class="headerlink" href="#bridge-bearings" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-materials.bridge_bearings"></span><p>Classes for modelling bridge bearings.</p>
+<p>This module provides some classes that allow modelling elastomeric and pot type
+bridge bearings. For now they are modelized as linear joints that connect
+two nodes with springs that introduce translational and/or rotational stiffness
+that are approximately equal to those of the real bearing.</p>
 <dl class="docutils">
-<dt>Rutinas para definir las características mecánicas de</dt>
-<dd>las secciones a partir de los datos del perfil metálico
-(ver archivos perfiles_ipe_arcelor.lcmd, perfiles_he_arcelor.lcmd,...).</dd>
-</dl>
-<dl class="function">
-<dt id="materials.paramMetallicProfile.defSeccPerfilMetalicoElastica2d">
-<code class="descclassname">materials.paramMetallicProfile.</code><code class="descname">defSeccPerfilMetalicoElastica2d</code><span class="sig-paren">(</span><em>defPerfil</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramMetallicProfile.defSeccPerfilMetalicoElastica2d" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="materials.paramMetallicProfile.defSeccPerfilMetalicoElastica3d">
-<code class="descclassname">materials.paramMetallicProfile.</code><code class="descname">defSeccPerfilMetalicoElastica3d</code><span class="sig-paren">(</span><em>defPerfil</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramMetallicProfile.defSeccPerfilMetalicoElastica3d" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="materials.paramMetallicProfile.defSeccPerfilMetalicoShElastica2d">
-<code class="descclassname">materials.paramMetallicProfile.</code><code class="descname">defSeccPerfilMetalicoShElastica2d</code><span class="sig-paren">(</span><em>defPerfil</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramMetallicProfile.defSeccPerfilMetalicoShElastica2d" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="materials.paramMetallicProfile.defSeccPerfilMetalicoShElastica3d">
-<code class="descclassname">materials.paramMetallicProfile.</code><code class="descname">defSeccPerfilMetalicoShElastica3d</code><span class="sig-paren">(</span><em>defPerfil</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramMetallicProfile.defSeccPerfilMetalicoShElastica3d" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</div>
-<div class="section" id="id3">
-<h2>paramMetallicProfile<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="module-materials.paramMetallicProfile"></span><dl class="docutils">
-<dt>Rutinas para definir las características mecánicas de</dt>
-<dd>las secciones a partir de los datos del perfil metálico
-(ver archivos perfiles_ipe_arcelor.lcmd, perfiles_he_arcelor.lcmd,...).</dd>
-</dl>
-<dl class="function">
-<dt>
-<code class="descclassname">materials.paramMetallicProfile.</code><code class="descname">defSeccPerfilMetalicoElastica2d</code><span class="sig-paren">(</span><em>defPerfil</em><span class="sig-paren">)</span></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt>
-<code class="descclassname">materials.paramMetallicProfile.</code><code class="descname">defSeccPerfilMetalicoElastica3d</code><span class="sig-paren">(</span><em>defPerfil</em><span class="sig-paren">)</span></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt>
-<code class="descclassname">materials.paramMetallicProfile.</code><code class="descname">defSeccPerfilMetalicoShElastica2d</code><span class="sig-paren">(</span><em>defPerfil</em><span class="sig-paren">)</span></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt>
-<code class="descclassname">materials.paramMetallicProfile.</code><code class="descname">defSeccPerfilMetalicoShElastica3d</code><span class="sig-paren">(</span><em>defPerfil</em><span class="sig-paren">)</span></dt>
-<dd></dd></dl>
-
-</div>
-<div class="section" id="module-materials.paramGenericSection">
-<span id="paramgenericsection"></span><h2>paramGenericSection<a class="headerlink" href="#module-materials.paramGenericSection" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="materials.paramGenericSection.GenericSection">
-<em class="property">class </em><code class="descclassname">materials.paramGenericSection.</code><code class="descname">GenericSection</code><span class="sig-paren">(</span><em>name</em>, <em>area</em>, <em>I_y</em>, <em>I_z</em>, <em>Jtors</em>, <em>W_y</em>, <em>W_z</em>, <em>alphY</em>, <em>alphZ</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramGenericSection.GenericSection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.sectionProperties.sectionProperties" title="materials.sectionProperties.sectionProperties"><code class="xref py py-class docutils literal"><span class="pre">materials.sectionProperties.sectionProperties</span></code></a></p>
-<p>Mechanical properties of generic section</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="code.html#xc_base.EntConNmb.name" title="xc_base.EntConNmb.name"><strong>name</strong></a> &#8211; name identifying the section</li>
-<li><a class="reference internal" href="code.html#geom.BND3d.area" title="geom.BND3d.area"><strong>area</strong></a> &#8211; cross-sectional area</li>
-<li><a class="reference internal" href="#materials.paramGenericSection.GenericSection.Iy" title="materials.paramGenericSection.GenericSection.Iy"><strong>Iy</strong></a> &#8211; second moment of area about the local y-axis</li>
-<li><a class="reference internal" href="#materials.paramGenericSection.GenericSection.Iz" title="materials.paramGenericSection.GenericSection.Iz"><strong>Iz</strong></a> &#8211; second moment of area about the local z-axis</li>
-<li><strong>Jtors</strong> &#8211; torsional moment of inertia of the section</li>
-<li><strong>Wy</strong> &#8211; section modulus with respect to local y-axis</li>
-<li><strong>Wz</strong> &#8211; section modulus with respect to local z-axis</li>
-<li><strong>alphY</strong> &#8211; shear shape factor with respect to local y-axis</li>
-<li><strong>alphZ</strong> &#8211; shear shape factor with respect to local z-axis</li>
+<dt>Examples:</dt>
+<dd><p class="first">Examples of the use of these classes are given in the following verification
+tests:</p>
+<blockquote class="last">
+<div><ul class="simple">
+<li>./verif/tests/elements/test_elastomeric_bearing_01.py</li>
+<li>./verif/tests/elements/test_pot_bearing_01.py</li>
+<li>./verif/tests/elements/test_pot_bearing_02.py</li>
+<li>./verif/tests/elements/test_pot_bearing_03.py</li>
+<li>./verif/tests/materials/test_elastomeric_bearing_stiffness.py</li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="materials.paramGenericSection.GenericSection.A">
-<code class="descname">A</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramGenericSection.GenericSection.A" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">cross-sectional area</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.paramGenericSection.GenericSection.Iy">
-<code class="descname">Iy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramGenericSection.GenericSection.Iy" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">second moment of area about the local y-axis</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.paramGenericSection.GenericSection.Iz">
-<code class="descname">Iz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramGenericSection.GenericSection.Iz" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">second moment of area about the local z-axis</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.paramGenericSection.GenericSection.J">
-<code class="descname">J</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramGenericSection.GenericSection.J" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">torsional moment of inertia of the section</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.paramGenericSection.GenericSection.Wyel">
-<code class="descname">Wyel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramGenericSection.GenericSection.Wyel" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">section modulus with respect to local y-axis</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.paramGenericSection.GenericSection.Wzel">
-<code class="descname">Wzel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramGenericSection.GenericSection.Wzel" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">section modulus with respect to local z-axis</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.paramGenericSection.GenericSection.alphaY">
-<code class="descname">alphaY</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramGenericSection.GenericSection.alphaY" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">shear shape factor with respect to local y-axis</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.paramGenericSection.GenericSection.alphaZ">
-<code class="descname">alphaZ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.paramGenericSection.GenericSection.alphaZ" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">shear shape factor with respect to local z-axis</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-materials.apoyosNeopreno">
-<span id="apoyosneopreno"></span><h2>apoyosNeopreno<a class="headerlink" href="#module-materials.apoyosNeopreno" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="materials.apoyosNeopreno.defineMaterialesNeopreno">
-<code class="descclassname">materials.apoyosNeopreno.</code><code class="descname">defineMaterialesNeopreno</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>G</em>, <em>a</em>, <em>b</em>, <em>e</em>, <em>nmbMatKX</em>, <em>nmbMatKY</em>, <em>nmbMatKZ</em>, <em>nmbMatKTHX</em>, <em>nmbMatKTHY</em>, <em>nmbMatKTHZ</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.apoyosNeopreno.defineMaterialesNeopreno" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="materials.apoyosNeopreno.getBetaTorsionNeoprenoRectang">
-<code class="descclassname">materials.apoyosNeopreno.</code><code class="descname">getBetaTorsionNeoprenoRectang</code><span class="sig-paren">(</span><em>b</em>, <em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.apoyosNeopreno.getBetaTorsionNeoprenoRectang" title="Permalink to this definition">¶</a></dt>
-<dd><p>Devuelve el valor del coeficiente beta en función de h/b
-ver ALPHA en libro hormigón Jiménez Montoya 14a. edición página 405</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="materials.apoyosNeopreno.getEneopreno">
-<code class="descclassname">materials.apoyosNeopreno.</code><code class="descname">getEneopreno</code><span class="sig-paren">(</span><em>G</em>, <em>a</em>, <em>b</em>, <em>e</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.apoyosNeopreno.getEneopreno" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>Módulo elástico frente al desplazamiento vertical de
-un apoyo de neopreno rectangular.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param G:</th><td class="field-body">Módulo de cortante del elastómero.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">param a:</th><td class="field-body">Lado del neopreno paralelo al eje del dintel.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">param e:</th><td class="field-body">espesor neto de elastómero (el total menos el ocupado por las chapas).</td>
-</tr>
-</tbody>
-</table>
 </div></blockquote>
-<p>v3: Factor de forma del apoyo.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="materials.apoyosNeopreno.getKgiroEjeDintel">
-<code class="descclassname">materials.apoyosNeopreno.</code><code class="descname">getKgiroEjeDintel</code><span class="sig-paren">(</span><em>G</em>, <em>a</em>, <em>b</em>, <em>e</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.apoyosNeopreno.getKgiroEjeDintel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Rigidez frente al giro en torno a un eje paralelo al del dintel
-que pase por el centro de un neopreno rectangular.</p>
-<table class="docutils field-list" frame="void" rules="none">
+</dd>
+<dt>Attributes:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>E</strong> &#8211; Módulo elástico del elastómero.</li>
-<li><strong>a</strong> &#8211; Lado del neopreno paralelo al eje del dintel.</li>
-<li><strong>b</strong> &#8211; Lado del neopreno normal al eje del dintel.</li>
-<li><strong>e</strong> &#8211; espesor neto de elastómero (el total menos el ocupado por las chapas).</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">x2 (list):</th><td class="field-body">Abcissae of the points that define the values of V2 as a function of b/a.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">y2 (list):</th><td class="field-body">Ordinates of the points that define the values of V2 as a function of b/a.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">x3 (list):</th><td class="field-body">Abcissae of the points that define the values of V3 as a function of b/a.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">y3 (list):</th><td class="field-body">Ordinates of the points that define the values of V3 as a function of b/a.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">x4 (list):</th><td class="field-body">Abcissae of the points that define the values of V4 as a function of b/a.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">y4 (list):</th><td class="field-body">Ordinates of the points that define the values of V4 as a function of b/a.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">xBeta (list):</th><td class="field-body">Abcissae of the points that define the values of beta (alpha in the book)
+as a function of b/a.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">yBeta (list):</th><td class="field-body">Ordinates of the points that define the values of beta (alpha in the book)
+as a function of h/b.</td>
 </tr>
 </tbody>
 </table>
+</dd>
+<dt>Todo:</dt>
+<dd><ul class="first last simple">
+<li>Extend the module to cover other bearing types.</li>
+</ul>
+</dd>
+</dl>
+<dl class="class">
+<dt id="materials.bridge_bearings.Bearing">
+<em class="property">class </em><code class="descclassname">materials.bridge_bearings.</code><code class="descname">Bearing</code><a class="headerlink" href="#materials.bridge_bearings.Bearing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Bearings base class.</p>
+<dl class="method">
+<dt id="materials.bridge_bearings.Bearing.getMaterial">
+<code class="descname">getMaterial</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.Bearing.getMaterial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the i-th uniaxial material that modelizes the response in the i-th direction.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="materials.apoyosNeopreno.getKgiroEjeNormalAlDintel">
-<code class="descclassname">materials.apoyosNeopreno.</code><code class="descname">getKgiroEjeNormalAlDintel</code><span class="sig-paren">(</span><em>G</em>, <em>a</em>, <em>b</em>, <em>e</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.apoyosNeopreno.getKgiroEjeNormalAlDintel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Rigidez frente al giro en torno a un eje normal al del dintel
-que pase por el centro de un neopreno rectangular.</p>
-<table class="docutils field-list" frame="void" rules="none">
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.bridge_bearings.ElastomericBearing">
+<em class="property">class </em><code class="descclassname">materials.bridge_bearings.</code><code class="descname">ElastomericBearing</code><span class="sig-paren">(</span><em>G</em>, <em>a</em>, <em>b</em>, <em>e</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.bridge_bearings.Bearing" title="materials.bridge_bearings.Bearing"><code class="xref py py-class docutils literal"><span class="pre">materials.bridge_bearings.Bearing</span></code></a></p>
+<p>Rectangular elastomeric bearing.</p>
+<dl class="docutils">
+<dt>Reference:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>E</strong> &#8211; Módulo elástico del elastómero.</li>
-<li><strong>a</strong> &#8211; Lado del neopreno paralelo al eje del dintel.</li>
-<li><strong>b</strong> &#8211; Lado del neopreno normal al eje del dintel.</li>
-<li><strong>e</strong> &#8211; espesor neto de elastómero (el total menos el ocupado por las chapas).</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">&#8220;Puentes&#8221;:</th><td class="field-body">book from Javier Manterola Armisén page 591 and 592.</td>
 </tr>
 </tbody>
 </table>
-</dd></dl>
-
-<dl class="function">
-<dt id="materials.apoyosNeopreno.getKgiroEjeVertical">
-<code class="descclassname">materials.apoyosNeopreno.</code><code class="descname">getKgiroEjeVertical</code><span class="sig-paren">(</span><em>G</em>, <em>a</em>, <em>b</em>, <em>e</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.apoyosNeopreno.getKgiroEjeVertical" title="Permalink to this definition">¶</a></dt>
-<dd><p>Rigidez frente al giro en torno a un eje vertical
-que pase por el centro de un neopreno rectangular.</p>
-<table class="docutils field-list" frame="void" rules="none">
+</dd>
+<dt>Class-wide members:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>E</strong> &#8211; Módulo elástico del elastómero.</li>
-<li><strong>a</strong> &#8211; Lado del neopreno paralelo al eje del dintel.</li>
-<li><strong>b</strong> &#8211; Lado del neopreno normal al eje del dintel.</li>
-<li><strong>e</strong> &#8211; espesor neto de elastómero (el total menos el ocupado por las chapas).</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">v2table:</th><td class="field-body">interpolation function for the V2 shape factor.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">v3table:</th><td class="field-body">interpolation function for the V3 shape factor.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">v4table:</th><td class="field-body">interpolation function for the V4 shape factor.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">betaTable:</th><td class="field-body">interpolation function for the beta shape factor.</td>
 </tr>
 </tbody>
 </table>
-</dd></dl>
-
-<dl class="function">
-<dt id="materials.apoyosNeopreno.getKhoriz">
-<code class="descclassname">materials.apoyosNeopreno.</code><code class="descname">getKhoriz</code><span class="sig-paren">(</span><em>G</em>, <em>a</em>, <em>b</em>, <em>e</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.apoyosNeopreno.getKhoriz" title="Permalink to this definition">¶</a></dt>
-<dd><p>Rigidez frente al desplazamiento horizontal de
-un apoyo de neopreno rectangular.</p>
-<table class="docutils field-list" frame="void" rules="none">
+</dd>
+<dt>Attributes:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>G</strong> &#8211; Módulo de cortante del elastómero.</li>
-<li><strong>a,b</strong> &#8211; Lados del neopreno.</li>
-<li><strong>e</strong> &#8211; espesor neto de elastómero (el total menos el ocupado por las chapas).</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">ivar G:</th><td class="field-body">(float) Elastomer shear modulus.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">ivar a:</th><td class="field-body">(float) Width of the bearing (parallel to lintel axis).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">ivar b:</th><td class="field-body">(float) Length of the bearing (parallel to bridge axis).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">ivar e:</th><td class="field-body">(float) Net thickness of the bearing (without
+steel plates).</td>
 </tr>
 </tbody>
 </table>
-</dd></dl>
-
-<dl class="function">
-<dt id="materials.apoyosNeopreno.getKvert">
-<code class="descclassname">materials.apoyosNeopreno.</code><code class="descname">getKvert</code><span class="sig-paren">(</span><em>G</em>, <em>a</em>, <em>b</em>, <em>e</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.apoyosNeopreno.getKvert" title="Permalink to this definition">¶</a></dt>
-<dd><p>Rigidez frente al desplazamiento vertical de un neopreno rectangular.
-:param E: Módulo elástico del elastómero.
-:param a,b: Lados del neopreno.
-:param e: espesor neto de elastómero (el total menos el ocupado por las chapas).</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="materials.apoyosNeopreno.getV2">
-<code class="descclassname">materials.apoyosNeopreno.</code><code class="descname">getV2</code><span class="sig-paren">(</span><em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.apoyosNeopreno.getV2" title="Permalink to this definition">¶</a></dt>
-<dd><p>Factor de forma v2 de  un apoyo de neopreno rectangular.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>a</strong> &#8211; Lado del neopreno paralelo al eje del dintel.</li>
-<li><strong>b</strong> &#8211; Lado del neopreno normal al eje del dintel.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="materials.apoyosNeopreno.getV3">
-<code class="descclassname">materials.apoyosNeopreno.</code><code class="descname">getV3</code><span class="sig-paren">(</span><em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.apoyosNeopreno.getV3" title="Permalink to this definition">¶</a></dt>
-<dd><p>Factor de forma v3 de  un apoyo de neopreno rectangular.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>a</strong> &#8211; Lado del neopreno paralelo al eje del dintel.</li>
-<li><strong>b</strong> &#8211; Lado del neopreno normal al eje del dintel.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="materials.apoyosNeopreno.getV4">
-<code class="descclassname">materials.apoyosNeopreno.</code><code class="descname">getV4</code><span class="sig-paren">(</span><em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.apoyosNeopreno.getV4" title="Permalink to this definition">¶</a></dt>
-<dd><p>Factor de forma v4 de  un apoyo de neopreno rectangular.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>a</strong> &#8211; Lado del neopreno paralelo al eje del dintel.</li>
-<li><strong>b</strong> &#8211; Lado del neopreno normal al eje del dintel.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="materials.apoyosNeopreno.ifte">
-<code class="descclassname">materials.apoyosNeopreno.</code><code class="descname">ifte</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.apoyosNeopreno.ifte" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="materials.bridge_bearings.ElastomericBearing.betaTable">
+<code class="descname">betaTable</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.betaTable" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
-<dt id="materials.apoyosNeopreno.sqr">
-<code class="descclassname">materials.apoyosNeopreno.</code><code class="descname">sqr</code><span class="sig-paren">(</span><em>a</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.apoyosNeopreno.sqr" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="data">
-<dt id="materials.apoyosNeopreno.tablaV2neopreno">
-<code class="descclassname">materials.apoyosNeopreno.</code><code class="descname">tablaV2neopreno</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.apoyosNeopreno.tablaV2neopreno" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Puntos que definen el valor de V3 en función de b/a</dt>
-<dd>ver libro de puentes de Manterola página 591</dd>
+<dl class="method">
+<dt id="materials.bridge_bearings.ElastomericBearing.defineMaterials">
+<code class="descname">defineMaterials</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.defineMaterials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the materials to modelize the elastomeric bearing.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">preprocessor:</th><td class="field-body">(:obj:&#8217;Preprocessor&#8217;) preprocessor to use.</td>
+</tr>
+</tbody>
+</table>
+</dd>
 </dl>
 </dd></dl>
 
-</div>
-<div class="section" id="module-materials.apoyosPot">
-<span id="apoyospot"></span><h2>apoyosPot<a class="headerlink" href="#module-materials.apoyosPot" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="materials.apoyosPot.defineMaterialTeflon">
-<code class="descclassname">materials.apoyosPot.</code><code class="descname">defineMaterialTeflon</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>d</em>, <em>matK</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.apoyosPot.defineMaterialTeflon" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="materials.apoyosPot.defineMaterialesTeflon">
-<code class="descclassname">materials.apoyosPot.</code><code class="descname">defineMaterialesTeflon</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>d</em>, <em>matKX</em>, <em>matKY</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.apoyosPot.defineMaterialesTeflon" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="materials.apoyosPot.getKhorizFicticiaTeflon">
-<code class="descclassname">materials.apoyosPot.</code><code class="descname">getKhorizFicticiaTeflon</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.apoyosPot.getKhorizFicticiaTeflon" title="Permalink to this definition">¶</a></dt>
-<dd><p>Rigidez ficticia frente al desplazamiento horizontal de
-un apoyo deslizante de teflón.
-Calculamos la rigidez de modo que cuando el desplazamiento
-sea de 20 mm la reacción del muelle sea igual a la fuerza
-de rozamiento.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mu</strong> &#8211; Coeficiente de rozamiento Módulo elástico del elastómero.</td>
-</tr>
-</tbody>
-</table>
-<p>sg_media= 35 MPa tensión media en el teflón.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>d</strong> &#8211; Diámetro del apoyo.</td>
-</tr>
-</tbody>
-</table>
-<p>mov= 20e-3 Desplazamiento para el que se alcanza la fuerza de rozamiento.</p>
+<dl class="method">
+<dt id="materials.bridge_bearings.ElastomericBearing.getBeta">
+<code class="descname">getBeta</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.getBeta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value of the beta factor.</p>
 </dd></dl>
+
+<dl class="method">
+<dt id="materials.bridge_bearings.ElastomericBearing.getEbearing">
+<code class="descname">getEbearing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.getEbearing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the elastic modulus with respect to the vertical
+displacement.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.bridge_bearings.ElastomericBearing.getKhoriz">
+<code class="descname">getKhoriz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.getKhoriz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return horizontal stiffness of the bearing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.bridge_bearings.ElastomericBearing.getKrotationBridgeAxis">
+<code class="descname">getKrotationBridgeAxis</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.getKrotationBridgeAxis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stiffness with respect to the rotation around an axis
+parallel to the bridge by the center of the bearing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.bridge_bearings.ElastomericBearing.getKrotationLintelAxis">
+<code class="descname">getKrotationLintelAxis</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.getKrotationLintelAxis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stiffness with respect to the rotation around an axis
+parallel to the lintel by the center of the bearing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.bridge_bearings.ElastomericBearing.getKrotationVerticalAxis">
+<code class="descname">getKrotationVerticalAxis</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.getKrotationVerticalAxis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stiffness  with respect to the rotation around a vertical axis.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.bridge_bearings.ElastomericBearing.getKvert">
+<code class="descname">getKvert</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.getKvert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the vertical stiffness.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.bridge_bearings.ElastomericBearing.getV2">
+<code class="descname">getV2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.getV2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the V2 shape factor of the bearing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.bridge_bearings.ElastomericBearing.getV3">
+<code class="descname">getV3</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.getV3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the V3 shape factor of the bearing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.bridge_bearings.ElastomericBearing.getV4">
+<code class="descname">getV4</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.getV4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the v4 shape factor of the bearing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.bridge_bearings.ElastomericBearing.putBetweenNodes">
+<code class="descname">putBetweenNodes</code><span class="sig-paren">(</span><em>modelSpace</em>, <em>iNodA</em>, <em>iNodB</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.putBetweenNodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Puts the bearing between the nodes.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first docutils">
+<dt>modelSpace (:obj:&#8217;PredefinedSpace&#8217;): space dimension and number</dt>
+<dd>of DOFs.</dd>
+</dl>
+<p class="last">iNodA (int): first node identifier (tag).
+iNodB (int): second node identifier (tag).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="materials.bridge_bearings.ElastomericBearing.v2table">
+<code class="descname">v2table</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.v2table" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.bridge_bearings.ElastomericBearing.v3table">
+<code class="descname">v3table</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.v3table" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.bridge_bearings.ElastomericBearing.v4table">
+<code class="descname">v4table</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.v4table" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.bridge_bearings.PTFEPotBearing">
+<em class="property">class </em><code class="descclassname">materials.bridge_bearings.</code><code class="descname">PTFEPotBearing</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.PTFEPotBearing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.bridge_bearings.Bearing" title="materials.bridge_bearings.Bearing"><code class="xref py py-class docutils literal"><span class="pre">materials.bridge_bearings.Bearing</span></code></a></p>
+<p>PTFE slide bearing.</p>
+<dl class="docutils">
+<dt>Attibutes:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">d:</th><td class="field-body">(float) Pot diameter.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl class="method">
+<dt id="materials.bridge_bearings.PTFEPotBearing.defineMaterials">
+<code class="descname">defineMaterials</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.PTFEPotBearing.defineMaterials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the materials to modelize the pot (Teflon).</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">preprocessor:</th><td class="field-body">(:obj:&#8217;Preprocessor&#8217;) preprocessor to use.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">matKX:</th><td class="field-body">(str) name for the uniaxial material in direction X.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">matKY:</th><td class="field-body">(str) name for the uniaxial material in direction Y.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.bridge_bearings.PTFEPotBearing.getHorizontalStiffness">
+<code class="descname">getHorizontalStiffness</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.PTFEPotBearing.getHorizontalStiffness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the fictitious stiffness with respect to the horizontal displacement of a PTFE slide bearing.</p>
+<p>Stiffness is calculated so that when the displacement reach 20 mm
+the spring reaction equals the force of friction.</p>
+<p>sg_media= 35 MPa mean compressive stress.
+mov= 20e-3 Displacement when the friction force is reached.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.bridge_bearings.PTFEPotBearing.putBetweenNodes">
+<code class="descname">putBetweenNodes</code><span class="sig-paren">(</span><em>modelSpace</em>, <em>iNodA</em>, <em>iNodB</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.PTFEPotBearing.putBetweenNodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Puts the bearing between the nodes.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">modelSpace:</th><td class="field-body">(:obj:&#8217;PredefinedSpace&#8217;) space dimension and number
+of DOFs.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">iNodA:</th><td class="field-body">(int) first node identifier (tag).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">iNodB:</th><td class="field-body">(int) second node identifier (tag).</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.bridge_bearings.PTFEPotBearing.putOnXBetweenNodes">
+<code class="descname">putOnXBetweenNodes</code><span class="sig-paren">(</span><em>modelSpace</em>, <em>iNodA</em>, <em>iNodB</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.PTFEPotBearing.putOnXBetweenNodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Puts the bearing between the nodes only in direction X.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">modelSpace:</th><td class="field-body">(:obj:&#8217;PredefinedSpace&#8217;) space dimension and number
+of DOFs.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">iNodA:</th><td class="field-body">(int) first node identifier (tag).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">iNodB:</th><td class="field-body">(int) second node identifier (tag).</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.bridge_bearings.PTFEPotBearing.putOnYBetweenNodes">
+<code class="descname">putOnYBetweenNodes</code><span class="sig-paren">(</span><em>modelSpace</em>, <em>iNodA</em>, <em>iNodB</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.PTFEPotBearing.putOnYBetweenNodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Puts the bearing between the nodes only in direction Y.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">modelSpace:</th><td class="field-body">(:obj:&#8217;PredefinedSpace&#8217;) space dimension and number
+of DOFs.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">iNodA:</th><td class="field-body">(int) first node identifier (tag).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">iNodB:</th><td class="field-body">(int) second node identifier (tag).</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="materials.bridge_bearings.PTFEPotBearing.teflonMuTable">
+<code class="descname">teflonMuTable</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.bridge_bearings.PTFEPotBearing.teflonMuTable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.bridge_bearings.get_reaction_on_pot">
+<code class="descclassname">materials.bridge_bearings.</code><code class="descname">get_reaction_on_pot</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>iElem</em>, <em>inclInertia=False</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.get_reaction_on_pot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the element reaction.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">preprocessor:</th><td class="field-body">(:obj:&#8217;Preprocessor&#8217;) preprocessor to use.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">iElem:</th><td class="field-body">(int) new zero length elem identifier (tag).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">inclInertia:</th><td class="field-body">(bool) true if the reaction must include inertia forces.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.bridge_bearings.ifte">
+<code class="descclassname">materials.bridge_bearings.</code><code class="descname">ifte</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.ifte" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </div>
 <div class="section" id="module-materials.materialGraphics">
@@ -3270,20 +3019,11 @@ de rozamiento.</p>
 <li><a class="reference internal" href="#module-materials.reinforcingSteelTest">materials.reinforcingSteelTest</a></li>
 <li><a class="reference internal" href="#module-materials.diagMomCurvatura">diagMomCurvatura</a></li>
 <li><a class="reference internal" href="#module-materials.LimitStateControllerBase">LimitStateControllerBase</a></li>
-<li><a class="reference internal" href="#module-materials.sccRectg">materials.sccRectg</a></li>
-<li><a class="reference internal" href="#module-materials.sectionProperties">materials.sectionProperties</a></li>
-<li><a class="reference internal" href="#module-materials.parametrosSeccionCajonMonocelular">parametrosSeccionCajonMonocelular</a></li>
-<li><a class="reference internal" href="#module-materials.paramCircularSection">paramCircularSection</a></li>
-<li><a class="reference internal" href="#module-materials.paramIsection">paramIsection</a></li>
-<li><a class="reference internal" href="#module-materials.paramRectangularSection">paramRectangularSection</a></li>
-<li><a class="reference internal" href="#module-materials.aceros_estructurales">aceros_estructurales</a></li>
-<li><a class="reference internal" href="#module-materials.coefsDistorsion">coefsDistorsion</a></li>
-<li><a class="reference internal" href="#module-materials.regimenSeccion">materials.regimenSeccion</a></li>
-<li><a class="reference internal" href="#module-materials.paramMetallicProfile">paramMetallicProfile</a></li>
-<li><a class="reference internal" href="#id3">paramMetallicProfile</a></li>
-<li><a class="reference internal" href="#module-materials.paramGenericSection">paramGenericSection</a></li>
-<li><a class="reference internal" href="#module-materials.apoyosNeopreno">apoyosNeopreno</a></li>
-<li><a class="reference internal" href="#module-materials.apoyosPot">apoyosPot</a></li>
+<li><a class="reference internal" href="#materials-section-properties">materials.section_properties</a></li>
+<li><a class="reference internal" href="#aceros-estructurales">aceros_estructurales</a></li>
+<li><a class="reference internal" href="#coefsdistorsion">coefsDistorsion</a></li>
+<li><a class="reference internal" href="#materials-regimenseccion">materials.regimenSeccion</a></li>
+<li><a class="reference internal" href="#bridge-bearings">Bridge bearings</a></li>
 <li><a class="reference internal" href="#module-materials.materialGraphics">materialGraphics</a></li>
 </ul>
 </li>
@@ -3339,7 +3079,7 @@ de rozamiento.</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2016, Luis Pérez Tato (LCPT) &amp; Ana Ortega (A_OO).
+        &copy; Copyright 2016, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>

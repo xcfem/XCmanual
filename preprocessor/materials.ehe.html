@@ -56,196 +56,11 @@
             
   <div class="section" id="ehe-materials">
 <h1>EHE materials<a class="headerlink" href="#ehe-materials" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-materials.ehe.EHE_concrete">
-<span id="ehe-concrete"></span><h2>EHE_concrete<a class="headerlink" href="#module-materials.ehe.EHE_concrete" title="Permalink to this headline">¶</a></h2>
-<p>Concrete material according to EHE-08.</p>
-<dl class="class">
-<dt id="materials.ehe.EHE_concrete.EHEConcrete">
-<em class="property">class </em><code class="descclassname">materials.ehe.EHE_concrete.</code><code class="descname">EHEConcrete</code><span class="sig-paren">(</span><em>nmbConcrete</em>, <em>fck</em>, <em>gammaC</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_concrete.EHEConcrete" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="matGenTopics.html#materials.concreteBase.Concrete" title="materials.concreteBase.Concrete"><code class="xref py py-class docutils literal"><span class="pre">materials.concreteBase.Concrete</span></code></a></p>
-<p>Concrete model according to EHE</p>
-<dl class="docutils">
-<dt>:ivar typeAggregate:types of aggregate= </dt>
-<dd>&#8220;cuarcita&#8221;, &#8220;arenisca&#8221;, &#8220;caliza normal&#8221;, 
-&#8220;caliza densa&#8221;, &#8220;volcanica porosa&#8221;, 
-&#8220;volcanica normal&#8221;, &#8220;granito&#8221;, &#8220;diabasa&#8221;</dd>
-</dl>
-<dl class="method">
-<dt id="materials.ehe.EHE_concrete.EHEConcrete.fctMedEHE08">
-<code class="descname">fctMedEHE08</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_concrete.EHEConcrete.fctMedEHE08" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resistencia media del hormigón a tracción  [Pa][+]
-(según artículo 39.1 EHE-08)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.ehe.EHE_concrete.EHEConcrete.fctkEHE08">
-<code class="descname">fctkEHE08</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_concrete.EHEConcrete.fctkEHE08" title="Permalink to this definition">¶</a></dt>
-<dd><p>Concrete characteristic tensile strength  [Pa][+]
-(según artículo 39.1 EHE-08)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.ehe.EHE_concrete.EHEConcrete.fctkInf">
-<code class="descname">fctkInf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_concrete.EHEConcrete.fctkInf" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resistencia característica inferior del hormigón a tracción [Pa][+]
-(según artículo 39.1 EHE)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.ehe.EHE_concrete.EHEConcrete.fctkSup">
-<code class="descname">fctkSup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_concrete.EHEConcrete.fctkSup" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resistencia característica superior del hormigón a tracción [Pa][+]
-(según artículo 39.1 EHE)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.ehe.EHE_concrete.EHEConcrete.getAlphaEcm">
-<code class="descname">getAlphaEcm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_concrete.EHEConcrete.getAlphaEcm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Coeficiente corrector del módulo de deformación
-longitudinal del hormigón en función de la naturaleza
-del árido.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.ehe.EHE_concrete.EHEConcrete.getDeformacionFluencia">
-<code class="descname">getDeformacionFluencia</code><span class="sig-paren">(</span><em>t</em>, <em>t0</em>, <em>RH</em>, <em>h0mm</em>, <em>sigmaT0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_concrete.EHEConcrete.getDeformacionFluencia" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the creep deformation between t0 and t</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>t</strong> &#8211; age of concrete in days at the moment considered</li>
-<li><strong>t0</strong> &#8211; age of concrete in days at loading</li>
-<li><strong>RH</strong> &#8211; ambient relative humidity(%)</li>
-<li><strong>h0mm</strong> &#8211; <p>notional size of the member in mm 
-h0mm=2*Ac/u, where:</p>
-<blockquote>
-<div><ul>
-<li>Ac= cross sectional area</li>
-<li>u = perimeter of the member in contact with the atmosphere</li>
-<li>sigmaT0: Tensión constante aplicada en t0.</li>
-</ul>
-</div></blockquote>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.ehe.EHE_concrete.EHEConcrete.getEc0">
-<code class="descname">getEc0</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_concrete.EHEConcrete.getEc0" title="Permalink to this definition">¶</a></dt>
-<dd><p>Módulo de deformación longitudinal inicial a 28 días expresado
-en [Pa] [+] de acuerdo con el artículo 39.6 de EHE-08.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.ehe.EHE_concrete.EHEConcrete.getEcm">
-<code class="descname">getEcm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_concrete.EHEConcrete.getEcm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Módulo de deformación longitudinal secante a 28 días expresado
-en [Pa] [+] de acuerdo con el artículo 39.6 de EHE-08.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.ehe.EHE_concrete.EHEConcrete.getEcmT">
-<code class="descname">getEcmT</code><span class="sig-paren">(</span><em>t</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_concrete.EHEConcrete.getEcmT" title="Permalink to this definition">¶</a></dt>
-<dd><p>Módulo de deformación longitudinal secante a t días expresado
-en [Pa] [+] de acuerdo con los comentarios al artículo 39.6 de EHE-08.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>t</strong> &#8211; Edad del hormigón expresada en días.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.ehe.EHE_concrete.EHEConcrete.getEpsc2">
-<code class="descname">getEpsc2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_concrete.EHEConcrete.getEpsc2" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">strain [-] at peak stress at parabola-rectangle diagram</td>
-</tr>
-</tbody>
-</table>
-<p>(art. 39.5 EHE, figure 39.5.a EHE)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.ehe.EHE_concrete.EHEConcrete.getEpscu2">
-<code class="descname">getEpscu2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_concrete.EHEConcrete.getEpscu2" title="Permalink to this definition">¶</a></dt>
-<dd><p>:returns:: nominal ultimate strain [-] at parabola-rectangle diagram 
-(art. 39.5 EHE, figure 39.5.a EHE)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.ehe.EHE_concrete.EHEConcrete.getExpN">
-<code class="descname">getExpN</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_concrete.EHEConcrete.getExpN" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">exponent n for the parabola-rectangle diagram</td>
-</tr>
-</tbody>
-</table>
-<p>(art. 39.5 EHE, figure 39.5.a EHE)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.ehe.EHE_concrete.EHEConcrete.getFctm">
-<code class="descname">getFctm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_concrete.EHEConcrete.getFctm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fctm: mean tensile strength [Pa][+]
-(art. 39.1 EHE)</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="materials.ehe.EHE_concrete.EHEConcrete.typeAggregate">
-<code class="descname">typeAggregate</code><em class="property"> = 'cuarcita'</em><a class="headerlink" href="#materials.ehe.EHE_concrete.EHEConcrete.typeAggregate" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="data">
-<dt id="materials.ehe.EHE_concrete.HP50">
-<code class="descclassname">materials.ehe.EHE_concrete.</code><code class="descname">HP50</code><em class="property"> = HP50</em><a class="headerlink" href="#materials.ehe.EHE_concrete.HP50" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Factor a aplicar a la resistencia característica del hormigón a compresión en función de su edad en días.</dt>
-<dd>para hormigones de endurecimiento normal (tabla 30.4.b EHE)</dd>
-</dl>
-</dd></dl>
-
-<dl class="data">
-<dt id="materials.ehe.EHE_concrete.factorRCompJDiasNormal">
-<code class="descclassname">materials.ehe.EHE_concrete.</code><code class="descname">factorRCompJDiasNormal</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.ehe.EHE_concrete.factorRCompJDiasNormal" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Factor a aplicar a la resistencia característica del hormigón a compresión en función de su edad en días.</dt>
-<dd>para hormigones de endurecimiento rápido (tabla 30.4.b EHE)</dd>
-</dl>
-</dd></dl>
-
-<dl class="data">
-<dt id="materials.ehe.EHE_concrete.factorRCompJDiasRapido">
-<code class="descclassname">materials.ehe.EHE_concrete.</code><code class="descname">factorRCompJDiasRapido</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.ehe.EHE_concrete.factorRCompJDiasRapido" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Factor a aplicar a la resistencia característica del hormigón a tracción en función de su edad en días.</dt>
-<dd>para hormigones de endurecimiento normal(tabla 30.4.c EHE)</dd>
-</dl>
-</dd></dl>
-
+<div class="section" id="ehe-concrete">
+<h2>EHE_concrete<a class="headerlink" href="#ehe-concrete" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-materials.ehe.EHE_reinforcing_steel">
-<span id="ehe-reinforcing-steel"></span><h2>EHE_reinforcing_steel<a class="headerlink" href="#module-materials.ehe.EHE_reinforcing_steel" title="Permalink to this headline">¶</a></h2>
-<p>EHE_reinforcing_steel.py: reinforcing steel as defined in EHE (spanish RC standard).</p>
+<div class="section" id="ehe-reinforcing-steel">
+<h2>EHE_reinforcing_steel<a class="headerlink" href="#ehe-reinforcing-steel" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="acerosehe">
 <h2>acerosEHE<a class="headerlink" href="#acerosehe" title="Permalink to this headline">¶</a></h2>
@@ -253,60 +68,8 @@ en [Pa] [+] de acuerdo con los comentarios al artículo 39.6 de EHE-08.</p>
 <div class="section" id="areabarrasehe">
 <h2>areaBarrasEHE<a class="headerlink" href="#areabarrasehe" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-materials.ehe.aceroPretEHE">
-<span id="aceropretehe"></span><h2>aceroPretEHE<a class="headerlink" href="#module-materials.ehe.aceroPretEHE" title="Permalink to this headline">¶</a></h2>
-<p>nmbAceroPret: Nombre del acero.
-fpk: Valor característico del límite elástico a tracción (Pa) (Artículo 38.7 EHE).
-fpd: Valor de cálculo del límite elástico a tracción (Pa).
-fmax: Valor característico de la carga unitaria máxima del material expresada en Pa.
-tInic: Valor de la tensión de pretensado a tiempo infinito.</p>
-<dl class="class">
-<dt id="materials.ehe.aceroPretEHE.AceroPretEHE">
-<em class="property">class </em><code class="descclassname">materials.ehe.aceroPretEHE.</code><code class="descname">AceroPretEHE</code><span class="sig-paren">(</span><em>nmbAcero</em>, <em>fpk</em>, <em>fmax</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.aceroPretEHE.AceroPretEHE" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">materials.materialWithDKDiagrams.MaterialWithDKDiagrams</span></code></p>
-<p>Acero de pretensar EHE.</p>
-<dl class="attribute">
-<dt id="materials.ehe.aceroPretEHE.AceroPretEHE.Es">
-<code class="descname">Es</code><em class="property"> = 190000000000.0</em><a class="headerlink" href="#materials.ehe.aceroPretEHE.AceroPretEHE.Es" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="materials.ehe.aceroPretEHE.AceroPretEHE.bsh">
-<code class="descname">bsh</code><em class="property"> = 0.001</em><a class="headerlink" href="#materials.ehe.aceroPretEHE.AceroPretEHE.bsh" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.ehe.aceroPretEHE.AceroPretEHE.defDiagD">
-<code class="descname">defDiagD</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>initialStress</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.aceroPretEHE.AceroPretEHE.defDiagD" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.ehe.aceroPretEHE.AceroPretEHE.defDiagK">
-<code class="descname">defDiagK</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>initialStress</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.aceroPretEHE.AceroPretEHE.defDiagK" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="materials.ehe.aceroPretEHE.AceroPretEHE.fmax">
-<code class="descname">fmax</code><em class="property"> = 1860000000.0</em><a class="headerlink" href="#materials.ehe.aceroPretEHE.AceroPretEHE.fmax" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.ehe.aceroPretEHE.AceroPretEHE.fpd">
-<code class="descname">fpd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.aceroPretEHE.AceroPretEHE.fpd" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="materials.ehe.aceroPretEHE.AceroPretEHE.gammaS">
-<code class="descname">gammaS</code><em class="property"> = 1.15</em><a class="headerlink" href="#materials.ehe.aceroPretEHE.AceroPretEHE.gammaS" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.ehe.aceroPretEHE.AceroPretEHE.tInic">
-<code class="descname">tInic</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.aceroPretEHE.AceroPretEHE.tInic" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<div class="section" id="aceropretehe">
+<h2>aceroPretEHE<a class="headerlink" href="#aceropretehe" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="datos-calculo-seccion">
 <h2>datos_calculo_seccion<a class="headerlink" href="#datos-calculo-seccion" title="Permalink to this headline">¶</a></h2>
@@ -727,10 +490,10 @@ a una distancia mayor que el depth útil de la sección en estudio.
 <p>Parameters for shear control with EHE.</p>
 <dl class="method">
 <dt id="materials.ehe.cortanteEHE.ShearControllerEHE.calcVuEHE08">
-<code class="descname">calcVuEHE08</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>scc</em>, <em>nmbParamsTorsion</em>, <em>hormigon</em>, <em>aceroArmar</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.cortanteEHE.ShearControllerEHE.calcVuEHE08" title="Permalink to this definition">¶</a></dt>
+<code class="descname">calcVuEHE08</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>scc</em>, <em>nmbParamsTorsion</em>, <em>concrete</em>, <em>aceroArmar</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.cortanteEHE.ShearControllerEHE.calcVuEHE08" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calcula el cortante último de la sección.
 XXX Falta considerar la reinforcement activa.
-hormigon: parameters to model concrete.
+concrete: parameters to model concrete.
 aceroArmar: parameters to model rebar&#8217;s steel.
 Nd: Valor de cálculo del axil (aquí positivo si es de tracción)
 Md: Valor absoluto del momento de cálculo.
@@ -740,21 +503,21 @@ Td: Torsor de cálculo.</p>
 
 <dl class="method">
 <dt id="materials.ehe.cortanteEHE.ShearControllerEHE.calcVuEHE08NoAt">
-<code class="descname">calcVuEHE08NoAt</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>scc</em>, <em>hormigon</em>, <em>aceroArmar</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.cortanteEHE.ShearControllerEHE.calcVuEHE08NoAt" title="Permalink to this definition">¶</a></dt>
+<code class="descname">calcVuEHE08NoAt</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>scc</em>, <em>concrete</em>, <em>aceroArmar</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.cortanteEHE.ShearControllerEHE.calcVuEHE08NoAt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calcula el cortante último de la sección sin reinforcement de cortante.
 XXX Falta considerar la reinforcement activa.
 matTagAceroArmar: Identificador del material empleado para modelizar el acero de armar.
-hormigon: Parámetros para modelizar el hormigón.
+concrete: Parámetros para modelizar el hormigón.
 aceroArmar: Parámetros para modelizar el acero de armar.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.ehe.cortanteEHE.ShearControllerEHE.calcVuEHE08SiAt">
-<code class="descname">calcVuEHE08SiAt</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>scc</em>, <em>paramsTorsion</em>, <em>hormigon</em>, <em>aceroArmar</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.cortanteEHE.ShearControllerEHE.calcVuEHE08SiAt" title="Permalink to this definition">¶</a></dt>
+<code class="descname">calcVuEHE08SiAt</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>scc</em>, <em>paramsTorsion</em>, <em>concrete</em>, <em>aceroArmar</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.cortanteEHE.ShearControllerEHE.calcVuEHE08SiAt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calcula el cortante último de la sección CON reinforcement de cortante.
 XXX Falta considerar la reinforcement activa.
 matTagAceroArmar: Identificador del material empleado para modelizar el acero de armar.
-hormigon: Nombre del material empleado para modelizar el hormigón.
+concrete: Nombre del material empleado para modelizar el hormigón.
 aceroArmar: Nombre del material empleado para modelizar el acero de armar.
 Nd: Valor de cálculo del axil (aquí positivo si es de tracción)
 Md: Valor absoluto del momento de cálculo.
@@ -1263,23 +1026,24 @@ artículo 49.2.4 de la EHE-08.</p>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="materials.ehe.fisuracionEHE.CrackControl.areaHormigon">
-<code class="descname">areaHormigon</code><em class="property"> = 0.0</em><a class="headerlink" href="#materials.ehe.fisuracionEHE.CrackControl.areaHormigon" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
 <dt id="materials.ehe.fisuracionEHE.CrackControl.beta">
 <code class="descname">beta</code><em class="property"> = 1.7</em><a class="headerlink" href="#materials.ehe.fisuracionEHE.CrackControl.beta" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="materials.ehe.fisuracionEHE.CrackControl.calcApertCaracFis">
-<code class="descname">calcApertCaracFis</code><span class="sig-paren">(</span><em>scc</em>, <em>matTagHormigon</em>, <em>matTagAceroArmar</em>, <em>fctm</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.fisuracionEHE.CrackControl.calcApertCaracFis" title="Permalink to this definition">¶</a></dt>
+<code class="descname">calcApertCaracFis</code><span class="sig-paren">(</span><em>scc</em>, <em>concreteMatTag</em>, <em>matTagAceroArmar</em>, <em>fctm</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.fisuracionEHE.CrackControl.calcApertCaracFis" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="materials.ehe.fisuracionEHE.CrackControl.check">
 <code class="descname">check</code><span class="sig-paren">(</span><em>elements</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.fisuracionEHE.CrackControl.check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Crack control of concrete sections.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="materials.ehe.fisuracionEHE.CrackControl.concreteArea">
+<code class="descname">concreteArea</code><em class="property"> = 0.0</em><a class="headerlink" href="#materials.ehe.fisuracionEHE.CrackControl.concreteArea" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -1461,151 +1225,11 @@ el apartado 64.1.2.1.1 de EHE-08.</p>
 <dd></dd></dl>
 
 </div>
-<div class="section" id="module-materials.ehe.relajacion_acero">
-<span id="relajacion-acero"></span><h2>relajacion_acero<a class="headerlink" href="#module-materials.ehe.relajacion_acero" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="materials.ehe.relajacion_acero.getKRelajacion">
-<code class="descclassname">materials.ehe.relajacion_acero.</code><code class="descname">getKRelajacion</code><span class="sig-paren">(</span><em>tipoAcero</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.relajacion_acero.getKRelajacion" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="materials.ehe.relajacion_acero.getPerdidaTensionRelajacionFinalEHE">
-<code class="descclassname">materials.ehe.relajacion_acero.</code><code class="descname">getPerdidaTensionRelajacionFinalEHE</code><span class="sig-paren">(</span><em>reinfSteelType</em>, <em>tipoAcero</em>, <em>alpha</em>, <em>sigmaInicial</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.relajacion_acero.getPerdidaTensionRelajacionFinalEHE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="materials.ehe.relajacion_acero.getPerdidaTensionRelajacionTCEB">
-<code class="descclassname">materials.ehe.relajacion_acero.</code><code class="descname">getPerdidaTensionRelajacionTCEB</code><span class="sig-paren">(</span><em>reinfSteelType</em>, <em>tipoAcero</em>, <em>alpha</em>, <em>tDias</em>, <em>sigmaInicial</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.relajacion_acero.getPerdidaTensionRelajacionTCEB" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="materials.ehe.relajacion_acero.getPerdidaTensionRelajacionTEHE">
-<code class="descclassname">materials.ehe.relajacion_acero.</code><code class="descname">getPerdidaTensionRelajacionTEHE</code><span class="sig-paren">(</span><em>reinfSteelType</em>, <em>tipoAcero</em>, <em>alpha</em>, <em>tDias</em>, <em>sigmaInicial</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.relajacion_acero.getPerdidaTensionRelajacionTEHE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="materials.ehe.relajacion_acero.getRO1000CEB">
-<code class="descclassname">materials.ehe.relajacion_acero.</code><code class="descname">getRO1000CEB</code><span class="sig-paren">(</span><em>reinfSteelType</em>, <em>tipoAcero</em>, <em>alpha</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.relajacion_acero.getRO1000CEB" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="materials.ehe.relajacion_acero.getRO1000EHE">
-<code class="descclassname">materials.ehe.relajacion_acero.</code><code class="descname">getRO1000EHE</code><span class="sig-paren">(</span><em>reinfSteelType</em>, <em>alpha</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.relajacion_acero.getRO1000EHE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="materials.ehe.relajacion_acero.getRelajacionTCEB">
-<code class="descclassname">materials.ehe.relajacion_acero.</code><code class="descname">getRelajacionTCEB</code><span class="sig-paren">(</span><em>reinfSteelType</em>, <em>tipoAcero</em>, <em>alpha</em>, <em>tDias</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.relajacion_acero.getRelajacionTCEB" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="materials.ehe.relajacion_acero.getRelajacionTEHE">
-<code class="descclassname">materials.ehe.relajacion_acero.</code><code class="descname">getRelajacionTEHE</code><span class="sig-paren">(</span><em>reinfSteelType</em>, <em>tipoAcero</em>, <em>alpha</em>, <em>tDias</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.relajacion_acero.getRelajacionTEHE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="data">
-<dt id="materials.ehe.relajacion_acero.ptsRO1000AlambresEHE">
-<code class="descclassname">materials.ehe.relajacion_acero.</code><code class="descname">ptsRO1000AlambresEHE</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.ehe.relajacion_acero.ptsRO1000AlambresEHE" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Puntos que definen la tabla 38.7.a de la EHE-08 para determinar la</dt>
-<dd>relajación a 1000 horas, en el caso de barras, que intervienen
-en la expresión de la relajación para tiempos superiores a 1000 horas.</dd>
-</dl>
-</dd></dl>
-
-<dl class="data">
-<dt id="materials.ehe.relajacion_acero.ptsRO1000BarrasEHE">
-<code class="descclassname">materials.ehe.relajacion_acero.</code><code class="descname">ptsRO1000BarrasEHE</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.ehe.relajacion_acero.ptsRO1000BarrasEHE" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Devuelve el valor de la relajación a 1000 horas</dt>
-<dd>Ver tabla 38.9.a en la página en EHE-08
-reinfSteelType: Tipo de acero (alambres, cordones o barras).
-alpha: Fracción de la tensión de rotura con la que se tesa el alambre.</dd>
-</dl>
-</dd></dl>
-
-<dl class="data">
-<dt id="materials.ehe.relajacion_acero.ptsRO1000Clase1CEB">
-<code class="descclassname">materials.ehe.relajacion_acero.</code><code class="descname">ptsRO1000Clase1CEB</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.ehe.relajacion_acero.ptsRO1000Clase1CEB" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Puntos que definen la figura 2.3.3. del código modelo CEB-FIP 1990 para determinar la</dt>
-<dd>relajación a 1000 horas, en el caso de alambres y cordones de baja relajación
-(clase 2), que intervienen en la expresión de la relajación
-para tiempos superiores a 1000 horas.</dd>
-</dl>
-</dd></dl>
-
-<dl class="data">
-<dt id="materials.ehe.relajacion_acero.ptsRO1000Clase2CEB">
-<code class="descclassname">materials.ehe.relajacion_acero.</code><code class="descname">ptsRO1000Clase2CEB</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.ehe.relajacion_acero.ptsRO1000Clase2CEB" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Puntos que definen la figura 2.3.3. del código modelo CEB-FIP 1990 para determinar la</dt>
-<dd>relajación a 1000 horas, en el caso de barras (clase 3),
-que intervienen en la expresión de la relajación para tiempos superiores a 1000 horas.</dd>
-</dl>
-</dd></dl>
-
-<dl class="data">
-<dt id="materials.ehe.relajacion_acero.ptsRO1000Clase3CEB">
-<code class="descclassname">materials.ehe.relajacion_acero.</code><code class="descname">ptsRO1000Clase3CEB</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.ehe.relajacion_acero.ptsRO1000Clase3CEB" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Devuelve el valor de la relajación a 1000 horas</dt>
-<dd>Ver figura 2.3.3. del código modelo CEB-FIP 1990
-reinfSteelType: Tipo de reinforcement (alambre, cordón o barra).
-tipoAcero: Tipo de acero (normal o estabilizado).
-alpha: Fracción de la tensión de rotura con la que se tesa el alambre.</dd>
-</dl>
-</dd></dl>
-
-<dl class="data">
-<dt id="materials.ehe.relajacion_acero.ptsRelajacionCortoPlazo">
-<code class="descclassname">materials.ehe.relajacion_acero.</code><code class="descname">ptsRelajacionCortoPlazo</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.ehe.relajacion_acero.ptsRelajacionCortoPlazo" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Devuelve el valor de la relajación para el instante t en función</dt>
-<dd><p class="first">de la relajación obtenida para 1000 horas y del tipo de acero.
-reinfSteelType: Tipo de reinforcement (alambre, cordón o barra).
-tipoAcero: Tipo de acero (normal o superestabilizado).
-alpha: Fracción de la tensión de rotura con la que se tesa la reinforcement.
-t: Tiempo expresado en días (para facilitar el tratamiento conjunto con retraccion y</p>
-<blockquote class="last">
-<div>fluencia).</div></blockquote>
-</dd>
-</dl>
-</dd></dl>
-
+<div class="section" id="relajacion-acero">
+<h2>relajacion_acero<a class="headerlink" href="#relajacion-acero" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-materials.ehe.perdidas_pretensado_instantaneas">
-<span id="perdidas-pretensado-instantaneas"></span><h2>perdidas_pretensado_instantaneas<a class="headerlink" href="#module-materials.ehe.perdidas_pretensado_instantaneas" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="materials.ehe.perdidas_pretensado_instantaneas.getPerdidaTensionAcortElasticoTendonPreteso">
-<code class="descclassname">materials.ehe.perdidas_pretensado_instantaneas.</code><code class="descname">getPerdidaTensionAcortElasticoTendonPreteso</code><span class="sig-paren">(</span><em>sigma_cp</em>, <em>Ep</em>, <em>Ecj</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.perdidas_pretensado_instantaneas.getPerdidaTensionAcortElasticoTendonPreteso" title="Permalink to this definition">¶</a></dt>
-<dd><p>Pérdidas por acortamiento elástico del hormigón en tendones pretensados.</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>sigma_cp: Tensión de compresión en el hormigón, a nivel del centro de gravedad de</dt>
-<dd>las reinforcement activas, producida por el pretensado una
-vez descontadas la pérdida por penetración de cuñas</dd>
-</dl>
-<p>Ep: Módulo de deformación longitudinal de la reinforcement activa (190e9).
-Ecj: Módulo de deformación longitudinal del hormigón en el momento</p>
-<blockquote>
-<div>de la transferencia.</div></blockquote>
-</div></blockquote>
-</dd></dl>
-
-<dl class="function">
-<dt id="materials.ehe.perdidas_pretensado_instantaneas.getPerdidaTensionPenetracionCunaTendonRectoCorto">
-<code class="descclassname">materials.ehe.perdidas_pretensado_instantaneas.</code><code class="descname">getPerdidaTensionPenetracionCunaTendonRectoCorto</code><span class="sig-paren">(</span><em>a</em>, <em>L</em>, <em>Ep</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.perdidas_pretensado_instantaneas.getPerdidaTensionPenetracionCunaTendonRectoCorto" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Pérdidas por penetración de cuñas en tendones rectos cortos postesos</dt>
-<dd><p class="first">o tendones pretesos según el apartado 20.2.2.1.2 de la EHE-08.</p>
-<p class="last">a: Penetración de la cuña (lo usual: 5 mm)
-L: Longitud del tendón.
-Ep: Módulo de deformación longitudinal de la reinforcement activa (190e9).</p>
-</dd>
-</dl>
-</dd></dl>
-
+<div class="section" id="perdidas-pretensado-instantaneas">
+<h2>perdidas_pretensado_instantaneas<a class="headerlink" href="#perdidas-pretensado-instantaneas" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -1618,11 +1242,11 @@ Ep: Módulo de deformación longitudinal de la reinforcement activa (190e9).</p>
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">EHE materials</a><ul>
-<li><a class="reference internal" href="#module-materials.ehe.EHE_concrete">EHE_concrete</a></li>
-<li><a class="reference internal" href="#module-materials.ehe.EHE_reinforcing_steel">EHE_reinforcing_steel</a></li>
+<li><a class="reference internal" href="#ehe-concrete">EHE_concrete</a></li>
+<li><a class="reference internal" href="#ehe-reinforcing-steel">EHE_reinforcing_steel</a></li>
 <li><a class="reference internal" href="#acerosehe">acerosEHE</a></li>
 <li><a class="reference internal" href="#areabarrasehe">areaBarrasEHE</a></li>
-<li><a class="reference internal" href="#module-materials.ehe.aceroPretEHE">aceroPretEHE</a></li>
+<li><a class="reference internal" href="#aceropretehe">aceroPretEHE</a></li>
 <li><a class="reference internal" href="#datos-calculo-seccion">datos_calculo_seccion</a></li>
 <li><a class="reference internal" href="#module-materials.ehe.torsionEHE">torsionEHE</a></li>
 <li><a class="reference internal" href="#module-materials.ehe.comprobCargaConcentrada">comprobCargaConcentrada</a></li>
@@ -1635,8 +1259,8 @@ Ep: Módulo de deformación longitudinal de la reinforcement activa (190e9).</p>
 <li><a class="reference internal" href="#module-materials.ehe.tablasResult">tablasResult</a></li>
 <li><a class="reference internal" href="#module-materials.ehe.mensula_cortaEHE08">mensula_cortaEHE08</a></li>
 <li><a class="reference internal" href="#module-materials.ehe.rasanteAlaAma">rasanteAlaAma</a></li>
-<li><a class="reference internal" href="#module-materials.ehe.relajacion_acero">relajacion_acero</a></li>
-<li><a class="reference internal" href="#module-materials.ehe.perdidas_pretensado_instantaneas">perdidas_pretensado_instantaneas</a></li>
+<li><a class="reference internal" href="#relajacion-acero">relajacion_acero</a></li>
+<li><a class="reference internal" href="#perdidas-pretensado-instantaneas">perdidas_pretensado_instantaneas</a></li>
 </ul>
 </li>
 </ul>

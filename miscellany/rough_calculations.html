@@ -24,8 +24,8 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="XC 3.0 documentation" href="../index.html" />
-    <link rel="next" title="masonry_bridge" href="roughCalcGenTopics.html" />
-    <link rel="prev" title="Import_export sciaXML" href="import_export.sciaXML.html" /> 
+    <link rel="next" title="ArchBridgeRoughModelBase" href="roughCalcGenTopics.html" />
+    <link rel="prev" title="Import_export sciaXML. Loads" href="import_export.sciaXML.scia_loads.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -38,10 +38,10 @@
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="roughCalcGenTopics.html" title="masonry_bridge"
+          <a href="roughCalcGenTopics.html" title="ArchBridgeRoughModelBase"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="import_export.sciaXML.html" title="Import_export sciaXML"
+          <a href="import_export.sciaXML.scia_loads.html" title="Import_export sciaXML. Loads"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">XC 3.0 documentation</a> &raquo;</li> 
       </ul>
@@ -56,9 +56,9 @@
 <h1>Rough calculations<a class="headerlink" href="#rough-calculations" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="roughCalcGenTopics.html">masonry_bridge</a></li>
-<li class="toctree-l1"><a class="reference internal" href="roughCalcGenTopics.html#module-rough_calculations.ArchBridgeRoughModelBase">ArchBridgeRoughModelBase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roughCalcGenTopics.html">ArchBridgeRoughModelBase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="roughCalcGenTopics.html#module-rough_calculations.arch_bridge_simple_model">arch_bridge_simple_model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roughCalcGenTopics.html#module-rough_calculations.masonryVault">masonryVault</a></li>
 <li class="toctree-l1"><a class="reference internal" href="roughCalcGenTopics.html#module-rough_calculations.cable_stayed_bridge_simple_model">cable_stayed_bridge_simple_model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="roughCalcGenTopics.html#module-rough_calculations.T_beam_bridges_rough_calc">T_beam_bridges_rough_calc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="roughCalcGenTopics.html#module-rough_calculations.flechas_vigas">flechas_vigas</a></li>
@@ -68,7 +68,6 @@
 <li class="toctree-l1"><a class="reference internal" href="roughCalcGenTopics.html#module-rough_calculations.ng_concrete_slab">ng_concrete_slab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="roughCalcGenTopics.html#module-rough_calculations.ng_esf_pilares">ng_esf_pilares</a></li>
 <li class="toctree-l1"><a class="reference internal" href="roughCalcGenTopics.html#module-rough_calculations.ng_pinned_fixed_beam">ng_pinned_fixed_beam</a></li>
-<li class="toctree-l1"><a class="reference internal" href="roughCalcGenTopics.html#module-rough_calculations.ng_predim_pilotes">ng_predim_pilotes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="roughCalcGenTopics.html#module-rough_calculations.ng_prestressing_wire">ng_prestressing_wire</a></li>
 <li class="toctree-l1"><a class="reference internal" href="roughCalcGenTopics.html#module-rough_calculations.ng_punzonamiento">ng_punzonamiento</a></li>
 <li class="toctree-l1"><a class="reference internal" href="roughCalcGenTopics.html#module-rough_calculations.ng_rc_section">ng_rc_section</a></li>
@@ -77,10 +76,9 @@
 <li class="toctree-l1"><a class="reference internal" href="roughCalcGenTopics.html#module-rough_calculations.ng_simple_beam">ng_simple_beam</a></li>
 <li class="toctree-l1"><a class="reference internal" href="roughCalcGenTopics.html#module-rough_calculations.ng_simple_bending_reinforcement">ng_simple_bending_reinforcement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="roughCalcGenTopics.html#module-rough_calculations.ng_tied_arch_simple_model">ng_tied_arch_simple_model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="roughCalcGenTopics.html#ng-zapata-aislada">ng_zapata_aislada</a></li>
 <li class="toctree-l1"><a class="reference internal" href="roughCalcGenTopics.html#module-rough_calculations.ng_encepados">ng_encepados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="roughCalcGenTopics.html#module-rough_calculations.suspension_bridge_simple_model">suspension_bridge_simple_model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="roughCalcGenTopics.html#ng-min-dim-of-abutment-support">ng_min_dim_of_abutment_support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roughCalcGenTopics.html#module-rough_calculations.ng_min_dim_of_abutment_support">ng_min_dim_of_abutment_support</a></li>
 </ul>
 </div>
 </div>
@@ -92,11 +90,11 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="import_export.sciaXML.html"
-                        title="previous chapter">Import_export sciaXML</a></p>
+  <p class="topless"><a href="import_export.sciaXML.scia_loads.html"
+                        title="previous chapter">Import_export sciaXML. Loads</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="roughCalcGenTopics.html"
-                        title="next chapter">masonry_bridge</a></p>
+                        title="next chapter">ArchBridgeRoughModelBase</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -131,10 +129,10 @@
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="roughCalcGenTopics.html" title="masonry_bridge"
+          <a href="roughCalcGenTopics.html" title="ArchBridgeRoughModelBase"
              >next</a> |</li>
         <li class="right" >
-          <a href="import_export.sciaXML.html" title="Import_export sciaXML"
+          <a href="import_export.sciaXML.scia_loads.html" title="Import_export sciaXML. Loads"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">XC 3.0 documentation</a> &raquo;</li> 
       </ul>

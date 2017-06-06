@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="XC 3.0 documentation" href="../index.html" />
     <link rel="up" title="Actions" href="actions.html" />
-    <link rel="next" title="Weight" href="actions.weight.html" />
+    <link rel="next" title="Snow" href="actions.basic_loads.html" />
     <link rel="prev" title="Actions" href="actions.html" /> 
   </head>
   <body role="document">
@@ -39,7 +39,7 @@
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="actions.weight.html" title="Weight"
+          <a href="actions.basic_loads.html" title="Snow"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="actions.html" title="Actions"
@@ -163,6 +163,20 @@ load: xc.Vector([Fx,Fy,Fz,Mx,My,Mz]).</li>
 </dd></dl>
 
 <dl class="class">
+<dt id="actions.loads.StrainGradientLoadOnBeams">
+<em class="property">class </em><code class="descclassname">actions.loads.</code><code class="descname">StrainGradientLoadOnBeams</code><span class="sig-paren">(</span><em>name</em>, <em>xcSet</em>, <em>strain</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.loads.StrainGradientLoadOnBeams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Strain load applied on the beam elements generated from
+all the lines in the xcSet.</p>
+<dl class="method">
+<dt id="actions.loads.StrainGradientLoadOnBeams.appendLoadToLoadPattern">
+<code class="descname">appendLoadToLoadPattern</code><span class="sig-paren">(</span><em>loadPattern</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.loads.StrainGradientLoadOnBeams.appendLoadToLoadPattern" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append load to the load pattern passed as parameter.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="actions.loads.StrainGradientLoadOnSurfaces">
 <em class="property">class </em><code class="descclassname">actions.loads.</code><code class="descname">StrainGradientLoadOnSurfaces</code><span class="sig-paren">(</span><em>name</em>, <em>xcSet</em>, <em>nabla</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.loads.StrainGradientLoadOnSurfaces" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
@@ -185,7 +199,7 @@ nabla=espilon/thickness</li>
 <dl class="method">
 <dt id="actions.loads.StrainGradientLoadOnSurfaces.appendLoadToLoadPattern">
 <code class="descname">appendLoadToLoadPattern</code><span class="sig-paren">(</span><em>loadPattern</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.loads.StrainGradientLoadOnSurfaces.appendLoadToLoadPattern" title="Permalink to this definition">¶</a></dt>
-<dd><p>Append load to the current load pattern.</p>
+<dd><p>Append load to the load pattern passed as parameter.</p>
 </dd></dl>
 
 </dd></dl>
@@ -316,6 +330,36 @@ xc.Vector([Fx,Fy,Fz,Mx,My,Mz]).</li>
 <dt id="actions.load_cases.LoadCase.create">
 <code class="descname">create</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.load_cases.LoadCase.create" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create the load case and set it as current</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="actions.load_cases.LoadCaseManager">
+<em class="property">class </em><code class="descclassname">actions.load_cases.</code><code class="descname">LoadCaseManager</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.load_cases.LoadCaseManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Manager for XC load cases.</p>
+<dl class="method">
+<dt id="actions.load_cases.LoadCaseManager.defineSimpleLoadCases">
+<code class="descname">defineSimpleLoadCases</code><span class="sig-paren">(</span><em>names</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.load_cases.LoadCaseManager.defineSimpleLoadCases" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define load patterns with constant time series.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="actions.load_cases.LoadCaseManager.getCurrentLoadCase">
+<code class="descname">getCurrentLoadCase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.load_cases.LoadCaseManager.getCurrentLoadCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns current load case.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="actions.load_cases.LoadCaseManager.getLoadCase">
+<code class="descname">getLoadCase</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.load_cases.LoadCaseManager.getLoadCase" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="actions.load_cases.LoadCaseManager.setCurrentLoadCase">
+<code class="descname">setCurrentLoadCase</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.load_cases.LoadCaseManager.setCurrentLoadCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets current load case.</p>
 </dd></dl>
 
 </dd></dl>
@@ -603,8 +647,8 @@ internal forces.</li>
   <p class="topless"><a href="actions.html"
                         title="previous chapter">Actions</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="actions.weight.html"
-                        title="next chapter">Weight</a></p>
+  <p class="topless"><a href="actions.basic_loads.html"
+                        title="next chapter">Snow</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -639,7 +683,7 @@ internal forces.</li>
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="actions.weight.html" title="Weight"
+          <a href="actions.basic_loads.html" title="Snow"
              >next</a> |</li>
         <li class="right" >
           <a href="actions.html" title="Actions"

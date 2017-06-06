@@ -56,96 +56,8 @@
             
   <div class="section" id="eurocode-2-materials">
 <h1>Eurocode 2 materials<a class="headerlink" href="#eurocode-2-materials" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-materials.ec2.EC2_concrete">
-<span id="ec2-concrete"></span><h2>EC2_concrete<a class="headerlink" href="#module-materials.ec2.EC2_concrete" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="materials.ec2.EC2_concrete.EC2Concrete">
-<em class="property">class </em><code class="descclassname">materials.ec2.EC2_concrete.</code><code class="descname">EC2Concrete</code><span class="sig-paren">(</span><em>nmbConcrete</em>, <em>fck</em>, <em>gammaC</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec2.EC2_concrete.EC2Concrete" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="matGenTopics.html#materials.concreteBase.Concrete" title="materials.concreteBase.Concrete"><code class="xref py py-class docutils literal"><span class="pre">materials.concreteBase.Concrete</span></code></a></p>
-<p>Concrete model according to Eurocode 2</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><a class="reference internal" href="materials.ehe.html#materials.ehe.EHE_concrete.EHEConcrete.typeAggregate" title="materials.ehe.EHE_concrete.EHEConcrete.typeAggregate"><strong>typeAggregate</strong></a> &#8211; <p>type of aggregate</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">Q</span></code> for quartzite aggregate</li>
-<li><code class="docutils literal"><span class="pre">L</span></code> for limestone aggregate</li>
-<li><code class="docutils literal"><span class="pre">S</span></code> for sandstone aggregate</li>
-<li><code class="docutils literal"><span class="pre">B</span></code> for basalt aggregate</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="materials.ec2.EC2_concrete.EC2Concrete.getEcm">
-<code class="descname">getEcm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec2.EC2_concrete.EC2Concrete.getEcm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Ecm: approximate value of the modulus of elasticity [Pa][+] secant value between sigma_c=0 and 0,4fcm, at age 28 days (table 3.1 EC2)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.ec2.EC2_concrete.EC2Concrete.getEpsc1">
-<code class="descname">getEpsc1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec2.EC2_concrete.EC2Concrete.getEpsc1" title="Permalink to this definition">¶</a></dt>
-<dd><p>epsc1: strain [-] at peak stress at stress-strain relation 
-(table 3.1 EC2, figure 3.2 EC2)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.ec2.EC2_concrete.EC2Concrete.getEpsc2">
-<code class="descname">getEpsc2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec2.EC2_concrete.EC2Concrete.getEpsc2" title="Permalink to this definition">¶</a></dt>
-<dd><p>epsc2: strain [-] at peak stress at parabola-rectangle diagram 
-(table 3.1 EC2, figure 3.3 EC2)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.ec2.EC2_concrete.EC2Concrete.getEpsc3">
-<code class="descname">getEpsc3</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec2.EC2_concrete.EC2Concrete.getEpsc3" title="Permalink to this definition">¶</a></dt>
-<dd><p>epsc3: strain [-] at peak stress at bi-linear diagram 
-(table 3.1 EC2, figure 3.4 EC2)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.ec2.EC2_concrete.EC2Concrete.getEpscu1">
-<code class="descname">getEpscu1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec2.EC2_concrete.EC2Concrete.getEpscu1" title="Permalink to this definition">¶</a></dt>
-<dd><p>epscu1: nominal ultimate strain [-]at stress-strain relation 
-(table 3.1 EC2, figure 3.2 EC2)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.ec2.EC2_concrete.EC2Concrete.getEpscu2">
-<code class="descname">getEpscu2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec2.EC2_concrete.EC2Concrete.getEpscu2" title="Permalink to this definition">¶</a></dt>
-<dd><p>epscu2: nominal ultimate strain [-] at parabola-rectangle diagram 
-(table 3.1 EC2, figure 3.3 EC2)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.ec2.EC2_concrete.EC2Concrete.getEpscu3">
-<code class="descname">getEpscu3</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec2.EC2_concrete.EC2Concrete.getEpscu3" title="Permalink to this definition">¶</a></dt>
-<dd><p>epscu3: nominal ultimate strain [-] at bi-linear diagram 
-(table 3.1 EC2, figure 3.4 EC2)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.ec2.EC2_concrete.EC2Concrete.getExpN">
-<code class="descname">getExpN</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec2.EC2_concrete.EC2Concrete.getExpN" title="Permalink to this definition">¶</a></dt>
-<dd><p>expN: exponent n for the parabola-rectangle diagram 
-(table 3.1 EC2)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.ec2.EC2_concrete.EC2Concrete.getFctm">
-<code class="descname">getFctm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec2.EC2_concrete.EC2Concrete.getFctm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fctm: mean tensile strength [Pa][+] (table 3.1 EC2)</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="materials.ec2.EC2_concrete.EC2Concrete.typeAggregate">
-<code class="descname">typeAggregate</code><em class="property"> = 'Q'</em><a class="headerlink" href="#materials.ec2.EC2_concrete.EC2Concrete.typeAggregate" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<div class="section" id="ec2-concrete">
+<h2>EC2_concrete<a class="headerlink" href="#ec2-concrete" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="rebarsec2">
 <h2>rebarsEC2<a class="headerlink" href="#rebarsec2" title="Permalink to this headline">¶</a></h2>
@@ -161,7 +73,7 @@
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Eurocode 2 materials</a><ul>
-<li><a class="reference internal" href="#module-materials.ec2.EC2_concrete">EC2_concrete</a></li>
+<li><a class="reference internal" href="#ec2-concrete">EC2_concrete</a></li>
 <li><a class="reference internal" href="#rebarsec2">rebarsEC2</a></li>
 </ul>
 </li>

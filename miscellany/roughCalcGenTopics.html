@@ -1323,17 +1323,12 @@ the wall stem.</p>
 
 <dl class="class">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall">
-<em class="property">class </em><code class="descclassname">rough_calculations.ng_retaining_wall.</code><code class="descname">RetainingWall</code><span class="sig-paren">(</span><em>name='prb'</em>, <em>enrobage=0.04</em>, <em>hEncastrement=0.25</em>, <em>hCouronnement=0.25</em>, <em>hSemelle=0.25</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<em class="property">class </em><code class="descclassname">rough_calculations.ng_retaining_wall.</code><code class="descname">RetainingWall</code><span class="sig-paren">(</span><em>name='prb'</em>, <em>enrobage=0.04</em>, <em>stemBottomWidth=0.25</em>, <em>stemTopWidth=0.25</em>, <em>footingThickness=0.25</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry</span></code></p>
 <p>Cantilever retaining wall.</p>
 <dl class="attribute">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.b">
 <code class="descname">b</code><em class="property"> = 1.0</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.b" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="rough_calculations.ng_retaining_wall.RetainingWall.defaultDimensions">
-<code class="descname">defaultDimensions</code><span class="sig-paren">(</span><em>totalHeight</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.defaultDimensions" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1345,19 +1340,8 @@ the wall stem.</p>
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.getBasicAnchorageLength">
 <code class="descname">getBasicAnchorageLength</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getBasicAnchorageLength" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns basic anchorage length for the armatures at &#8220;index&#8221;.</p>
+<dd><p>Returns basic anchorage length for the reinforcement at &#8220;index&#8221;.</p>
 </dd></dl>
-
-<dl class="method">
-<dt id="rough_calculations.ng_retaining_wall.RetainingWall.getDepth">
-<code class="descname">getDepth</code><span class="sig-paren">(</span><em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getDepth" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return sections depth for height &#8220;y&#8221;)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="rough_calculations.ng_retaining_wall.RetainingWall.getFootingWidth">
-<code class="descname">getFootingWidth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getFootingWidth" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.getSection1">
@@ -1408,12 +1392,6 @@ the wall stem.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="rough_calculations.ng_retaining_wall.RetainingWall.setArmature">
-<code class="descname">setArmature</code><span class="sig-paren">(</span><em>index</em>, <em>armature</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.setArmature" title="Permalink to this definition">¶</a></dt>
-<dd><p>Assigns armature.</p>
-</dd></dl>
-
-<dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.setSLSInternalForcesEnvelope">
 <code class="descname">setSLSInternalForcesEnvelope</code><span class="sig-paren">(</span><em>wallInternalForces</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.setSLSInternalForcesEnvelope" title="Permalink to this definition">¶</a></dt>
 <dd><p>Assigns the serviceability limit state infernal forces envelope for the stem.</p>
@@ -1435,6 +1413,25 @@ the wall stem.</p>
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.writeResult">
 <code class="descname">writeResult</code><span class="sig-paren">(</span><em>pth</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.writeResult" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write reinforcement verification results in LaTeX format.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWallReinforcement">
+<em class="property">class </em><code class="descclassname">rough_calculations.ng_retaining_wall.</code><code class="descname">RetainingWallReinforcement</code><span class="sig-paren">(</span><em>enrobage=0.04</em>, <em>steel=B500B</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWallReinforcement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dict</span></code></p>
+<p>Simplified reinforcement for a cantilever retaining wall.</p>
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWallReinforcement.getArmature">
+<code class="descname">getArmature</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWallReinforcement.getArmature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return armature at index.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWallReinforcement.setArmature">
+<code class="descname">setArmature</code><span class="sig-paren">(</span><em>index</em>, <em>armature</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWallReinforcement.setArmature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assigns armature.</p>
 </dd></dl>
 
 </dd></dl>

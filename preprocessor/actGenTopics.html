@@ -81,22 +81,44 @@
 <dt id="actions.loads.EarthPressLoad">
 <em class="property">class </em><code class="descclassname">actions.loads.</code><code class="descname">EarthPressLoad</code><span class="sig-paren">(</span><em>name</em>, <em>xcSet</em>, <em>soilData</em>, <em>vDir</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.loads.EarthPressLoad" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#actions.loads.BaseVectorLoad" title="actions.loads.BaseVectorLoad"><code class="xref py py-class docutils literal"><span class="pre">actions.loads.BaseVectorLoad</span></code></a></p>
-<p>Earth pressure applied on the shell elements generated from
-all the surfaces in the xcSet.</p>
+<p>Earth pressure applied on the elements (shell or beams)
+included in the set xcSet.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><a class="reference internal" href="code.html#xc_base.EntConNmb.name" title="xc_base.EntConNmb.name"><strong>name</strong></a> &#8211; name identifying the load</li>
-<li><strong>xcSet</strong> &#8211; set that contains the surfaces</li>
+<li><strong>xcSet</strong> &#8211; set that contains the elements (shells and/or beams)</li>
 <li><strong>soilProp</strong> &#8211; instance of the class SoilProp that defines the 
 soil parameters required to calculate the earth pressure
-(K:coefficient of pressure, zGround: global Z coordinate 
-of ground level,gammaSoil: weight density of soil, 
-zWater: global Z coordinate of groundwater level, 
-gammaWater: weight density of water)</li>
-<li><strong>vDir</strong> &#8211; unit xc vector defining pressures direction</li>
+(K:coefficient of pressure, zGround: global Z coordinate of
+ground level,gammaSoil: weight density of soil, zWater: global Z
+coordinate of groundwater level, gammaWater: weight density of
+water) . soilProp==None if earth thrust is not considered.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>:ivar vDir:unit xc vector defining pressures direction
+:ivar stripLoads: list of instances of the class</p>
+<blockquote>
+<div>StripLoadOnBackfill to define (if any) strip surcharge loads on
+the backfill (defaults to [], no loads)</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lineLoads</strong> &#8211; list of instances of the class
+LineVerticalLoadOnBackfill  to define (if any) line
+surcharge loads acting in vertical direction on the backfill
+(defaults to [], no loads)</li>
+<li><strong>horzLoads</strong> &#8211; list of instances of the class
+HorizontalLoadOnBackfill to define (if any) surcharge loads
+acting in horizontal direction on the backfill (defaults to
+[], no loads)</li>
 </ul>
 </td>
 </tr>

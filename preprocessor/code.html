@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="XC 3.0 documentation" href="../index.html" />
-    <link rel="next" title="Solution" href="../solution/solution.html" />
+    <link rel="next" title="Python modules" href="../solution/solution.html" />
     <link rel="prev" title="Utils" href="actions.utils.html" /> 
   </head>
   <body role="document">
@@ -38,7 +38,7 @@
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="../solution/solution.html" title="Solution"
+          <a href="../solution/solution.html" title="Python modules"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="actions.utils.html" title="Utils"
@@ -54,47 +54,10 @@
             
   <div class="section" id="module-xc">
 <span id="c-classes"></span><h1>C++ classes<a class="headerlink" href="#module-xc" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="xc.ModelWrapper">
-<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">ModelWrapper</code><a class="headerlink" href="#xc.ModelWrapper" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#xc_base.EntCmd" title="xc_base.EntCmd"><code class="xref py py-class docutils literal"><span class="pre">xc_base.EntCmd</span></code></a></p>
-<p>Wrapper for the finite element model &#8216;seen&#8217; from the solver. 
-The model wrapper is a container for: 
-- Domain of the finite element model. 
-- Analysis model. 
-- Constraint handler. 
-- DOF numberer.</p>
-<dl class="method">
-<dt id="xc.ModelWrapper.newConstraintHandler">
-<code class="descname">newConstraintHandler</code><span class="sig-paren">(</span><em>(ModelWrapper)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; ConstraintHandler :<a class="headerlink" href="#xc.ModelWrapper.newConstraintHandler" title="Permalink to this definition">¶</a></dt>
-<dd><p>newConstraintHandler(nmb)
-Create a new constraint handler. 
-Parameters:</p>
-<blockquote>
-<div>nmb: name of the type of handler. Available types of constraint handlers: &#8216;lagrange_constraint_handler&#8217;, &#8216;penalty_constraint_handler&#8217;, &#8216;plain_handler&#8217;, &#8216;transformation_constraint_handler&#8217;.</div></blockquote>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::ConstraintHandler {lvalue} newConstraintHandler(XC::ModelWrapper {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.ModelWrapper.newNumberer">
-<code class="descname">newNumberer</code><span class="sig-paren">(</span><em>(ModelWrapper)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; DOFNumberer :<a class="headerlink" href="#xc.ModelWrapper.newNumberer" title="Permalink to this definition">¶</a></dt>
-<dd><p>newNumberer(nmb)
-Create a new DOF numberer
-Parameters: 
-nmb: name of the type of numberer. Available types of numberers: &#8216;default_numberer&#8217;, &#8216;plain_numberer&#8217;, &#8216;parallel_numberer&#8217;.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::DOF_Numberer {lvalue} newNumberer(XC::ModelWrapper {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="module-xc">
+<span id="component"></span><h2>Component<a class="headerlink" href="#module-xc" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="module-geom">
-<span id="geom"></span><h2>Geom<a class="headerlink" href="#module-geom" title="Permalink to this headline">¶</a></h2>
+<span id="geom"></span><h3>Geom<a class="headerlink" href="#module-geom" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="geom.BND2d">
 <em class="property">class </em><code class="descclassname">geom.</code><code class="descname">BND2d</code><a class="headerlink" href="#geom.BND2d" title="Permalink to this definition">¶</a></dt>
@@ -3792,7 +3755,7 @@ nmb: name of the type of numberer. Available types of numberers: &#8216;default_
 
 </div>
 <div class="section" id="module-xc_base">
-<span id="xc-base"></span><h2>XC base<a class="headerlink" href="#module-xc_base" title="Permalink to this headline">¶</a></h2>
+<span id="xc-base"></span><h3>XC base<a class="headerlink" href="#module-xc_base" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="xc_base.EntCmd">
 <em class="property">class </em><code class="descclassname">xc_base.</code><code class="descname">EntCmd</code><a class="headerlink" href="#xc_base.EntCmd" title="Permalink to this definition">¶</a></dt>
@@ -3912,6 +3875,16 @@ nmb: name of the type of numberer. Available types of numberers: &#8216;default_
 <dt id="xc_base.EntProp.owner">
 <code class="descname">owner</code><a class="headerlink" href="#xc_base.EntProp.owner" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns object&#8217;s owner (container).</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="xc_base.EntProp.setVerbosityLevel">
+<em class="property">static </em><code class="descname">setVerbosityLevel</code><span class="sig-paren">(</span><em>(int)arg1</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc_base.EntProp.setVerbosityLevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set verbosity level.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void setVerbosityLevel(int)</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -4054,6 +4027,7 @@ nmb: name of the type of numberer. Available types of numberers: &#8216;default_
 
 </div>
 </div>
+</div>
 
 
           </div>
@@ -4064,8 +4038,11 @@ nmb: name of the type of numberer. Available types of numberers: &#8216;default_
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">C++ classes</a><ul>
+<li><a class="reference internal" href="#module-xc">Component</a><ul>
 <li><a class="reference internal" href="#module-geom">Geom</a></li>
 <li><a class="reference internal" href="#module-xc_base">XC base</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -4075,7 +4052,7 @@ nmb: name of the type of numberer. Available types of numberers: &#8216;default_
                         title="previous chapter">Utils</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="../solution/solution.html"
-                        title="next chapter">Solution</a></p>
+                        title="next chapter">Python modules</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -4110,7 +4087,7 @@ nmb: name of the type of numberer. Available types of numberers: &#8216;default_
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="../solution/solution.html" title="Solution"
+          <a href="../solution/solution.html" title="Python modules"
              >next</a> |</li>
         <li class="right" >
           <a href="actions.utils.html" title="Utils"

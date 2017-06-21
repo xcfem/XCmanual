@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>General topics &mdash; XC 3.0 documentation</title>
+    <title>Typical materials &mdash; XC 3.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -25,8 +25,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="XC 3.0 documentation" href="../index.html" />
     <link rel="up" title="Materials" href="materials.html" />
-    <link rel="next" title="Fiber sections" href="materials.fiber_section.html" />
-    <link rel="prev" title="Materials" href="materials.html" /> 
+    <link rel="next" title="Actions" href="actions.html" />
+    <link rel="prev" title="Materials according to Eurocode-5 code" href="materials.ec5.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -39,10 +39,10 @@
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="materials.fiber_section.html" title="Fiber sections"
+          <a href="actions.html" title="Actions"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="materials.html" title="Materials"
+          <a href="materials.ec5.html" title="Materials according to Eurocode-5 code"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">XC 3.0 documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="materials.html" accesskey="U">Materials</a> &raquo;</li> 
@@ -54,10 +54,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="general-topics">
-<h1>General topics<a class="headerlink" href="#general-topics" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-materials.typical_materials">
-<span id="typical-materials"></span><h2>Typical materials<a class="headerlink" href="#module-materials.typical_materials" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="module-materials.typical_materials">
+<span id="typical-materials"></span><h1>Typical materials<a class="headerlink" href="#module-materials.typical_materials" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="materials.typical_materials.BasicElasticMaterial">
 <em class="property">class </em><code class="descclassname">materials.typical_materials.</code><code class="descname">BasicElasticMaterial</code><span class="sig-paren">(</span><em>E</em>, <em>nu</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.BasicElasticMaterial" title="Permalink to this definition">¶</a></dt>
@@ -171,7 +169,7 @@ shear modulus and mass density of the material</li>
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><a class="reference internal" href="code.html#xc_base.EntConNmb.name" title="xc_base.EntConNmb.name"><strong>name</strong></a> &#8211; name identifying the material</li>
 <li><strong>E</strong> &#8211; Young’s modulus of the material</li>
-<li><strong>nu</strong> &#8211; Poisson’s ratio</li>
+<li><a class="reference internal" href="#materials.concrete_base.paramTensStiffenes.nu" title="materials.concrete_base.paramTensStiffenes.nu"><strong>nu</strong></a> &#8211; Poisson’s ratio</li>
 <li><strong>rho</strong> &#8211; mass density</li>
 </ul>
 </td>
@@ -614,253 +612,1607 @@ isotropic strain hardening</p>
 </dd></dl>
 
 </div>
-<div class="section" id="concretebase">
-<h2>concreteBase<a class="headerlink" href="#concretebase" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="materials-reinforcingsteel">
-<h2>materials.reinforcingSteel<a class="headerlink" href="#materials-reinforcingsteel" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="module-materials.stressCalc">
-<span id="materials-stresscalc"></span><h2>materials.stressCalc<a class="headerlink" href="#module-materials.stressCalc" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-materials.concrete_base">
+<span id="concrete-base"></span><h1>concrete_base<a class="headerlink" href="#module-materials.concrete_base" title="Permalink to this headline">¶</a></h1>
+<p>Base classes for reinforced concrete materials.</p>
 <dl class="class">
-<dt id="materials.stressCalc.StressCalc">
-<em class="property">class </em><code class="descclassname">materials.stressCalc.</code><code class="descname">StressCalc</code><span class="sig-paren">(</span><em>b</em>, <em>h</em>, <em>r</em>, <em>rp</em>, <em>As</em>, <em>Asp</em>, <em>Ec</em>, <em>Es</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.concrete_base.Concrete">
+<em class="property">class </em><code class="descclassname">materials.concrete_base.</code><code class="descname">Concrete</code><span class="sig-paren">(</span><em>nmbConcrete</em>, <em>fck</em>, <em>gammaC</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.materialWithDKDiagrams.MaterialWithDKDiagrams" title="materials.materialWithDKDiagrams.MaterialWithDKDiagrams"><code class="xref py py-class docutils literal"><span class="pre">materials.materialWithDKDiagrams.MaterialWithDKDiagrams</span></code></a></p>
+<p>Concrete model according to Eurocode 2 - Base class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>matTagD</strong> &#8211; tag of the uni-axial material in the design diagram</li>
+<li><strong>fck</strong> &#8211; characteristic (5%) cylinder strength of the concrete [Pa]</li>
+<li><strong>gmmC</strong> &#8211; partial safety factor for concrete</li>
+<li><a class="reference internal" href="#materials.concrete_base.Concrete.nuc" title="materials.concrete_base.Concrete.nuc"><strong>nuc</strong></a> &#8211; Poisson coefficient</li>
+<li><a class="reference internal" href="#materials.concrete_base.Concrete.cemType" title="materials.concrete_base.Concrete.cemType"><strong>cemType</strong></a> &#8211; <p>type of cement</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">R</span></code>  for cement of strength Classes CEM 42,5 R, CEM 52,5 Nand CEM 52,5 R (Class R) [cementos de alta resistencia en EHE]</li>
+<li><code class="docutils literal"><span class="pre">N</span></code>  for cement of strength Classes CEM 32,5 R, CEM 42,5 N (Class N) [cementos normales en EHE]</li>
+<li><code class="docutils literal"><span class="pre">S</span></code>  for cement of strength Classes CEM 32,5 N (Class S) [cementos de endurecimiento lento en EHE]</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#materials.concrete_base.Concrete.alfacc" title="materials.concrete_base.Concrete.alfacc"><strong>alfacc</strong></a> &#8211; factor which takes account of the fatigue in the concrete when it is subjected to high levels of compression stress due to long duration loads. Normally alfacc=1 (default value)</li>
+<li><a class="reference internal" href="#materials.concrete_base.Concrete.tensionStiffparam" title="materials.concrete_base.Concrete.tensionStiffparam"><strong>tensionStiffparam</strong></a> &#8211; <p>variable to determine the behaviour of concrete under tension.</p>
+<ul>
+<li>If tensionStiffparam==None (default value) no tensile strength is considered; the stress strain relationship corresponds to a concrete01 material (zero tensile strength).</li>
+<li>If tensionStiffparam is an instance of the class paramTensStiffenes, tension stiffeness of concrete is considered in the constitutive model to take into account the tensile capacity of the intact concrete between cracks. The stress strain relationship corresponds to a concrete02 material (linear tension softening),  based on the tension-stiffening constitutive model proposed by Stramandinoli &amp; La Rovere (ref. article: Engineering Structures 30 (2008) 2069-2080).</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.E0">
+<code class="descname">E0</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.E0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tangent in the origin point of concrete01 and concrete02 diagrams</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.Ecm">
+<code class="descname">Ecm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.Ecm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Módulo de deformación longitudinal secante a 28 días expresado
+en [Pa] [+]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.Ect">
+<code class="descname">Ect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.Ect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Elastic modulus in the tensile linear-elastic range of concrete
+[Pa] [+]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.Gcm">
+<code class="descname">Gcm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.Gcm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shear elactic modulus [Pa][+]</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="materials.concrete_base.Concrete.alfacc">
+<code class="descname">alfacc</code><em class="property"> = 1</em><a class="headerlink" href="#materials.concrete_base.Concrete.alfacc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.concrete_base.Concrete.cemType">
+<code class="descname">cemType</code><em class="property"> = 'N'</em><a class="headerlink" href="#materials.concrete_base.Concrete.cemType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.defDiagD">
+<code class="descname">defDiagD</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.defDiagD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a uniaxial material to represent the design stress-strain diagram</p>
+<ul class="simple">
+<li>If tensionStiffparam==None (default value) no tensile strength is considered; the stress strain relationship corresponds to a concrete01 material (zero tensile strength).</li>
+<li>If tensionStiffparam is an instance of the class paramTensStiffenes, tension stiffeness of concrete is considered in the constitutive model to take into account the tensile capacity of the intact concrete between cracks. The stress strain relationship corresponds to a concrete02 material (linear tension softening),  based on the tension-stiffening constitutive model proposed by Stramandinoli &amp; La Rovere (ref. article: Engineering Structures 30 (2008) 2069-2080).</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.defDiagK">
+<code class="descname">defDiagK</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.defDiagK" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a uniaxial material to represent the characteristic stress-strain diagram</p>
+<ul class="simple">
+<li>If tensionStiffparam== None (default value) no tensile strength is considered; the stress strain relationship corresponds to a concrete01 material (zero tensile strength).</li>
+<li>If tensionStiffparam is an instance of the class paramTensStiffenes, tension stiffeness of concrete is considered in the constitutive model to take into account the tensile capacity of the intact concrete between cracks. The stress strain relationship corresponds to a concrete02 material (linear tension softening),  based on the tension-stiffening constitutive model proposed by Stramandinoli &amp; La Rovere (ref. article: Engineering Structures 30 (2008) 2069-2080).</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.epsilon0">
+<code class="descname">epsilon0</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.epsilon0" title="Permalink to this definition">¶</a></dt>
+<dd><p>strain at peak stress at parabola-rectangle diagram</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.epsilonU">
+<code class="descname">epsilonU</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.epsilonU" title="Permalink to this definition">¶</a></dt>
+<dd><p>nominal ultimate strain at parabola-rectangle diagram</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.expnPR">
+<code class="descname">expnPR</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.expnPR" title="Permalink to this definition">¶</a></dt>
+<dd><p>exponent n for the parabola-rectangle diagram</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.fcd">
+<code class="descname">fcd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.fcd" title="Permalink to this definition">¶</a></dt>
+<dd><p>design strength of the concrete [Pa][-]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.fckMPa">
+<code class="descname">fckMPa</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.fckMPa" title="Permalink to this definition">¶</a></dt>
+<dd><p>characteristic (5%) cylinder strength of the concrete in MPa (absolute value)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.fctd">
+<code class="descname">fctd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.fctd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Design mean tensile strength [Pa][+].</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.fctk">
+<code class="descname">fctk</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.fctk" title="Permalink to this definition">¶</a></dt>
+<dd><p>characteristic tensile strength [Pa] (5% fractile)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.fctm">
+<code class="descname">fctm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.fctm" title="Permalink to this definition">¶</a></dt>
+<dd><p>mean tensile strength [Pa][+] (table 3.1 EC2)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.fmaxD">
+<code class="descname">fmaxD</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.fmaxD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.fmaxK">
+<code class="descname">fmaxK</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.fmaxK" title="Permalink to this definition">¶</a></dt>
+<dd><p>maximum characteristic strength of the concrete [Pa][-]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.getBetaCC">
+<code class="descname">getBetaCC</code><span class="sig-paren">(</span><em>t=28</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getBetaCC" title="Permalink to this definition">¶</a></dt>
+<dd><p>beta_cc: coefficient (sect. 3.1.2 EC2, art. 31.3 EHE-08)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>t</strong> &#8211; age of the concrete in days</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.getCreepAlfa1">
+<code class="descname">getCreepAlfa1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getCreepAlfa1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Coefficient for the calculation of the creep coefficient
+(Annex B Eurocode 2 part 1-1)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.getCreepAlfa2">
+<code class="descname">getCreepAlfa2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getCreepAlfa2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Coefficient for the calculation of the creep coefficient
+(Annex B Eurocode 2 part 1-1)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.getCreepAlfa3">
+<code class="descname">getCreepAlfa3</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getCreepAlfa3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Coefficient for the calculation of the creep coefficient
+(Annex B Eurocode 2 part 1-1)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.getCreepBetactt0">
+<code class="descname">getCreepBetactt0</code><span class="sig-paren">(</span><em>t</em>, <em>t0</em>, <em>RH</em>, <em>h0mm</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getCreepBetactt0" title="Permalink to this definition">¶</a></dt>
+<dd><p>coefficient to describe the development of creep with time after loading, used to calculate the creep coefficient
+(Annex B Eurocode 2 part 1-1)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>t</strong> &#8211; age of concrete in days at the moment considered</li>
+<li><strong>t0</strong> &#8211; age of concrete in days at loading</li>
+<li><strong>RH</strong> &#8211; ambient relative humidity(%)</li>
+<li><strong>h0mm</strong> &#8211; <p>notional size of the member in mm</p>
+<ul>
+<li><dl class="first docutils">
+<dt>h0mm=2*Ac/u, where:</dt>
+<dd><ul class="first last">
+<li>Ac= cross sectional area</li>
+<li>u = perimeter of the member in contact with the atmosphere</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.getCreepBetafcm">
+<code class="descname">getCreepBetafcm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getCreepBetafcm" title="Permalink to this definition">¶</a></dt>
+<dd><p>factor to allow for the effect of concrete strength on the notational creep coefficient
+(Annex B Eurocode 2 part 1-1)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.getCreepBetat0">
+<code class="descname">getCreepBetat0</code><span class="sig-paren">(</span><em>t0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getCreepBetat0" title="Permalink to this definition">¶</a></dt>
+<dd><p>factor to allow for the effect of concrete age at loading on the notational creep coefficient 
+(Annex B Eurocode 2 part 1-1)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>t0</strong> &#8211; age of concrete in days at loading</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.getCreepFi0">
+<code class="descname">getCreepFi0</code><span class="sig-paren">(</span><em>t0</em>, <em>RH</em>, <em>h0mm</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getCreepFi0" title="Permalink to this definition">¶</a></dt>
+<dd><p>notational creep coefficient for the calculation of the creep coefficient
+(Annex B Eurocode 2 part 1-1)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>t0</strong> &#8211; age of concrete in days at loading</li>
+<li><strong>RH</strong> &#8211; ambient relative humidity(%)</li>
+<li><strong>h0mm</strong> &#8211; <p>notional size of the member in mm</p>
+<ul>
+<li><dl class="first docutils">
+<dt>h0mm=2*Ac/u, where:</dt>
+<dd><ul class="first last">
+<li>Ac= cross sectional area</li>
+<li>u = perimeter of the member in contact with the atmosphere</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.getCreepFiRH">
+<code class="descname">getCreepFiRH</code><span class="sig-paren">(</span><em>RH</em>, <em>h0mm</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getCreepFiRH" title="Permalink to this definition">¶</a></dt>
+<dd><p>factor to allow for the effect of relative humidity 
+on the notional creep coefficient
+(Annex B Eurocode 2 part 1-1)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>RH</strong> &#8211; ambient relative humidity(%)</li>
+<li><strong>h0mm</strong> &#8211; <p>notional size of the member in mm</p>
+<ul>
+<li><dl class="first docutils">
+<dt>h0mm=2*Ac/u, where:</dt>
+<dd><ul class="first last">
+<li>Ac= cross sectional area</li>
+<li>u = perimeter of the member in contact with the atmosphere</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.getCreepFitt0">
+<code class="descname">getCreepFitt0</code><span class="sig-paren">(</span><em>t</em>, <em>t0</em>, <em>RH</em>, <em>h0mm</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getCreepFitt0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creep coefficient  
+(Annex B Eurocode 2 part 1-1)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>t</strong> &#8211; age of concrete in days at the moment considered</li>
+<li><strong>t0</strong> &#8211; age of concrete in days at loading</li>
+<li><strong>RH</strong> &#8211; ambient relative humidity(%)</li>
+<li><strong>h0mm</strong> &#8211; <p>notional size of the member in mm</p>
+<ul>
+<li><dl class="first docutils">
+<dt>h0mm=2*Ac/u, where:</dt>
+<dd><ul class="first last">
+<li>Ac= cross sectional area</li>
+<li>u = perimeter of the member in contact with the atmosphere</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.getFckt">
+<code class="descname">getFckt</code><span class="sig-paren">(</span><em>t=28</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getFckt" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Fckt: concrete compressive strength [Pa][-] at time t (for stages) </dt>
+<dd>(sect. 3.1.2 EC2)</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>t</strong> &#8211; age of the concrete in days</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.getFcm">
+<code class="descname">getFcm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getFcm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fcm: mean compressive strength [Pa][-] at 28 days 
+(table 3.1 EC2, art. 39.6 EHE-08)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.getFcmT">
+<code class="descname">getFcmT</code><span class="sig-paren">(</span><em>t=28</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getFcmT" title="Permalink to this definition">¶</a></dt>
+<dd><p>FcmT: mean concrete compressive strength [Pa][-] at an age of t days 
+(sect. 3.1.2 EC2, art. 31.3 EHE-08)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>t</strong> &#8211; age of the concrete in days</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.getFctk005">
+<code class="descname">getFctk005</code><span class="sig-paren">(</span><em>t=28</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getFctk005" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fctk005: tensile strength [Pa][+] 5% fractile (table 3.1 EC2)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>t</strong> &#8211; age of the concrete in days</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.getFctk095">
+<code class="descname">getFctk095</code><span class="sig-paren">(</span><em>t=28</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getFctk095" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fctk095: tensile strength [Pa][+] 95% fractile (table 3.1 EC2)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>t</strong> &#8211; age of the concrete in days</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.getShrAlfads1">
+<code class="descname">getShrAlfads1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getShrAlfads1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Coefficient for the calculation of the
+basic drying shrinkage strain 
+(Annex B Eurocode 2 part 1-1)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.getShrAlfads2">
+<code class="descname">getShrAlfads2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getShrAlfads2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Coefficient for the calculation of the basic drying shrinkage strain (Annex B Eurocode 2 part 1-1)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.getShrBetaRH">
+<code class="descname">getShrBetaRH</code><span class="sig-paren">(</span><em>RH</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getShrBetaRH" title="Permalink to this definition">¶</a></dt>
+<dd><p>Coefficient for the calculation of the
+basic drying shrinkage strain 
+(Annex B Eurocode 2 part 1-1)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>RH</strong> &#8211; ambient relative humidity(%)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.getShrBetaast">
+<code class="descname">getShrBetaast</code><span class="sig-paren">(</span><em>t</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getShrBetaast" title="Permalink to this definition">¶</a></dt>
+<dd><p>coefficient for calculating the autogenous shrinkage strain
+(art. 3.1.4 Eurocode 2 part 1-1)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>t</strong> &#8211; age of concrete in days at the moment considered</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.getShrBetadstts">
+<code class="descname">getShrBetadstts</code><span class="sig-paren">(</span><em>t</em>, <em>ts</em>, <em>h0mm</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getShrBetadstts" title="Permalink to this definition">¶</a></dt>
+<dd><p>coefficient for the calculation of the drying shrinkage strain
+(table 3.3 Eurocode 2 part 1-1)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>t</strong> &#8211; age of concrete in days at the moment considered</li>
+<li><strong>ts</strong> &#8211; age of concrete in days at the beginning of drying shrinkage (or swelling)
+Normally this is at the end of curing</li>
+<li><strong>h0mm</strong> &#8211; <p>notional size of the member in mm</p>
+<ul>
+<li><dl class="first docutils">
+<dt>h0mm=2*Ac/u, where:</dt>
+<dd><ul class="first last">
+<li>Ac= cross sectional area</li>
+<li>u = perimeter of the member in contact with the atmosphere</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.getShrEpsca">
+<code class="descname">getShrEpsca</code><span class="sig-paren">(</span><em>t</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getShrEpsca" title="Permalink to this definition">¶</a></dt>
+<dd><p>Autogenous shrinkage strain 
+(art. 3.1.4 Eurocode 2 part 1-1)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>t</strong> &#8211; age of concrete in days at the moment considered</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.getShrEpscainf">
+<code class="descname">getShrEpscainf</code><span class="sig-paren">(</span><em>t</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getShrEpscainf" title="Permalink to this definition">¶</a></dt>
+<dd><p>coefficient for calculating the autogenous shrinkage strain [-]
+(art. 3.1.4 Eurocode 2 part 1-1)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>t</strong> &#8211; age of concrete in days at the moment considered</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.getShrEpscd">
+<code class="descname">getShrEpscd</code><span class="sig-paren">(</span><em>t</em>, <em>ts</em>, <em>RH</em>, <em>h0mm</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getShrEpscd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Drying shrinkage strain[-] (art. 3.1.4 Eurocode 2 part 1-1)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>t</strong> &#8211; age of concrete in days at the moment considered</li>
+<li><strong>ts</strong> &#8211; age of concrete in days at the beginning of drying shrinkage (or swelling).  Normally this is at the end of curing</li>
+<li><strong>RH</strong> &#8211; ambient relative humidity(%)</li>
+<li><strong>h0mm</strong> &#8211; <p>notional size of the member in mm</p>
+<ul>
+<li><dl class="first docutils">
+<dt>h0mm=``2*Ac/u``, where:</dt>
+<dd><ul class="first last">
+<li>Ac= cross sectional area</li>
+<li>u = perimeter of the member in contact with the atmosphere</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.getShrEpscd0">
+<code class="descname">getShrEpscd0</code><span class="sig-paren">(</span><em>RH</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getShrEpscd0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Basic drying shrinkage strain [-]
+for the calculation of the drying shrinkage strain
+(Annex B Eurocode 2 part 1-1)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>RH</strong> &#8211; ambient relative humidity(%)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.getShrEpscs">
+<code class="descname">getShrEpscs</code><span class="sig-paren">(</span><em>t</em>, <em>ts</em>, <em>RH</em>, <em>h0mm</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getShrEpscs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Total shrinkage strain = 
+autogenous + drying shrinkages</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>t</strong> &#8211; age of concrete in days at the moment considered</li>
+<li><strong>ts</strong> &#8211; age of concrete in days at the beginning of drying shrinkage (or swelling)
+Normally this is at the end of curing</li>
+<li><strong>RH</strong> &#8211; ambient relative humidity(%)</li>
+<li><strong>h0mm</strong> &#8211; <p>notional size of the member in mm</p>
+<ul>
+<li><dl class="first docutils">
+<dt>h0mm=2*Ac/u, where:</dt>
+<dd><ul class="first last">
+<li>Ac= cross sectional area</li>
+<li>u = perimeter of the member in contact with the atmosphere</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.getShrKh">
+<code class="descname">getShrKh</code><span class="sig-paren">(</span><em>h0mm</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getShrKh" title="Permalink to this definition">¶</a></dt>
+<dd><p>coefficient depending on the notional size h0mm
+for the calculation of the drying shrinkage strain
+(table 3.3 Eurocode 2 part 1-1)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>h0mm</strong> &#8211; <p>notional size of the member in mm</p>
+<ul>
+<li><dl class="first docutils">
+<dt>h0mm=``2*Ac/u``, where:</dt>
+<dd><ul class="first last simple">
+<li>Ac= cross sectional area</li>
+<li>u = perimeter of the member in contact with the atmosphere</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="materials.concrete_base.Concrete.nuc">
+<code class="descname">nuc</code><em class="property"> = 0.2</em><a class="headerlink" href="#materials.concrete_base.Concrete.nuc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.plotDesignStressStrainDiagram">
+<code class="descname">plotDesignStressStrainDiagram</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>path=''</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.plotDesignStressStrainDiagram" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.sigmaPR">
+<code class="descname">sigmaPR</code><span class="sig-paren">(</span><em>eps</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.sigmaPR" title="Permalink to this definition">¶</a></dt>
+<dd><p>stress as function of strain according to parabola-rectangle diagram</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.sigmac">
+<code class="descname">sigmac</code><span class="sig-paren">(</span><em>eps</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.sigmac" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stress [Pa][-] from parabola-rectangle diagram</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>eps</strong> &#8211; strain [-]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.tangc">
+<code class="descname">tangc</code><span class="sig-paren">(</span><em>eps</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.tangc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tangent of the parabola-rectangle diagram</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>eps</strong> &#8211; strain [-]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="materials.concrete_base.Concrete.tensionStiffparam">
+<code class="descname">tensionStiffparam</code><em class="property"> = None</em><a class="headerlink" href="#materials.concrete_base.Concrete.tensionStiffparam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.concrete_base.PrestressingSteel">
+<em class="property">class </em><code class="descclassname">materials.concrete_base.</code><code class="descname">PrestressingSteel</code><span class="sig-paren">(</span><em>steelName</em>, <em>fpk</em>, <em>fmax=1860000000.0</em>, <em>alpha=0.75</em>, <em>steelRelaxationClass=1</em>, <em>tendonClass='strand'</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.PrestressingSteel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.materialWithDKDiagrams.MaterialWithDKDiagrams" title="materials.materialWithDKDiagrams.MaterialWithDKDiagrams"><code class="xref py py-class docutils literal"><span class="pre">materials.materialWithDKDiagrams.MaterialWithDKDiagrams</span></code></a></p>
+<dl class="method">
+<dt id="materials.concrete_base.PrestressingSteel.defDiagD">
+<code class="descname">defDiagD</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>initialStress</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.PrestressingSteel.defDiagD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Design stress-strain diagram.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.PrestressingSteel.defDiagK">
+<code class="descname">defDiagK</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>initialStress</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.PrestressingSteel.defDiagK" title="Permalink to this definition">¶</a></dt>
+<dd><p>Characteristic stress-strain diagram.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.PrestressingSteel.fpd">
+<code class="descname">fpd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.PrestressingSteel.fpd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.PrestressingSteel.getKRelaxation">
+<code class="descname">getKRelaxation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.PrestressingSteel.getKRelaxation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value of k factor for the relaxation expression
+from the relaxation class. See Model Code 1990 paragraph 2.3.4.5.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="materials.concrete_base.PrestressingSteel.ptsShortTermRelaxation">
+<code class="descname">ptsShortTermRelaxation</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.concrete_base.PrestressingSteel.ptsShortTermRelaxation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.PrestressingSteel.tInic">
+<code class="descname">tInic</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.PrestressingSteel.tInic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.concrete_base.ReinforcingSteel">
+<em class="property">class </em><code class="descclassname">materials.concrete_base.</code><code class="descname">ReinforcingSteel</code><span class="sig-paren">(</span><em>nmbAcero</em>, <em>fyk</em>, <em>emax</em>, <em>gammaS</em>, <em>k=1.05</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.ReinforcingSteel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.materialWithDKDiagrams.MaterialWithDKDiagrams" title="materials.materialWithDKDiagrams.MaterialWithDKDiagrams"><code class="xref py py-class docutils literal"><span class="pre">materials.materialWithDKDiagrams.MaterialWithDKDiagrams</span></code></a></p>
+<p>Reinforcing steel parameters 
+Attributes:</p>
+<blockquote>
+<div>fyk:      Characteristic value of the yield strength.
+emax:     maximum strain in tension
+gammaS:   Partial factor for material.
+k:        fmaxk/fyk ratio (Annex C of EC2: class A k&gt;=1,05 , class B k&gt;=1,08)</div></blockquote>
+<dl class="attribute">
+<dt id="materials.concrete_base.ReinforcingSteel.Es">
+<code class="descname">Es</code><em class="property"> = 200000000000.0</em><a class="headerlink" href="#materials.concrete_base.ReinforcingSteel.Es" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.ReinforcingSteel.Esh">
+<code class="descname">Esh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.ReinforcingSteel.Esh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Slope of the curve in the yielding region.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.ReinforcingSteel.bsh">
+<code class="descname">bsh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.ReinforcingSteel.bsh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ratio between post-yield tangent and initial elastic tangent.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.ReinforcingSteel.defDiagD">
+<code class="descname">defDiagD</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.ReinforcingSteel.defDiagD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns XC uniaxial material (design values).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.ReinforcingSteel.defDiagK">
+<code class="descname">defDiagK</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.ReinforcingSteel.defDiagK" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns XC uniaxial material (characteristic values).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.ReinforcingSteel.eyd">
+<code class="descname">eyd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.ReinforcingSteel.eyd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Design strain at yield point.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.ReinforcingSteel.eyk">
+<code class="descname">eyk</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.ReinforcingSteel.eyk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Caracteristic strain at yield point.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.ReinforcingSteel.fmaxk">
+<code class="descname">fmaxk</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.ReinforcingSteel.fmaxk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Characteristic ultimate strength.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.ReinforcingSteel.fyd">
+<code class="descname">fyd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.ReinforcingSteel.fyd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Design yield stress.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="materials.concrete_base.ReinforcingSteel.k">
+<code class="descname">k</code><em class="property"> = 1.05</em><a class="headerlink" href="#materials.concrete_base.ReinforcingSteel.k" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.ReinforcingSteel.plotDesignStressStrainDiagram">
+<code class="descname">plotDesignStressStrainDiagram</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>path=''</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.ReinforcingSteel.plotDesignStressStrainDiagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draws the steel design diagram.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.concrete_base.concreteDesignDiagramTest">
+<code class="descclassname">materials.concrete_base.</code><code class="descname">concreteDesignDiagramTest</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>concreteRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.concreteDesignDiagramTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the differece between the stresses obtained from the
+Concrete01 uniaxial material (getStress() ) and the 
+theoretical law defined in Python (see sigmac()).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.concrete_base.concreteDesignTangentTest">
+<code class="descclassname">materials.concrete_base.</code><code class="descname">concreteDesignTangentTest</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>concreteRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.concreteDesignTangentTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the differece between the values of the tangent obtained
+from de Concrete01 uniaxial material (getTangent() ) and the 
+theoretical law defined in Python (see tangc()).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.concrete_base.defDiagDAcero">
+<code class="descclassname">materials.concrete_base.</code><code class="descname">defDiagDAcero</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>steelRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.defDiagDAcero" title="Permalink to this definition">¶</a></dt>
+<dd><p>Design stress-strain diagram.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.concrete_base.defDiagDConcrete">
+<code class="descclassname">materials.concrete_base.</code><code class="descname">defDiagDConcrete</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>concreteRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.defDiagDConcrete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="materials.concrete_base.defDiagKAcero">
+<code class="descclassname">materials.concrete_base.</code><code class="descname">defDiagKAcero</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>steelRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.defDiagKAcero" title="Permalink to this definition">¶</a></dt>
+<dd><p>Characteristic stress-strain diagram.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.concrete_base.defDiagKConcrete">
+<code class="descclassname">materials.concrete_base.</code><code class="descname">defDiagKConcrete</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>concreteRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.defDiagKConcrete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="materials.concrete_base.paramTensStiffenes">
+<em class="property">class </em><code class="descclassname">materials.concrete_base.</code><code class="descname">paramTensStiffenes</code><span class="sig-paren">(</span><em>concrMat</em>, <em>reinfMat</em>, <em>reinfRatio</em>, <em>diagType</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.paramTensStiffenes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
-<dl class="method">
-<dt id="materials.stressCalc.StressCalc.Ac">
-<code class="descname">Ac</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.Ac" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<p>Parameters to generate a concrete02 material based on the tension-stiffening constitutive model of concrete proposed by Stramandinoli &amp; La Rovere (ref. article: Engineering Structures 30 (2008) 2069-2080).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>concrMat</strong> &#8211; concrete material of the RC section</li>
+<li><strong>reinfMat</strong> &#8211; reinforcing steel material of the RC section</li>
+<li><strong>reinfRatio</strong> &#8211; <p>section reinforcement ratio, obtained as:</p>
+<p>-ro=As/Ac for members subjected to direct tension.
+-roef=As/Acef for members under bending, where Acef is the effective</p>
+<blockquote>
+<div>area, that corresponds to the tensile zone in the member section. 
+Aef can be obtained as (see CEB-FIP MC-90) Aef = 2.5b(h-d) &lt; b(h-x)/3, where x is the neutral axis depth.
+Aef can be estimated as Aef~=bh/4</div></blockquote>
+</li>
+<li><strong>nPoints</strong> &#8211; number of (strain,stress) pairs of values to approximate the exponential decay curve adopted</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>for the post-cracking range (defaults to 50)
+:ivar diagType: type of diagram: &#8216;K&#8217; or &#8216;k&#8217; for characteristic, &#8216;D&#8217; or &#8216;d&#8217; for design (defaults to characteristic)
+:ivar E_c: concrete elastic modulus [Pa] [+] (defaults to concrMat.Ecm())
+:ivar f_ct: concrete tensile strength [Pa][+] (defaults to concrMat.fctd() or concrMat.fctk())
+:ivar E_ct: concrete elastic modulus [Pa] [+] in the tensile linear-elastic range (defaults to concrMat.Ect())
+:ivar E_s: steel elastic modulus [Pa] [+] (defaults to reinfMat.Es)
+:ivar eps_y: reinforcing steel strain at yield point  [Pa][+] (defaults to reinfMat.eyd() or reinfMat.eyk())</p>
 <dl class="attribute">
-<dt id="materials.stressCalc.StressCalc.As">
-<code class="descname">As</code><em class="property"> = 0.0157</em><a class="headerlink" href="#materials.stressCalc.StressCalc.As" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.concrete_base.paramTensStiffenes.E_s">
+<code class="descname">E_s</code><em class="property"> = None</em><a class="headerlink" href="#materials.concrete_base.paramTensStiffenes.E_s" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reinforcing steel strain at yield point  [Pa][+]</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.paramTensStiffenes.alfa">
+<code class="descname">alfa</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.paramTensStiffenes.alfa" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the parameter for the exponential decay curve adopted for the post-cracking range,</td>
+</tr>
+</tbody>
+</table>
+<p>until yielding of reinforcement takes place</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.paramTensStiffenes.nu">
+<code class="descname">nu</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.paramTensStiffenes.nu" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">steel-to-concrete elastic modulus ratio nu = Es/Ec</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.paramTensStiffenes.pointOnsetCracking">
+<code class="descname">pointOnsetCracking</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.paramTensStiffenes.pointOnsetCracking" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the calculated (strain,stress) point of the concrete diagram where cracking starts. It&#8217;s obtained as</td>
+</tr>
+</tbody>
+</table>
+<p>the intersection of the straight line thas reproduces the linear-elastic range in tension (before cracking) with
+the regression line  that approaches the exponential decay curve adopted for the post-cracking range</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.paramTensStiffenes.ptosExpCurvPostCracking">
+<code class="descname">ptosExpCurvPostCracking</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.paramTensStiffenes.ptosExpCurvPostCracking" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a list of strains and the list of their corresponding stresses in exponential</td>
+</tr>
+</tbody>
+</table>
+<p>decay curve adopted for the post-cracking range, until yielding of reinforcement takes place</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.paramTensStiffenes.regresLine">
+<code class="descname">regresLine</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.paramTensStiffenes.regresLine" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the slope [a] and interceptY [b]  (the value of y when x=0) of the regression line y=ax+b</td>
+</tr>
+</tbody>
+</table>
+<p>that approaches the exponential decay curve adopted for the post-cracking range. It also returns interceptX
+(the value of x when y=0)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.paramTensStiffenes.slopeRegresLineFixedPoint">
+<code class="descname">slopeRegresLineFixedPoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.paramTensStiffenes.slopeRegresLineFixedPoint" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the slope of the regression line that approaches the exponential decay curve adopted for the</td>
+</tr>
+</tbody>
+</table>
+<p>post-cracking range, passings through the point (eps_ct,f_ct) [point of concrete onset cracking]</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.concrete_base.sigmaDAceroArmar">
+<code class="descclassname">materials.concrete_base.</code><code class="descname">sigmaDAceroArmar</code><span class="sig-paren">(</span><em>eps</em>, <em>matRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.sigmaDAceroArmar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Design stress-strain diagram for reinforcing steel, according to EC2.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.concrete_base.sigmaKAceroArmar">
+<code class="descclassname">materials.concrete_base.</code><code class="descname">sigmaKAceroArmar</code><span class="sig-paren">(</span><em>eps</em>, <em>matRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.sigmaKAceroArmar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Characteristic stress-strain diagram for reinforcing steel, according to EC2.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.concrete_base.sigmas">
+<code class="descclassname">materials.concrete_base.</code><code class="descname">sigmas</code><span class="sig-paren">(</span><em>eps</em>, <em>fy</em>, <em>ey</em>, <em>Es</em>, <em>Esh</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.sigmas" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stress-strain diagram of reinforcing steel, according to EC2 
+(the same one is adopted by EHE and SIA).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.concrete_base.testDiagDAceroArmar">
+<code class="descclassname">materials.concrete_base.</code><code class="descname">testDiagDAceroArmar</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>matRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.testDiagDAceroArmar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checking of design stress-strain diagram.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.concrete_base.testDiagKAceroArmar">
+<code class="descclassname">materials.concrete_base.</code><code class="descname">testDiagKAceroArmar</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>matRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.testDiagKAceroArmar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checking of characteristic stress-strain diagram.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-materials.structural_steel">
+<span id="structural-steel"></span><h1>structural_steel<a class="headerlink" href="#module-materials.structural_steel" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="materials.structural_steel.BasicSteel">
+<em class="property">class </em><code class="descclassname">materials.structural_steel.</code><code class="descname">BasicSteel</code><span class="sig-paren">(</span><em>E</em>, <em>nu</em>, <em>fy</em>, <em>fu</em>, <em>gammaM</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.BasicSteel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.typical_materials.BasicElasticMaterial" title="materials.typical_materials.BasicElasticMaterial"><code class="xref py py-class docutils literal"><span class="pre">materials.typical_materials.BasicElasticMaterial</span></code></a></p>
+<p>Base class for structural steels.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fy</strong> &#8211; Yield stress.</li>
+<li><strong>fu</strong> &#8211; ultimate stress.</li>
+<li><strong>gammaM</strong> &#8211; partial factor for cross-section resistance.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.structural_steel.BasicSteel.fyd">
+<code class="descname">fyd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.BasicSteel.fyd" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
-<dt id="materials.stressCalc.StressCalc.Asp">
-<code class="descname">Asp</code><em class="property"> = 0</em><a class="headerlink" href="#materials.stressCalc.StressCalc.Asp" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+</dd></dl>
 
-<dl class="attribute">
-<dt id="materials.stressCalc.StressCalc.Ec">
-<code class="descname">Ec</code><em class="property"> = 30891000000.0</em><a class="headerlink" href="#materials.stressCalc.StressCalc.Ec" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dl class="class">
+<dt id="materials.structural_steel.SteelProfile">
+<em class="property">class </em><code class="descclassname">materials.structural_steel.</code><code class="descname">SteelProfile</code><span class="sig-paren">(</span><em>steel</em>, <em>name</em>, <em>table</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.section_properties.SectionProperties" title="materials.section_properties.SectionProperties"><code class="xref py py-class docutils literal"><span class="pre">materials.section_properties.SectionProperties</span></code></a></p>
+<p>Properties of a section in structural steel</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>steel</strong> &#8211; steel object (e.g. S275JR)</li>
+<li><strong>table</strong> &#8211; module containing a dictionary with mechanical characteristics
+of a series of profiles 
+(e.g. materials.structural_shapes.arcelor.arcelor_he_profiles)</li>
+<li><a class="reference internal" href="code.html#xc_base.EntConNmb.name" title="xc_base.EntConNmb.name"><strong>name</strong></a> &#8211; name identifying the section in the table</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.A">
+<code class="descname">A</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.A" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">cross-sectional area of the section</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
-<dl class="attribute">
-<dt id="materials.stressCalc.StressCalc.Es">
-<code class="descname">Es</code><em class="property"> = 200000000000.0</em><a class="headerlink" href="#materials.stressCalc.StressCalc.Es" title="Permalink to this definition">¶</a></dt>
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.EIy">
+<code class="descname">EIy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.EIy" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="materials.stressCalc.StressCalc.Ic">
-<code class="descname">Ic</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.Ic" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="materials.stressCalc.StressCalc.M">
-<code class="descname">M</code><em class="property"> = 8625000.0</em><a class="headerlink" href="#materials.stressCalc.StressCalc.M" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="materials.stressCalc.StressCalc.N">
-<code class="descname">N</code><em class="property"> = 30500000.0</em><a class="headerlink" href="#materials.stressCalc.StressCalc.N" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="materials.stressCalc.StressCalc.b">
-<code class="descname">b</code><em class="property"> = 10</em><a class="headerlink" href="#materials.stressCalc.StressCalc.b" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelProfile.EIz">
+<code class="descname">EIz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.EIz" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="materials.stressCalc.StressCalc.elasticStressAc">
-<code class="descname">elasticStressAc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.elasticStressAc" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelProfile.GJ">
+<code class="descname">GJ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.GJ" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="materials.stressCalc.StressCalc.elasticStressAc0">
-<code class="descname">elasticStressAc0</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.elasticStressAc0" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelProfile.It">
+<code class="descname">It</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.It" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">torsional constant.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.Iw">
+<code class="descname">Iw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.Iw" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">warping constant.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.Iy">
+<code class="descname">Iy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.Iy" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">second moment of area about the local y-axis</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.Iz">
+<code class="descname">Iz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.Iz" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">second moment of area about the local z-axis</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.J">
+<code class="descname">J</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.J" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">torsional moment of inertia of the section</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.alphaY">
+<code class="descname">alphaY</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.alphaY" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">shear shape factor with respect to local y-axis</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.alphaZ">
+<code class="descname">alphaZ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.alphaZ" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">shear shape factor with respect to local z-axis</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.checkBiaxialBendingForElement">
+<code class="descname">checkBiaxialBendingForElement</code><span class="sig-paren">(</span><em>elem</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.checkBiaxialBendingForElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called in every commit to check biaxial bending criterion (bars in 3D problems).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.checkUniaxialBendingForElement">
+<code class="descname">checkUniaxialBendingForElement</code><span class="sig-paren">(</span><em>elem</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.checkUniaxialBendingForElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called in every commit to check uniaxial bending criterion (bars in 2D problems).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.checkYShearForElement">
+<code class="descname">checkYShearForElement</code><span class="sig-paren">(</span><em>elem</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.checkYShearForElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called in every commit to y shear criterion.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>code</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.get" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="materials.stressCalc.StressCalc.elasticStressAs">
-<code class="descname">elasticStressAs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.elasticStressAs" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelProfile.getAdimensionalSlendernessY">
+<code class="descname">getAdimensionalSlendernessY</code><span class="sig-paren">(</span><em>Leq</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getAdimensionalSlendernessY" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Leq</strong> &#8211; buckling length for the column.</li>
+<li><strong>sectionClass</strong> &#8211; class of the section (1, 2, 3 or 4).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">adimensional slendernes as defined in EC3 part 1 5.5.1.2</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.getAdimensionalSlendernessZ">
+<code class="descname">getAdimensionalSlendernessZ</code><span class="sig-paren">(</span><em>Leq</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getAdimensionalSlendernessZ" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Leq</strong> &#8211; buckling length for the column.</li>
+<li><strong>sectionClass</strong> &#8211; class of the section (1, 2, 3 or 4).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">adimensional slendernes as defined in EC3 part 1 5.5.1.2</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.getAeff">
+<code class="descname">getAeff</code><span class="sig-paren">(</span><em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getAeff" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">effective area depending of the cross-section class.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.getBucklingReductionFactorY">
+<code class="descname">getBucklingReductionFactorY</code><span class="sig-paren">(</span><em>Leq</em>, <em>bucklingCurve</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getBucklingReductionFactorY" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Leq</strong> &#8211; buckling length for the column.</li>
+<li><strong>bucklingCurve</strong> &#8211; buckling curve (a0,a,b,c or d).</li>
+<li><strong>sectionClass</strong> &#8211; class of the section (1, 2, 3 or 4).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">bucling reduction factor as defined in EC3-1-1 6.3.1</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.getBucklingReductionFactorZ">
+<code class="descname">getBucklingReductionFactorZ</code><span class="sig-paren">(</span><em>Leq</em>, <em>bucklingCurve</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getBucklingReductionFactorZ" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Leq</strong> &#8211; buckling length for the column.</li>
+<li><strong>bucklingCurve</strong> &#8211; buckling curve (a0,a,b,c or d).</li>
+<li><strong>sectionClass</strong> &#8211; class of the section (1, 2, 3 or 4).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">bucling reduction factor as defined in EC3-1-1 6.3.1</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.getBucklingResistance">
+<code class="descname">getBucklingResistance</code><span class="sig-paren">(</span><em>Leq</em>, <em>bucklingCurveY</em>, <em>bucklingCurveZ</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getBucklingResistance" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Leq</strong> &#8211; buckling length for the column.</li>
+<li><strong>bucklingCurve</strong> &#8211; buckling curve (a0,a,b,c or d).</li>
+<li><strong>sectionClass</strong> &#8211; class of the section (1, 2, 3 or 4).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">bucling reduction factor as defined in EC3-1-1 6.3.1</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.getBucklingResistanceY">
+<code class="descname">getBucklingResistanceY</code><span class="sig-paren">(</span><em>Leq</em>, <em>bucklingCurve</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getBucklingResistanceY" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Leq</strong> &#8211; buckling length for the column.</li>
+<li><strong>bucklingCurve</strong> &#8211; buckling curve (a0,a,b,c or d).</li>
+<li><strong>sectionClass</strong> &#8211; class of the section (1, 2, 3 or 4).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">bucling reduction factor as defined in EC3-1-1 6.3.1</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.getBucklingResistanceZ">
+<code class="descname">getBucklingResistanceZ</code><span class="sig-paren">(</span><em>Leq</em>, <em>bucklingCurve</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getBucklingResistanceZ" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>Leq</strong> &#8211; buckling length for the column.</li>
+<li><strong>bucklingCurve</strong> &#8211; buckling curve (a0,a,b,c or d).</li>
+<li><strong>sectionClass</strong> &#8211; class of the section (1, 2, 3 or 4).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">bucling reduction factor as defined in EC3-1-1 6.3.1</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.getGyrationRadiusY">
+<code class="descname">getGyrationRadiusY</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getGyrationRadiusY" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">radius of gyration about the local y-axis</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.getGyrationRadiusZ">
+<code class="descname">getGyrationRadiusZ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getGyrationRadiusZ" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">radius of gyration about the local z-axis</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.getNcr">
+<code class="descname">getNcr</code><span class="sig-paren">(</span><em>Leq</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getNcr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Theoretical critical axial force (minimum of NcrY and NcrZ).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Leq</strong> &#8211; buckling length for the column.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">theoretical critical axial force  (minimum of NcrY and NcrZ).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.getNcrY">
+<code class="descname">getNcrY</code><span class="sig-paren">(</span><em>Leq</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getNcrY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Theoretical critical axial force on y axis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Leq</strong> &#8211; buckling length for the column.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">theoretical critical axial force on y axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.getNcrZ">
+<code class="descname">getNcrZ</code><span class="sig-paren">(</span><em>Leq</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getNcrZ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Theoretical critical axial force on z axis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Leq</strong> &#8211; buckling length for the column.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">theoretical critical axial force on z axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.getSlendernessY">
+<code class="descname">getSlendernessY</code><span class="sig-paren">(</span><em>Leq</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getSlendernessY" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Leq</strong> &#8211; buckling length for the column.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">buckling slendernes relative to the local y-axis</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.getSlendernessZ">
+<code class="descname">getSlendernessZ</code><span class="sig-paren">(</span><em>Leq</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getSlendernessZ" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Leq</strong> &#8211; buckling length for the column.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">buckling slendernes relative to the local z-axis</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.getWy">
+<code class="descname">getWy</code><span class="sig-paren">(</span><em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getWy" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">section modulus with respect to local y-axis</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.getWz">
+<code class="descname">getWz</code><span class="sig-paren">(</span><em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getWz" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">section modulus with respect to local z-axis</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.structural_steel.SteelProfile.setupULSControlVars">
+<code class="descname">setupULSControlVars</code><span class="sig-paren">(</span><em>elems</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.setupULSControlVars" title="Permalink to this definition">¶</a></dt>
+<dd><p>For each element creates the variables
+needed to check ultimate limit state criterion to satisfy.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.structural_steel.alphaImperfectionFactor">
+<code class="descclassname">materials.structural_steel.</code><code class="descname">alphaImperfectionFactor</code><span class="sig-paren">(</span><em>bucklingCurve</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.alphaImperfectionFactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the alpha imperfection factor called defined
+in tables 6.1 and 6.2 of EC3.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bucklingCurve</strong> &#8211; buckling curve (a0,a,b,c or d).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-materials.materialWithDKDiagrams">
+<span id="materialwithdkdiagrams"></span><h1>materialWithDKDiagrams<a class="headerlink" href="#module-materials.materialWithDKDiagrams" title="Permalink to this headline">¶</a></h1>
+<p>MaterialWithDKDiagrams.py: materials with characteristic (K) and design (D) diagrams.</p>
+<dl class="class">
+<dt id="materials.materialWithDKDiagrams.MaterialWithDKDiagrams">
+<em class="property">class </em><code class="descclassname">materials.materialWithDKDiagrams.</code><code class="descname">MaterialWithDKDiagrams</code><span class="sig-paren">(</span><em>matName</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.materialWithDKDiagrams.MaterialWithDKDiagrams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Base class for materials with characteristic (K) and design (D) diagrams 
+Attributes:</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">ivar materialName:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">name of material</td>
+</tr>
+<tr class="field-even field"><th class="field-name">ivar nmbDiagK:</th><td class="field-body">name of the characteristic diagram</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">ivar matTagK:</th><td class="field-body">tag of the uni-axial material in the characteristic diagram</td>
+</tr>
+<tr class="field-even field"><th class="field-name">ivar nmbDiagD:</th><td class="field-body">name of the design diagram</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<dl class="method">
+<dt id="materials.materialWithDKDiagrams.MaterialWithDKDiagrams.getDiagD">
+<code class="descname">getDiagD</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.materialWithDKDiagrams.MaterialWithDKDiagrams.getDiagD" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="materials.stressCalc.StressCalc.elasticStressAsp">
-<code class="descname">elasticStressAsp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.elasticStressAsp" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.materialWithDKDiagrams.MaterialWithDKDiagrams.getDiagK">
+<code class="descname">getDiagK</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.materialWithDKDiagrams.MaterialWithDKDiagrams.getDiagK" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="materials.stressCalc.StressCalc.getAh">
-<code class="descname">getAh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.getAh" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.stressCalc.StressCalc.getIh">
-<code class="descname">getIh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.getIh" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.stressCalc.StressCalc.getMc">
-<code class="descname">getMc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.getMc" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.stressCalc.StressCalc.getMs">
-<code class="descname">getMs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.getMs" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.stressCalc.StressCalc.getMsp">
-<code class="descname">getMsp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.getMsp" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.stressCalc.StressCalc.getNc">
-<code class="descname">getNc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.getNc" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.stressCalc.StressCalc.getNs">
-<code class="descname">getNs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.getNs" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.stressCalc.StressCalc.getNsp">
-<code class="descname">getNsp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.getNsp" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.stressCalc.StressCalc.getYCentroidAh">
-<code class="descname">getYCentroidAh</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.getYCentroidAh" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.stressCalc.StressCalc.getYCentroidAs">
-<code class="descname">getYCentroidAs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.getYCentroidAs" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.stressCalc.StressCalc.getYs">
-<code class="descname">getYs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.getYs" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.stressCalc.StressCalc.getYsp">
-<code class="descname">getYsp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.getYsp" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="materials.stressCalc.StressCalc.h">
-<code class="descname">h</code><em class="property"> = 0.8</em><a class="headerlink" href="#materials.stressCalc.StressCalc.h" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.stressCalc.StressCalc.inCompression">
-<code class="descname">inCompression</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.inCompression" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.stressCalc.StressCalc.inTraction">
-<code class="descname">inTraction</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.inTraction" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="materials.stressCalc.StressCalc.r">
-<code class="descname">r</code><em class="property"> = 0.05</em><a class="headerlink" href="#materials.stressCalc.StressCalc.r" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.stressCalc.StressCalc.residX">
-<code class="descname">residX</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.residX" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.stressCalc.StressCalc.resistingM">
-<code class="descname">resistingM</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.resistingM" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.stressCalc.StressCalc.resistingN">
-<code class="descname">resistingN</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.resistingN" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="materials.stressCalc.StressCalc.rp">
-<code class="descname">rp</code><em class="property"> = 0.05</em><a class="headerlink" href="#materials.stressCalc.StressCalc.rp" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="materials.stressCalc.StressCalc.sgc">
-<code class="descname">sgc</code><em class="property"> = 0.0</em><a class="headerlink" href="#materials.stressCalc.StressCalc.sgc" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="materials.stressCalc.StressCalc.sgc0">
-<code class="descname">sgc0</code><em class="property"> = 0.0</em><a class="headerlink" href="#materials.stressCalc.StressCalc.sgc0" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="materials.stressCalc.StressCalc.sgs">
-<code class="descname">sgs</code><em class="property"> = 0.0</em><a class="headerlink" href="#materials.stressCalc.StressCalc.sgs" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="materials.stressCalc.StressCalc.sgsp">
-<code class="descname">sgsp</code><em class="property"> = 0.0</em><a class="headerlink" href="#materials.stressCalc.StressCalc.sgsp" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.stressCalc.StressCalc.solve">
-<code class="descname">solve</code><span class="sig-paren">(</span><em>N</em>, <em>M</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.solve" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.stressCalc.StressCalc.swap">
-<code class="descname">swap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.swap" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.stressCalc.StressCalc.totAs">
-<code class="descname">totAs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.totAs" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.stressCalc.StressCalc.totIs">
-<code class="descname">totIs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.totIs" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.stressCalc.StressCalc.verif">
-<code class="descname">verif</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.verif" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.stressCalc.StressCalc.xElasticNeutralAxis">
-<code class="descname">xElasticNeutralAxis</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.stressCalc.StressCalc.xElasticNeutralAxis" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="materials.stressCalc.StressCalc.xx">
-<code class="descname">xx</code><em class="property"> = 0.0</em><a class="headerlink" href="#materials.stressCalc.StressCalc.xx" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.materialWithDKDiagrams.MaterialWithDKDiagrams.setupName">
+<code class="descname">setupName</code><span class="sig-paren">(</span><em>matName</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.materialWithDKDiagrams.MaterialWithDKDiagrams.setupName" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 </div>
-<div class="section" id="materials-reinforcingsteeltest">
-<h2>materials.reinforcingSteelTest<a class="headerlink" href="#materials-reinforcingsteeltest" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-materials.momentCurvatureDiagram">
+<span id="momentcurvaturediagram"></span><h1>momentCurvatureDiagram<a class="headerlink" href="#module-materials.momentCurvatureDiagram" title="Permalink to this headline">¶</a></h1>
+<p>Moment curvature diagram for a section.</p>
+<dl class="function">
+<dt id="materials.momentCurvatureDiagram.getMomentCurvatureDiagram3D">
+<code class="descclassname">materials.momentCurvatureDiagram.</code><code class="descname">getMomentCurvatureDiagram3D</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>nmbSecc</em>, <em>esfAxil</em>, <em>maxK</em>, <em>numIncr</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.momentCurvatureDiagram.getMomentCurvatureDiagram3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the points of the moment curvature diagram of the section.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nmbSecc</strong> &#8211; Section name.</li>
+<li><strong>esfAxil</strong> &#8211; Axial force over the section.</li>
+<li><strong>maxK</strong> &#8211; Maximum curvature to reach in the analysis.</li>
+<li><strong>numIncr</strong> &#8211; Number of increments.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
-<div class="section" id="diagmomcurvatura">
-<h2>diagMomCurvatura<a class="headerlink" href="#diagmomcurvatura" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-materials.defSeccAggregation">
+<span id="defseccaggregation"></span><h1>defSeccAggregation<a class="headerlink" href="#module-materials.defSeccAggregation" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="materials.defSeccAggregation.defSeccAggregation2d">
+<code class="descclassname">materials.defSeccAggregation.</code><code class="descname">defSeccAggregation2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>defSecc</em>, <em>defMat</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.defSeccAggregation.defSeccAggregation2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Definition of a elastic material-section for 2D elements</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> &#8211; preprocessor name</li>
+<li><strong>defSecc</strong> &#8211; object with the mechanical properties of the section (A, Iy, Iz, ...)</li>
+<li><strong>defMat</strong> &#8211; object with the properties of the material (E, G)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.defSeccAggregation.defSeccAggregation3d">
+<code class="descclassname">materials.defSeccAggregation.</code><code class="descname">defSeccAggregation3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>defSecc</em>, <em>defMat</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.defSeccAggregation.defSeccAggregation3d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Definition of a elastic material-section for 3D elements</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> &#8211; preprocessor name</li>
+<li><strong>defSecc</strong> &#8211; object with the mechanical properties of the section (A, Iy, Iz, ...)</li>
+<li><strong>defMat</strong> &#8211; object with the properties of the material (E, G)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
-<div class="section" id="limitstatecontrollerbase">
-<h2>LimitStateControllerBase<a class="headerlink" href="#limitstatecontrollerbase" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="materials-section-properties">
-<h2>materials.section_properties<a class="headerlink" href="#materials-section-properties" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="module-materials.section_properties"></span><dl class="class">
+<div class="section" id="module-materials.section_properties">
+<span id="section-properties"></span><h1>section_properties<a class="headerlink" href="#module-materials.section_properties" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
 <dt id="materials.section_properties.CircularSection">
 <em class="property">class </em><code class="descclassname">materials.section_properties.</code><code class="descname">CircularSection</code><span class="sig-paren">(</span><em>name</em>, <em>Rext</em>, <em>Rint=0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.CircularSection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#materials.section_properties.SectionProperties" title="materials.section_properties.SectionProperties"><code class="xref py py-class docutils literal"><span class="pre">materials.section_properties.SectionProperties</span></code></a></p>
@@ -1065,7 +2417,7 @@ wdBotFlange</p>
 <dt id="materials.section_properties.ISection.Wxel">
 <code class="descname">Wxel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.ISection.Wxel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return torsional section modulus of the section.</p>
-<p>reference: article «Perfil doble T» of Wikipedia.</p>
+<p>reference: article «I Beam» of Wikipedia.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1096,7 +2448,7 @@ wdBotFlange</p>
 <dt id="materials.section_properties.ISection.getWarpingMoment">
 <code class="descname">getWarpingMoment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.ISection.getWarpingMoment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return warping moment of a I-section</p>
-<p>reference: article «Perfil doble T» of Wikipedia.</p>
+<p>reference: article «I Beam» of Wikipedia.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1420,6 +2772,12 @@ made of the specified material</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="materials.section_properties.SectionProperties.getCrossSectionProperties2D">
+<code class="descname">getCrossSectionProperties2D</code><span class="sig-paren">(</span><em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.SectionProperties.getCrossSectionProperties2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a CrossSectionProperties object with the 2D properties of the section.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.section_properties.SectionProperties.getPlasticMomentY">
 <code class="descname">getPlasticMomentY</code><span class="sig-paren">(</span><em>fy</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.SectionProperties.getPlasticMomentY" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return section plastic moment around Y axis.</p>
@@ -1534,18 +2892,166 @@ the axis parallel to Z that passes through section centroid.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="aceros-estructurales">
-<h2>aceros_estructurales<a class="headerlink" href="#aceros-estructurales" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-materials.RCsectionsContainer">
+<span id="rcsectionscontainer"></span><h1>RCsectionsContainer<a class="headerlink" href="#module-materials.RCsectionsContainer" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="materials.RCsectionsContainer.SectionContainer">
+<em class="property">class </em><code class="descclassname">materials.RCsectionsContainer.</code><code class="descname">SectionContainer</code><a class="headerlink" href="#materials.RCsectionsContainer.SectionContainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="materials.RCsectionsContainer.SectionContainer.append">
+<code class="descname">append</code><span class="sig-paren">(</span><em>RCSections</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.RCsectionsContainer.SectionContainer.append" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.RCsectionsContainer.SectionContainer.calcInteractionDiagrams">
+<code class="descname">calcInteractionDiagrams</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>matDiagType</em>, <em>diagramType='NMyMz'</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.RCsectionsContainer.SectionContainer.calcInteractionDiagrams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates 3D interaction diagrams for each section.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> &#8211; FEA problem preprocessor</li>
+<li><strong>matDiagType</strong> &#8211; &#8216;k&#8217; for characteristic, &#8216;d&#8217; for design</li>
+<li><strong>diagramType</strong> &#8211; three dimensional diagram: NMyMz
+bi-dimensional diagram: NMy
+bi-dimensional diagram: NMz</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.RCsectionsContainer.SectionContainer.search">
+<code class="descname">search</code><span class="sig-paren">(</span><em>nmb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.RCsectionsContainer.SectionContainer.search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returnrs section named nmb (if founded)</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="coefsdistorsion">
-<h2>coefsDistorsion<a class="headerlink" href="#coefsdistorsion" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-materials.limit_state_checking_base">
+<span id="limit-state-checking-base"></span><h1>limit_state_checking_base<a class="headerlink" href="#module-materials.limit_state_checking_base" title="Permalink to this headline">¶</a></h1>
+<p>Base classes for limit state control.</p>
+<dl class="class">
+<dt id="materials.limit_state_checking_base.CrackControlBaseParameters">
+<em class="property">class </em><code class="descclassname">materials.limit_state_checking_base.</code><code class="descname">CrackControlBaseParameters</code><span class="sig-paren">(</span><em>limitStateLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.limit_state_checking_base.CrackControlBaseParameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.limit_state_checking_base.LimitStateControllerBase" title="materials.limit_state_checking_base.LimitStateControllerBase"><code class="xref py py-class docutils literal"><span class="pre">materials.limit_state_checking_base.LimitStateControllerBase</span></code></a></p>
+<p>Basic parameters for crack control.</p>
+<dl class="method">
+<dt id="materials.limit_state_checking_base.CrackControlBaseParameters.printParams">
+<code class="descname">printParams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.limit_state_checking_base.CrackControlBaseParameters.printParams" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.limit_state_checking_base.LimitStateControllerBase">
+<em class="property">class </em><code class="descclassname">materials.limit_state_checking_base.</code><code class="descname">LimitStateControllerBase</code><span class="sig-paren">(</span><em>limitStateLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.limit_state_checking_base.LimitStateControllerBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Basic parameters for limit state control (normal stresses, shear, crack,...).</p>
+<dl class="method">
+<dt id="materials.limit_state_checking_base.LimitStateControllerBase.check">
+<code class="descname">check</code><span class="sig-paren">(</span><em>elements</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.limit_state_checking_base.LimitStateControllerBase.check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Crack control.</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="materials-regimenseccion">
-<h2>materials.regimenSeccion<a class="headerlink" href="#materials-regimenseccion" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-materials.internal_forces">
+<span id="internal-forces"></span><h1>internal_forces<a class="headerlink" href="#module-materials.internal_forces" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="materials.internal_forces.CrossSectionInternalForces">
+<em class="property">class </em><code class="descclassname">materials.internal_forces.</code><code class="descname">CrossSectionInternalForces</code><span class="sig-paren">(</span><em>N=0.0</em>, <em>Vy=0.0</em>, <em>Vz=0.0</em>, <em>T=0.0</em>, <em>My=0.0</em>, <em>Mz=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.internal_forces.CrossSectionInternalForces" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="materials.internal_forces.CrossSectionInternalForces.getCSVString">
+<code class="descname">getCSVString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.internal_forces.CrossSectionInternalForces.getCSVString" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a comma separated values string that represents the
+internal forces.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.internal_forces.CrossSectionInternalForces.getComponents">
+<code class="descname">getComponents</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.internal_forces.CrossSectionInternalForces.getComponents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the internal forces in a list.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.internal_forces.CrossSectionInternalForces.getModulus">
+<code class="descname">getModulus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.internal_forces.CrossSectionInternalForces.getModulus" title="Permalink to this definition">¶</a></dt>
+<dd><p>modulus of the corresponding [N,Vy,Vz,T,My,Mz] vector.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.internal_forces.CrossSectionInternalForces.setFromCSVString">
+<code class="descname">setFromCSVString</code><span class="sig-paren">(</span><em>csvStr</em>, <em>offset</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.internal_forces.CrossSectionInternalForces.setFromCSVString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the internal forces from a CSV string.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.internal_forces.ShellMaterialInternalForces">
+<em class="property">class </em><code class="descclassname">materials.internal_forces.</code><code class="descname">ShellMaterialInternalForces</code><span class="sig-paren">(</span><em>n1=0.0</em>, <em>n2=0.0</em>, <em>n12=0.0</em>, <em>m1=0.0</em>, <em>m2=0.0</em>, <em>m12=0.0</em>, <em>q13=0.0</em>, <em>q23=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.internal_forces.ShellMaterialInternalForces" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="materials.internal_forces.ShellMaterialInternalForces.getCSVString">
+<code class="descname">getCSVString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.internal_forces.ShellMaterialInternalForces.getCSVString" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a comma separated values string that represents the
+internal forces.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.internal_forces.ShellMaterialInternalForces.getWoodArmer">
+<code class="descname">getWoodArmer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.internal_forces.ShellMaterialInternalForces.getWoodArmer" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns wood-archer method internal forces.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.internal_forces.ShellMaterialInternalForces.getWoodArmer1">
+<code class="descname">getWoodArmer1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.internal_forces.ShellMaterialInternalForces.getWoodArmer1" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns wood-archer method internal forces for axis 1.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.internal_forces.ShellMaterialInternalForces.getWoodArmer2">
+<code class="descname">getWoodArmer2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.internal_forces.ShellMaterialInternalForces.getWoodArmer2" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns wood-archer method internal forces for axis 2.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.internal_forces.ShellMaterialInternalForces.setFromAverageInShellElement">
+<code class="descname">setFromAverageInShellElement</code><span class="sig-paren">(</span><em>element</em>, <em>fConv=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.internal_forces.ShellMaterialInternalForces.setFromAverageInShellElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extracts the average internal forces from the element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.internal_forces.ShellMaterialInternalForces.setFromCSVString">
+<code class="descname">setFromCSVString</code><span class="sig-paren">(</span><em>csvStr</em>, <em>offset</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.internal_forces.ShellMaterialInternalForces.setFromCSVString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the internal forces from a CSV string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.internal_forces.ShellMaterialInternalForces.transform">
+<code class="descname">transform</code><span class="sig-paren">(</span><em>theta</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.internal_forces.ShellMaterialInternalForces.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the components for a reference system rotated 
+the angle being passed as parameter.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.internal_forces.transformInternalForces">
+<code class="descclassname">materials.internal_forces.</code><code class="descname">transformInternalForces</code><span class="sig-paren">(</span><em>iForces</em>, <em>theta</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.internal_forces.transformInternalForces" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
-<div class="section" id="bridge-bearings">
-<h2>Bridge bearings<a class="headerlink" href="#bridge-bearings" title="Permalink to this headline">¶</a></h2>
-<span class="target" id="module-materials.bridge_bearings"></span><p>Classes for modelling bridge bearings.</p>
+<div class="section" id="module-materials.bridge_bearings">
+<span id="bridge-bearings"></span><h1>bridge_bearings<a class="headerlink" href="#module-materials.bridge_bearings" title="Permalink to this headline">¶</a></h1>
+<p>Classes for modelling bridge bearings.</p>
 <p>This module provides some classes that allow modelling elastomeric and pot type
 bridge bearings. For now they are modelized as linear joints that connect
 two nodes with springs that introduce translational and/or rotational stiffness
@@ -1931,10 +3437,6 @@ of DOFs.</td>
 <dd></dd></dl>
 
 </div>
-<div class="section" id="materialgraphics">
-<h2>materialGraphics<a class="headerlink" href="#materialgraphics" title="Permalink to this headline">¶</a></h2>
-</div>
-</div>
 
 
           </div>
@@ -1944,30 +3446,25 @@ of DOFs.</td>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">General topics</a><ul>
-<li><a class="reference internal" href="#module-materials.typical_materials">Typical materials</a></li>
-<li><a class="reference internal" href="#concretebase">concreteBase</a></li>
-<li><a class="reference internal" href="#materials-reinforcingsteel">materials.reinforcingSteel</a></li>
-<li><a class="reference internal" href="#module-materials.stressCalc">materials.stressCalc</a></li>
-<li><a class="reference internal" href="#materials-reinforcingsteeltest">materials.reinforcingSteelTest</a></li>
-<li><a class="reference internal" href="#diagmomcurvatura">diagMomCurvatura</a></li>
-<li><a class="reference internal" href="#limitstatecontrollerbase">LimitStateControllerBase</a></li>
-<li><a class="reference internal" href="#materials-section-properties">materials.section_properties</a></li>
-<li><a class="reference internal" href="#aceros-estructurales">aceros_estructurales</a></li>
-<li><a class="reference internal" href="#coefsdistorsion">coefsDistorsion</a></li>
-<li><a class="reference internal" href="#materials-regimenseccion">materials.regimenSeccion</a></li>
-<li><a class="reference internal" href="#bridge-bearings">Bridge bearings</a></li>
-<li><a class="reference internal" href="#materialgraphics">materialGraphics</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">Typical materials</a></li>
+<li><a class="reference internal" href="#module-materials.concrete_base">concrete_base</a></li>
+<li><a class="reference internal" href="#module-materials.structural_steel">structural_steel</a></li>
+<li><a class="reference internal" href="#module-materials.materialWithDKDiagrams">materialWithDKDiagrams</a></li>
+<li><a class="reference internal" href="#module-materials.momentCurvatureDiagram">momentCurvatureDiagram</a></li>
+<li><a class="reference internal" href="#module-materials.defSeccAggregation">defSeccAggregation</a></li>
+<li><a class="reference internal" href="#module-materials.section_properties">section_properties</a></li>
+<li><a class="reference internal" href="#module-materials.RCsectionsContainer">RCsectionsContainer</a></li>
+<li><a class="reference internal" href="#module-materials.limit_state_checking_base">limit_state_checking_base</a></li>
+<li><a class="reference internal" href="#module-materials.internal_forces">internal_forces</a></li>
+<li><a class="reference internal" href="#module-materials.bridge_bearings">bridge_bearings</a></li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="materials.html"
-                        title="previous chapter">Materials</a></p>
+  <p class="topless"><a href="materials.ec5.html"
+                        title="previous chapter">Materials according to Eurocode-5 code</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="materials.fiber_section.html"
-                        title="next chapter">Fiber sections</a></p>
+  <p class="topless"><a href="actions.html"
+                        title="next chapter">Actions</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -2002,10 +3499,10 @@ of DOFs.</td>
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="materials.fiber_section.html" title="Fiber sections"
+          <a href="actions.html" title="Actions"
              >next</a> |</li>
         <li class="right" >
-          <a href="materials.html" title="Materials"
+          <a href="materials.ec5.html" title="Materials according to Eurocode-5 code"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">XC 3.0 documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="materials.html" >Materials</a> &raquo;</li> 

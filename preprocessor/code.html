@@ -54,8 +54,95 @@
             
   <div class="section" id="module-xc">
 <span id="c-classes"></span><h1>C++ classes<a class="headerlink" href="#module-xc" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="xc.ModelWrapper">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">ModelWrapper</code><a class="headerlink" href="#xc.ModelWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xc_base.EntCmd" title="xc_base.EntCmd"><code class="xref py py-class docutils literal"><span class="pre">xc_base.EntCmd</span></code></a></p>
+<p>Wrapper for the finite element model &#8216;seen&#8217; from the solver. 
+The model wrapper is a container for: 
+- Domain of the finite element model. 
+- Analysis model. 
+- Constraint handler. 
+- DOF numberer.</p>
+<dl class="method">
+<dt id="xc.ModelWrapper.newConstraintHandler">
+<code class="descname">newConstraintHandler</code><span class="sig-paren">(</span><em>(ModelWrapper)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; ConstraintHandler :<a class="headerlink" href="#xc.ModelWrapper.newConstraintHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>newConstraintHandler(nmb)
+Create a new constraint handler. 
+Parameters:</p>
+<blockquote>
+<div>nmb: name of the type of handler. Available types of constraint handlers: &#8216;lagrange_constraint_handler&#8217;, &#8216;penalty_constraint_handler&#8217;, &#8216;plain_handler&#8217;, &#8216;transformation_constraint_handler&#8217;.</div></blockquote>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::ConstraintHandler {lvalue} newConstraintHandler(XC::ModelWrapper {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.ModelWrapper.newNumberer">
+<code class="descname">newNumberer</code><span class="sig-paren">(</span><em>(ModelWrapper)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; DOFNumberer :<a class="headerlink" href="#xc.ModelWrapper.newNumberer" title="Permalink to this definition">¶</a></dt>
+<dd><p>newNumberer(nmb)
+Create a new DOF numberer
+Parameters: 
+nmb: name of the type of numberer. Available types of numberers: &#8216;default_numberer&#8217;, &#8216;plain_numberer&#8217;, &#8216;parallel_numberer&#8217;.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::DOF_Numberer {lvalue} newNumberer(XC::ModelWrapper {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 <div class="section" id="module-xc">
 <span id="component"></span><h2>Component<a class="headerlink" href="#module-xc" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="xc.DomainComponent">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">DomainComponent</code><a class="headerlink" href="#xc.DomainComponent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">xc.TaggedObject</span></code></p>
+<dl class="attribute">
+<dt id="xc.DomainComponent.getDomain">
+<code class="descname">getDomain</code><a class="headerlink" href="#xc.DomainComponent.getDomain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a reference to the domain.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.DomainComponent.getIdx">
+<code class="descname">getIdx</code><a class="headerlink" href="#xc.DomainComponent.getIdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an index for use in VTK arrays.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.ContinuaReprComponent">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">ContinuaReprComponent</code><a class="headerlink" href="#xc.ContinuaReprComponent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xc.DomainComponent" title="xc.DomainComponent"><code class="xref py py-class docutils literal"><span class="pre">xc.DomainComponent</span></code></a></p>
+<dl class="attribute">
+<dt id="xc.ContinuaReprComponent.alive">
+<code class="descname">alive</code><a class="headerlink" href="#xc.ContinuaReprComponent.alive" title="Permalink to this definition">¶</a></dt>
+<dd><p>activates the domain component.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.ContinuaReprComponent.isAlive">
+<code class="descname">isAlive</code><a class="headerlink" href="#xc.ContinuaReprComponent.isAlive" title="Permalink to this definition">¶</a></dt>
+<dd><p>true if domain component is not active.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.ContinuaReprComponent.isDead">
+<code class="descname">isDead</code><a class="headerlink" href="#xc.ContinuaReprComponent.isDead" title="Permalink to this definition">¶</a></dt>
+<dd><p>true if domain component is not active.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.ContinuaReprComponent.kill">
+<code class="descname">kill</code><a class="headerlink" href="#xc.ContinuaReprComponent.kill" title="Permalink to this definition">¶</a></dt>
+<dd><p>deactivates the domain component.</p>
+</dd></dl>
+
+</dd></dl>
+
 <div class="section" id="module-geom">
 <span id="geom"></span><h3>Geom<a class="headerlink" href="#module-geom" title="Permalink to this headline">¶</a></h3>
 <dl class="class">

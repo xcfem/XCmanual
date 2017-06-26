@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Entities &mdash; XC 3.0 documentation</title>
+    <title>C++ API entities &mdash; XC 3.0 documentation</title>
     
     <link rel="stylesheet" href="../../../../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
@@ -24,9 +24,9 @@
     <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
     <link rel="top" title="XC 3.0 documentation" href="../../../../../index.html" />
-    <link rel="up" title="Geometry" href="../../preprocessor_index.html" />
-    <link rel="next" title="Matrices" href="../matrices/matrices.html" />
-    <link rel="prev" title="CAD" href="../cad.html" /> 
+    <link rel="up" title="Entities" href="../../../../entities.html" />
+    <link rel="next" title="Lines" href="../../../../python_modules/model.entities.html" />
+    <link rel="prev" title="General topics" href="../cad.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -39,14 +39,14 @@
           <a href="../../../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="../matrices/matrices.html" title="Matrices"
+          <a href="../../../../python_modules/model.entities.html" title="Lines"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="../cad.html" title="CAD"
+          <a href="../cad.html" title="General topics"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../../../index.html">XC 3.0 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../../../preprocessor_index.html" >C++ API</a> &raquo;</li>
-          <li class="nav-item nav-item-2"><a href="../../preprocessor_index.html" accesskey="U">Geometry</a> &raquo;</li> 
+          <li class="nav-item nav-item-1"><a href="../../../../CAD_model.html" >CAD model</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="../../../../entities.html" accesskey="U">Entities</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -56,7 +56,413 @@
           <div class="body" role="main">
             
   <div class="section" id="module-xc">
-<span id="entities"></span><h1>Entities<a class="headerlink" href="#module-xc" title="Permalink to this headline">¶</a></h1>
+<span id="c-api-entities"></span><h1>C++ API entities<a class="headerlink" href="#module-xc" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="xc.EntMdlr">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">EntMdlr</code><a class="headerlink" href="#xc.EntMdlr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">xc.SetEstruct</span></code></p>
+<dl class="method">
+<dt id="xc.EntMdlr.getElement">
+<code class="descname">getElement</code><span class="sig-paren">(</span><em>(EntMdlr)arg1</em>, <em>(int)arg2</em>, <em>(int)arg3</em>, <em>(int)arg4</em><span class="sig-paren">)</span> &rarr; Element :<a class="headerlink" href="#xc.EntMdlr.getElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns (i,j,k) node.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Element* getElement(XC::EntMdlr {lvalue},unsigned long,unsigned long,unsigned long)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.EntMdlr.getNearestElement">
+<code class="descname">getNearestElement</code><span class="sig-paren">(</span><em>(EntMdlr)arg1</em>, <em>(Pos3d)arg2</em><span class="sig-paren">)</span> &rarr; Element :<a class="headerlink" href="#xc.EntMdlr.getNearestElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns nearest element.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Element* getNearestElement(XC::EntMdlr {lvalue},Pos3d)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.EntMdlr.getNearestNode">
+<code class="descname">getNearestNode</code><span class="sig-paren">(</span><em>(EntMdlr)arg1</em>, <em>(Pos3d)arg2</em><span class="sig-paren">)</span> &rarr; Node :<a class="headerlink" href="#xc.EntMdlr.getNearestNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns nearest node.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Node* getNearestNode(XC::EntMdlr {lvalue},Pos3d)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.EntMdlr.getNode">
+<code class="descname">getNode</code><span class="sig-paren">(</span><em>(EntMdlr)arg1</em>, <em>(int)arg2</em>, <em>(int)arg3</em>, <em>(int)arg4</em><span class="sig-paren">)</span> &rarr; Node :<a class="headerlink" href="#xc.EntMdlr.getNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns (i,j,k) node.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Node* getNode(XC::EntMdlr {lvalue},unsigned long,unsigned long,unsigned long)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.EntMdlr.getSimpsonWeights">
+<code class="descname">getSimpsonWeights</code><span class="sig-paren">(</span><em>(EntMdlr)arg1</em>, <em>(str)arg2</em>, <em>(str)arg3</em>, <em>(int)arg4</em>, <em>(int)arg5</em>, <em>(int)arg6</em><span class="sig-paren">)</span> &rarr; Vector :<a class="headerlink" href="#xc.EntMdlr.getSimpsonWeights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns weights for Simpson&#8217;s rule integration.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Vector getSimpsonWeights(XC::EntMdlr {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;,std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;,unsigned long,unsigned long,unsigned long)</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.Pnt">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">Pnt</code><a class="headerlink" href="#xc.Pnt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xc.EntMdlr" title="xc.EntMdlr"><code class="xref py py-class docutils literal"><span class="pre">xc.EntMdlr</span></code></a></p>
+<dl class="attribute">
+<dt id="xc.Pnt.getNLines">
+<code class="descname">getNLines</code><a class="headerlink" href="#xc.Pnt.getNLines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns number of lines that touch the point.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.Pnt.getNode">
+<code class="descname">getNode</code><span class="sig-paren">(</span><em>(Pnt)arg1</em><span class="sig-paren">)</span> &rarr; Node :<a class="headerlink" href="#xc.Pnt.getNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns point&#8217;s node.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Node* getNode(XC::Pnt {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.Pnt.getTagNode">
+<code class="descname">getTagNode</code><a class="headerlink" href="#xc.Pnt.getTagNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns node&#8217;s tag.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.Pnt.getVectorPos">
+<code class="descname">getVectorPos</code><span class="sig-paren">(</span><em>(Pnt)arg1</em><span class="sig-paren">)</span> &rarr; Vector3d :<a class="headerlink" href="#xc.Pnt.getVectorPos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the position vector of the point.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>Vector3d getVectorPos(XC::Pnt {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.Pnt.hasNode">
+<code class="descname">hasNode</code><a class="headerlink" href="#xc.Pnt.hasNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if the point has a node.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.Face">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">Face</code><a class="headerlink" href="#xc.Face" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">xc.CmbEdge</span></code></p>
+<dl class="method">
+<dt id="xc.Face.getContour">
+<code class="descname">getContour</code><span class="sig-paren">(</span><em>(Face)arg1</em><span class="sig-paren">)</span> &rarr; Polilinea3d :<a class="headerlink" href="#xc.Face.getContour" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the face contour as a 3D polyline.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>Polilinea3d getContour(XC::Face {lvalue})</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.QuadSurface">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">QuadSurface</code><a class="headerlink" href="#xc.QuadSurface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xc.Face" title="xc.Face"><code class="xref py py-class docutils literal"><span class="pre">xc.Face</span></code></a></p>
+<dl class="method">
+<dt id="xc.QuadSurface.defGridPoints">
+<code class="descname">defGridPoints</code><span class="sig-paren">(</span><em>(QuadSurface)arg1</em>, <em>(list)arg2</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.QuadSurface.defGridPoints" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void defGridPoints(XC::QuadSurface {lvalue},boost::python::list)</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.QuadSurface.getIVector">
+<code class="descname">getIVector</code><a class="headerlink" href="#xc.QuadSurface.getIVector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the local x vector.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.QuadSurface.getJVector">
+<code class="descname">getJVector</code><a class="headerlink" href="#xc.QuadSurface.getJVector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the local x vector.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.QuadSurface.getKVector">
+<code class="descname">getKVector</code><a class="headerlink" href="#xc.QuadSurface.getKVector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the local x vector.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.QuadSurface.setElemSizeI">
+<code class="descname">setElemSizeI</code><span class="sig-paren">(</span><em>(QuadSurface)arg1</em>, <em>(float)arg2</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.QuadSurface.setElemSizeI" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void setElemSizeI(XC::QuadSurface {lvalue},double)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.QuadSurface.setElemSizeIJ">
+<code class="descname">setElemSizeIJ</code><span class="sig-paren">(</span><em>(QuadSurface)arg1</em>, <em>(float)arg2</em>, <em>(float)arg3</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.QuadSurface.setElemSizeIJ" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void setElemSizeIJ(XC::QuadSurface {lvalue},double,double)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.QuadSurface.setElemSizeJ">
+<code class="descname">setElemSizeJ</code><span class="sig-paren">(</span><em>(QuadSurface)arg1</em>, <em>(float)arg2</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.QuadSurface.setElemSizeJ" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void setElemSizeJ(XC::QuadSurface {lvalue},double)</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.Body">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">Body</code><a class="headerlink" href="#xc.Body" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xc.EntMdlr" title="xc.EntMdlr"><code class="xref py py-class docutils literal"><span class="pre">xc.EntMdlr</span></code></a></p>
+<p>Six-faced body.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.Block">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">Block</code><a class="headerlink" href="#xc.Block" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xc.Body" title="xc.Body"><code class="xref py py-class docutils literal"><span class="pre">xc.Body</span></code></a></p>
+<p>Six-faced solid.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.UniformGrid">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">UniformGrid</code><a class="headerlink" href="#xc.UniformGrid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xc.EntMdlr" title="xc.EntMdlr"><code class="xref py py-class docutils literal"><span class="pre">xc.EntMdlr</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.MapCadMemberBase">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">MapCadMemberBase</code><a class="headerlink" href="#xc.MapCadMemberBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../../../python_modules/code.html#xc_base.EntCmd" title="xc_base.EntCmd"><code class="xref py py-class docutils literal"><span class="pre">xc_base.EntCmd</span></code></a></p>
+<dl class="method">
+<dt id="xc.MapCadMemberBase.setDefaultTag">
+<code class="descname">setDefaultTag</code><span class="sig-paren">(</span><em>(MapCadMemberBase)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.MapCadMemberBase.setDefaultTag" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void setDefaultTag(XC::MapCadMemberBase {lvalue},unsigned long)</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.map_puntos">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">map_puntos</code><a class="headerlink" href="#xc.map_puntos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">xc.MapCMPuntos</span></code></p>
+<dl class="method">
+<dt id="xc.map_puntos.getNearest">
+<code class="descname">getNearest</code><span class="sig-paren">(</span><em>(map_puntos)arg1</em>, <em>(Pos3d)arg2</em><span class="sig-paren">)</span> &rarr; Pnt :<a class="headerlink" href="#xc.map_puntos.getNearest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the nearest point.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Pnt* getNearest(XC::MapEnt&lt;XC::Pnt&gt; {lvalue},Pos3d)</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.MapPuntos">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">MapPuntos</code><a class="headerlink" href="#xc.MapPuntos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xc.map_puntos" title="xc.map_puntos"><code class="xref py py-class docutils literal"><span class="pre">xc.map_puntos</span></code></a></p>
+<dl class="method">
+<dt id="xc.MapPuntos.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>(MapPuntos)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; Pnt :<a class="headerlink" href="#xc.MapPuntos.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the i-th point.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Pnt* get(XC::MapPuntos {lvalue},unsigned long)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.MapPuntos.newPnt">
+<code class="descname">newPnt</code><span class="sig-paren">(</span><em>(MapPuntos)arg1</em><span class="sig-paren">)</span> &rarr; Pnt :<a class="headerlink" href="#xc.MapPuntos.newPnt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a point.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Pnt* newPnt(XC::MapPuntos {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.MapPuntos.newPntFromPos3d">
+<code class="descname">newPntFromPos3d</code><span class="sig-paren">(</span><em>(MapPuntos)arg1</em>, <em>(Pos3d)arg2</em><span class="sig-paren">)</span> &rarr; Pnt :<a class="headerlink" href="#xc.MapPuntos.newPntFromPos3d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a point in the position.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Pnt* newPntFromPos3d(XC::MapPuntos {lvalue},Pos3d)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.MapPuntos.newPntIDPos3d">
+<code class="descname">newPntIDPos3d</code><span class="sig-paren">(</span><em>(MapPuntos)arg1</em>, <em>(int)arg2</em>, <em>(Pos3d)arg3</em><span class="sig-paren">)</span> &rarr; Pnt :<a class="headerlink" href="#xc.MapPuntos.newPntIDPos3d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a point with the ID and the the position provided.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Pnt* newPntIDPos3d(XC::MapPuntos {lvalue},unsigned long,Pos3d)</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.MapLineas">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">MapLineas</code><a class="headerlink" href="#xc.MapLineas" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">xc.map_edges</span></code></p>
+<dl class="method">
+<dt id="xc.MapLineas.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>(MapLineas)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; Edge :<a class="headerlink" href="#xc.MapLineas.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the i-th line.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Edge* get(XC::MapLineas {lvalue},unsigned long)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.MapLineas.newCircleArc">
+<code class="descname">newCircleArc</code><span class="sig-paren">(</span><em>(MapLineas)arg1</em>, <em>(int)arg2</em>, <em>(int)arg3</em>, <em>(int)arg4</em><span class="sig-paren">)</span> &rarr; CircleArc :<a class="headerlink" href="#xc.MapLineas.newCircleArc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a circle arc.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::ArcoCircunf* newCircleArc(XC::MapLineas {lvalue},unsigned long,unsigned long,unsigned long)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.MapLineas.newDividedLine">
+<code class="descname">newDividedLine</code><span class="sig-paren">(</span><em>(MapLineas)arg1</em>, <em>(int)arg2</em>, <em>(int)arg3</em><span class="sig-paren">)</span> &rarr; DividedLine :<a class="headerlink" href="#xc.MapLineas.newDividedLine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a line.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::DividedLine* newDividedLine(XC::MapLineas {lvalue},unsigned long,unsigned long)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.MapLineas.newLine">
+<code class="descname">newLine</code><span class="sig-paren">(</span><em>(MapLineas)arg1</em>, <em>(int)arg2</em>, <em>(int)arg3</em><span class="sig-paren">)</span> &rarr; Line :<a class="headerlink" href="#xc.MapLineas.newLine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a line.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Linea* newLine(XC::MapLineas {lvalue},unsigned long,unsigned long)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.MapLineas.newLineSequence">
+<code class="descname">newLineSequence</code><span class="sig-paren">(</span><em>(MapLineas)arg1</em><span class="sig-paren">)</span> &rarr; CmbEdge :<a class="headerlink" href="#xc.MapLineas.newLineSequence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a line sequence (polyline).</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::CmbEdge* newLineSequence(XC::MapLineas {lvalue})</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.map_faces">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">map_faces</code><a class="headerlink" href="#xc.map_faces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">xc.MapCMFaces</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.MapSurfaces">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">MapSurfaces</code><a class="headerlink" href="#xc.MapSurfaces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xc.map_faces" title="xc.map_faces"><code class="xref py py-class docutils literal"><span class="pre">xc.map_faces</span></code></a></p>
+<dl class="method">
+<dt id="xc.MapSurfaces.checkNDivs">
+<code class="descname">checkNDivs</code><span class="sig-paren">(</span><em>(MapSurfaces)arg1</em><span class="sig-paren">)</span> &rarr; bool :<a class="headerlink" href="#xc.MapSurfaces.checkNDivs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check the number of divisions.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>bool checkNDivs(XC::MapSurfaces {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.MapSurfaces.conciliaNDivs">
+<code class="descname">conciliaNDivs</code><span class="sig-paren">(</span><em>(MapSurfaces)arg1</em><span class="sig-paren">)</span> &rarr; bool :<a class="headerlink" href="#xc.MapSurfaces.conciliaNDivs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>bool conciliaNDivs(XC::MapSurfaces {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.MapSurfaces.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>(MapSurfaces)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; Face :<a class="headerlink" href="#xc.MapSurfaces.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the i-th face.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Face* get(XC::MapSurfaces {lvalue},unsigned long)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.MapSurfaces.newQuadSurfaceGridPts">
+<code class="descname">newQuadSurfaceGridPts</code><span class="sig-paren">(</span><em>(MapSurfaces)arg1</em>, <em>(list)arg2</em><span class="sig-paren">)</span> &rarr; QuadSurface :<a class="headerlink" href="#xc.MapSurfaces.newQuadSurfaceGridPts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a quadrilateral surface.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::QuadSurface* newQuadSurfaceGridPts(XC::MapSurfaces {lvalue},boost::python::list)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.MapSurfaces.newQuadSurfaceLines">
+<code class="descname">newQuadSurfaceLines</code><span class="sig-paren">(</span><em>(MapSurfaces)arg1</em>, <em>(int)arg2</em>, <em>(int)arg3</em>, <em>(int)arg4</em>, <em>(int)arg5</em><span class="sig-paren">)</span> &rarr; QuadSurface :<a class="headerlink" href="#xc.MapSurfaces.newQuadSurfaceLines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a quadrilateral surface.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::QuadSurface* newQuadSurfaceLines(XC::MapSurfaces {lvalue},unsigned long,unsigned long,unsigned long,unsigned long)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.MapSurfaces.newQuadSurfacePts">
+<code class="descname">newQuadSurfacePts</code><span class="sig-paren">(</span><em>(MapSurfaces)arg1</em>, <em>(int)arg2</em>, <em>(int)arg3</em>, <em>(int)arg4</em>, <em>(int)arg5</em><span class="sig-paren">)</span> &rarr; QuadSurface :<a class="headerlink" href="#xc.MapSurfaces.newQuadSurfacePts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a quadrilateral surface.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::QuadSurface* newQuadSurfacePts(XC::MapSurfaces {lvalue},unsigned long,unsigned long,unsigned long,unsigned long)</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.map_ugrids">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">map_ugrids</code><a class="headerlink" href="#xc.map_ugrids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">xc.MapCMUgrids</span></code></p>
+</dd></dl>
+
 </div>
 
 
@@ -67,10 +473,10 @@
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="../cad.html"
-                        title="previous chapter">CAD</a></p>
+                        title="previous chapter">General topics</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="../matrices/matrices.html"
-                        title="next chapter">Matrices</a></p>
+  <p class="topless"><a href="../../../../python_modules/model.entities.html"
+                        title="next chapter">Lines</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -105,14 +511,14 @@
           <a href="../../../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="../matrices/matrices.html" title="Matrices"
+          <a href="../../../../python_modules/model.entities.html" title="Lines"
              >next</a> |</li>
         <li class="right" >
-          <a href="../cad.html" title="CAD"
+          <a href="../cad.html" title="General topics"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../../../index.html">XC 3.0 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../../../preprocessor_index.html" >C++ API</a> &raquo;</li>
-          <li class="nav-item nav-item-2"><a href="../../preprocessor_index.html" >Geometry</a> &raquo;</li> 
+          <li class="nav-item nav-item-1"><a href="../../../../CAD_model.html" >CAD model</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="../../../../entities.html" >Entities</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

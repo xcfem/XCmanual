@@ -46,6 +46,331 @@
             
   <div class="section" id="module-xc">
 <span id="analysis"></span><h1>Analysis<a class="headerlink" href="#module-xc" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="xc.Analysis">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">Analysis</code><a class="headerlink" href="#xc.Analysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../../../../preprocessor/python_modules/code.html#xc_base.EntCmd" title="xc_base.EntCmd"><code class="xref py py-class docutils literal"><span class="pre">xc_base.EntCmd</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.StaticAnalysis">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">StaticAnalysis</code><a class="headerlink" href="#xc.StaticAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xc.Analysis" title="xc.Analysis"><code class="xref py py-class docutils literal"><span class="pre">xc.Analysis</span></code></a></p>
+<dl class="method">
+<dt id="xc.StaticAnalysis.analyze">
+<code class="descname">analyze</code><span class="sig-paren">(</span><em>(StaticAnalysis)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; int :<a class="headerlink" href="#xc.StaticAnalysis.analyze" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs the analysis. A number of steps greater than 1 is useless if the loads are constant.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>int analyze(XC::StaticAnalysis {lvalue},int)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.StaticAnalysis.initialize">
+<code class="descname">initialize</code><span class="sig-paren">(</span><em>(StaticAnalysis)arg1</em><span class="sig-paren">)</span> &rarr; int :<a class="headerlink" href="#xc.StaticAnalysis.initialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize analysis.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>int initialize(XC::StaticAnalysis {lvalue})</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.EigenAnalysis">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">EigenAnalysis</code><a class="headerlink" href="#xc.EigenAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xc.Analysis" title="xc.Analysis"><code class="xref py py-class docutils literal"><span class="pre">xc.Analysis</span></code></a></p>
+<dl class="method">
+<dt id="xc.EigenAnalysis.analyze">
+<code class="descname">analyze</code><span class="sig-paren">(</span><em>(EigenAnalysis)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; int :<a class="headerlink" href="#xc.EigenAnalysis.analyze" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs the analysis, the argument is the number of modes to compute.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>int analyze(XC::EigenAnalysis {lvalue},int)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.EigenAnalysis.getAngularFrequencies">
+<code class="descname">getAngularFrequencies</code><span class="sig-paren">(</span><em>(EigenAnalysis)arg1</em><span class="sig-paren">)</span> &rarr; Vector :<a class="headerlink" href="#xc.EigenAnalysis.getAngularFrequencies" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Vector getAngularFrequencies(XC::EigenAnalysis {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.EigenAnalysis.getAngularFrequency">
+<code class="descname">getAngularFrequency</code><span class="sig-paren">(</span><em>(EigenAnalysis)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; float :<a class="headerlink" href="#xc.EigenAnalysis.getAngularFrequency" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>double getAngularFrequency(XC::EigenAnalysis {lvalue},int)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.EigenAnalysis.getDistributionFactor">
+<code class="descname">getDistributionFactor</code><span class="sig-paren">(</span><em>(EigenAnalysis)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; Vector :<a class="headerlink" href="#xc.EigenAnalysis.getDistributionFactor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Vector getDistributionFactor(XC::EigenAnalysis {lvalue},int)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.EigenAnalysis.getDistributionFactors">
+<code class="descname">getDistributionFactors</code><span class="sig-paren">(</span><em>(EigenAnalysis)arg1</em><span class="sig-paren">)</span> &rarr; Matrix :<a class="headerlink" href="#xc.EigenAnalysis.getDistributionFactors" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Matrix getDistributionFactors(XC::EigenAnalysis {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.EigenAnalysis.getEffectiveModalMass">
+<code class="descname">getEffectiveModalMass</code><span class="sig-paren">(</span><em>(EigenAnalysis)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; float :<a class="headerlink" href="#xc.EigenAnalysis.getEffectiveModalMass" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>double getEffectiveModalMass(XC::EigenAnalysis {lvalue},int)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.EigenAnalysis.getEffectiveModalMasses">
+<code class="descname">getEffectiveModalMasses</code><span class="sig-paren">(</span><em>(EigenAnalysis)arg1</em><span class="sig-paren">)</span> &rarr; Vector :<a class="headerlink" href="#xc.EigenAnalysis.getEffectiveModalMasses" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Vector getEffectiveModalMasses(XC::EigenAnalysis {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.EigenAnalysis.getEigenvalue">
+<code class="descname">getEigenvalue</code><span class="sig-paren">(</span><em>(EigenAnalysis)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; float :<a class="headerlink" href="#xc.EigenAnalysis.getEigenvalue" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>double getEigenvalue(XC::EigenAnalysis {lvalue},int)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.EigenAnalysis.getEigenvalues">
+<code class="descname">getEigenvalues</code><span class="sig-paren">(</span><em>(EigenAnalysis)arg1</em><span class="sig-paren">)</span> &rarr; Vector :<a class="headerlink" href="#xc.EigenAnalysis.getEigenvalues" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Vector getEigenvalues(XC::EigenAnalysis {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.EigenAnalysis.getEigenvector">
+<code class="descname">getEigenvector</code><span class="sig-paren">(</span><em>(EigenAnalysis)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; Vector :<a class="headerlink" href="#xc.EigenAnalysis.getEigenvector" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Vector getEigenvector(XC::EigenAnalysis {lvalue},int)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.EigenAnalysis.getEigenvectors">
+<code class="descname">getEigenvectors</code><span class="sig-paren">(</span><em>(EigenAnalysis)arg1</em><span class="sig-paren">)</span> &rarr; Matrix :<a class="headerlink" href="#xc.EigenAnalysis.getEigenvectors" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Matrix getEigenvectors(XC::EigenAnalysis {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.EigenAnalysis.getEquivalentStaticLoad">
+<code class="descname">getEquivalentStaticLoad</code><span class="sig-paren">(</span><em>(EigenAnalysis)arg1</em>, <em>(int)arg2</em>, <em>(float)arg3</em><span class="sig-paren">)</span> &rarr; Vector :<a class="headerlink" href="#xc.EigenAnalysis.getEquivalentStaticLoad" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Vector getEquivalentStaticLoad(XC::EigenAnalysis {lvalue},int,double)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.EigenAnalysis.getFrequencies">
+<code class="descname">getFrequencies</code><span class="sig-paren">(</span><em>(EigenAnalysis)arg1</em><span class="sig-paren">)</span> &rarr; Vector :<a class="headerlink" href="#xc.EigenAnalysis.getFrequencies" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Vector getFrequencies(XC::EigenAnalysis {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.EigenAnalysis.getFrequency">
+<code class="descname">getFrequency</code><span class="sig-paren">(</span><em>(EigenAnalysis)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; float :<a class="headerlink" href="#xc.EigenAnalysis.getFrequency" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>double getFrequency(XC::EigenAnalysis {lvalue},int)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.EigenAnalysis.getModalParticipationFactor">
+<code class="descname">getModalParticipationFactor</code><span class="sig-paren">(</span><em>(EigenAnalysis)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; float :<a class="headerlink" href="#xc.EigenAnalysis.getModalParticipationFactor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>double getModalParticipationFactor(XC::EigenAnalysis {lvalue},int)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.EigenAnalysis.getModalParticipationFactors">
+<code class="descname">getModalParticipationFactors</code><span class="sig-paren">(</span><em>(EigenAnalysis)arg1</em><span class="sig-paren">)</span> &rarr; Vector :<a class="headerlink" href="#xc.EigenAnalysis.getModalParticipationFactors" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Vector getModalParticipationFactors(XC::EigenAnalysis {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.EigenAnalysis.getNormalizedEigenvector">
+<code class="descname">getNormalizedEigenvector</code><span class="sig-paren">(</span><em>(EigenAnalysis)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; Vector :<a class="headerlink" href="#xc.EigenAnalysis.getNormalizedEigenvector" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Vector getNormalizedEigenvector(XC::EigenAnalysis {lvalue},int)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.EigenAnalysis.getNormalizedEigenvectors">
+<code class="descname">getNormalizedEigenvectors</code><span class="sig-paren">(</span><em>(EigenAnalysis)arg1</em><span class="sig-paren">)</span> &rarr; Matrix :<a class="headerlink" href="#xc.EigenAnalysis.getNormalizedEigenvectors" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Matrix getNormalizedEigenvectors(XC::EigenAnalysis {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.EigenAnalysis.getNumModes">
+<code class="descname">getNumModes</code><span class="sig-paren">(</span><em>(EigenAnalysis)arg1</em><span class="sig-paren">)</span> &rarr; int :<a class="headerlink" href="#xc.EigenAnalysis.getNumModes" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>int getNumModes(XC::EigenAnalysis {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.EigenAnalysis.getPeriod">
+<code class="descname">getPeriod</code><span class="sig-paren">(</span><em>(EigenAnalysis)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; float :<a class="headerlink" href="#xc.EigenAnalysis.getPeriod" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>double getPeriod(XC::EigenAnalysis {lvalue},int)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.EigenAnalysis.getPeriods">
+<code class="descname">getPeriods</code><span class="sig-paren">(</span><em>(EigenAnalysis)arg1</em><span class="sig-paren">)</span> &rarr; Vector :<a class="headerlink" href="#xc.EigenAnalysis.getPeriods" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Vector getPeriods(XC::EigenAnalysis {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.EigenAnalysis.getPulsatance">
+<code class="descname">getPulsatance</code><span class="sig-paren">(</span><em>(EigenAnalysis)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; float :<a class="headerlink" href="#xc.EigenAnalysis.getPulsatance" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>double getPulsatance(XC::EigenAnalysis {lvalue},int)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.EigenAnalysis.getPulsatances">
+<code class="descname">getPulsatances</code><span class="sig-paren">(</span><em>(EigenAnalysis)arg1</em><span class="sig-paren">)</span> &rarr; Vector :<a class="headerlink" href="#xc.EigenAnalysis.getPulsatances" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Vector getPulsatances(XC::EigenAnalysis {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.EigenAnalysis.getTotalMass">
+<code class="descname">getTotalMass</code><span class="sig-paren">(</span><em>(EigenAnalysis)arg1</em><span class="sig-paren">)</span> &rarr; float :<a class="headerlink" href="#xc.EigenAnalysis.getTotalMass" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>double getTotalMass(XC::EigenAnalysis {lvalue})</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.LinearBucklingAnalysis">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">LinearBucklingAnalysis</code><a class="headerlink" href="#xc.LinearBucklingAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xc.StaticAnalysis" title="xc.StaticAnalysis"><code class="xref py py-class docutils literal"><span class="pre">xc.StaticAnalysis</span></code></a></p>
+<dl class="method">
+<dt id="xc.LinearBucklingAnalysis.getEigenvalue">
+<code class="descname">getEigenvalue</code><span class="sig-paren">(</span><em>(LinearBucklingAnalysis)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; float :<a class="headerlink" href="#xc.LinearBucklingAnalysis.getEigenvalue" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>double getEigenvalue(XC::LinearBucklingAnalysis {lvalue},int)</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.LinearBucklingEigenAnalysis">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">LinearBucklingEigenAnalysis</code><a class="headerlink" href="#xc.LinearBucklingEigenAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xc.EigenAnalysis" title="xc.EigenAnalysis"><code class="xref py py-class docutils literal"><span class="pre">xc.EigenAnalysis</span></code></a></p>
+<dl class="method">
+<dt id="xc.LinearBucklingEigenAnalysis.getEigenvalue">
+<code class="descname">getEigenvalue</code><span class="sig-paren">(</span><em>(LinearBucklingEigenAnalysis)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; float :<a class="headerlink" href="#xc.LinearBucklingEigenAnalysis.getEigenvalue" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>double getEigenvalue(XC::LinearBucklingEigenAnalysis {lvalue},int)</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.ModalAnalysis">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">ModalAnalysis</code><a class="headerlink" href="#xc.ModalAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xc.EigenAnalysis" title="xc.EigenAnalysis"><code class="xref py py-class docutils literal"><span class="pre">xc.EigenAnalysis</span></code></a></p>
+<dl class="method">
+<dt id="xc.ModalAnalysis.getCQCModalCrossCorrelationCoefficients">
+<code class="descname">getCQCModalCrossCorrelationCoefficients</code><span class="sig-paren">(</span><em>(ModalAnalysis)arg1</em>, <em>(Vector)arg2</em><span class="sig-paren">)</span> &rarr; Matrix :<a class="headerlink" href="#xc.ModalAnalysis.getCQCModalCrossCorrelationCoefficients" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns CQC correlation coefficients.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Matrix getCQCModalCrossCorrelationCoefficients(XC::ModalAnalysis {lvalue},XC::Vector)</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.ModalAnalysis.spectrum">
+<code class="descname">spectrum</code><a class="headerlink" href="#xc.ModalAnalysis.spectrum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Response spectrum,</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.TransientAnalysis">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">TransientAnalysis</code><a class="headerlink" href="#xc.TransientAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xc.Analysis" title="xc.Analysis"><code class="xref py py-class docutils literal"><span class="pre">xc.Analysis</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.DirectIntegrationAnalysis">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">DirectIntegrationAnalysis</code><a class="headerlink" href="#xc.DirectIntegrationAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xc.TransientAnalysis" title="xc.TransientAnalysis"><code class="xref py py-class docutils literal"><span class="pre">xc.TransientAnalysis</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.VariableTimeStepDirectIntegrationAnalysis">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">VariableTimeStepDirectIntegrationAnalysis</code><a class="headerlink" href="#xc.VariableTimeStepDirectIntegrationAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xc.DirectIntegrationAnalysis" title="xc.DirectIntegrationAnalysis"><code class="xref py py-class docutils literal"><span class="pre">xc.DirectIntegrationAnalysis</span></code></a></p>
+</dd></dl>
+
 </div>
 
 

@@ -1348,15 +1348,75 @@ the wall stem.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="rough_calculations.ng_retaining_wall.RetainingWall.createEarthPressureLoad">
-<code class="descname">createEarthPressureLoad</code><span class="sig-paren">(</span><em>pressureModel</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.createEarthPressureLoad" title="Permalink to this definition">¶</a></dt>
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.createEarthPressureLoadOnStem">
+<code class="descname">createEarthPressureLoadOnStem</code><span class="sig-paren">(</span><em>pressureModel</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.createEarthPressureLoadOnStem" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create the loads of the earth pressure over the stem.</p>
+<blockquote>
+<div>Args:</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">PressureModel:</th><td class="field-body">(obj) earth pressure model.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.createLoadOnTopOfStem">
+<code class="descname">createLoadOnTopOfStem</code><span class="sig-paren">(</span><em>loadVector</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.createLoadOnTopOfStem" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Create a loac acting on the node at the top of the stem.</dt>
+<dd>Args:</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">LoadVector:</th><td class="field-body">(vector) vector defining the load.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.createPressuresFromLoadOnBackFill">
+<code class="descname">createPressuresFromLoadOnBackFill</code><span class="sig-paren">(</span><em>loadOnBackFill</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.createPressuresFromLoadOnBackFill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the pressures on the stem and on the heel dues to 
+a load acting on the backfill.</p>
+<blockquote>
+<div>Args:</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">LoadOnBackFill:</th><td class="field-body">(obj) load acting on the backfill.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.createSelfWeightLoads">
 <code class="descname">createSelfWeightLoads</code><span class="sig-paren">(</span><em>rho=2500</em>, <em>grav=9.81</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.createSelfWeightLoads" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create the loads of the concrete weight.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.createVerticalLoadOnHeel">
+<code class="descname">createVerticalLoadOnHeel</code><span class="sig-paren">(</span><em>loadOnBackFill</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.createVerticalLoadOnHeel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the loads over the heel dues to a load acting on the backfill.</p>
+<blockquote>
+<div>Args:</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">LoadOnBackFill:</th><td class="field-body">(obj) load acting on the backfill.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -1377,6 +1437,26 @@ the wall stem.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.getBearingPressureSafetyFactor">
+<code class="descname">getBearingPressureSafetyFactor</code><span class="sig-paren">(</span><em>R</em>, <em>foundationSoilModel</em>, <em>toeFillDepth</em>, <em>q=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getBearingPressureSafetyFactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the factor of safety against bearing capacity of the soil.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">toeFillDepth:</th><td class="field-body">(float) depht of the soil filling over the toe.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">q:</th><td class="field-body">(float) uniform load over the filling.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.getEccentricity">
 <code class="descname">getEccentricity</code><span class="sig-paren">(</span><em>R</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getEccentricity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the eccenctricity of the loads acting on the retaining wall.</p>
@@ -1390,6 +1470,24 @@ the wall stem.</p>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.getFoundationRotation">
+<code class="descname">getFoundationRotation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getFoundationRotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the rotation of the foundation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.getMononobeOkabeDryOverpressure">
+<code class="descname">getMononobeOkabeDryOverpressure</code><span class="sig-paren">(</span><em>backFillModel</em>, <em>kv</em>, <em>kh</em>, <em>delta_ad=0</em>, <em>beta=0</em>, <em>Kas=None</em>, <em>g=9.81</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getMononobeOkabeDryOverpressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return overpressure due to seismic action according to Mononobe-Okabe</p>
+<p>Args:
+:backFillModel: back fill terrain model
+:kv: seismic coefficient of vertical acceleration.
+:kh: seismic coefficient of horizontal acceleration.
+:delta_ad: angle of friction soil - structure.
+:beta: slope inclination of backfill.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1466,7 +1564,7 @@ the wall stem.</p>
 
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.getSlidingSafetyFactor">
-<code class="descname">getSlidingSafetyFactor</code><span class="sig-paren">(</span><em>R</em>, <em>gammaR</em>, <em>phik</em>, <em>gammaMPhi</em>, <em>ck</em>, <em>gammaMc</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getSlidingSafetyFactor" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getSlidingSafetyFactor</code><span class="sig-paren">(</span><em>R</em>, <em>gammaR</em>, <em>foundationSoilModel</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getSlidingSafetyFactor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the factor of safety against sliding.</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -1478,15 +1576,12 @@ the wall stem.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">gammaR:</th><td class="field-body">partial resistance reduction factor.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">phik:</th><td class="field-body">(float) characteristic value of internal friction angle of the soil.</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">foundationSoilModel:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">(FrictionalCohesionalSoil) soil model.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">gammaMPhi:</th><td class="field-body">partial reduction factor for internal friction angle of the soil.</td>
+<tr class="field-even field"><th class="field-name">gammaMPhi:</th><td class="field-body">(float) partial reduction factor for internal friction angle of the soil.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">ck:</th><td class="field-body">(float) characteristic value of soil cohesion.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">gammaMc:</th><td class="field-body">(float) partial reduction factor for soil cohesion.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">bReduced:</th><td class="field-body">(float) reduced footing width.</td>
+<tr class="field-odd field"><th class="field-name">gammaMc:</th><td class="field-body">(float) partial reduction factor for soil cohesion.</td>
 </tr>
 </tbody>
 </table>

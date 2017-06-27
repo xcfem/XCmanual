@@ -23,7 +23,10 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="XC 3.0 documentation" href="../../index.html" /> 
+    <link rel="top" title="XC 3.0 documentation" href="../../index.html" />
+    <link rel="up" title="Actions" href="../actions.html" />
+    <link rel="next" title="Wind" href="actions.wind.html" />
+    <link rel="prev" title="Weight" href="actions.weight.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -35,7 +38,14 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="actions.wind.html" title="Wind"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="actions.weight.html" title="Weight"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../actions.html" accesskey="U">Actions</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -129,7 +139,7 @@ continous load)</li>
 </table>
 <dl class="method">
 <dt id="actions.earth_pressure.earth_pressure.HorizontalLoadOnBackfill.appendLoadToCurrentLoadPattern">
-<code class="descname">appendLoadToCurrentLoadPattern</code><span class="sig-paren">(</span><em>xcSet</em>, <em>vDir</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.HorizontalLoadOnBackfill.appendLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
+<code class="descname">appendLoadToCurrentLoadPattern</code><span class="sig-paren">(</span><em>xcSet</em>, <em>vDir</em>, <em>iCoo=2</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.HorizontalLoadOnBackfill.appendLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
 <dd><p>Append to the current load pattern the earth thrust on a set of 
 elements due to the horizontal load.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -182,7 +192,7 @@ surcharge load</li>
 </table>
 <dl class="method">
 <dt id="actions.earth_pressure.earth_pressure.LineVerticalLoadOnBackfill.appendLoadToCurrentLoadPattern">
-<code class="descname">appendLoadToCurrentLoadPattern</code><span class="sig-paren">(</span><em>xcSet</em>, <em>vDir</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.LineVerticalLoadOnBackfill.appendLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
+<code class="descname">appendLoadToCurrentLoadPattern</code><span class="sig-paren">(</span><em>xcSet</em>, <em>vDir</em>, <em>iCoo=2</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.LineVerticalLoadOnBackfill.appendLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
 <dd><p>Append to the current load pattern the earth thrust on a set of 
 elements due to the line load.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -239,7 +249,7 @@ Engineering&#8221; from Braja M. Das.</dd>
 <dl class="class">
 <dt id="actions.earth_pressure.earth_pressure.StripLoadOnBackfill">
 <em class="property">class </em><code class="descclassname">actions.earth_pressure.earth_pressure.</code><code class="descname">StripLoadOnBackfill</code><span class="sig-paren">(</span><em>qLoad</em>, <em>zLoad</em>, <em>distWall</em>, <em>stripWidth</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.StripLoadOnBackfill" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="#actions.earth_pressure.earth_pressure.UniformLoadOnStem" title="actions.earth_pressure.earth_pressure.UniformLoadOnStem"><code class="xref py py-class docutils literal"><span class="pre">actions.earth_pressure.earth_pressure.UniformLoadOnStem</span></code></a></p>
 <p>Lateral earth pressure on a retaining wall due to a strip surcharge 
 load on the backfill. (J.Calavera, pg.40)</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -247,7 +257,6 @@ load on the backfill. (J.Calavera, pg.40)</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>qLoad</strong> &#8211; surcharge load (force per unit area)</li>
 <li><strong>zLoad</strong> &#8211; global Z coordinate where the surcharge load acts</li>
 <li><strong>distWall</strong> &#8211; minimal horizontal distance between the wall and the 
 surcharge load</li>
@@ -260,8 +269,53 @@ walls. It can be redefined =2 for rigid walls</li>
 </tbody>
 </table>
 <dl class="method">
-<dt id="actions.earth_pressure.earth_pressure.StripLoadOnBackfill.appendLoadToCurrentLoadPattern">
-<code class="descname">appendLoadToCurrentLoadPattern</code><span class="sig-paren">(</span><em>xcSet</em>, <em>vDir</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.StripLoadOnBackfill.appendLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
+<dt id="actions.earth_pressure.earth_pressure.StripLoadOnBackfill.appendVerticalLoadToCurrentLoadPattern">
+<code class="descname">appendVerticalLoadToCurrentLoadPattern</code><span class="sig-paren">(</span><em>xcSet</em>, <em>vDir</em>, <em>iXCoo=0</em>, <em>iZCoo=2</em>, <em>alph=0.5235987755982988</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.StripLoadOnBackfill.appendVerticalLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Append to the current load pattern the vertical pressures on </dt>
+<dd>a set of elements due to the strip load. According to
+11.3.4 in the book &#8220;Mecánica de suelos&#8221; of Llano, J.J.S.
+isbn= 9788471461650 (<a class="reference external" href="https://books.google.ch/books?id=oQFZRKlix_EC">https://books.google.ch/books?id=oQFZRKlix_EC</a>)</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>xcSet</strong> &#8211; set that contains the elements.</li>
+<li><strong>vDir</strong> &#8211; unit xc vector defining pressures direction</li>
+<li><strong>alph</strong> &#8211; angle of stress spreading.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="actions.earth_pressure.earth_pressure.StripLoadOnBackfill.getPressure">
+<code class="descname">getPressure</code><span class="sig-paren">(</span><em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.StripLoadOnBackfill.getPressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the earth pressure acting on the points at global coordinate z</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="actions.earth_pressure.earth_pressure.UniformLoadOnStem">
+<em class="property">class </em><code class="descclassname">actions.earth_pressure.earth_pressure.</code><code class="descname">UniformLoadOnStem</code><span class="sig-paren">(</span><em>qLoad</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.UniformLoadOnStem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Uniform lateral earth pressure on a retaining wall.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>qLoad</strong> &#8211; surcharge load (force per unit area)</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="actions.earth_pressure.earth_pressure.UniformLoadOnStem.appendLoadToCurrentLoadPattern">
+<code class="descname">appendLoadToCurrentLoadPattern</code><span class="sig-paren">(</span><em>xcSet</em>, <em>vDir</em>, <em>iCoo=2</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.UniformLoadOnStem.appendLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
 <dd><p>Append to the current load pattern the earth thrust on a set of 
 elements due to the strip load.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -279,8 +333,8 @@ elements due to the strip load.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="actions.earth_pressure.earth_pressure.StripLoadOnBackfill.getPressure">
-<code class="descname">getPressure</code><span class="sig-paren">(</span><em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.StripLoadOnBackfill.getPressure" title="Permalink to this definition">¶</a></dt>
+<dt id="actions.earth_pressure.earth_pressure.UniformLoadOnStem.getPressure">
+<code class="descname">getPressure</code><span class="sig-paren">(</span><em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.UniformLoadOnStem.getPressure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the earth pressure acting on the points at global coordinate z</p>
 </dd></dl>
 
@@ -303,6 +357,12 @@ elements due to the strip load.</p>
 </li>
 </ul>
 
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="actions.weight.html"
+                        title="previous chapter">Weight</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="actions.wind.html"
+                        title="next chapter">Wind</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -336,7 +396,14 @@ elements due to the strip load.</p>
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="actions.wind.html" title="Wind"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="actions.weight.html" title="Weight"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../actions.html" >Actions</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

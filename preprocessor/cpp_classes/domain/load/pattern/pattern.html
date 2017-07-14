@@ -1,0 +1,594 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Pattern &mdash; XC 3.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+    <link rel="top" title="XC 3.0 documentation" href="../../../../../index.html" />
+    <link rel="up" title="Base load" href="../../../loads_index.html" />
+    <link rel="next" title="Load paterns" href="load_patterns/load_patterns.html" />
+    <link rel="prev" title="Ground motion" href="../groundMotion/groundMotion.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="load_patterns/load_patterns.html" title="Load paterns"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../groundMotion/groundMotion.html" title="Ground motion"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../../index.html">XC 3.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../../../actions.html" >Actions</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="../../../loads_index.html" accesskey="U">Base load</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-xc">
+<span id="pattern"></span><h1>Pattern<a class="headerlink" href="#module-xc" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="xc.NodeLocker">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">NodeLocker</code><a class="headerlink" href="#xc.NodeLocker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../load.html#xc.ForceReprComponent" title="xc.ForceReprComponent"><code class="xref py py-class docutils literal"><span class="pre">xc.ForceReprComponent</span></code></a></p>
+<dl class="method">
+<dt id="xc.NodeLocker.clearAll">
+<code class="descname">clearAll</code><span class="sig-paren">(</span><em>(NodeLocker)arg1</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.NodeLocker.clearAll" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void clearAll(XC::NodeLocker {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.NodeLocker.newSPConstraint">
+<code class="descname">newSPConstraint</code><span class="sig-paren">(</span><em>(NodeLocker)arg1</em>, <em>(int)arg2</em>, <em>(int)arg3</em>, <em>(float)arg4</em><span class="sig-paren">)</span> &rarr; SPConstraint :<a class="headerlink" href="#xc.NodeLocker.newSPConstraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>newSPConstraint(tag_nod,id_gdl,valor) 
+Create a single-point boundary constraint by assigning a value=valor to the degree of freedom gdl of node whose ID is tag_nod.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::SFreedom_Constraint* newSPConstraint(XC::NodeLocker {lvalue},int,int,double)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.NodeLocker.removeSPConstraint">
+<code class="descname">removeSPConstraint</code><span class="sig-paren">(</span><em>(NodeLocker)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; bool :<a class="headerlink" href="#xc.NodeLocker.removeSPConstraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a single-point boundary constraint.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>bool removeSPConstraint(XC::NodeLocker {lvalue},int)</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.LoadContainer">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">LoadContainer</code><a class="headerlink" href="#xc.LoadContainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">xc_base.EntCmd</span></code></p>
+<dl class="attribute">
+<dt id="xc.LoadContainer.getElementalLoadIter">
+<code class="descname">getElementalLoadIter</code><a class="headerlink" href="#xc.LoadContainer.getElementalLoadIter" title="Permalink to this definition">¶</a></dt>
+<dd><p>return an iterator over the elemental loads.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.LoadContainer.getNodalLoadIter">
+<code class="descname">getNodalLoadIter</code><a class="headerlink" href="#xc.LoadContainer.getNodalLoadIter" title="Permalink to this definition">¶</a></dt>
+<dd><p>return an iterator over the nodal loads.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.LoadContainer.getNumElementalLoads">
+<code class="descname">getNumElementalLoads</code><a class="headerlink" href="#xc.LoadContainer.getNumElementalLoads" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the number of elemental loads.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.LoadContainer.getNumLoads">
+<code class="descname">getNumLoads</code><a class="headerlink" href="#xc.LoadContainer.getNumLoads" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the totalnumber of loads.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.LoadContainer.getNumNodalLoads">
+<code class="descname">getNumNodalLoads</code><a class="headerlink" href="#xc.LoadContainer.getNumNodalLoads" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the number of nodal loads.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.LoadPattern">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">LoadPattern</code><a class="headerlink" href="#xc.LoadPattern" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xc.NodeLocker" title="xc.NodeLocker"><code class="xref py py-class docutils literal"><span class="pre">xc.NodeLocker</span></code></a></p>
+<dl class="method">
+<dt id="xc.LoadPattern.addToDomain">
+<code class="descname">addToDomain</code><span class="sig-paren">(</span><em>(LoadPattern)arg1</em><span class="sig-paren">)</span> &rarr; bool :<a class="headerlink" href="#xc.LoadPattern.addToDomain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add combination to the domain.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>bool addToDomain(XC::LoadPattern {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.LoadPattern.clearLoads">
+<code class="descname">clearLoads</code><span class="sig-paren">(</span><em>(LoadPattern)arg1</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.LoadPattern.clearLoads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the pattern loads.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void clearLoads(XC::LoadPattern {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.LoadPattern.description">
+<code class="descname">description</code><a class="headerlink" href="#xc.LoadPattern.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>load case description.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.LoadPattern.getNumElementalLoads">
+<code class="descname">getNumElementalLoads</code><a class="headerlink" href="#xc.LoadPattern.getNumElementalLoads" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the number of elemental loads.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.LoadPattern.getNumLoads">
+<code class="descname">getNumLoads</code><a class="headerlink" href="#xc.LoadPattern.getNumLoads" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the totalnumber of loads.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.LoadPattern.getNumNodalLoads">
+<code class="descname">getNumNodalLoads</code><a class="headerlink" href="#xc.LoadPattern.getNumNodalLoads" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the number of nodal loads.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.LoadPattern.loads">
+<code class="descname">loads</code><a class="headerlink" href="#xc.LoadPattern.loads" title="Permalink to this definition">¶</a></dt>
+<dd><p>return a reference to the load container.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.LoadPattern.newElementalLoad">
+<code class="descname">newElementalLoad</code><span class="sig-paren">(</span><em>(LoadPattern)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; ElementalLoad :<a class="headerlink" href="#xc.LoadPattern.newElementalLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a load over element.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::ElementalLoad* newElementalLoad(XC::LoadPattern {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.LoadPattern.newNodalLoad">
+<code class="descname">newNodalLoad</code><span class="sig-paren">(</span><em>(LoadPattern)arg1</em>, <em>(int)arg2</em>, <em>(Vector)arg3</em><span class="sig-paren">)</span> &rarr; NodalLoad :<a class="headerlink" href="#xc.LoadPattern.newNodalLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a nodal load.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::NodalLoad* newNodalLoad(XC::LoadPattern {lvalue},int,XC::Vector)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.LoadPattern.removeElementalLoad">
+<code class="descname">removeElementalLoad</code><span class="sig-paren">(</span><em>(LoadPattern)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; bool :<a class="headerlink" href="#xc.LoadPattern.removeElementalLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>removes the elemental load with the tag passed as parameter.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>bool removeElementalLoad(XC::LoadPattern {lvalue},int)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.LoadPattern.removeFromDomain">
+<code class="descname">removeFromDomain</code><span class="sig-paren">(</span><em>(LoadPattern)arg1</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.LoadPattern.removeFromDomain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Eliminates combination from domain.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void removeFromDomain(XC::LoadPattern {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.LoadPattern.removeNodalLoad">
+<code class="descname">removeNodalLoad</code><span class="sig-paren">(</span><em>(LoadPattern)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; bool :<a class="headerlink" href="#xc.LoadPattern.removeNodalLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>removes the nodal load with the tag passed as parameter.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>bool removeNodalLoad(XC::LoadPattern {lvalue},int)</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.LoadCombination">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">LoadCombination</code><a class="headerlink" href="#xc.LoadCombination" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../load.html#xc.ForceReprComponent" title="xc.ForceReprComponent"><code class="xref py py-class docutils literal"><span class="pre">xc.ForceReprComponent</span></code></a></p>
+<dl class="method">
+<dt id="xc.LoadCombination.addToDomain">
+<code class="descname">addToDomain</code><span class="sig-paren">(</span><em>(LoadCombination)arg1</em><span class="sig-paren">)</span> &rarr; bool :<a class="headerlink" href="#xc.LoadCombination.addToDomain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add combination to the domain.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>bool addToDomain(XC::LoadCombination {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.LoadCombination.asigna">
+<code class="descname">asigna</code><span class="sig-paren">(</span><em>(LoadCombination)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; LoadCombination :<a class="headerlink" href="#xc.LoadCombination.asigna" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::LoadCombination {lvalue} asigna(XC::LoadCombination {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.LoadCombination.divide">
+<code class="descname">divide</code><span class="sig-paren">(</span><em>(LoadCombination)arg1</em>, <em>(float)arg2</em><span class="sig-paren">)</span> &rarr; LoadCombination :<a class="headerlink" href="#xc.LoadCombination.divide" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::LoadCombination {lvalue} divide(XC::LoadCombination {lvalue},float)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.LoadCombination.getCombPrevia">
+<code class="descname">getCombPrevia</code><span class="sig-paren">(</span><em>(LoadCombination)arg1</em><span class="sig-paren">)</span> &rarr; LoadCombination :<a class="headerlink" href="#xc.LoadCombination.getCombPrevia" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns previous load combination.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::LoadCombination const* getCombPrevia(XC::LoadCombination {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.LoadCombination.getDescomp">
+<code class="descname">getDescomp</code><span class="sig-paren">(</span><em>(LoadCombination)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; str :<a class="headerlink" href="#xc.LoadCombination.getDescomp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns combination expression.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; getDescomp(XC::LoadCombination {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.LoadCombination.getName">
+<code class="descname">getName</code><a class="headerlink" href="#xc.LoadCombination.getName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns combination&#8217;s name.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.LoadCombination.multiplica">
+<code class="descname">multiplica</code><span class="sig-paren">(</span><em>(LoadCombination)arg1</em>, <em>(float)arg2</em><span class="sig-paren">)</span> &rarr; LoadCombination :<a class="headerlink" href="#xc.LoadCombination.multiplica" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::LoadCombination {lvalue} multiplica(XC::LoadCombination {lvalue},float)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.LoadCombination.removeFromDomain">
+<code class="descname">removeFromDomain</code><span class="sig-paren">(</span><em>(LoadCombination)arg1</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.LoadCombination.removeFromDomain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Eliminates combination from domain.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void removeFromDomain(XC::LoadCombination {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.LoadCombination.resta">
+<code class="descname">resta</code><span class="sig-paren">(</span><em>(LoadCombination)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; LoadCombination :<a class="headerlink" href="#xc.LoadCombination.resta" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::LoadCombination {lvalue} resta(XC::LoadCombination {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.LoadCombination.suma">
+<code class="descname">suma</code><span class="sig-paren">(</span><em>(LoadCombination)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; LoadCombination :<a class="headerlink" href="#xc.LoadCombination.suma" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::LoadCombination {lvalue} suma(XC::LoadCombination {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.LoadCombinationMap">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">LoadCombinationMap</code><a class="headerlink" href="#xc.LoadCombinationMap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">Boost.Python.instance</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.LoadCombinationGroup">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">LoadCombinationGroup</code><a class="headerlink" href="#xc.LoadCombinationGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../load.html#xc.LoadLoaderMember" title="xc.LoadLoaderMember"><code class="xref py py-class docutils literal"><span class="pre">xc.LoadLoaderMember</span></code></a>, <a class="reference internal" href="#xc.LoadCombinationMap" title="xc.LoadCombinationMap"><code class="xref py py-class docutils literal"><span class="pre">xc.LoadCombinationMap</span></code></a></p>
+<dl class="method">
+<dt id="xc.LoadCombinationGroup.addToDomain">
+<code class="descname">addToDomain</code><span class="sig-paren">(</span><em>(LoadCombinationGroup)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.LoadCombinationGroup.addToDomain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add combination to the domain.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void addToDomain(XC::LoadCombinationGroup {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.LoadCombinationGroup.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><em>(LoadCombinationGroup)arg1</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.LoadCombinationGroup.clear" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void clear(XC::LoadCombinationGroup {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.LoadCombinationGroup.getComb">
+<code class="descname">getComb</code><span class="sig-paren">(</span><em>(LoadCombinationGroup)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; LoadCombination :<a class="headerlink" href="#xc.LoadCombinationGroup.getComb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns load combination.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::LoadCombination const* getComb(XC::LoadCombinationGroup {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.LoadCombinationGroup.getCombPrevia">
+<code class="descname">getCombPrevia</code><span class="sig-paren">(</span><em>(LoadCombinationGroup)arg1</em>, <em>(LoadCombination)arg2</em><span class="sig-paren">)</span> &rarr; LoadCombination :<a class="headerlink" href="#xc.LoadCombinationGroup.getCombPrevia" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns previous load combination.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::LoadCombination const* getCombPrevia(XC::LoadCombinationGroup {lvalue},XC::LoadCombination)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.LoadCombinationGroup.getKeys">
+<code class="descname">getKeys</code><span class="sig-paren">(</span><em>(LoadCombinationGroup)arg1</em><span class="sig-paren">)</span> &rarr; list :<a class="headerlink" href="#xc.LoadCombinationGroup.getKeys" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>boost::python::list getKeys(XC::LoadCombinationGroup {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.LoadCombinationGroup.newLoadCombination">
+<code class="descname">newLoadCombination</code><span class="sig-paren">(</span><em>(LoadCombinationGroup)arg1</em>, <em>(str)arg2</em>, <em>(str)arg3</em><span class="sig-paren">)</span> &rarr; LoadCombination :<a class="headerlink" href="#xc.LoadCombinationGroup.newLoadCombination" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new load combination.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::LoadCombination* newLoadCombination(XC::LoadCombinationGroup {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;,std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.LoadCombinationGroup.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><em>(LoadCombinationGroup)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.LoadCombinationGroup.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes combination.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void remove(XC::LoadCombinationGroup {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.LoadCombinationGroup.removeAllFromDomain">
+<code class="descname">removeAllFromDomain</code><span class="sig-paren">(</span><em>(LoadCombinationGroup)arg1</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.LoadCombinationGroup.removeAllFromDomain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Eliminates all loads cases from domain.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void removeAllFromDomain(XC::LoadCombinationGroup {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.LoadCombinationGroup.removeFromDomain">
+<code class="descname">removeFromDomain</code><span class="sig-paren">(</span><em>(LoadCombinationGroup)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.LoadCombinationGroup.removeFromDomain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Eliminates combination from domain.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void removeFromDomain(XC::LoadCombinationGroup {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.TimeSeries">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">TimeSeries</code><a class="headerlink" href="#xc.TimeSeries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">xc_base.EntCmd</span></code>, <code class="xref py py-class docutils literal"><span class="pre">xc.MovableObject</span></code></p>
+<dl class="method">
+<dt id="xc.TimeSeries.getFactor">
+<code class="descname">getFactor</code><span class="sig-paren">(</span><em>(TimeSeries)arg1</em>, <em>(float)arg2</em><span class="sig-paren">)</span> &rarr; float :<a class="headerlink" href="#xc.TimeSeries.getFactor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>double getFactor(XC::TimeSeries {lvalue},double)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.TimeSeries.getTimeIncr">
+<code class="descname">getTimeIncr</code><span class="sig-paren">(</span><em>(TimeSeries)arg1</em>, <em>(float)arg2</em><span class="sig-paren">)</span> &rarr; float :<a class="headerlink" href="#xc.TimeSeries.getTimeIncr" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>double getTimeIncr(XC::TimeSeries {lvalue},double)</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.TimeSeriesIntegrator">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">TimeSeriesIntegrator</code><a class="headerlink" href="#xc.TimeSeriesIntegrator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">xc.MovableObject</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.MapLoadPatterns">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">MapLoadPatterns</code><a class="headerlink" href="#xc.MapLoadPatterns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../load.html#xc.LoadLoaderMember" title="xc.LoadLoaderMember"><code class="xref py py-class docutils literal"><span class="pre">xc.LoadLoaderMember</span></code></a></p>
+<dl class="method">
+<dt id="xc.MapLoadPatterns.addToDomain">
+<code class="descname">addToDomain</code><span class="sig-paren">(</span><em>(MapLoadPatterns)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.MapLoadPatterns.addToDomain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies the load pattern to the domain.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void addToDomain(XC::MapLoadPatterns {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.MapLoadPatterns.getKeys">
+<code class="descname">getKeys</code><span class="sig-paren">(</span><em>(MapLoadPatterns)arg1</em><span class="sig-paren">)</span> &rarr; list :<a class="headerlink" href="#xc.MapLoadPatterns.getKeys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns load case names</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>boost::python::list getKeys(XC::MapLoadPatterns {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.MapLoadPatterns.newLoadPattern">
+<code class="descname">newLoadPattern</code><span class="sig-paren">(</span><em>(MapLoadPatterns)arg1</em>, <em>(str)arg2</em>, <em>(str)arg3</em><span class="sig-paren">)</span> &rarr; LoadPattern :<a class="headerlink" href="#xc.MapLoadPatterns.newLoadPattern" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a load pattern.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::LoadPattern* newLoadPattern(XC::MapLoadPatterns {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;,std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.MapLoadPatterns.newTimeSeries">
+<code class="descname">newTimeSeries</code><span class="sig-paren">(</span><em>(MapLoadPatterns)arg1</em>, <em>(str)arg2</em>, <em>(str)arg3</em><span class="sig-paren">)</span> &rarr; TimeSeries :<a class="headerlink" href="#xc.MapLoadPatterns.newTimeSeries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Crea una modulación de the load en el tiempo.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::TimeSeries* newTimeSeries(XC::MapLoadPatterns {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;,std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.MapLoadPatterns.removeAllFromDomain">
+<code class="descname">removeAllFromDomain</code><span class="sig-paren">(</span><em>(MapLoadPatterns)arg1</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.MapLoadPatterns.removeAllFromDomain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Eliminates all loads cases from domain.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void removeAllFromDomain(XC::MapLoadPatterns {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.MapLoadPatterns.removeFromDomain">
+<code class="descname">removeFromDomain</code><span class="sig-paren">(</span><em>(MapLoadPatterns)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.MapLoadPatterns.removeFromDomain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Eliminates load case from domain.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void removeFromDomain(XC::MapLoadPatterns {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../groundMotion/groundMotion.html"
+                        title="previous chapter">Ground motion</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="load_patterns/load_patterns.html"
+                        title="next chapter">Load paterns</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../_sources/preprocessor/cpp_classes/domain/load/pattern/pattern.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="load_patterns/load_patterns.html" title="Load paterns"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../groundMotion/groundMotion.html" title="Ground motion"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../../index.html">XC 3.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../../../actions.html" >Actions</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="../../../loads_index.html" >Base load</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+    </div>
+  </body>
+</html>

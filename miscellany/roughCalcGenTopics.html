@@ -25,6 +25,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="XC 3.0 documentation" href="../index.html" />
     <link rel="up" title="Rough calculations" href="rough_calculations.html" />
+    <link rel="next" title="Utils" href="misc.html" />
     <link rel="prev" title="Rough calculations" href="rough_calculations.html" /> 
   </head>
   <body role="document">
@@ -37,6 +38,9 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
+        <li class="right" >
+          <a href="misc.html" title="Utils"
+             accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="rough_calculations.html" title="Rough calculations"
              accesskey="P">previous</a> |</li>
@@ -794,16 +798,36 @@ q: Carga por unidad de longitud (uniforme).</p>
 <dt id="rough_calculations.ng_concrete_slab.FourSidesPinnedConcreteSlab.getMMax">
 <code class="descname">getMMax</code><span class="sig-paren">(</span><em>p</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_concrete_slab.FourSidesPinnedConcreteSlab.getMMax" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns maximum bending moment under the load p</p>
-<p>p: Total load over the slab.</p>
-<p>Formulas from Yvon Lescouarc&#8217;h ingénieur.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> &#8211; Total load over the slab.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Formulas from Yvon Lescouarc&#8217;h ingénieur.</p>
+</div>
 </dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_concrete_slab.FourSidesPinnedConcreteSlab.predimThickness">
 <code class="descname">predimThickness</code><span class="sig-paren">(</span><em>p</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_concrete_slab.FourSidesPinnedConcreteSlab.predimThickness" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns thickness for a four side supported slab</p>
-<p>p: Total load over the slab (N/m2).</p>
-<p>Formulas from Yvon Lescouarc&#8217;h ingénieur.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> &#8211; Total load over the slab (N/m2).</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Formulas from Yvon Lescouarc&#8217;h ingénieur.</p>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -989,7 +1013,7 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 <span id="ng-rc-section"></span><h1>ng_rc_section<a class="headerlink" href="#module-rough_calculations.ng_rc_section" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="rough_calculations.ng_rc_section.RCSection">
-<em class="property">class </em><code class="descclassname">rough_calculations.ng_rc_section.</code><code class="descname">RCSection</code><span class="sig-paren">(</span><em>tensionRebars</em>, <em>beton</em>, <em>b</em>, <em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rc_section.RCSection" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">rough_calculations.ng_rc_section.</code><code class="descname">RCSection</code><span class="sig-paren">(</span><em>tensionRebars</em>, <em>concrete</em>, <em>b</em>, <em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rc_section.RCSection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <dl class="attribute">
 <dt id="rough_calculations.ng_rc_section.RCSection.b">
@@ -997,8 +1021,8 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="rough_calculations.ng_rc_section.RCSection.beton">
-<code class="descname">beton</code><em class="property"> = C25-30</em><a class="headerlink" href="#rough_calculations.ng_rc_section.RCSection.beton" title="Permalink to this definition">¶</a></dt>
+<dt id="rough_calculations.ng_rc_section.RCSection.concrete">
+<code class="descname">concrete</code><em class="property"> = C25-30</em><a class="headerlink" href="#rough_calculations.ng_rc_section.RCSection.concrete" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1087,17 +1111,17 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 
 <dl class="method">
 <dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.getAsMinFlexion">
-<code class="descname">getAsMinFlexion</code><span class="sig-paren">(</span><em>beton</em>, <em>epaisseur</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getAsMinFlexion" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getAsMinFlexion</code><span class="sig-paren">(</span><em>concrete</em>, <em>epaisseur</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getAsMinFlexion" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.getAsMinTraction">
-<code class="descname">getAsMinTraction</code><span class="sig-paren">(</span><em>beton</em>, <em>epaisseur</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getAsMinTraction" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getAsMinTraction</code><span class="sig-paren">(</span><em>concrete</em>, <em>epaisseur</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getAsMinTraction" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.getBasicAnchorageLength">
-<code class="descname">getBasicAnchorageLength</code><span class="sig-paren">(</span><em>beton</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getBasicAnchorageLength" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getBasicAnchorageLength</code><span class="sig-paren">(</span><em>concrete</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getBasicAnchorageLength" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1116,9 +1140,12 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.getEnrobageMec">
-<code class="descname">getEnrobageMec</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getEnrobageMec" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.getEffectiveCover">
+<code class="descname">getEffectiveCover</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getEffectiveCover" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the effective cover of the rebar family.</p>
+<p>Returns the distance between the surface of the concrete and the 
+centroid of the rebars family.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.getExigenceFissuration">
@@ -1127,24 +1154,24 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 
 <dl class="method">
 <dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.getMR">
-<code class="descname">getMR</code><span class="sig-paren">(</span><em>beton</em>, <em>b</em>, <em>epaisseur</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getMR" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getMR</code><span class="sig-paren">(</span><em>concrete</em>, <em>b</em>, <em>epaisseur</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getMR" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.getVR">
-<code class="descname">getVR</code><span class="sig-paren">(</span><em>beton</em>, <em>Nd</em>, <em>Md</em>, <em>b</em>, <em>epaisseur</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getVR" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getVR</code><span class="sig-paren">(</span><em>concrete</em>, <em>Nd</em>, <em>Md</em>, <em>b</em>, <em>epaisseur</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.getVR" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_rebar_def.DoubleRebarFamily.writeDef">
-<code class="descname">writeDef</code><span class="sig-paren">(</span><em>outputFile</em>, <em>beton</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.writeDef" title="Permalink to this definition">¶</a></dt>
+<code class="descname">writeDef</code><span class="sig-paren">(</span><em>outputFile</em>, <em>concrete</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.DoubleRebarFamily.writeDef" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="rough_calculations.ng_rebar_def.FamNBars">
-<em class="property">class </em><code class="descclassname">rough_calculations.ng_rebar_def.</code><code class="descname">FamNBars</code><span class="sig-paren">(</span><em>acier</em>, <em>n</em>, <em>diam</em>, <em>ecartement</em>, <em>enrobage</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.FamNBars" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">rough_calculations.ng_rebar_def.</code><code class="descname">FamNBars</code><span class="sig-paren">(</span><em>steel</em>, <em>n</em>, <em>diam</em>, <em>ecartement</em>, <em>concreteCover</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.FamNBars" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#rough_calculations.ng_rebar_def.RebarFamily" title="rough_calculations.ng_rebar_def.RebarFamily"><code class="xref py py-class docutils literal"><span class="pre">rough_calculations.ng_rebar_def.RebarFamily</span></code></a></p>
 <dl class="attribute">
 <dt id="rough_calculations.ng_rebar_def.FamNBars.n">
@@ -1153,14 +1180,14 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 
 <dl class="method">
 <dt id="rough_calculations.ng_rebar_def.FamNBars.writeDef">
-<code class="descname">writeDef</code><span class="sig-paren">(</span><em>outputFile</em>, <em>beton</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.FamNBars.writeDef" title="Permalink to this definition">¶</a></dt>
+<code class="descname">writeDef</code><span class="sig-paren">(</span><em>outputFile</em>, <em>concrete</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.FamNBars.writeDef" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="rough_calculations.ng_rebar_def.RebarFamily">
-<em class="property">class </em><code class="descclassname">rough_calculations.ng_rebar_def.</code><code class="descname">RebarFamily</code><span class="sig-paren">(</span><em>acier</em>, <em>diam</em>, <em>ecartement</em>, <em>enrobage</em>, <em>exigenceFissuration='B'</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">rough_calculations.ng_rebar_def.</code><code class="descname">RebarFamily</code><span class="sig-paren">(</span><em>steel</em>, <em>diam</em>, <em>ecartement</em>, <em>concreteCover</em>, <em>exigenceFissuration='B'</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <dl class="method">
 <dt id="rough_calculations.ng_rebar_def.RebarFamily.d">
@@ -1174,12 +1201,12 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 
 <dl class="method">
 <dt id="rough_calculations.ng_rebar_def.RebarFamily.getAsMinFlexion">
-<code class="descname">getAsMinFlexion</code><span class="sig-paren">(</span><em>beton</em>, <em>epaisseur</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getAsMinFlexion" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getAsMinFlexion</code><span class="sig-paren">(</span><em>concrete</em>, <em>epaisseur</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getAsMinFlexion" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_rebar_def.RebarFamily.getAsMinTraction">
-<code class="descname">getAsMinTraction</code><span class="sig-paren">(</span><em>beton</em>, <em>epaisseur</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getAsMinTraction" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getAsMinTraction</code><span class="sig-paren">(</span><em>concrete</em>, <em>epaisseur</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getAsMinTraction" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1189,7 +1216,7 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 
 <dl class="method">
 <dt id="rough_calculations.ng_rebar_def.RebarFamily.getBasicAnchorageLength">
-<code class="descname">getBasicAnchorageLength</code><span class="sig-paren">(</span><em>beton</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getBasicAnchorageLength" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getBasicAnchorageLength</code><span class="sig-paren">(</span><em>concrete</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getBasicAnchorageLength" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1213,9 +1240,12 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="rough_calculations.ng_rebar_def.RebarFamily.getEnrobageMec">
-<code class="descname">getEnrobageMec</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getEnrobageMec" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="rough_calculations.ng_rebar_def.RebarFamily.getEffectiveCover">
+<code class="descname">getEffectiveCover</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getEffectiveCover" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the effective cover of the rebar family.</p>
+<p>Returns the distance between the surface of the concrete and the 
+centroid of the rebars family.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_rebar_def.RebarFamily.getExigenceFissuration">
@@ -1224,7 +1254,7 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 
 <dl class="method">
 <dt id="rough_calculations.ng_rebar_def.RebarFamily.getMR">
-<code class="descname">getMR</code><span class="sig-paren">(</span><em>beton</em>, <em>b</em>, <em>epaisseur</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getMR" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getMR</code><span class="sig-paren">(</span><em>concrete</em>, <em>b</em>, <em>epaisseur</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getMR" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -1239,7 +1269,7 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 
 <dl class="method">
 <dt id="rough_calculations.ng_rebar_def.RebarFamily.getVR">
-<code class="descname">getVR</code><span class="sig-paren">(</span><em>beton</em>, <em>Nd</em>, <em>Md</em>, <em>b</em>, <em>epaisseur</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getVR" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getVR</code><span class="sig-paren">(</span><em>concrete</em>, <em>Nd</em>, <em>Md</em>, <em>b</em>, <em>epaisseur</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.getVR" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -1249,7 +1279,7 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 
 <dl class="method">
 <dt id="rough_calculations.ng_rebar_def.RebarFamily.writeDef">
-<code class="descname">writeDef</code><span class="sig-paren">(</span><em>outputFile</em>, <em>beton</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.writeDef" title="Permalink to this definition">¶</a></dt>
+<code class="descname">writeDef</code><span class="sig-paren">(</span><em>outputFile</em>, <em>concrete</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.RebarFamily.writeDef" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1261,7 +1291,7 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 
 <dl class="function">
 <dt id="rough_calculations.ng_rebar_def.writeRebars">
-<code class="descclassname">rough_calculations.ng_rebar_def.</code><code class="descname">writeRebars</code><span class="sig-paren">(</span><em>outputFile</em>, <em>beton</em>, <em>famArm</em>, <em>AsMin</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.writeRebars" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">rough_calculations.ng_rebar_def.</code><code class="descname">writeRebars</code><span class="sig-paren">(</span><em>outputFile</em>, <em>concrete</em>, <em>famArm</em>, <em>AsMin</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_rebar_def.writeRebars" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -1271,8 +1301,7 @@ ver «Números gordos en el proyecto de estructuras» página 44</p>
 <dt id="rough_calculations.ng_retaining_wall.InternalForces">
 <em class="property">class </em><code class="descclassname">rough_calculations.ng_retaining_wall.</code><code class="descname">InternalForces</code><span class="sig-paren">(</span><em>y</em>, <em>mdMax</em>, <em>vdMax</em>, <em>MdSemelle</em>, <em>VdSemelle</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.InternalForces" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
-<p>Internal forces for a retaining wall obtained from
-Laryx (Cubus suite) software.</p>
+<p>Internal forces for a retaining wall obtained.</p>
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.InternalForces.Md">
 <code class="descname">Md</code><span class="sig-paren">(</span><em>yCoupe</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.InternalForces.Md" title="Permalink to this definition">¶</a></dt>
@@ -1323,7 +1352,7 @@ the wall stem.</p>
 
 <dl class="class">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall">
-<em class="property">class </em><code class="descclassname">rough_calculations.ng_retaining_wall.</code><code class="descname">RetainingWall</code><span class="sig-paren">(</span><em>name='prb'</em>, <em>enrobage=0.04</em>, <em>stemBottomWidth=0.25</em>, <em>stemTopWidth=0.25</em>, <em>footingThickness=0.25</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">rough_calculations.ng_retaining_wall.</code><code class="descname">RetainingWall</code><span class="sig-paren">(</span><em>name='prb'</em>, <em>concreteCover=0.04</em>, <em>stemBottomWidth=0.25</em>, <em>stemTopWidth=0.25</em>, <em>footingThickness=0.25</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry</span></code></p>
 <p>Cantilever retaining wall.</p>
 <dl class="attribute">
@@ -1332,15 +1361,259 @@ the wall stem.</p>
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.createBackFillPressures">
+<code class="descname">createBackFillPressures</code><span class="sig-paren">(</span><em>pressureModel</em>, <em>Delta=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.createBackFillPressures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create backfill earth pressures over the wall.</p>
+<blockquote>
+<div>Args:</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">PressureModel:</th><td class="field-body">(obj) earth pressure model for the backfill.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.createDeadLoad">
+<code class="descname">createDeadLoad</code><span class="sig-paren">(</span><em>heelFillDepth</em>, <em>toeFillDepth</em>, <em>rho=2000</em>, <em>grav=9.81</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.createDeadLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the loads of earth self weigth.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.createEarthPressureLoadOnHeelEnd">
+<code class="descname">createEarthPressureLoadOnHeelEnd</code><span class="sig-paren">(</span><em>pressureModel</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.createEarthPressureLoadOnHeelEnd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the loads of the earth pressure over the vertical face
+at the end of the heel.</p>
+<blockquote>
+<div>Args:</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">PressureModel:</th><td class="field-body">(obj) earth pressure model.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.createEarthPressureLoadOnStem">
+<code class="descname">createEarthPressureLoadOnStem</code><span class="sig-paren">(</span><em>pressureModel</em>, <em>vDir=&lt;xc.Vector object&gt;</em>, <em>Delta=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.createEarthPressureLoadOnStem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the loads of the earth pressure over the stem.</p>
+<blockquote>
+<div>Args:</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">PressureModel:</th><td class="field-body">(obj) earth pressure model.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">VDir:</th><td class="field-body">(xc.Vector) direction for the pressures.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.createEarthPressureLoadOnToeEnd">
+<code class="descname">createEarthPressureLoadOnToeEnd</code><span class="sig-paren">(</span><em>pressureModel</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.createEarthPressureLoadOnToeEnd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the loads of the earth pressure over the vertical face
+at the end of the toe.</p>
+<blockquote>
+<div>Args:</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">PressureModel:</th><td class="field-body">(obj) earth pressure model.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.createFEProblem">
+<code class="descname">createFEProblem</code><span class="sig-paren">(</span><em>title</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.createFEProblem" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.createFrontFillPressures">
+<code class="descname">createFrontFillPressures</code><span class="sig-paren">(</span><em>pressureModel</em>, <em>Delta=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.createFrontFillPressures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create front fill earth pressures over the wall.</p>
+<blockquote>
+<div>Args:</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">PressureModel:</th><td class="field-body">(obj) earth pressure model for the backfill.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.createLoadOnTopOfStem">
+<code class="descname">createLoadOnTopOfStem</code><span class="sig-paren">(</span><em>loadVector</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.createLoadOnTopOfStem" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Create a loac acting on the node at the top of the stem.</dt>
+<dd>Args:</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">LoadVector:</th><td class="field-body">(vector) vector defining the load.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.createPressuresFromLoadOnBackFill">
+<code class="descname">createPressuresFromLoadOnBackFill</code><span class="sig-paren">(</span><em>loadOnBackFill</em>, <em>Delta=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.createPressuresFromLoadOnBackFill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the pressures on the stem and on the heel dues to 
+a load acting on the backfill.</p>
+<blockquote>
+<div>Args:</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">LoadOnBackFill:</th><td class="field-body">(obj) load acting on the backfill.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.createSelfWeightLoads">
+<code class="descname">createSelfWeightLoads</code><span class="sig-paren">(</span><em>rho=2500</em>, <em>grav=9.81</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.createSelfWeightLoads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the loads of the concrete weight.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.createVerticalLoadOnHeel">
+<code class="descname">createVerticalLoadOnHeel</code><span class="sig-paren">(</span><em>loadOnBackFill</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.createVerticalLoadOnHeel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the loads over the heel dues to a load acting on the backfill.</p>
+<blockquote>
+<div>Args:</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">LoadOnBackFill:</th><td class="field-body">(obj) load acting on the backfill.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.drawSchema">
 <code class="descname">drawSchema</code><span class="sig-paren">(</span><em>pth</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.drawSchema" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retaining wall scheme drawing in LaTeX format.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.genMesh">
+<code class="descname">genMesh</code><span class="sig-paren">(</span><em>nodes</em>, <em>springMaterials</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.genMesh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.getBasicAnchorageLength">
 <code class="descname">getBasicAnchorageLength</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getBasicAnchorageLength" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns basic anchorage length for the reinforcement at &#8220;index&#8221;.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.getBearingPressureSafetyFactor">
+<code class="descname">getBearingPressureSafetyFactor</code><span class="sig-paren">(</span><em>R</em>, <em>foundationSoilModel</em>, <em>toeFillDepth</em>, <em>q=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getBearingPressureSafetyFactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the factor of safety against bearing capacity of the soil.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">toeFillDepth:</th><td class="field-body">(float) depht of the soil filling over the toe.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">q:</th><td class="field-body">(float) uniform load over the filling.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.getEccentricity">
+<code class="descname">getEccentricity</code><span class="sig-paren">(</span><em>R</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getEccentricity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the eccenctricity of the loads acting on the retaining wall.</p>
+<blockquote>
+<div>Args:</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">R:</th><td class="field-body">(SVD3d) resultant of the loads acting on the retaining wall.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.getEnvelopeInternalForces">
+<code class="descname">getEnvelopeInternalForces</code><span class="sig-paren">(</span><em>envelopeMd</em>, <em>envelopeVd</em>, <em>envelopeMdHeel</em>, <em>envelopeVdHeel</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getEnvelopeInternalForces" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.getFoundationRotation">
+<code class="descname">getFoundationRotation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getFoundationRotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the rotation of the foundation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.getHeelInternalForces">
+<code class="descname">getHeelInternalForces</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getHeelInternalForces" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.getMononobeOkabeDryOverpressure">
+<code class="descname">getMononobeOkabeDryOverpressure</code><span class="sig-paren">(</span><em>backFillModel</em>, <em>kv</em>, <em>kh</em>, <em>delta_ad=0</em>, <em>beta=0</em>, <em>Kas=None</em>, <em>g=9.81</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getMononobeOkabeDryOverpressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return overpressure due to seismic action according to Mononobe-Okabe</p>
+<p>Args:
+:backFillModel: back fill terrain model
+:kv: seismic coefficient of vertical acceleration.
+:kh: seismic coefficient of horizontal acceleration.
+:delta_ad: angle of friction soil - structure.
+:beta: slope inclination of backfill.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.getOverturningSafetyFactor">
+<code class="descname">getOverturningSafetyFactor</code><span class="sig-paren">(</span><em>R</em>, <em>gammaR</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getOverturningSafetyFactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the factor of safety against overturning.</p>
+<blockquote>
+<div>Args:</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">R:</th><td class="field-body">(SVD3d) resultant of the loads acting on the retaining wall.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">GammaR:</th><td class="field-body">(float) partial resistance reduction factor.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.getReactions">
+<code class="descname">getReactions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getReactions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the reactions on the foundation.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1392,6 +1665,64 @@ the wall stem.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.getSlidingSafetyFactor">
+<code class="descname">getSlidingSafetyFactor</code><span class="sig-paren">(</span><em>R</em>, <em>gammaR</em>, <em>foundationSoilModel</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getSlidingSafetyFactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the factor of safety against sliding.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">R:</th><td class="field-body">(SVD3d) resultant of the loads acting on the retaining wall.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">gammaR:</th><td class="field-body">partial resistance reduction factor.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">foundationSoilModel:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">(FrictionalCohesionalSoil) soil model.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">gammaMPhi:</th><td class="field-body">(float) partial reduction factor for internal friction angle of the soil.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">gammaMc:</th><td class="field-body">(float) partial reduction factor for soil cohesion.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.getStemInternalForces">
+<code class="descname">getStemInternalForces</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getStemInternalForces" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.getStemYCoordinates">
+<code class="descname">getStemYCoordinates</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getStemYCoordinates" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.performSLSAnalysis">
+<code class="descname">performSLSAnalysis</code><span class="sig-paren">(</span><em>combinations</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.performSLSAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.performStabilityAnalysis">
+<code class="descname">performStabilityAnalysis</code><span class="sig-paren">(</span><em>combinations</em>, <em>foundationSoilModel</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.performStabilityAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.performULSAnalysis">
+<code class="descname">performULSAnalysis</code><span class="sig-paren">(</span><em>combinations</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.performULSAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.resultComb">
+<code class="descname">resultComb</code><span class="sig-paren">(</span><em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.resultComb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Solution and result retrieval routine.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.setSLSInternalForcesEnvelope">
 <code class="descname">setSLSInternalForcesEnvelope</code><span class="sig-paren">(</span><em>wallInternalForces</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.setSLSInternalForcesEnvelope" title="Permalink to this definition">¶</a></dt>
 <dd><p>Assigns the serviceability limit state infernal forces envelope for the stem.</p>
@@ -1419,7 +1750,7 @@ the wall stem.</p>
 
 <dl class="class">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWallReinforcement">
-<em class="property">class </em><code class="descclassname">rough_calculations.ng_retaining_wall.</code><code class="descname">RetainingWallReinforcement</code><span class="sig-paren">(</span><em>enrobage=0.04</em>, <em>steel=B500B</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWallReinforcement" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">rough_calculations.ng_retaining_wall.</code><code class="descname">RetainingWallReinforcement</code><span class="sig-paren">(</span><em>concreteCover=0.04</em>, <em>steel=B500B</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWallReinforcement" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dict</span></code></p>
 <p>Simplified reinforcement for a cantilever retaining wall.</p>
 <dl class="method">
@@ -1434,6 +1765,36 @@ the wall stem.</p>
 <dd><p>Assigns armature.</p>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="class">
+<dt id="rough_calculations.ng_retaining_wall.WallSLSResults">
+<em class="property">class </em><code class="descclassname">rough_calculations.ng_retaining_wall.</code><code class="descname">WallSLSResults</code><span class="sig-paren">(</span><em>internalForces</em>, <em>rotation</em>, <em>rotationComb</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.WallSLSResults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rough_calculations.ng_retaining_wall.WallULSResults" title="rough_calculations.ng_retaining_wall.WallULSResults"><code class="xref py py-class docutils literal"><span class="pre">rough_calculations.ng_retaining_wall.WallULSResults</span></code></a></p>
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.WallSLSResults.writeOutput">
+<code class="descname">writeOutput</code><span class="sig-paren">(</span><em>outputFile</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.WallSLSResults.writeOutput" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write results in LaTeX format.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rough_calculations.ng_retaining_wall.WallStabilityResults">
+<em class="property">class </em><code class="descclassname">rough_calculations.ng_retaining_wall.</code><code class="descname">WallStabilityResults</code><span class="sig-paren">(</span><em>wall</em>, <em>combinations</em>, <em>foundationSoilModel</em>, <em>gammaR=1</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.WallStabilityResults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.WallStabilityResults.writeOutput">
+<code class="descname">writeOutput</code><span class="sig-paren">(</span><em>outputFile</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.WallStabilityResults.writeOutput" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write results in LaTeX format.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rough_calculations.ng_retaining_wall.WallULSResults">
+<em class="property">class </em><code class="descclassname">rough_calculations.ng_retaining_wall.</code><code class="descname">WallULSResults</code><span class="sig-paren">(</span><em>internalForces</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.WallULSResults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 </dd></dl>
 
 <dl class="function">
@@ -1811,6 +2172,9 @@ bridgeClass: COI, COII, COIII</p>
   <h4>Previous topic</h4>
   <p class="topless"><a href="rough_calculations.html"
                         title="previous chapter">Rough calculations</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="misc.html"
+                        title="next chapter">Utils</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -1845,6 +2209,9 @@ bridgeClass: COI, COII, COIII</p>
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
+          <a href="misc.html" title="Utils"
+             >next</a> |</li>
+        <li class="right" >
           <a href="rough_calculations.html" title="Rough calculations"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">XC 3.0 documentation</a> &raquo;</li>
@@ -1852,7 +2219,7 @@ bridgeClass: COI, COII, COIII</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2016, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
+        &copy; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>

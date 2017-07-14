@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Plane &mdash; XC 3.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+    <link rel="top" title="XC 3.0 documentation" href="../../../../../index.html" />
+    <link rel="up" title="Base load" href="../../../loads_index.html" />
+    <link rel="next" title="Beam loads" href="../beam_loads/beam_loads.html" />
+    <link rel="prev" title="Load" href="../load.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../beam_loads/beam_loads.html" title="Beam loads"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../load.html" title="Load"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../../index.html">XC 3.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../../../actions.html" >Actions</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="../../../loads_index.html" accesskey="U">Base load</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-xc">
+<span id="plane"></span><h1>Plane<a class="headerlink" href="#module-xc" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="xc.BidimLoad">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">BidimLoad</code><a class="headerlink" href="#xc.BidimLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../load.html#xc.ElementBodyLoad" title="xc.ElementBodyLoad"><code class="xref py py-class docutils literal"><span class="pre">xc.ElementBodyLoad</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.BidimMecLoad">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">BidimMecLoad</code><a class="headerlink" href="#xc.BidimMecLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xc.BidimLoad" title="xc.BidimLoad"><code class="xref py py-class docutils literal"><span class="pre">xc.BidimLoad</span></code></a></p>
+<dl class="method">
+<dt id="xc.BidimMecLoad.getResultant">
+<code class="descname">getResultant</code><span class="sig-paren">(</span><em>(BidimMecLoad)arg1</em>, <em>(Pos3d)arg2</em>, <em>(bool)arg3</em><span class="sig-paren">)</span> &rarr; SVD3d :<a class="headerlink" href="#xc.BidimMecLoad.getResultant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns load resultant (force and moment integration over the elements).</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>SVD3d getResultant(XC::BidimMecLoad {lvalue},Pos3d,bool)</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.ShellMecLoad">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">ShellMecLoad</code><a class="headerlink" href="#xc.ShellMecLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xc.BidimMecLoad" title="xc.BidimMecLoad"><code class="xref py py-class docutils literal"><span class="pre">xc.BidimMecLoad</span></code></a></p>
+<dl class="method">
+<dt id="xc.ShellMecLoad.getGlobalForces">
+<code class="descname">getGlobalForces</code><span class="sig-paren">(</span><em>(ShellMecLoad)arg1</em><span class="sig-paren">)</span> &rarr; Matrix :<a class="headerlink" href="#xc.ShellMecLoad.getGlobalForces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns force vector(s) in global coordinates.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Matrix getGlobalForces(XC::ShellMecLoad {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.ShellMecLoad.getGlobalMoments">
+<code class="descname">getGlobalMoments</code><span class="sig-paren">(</span><em>(ShellMecLoad)arg1</em><span class="sig-paren">)</span> &rarr; Matrix :<a class="headerlink" href="#xc.ShellMecLoad.getGlobalMoments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns force vector(s) in global coordinates.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Matrix getGlobalMoments(XC::ShellMecLoad {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.ShellMecLoad.getGlobalVectors">
+<code class="descname">getGlobalVectors</code><span class="sig-paren">(</span><em>(ShellMecLoad)arg1</em>, <em>(Matrix)arg2</em><span class="sig-paren">)</span> &rarr; Matrix :<a class="headerlink" href="#xc.ShellMecLoad.getGlobalVectors" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Matrix getGlobalVectors(XC::ShellMecLoad {lvalue},XC::Matrix)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.ShellMecLoad.getLocalForce">
+<code class="descname">getLocalForce</code><span class="sig-paren">(</span><em>(ShellMecLoad)arg1</em><span class="sig-paren">)</span> &rarr; Vector :<a class="headerlink" href="#xc.ShellMecLoad.getLocalForce" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns local coordinates or force vector.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Vector getLocalForce(XC::ShellMecLoad {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.ShellMecLoad.getLocalForces">
+<code class="descname">getLocalForces</code><span class="sig-paren">(</span><em>(ShellMecLoad)arg1</em><span class="sig-paren">)</span> &rarr; Matrix :<a class="headerlink" href="#xc.ShellMecLoad.getLocalForces" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Matrix getLocalForces(XC::ShellMecLoad {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.ShellMecLoad.getLocalMoment">
+<code class="descname">getLocalMoment</code><span class="sig-paren">(</span><em>(ShellMecLoad)arg1</em><span class="sig-paren">)</span> &rarr; Vector :<a class="headerlink" href="#xc.ShellMecLoad.getLocalMoment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns local coordinates of bending moment vector.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Vector getLocalMoment(XC::ShellMecLoad {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.ShellMecLoad.getLocalMoments">
+<code class="descname">getLocalMoments</code><span class="sig-paren">(</span><em>(ShellMecLoad)arg1</em><span class="sig-paren">)</span> &rarr; Matrix :<a class="headerlink" href="#xc.ShellMecLoad.getLocalMoments" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Matrix getLocalMoments(XC::ShellMecLoad {lvalue})</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.ShellUniformLoad">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">ShellUniformLoad</code><a class="headerlink" href="#xc.ShellUniformLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xc.ShellMecLoad" title="xc.ShellMecLoad"><code class="xref py py-class docutils literal"><span class="pre">xc.ShellMecLoad</span></code></a></p>
+<dl class="method">
+<dt id="xc.ShellUniformLoad.getDistributedGlobalMoments">
+<code class="descname">getDistributedGlobalMoments</code><span class="sig-paren">(</span><em>(ShellUniformLoad)arg1</em><span class="sig-paren">)</span> &rarr; Matrix :<a class="headerlink" href="#xc.ShellUniformLoad.getDistributedGlobalMoments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns distributed moment vectors (one for each element) expressed in global coordinates.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Matrix getDistributedGlobalMoments(XC::ShellUniformLoad {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.ShellUniformLoad.getDistributedLocalMoments">
+<code class="descname">getDistributedLocalMoments</code><span class="sig-paren">(</span><em>(ShellUniformLoad)arg1</em><span class="sig-paren">)</span> &rarr; Matrix :<a class="headerlink" href="#xc.ShellUniformLoad.getDistributedLocalMoments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns distributed moment vectors (one for each element) expressed in element local coordinates.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Matrix getDistributedLocalMoments(XC::ShellUniformLoad {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.ShellUniformLoad.getGlobalPressures">
+<code class="descname">getGlobalPressures</code><span class="sig-paren">(</span><em>(ShellUniformLoad)arg1</em><span class="sig-paren">)</span> &rarr; Matrix :<a class="headerlink" href="#xc.ShellUniformLoad.getGlobalPressures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns pressure vectors (one for each element) expressed in global coordinates.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Matrix getGlobalPressures(XC::ShellUniformLoad {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.ShellUniformLoad.getLocalPressures">
+<code class="descname">getLocalPressures</code><span class="sig-paren">(</span><em>(ShellUniformLoad)arg1</em><span class="sig-paren">)</span> &rarr; Matrix :<a class="headerlink" href="#xc.ShellUniformLoad.getLocalPressures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns pressure vectors (one for each element) expressed in element local coordinates.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Matrix getLocalPressures(XC::ShellUniformLoad {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.ShellUniformLoad.getResultant">
+<code class="descname">getResultant</code><span class="sig-paren">(</span><em>(ShellUniformLoad)arg1</em>, <em>(Pos3d)arg2</em>, <em>(bool)arg3</em><span class="sig-paren">)</span> &rarr; SVD3d :<a class="headerlink" href="#xc.ShellUniformLoad.getResultant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the load resultant (integration of the pressures over the elements).</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>SVD3d getResultant(XC::ShellUniformLoad {lvalue},Pos3d,bool)</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.BidimStrainLoad">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">BidimStrainLoad</code><a class="headerlink" href="#xc.BidimStrainLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xc.BidimLoad" title="xc.BidimLoad"><code class="xref py py-class docutils literal"><span class="pre">xc.BidimLoad</span></code></a></p>
+<dl class="method">
+<dt id="xc.BidimStrainLoad.getStrain">
+<code class="descname">getStrain</code><span class="sig-paren">(</span><em>(BidimStrainLoad)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; Vector :<a class="headerlink" href="#xc.BidimStrainLoad.getStrain" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Vector getStrain(XC::BidimStrainLoad {lvalue},unsigned long)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.BidimStrainLoad.setStrainComp">
+<code class="descname">setStrainComp</code><span class="sig-paren">(</span><em>(BidimStrainLoad)arg1</em>, <em>(int)arg2</em>, <em>(int)arg3</em>, <em>(float)arg4</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.BidimStrainLoad.setStrainComp" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void setStrainComp(XC::BidimStrainLoad {lvalue},unsigned long,unsigned long,double)</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.ShellStrainLoad">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">ShellStrainLoad</code><a class="headerlink" href="#xc.ShellStrainLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xc.BidimStrainLoad" title="xc.BidimStrainLoad"><code class="xref py py-class docutils literal"><span class="pre">xc.BidimStrainLoad</span></code></a></p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../load.html"
+                        title="previous chapter">Load</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../beam_loads/beam_loads.html"
+                        title="next chapter">Beam loads</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../../_sources/preprocessor/cpp_classes/domain/load/plane/plane.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../beam_loads/beam_loads.html" title="Beam loads"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../load.html" title="Load"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../../index.html">XC 3.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../../../actions.html" >Actions</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="../../../loads_index.html" >Base load</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+    </div>
+  </body>
+</html>

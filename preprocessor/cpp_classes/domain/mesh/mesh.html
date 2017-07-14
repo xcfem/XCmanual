@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Mesh management &mdash; XC 3.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <link rel="top" title="XC 3.0 documentation" href="../../../../index.html" />
+    <link rel="up" title="Mesh" href="../../../FE_model.mesh.html" />
+    <link rel="next" title="Element types" href="../elem_types.html" />
+    <link rel="prev" title="Mesh utils" href="../../../python_modules/model.mesh.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../elem_types.html" title="Element types"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../../../python_modules/model.mesh.html" title="Mesh utils"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">XC 3.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../../FE_model.html" >FE model</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="../../../FE_model.mesh.html" accesskey="U">Mesh</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-xc">
+<span id="mesh-management"></span><h1>Mesh management<a class="headerlink" href="#module-xc" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="xc.MeshComponentContainer">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">MeshComponentContainer</code><a class="headerlink" href="#xc.MeshComponentContainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">xc_base.EntCmd</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.Mesh">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">Mesh</code><a class="headerlink" href="#xc.Mesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xc.MeshComponentContainer" title="xc.MeshComponentContainer"><code class="xref py py-class docutils literal"><span class="pre">xc.MeshComponentContainer</span></code></a></p>
+<dl class="method">
+<dt id="xc.Mesh.freezeDeadNodes">
+<code class="descname">freezeDeadNodes</code><span class="sig-paren">(</span><em>(Mesh)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.Mesh.freezeDeadNodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restrain movement of dead nodes.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void freezeDeadNodes(XC::Mesh {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.Mesh.getElement">
+<code class="descname">getElement</code><span class="sig-paren">(</span><em>(Mesh)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; Element :<a class="headerlink" href="#xc.Mesh.getElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an element from its identifier.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Element* getElement(XC::Mesh {lvalue},int)</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.Mesh.getElementIter">
+<code class="descname">getElementIter</code><a class="headerlink" href="#xc.Mesh.getElementIter" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns an iterator over the elements of the mesh.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.Mesh.getNearestElement">
+<code class="descname">getNearestElement</code><span class="sig-paren">(</span><em>(Mesh)arg1</em>, <em>(Pos3d)arg2</em><span class="sig-paren">)</span> &rarr; Element :<a class="headerlink" href="#xc.Mesh.getNearestElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns nearest node.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Element* getNearestElement(XC::Mesh {lvalue},Pos3d)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.Mesh.getNearestNode">
+<code class="descname">getNearestNode</code><span class="sig-paren">(</span><em>(Mesh)arg1</em>, <em>(Pos3d)arg2</em><span class="sig-paren">)</span> &rarr; Node :<a class="headerlink" href="#xc.Mesh.getNearestNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns nearest node.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Node* getNearestNode(XC::Mesh {lvalue},Pos3d)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.Mesh.getNode">
+<code class="descname">getNode</code><span class="sig-paren">(</span><em>(Mesh)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; Node :<a class="headerlink" href="#xc.Mesh.getNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a node from its identifier.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Node* getNode(XC::Mesh {lvalue},int)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.Mesh.getNumDeadElements">
+<code class="descname">getNumDeadElements</code><span class="sig-paren">(</span><em>(Mesh)arg1</em><span class="sig-paren">)</span> &rarr; int :<a class="headerlink" href="#xc.Mesh.getNumDeadElements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of dead elements.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>unsigned long getNumDeadElements(XC::Mesh {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.Mesh.getNumDeadNodes">
+<code class="descname">getNumDeadNodes</code><span class="sig-paren">(</span><em>(Mesh)arg1</em><span class="sig-paren">)</span> &rarr; int :<a class="headerlink" href="#xc.Mesh.getNumDeadNodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of dead nodes.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>unsigned long getNumDeadNodes(XC::Mesh {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.Mesh.getNumElements">
+<code class="descname">getNumElements</code><span class="sig-paren">(</span><em>(Mesh)arg1</em><span class="sig-paren">)</span> &rarr; int :<a class="headerlink" href="#xc.Mesh.getNumElements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of elements.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>int getNumElements(XC::Mesh {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.Mesh.getNumFreeNodes">
+<code class="descname">getNumFreeNodes</code><span class="sig-paren">(</span><em>(Mesh)arg1</em><span class="sig-paren">)</span> &rarr; int :<a class="headerlink" href="#xc.Mesh.getNumFreeNodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of free nodes.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>unsigned long getNumFreeNodes(XC::Mesh {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.Mesh.getNumFrozenNodes">
+<code class="descname">getNumFrozenNodes</code><span class="sig-paren">(</span><em>(Mesh)arg1</em><span class="sig-paren">)</span> &rarr; int :<a class="headerlink" href="#xc.Mesh.getNumFrozenNodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of frozen nodes.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>unsigned long getNumFrozenNodes(XC::Mesh {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.Mesh.getNumLiveElements">
+<code class="descname">getNumLiveElements</code><span class="sig-paren">(</span><em>(Mesh)arg1</em><span class="sig-paren">)</span> &rarr; int :<a class="headerlink" href="#xc.Mesh.getNumLiveElements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of live elements.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>unsigned long getNumLiveElements(XC::Mesh {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.Mesh.getNumLiveNodes">
+<code class="descname">getNumLiveNodes</code><span class="sig-paren">(</span><em>(Mesh)arg1</em><span class="sig-paren">)</span> &rarr; int :<a class="headerlink" href="#xc.Mesh.getNumLiveNodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of live nodes.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>unsigned long getNumLiveNodes(XC::Mesh {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.Mesh.getNumNodes">
+<code class="descname">getNumNodes</code><span class="sig-paren">(</span><em>(Mesh)arg1</em><span class="sig-paren">)</span> &rarr; int :<a class="headerlink" href="#xc.Mesh.getNumNodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the number of nodes.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>int getNumNodes(XC::Mesh {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.Mesh.meltAliveNodes">
+<code class="descname">meltAliveNodes</code><span class="sig-paren">(</span><em>(Mesh)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.Mesh.meltAliveNodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows movement of melted nodes.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void meltAliveNodes(XC::Mesh {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
+</dl>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="xc.Mesh.setDeadSRF">
+<em class="property">static </em><code class="descname">setDeadSRF</code><span class="sig-paren">(</span><em>(float)arg1</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.Mesh.setDeadSRF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assigns Stress Reduction Factor for element deactivation.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void setDeadSRF(double)</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../../../python_modules/model.mesh.html"
+                        title="previous chapter">Mesh utils</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../elem_types.html"
+                        title="next chapter">Element types</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../_sources/preprocessor/cpp_classes/domain/mesh/mesh.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../elem_types.html" title="Element types"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../../../python_modules/model.mesh.html" title="Mesh utils"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">XC 3.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../../../FE_model.html" >FE model</a> &raquo;</li>
+          <li class="nav-item nav-item-2"><a href="../../../FE_model.mesh.html" >Mesh</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+    </div>
+  </body>
+</html>

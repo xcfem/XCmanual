@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="XC 3.0 documentation" href="../index.html" />
-    <link rel="next" title="Solution" href="../solution/solution.html" />
+    <link rel="next" title="Python modules" href="../solution/solution.html" />
     <link rel="prev" title="Utils" href="actions.utils.html" /> 
   </head>
   <body role="document">
@@ -38,7 +38,7 @@
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="../solution/solution.html" title="Solution"
+          <a href="../solution/solution.html" title="Python modules"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="actions.utils.html" title="Utils"
@@ -93,8 +93,58 @@ nmb: name of the type of numberer. Available types of numberers: &#8216;default_
 
 </dd></dl>
 
+<div class="section" id="module-xc">
+<span id="component"></span><h2>Component<a class="headerlink" href="#module-xc" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="xc.DomainComponent">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">DomainComponent</code><a class="headerlink" href="#xc.DomainComponent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">xc.TaggedObject</span></code></p>
+<dl class="attribute">
+<dt id="xc.DomainComponent.getDomain">
+<code class="descname">getDomain</code><a class="headerlink" href="#xc.DomainComponent.getDomain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a reference to the domain.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.DomainComponent.getIdx">
+<code class="descname">getIdx</code><a class="headerlink" href="#xc.DomainComponent.getIdx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an index for use in VTK arrays.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xc.ContinuaReprComponent">
+<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">ContinuaReprComponent</code><a class="headerlink" href="#xc.ContinuaReprComponent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#xc.DomainComponent" title="xc.DomainComponent"><code class="xref py py-class docutils literal"><span class="pre">xc.DomainComponent</span></code></a></p>
+<dl class="attribute">
+<dt id="xc.ContinuaReprComponent.alive">
+<code class="descname">alive</code><a class="headerlink" href="#xc.ContinuaReprComponent.alive" title="Permalink to this definition">¶</a></dt>
+<dd><p>activates the domain component.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.ContinuaReprComponent.isAlive">
+<code class="descname">isAlive</code><a class="headerlink" href="#xc.ContinuaReprComponent.isAlive" title="Permalink to this definition">¶</a></dt>
+<dd><p>true if domain component is not active.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.ContinuaReprComponent.isDead">
+<code class="descname">isDead</code><a class="headerlink" href="#xc.ContinuaReprComponent.isDead" title="Permalink to this definition">¶</a></dt>
+<dd><p>true if domain component is not active.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.ContinuaReprComponent.kill">
+<code class="descname">kill</code><a class="headerlink" href="#xc.ContinuaReprComponent.kill" title="Permalink to this definition">¶</a></dt>
+<dd><p>deactivates the domain component.</p>
+</dd></dl>
+
+</dd></dl>
+
 <div class="section" id="module-geom">
-<span id="geom"></span><h2>Geom<a class="headerlink" href="#module-geom" title="Permalink to this headline">¶</a></h2>
+<span id="geom"></span><h3>Geom<a class="headerlink" href="#module-geom" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="geom.BND2d">
 <em class="property">class </em><code class="descclassname">geom.</code><code class="descname">BND2d</code><a class="headerlink" href="#geom.BND2d" title="Permalink to this definition">¶</a></dt>
@@ -3792,7 +3842,7 @@ nmb: name of the type of numberer. Available types of numberers: &#8216;default_
 
 </div>
 <div class="section" id="module-xc_base">
-<span id="xc-base"></span><h2>XC base<a class="headerlink" href="#module-xc_base" title="Permalink to this headline">¶</a></h2>
+<span id="xc-base"></span><h3>XC base<a class="headerlink" href="#module-xc_base" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="xc_base.EntCmd">
 <em class="property">class </em><code class="descclassname">xc_base.</code><code class="descname">EntCmd</code><a class="headerlink" href="#xc_base.EntCmd" title="Permalink to this definition">¶</a></dt>
@@ -3912,6 +3962,16 @@ nmb: name of the type of numberer. Available types of numberers: &#8216;default_
 <dt id="xc_base.EntProp.owner">
 <code class="descname">owner</code><a class="headerlink" href="#xc_base.EntProp.owner" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns object&#8217;s owner (container).</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="xc_base.EntProp.setVerbosityLevel">
+<em class="property">static </em><code class="descname">setVerbosityLevel</code><span class="sig-paren">(</span><em>(int)arg1</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc_base.EntProp.setVerbosityLevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set verbosity level.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void setVerbosityLevel(int)</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -4054,6 +4114,7 @@ nmb: name of the type of numberer. Available types of numberers: &#8216;default_
 
 </div>
 </div>
+</div>
 
 
           </div>
@@ -4064,8 +4125,11 @@ nmb: name of the type of numberer. Available types of numberers: &#8216;default_
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">C++ classes</a><ul>
+<li><a class="reference internal" href="#module-xc">Component</a><ul>
 <li><a class="reference internal" href="#module-geom">Geom</a></li>
 <li><a class="reference internal" href="#module-xc_base">XC base</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -4075,7 +4139,7 @@ nmb: name of the type of numberer. Available types of numberers: &#8216;default_
                         title="previous chapter">Utils</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="../solution/solution.html"
-                        title="next chapter">Solution</a></p>
+                        title="next chapter">Python modules</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -4110,7 +4174,7 @@ nmb: name of the type of numberer. Available types of numberers: &#8216;default_
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="../solution/solution.html" title="Solution"
+          <a href="../solution/solution.html" title="Python modules"
              >next</a> |</li>
         <li class="right" >
           <a href="actions.utils.html" title="Utils"

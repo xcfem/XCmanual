@@ -118,6 +118,28 @@ starting and ending points are those of tags <cite>tPto1</cite> and <cite>tPto2<
 </dd></dl>
 
 <dl class="function">
+<dt id="model.sets.sets_mng.get_lines_on_points">
+<code class="descclassname">model.sets.sets_mng.</code><code class="descname">get_lines_on_points</code><span class="sig-paren">(</span><em>setPoints</em>, <em>setLinName</em>, <em>onlyIncluded=True</em><span class="sig-paren">)</span><a class="headerlink" href="#model.sets.sets_mng.get_lines_on_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>return a set of lines (and all the entities of lower rank associated) 
+from a given set of points.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>setPoints</strong> &#8211; set of points</td>
+</tr>
+</tbody>
+</table>
+<p>:param setLinName  : name of the returned set of lines
+:param onlyIncluded: True to select only lines whose both ends are in the</p>
+<blockquote>
+<div>set of points
+False to select all lines that &#8216;touch&#8217; the set of 
+points
+(defaults to True)</div></blockquote>
+</dd></dl>
+
+<dl class="function">
 <dt id="model.sets.sets_mng.get_lstNod_from_lst3DPos">
 <code class="descclassname">model.sets.sets_mng.</code><code class="descname">get_lstNod_from_lst3DPos</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>lst3DPos</em><span class="sig-paren">)</span><a class="headerlink" href="#model.sets.sets_mng.get_lstNod_from_lst3DPos" title="Permalink to this definition">¶</a></dt>
 <dd><p>return the set of the nearest nodes to the points passed as a list of
@@ -129,6 +151,27 @@ points (expressed as geom.Pos3d(x,y,z))</p>
 <code class="descclassname">model.sets.sets_mng.</code><code class="descname">get_nodes_wire</code><span class="sig-paren">(</span><em>setBusq</em>, <em>lstPtsWire</em><span class="sig-paren">)</span><a class="headerlink" href="#model.sets.sets_mng.get_nodes_wire" title="Permalink to this definition">¶</a></dt>
 <dd><p>return the subset of nodes from the set <cite>setBusq</cite> that belong to 
 the line defined by the successive points in list <cite>lstPts</cite></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="model.sets.sets_mng.lstElem_to_set">
+<code class="descclassname">model.sets.sets_mng.</code><code class="descname">lstElem_to_set</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>lstElem</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.sets.sets_mng.lstElem_to_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>add the elements in list <cite>lstElem</cite> to the set named setName.
+If the set doesn&#8217;t exist, the function creates it.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="model.sets.sets_mng.lstLin_to_set">
+<code class="descclassname">model.sets.sets_mng.</code><code class="descname">lstLin_to_set</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>lstLin</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.sets.sets_mng.lstLin_to_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>add the lines in list <cite>lstNod</cite> to the set named setName.
+If the set doesn&#8217;t exist, the function creates it.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="model.sets.sets_mng.lstNod_to_set">
+<code class="descclassname">model.sets.sets_mng.</code><code class="descname">lstNod_to_set</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>lstNod</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.sets.sets_mng.lstNod_to_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>add the nodes in list <cite>lstNod</cite> to the set named setName.
+If the set doesn&#8217;t exist, the function creates it.</p>
 </dd></dl>
 
 <dl class="function">
@@ -167,6 +210,33 @@ for sets.</p>
 <dt id="model.sets.sets_mng.setSurf_to_lst">
 <code class="descclassname">model.sets.sets_mng.</code><code class="descname">setSurf_to_lst</code><span class="sig-paren">(</span><em>setSurf</em><span class="sig-paren">)</span><a class="headerlink" href="#model.sets.sets_mng.setSurf_to_lst" title="Permalink to this definition">¶</a></dt>
 <dd><p>return a list with the surfaces included in the set <cite>setSurf</cite></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="model.sets.sets_mng.set_included_in_orthoPrism">
+<code class="descclassname">model.sets.sets_mng.</code><code class="descname">set_included_in_orthoPrism</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>setInit</em>, <em>prismBase</em>, <em>prismAxis</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.sets.sets_mng.set_included_in_orthoPrism" title="Permalink to this definition">¶</a></dt>
+<dd><p>reselect from set setInit those elements included in a orthogonal prism
+defined by a 2D polygon and the direction of its axis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> &#8211; preprocessor</li>
+<li><strong>setInit</strong> &#8211; set of elements to which restrict the search</li>
+<li><strong>prismBase</strong> &#8211; 2D polygon that defines the n-sided base of the prism.
+The vertices of the polygon are defined in global 
+coordinates in the following way:
+- for X-axis-prism: (y,z)
+- for Y-axis-prism: (x,z)
+- for Z-axis-prism: (x,y)</li>
+<li><strong>prismAxis</strong> &#8211; axis of the prism (can be equal to &#8216;X&#8217;, &#8216;Y&#8217;, &#8216;Z&#8217;)</li>
+<li><strong>setName</strong> &#8211; name of the set to be generated</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>

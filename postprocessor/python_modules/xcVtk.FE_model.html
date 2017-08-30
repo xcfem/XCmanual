@@ -391,6 +391,35 @@ in order to change perspective of isometric views
 </dd></dl>
 
 <dl class="function">
+<dt id="postprocess.xcVtk.FE_model.quick_graphics.displayAxes">
+<code class="descclassname">postprocess.xcVtk.FE_model.quick_graphics.</code><code class="descname">displayAxes</code><span class="sig-paren">(</span><em>vectorField</em>, <em>preprocessor</em>, <em>setToDisplay=None</em>, <em>vectorScale=1.0</em>, <em>viewNm='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>caption=''</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.displayAxes" title="Permalink to this definition">¶</a></dt>
+<dd><p>vector field display of the loads applied to the chosen set of elements in the load case passed as parameter</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>vectorField</strong> &#8211; function that generates the vector field.</li>
+<li><strong>setToDisplay</strong> &#8211; set of elements to be displayed (defaults to total set)</li>
+<li><strong>vectorScale</strong> &#8211; factor to apply to the vectors length in the representation</li>
+<li><strong>viewNm</strong> &#8211; name of the view  that contains the renderer (possible options: &#8220;XYZPos&#8221;, &#8220;XPos&#8221;, &#8220;XNeg&#8221;,&#8221;YPos&#8221;, &#8220;YNeg&#8221;, &#8220;ZPos&#8221;, &#8220;ZNeg&#8221;)</li>
+<li><strong>hCamFct</strong> &#8211; factor that applies to the height of the camera position in order to
+change perspective of isometric views (defaults to 1). Usual values 0.1 to 10</li>
+<li><strong>fileName</strong> &#8211; full name of the graphic file to generate. Defaults to <cite>None</cite>, in this case it returns a console output graphic.</li>
+<li><strong>caption</strong> &#8211; text to display in the graphic</li>
+<li><strong>defFScale</strong> &#8211; factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
 <dt id="postprocess.xcVtk.FE_model.quick_graphics.displayLoad">
 <code class="descclassname">postprocess.xcVtk.FE_model.quick_graphics.</code><code class="descname">displayLoad</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>setToDisplay=None</em>, <em>loadCaseNm=''</em>, <em>unitsScale=1.0</em>, <em>vectorScale=1.0</em>, <em>multByElemArea=False</em>, <em>viewNm='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>caption=''</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.displayLoad" title="Permalink to this definition">¶</a></dt>
 <dd><p>vector field display of the loads applied to the chosen set of elements in the load case passed as parameter</p>
@@ -423,7 +452,35 @@ initial/undeformed shape)</li>
 
 <dl class="function">
 <dt id="postprocess.xcVtk.FE_model.quick_graphics.displayLocalAxes">
-<code class="descclassname">postprocess.xcVtk.FE_model.quick_graphics.</code><code class="descname">displayLocalAxes</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>setToDisplay=None</em>, <em>vectorScale=1.0</em>, <em>viewNm='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>caption=''</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.displayLocalAxes" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">postprocess.xcVtk.FE_model.quick_graphics.</code><code class="descname">displayLocalAxes</code><span class="sig-paren">(</span><em>prep</em>, <em>setToDisplay=None</em>, <em>vectorScale=1.0</em>, <em>viewNm='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>caption=''</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.displayLocalAxes" title="Permalink to this definition">¶</a></dt>
+<dd><p>vector field display of the loads applied to the chosen set of elements in the load case passed as parameter</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>setToDisplay</strong> &#8211; set of elements to be displayed (defaults to total set)</li>
+<li><strong>vectorScale</strong> &#8211; factor to apply to the vectors length in the representation</li>
+<li><strong>viewNm</strong> &#8211; name of the view  that contains the renderer (possible options: &#8220;XYZPos&#8221;, &#8220;XPos&#8221;, &#8220;XNeg&#8221;,&#8221;YPos&#8221;, &#8220;YNeg&#8221;, &#8220;ZPos&#8221;, &#8220;ZNeg&#8221;)</li>
+<li><strong>hCamFct</strong> &#8211; factor that applies to the height of the camera position in order to
+change perspective of isometric views (defaults to 1). Usual values 0.1 to 10</li>
+<li><strong>fileName</strong> &#8211; full name of the graphic file to generate. Defaults to <cite>None</cite>, in this case it returns a console output graphic.</li>
+<li><strong>caption</strong> &#8211; text to display in the graphic</li>
+<li><strong>defFScale</strong> &#8211; factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="postprocess.xcVtk.FE_model.quick_graphics.displayStrongWeakAxis">
+<code class="descclassname">postprocess.xcVtk.FE_model.quick_graphics.</code><code class="descname">displayStrongWeakAxis</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>setToDisplay=None</em>, <em>vectorScale=1.0</em>, <em>viewNm='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>caption=''</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.displayStrongWeakAxis" title="Permalink to this definition">¶</a></dt>
 <dd><p>vector field display of the loads applied to the chosen set of elements in the load case passed as parameter</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />

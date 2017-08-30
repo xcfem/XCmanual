@@ -105,14 +105,7 @@ shear modulus and mass density of the material</li>
 <dl class="method">
 <dt id="materials.typical_materials.BeamMaterialData.setupElasticShear3DSection">
 <code class="descname">setupElasticShear3DSection</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.BeamMaterialData.setupElasticShear3DSection" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the elastic section appropiate for 3D beam analysis</td>
-</tr>
-</tbody>
-</table>
+<dd><p>Return an elastic section appropiate for 3D beam analysis</p>
 </dd></dl>
 
 </dd></dl>
@@ -121,7 +114,7 @@ shear modulus and mass density of the material</li>
 <dt id="materials.typical_materials.DeckMaterialData">
 <em class="property">class </em><code class="descclassname">materials.typical_materials.</code><code class="descname">DeckMaterialData</code><span class="sig-paren">(</span><em>name</em>, <em>thickness</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.DeckMaterialData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#materials.typical_materials.MaterialData" title="materials.typical_materials.MaterialData"><code class="xref py py-class docutils literal"><span class="pre">materials.typical_materials.MaterialData</span></code></a></p>
-<p>Isotropic elastic section-material appropiate for plate and shell analysis</p>
+<p>Material for Isotropic elastic sections</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -363,7 +356,10 @@ The initial slope for this model is (2*fpc/epsc0)</p>
 <dl class="function">
 <dt id="materials.typical_materials.defElasticMembranePlateSection">
 <code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticMembranePlateSection</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>E</em>, <em>nu</em>, <em>rho</em>, <em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticMembranePlateSection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Constructs an elastic isotropic section appropiate for plate and shell analysis</p>
+<dd><dl class="docutils">
+<dt>Constructs an elastic isotropic section material appropiate </dt>
+<dd>for plate and shell analysis.</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -406,7 +402,10 @@ The initial slope for this model is (2*fpc/epsc0)</p>
 <dl class="function">
 <dt id="materials.typical_materials.defElasticPlateSection">
 <code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticPlateSection</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>E</em>, <em>nu</em>, <em>rho</em>, <em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticPlateSection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Constructs an elastic isotropic section appropiate for plate analysis</p>
+<dd><dl class="docutils">
+<dt>Constructs an elastic isotropic section material appropiate </dt>
+<dd>for plate analysis.</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -702,6 +701,56 @@ en [Pa] [+]</p>
 <li>If tensionStiffparam== None (default value) no tensile strength is considered; the stress strain relationship corresponds to a concrete01 material (zero tensile strength).</li>
 <li>If tensionStiffparam is an instance of the class paramTensStiffenes, tension stiffeness of concrete is considered in the constitutive model to take into account the tensile capacity of the intact concrete between cracks. The stress strain relationship corresponds to a concrete02 material (linear tension softening),  based on the tension-stiffening constitutive model proposed by Stramandinoli &amp; La Rovere (ref. article: Engineering Structures 30 (2008) 2069-2080).</li>
 </ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.defElasticMembranePlateSection">
+<code class="descname">defElasticMembranePlateSection</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>thickness</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.defElasticMembranePlateSection" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Constructs an elastic isotropic section material appropiate </dt>
+<dd>for plate and shell analysis</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> &#8211; preprocessor name</li>
+<li><strong>name</strong> &#8211; name identifying the section</li>
+<li><strong>thickness</strong> &#8211; section thickness.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.defElasticPlateSection">
+<code class="descname">defElasticPlateSection</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>thickness</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.defElasticPlateSection" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Constructs an elastic isotropic section material appropiate </dt>
+<dd>for plate analysis.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> &#8211; preprocessor name</li>
+<li><strong>name</strong> &#8211; name identifying the section</li>
+<li><strong>thickness</strong> &#8211; section thickness.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.density">
+<code class="descname">density</code><span class="sig-paren">(</span><em>reinforced=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.density" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return concrete density in kg/m3.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1328,7 +1377,7 @@ from the relaxation class. See Model Code 1990 paragraph 2.3.4.5.</p>
 
 <dl class="class">
 <dt id="materials.concrete_base.ReinforcingSteel">
-<em class="property">class </em><code class="descclassname">materials.concrete_base.</code><code class="descname">ReinforcingSteel</code><span class="sig-paren">(</span><em>nmbAcero</em>, <em>fyk</em>, <em>emax</em>, <em>gammaS</em>, <em>k=1.05</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.ReinforcingSteel" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">materials.concrete_base.</code><code class="descname">ReinforcingSteel</code><span class="sig-paren">(</span><em>steelName</em>, <em>fyk</em>, <em>emax</em>, <em>gammaS</em>, <em>k=1.05</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.ReinforcingSteel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#materials.materialWithDKDiagrams.MaterialWithDKDiagrams" title="materials.materialWithDKDiagrams.MaterialWithDKDiagrams"><code class="xref py py-class docutils literal"><span class="pre">materials.materialWithDKDiagrams.MaterialWithDKDiagrams</span></code></a></p>
 <p>Reinforcing steel parameters 
 Attributes:</p>
@@ -1420,26 +1469,26 @@ theoretical law defined in Python (see tangc()).</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="materials.concrete_base.defDiagDAcero">
-<code class="descclassname">materials.concrete_base.</code><code class="descname">defDiagDAcero</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>steelRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.defDiagDAcero" title="Permalink to this definition">¶</a></dt>
-<dd><p>Design stress-strain diagram.</p>
-</dd></dl>
-
-<dl class="function">
 <dt id="materials.concrete_base.defDiagDConcrete">
 <code class="descclassname">materials.concrete_base.</code><code class="descname">defDiagDConcrete</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>concreteRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.defDiagDConcrete" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="materials.concrete_base.defDiagKAcero">
-<code class="descclassname">materials.concrete_base.</code><code class="descname">defDiagKAcero</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>steelRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.defDiagKAcero" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.concrete_base.defDiagKConcrete">
+<code class="descclassname">materials.concrete_base.</code><code class="descname">defDiagKConcrete</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>concreteRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.defDiagKConcrete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="materials.concrete_base.defReinfSteelCharacteristicDiagram">
+<code class="descclassname">materials.concrete_base.</code><code class="descname">defReinfSteelCharacteristicDiagram</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>steelRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.defReinfSteelCharacteristicDiagram" title="Permalink to this definition">¶</a></dt>
 <dd><p>Characteristic stress-strain diagram.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="materials.concrete_base.defDiagKConcrete">
-<code class="descclassname">materials.concrete_base.</code><code class="descname">defDiagKConcrete</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>concreteRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.defDiagKConcrete" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="materials.concrete_base.defReinfSteelDesignDiagram">
+<code class="descclassname">materials.concrete_base.</code><code class="descname">defReinfSteelDesignDiagram</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>steelRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.defReinfSteelDesignDiagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Design stress-strain diagram.</p>
+</dd></dl>
 
 <dl class="class">
 <dt id="materials.concrete_base.paramTensStiffenes">
@@ -1568,14 +1617,14 @@ the regression line  that approaches the exponential decay curve adopted for the
 </dd></dl>
 
 <dl class="function">
-<dt id="materials.concrete_base.sigmaDAceroArmar">
-<code class="descclassname">materials.concrete_base.</code><code class="descname">sigmaDAceroArmar</code><span class="sig-paren">(</span><em>eps</em>, <em>matRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.sigmaDAceroArmar" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.concrete_base.sigmaDReinfSteel">
+<code class="descclassname">materials.concrete_base.</code><code class="descname">sigmaDReinfSteel</code><span class="sig-paren">(</span><em>eps</em>, <em>matRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.sigmaDReinfSteel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Design stress-strain diagram for reinforcing steel, according to EC2.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="materials.concrete_base.sigmaKAceroArmar">
-<code class="descclassname">materials.concrete_base.</code><code class="descname">sigmaKAceroArmar</code><span class="sig-paren">(</span><em>eps</em>, <em>matRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.sigmaKAceroArmar" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.concrete_base.sigmaKReinfSteel">
+<code class="descclassname">materials.concrete_base.</code><code class="descname">sigmaKReinfSteel</code><span class="sig-paren">(</span><em>eps</em>, <em>matRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.sigmaKReinfSteel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Characteristic stress-strain diagram for reinforcing steel, according to EC2.</p>
 </dd></dl>
 
@@ -1587,15 +1636,15 @@ the regression line  that approaches the exponential decay curve adopted for the
 </dd></dl>
 
 <dl class="function">
-<dt id="materials.concrete_base.testDiagDAceroArmar">
-<code class="descclassname">materials.concrete_base.</code><code class="descname">testDiagDAceroArmar</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>matRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.testDiagDAceroArmar" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checking of design stress-strain diagram.</p>
+<dt id="materials.concrete_base.testReinfSteelCharacteristicDiagram">
+<code class="descclassname">materials.concrete_base.</code><code class="descname">testReinfSteelCharacteristicDiagram</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>matRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.testReinfSteelCharacteristicDiagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checking of characteristic stress-strain diagram.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="materials.concrete_base.testDiagKAceroArmar">
-<code class="descclassname">materials.concrete_base.</code><code class="descname">testDiagKAceroArmar</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>matRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.testDiagKAceroArmar" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checking of characteristic stress-strain diagram.</p>
+<dt id="materials.concrete_base.testReinfSteelDesignDiagram">
+<code class="descclassname">materials.concrete_base.</code><code class="descname">testReinfSteelDesignDiagram</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>matRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.testReinfSteelDesignDiagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checking of design stress-strain diagram.</p>
 </dd></dl>
 
 </div>
@@ -2250,7 +2299,7 @@ Attributes:</p>
 <dl class="method">
 <dt id="materials.section_properties.CircularSection.J">
 <code class="descname">J</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.CircularSection.J" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return torsional moment of inertia of the section</p>
+<dd><p>Return torsional constant of the section</p>
 </dd></dl>
 
 <dl class="method">
@@ -2283,10 +2332,10 @@ Attributes:</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../cpp_classes/material/section/repres/geom_section/reinfBar/reinfBar.html#xc.ReinfBar.area" title="xc.ReinfBar.area"><strong>area</strong></a> &#8211; cross-sectional area</li>
+<li><a class="reference internal" href="../geom_cpp_classes/d2/d2.html#geom.BND2d.area" title="geom.BND2d.area"><strong>area</strong></a> &#8211; cross-sectional area</li>
 <li><a class="reference internal" href="#materials.section_properties.SectionProperties.Iy" title="materials.section_properties.SectionProperties.Iy"><strong>Iy</strong></a> &#8211; second moment of area about the local y-axis</li>
 <li><a class="reference internal" href="#materials.section_properties.SectionProperties.Iz" title="materials.section_properties.SectionProperties.Iz"><strong>Iz</strong></a> &#8211; second moment of area about the local z-axis</li>
-<li><strong>Jtors</strong> &#8211; torsional moment of inertia of the section</li>
+<li><strong>Jtors</strong> &#8211; torsional constant of the section</li>
 <li><strong>Wy</strong> &#8211; section modulus with respect to local y-axis</li>
 <li><strong>Wz</strong> &#8211; section modulus with respect to local z-axis</li>
 <li><strong>alphY</strong> &#8211; shear shape factor with respect to local y-axis</li>
@@ -2317,7 +2366,7 @@ Attributes:</p>
 <dl class="method">
 <dt id="materials.section_properties.GenericSection.J">
 <code class="descname">J</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.GenericSection.J" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return torsional moment of inertia of the section</p>
+<dd><p>Return torsional constant of the section</p>
 </dd></dl>
 
 <dl class="method">
@@ -2410,7 +2459,7 @@ wdBotFlange</p>
 <dl class="method">
 <dt id="materials.section_properties.ISection.J">
 <code class="descname">J</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.ISection.J" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return torsional moment of inertia of the section</p>
+<dd><p>Return torsional constant of the section</p>
 </dd></dl>
 
 <dl class="method">
@@ -2467,6 +2516,63 @@ centre of gravity of the section</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="materials.section_properties.PolygonalSection">
+<em class="property">class </em><code class="descclassname">materials.section_properties.</code><code class="descname">PolygonalSection</code><span class="sig-paren">(</span><em>name</em>, <em>plg</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.PolygonalSection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.section_properties.SectionProperties" title="materials.section_properties.SectionProperties"><code class="xref py py-class docutils literal"><span class="pre">materials.section_properties.SectionProperties</span></code></a></p>
+<p>Polygonal section geometric parameters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>plg</strong> &#8211; contour of the section.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.section_properties.PolygonalSection.A">
+<code class="descname">A</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.PolygonalSection.A" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return cross-sectional area of the section</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.PolygonalSection.Iy">
+<code class="descname">Iy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.PolygonalSection.Iy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return second moment of area about the local y-axis</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.PolygonalSection.Iz">
+<code class="descname">Iz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.PolygonalSection.Iz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return second moment of area about the local z-axis</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.PolygonalSection.J">
+<code class="descname">J</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.PolygonalSection.J" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return torsional constant of the section</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.PolygonalSection.alphaY">
+<code class="descname">alphaY</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.PolygonalSection.alphaY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return shear shape factor with respect to local y-axis</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.PolygonalSection.alphaZ">
+<code class="descname">alphaZ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.PolygonalSection.alphaZ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return shear shape factor with respect to local z-axis</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.section_properties.PolygonalSection.hTotal">
+<code class="descname">hTotal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.PolygonalSection.hTotal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return total height (parallel to local y axis) of the section</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="materials.section_properties.RectangularSection">
 <em class="property">class </em><code class="descclassname">materials.section_properties.</code><code class="descname">RectangularSection</code><span class="sig-paren">(</span><em>name</em>, <em>b</em>, <em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.RectangularSection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#materials.section_properties.SectionProperties" title="materials.section_properties.SectionProperties"><code class="xref py py-class docutils literal"><span class="pre">materials.section_properties.SectionProperties</span></code></a></p>
@@ -2476,7 +2582,7 @@ centre of gravity of the section</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="materials.structural_shapes.arcelor.html#materials.structural_shapes.arcelor.arcelor_he_profiles.HEProfile.b" title="materials.structural_shapes.arcelor.arcelor_he_profiles.HEProfile.b"><strong>b</strong></a> &#8211; cross-section width (parallel to local z-axis)</li>
+<li><a class="reference internal" href="../../miscellany/roughCalcGenTopics.html#rough_calculations.ng_rc_section.RCSection.b" title="rough_calculations.ng_rc_section.RCSection.b"><strong>b</strong></a> &#8211; cross-section width (parallel to local z-axis)</li>
 <li><a class="reference internal" href="../../miscellany/roughCalcGenTopics.html#rough_calculations.ng_rc_section.RCSection.h" title="rough_calculations.ng_rc_section.RCSection.h"><strong>h</strong></a> &#8211; cross-section depth (parallel to local y-axis)</li>
 </ul>
 </td>
@@ -2504,7 +2610,7 @@ centre of gravity of the section</p>
 <dl class="method">
 <dt id="materials.section_properties.RectangularSection.J">
 <code class="descname">J</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.RectangularSection.J" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return torsional moment of inertia of the section</p>
+<dd><p>Return torsional constant of the section</p>
 </dd></dl>
 
 <dl class="method">
@@ -2558,7 +2664,7 @@ centre of gravity of the section</p>
 <dl class="method">
 <dt id="materials.section_properties.RectangularSection.getJTorsion">
 <code class="descname">getJTorsion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.RectangularSection.getJTorsion" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return torsional moment of inertia of the section.</p>
+<dd><p>Return torsional constant of the section.</p>
 <p>Reference: concrete book Jiménez Montoya 14a. edition page 405</p>
 </dd></dl>
 
@@ -2684,7 +2790,7 @@ made of the specified material</p>
 <dl class="method">
 <dt id="materials.section_properties.SectionProperties.J">
 <code class="descname">J</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.section_properties.SectionProperties.J" title="Permalink to this definition">¶</a></dt>
-<dd><p>torsional moment of inertia of the section (abstract method)</p>
+<dd><p>torsional constant of the section (abstract method)</p>
 </dd></dl>
 
 <dl class="method">
@@ -3113,6 +3219,68 @@ as a function of h/b.</td>
 <dd><p>Returns the i-th uniaxial material that modelizes the response in the i-th direction.</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="materials.bridge_bearings.Bearing.getMaterialNames">
+<code class="descname">getMaterialNames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.Bearing.getMaterialNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return material names for each DOF in a list.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.bridge_bearings.Bearing.setBearing">
+<code class="descname">setBearing</code><span class="sig-paren">(</span><em>predefinedSpace</em>, <em>iNodA</em>, <em>orientation=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.Bearing.setBearing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modelize a bearing on X, XY or XYZ directions.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><p class="first">predefinedSpace: model space (object).
+iNod: (int) node identifier (tag).
+bearingMaterials (list): material names for the zero length</p>
+<blockquote class="last">
+<div>element.</div></blockquote>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">(int, int) new node tag, new element tag.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.bridge_bearings.Bearing.setBearingBetweenNodes">
+<code class="descname">setBearingBetweenNodes</code><span class="sig-paren">(</span><em>predefinedSpace</em>, <em>iNodA</em>, <em>iNodB</em>, <em>orientation=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.Bearing.setBearingBetweenNodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modelize a bearing between the nodes</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">param predefinedSpace:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">model space (object).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param iNodA:</th><td class="field-body">(int) first node identifier (tag).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param iNodB:</th><td class="field-body">(int) second node identifier (tag).</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">newly created zero length element that represents the bearing.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -3253,7 +3421,7 @@ parallel to the lintel by the center of the bearing.</p>
 
 <dl class="method">
 <dt id="materials.bridge_bearings.ElastomericBearing.putBetweenNodes">
-<code class="descname">putBetweenNodes</code><span class="sig-paren">(</span><em>modelSpace</em>, <em>iNodA</em>, <em>iNodB</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.putBetweenNodes" title="Permalink to this definition">¶</a></dt>
+<code class="descname">putBetweenNodes</code><span class="sig-paren">(</span><em>modelSpace</em>, <em>iNodA</em>, <em>iNodB</em>, <em>orientation=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.putBetweenNodes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Puts the bearing between the nodes.</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -3280,6 +3448,46 @@ iNodB (int): second node identifier (tag).</p>
 <dl class="attribute">
 <dt id="materials.bridge_bearings.ElastomericBearing.v4table">
 <code class="descname">v4table</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.v4table" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.bridge_bearings.ElastomericBearing.x2">
+<code class="descname">x2</code><em class="property"> = [1, 1.5, 2, 3, 4, 6, 8, 10, 10000]</em><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.x2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.bridge_bearings.ElastomericBearing.x3">
+<code class="descname">x3</code><em class="property"> = [1, 1.5, 2, 3, 4, 6, 8, 10, 10000]</em><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.x3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.bridge_bearings.ElastomericBearing.x4">
+<code class="descname">x4</code><em class="property"> = [1, 2, 4, 8, 10000]</em><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.x4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.bridge_bearings.ElastomericBearing.xBeta">
+<code class="descname">xBeta</code><em class="property"> = [1.0, 1.25, 1.5, 2.0, 3.0, 4.0, 6.0, 10.0, 10000]</em><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.xBeta" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.bridge_bearings.ElastomericBearing.y2">
+<code class="descname">y2</code><em class="property"> = [0.208, 0.231, 0.246, 0.267, 0.282, 0.299, 0.307, 0.313, 0.3333333333333333]</em><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.y2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.bridge_bearings.ElastomericBearing.y3">
+<code class="descname">y3</code><em class="property"> = [0.14, 0.196, 0.229, 0.263, 0.281, 0.299, 0.307, 0.313, 0.3333333333333333]</em><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.y3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.bridge_bearings.ElastomericBearing.y4">
+<code class="descname">y4</code><em class="property"> = [85.7, 71.4, 64.5, 61.2, 60]</em><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.y4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.bridge_bearings.ElastomericBearing.yBeta">
+<code class="descname">yBeta</code><em class="property"> = [0.14, 0.171, 0.196, 0.229, 0.263, 0.281, 0.299, 0.313, 0.3333333333333333]</em><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.yBeta" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -3430,11 +3638,6 @@ of DOFs.</td>
 </dd>
 </dl>
 </dd></dl>
-
-<dl class="function">
-<dt id="materials.bridge_bearings.ifte">
-<code class="descclassname">materials.bridge_bearings.</code><code class="descname">ifte</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.ifte" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 </div>
 

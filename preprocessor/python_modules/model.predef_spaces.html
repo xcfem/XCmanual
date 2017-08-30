@@ -74,14 +74,27 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <dl class="method">
 <dt id="model.predefined_spaces.PredefinedSpace.setBearing">
-<code class="descname">setBearing</code><span class="sig-paren">(</span><em>iNod</em>, <em>bearingMaterials</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.setBearing" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setBearing</code><span class="sig-paren">(</span><em>iNod</em>, <em>bearingMaterials</em>, <em>orientation=None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.setBearing" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modelize a bearing on X, XY or XYZ directions.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><p class="first">iNod: (int) node identifier (tag).
-bearingMaterials (list): material names for the zero length</p>
-<blockquote class="last">
-<div>element.</div></blockquote>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param iNod:</th><td class="field-body">(int) node identifier (tag).</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">param bearingMaterials (list):</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">material names for the zero length
+element.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">param orientation:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">(list) vectors used to orient the zero length
+element; (x,yp) x: axis of the element, yp: vector that lies 
+on the xy plane of the element.</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Returns:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -98,7 +111,7 @@ bearingMaterials (list): material names for the zero length</p>
 
 <dl class="method">
 <dt id="model.predefined_spaces.PredefinedSpace.setBearingBetweenNodes">
-<code class="descname">setBearingBetweenNodes</code><span class="sig-paren">(</span><em>iNodA</em>, <em>iNodB</em>, <em>bearingMaterials</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.setBearingBetweenNodes" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setBearingBetweenNodes</code><span class="sig-paren">(</span><em>iNodA</em>, <em>iNodB</em>, <em>bearingMaterials</em>, <em>orientation=None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.setBearingBetweenNodes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modelize a bearing between the nodes</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -113,6 +126,11 @@ bearingMaterials (list): material names for the zero length</p>
 <tr class="field-odd field"><th class="field-name" colspan="2">param bearingMaterials:</th></tr>
 <tr class="field-odd field"><td>&nbsp;</td><td class="field-body">(list) material names for the zero length
 element.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">param orientation:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">(list) vectors used to orient the zero length
+element; (x,yp) x: axis of the element, yp: vector that lies 
+on the xy plane of the element.</td>
 </tr>
 </tbody>
 </table>
@@ -186,6 +204,24 @@ and the number of DOFs for each node obtained from the argument.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> &#8211; preprocessor of the finite element problem.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.setPrescribedDisplacements">
+<code class="descname">setPrescribedDisplacements</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>prescDisplacements</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.setPrescribedDisplacements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prescribe displacement for node DOFs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> &#8211; tag of the node.</li>
+<li><strong>prescDisplacements</strong> &#8211; (list) values of the displacements.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -371,6 +407,48 @@ bearingMaterial (str): material name for the zero length</p>
 <dd><p>Return the indices of the rotational DOFs.</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="model.predefined_spaces.StructuralMechanics2D.newCorotCrdTransf">
+<code class="descname">newCorotCrdTransf</code><span class="sig-paren">(</span><em>trfName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics2D.newCorotCrdTransf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new 2D corotational transformation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>trfName</strong> &#8211; name for the new transformation.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.StructuralMechanics2D.newLinearCrdTransf">
+<code class="descname">newLinearCrdTransf</code><span class="sig-paren">(</span><em>trfName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics2D.newLinearCrdTransf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new 2D linear transformation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>trfName</strong> &#8211; name for the new transformation.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.StructuralMechanics2D.newPDeltaCrdTransf">
+<code class="descname">newPDeltaCrdTransf</code><span class="sig-paren">(</span><em>trfName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics2D.newPDeltaCrdTransf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new 2D PDelta transformation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>trfName</strong> &#8211; name for the new transformation.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -514,6 +592,60 @@ rotation about X axis.</p>
 <dt id="model.predefined_spaces.StructuralMechanics3D.getRotationalDOFs">
 <code class="descname">getRotationalDOFs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.getRotationalDOFs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the indices of the rotational DOFs.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.StructuralMechanics3D.newCorotCrdTransf">
+<code class="descname">newCorotCrdTransf</code><span class="sig-paren">(</span><em>trfName</em>, <em>xzVector</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.newCorotCrdTransf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new 3D corotational transformation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>trfName</strong> &#8211; name for the new transformation.</li>
+<li><strong>xzVector</strong> &#8211; vector defining transformation XZ plane.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.StructuralMechanics3D.newLinearCrdTransf">
+<code class="descname">newLinearCrdTransf</code><span class="sig-paren">(</span><em>trfName</em>, <em>xzVector</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.newLinearCrdTransf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new 3D linear transformation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>trfName</strong> &#8211; name for the new transformation.</li>
+<li><strong>xzVector</strong> &#8211; vector defining transformation XZ plane.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.StructuralMechanics3D.newPDeltaCrdTransf">
+<code class="descname">newPDeltaCrdTransf</code><span class="sig-paren">(</span><em>trfName</em>, <em>xzVector</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.newPDeltaCrdTransf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new 3D PDelta transformation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>trfName</strong> &#8211; name for the new transformation.</li>
+<li><strong>xzVector</strong> &#8211; vector defining transformation XZ plane.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">

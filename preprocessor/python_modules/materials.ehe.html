@@ -466,6 +466,80 @@ as in clause 49.2.4 of EHE-08.</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="materials.ehe.EHE_limit_state_checking.ParamsCortante">
+<em class="property">class </em><code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">ParamsCortante</code><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ParamsCortante" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Define las propiedades del registro que contiene los parámetros de cálculo
+a cortante.</p>
+<dl class="method">
+<dt id="materials.ehe.EHE_limit_state_checking.ParamsCortante.calcCortanteUltimo">
+<code class="descname">calcCortanteUltimo</code><span class="sig-paren">(</span><em>concreteFibersSet</em>, <em>rebarFibersSet</em>, <em>tensionedRebarsFiberSet</em>, <em>fck</em>, <em>fcd</em>, <em>fyd</em>, <em>fpd</em>, <em>fydTrsv</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ParamsCortante.calcCortanteUltimo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute section shear strength.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.ehe.EHE_limit_state_checking.ParamsCortante.printParams">
+<code class="descname">printParams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ParamsCortante.printParams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print shear checking values.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.ehe.EHE_limit_state_checking.ShearControllerEHE">
+<em class="property">class </em><code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">ShearControllerEHE</code><span class="sig-paren">(</span><em>limitStateLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearControllerEHE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="matGenTopics.html#materials.limit_state_checking_base.LimitStateControllerBase" title="materials.limit_state_checking_base.LimitStateControllerBase"><code class="xref py py-class docutils literal"><span class="pre">materials.limit_state_checking_base.LimitStateControllerBase</span></code></a></p>
+<p>Shear control according to EHE-08.</p>
+<dl class="method">
+<dt id="materials.ehe.EHE_limit_state_checking.ShearControllerEHE.calcVuEHE08">
+<code class="descname">calcVuEHE08</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>scc</em>, <em>nmbParamsTorsion</em>, <em>concrete</em>, <em>reinfSteel</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearControllerEHE.calcVuEHE08" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calcula el cortante último de la sección.
+XXX Falta considerar la reinforcement activa.
+concrete: parameters to model concrete.
+reinfSteel: parameters to model rebar&#8217;s steel.
+Nd: Valor de cálculo del axil (aquí positivo si es de tracción)
+Md: Valor absoluto del momento de cálculo.
+Vd: Valor absoluto del cortante efectivo de cálculo (artículo 42.2.2).
+Td: Torsor de cálculo.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.ehe.EHE_limit_state_checking.ShearControllerEHE.calcVuEHE08NoAt">
+<code class="descname">calcVuEHE08NoAt</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>scc</em>, <em>concrete</em>, <em>reinfSteel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearControllerEHE.calcVuEHE08NoAt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calcula el cortante último de la sección sin reinforcement de cortante.
+XXX Falta considerar la reinforcement activa.</p>
+<p>reinfSteelMaterialTag: reinforcement steel material identifier.
+concrete: Parámetros para modelizar el hormigón.
+reinfSteel: parameters to modelize reinforcement steel.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.ehe.EHE_limit_state_checking.ShearControllerEHE.calcVuEHE08SiAt">
+<code class="descname">calcVuEHE08SiAt</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>scc</em>, <em>paramsTorsion</em>, <em>concrete</em>, <em>reinfSteel</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearControllerEHE.calcVuEHE08SiAt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calcula el cortante último de la sección CON reinforcement de cortante.
+XXX Falta considerar la reinforcement activa.
+reinfSteelMaterialTag: reinforcement steel material identifier.
+concrete: Nombre del material empleado para modelizar el hormigón.
+reinfSteel: reinforcement steel material name.
+Nd: Valor de cálculo del axil (aquí positivo si es de tracción)
+Md: Valor absoluto del momento de cálculo.
+Vd: Valor absoluto del cortante efectivo de cálculo (artículo 42.2.2).
+Td: Torsor de cálculo.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.ehe.EHE_limit_state_checking.ShearControllerEHE.check">
+<code class="descname">check</code><span class="sig-paren">(</span><em>elements</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearControllerEHE.check" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Comprobación de las secciones de hormigón frente a cortante.</dt>
+<dd>XXX Falta tener en cuenta la dirección de las barras de refuerzo
+a cortante.</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="materials.ehe.EHE_limit_state_checking.TorsionParameters">
 <em class="property">class </em><code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">TorsionParameters</code><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.TorsionParameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
@@ -502,6 +576,12 @@ clause 45.1 or EHE-08.</p>
 <dt id="materials.ehe.EHE_limit_state_checking.aprovCompresionCompuesta">
 <code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">aprovCompresionCompuesta</code><span class="sig-paren">(</span><em>epsCMin</em>, <em>epsCMax</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.aprovCompresionCompuesta" title="Permalink to this definition">¶</a></dt>
 <dd><p>Aprovechamiento sección en compresión simple o compuesta.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.ehe.EHE_limit_state_checking.aprovCortante">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">aprovCortante</code><span class="sig-paren">(</span><em>fck</em>, <em>fcd</em>, <em>Nd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>z</em>, <em>alpha</em>, <em>theta</em>, <em>AsPas</em>, <em>fyd</em>, <em>AsAct</em>, <em>fpd</em>, <em>sgxd</em>, <em>sgyd</em>, <em>AsTrsv</em>, <em>fydTrsv</em>, <em>Vrd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.aprovCortante" title="Permalink to this definition">¶</a></dt>
+<dd><p>Aprovechamiento a cortante.</p>
 </dd></dl>
 
 <dl class="function">
@@ -558,6 +638,12 @@ c: Cover of the longitudinal reinforcement.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="materials.ehe.EHE_limit_state_checking.cumpleCortante">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">cumpleCortante</code><span class="sig-paren">(</span><em>fck</em>, <em>fcd</em>, <em>Nd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>z</em>, <em>alpha</em>, <em>theta</em>, <em>AsPas</em>, <em>fyd</em>, <em>AsAct</em>, <em>fpd</em>, <em>sgxd</em>, <em>sgyd</em>, <em>AsTrsv</em>, <em>fydTrsv</em>, <em>Vrd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.cumpleCortante" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check shear.</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="materials.ehe.EHE_limit_state_checking.cumpleFlexotraccion">
 <code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">cumpleFlexotraccion</code><span class="sig-paren">(</span><em>epsCMin</em>, <em>epsSMax</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.cumpleFlexotraccion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Comprobación en flexotracción.</p>
@@ -570,84 +656,8 @@ c: Cover of the longitudinal reinforcement.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="materials.ehe.EHE_limit_state_checking.getAreaArmadAd">
-<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getAreaArmadAd</code><span class="sig-paren">(</span><em>a</em>, <em>a1</em>, <em>Nd</em>, <em>fyd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getAreaArmadAd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Devuelve el área necesaria para la reinforcement paralela al
-lado a (ver figura 61.1.a page 302 EHE-08)</p>
-<blockquote>
-<div>a: Dimensión de la sección.
-a1: Dimensión del área cargada paralela a a.
-Nd: Carga concentrada.
-fyd: steel yield strength.</div></blockquote>
-</dd></dl>
-
-<dl class="function">
-<dt id="materials.ehe.EHE_limit_state_checking.getAreaArmadBd">
-<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getAreaArmadBd</code><span class="sig-paren">(</span><em>b</em>, <em>b1</em>, <em>Nd</em>, <em>fyd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getAreaArmadBd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Devuelve el área necesaria para la reinforcement paralela al
-lado b (ver figura 61.1.a page 302 EHE-08)</p>
-<blockquote>
-<div>b: Dimensión de la sección.
-b1: Dimensión del área cargada paralela a a.
-Nd: Carga concentrada.
-fyd: steel yield strength.</div></blockquote>
-</dd></dl>
-
-<dl class="function">
-<dt id="materials.ehe.EHE_limit_state_checking.getF3cd">
-<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getF3cd</code><span class="sig-paren">(</span><em>Ac</em>, <em>Ac1</em>, <em>fcd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getF3cd" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="materials.ehe.EHE_limit_state_checking.getNuCargaConcentrada">
-<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getNuCargaConcentrada</code><span class="sig-paren">(</span><em>Ac</em>, <em>Ac1</em>, <em>fcd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getNuCargaConcentrada" title="Permalink to this definition">¶</a></dt>
-<dd><p>Devuelve el valor último de la carga que puede soportar una pieza
-de seccion Ac siendo el área cargada Ac1 (ver figura 61.1.a page 302 EHE-08)</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="materials.ehe.EHE_limit_state_checking.getUad">
-<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getUad</code><span class="sig-paren">(</span><em>a</em>, <em>a1</em>, <em>Nd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getUad" title="Permalink to this definition">¶</a></dt>
-<dd><p>Devuelve la capacidad mecánica necesaria para la reinforcement paralela al
-lado a (ver figura 61.1.a page 302 EHE-08)</p>
-<blockquote>
-<div>a: Dimensión de la sección.
-a1: Dimensión del área cargada paralela a a.
-Nd: Carga concentrada.</div></blockquote>
-</dd></dl>
-
-<dl class="function">
-<dt id="materials.ehe.EHE_limit_state_checking.getUbd">
-<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getUbd</code><span class="sig-paren">(</span><em>b</em>, <em>b1</em>, <em>Nd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getUbd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Devuelve la capacidad mecánica necesaria para la reinforcement paralela al
-lado b (ver figura 61.1.a page 302 EHE-08)</p>
-<blockquote>
-<div>b: Dimensión de la sección.
-b1: Dimensión del área cargada paralela a b.
-Nd: Carga concentrada.</div></blockquote>
-</dd></dl>
-
-<dl class="function">
-<dt id="materials.ehe.EHE_limit_state_checking.printParamFisBarra">
-<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">printParamFisBarra</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.printParamFisBarra" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="materials.ehe.EHE_limit_state_checking.rasanteAgotamiento">
-<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">rasanteAgotamiento</code><span class="sig-paren">(</span><em>fck</em>, <em>gammac</em>, <em>hf</em>, <em>Asf</em>, <em>Sf</em>, <em>fyd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.rasanteAgotamiento" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="materials.ehe.EHE_limit_state_checking.verifCuantiaPilar">
-<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">verifCuantiaPilar</code><span class="sig-paren">(</span><em>Ac</em>, <em>As</em>, <em>fcd</em>, <em>fyd</em>, <em>Nd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.verifCuantiaPilar" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</div>
-<div class="section" id="module-materials.ehe.comprobVEHE08">
-<span id="comprobvehe08"></span><h2>comprobVEHE08<a class="headerlink" href="#module-materials.ehe.comprobVEHE08" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="materials.ehe.comprobVEHE08.getAnguloInclinacionFisurasEHE08">
-<code class="descclassname">materials.ehe.comprobVEHE08.</code><code class="descname">getAnguloInclinacionFisurasEHE08</code><span class="sig-paren">(</span><em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em>, <em>z</em>, <em>AsPas</em>, <em>AsAct</em>, <em>Es</em>, <em>Ep</em>, <em>Fp</em>, <em>Ae</em>, <em>ue</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE08.getAnguloInclinacionFisurasEHE08" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.ehe.EHE_limit_state_checking.getAnguloInclinacionFisurasEHE08">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getAnguloInclinacionFisurasEHE08</code><span class="sig-paren">(</span><em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em>, <em>z</em>, <em>AsPas</em>, <em>AsAct</em>, <em>Es</em>, <em>Ep</em>, <em>Fp</em>, <em>Ae</em>, <em>ue</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getAnguloInclinacionFisurasEHE08" title="Permalink to this definition">¶</a></dt>
 <dd><p>getAnguloInclinacionFisurasEHE08(Nd,Md,Vd,Td,z,AsPas,AsAct,Es,Ep,Fp,Ae,ue) [uds: N, m, rad]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -679,8 +689,32 @@ expresado en radianes. Ver el artículo 44.2.3.2.2 de EHE-08.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="materials.ehe.comprobVEHE08.getBetaVcuEHE08">
-<code class="descclassname">materials.ehe.comprobVEHE08.</code><code class="descname">getBetaVcuEHE08</code><span class="sig-paren">(</span><em>theta</em>, <em>thetaE</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE08.getBetaVcuEHE08" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.ehe.EHE_limit_state_checking.getAreaArmadAd">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getAreaArmadAd</code><span class="sig-paren">(</span><em>a</em>, <em>a1</em>, <em>Nd</em>, <em>fyd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getAreaArmadAd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Devuelve el área necesaria para la reinforcement paralela al
+lado a (ver figura 61.1.a page 302 EHE-08)</p>
+<blockquote>
+<div>a: Dimensión de la sección.
+a1: Dimensión del área cargada paralela a a.
+Nd: Carga concentrada.
+fyd: steel yield strength.</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.ehe.EHE_limit_state_checking.getAreaArmadBd">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getAreaArmadBd</code><span class="sig-paren">(</span><em>b</em>, <em>b1</em>, <em>Nd</em>, <em>fyd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getAreaArmadBd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Devuelve el área necesaria para la reinforcement paralela al
+lado b (ver figura 61.1.a page 302 EHE-08)</p>
+<blockquote>
+<div>b: Dimensión de la sección.
+b1: Dimensión del área cargada paralela a a.
+Nd: Carga concentrada.
+fyd: steel yield strength.</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.ehe.EHE_limit_state_checking.getBetaVcuEHE08">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getBetaVcuEHE08</code><span class="sig-paren">(</span><em>theta</em>, <em>thetaE</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getBetaVcuEHE08" title="Permalink to this definition">¶</a></dt>
 <dd><p>getBetaVcuEHE08(theta,thetaE) [uds: N, m, rad]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -699,8 +733,8 @@ of Vcu according to clause 44.2.3.2.2 of EHE-08.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="materials.ehe.comprobVEHE08.getEpsilonXEHE08">
-<code class="descclassname">materials.ehe.comprobVEHE08.</code><code class="descname">getEpsilonXEHE08</code><span class="sig-paren">(</span><em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em>, <em>z</em>, <em>AsPas</em>, <em>AsAct</em>, <em>Es</em>, <em>Ep</em>, <em>Fp</em>, <em>Ae</em>, <em>ue</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE08.getEpsilonXEHE08" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.ehe.EHE_limit_state_checking.getEpsilonXEHE08">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getEpsilonXEHE08</code><span class="sig-paren">(</span><em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em>, <em>z</em>, <em>AsPas</em>, <em>AsAct</em>, <em>Es</em>, <em>Ep</em>, <em>Fp</em>, <em>Ae</em>, <em>ue</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getEpsilonXEHE08" title="Permalink to this definition">¶</a></dt>
 <dd><p>getEpsilonXEHE08(Nd,Md,Vd,Td,z,AsPas,AsAct,Es,Ep,Fp,Ae,ue) [uds: N, m, rad]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -731,8 +765,8 @@ expresión que figura en los comentarios al artículo 44.2.3.2.2 de EHE-08.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="materials.ehe.comprobVEHE08.getF1cdEHE08">
-<code class="descclassname">materials.ehe.comprobVEHE08.</code><code class="descname">getF1cdEHE08</code><span class="sig-paren">(</span><em>fck</em>, <em>fcd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE08.getF1cdEHE08" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.ehe.EHE_limit_state_checking.getF1cdEHE08">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getF1cdEHE08</code><span class="sig-paren">(</span><em>fck</em>, <em>fcd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getF1cdEHE08" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -750,8 +784,64 @@ according to clause 44.2.3.1 of EHE-08.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="materials.ehe.comprobVEHE08.getFcvEHE08">
-<code class="descclassname">materials.ehe.comprobVEHE08.</code><code class="descname">getFcvEHE08</code><span class="sig-paren">(</span><em>fact</em>, <em>fcv</em>, <em>gammaC</em>, <em>b0</em>, <em>d</em>, <em>chi</em>, <em>sgpcd</em>, <em>AsPas</em>, <em>AsAct</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE08.getFcvEHE08" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.ehe.EHE_limit_state_checking.getF3cd">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getF3cd</code><span class="sig-paren">(</span><em>Ac</em>, <em>Ac1</em>, <em>fcd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getF3cd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="materials.ehe.EHE_limit_state_checking.getFcv">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getFcv</code><span class="sig-paren">(</span><em>fact</em>, <em>fck</em>, <em>Nd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>AsPas</em>, <em>fyd</em>, <em>AsAct</em>, <em>fpd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getFcv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Devuelve el valor de fcv (resistencia virtual a cortante del hormigón)</dt>
+<dd>para piezas CON Ó SIN reinforcement de cortante, según el clauses 44.2.3.2.1 y  44.2.3.2.2 de EHE.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fact</strong> &#8211; Factor que toma el valor 0.12 para piezas SIN reinforcement de cortante y 0.10 para piezas CON</td>
+</tr>
+</tbody>
+</table>
+<p>reinforcement de cortante.
+:param fck: Concrete characteristic compressive strength.
+:param Nd: Axil de cálculo (positivo si es de tracción).
+:param Ac: Area total de la sección de hormigón.
+:param b0: Anchura neta mínima del elemento a comprobar, definida de acuerdo con el clause 40.3.5.
+:param d: Canto útil (meters).
+:param AsPas: Área de la de la reinforcement longitudinal pasiva traccionada anclada
+a una distancia mayor que el depth útil de la sección en estudio.
+:param fyd: Resistencia de cálculo de las reinforcement pasivas (clause 38.3 EHE).
+:param AsAct: Área de la de la reinforcement longitudinal activa traccionada anclada
+a una distancia mayor que el depth útil de la sección en estudio.
+:param fpd: design value of prestressing steel strength (clause 38.6 EHE).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.ehe.EHE_limit_state_checking.getFcvEH91">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getFcvEH91</code><span class="sig-paren">(</span><em>fcd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getFcvEH91" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Devuelve el valor de fcv (resistencia virtual a cortante del hormigón)</dt>
+<dd>según la antigua EH-91.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fcd</strong> &#8211; Design compressive strength of concrete.</li>
+<li><strong>b</strong> &#8211; Anchura neta mínima del elemento a comprobar, definida de acuerdo con el clause 40.3.5.</li>
+<li><strong>d</strong> &#8211; Canto útil (meters).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.ehe.EHE_limit_state_checking.getFcvEHE08">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getFcvEHE08</code><span class="sig-paren">(</span><em>fact</em>, <em>fcv</em>, <em>gammaC</em>, <em>b0</em>, <em>d</em>, <em>chi</em>, <em>sgpcd</em>, <em>AsPas</em>, <em>AsAct</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getFcvEHE08" title="Permalink to this definition">¶</a></dt>
 <dd><p>getFcvEHE08(fact,fcv,gammaC,b0,d,chi,sgpcd,AsPas,AsAct)  [uds: N, m, rad]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -782,8 +872,8 @@ artículos 44.2.3.2.1.2 y  44.2.3.2.2 de EHE-08.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="materials.ehe.comprobVEHE08.getFcvMinEHE08">
-<code class="descclassname">materials.ehe.comprobVEHE08.</code><code class="descname">getFcvMinEHE08</code><span class="sig-paren">(</span><em>fcv</em>, <em>gammaC</em>, <em>d</em>, <em>chi</em>, <em>sgpcd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE08.getFcvMinEHE08" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.ehe.EHE_limit_state_checking.getFcvMinEHE08">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getFcvMinEHE08</code><span class="sig-paren">(</span><em>fcv</em>, <em>gammaC</em>, <em>d</em>, <em>chi</em>, <em>sgpcd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getFcvMinEHE08" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -804,8 +894,8 @@ artículo 44.2.3.2.1.2 de EHE-08.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="materials.ehe.comprobVEHE08.getKEHE08">
-<code class="descclassname">materials.ehe.comprobVEHE08.</code><code class="descname">getKEHE08</code><span class="sig-paren">(</span><em>sgpcd</em>, <em>fcd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE08.getKEHE08" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.ehe.EHE_limit_state_checking.getKEHE08">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getKEHE08</code><span class="sig-paren">(</span><em>sgpcd</em>, <em>fcd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getKEHE08" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -823,8 +913,67 @@ according to clause 44.2.3.1 de la EHE-08</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="materials.ehe.comprobVEHE08.getVcuEHE08">
-<code class="descclassname">materials.ehe.comprobVEHE08.</code><code class="descname">getVcuEHE08</code><span class="sig-paren">(</span><em>fcv</em>, <em>fcd</em>, <em>gammaC</em>, <em>Ncd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>z</em>, <em>AsPas</em>, <em>AsAct</em>, <em>theta</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em>, <em>Es</em>, <em>Ep</em>, <em>Fp</em>, <em>Ae</em>, <em>ue</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE08.getVcuEHE08" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.ehe.EHE_limit_state_checking.getNuCargaConcentrada">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getNuCargaConcentrada</code><span class="sig-paren">(</span><em>Ac</em>, <em>Ac1</em>, <em>fcd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getNuCargaConcentrada" title="Permalink to this definition">¶</a></dt>
+<dd><p>Devuelve el valor último de la carga que puede soportar una pieza
+de seccion Ac siendo el área cargada Ac1 (ver figura 61.1.a page 302 EHE-08)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.ehe.EHE_limit_state_checking.getUad">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getUad</code><span class="sig-paren">(</span><em>a</em>, <em>a1</em>, <em>Nd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getUad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Devuelve la capacidad mecánica necesaria para la reinforcement paralela al
+lado a (ver figura 61.1.a page 302 EHE-08)</p>
+<blockquote>
+<div>a: Dimensión de la sección.
+a1: Dimensión del área cargada paralela a a.
+Nd: Carga concentrada.</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.ehe.EHE_limit_state_checking.getUbd">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getUbd</code><span class="sig-paren">(</span><em>b</em>, <em>b1</em>, <em>Nd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getUbd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Devuelve la capacidad mecánica necesaria para la reinforcement paralela al
+lado b (ver figura 61.1.a page 302 EHE-08)</p>
+<blockquote>
+<div>b: Dimensión de la sección.
+b1: Dimensión del área cargada paralela a b.
+Nd: Carga concentrada.</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.ehe.EHE_limit_state_checking.getVcu">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVcu</code><span class="sig-paren">(</span><em>fck</em>, <em>Nd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>theta</em>, <em>AsPas</em>, <em>fyd</em>, <em>AsAct</em>, <em>fpd</em>, <em>sgxd</em>, <em>sgyd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVcu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Devuelve el valor de Vcu (contribución del hormigón a la resistencia a cortante) para piezas CON reinforcement de cortante, según el clause 44.2.3.2.2 de EHE.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fck</strong> &#8211; Concrete characteristic compressive strength.</li>
+<li><strong>Nd</strong> &#8211; Axil de cálculo (positivo si es de tracción).</li>
+<li><strong>Ac</strong> &#8211; Area total de la sección de hormigón.</li>
+<li><strong>b0</strong> &#8211; Anchura neta mínima del elemento a comprobar, definida de acuerdo con el clause 40.3.5.</li>
+<li><strong>d</strong> &#8211; Canto útil (meters).</li>
+<li><strong>theta</strong> &#8211; Angle between the concrete compressed struts and the member axis (figure 44.2.3.1.a EHE).</li>
+<li><strong>AsPas</strong> &#8211; Área de la de la reinforcement longitudinal pasiva traccionada anclada</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>a una distancia mayor que el depth útil de la sección en estudio.
+:param fyd: Resistencia de cálculo de las reinforcement pasivas (clause 38.3 EHE).
+:param AsAct: Área de la de la reinforcement longitudinal activa traccionada anclada
+a una distancia mayor que el depth útil de la sección en estudio.
+:param fpd: design value of prestressing steel strength (clause 38.6 EHE).
+:param sgxd: Tensión normal de cálculo en el centro de gravedad de la sección paralela a la directriz de la pieza considerando el hormigón NO FISURADO (art. 44.2.3.2).
+:param sgyd: Tensión normal de cálculo en el centro de gravedad de la sección paralela al esfuerzo cortante.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.ehe.EHE_limit_state_checking.getVcuEHE08">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVcuEHE08</code><span class="sig-paren">(</span><em>fcv</em>, <em>fcd</em>, <em>gammaC</em>, <em>Ncd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>z</em>, <em>AsPas</em>, <em>AsAct</em>, <em>theta</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em>, <em>Es</em>, <em>Ep</em>, <em>Fp</em>, <em>Ae</em>, <em>ue</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVcuEHE08" title="Permalink to this definition">¶</a></dt>
 <dd><p>getVcuEHE08(fcv,fcd,gammaC,Ncd,Ac,b0,d,z,AsPas,AsAct,theta,Nd,Md,Vd,Td,Es,Ep,Fp,Ae,ue) [uds: N, m, rad]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -862,8 +1011,32 @@ para piezas CON reinforcement de cortante, according to clause 44.2.3.2.2 de EHE
 </dd></dl>
 
 <dl class="function">
-<dt id="materials.ehe.comprobVEHE08.getVsuEHE08">
-<code class="descclassname">materials.ehe.comprobVEHE08.</code><code class="descname">getVsuEHE08</code><span class="sig-paren">(</span><em>z</em>, <em>alpha</em>, <em>theta</em>, <em>AsTrsv</em>, <em>fyd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE08.getVsuEHE08" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.ehe.EHE_limit_state_checking.getVsu">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVsu</code><span class="sig-paren">(</span><em>z</em>, <em>alpha</em>, <em>theta</em>, <em>AsTrsv</em>, <em>fyd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVsu" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Devuelve el valor de Vsu (contribución de la reinforcement transversal de alma a la resistencia a cortante)</dt>
+<dd>para piezas CON reinforcement de cortante, según el clause 44.2.3.2.2 de EHE.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>z</strong> &#8211; Lever arm.</li>
+<li><strong>alpha</strong> &#8211; Ángulo de las reinforcement de cortante con el eje de la pieza (figura 44.2.3.1.a EHE).</li>
+<li><strong>theta</strong> &#8211; Angle between the concrete compressed struts and the member axis (figure 44.2.3.1.a EHE).</li>
+<li><strong>AsTrsv</strong> &#8211; Área de la reinforcement transversal.</li>
+<li><strong>fyd</strong> &#8211; Resistencia de cálculo de la reinforcement transversal.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.ehe.EHE_limit_state_checking.getVsuEHE08">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVsuEHE08</code><span class="sig-paren">(</span><em>z</em>, <em>alpha</em>, <em>theta</em>, <em>AsTrsv</em>, <em>fyd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVsuEHE08" title="Permalink to this definition">¶</a></dt>
 <dd><p>getVsuEHE08(z,alpha,theta,AsTrsv,fyd)  [uds: N, m, rad]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -886,8 +1059,58 @@ according to clause 44.2.3.2.2 de EHE-08.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="materials.ehe.comprobVEHE08.getVu1EHE08">
-<code class="descclassname">materials.ehe.comprobVEHE08.</code><code class="descname">getVu1EHE08</code><span class="sig-paren">(</span><em>fck</em>, <em>fcd</em>, <em>Ncd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>alpha</em>, <em>theta</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE08.getVu1EHE08" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.ehe.EHE_limit_state_checking.getVu">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVu</code><span class="sig-paren">(</span><em>fck</em>, <em>fcd</em>, <em>Nd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>z</em>, <em>alpha</em>, <em>theta</em>, <em>AsPas</em>, <em>fyd</em>, <em>AsAct</em>, <em>fpd</em>, <em>sgxd</em>, <em>sgyd</em>, <em>AsTrsv</em>, <em>fydTrsv</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Devuelve el valor de Vu= max(Vu1,Vu2) para piezas CON o SIN reinforcement de cortante, según el clause 44.2.3.2.2 de EHE.
+:param fck: Concrete characteristic compressive strength.
+:param Nd: Axil de cálculo (positivo si es de tracción).
+:param Ac: Area total de la sección de hormigón.
+:param b0: Anchura neta mínima del elemento a comprobar, definida de acuerdo con el clause 40.3.5.
+:param d: Canto útil (meters).
+:param z: Lever arm.
+:param alpha: Ángulo de las reinforcement de cortante con el eje de la pieza (figura 44.2.3.1.a EHE).
+:param theta: Angle between the concrete compressed struts and the member axis (figure 44.2.3.1.a EHE).
+:param AsPas: Área de la de la reinforcement longitudinal pasiva traccionada anclada
+a una distancia mayor que el depth útil de la sección en estudio.
+:param fyd: Resistencia de cálculo de las reinforcement pasivas (clause 38.3 EHE).
+:param AsAct: Área de la de la reinforcement longitudinal activa traccionada anclada
+a una distancia mayor que el depth útil de la sección en estudio.
+:param fpd: design value of prestressing steel strength (clause 38.6 EHE).
+:param sgxd: Tensión normal de cálculo en el centro de gravedad de la sección paralela a la directriz de la pieza considerando el hormigón NO FISURADO (art. 44.2.3.2).
+:param sgyd: Tensión normal de cálculo en el centro de gravedad de la sección paralela al esfuerzo cortante.
+:param AsTrsv: Área de la reinforcement transversal.
+:param fyd: Resistencia de cálculo de la reinforcement transversal.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.ehe.EHE_limit_state_checking.getVu1">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVu1</code><span class="sig-paren">(</span><em>fcd</em>, <em>Nd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>alpha</em>, <em>theta</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVu1" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Devuelve el valor de Vu1 (cortante de agotamiento por compresión oblicua del alma)</dt>
+<dd>según el clause 44.2.3.1 de EHE.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fcd</strong> &#8211; Design compressive strength of concrete.</li>
+<li><strong>Nd</strong> &#8211; Axil de cálculo (positivo si es de tracción).</li>
+<li><strong>Ac</strong> &#8211; Area total de la sección de hormigón.</li>
+<li><strong>b0</strong> &#8211; Anchura neta mínima del elemento a comprobar, definida de acuerdo con el clause 40.3.5.</li>
+<li><strong>d</strong> &#8211; Canto útil.</li>
+<li><strong>alpha</strong> &#8211; Angle between the shear rebars and the member axis (figure 44.2.3.1.a EHE).</li>
+<li><strong>theta</strong> &#8211; Angle between the concrete compressed struts and the member axis (figure 44.2.3.1.a EHE).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.ehe.EHE_limit_state_checking.getVu1EHE08">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVu1EHE08</code><span class="sig-paren">(</span><em>fck</em>, <em>fcd</em>, <em>Ncd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>alpha</em>, <em>theta</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVu1EHE08" title="Permalink to this definition">¶</a></dt>
 <dd><p>getVu1EHE08(fck,fcd,Ncd,Ac,b0,d,alpha,theta) [uds: N, m, rad]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -912,8 +1135,42 @@ according to clause 44.2.3.1 de EHE-08.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="materials.ehe.comprobVEHE08.getVu2EHE08NoAt">
-<code class="descclassname">materials.ehe.comprobVEHE08.</code><code class="descname">getVu2EHE08NoAt</code><span class="sig-paren">(</span><em>M</em>, <em>Mfis</em>, <em>fcv</em>, <em>fck</em>, <em>gammaC</em>, <em>I</em>, <em>S</em>, <em>alphaL</em>, <em>Ncd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>AsPas</em>, <em>AsAct</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE08.getVu2EHE08NoAt" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.ehe.EHE_limit_state_checking.getVu2">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVu2</code><span class="sig-paren">(</span><em>fck</em>, <em>Nd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>z</em>, <em>alpha</em>, <em>theta</em>, <em>AsPas</em>, <em>fyd</em>, <em>AsAct</em>, <em>fpd</em>, <em>sgxd</em>, <em>sgyd</em>, <em>AsTrsv</em>, <em>fydTrsv</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVu2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Devuelve el valor de Vu2 para piezas CON o SIN reinforcement de cortante, según el clause 44.2.3.2.2 de EHE.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fck</strong> &#8211; Concrete characteristic compressive strength.</li>
+<li><strong>Nd</strong> &#8211; Axil de cálculo (positivo si es de tracción).</li>
+<li><strong>Ac</strong> &#8211; Area total de la sección de hormigón.</li>
+<li><strong>b0</strong> &#8211; Anchura neta mínima del elemento a comprobar, definida de acuerdo con el clause 40.3.5.</li>
+<li><strong>d</strong> &#8211; Canto útil (meters).</li>
+<li><strong>z</strong> &#8211; Lever arm.</li>
+<li><strong>alpha</strong> &#8211; Ángulo de las reinforcement de cortante con el eje de la pieza (figura 44.2.3.1.a EHE).</li>
+<li><strong>theta</strong> &#8211; Angle between the concrete compressed struts and the member axis (figure 44.2.3.1.a EHE).</li>
+<li><strong>AsPas</strong> &#8211; Área de la de la reinforcement longitudinal pasiva traccionada anclada</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>a una distancia mayor que el depth útil de la sección en estudio.
+:param fyd: Resistencia de cálculo de las reinforcement pasivas (clause 38.3 EHE).
+:param AsAct: Área de la de la reinforcement longitudinal activa traccionada anclada
+a una distancia mayor que el depth útil de la sección en estudio.
+:param fpd: design value of prestressing steel strength (clause 38.6 EHE).
+:param sgxd: Tensión normal de cálculo en el centro de gravedad de la sección paralela a la directriz de la pieza considerando el hormigón NO FISURADO (art. 44.2.3.2).
+:param sgyd: Tensión normal de cálculo en el centro de gravedad de la sección paralela al esfuerzo cortante.
+:param AsTrsv: Área de la reinforcement transversal.
+:param fyd: Resistencia de cálculo de la reinforcement transversal.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.ehe.EHE_limit_state_checking.getVu2EHE08NoAt">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVu2EHE08NoAt</code><span class="sig-paren">(</span><em>M</em>, <em>Mfis</em>, <em>fcv</em>, <em>fck</em>, <em>gammaC</em>, <em>I</em>, <em>S</em>, <em>alphaL</em>, <em>Ncd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>AsPas</em>, <em>AsAct</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVu2EHE08NoAt" title="Permalink to this definition">¶</a></dt>
 <dd><p>getVu2EHE08NoAt(M,Mfis,fcv,fck,gammaC,I,S,alphaL,Ncd,Ac,b0,d,AsPas,AsAct)   [uds: N, m, rad]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -946,8 +1203,8 @@ para piezas SIN reinforcement de cortante, según los artículos 44.2.3.2.1.1 y 
 </dd></dl>
 
 <dl class="function">
-<dt id="materials.ehe.comprobVEHE08.getVu2EHE08NoAtNoFis">
-<code class="descclassname">materials.ehe.comprobVEHE08.</code><code class="descname">getVu2EHE08NoAtNoFis</code><span class="sig-paren">(</span><em>fctd</em>, <em>I</em>, <em>S</em>, <em>b0</em>, <em>alphal</em>, <em>Ncd</em>, <em>Ac</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE08.getVu2EHE08NoAtNoFis" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.ehe.EHE_limit_state_checking.getVu2EHE08NoAtNoFis">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVu2EHE08NoAtNoFis</code><span class="sig-paren">(</span><em>fctd</em>, <em>I</em>, <em>S</em>, <em>b0</em>, <em>alphal</em>, <em>Ncd</em>, <em>Ac</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVu2EHE08NoAtNoFis" title="Permalink to this definition">¶</a></dt>
 <dd><p>getVu2EHE08NoAtNoFis(fctd,I,S,b0,alphal,Ncd,Ac) [uds: N, m, rad]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -971,8 +1228,8 @@ according to clause 44.2.3.2.1.1 de EHE-08.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="materials.ehe.comprobVEHE08.getVu2EHE08NoAtSiFis">
-<code class="descclassname">materials.ehe.comprobVEHE08.</code><code class="descname">getVu2EHE08NoAtSiFis</code><span class="sig-paren">(</span><em>fcv</em>, <em>fcd</em>, <em>gammaC</em>, <em>Ncd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>AsPas</em>, <em>AsAct</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE08.getVu2EHE08NoAtSiFis" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.ehe.EHE_limit_state_checking.getVu2EHE08NoAtSiFis">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVu2EHE08NoAtSiFis</code><span class="sig-paren">(</span><em>fcv</em>, <em>fcd</em>, <em>gammaC</em>, <em>Ncd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>AsPas</em>, <em>AsAct</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVu2EHE08NoAtSiFis" title="Permalink to this definition">¶</a></dt>
 <dd><p>getVu2EHE08NoAtSiFis(fcv,fcd,gammaC,Ncd,Ac,b0,d,AsPas,AsAct) [uds: N, m]</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -999,11 +1256,18 @@ para piezas SIN reinforcement de cortante en regiones fisuradas, according to cl
 </dd></dl>
 
 <dl class="function">
-<dt id="materials.ehe.comprobVEHE08.getVu2EHE08SiAt">
-<code class="descclassname">materials.ehe.comprobVEHE08.</code><code class="descname">getVu2EHE08SiAt</code><span class="sig-paren">(</span><em>fcv</em>, <em>fcd</em>, <em>fyd</em>, <em>gammaC</em>, <em>Ncd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>z</em>, <em>AsPas</em>, <em>AsAct</em>, <em>AsTrsv</em>, <em>alpha</em>, <em>theta</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em>, <em>Es</em>, <em>Ep</em>, <em>Fp</em>, <em>Ae</em>, <em>ue</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE08.getVu2EHE08SiAt" title="Permalink to this definition">¶</a></dt>
-<dd><p>getVu2EHE08SiAt(fcv,fcd,fyd,gammaC,Ncd,Ac,b0,d,z,AsPas,AsAct,AsTrsv, alpha, theta,Nd,Md,Vd,Td,Es,Ep,Fp,Ae,ue) [uds: N, m, rad]
-:param fcv: Resistencia efectiva del hormigón a cortante. En piezas sin reinforcement de cortante
-será fcv= min(fck,60MPa). En piezas con reinforcement de cortante fcv= min(fck,100MPa).
+<dt id="materials.ehe.EHE_limit_state_checking.getVu2EHE08SiAt">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVu2EHE08SiAt</code><span class="sig-paren">(</span><em>fcv</em>, <em>fcd</em>, <em>fyd</em>, <em>gammaC</em>, <em>Ncd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>z</em>, <em>AsPas</em>, <em>AsAct</em>, <em>AsTrsv</em>, <em>alpha</em>, <em>theta</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em>, <em>Es</em>, <em>Ep</em>, <em>Fp</em>, <em>Ae</em>, <em>ue) [uds: N</em>, <em>m</em>, <em>rad]. Devuelve el valor de Vu2 (esfuerzo cortante de agotamiento por tracción en el alma</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVu2EHE08SiAt" title="Permalink to this definition">¶</a></dt>
+<dd><p>para piezas CON reinforcement de cortante, according to clause 44.2.3.2.2 of EHE-08.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fcv</strong> &#8211; Resistencia efectiva del hormigón a cortante. En piezas sin reinforcement de cortante</td>
+</tr>
+</tbody>
+</table>
+<p>será fcv= min(fck,60MPa). En piezas con reinforcement de cortante fcv= min(fck,100MPa).
 En ambos casos, si el control del hormigón es indirecto fcv=15MPa.
 :param fcd: Valor de cálculo de la resistencia del hormigón a compresión.
 :param fyd: Valor de cálculo de la resistencia de la reinforcement a cortante.
@@ -1029,13 +1293,41 @@ a una distancia mayor que el depth útil de la sección en estudio.
 :param Fp: Prestressing force on the section (positive if in tension).
 :param Ae: Área encerrada por la línea media de la sección hueca eficaz.
 :param ue: Perímetro de la línea media de la sección hueca eficaz.</p>
-<p>Devuelve el valor de Vu2 (esfuerzo cortante de agotamiento por tracción en el alma)
-para piezas CON reinforcement de cortante, according to clause 44.2.3.2.2 de EHE-08.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="materials.ehe.comprobVEHE08.getVuEHE08SiAt">
-<code class="descclassname">materials.ehe.comprobVEHE08.</code><code class="descname">getVuEHE08SiAt</code><span class="sig-paren">(</span><em>fck</em>, <em>fcv</em>, <em>fcd</em>, <em>fyd</em>, <em>gammaC</em>, <em>Ncd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>z</em>, <em>AsPas</em>, <em>AsAct</em>, <em>AsTrsv</em>, <em>alpha</em>, <em>theta</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em>, <em>Es</em>, <em>Ep</em>, <em>Fp</em>, <em>Ae</em>, <em>ue</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE08.getVuEHE08SiAt" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.ehe.EHE_limit_state_checking.getVu2SIN">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVu2SIN</code><span class="sig-paren">(</span><em>fck</em>, <em>Nd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>AsPas</em>, <em>fyd</em>, <em>AsAct</em>, <em>fpd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVu2SIN" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Devuelve el valor de Vu2 (cortante de agotamiento por tracción en el alma)</dt>
+<dd>para piezas SIN reinforcement de cortante, según el clause 44.2.3.2.1 de EHE.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fck</strong> &#8211; Concrete characteristic compressive strength.</li>
+<li><strong>Nd</strong> &#8211; Axil de cálculo (positivo si es de tracción).</li>
+<li><strong>Ac</strong> &#8211; Area total de la sección de hormigón.</li>
+<li><strong>b0</strong> &#8211; Anchura neta mínima del elemento a comprobar, definida de acuerdo con el clause 40.3.5.</li>
+<li><strong>d</strong> &#8211; Canto útil (meters).</li>
+<li><strong>AsPas</strong> &#8211; Área de la de la reinforcement longitudinal pasiva traccionada anclada</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>a una distancia mayor que el depth útil de la sección en estudio.
+:param fyd: Resistencia de cálculo de las reinforcement pasivas (clause 38.3 EHE).
+:param AsAct: Área de la de la reinforcement longitudinal activa traccionada anclada
+a una distancia mayor que el depth útil de la sección en estudio.
+:param fpd: design value of prestressing steel strength (clause 38.6 EHE).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.ehe.EHE_limit_state_checking.getVuEHE08SiAt">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVuEHE08SiAt</code><span class="sig-paren">(</span><em>fck</em>, <em>fcv</em>, <em>fcd</em>, <em>fyd</em>, <em>gammaC</em>, <em>Ncd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>z</em>, <em>AsPas</em>, <em>AsAct</em>, <em>AsTrsv</em>, <em>alpha</em>, <em>theta</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em>, <em>Es</em>, <em>Ep</em>, <em>Fp</em>, <em>Ae</em>, <em>ue</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVuEHE08SiAt" title="Permalink to this definition">¶</a></dt>
 <dd><p>def getVuEHE08SiAt(fck,fcv,fcd,fyd,gammaC,Ncd,Ac,b0,d,z,AsPas,AsAct,AsTrsv, alpha, theta,Nd,Md,Vd,Td,Es,Ep,Fp,Ae,ue) [uds: N, m, rad]
 :param fck: Concrete characteristic compressive strength.
 :param fcv: Resistencia efectiva del hormigón a cortante. En piezas sin reinforcement de cortante
@@ -1069,316 +1361,20 @@ a una distancia mayor que el depth útil de la sección en estudio.
 para piezas CON reinforcement de cortante, according to clause 44.2.3.2.2 de EHE-08.</p>
 </dd></dl>
 
-</div>
-<div class="section" id="module-materials.ehe.comprobVEHE">
-<span id="comprobvehe"></span><h2>comprobVEHE<a class="headerlink" href="#module-materials.ehe.comprobVEHE" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="materials.ehe.comprobVEHE.ParamsCortante">
-<em class="property">class </em><code class="descclassname">materials.ehe.comprobVEHE.</code><code class="descname">ParamsCortante</code><a class="headerlink" href="#materials.ehe.comprobVEHE.ParamsCortante" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
-<p>Define las propiedades del registro que contiene los parámetros de cálculo
-a cortante.</p>
-<dl class="method">
-<dt id="materials.ehe.comprobVEHE.ParamsCortante.calcCortanteUltimo">
-<code class="descname">calcCortanteUltimo</code><span class="sig-paren">(</span><em>concreteFibersSet</em>, <em>rebarFibersSet</em>, <em>tensionedRebarsFiberSet</em>, <em>fck</em>, <em>fcd</em>, <em>fyd</em>, <em>fpd</em>, <em>fydTrsv</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE.ParamsCortante.calcCortanteUltimo" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.ehe.comprobVEHE.ParamsCortante.printParams">
-<code class="descname">printParams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE.ParamsCortante.printParams" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
 <dl class="function">
-<dt id="materials.ehe.comprobVEHE.aprovCortante">
-<code class="descclassname">materials.ehe.comprobVEHE.</code><code class="descname">aprovCortante</code><span class="sig-paren">(</span><em>fck</em>, <em>fcd</em>, <em>Nd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>z</em>, <em>alpha</em>, <em>theta</em>, <em>AsPas</em>, <em>fyd</em>, <em>AsAct</em>, <em>fpd</em>, <em>sgxd</em>, <em>sgyd</em>, <em>AsTrsv</em>, <em>fydTrsv</em>, <em>Vrd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE.aprovCortante" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.ehe.EHE_limit_state_checking.printParamFisBarra">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">printParamFisBarra</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.printParamFisBarra" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="materials.ehe.comprobVEHE.cumpleCortante">
-<code class="descclassname">materials.ehe.comprobVEHE.</code><code class="descname">cumpleCortante</code><span class="sig-paren">(</span><em>fck</em>, <em>fcd</em>, <em>Nd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>z</em>, <em>alpha</em>, <em>theta</em>, <em>AsPas</em>, <em>fyd</em>, <em>AsAct</em>, <em>fpd</em>, <em>sgxd</em>, <em>sgyd</em>, <em>AsTrsv</em>, <em>fydTrsv</em>, <em>Vrd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE.cumpleCortante" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.ehe.EHE_limit_state_checking.rasanteAgotamiento">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">rasanteAgotamiento</code><span class="sig-paren">(</span><em>fck</em>, <em>gammac</em>, <em>hf</em>, <em>Asf</em>, <em>Sf</em>, <em>fyd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.rasanteAgotamiento" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="materials.ehe.comprobVEHE.getFcv">
-<code class="descclassname">materials.ehe.comprobVEHE.</code><code class="descname">getFcv</code><span class="sig-paren">(</span><em>fact</em>, <em>fck</em>, <em>Nd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>AsPas</em>, <em>fyd</em>, <em>AsAct</em>, <em>fpd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE.getFcv" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Devuelve el valor de fcv (resistencia virtual a cortante del hormigón)</dt>
-<dd>para piezas CON Ó SIN reinforcement de cortante, según el clauses 44.2.3.2.1 y  44.2.3.2.2 de EHE.</dd>
-</dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fact</strong> &#8211; Factor que toma el valor 0.12 para piezas SIN reinforcement de cortante y 0.10 para piezas CON</td>
-</tr>
-</tbody>
-</table>
-<p>reinforcement de cortante.
-:param fck: Concrete characteristic compressive strength.
-:param Nd: Axil de cálculo (positivo si es de tracción).
-:param Ac: Area total de la sección de hormigón.
-:param b0: Anchura neta mínima del elemento a comprobar, definida de acuerdo con el clause 40.3.5.
-:param d: Canto útil (meters).
-:param AsPas: Área de la de la reinforcement longitudinal pasiva traccionada anclada
-a una distancia mayor que el depth útil de la sección en estudio.
-:param fyd: Resistencia de cálculo de las reinforcement pasivas (clause 38.3 EHE).
-:param AsAct: Área de la de la reinforcement longitudinal activa traccionada anclada
-a una distancia mayor que el depth útil de la sección en estudio.
-:param fpd: design value of prestressing steel strength (clause 38.6 EHE).</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="materials.ehe.comprobVEHE.getFcvEH91">
-<code class="descclassname">materials.ehe.comprobVEHE.</code><code class="descname">getFcvEH91</code><span class="sig-paren">(</span><em>fcd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE.getFcvEH91" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Devuelve el valor de fcv (resistencia virtual a cortante del hormigón)</dt>
-<dd>según la antigua EH-91.</dd>
-</dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>fcd</strong> &#8211; Design compressive strength of concrete.</li>
-<li><strong>b</strong> &#8211; Anchura neta mínima del elemento a comprobar, definida de acuerdo con el clause 40.3.5.</li>
-<li><strong>d</strong> &#8211; Canto útil (meters).</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="materials.ehe.comprobVEHE.getVcu">
-<code class="descclassname">materials.ehe.comprobVEHE.</code><code class="descname">getVcu</code><span class="sig-paren">(</span><em>fck</em>, <em>Nd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>theta</em>, <em>AsPas</em>, <em>fyd</em>, <em>AsAct</em>, <em>fpd</em>, <em>sgxd</em>, <em>sgyd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE.getVcu" title="Permalink to this definition">¶</a></dt>
-<dd><p>Devuelve el valor de Vcu (contribución del hormigón a la resistencia a cortante) para piezas CON reinforcement de cortante, según el clause 44.2.3.2.2 de EHE.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>fck</strong> &#8211; Concrete characteristic compressive strength.</li>
-<li><strong>Nd</strong> &#8211; Axil de cálculo (positivo si es de tracción).</li>
-<li><strong>Ac</strong> &#8211; Area total de la sección de hormigón.</li>
-<li><strong>b0</strong> &#8211; Anchura neta mínima del elemento a comprobar, definida de acuerdo con el clause 40.3.5.</li>
-<li><strong>d</strong> &#8211; Canto útil (meters).</li>
-<li><strong>theta</strong> &#8211; Angle between the concrete compressed struts and the member axis (figure 44.2.3.1.a EHE).</li>
-<li><strong>AsPas</strong> &#8211; Área de la de la reinforcement longitudinal pasiva traccionada anclada</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<p>a una distancia mayor que el depth útil de la sección en estudio.
-:param fyd: Resistencia de cálculo de las reinforcement pasivas (clause 38.3 EHE).
-:param AsAct: Área de la de la reinforcement longitudinal activa traccionada anclada
-a una distancia mayor que el depth útil de la sección en estudio.
-:param fpd: design value of prestressing steel strength (clause 38.6 EHE).
-:param sgxd: Tensión normal de cálculo en el centro de gravedad de la sección paralela a la directriz de la pieza considerando el hormigón NO FISURADO (art. 44.2.3.2).
-:param sgyd: Tensión normal de cálculo en el centro de gravedad de la sección paralela al esfuerzo cortante.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="materials.ehe.comprobVEHE.getVsu">
-<code class="descclassname">materials.ehe.comprobVEHE.</code><code class="descname">getVsu</code><span class="sig-paren">(</span><em>z</em>, <em>alpha</em>, <em>theta</em>, <em>AsTrsv</em>, <em>fyd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE.getVsu" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Devuelve el valor de Vsu (contribución de la reinforcement transversal de alma a la resistencia a cortante)</dt>
-<dd>para piezas CON reinforcement de cortante, según el clause 44.2.3.2.2 de EHE.</dd>
-</dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>z</strong> &#8211; Lever arm.</li>
-<li><strong>alpha</strong> &#8211; Ángulo de las reinforcement de cortante con el eje de la pieza (figura 44.2.3.1.a EHE).</li>
-<li><strong>theta</strong> &#8211; Angle between the concrete compressed struts and the member axis (figure 44.2.3.1.a EHE).</li>
-<li><strong>AsTrsv</strong> &#8211; Área de la reinforcement transversal.</li>
-<li><strong>fyd</strong> &#8211; Resistencia de cálculo de la reinforcement transversal.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="materials.ehe.comprobVEHE.getVu">
-<code class="descclassname">materials.ehe.comprobVEHE.</code><code class="descname">getVu</code><span class="sig-paren">(</span><em>fck</em>, <em>fcd</em>, <em>Nd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>z</em>, <em>alpha</em>, <em>theta</em>, <em>AsPas</em>, <em>fyd</em>, <em>AsAct</em>, <em>fpd</em>, <em>sgxd</em>, <em>sgyd</em>, <em>AsTrsv</em>, <em>fydTrsv</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE.getVu" title="Permalink to this definition">¶</a></dt>
-<dd><p>Devuelve el valor de Vu= max(Vu1,Vu2) para piezas CON o SIN reinforcement de cortante, según el clause 44.2.3.2.2 de EHE.
-:param fck: Concrete characteristic compressive strength.
-:param Nd: Axil de cálculo (positivo si es de tracción).
-:param Ac: Area total de la sección de hormigón.
-:param b0: Anchura neta mínima del elemento a comprobar, definida de acuerdo con el clause 40.3.5.
-:param d: Canto útil (meters).
-:param z: Lever arm.
-:param alpha: Ángulo de las reinforcement de cortante con el eje de la pieza (figura 44.2.3.1.a EHE).
-:param theta: Angle between the concrete compressed struts and the member axis (figure 44.2.3.1.a EHE).
-:param AsPas: Área de la de la reinforcement longitudinal pasiva traccionada anclada
-a una distancia mayor que el depth útil de la sección en estudio.
-:param fyd: Resistencia de cálculo de las reinforcement pasivas (clause 38.3 EHE).
-:param AsAct: Área de la de la reinforcement longitudinal activa traccionada anclada
-a una distancia mayor que el depth útil de la sección en estudio.
-:param fpd: design value of prestressing steel strength (clause 38.6 EHE).
-:param sgxd: Tensión normal de cálculo en el centro de gravedad de la sección paralela a la directriz de la pieza considerando el hormigón NO FISURADO (art. 44.2.3.2).
-:param sgyd: Tensión normal de cálculo en el centro de gravedad de la sección paralela al esfuerzo cortante.
-:param AsTrsv: Área de la reinforcement transversal.
-:param fyd: Resistencia de cálculo de la reinforcement transversal.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="materials.ehe.comprobVEHE.getVu1">
-<code class="descclassname">materials.ehe.comprobVEHE.</code><code class="descname">getVu1</code><span class="sig-paren">(</span><em>fcd</em>, <em>Nd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>alpha</em>, <em>theta</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE.getVu1" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Devuelve el valor de Vu1 (cortante de agotamiento por compresión oblicua del alma)</dt>
-<dd>según el clause 44.2.3.1 de EHE.</dd>
-</dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>fcd</strong> &#8211; Design compressive strength of concrete.</li>
-<li><strong>Nd</strong> &#8211; Axil de cálculo (positivo si es de tracción).</li>
-<li><strong>Ac</strong> &#8211; Area total de la sección de hormigón.</li>
-<li><strong>b0</strong> &#8211; Anchura neta mínima del elemento a comprobar, definida de acuerdo con el clause 40.3.5.</li>
-<li><strong>d</strong> &#8211; Canto útil.</li>
-<li><strong>alpha</strong> &#8211; Angle between the shear rebars and the member axis (figure 44.2.3.1.a EHE).</li>
-<li><strong>theta</strong> &#8211; Angle between the concrete compressed struts and the member axis (figure 44.2.3.1.a EHE).</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="materials.ehe.comprobVEHE.getVu2">
-<code class="descclassname">materials.ehe.comprobVEHE.</code><code class="descname">getVu2</code><span class="sig-paren">(</span><em>fck</em>, <em>Nd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>z</em>, <em>alpha</em>, <em>theta</em>, <em>AsPas</em>, <em>fyd</em>, <em>AsAct</em>, <em>fpd</em>, <em>sgxd</em>, <em>sgyd</em>, <em>AsTrsv</em>, <em>fydTrsv</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE.getVu2" title="Permalink to this definition">¶</a></dt>
-<dd><p>Devuelve el valor de Vu2 para piezas CON o SIN reinforcement de cortante, según el clause 44.2.3.2.2 de EHE.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>fck</strong> &#8211; Concrete characteristic compressive strength.</li>
-<li><strong>Nd</strong> &#8211; Axil de cálculo (positivo si es de tracción).</li>
-<li><strong>Ac</strong> &#8211; Area total de la sección de hormigón.</li>
-<li><strong>b0</strong> &#8211; Anchura neta mínima del elemento a comprobar, definida de acuerdo con el clause 40.3.5.</li>
-<li><strong>d</strong> &#8211; Canto útil (meters).</li>
-<li><strong>z</strong> &#8211; Lever arm.</li>
-<li><strong>alpha</strong> &#8211; Ángulo de las reinforcement de cortante con el eje de la pieza (figura 44.2.3.1.a EHE).</li>
-<li><strong>theta</strong> &#8211; Angle between the concrete compressed struts and the member axis (figure 44.2.3.1.a EHE).</li>
-<li><strong>AsPas</strong> &#8211; Área de la de la reinforcement longitudinal pasiva traccionada anclada</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<p>a una distancia mayor que el depth útil de la sección en estudio.
-:param fyd: Resistencia de cálculo de las reinforcement pasivas (clause 38.3 EHE).
-:param AsAct: Área de la de la reinforcement longitudinal activa traccionada anclada
-a una distancia mayor que el depth útil de la sección en estudio.
-:param fpd: design value of prestressing steel strength (clause 38.6 EHE).
-:param sgxd: Tensión normal de cálculo en el centro de gravedad de la sección paralela a la directriz de la pieza considerando el hormigón NO FISURADO (art. 44.2.3.2).
-:param sgyd: Tensión normal de cálculo en el centro de gravedad de la sección paralela al esfuerzo cortante.
-:param AsTrsv: Área de la reinforcement transversal.
-:param fyd: Resistencia de cálculo de la reinforcement transversal.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="materials.ehe.comprobVEHE.getVu2SIN">
-<code class="descclassname">materials.ehe.comprobVEHE.</code><code class="descname">getVu2SIN</code><span class="sig-paren">(</span><em>fck</em>, <em>Nd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>AsPas</em>, <em>fyd</em>, <em>AsAct</em>, <em>fpd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.comprobVEHE.getVu2SIN" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Devuelve el valor de Vu2 (cortante de agotamiento por tracción en el alma)</dt>
-<dd>para piezas SIN reinforcement de cortante, según el clause 44.2.3.2.1 de EHE.</dd>
-</dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>fck</strong> &#8211; Concrete characteristic compressive strength.</li>
-<li><strong>Nd</strong> &#8211; Axil de cálculo (positivo si es de tracción).</li>
-<li><strong>Ac</strong> &#8211; Area total de la sección de hormigón.</li>
-<li><strong>b0</strong> &#8211; Anchura neta mínima del elemento a comprobar, definida de acuerdo con el clause 40.3.5.</li>
-<li><strong>d</strong> &#8211; Canto útil (meters).</li>
-<li><strong>AsPas</strong> &#8211; Área de la de la reinforcement longitudinal pasiva traccionada anclada</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<p>a una distancia mayor que el depth útil de la sección en estudio.
-:param fyd: Resistencia de cálculo de las reinforcement pasivas (clause 38.3 EHE).
-:param AsAct: Área de la de la reinforcement longitudinal activa traccionada anclada
-a una distancia mayor que el depth útil de la sección en estudio.
-:param fpd: design value of prestressing steel strength (clause 38.6 EHE).</p>
-</dd></dl>
-
-</div>
-<div class="section" id="module-materials.ehe.cortanteEHE">
-<span id="cortanteehe"></span><h2>cortanteEHE<a class="headerlink" href="#module-materials.ehe.cortanteEHE" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Funciones para la comprobación a cortante según el artículo</dt>
-<dd>44.2.3.2 de EHE-08</dd>
-</dl>
-<dl class="class">
-<dt id="materials.ehe.cortanteEHE.ShearControllerEHE">
-<em class="property">class </em><code class="descclassname">materials.ehe.cortanteEHE.</code><code class="descname">ShearControllerEHE</code><span class="sig-paren">(</span><em>limitStateLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.cortanteEHE.ShearControllerEHE" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="matGenTopics.html#materials.limit_state_checking_base.LimitStateControllerBase" title="materials.limit_state_checking_base.LimitStateControllerBase"><code class="xref py py-class docutils literal"><span class="pre">materials.limit_state_checking_base.LimitStateControllerBase</span></code></a></p>
-<p>Parameters for shear control with EHE.</p>
-<dl class="method">
-<dt id="materials.ehe.cortanteEHE.ShearControllerEHE.calcVuEHE08">
-<code class="descname">calcVuEHE08</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>scc</em>, <em>nmbParamsTorsion</em>, <em>concrete</em>, <em>reinfSteel</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.cortanteEHE.ShearControllerEHE.calcVuEHE08" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calcula el cortante último de la sección.
-XXX Falta considerar la reinforcement activa.
-concrete: parameters to model concrete.
-reinfSteel: parameters to model rebar&#8217;s steel.
-Nd: Valor de cálculo del axil (aquí positivo si es de tracción)
-Md: Valor absoluto del momento de cálculo.
-Vd: Valor absoluto del cortante efectivo de cálculo (artículo 42.2.2).
-Td: Torsor de cálculo.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.ehe.cortanteEHE.ShearControllerEHE.calcVuEHE08NoAt">
-<code class="descname">calcVuEHE08NoAt</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>scc</em>, <em>concrete</em>, <em>reinfSteel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.cortanteEHE.ShearControllerEHE.calcVuEHE08NoAt" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calcula el cortante último de la sección sin reinforcement de cortante.
-XXX Falta considerar la reinforcement activa.</p>
-<p>reinfSteelMaterialTag: reinforcement steel material identifier.
-concrete: Parámetros para modelizar el hormigón.
-reinfSteel: parameters to modelize reinforcement steel.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.ehe.cortanteEHE.ShearControllerEHE.calcVuEHE08SiAt">
-<code class="descname">calcVuEHE08SiAt</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>scc</em>, <em>paramsTorsion</em>, <em>concrete</em>, <em>reinfSteel</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.cortanteEHE.ShearControllerEHE.calcVuEHE08SiAt" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calcula el cortante último de la sección CON reinforcement de cortante.
-XXX Falta considerar la reinforcement activa.
-reinfSteelMaterialTag: reinforcement steel material identifier.
-concrete: Nombre del material empleado para modelizar el hormigón.
-reinfSteel: reinforcement steel material name.
-Nd: Valor de cálculo del axil (aquí positivo si es de tracción)
-Md: Valor absoluto del momento de cálculo.
-Vd: Valor absoluto del cortante efectivo de cálculo (artículo 42.2.2).
-Td: Torsor de cálculo.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.ehe.cortanteEHE.ShearControllerEHE.check">
-<code class="descname">check</code><span class="sig-paren">(</span><em>elements</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.cortanteEHE.ShearControllerEHE.check" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Comprobación de las secciones de hormigón frente a cortante.</dt>
-<dd>XXX Falta tener en cuenta la dirección de las barras de refuerzo
-a cortante.</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
+<dt id="materials.ehe.EHE_limit_state_checking.verifCuantiaPilar">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">verifCuantiaPilar</code><span class="sig-paren">(</span><em>Ac</em>, <em>As</em>, <em>fcd</em>, <em>fyd</em>, <em>Nd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.verifCuantiaPilar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </div>
 </div>
@@ -1394,9 +1390,6 @@ a cortante.</dd>
 <li><a class="reference internal" href="#">Materials according to EHE code</a><ul>
 <li><a class="reference internal" href="#module-materials.ehe.EHE_materials">EHE_materials</a></li>
 <li><a class="reference internal" href="#module-materials.ehe.EHE_limit_state_checking">EHE_limit_state_checking</a></li>
-<li><a class="reference internal" href="#module-materials.ehe.comprobVEHE08">comprobVEHE08</a></li>
-<li><a class="reference internal" href="#module-materials.ehe.comprobVEHE">comprobVEHE</a></li>
-<li><a class="reference internal" href="#module-materials.ehe.cortanteEHE">cortanteEHE</a></li>
 </ul>
 </li>
 </ul>

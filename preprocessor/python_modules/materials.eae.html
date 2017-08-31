@@ -56,20 +56,610 @@
             
   <div class="section" id="materials-according-to-eae-code">
 <h1>Materials according to EAE code<a class="headerlink" href="#materials-according-to-eae-code" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="apoyo-por-soldadura-alma">
-<h2>apoyo_por_soldadura_alma<a class="headerlink" href="#apoyo-por-soldadura-alma" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="apoyo-sobre-casquillo-no-rig">
-<h2>apoyo_sobre_casquillo_no_rig<a class="headerlink" href="#apoyo-sobre-casquillo-no-rig" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="comprobacion-casquillo-rigidizado">
-<h2>comprobacion_casquillo_rigidizado<a class="headerlink" href="#comprobacion-casquillo-rigidizado" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="garganta-min-max-eae">
-<h2>garganta_min_max_EAE<a class="headerlink" href="#garganta-min-max-eae" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="resistencia-cordon-soldadura">
-<h2>resistencia_cordon_soldadura<a class="headerlink" href="#resistencia-cordon-soldadura" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-materials.eae.EAE_limit_state_checking">
+<span id="eae-limit-state-checking"></span><h2>EAE_limit_state_checking<a class="headerlink" href="#module-materials.eae.EAE_limit_state_checking" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.LongMaxSoldAlma">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">LongMaxSoldAlma</code><span class="sig-paren">(</span><em>tw</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.LongMaxSoldAlma" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum length of the weld beads according to clause 61.4.1 
+of EAE.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.VdSoldAlma">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">VdSoldAlma</code><span class="sig-paren">(</span><em>l</em>, <em>a</em>, <em>bw</em>, <em>gmw</em>, <em>fu</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.VdSoldAlma" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shear strength of the weld beads according to clause 61.4.1
+of EAE.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.coefEscuadra">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">coefEscuadra</code><span class="sig-paren">(</span><em>coefLambda</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.coefEscuadra" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return stiffener square coefficient.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>coefLambda</strong> &#8211; stiffener dimensionless slenderness.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.esbeltezAdim">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">esbeltezAdim</code><span class="sig-paren">(</span><em>c</em>, <em>tRig</em>, <em>fy</em>, <em>Es</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.esbeltezAdim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns stiffener dimensionless slenderness.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>c</strong> &#8211; Maximum stiffener depth.</li>
+<li><strong>tRig</strong> &#8211; Stiffener thickness.</li>
+<li><strong>fy</strong> &#8211; Steel yield strength.</li>
+<li><strong>Es</strong> &#8211; Steel elastic modulus.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.getFilletWeldCondition1CapacityFactor">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">getFilletWeldCondition1CapacityFactor</code><span class="sig-paren">(</span><em>n</em>, <em>tn</em>, <em>ta</em>, <em>fu</em>, <em>fy</em>, <em>gammaM2</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.getFilletWeldCondition1CapacityFactor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the capacity factor that correspond to the first condition</dt>
+<dd>of clause 59.8.2 of EAE (page 256)</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>n</strong> &#8211; Normal stress over the rotated plane (see figure 24.1 
+on the book from UNED).</li>
+<li><strong>tn</strong> &#8211; Tangential stress over the rotated plane normal to the weld axis.</li>
+<li><strong>ta</strong> &#8211; Tangential stress over the rotated plane parallel to 
+the weld axis.</li>
+<li><strong>fu</strong> &#8211; Steel ultimate strength (table 59.8.2 page 304 EAE).</li>
+<li><strong>fy</strong> &#8211; limit of elasticity of the welding steel (see table 59.8.2) 
+expressed in pascals.</li>
+<li><strong>gammaM2</strong> &#8211; Partial safety factor of value 1.25.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.getFilletWeldCondition2CapacityFactor">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">getFilletWeldCondition2CapacityFactor</code><span class="sig-paren">(</span><em>n</em>, <em>tn</em>, <em>fu</em>, <em>gammaM2</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.getFilletWeldCondition2CapacityFactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the capacity factor that correspond to the second condition of those
+in clause 59.8.2 of EAE (page 256)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sigmaN</strong> &#8211; Normal stress in weld bead throat plane (see figure 59.8).</li>
+<li><strong>fu</strong> &#8211; Steel ultimate strength (table 59.8.2 page 304 EAE).</li>
+<li><strong>gammaM2</strong> &#8211; Partial safety factor of value 1.25.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.getFilletWeldMaximumThroatDepth">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">getFilletWeldMaximumThroatDepth</code><span class="sig-paren">(</span><em>t</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.getFilletWeldMaximumThroatDepth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the maximum throat thickness for a fillet bead that welds a sheet 
+of thickness t according to clause 59.3.2 of EAE (page 296).</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param t:</th><td class="field-body">Sheet thickness.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.getFilletWeldMaximumThroatDepthSheets">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">getFilletWeldMaximumThroatDepthSheets</code><span class="sig-paren">(</span><em>t1</em>, <em>t2</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.getFilletWeldMaximumThroatDepthSheets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the maximum throat thickness which can be used to weld two sheets
+according to articla 59.3.2 of EAE (page 296).</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param t1:</th><td class="field-body">Thickness of sheet 1.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param t2:</th><td class="field-body">Thickness of sheet 2.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.getFilletWeldMinimumThroatDepth">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">getFilletWeldMinimumThroatDepth</code><span class="sig-paren">(</span><em>t</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.getFilletWeldMinimumThroatDepth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the minimum throat depth for a fillet bead that welds a sheet 
+of thickness t according to clause 59.3.2 of EAE (page 296).</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param t:</th><td class="field-body">Sheet thickness.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.getFilletWeldMinimumThroatDepthSheets">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">getFilletWeldMinimumThroatDepthSheets</code><span class="sig-paren">(</span><em>t1</em>, <em>t2</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.getFilletWeldMinimumThroatDepthSheets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the minimum throat thickness which can be used to weld two sheets
+according to articla 59.3.2 of EAE (page 296).</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param t1:</th><td class="field-body">Thickness of sheet 1.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param t2:</th><td class="field-body">Thickness of sheet 2.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.getFilletWeldThroatPlaneCapacityFactor">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">getFilletWeldThroatPlaneCapacityFactor</code><span class="sig-paren">(</span><em>sigmaN</em>, <em>tauN</em>, <em>tauPll</em>, <em>fu</em>, <em>fy</em>, <em>gammaM2</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.getFilletWeldThroatPlaneCapacityFactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the minimum of the capacity factors that correspond to the
+conditions of clause 59.8.2 of EAE (page 256).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sigmaN</strong> &#8211; Tensión normal sobre el plano de garganta del cordón (ver figure 59.8).</li>
+<li><strong>fu</strong> &#8211; Steel ultimate strength (table 59.8.2 page 304 EAE).</li>
+<li><strong>gammaM2</strong> &#8211; Partial safety factor of value 1.25.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.getFilletWeldThroatPlaneCondition1CapacityFactor">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">getFilletWeldThroatPlaneCondition1CapacityFactor</code><span class="sig-paren">(</span><em>sigmaN</em>, <em>tauN</em>, <em>tauPll</em>, <em>fu</em>, <em>fy</em>, <em>gammaM2</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.getFilletWeldThroatPlaneCondition1CapacityFactor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the capacity factor for the first condition of clause</dt>
+<dd><p class="first">59.8.2 de EAE (page 256).</p>
+<blockquote class="last">
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param sigmaN:</th><td class="field-body">Normal stress in weld bead throat plane (see figure 59.8).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param tauN:</th><td class="field-body">Tangential stress normal to weld bead axis
+in weld bead throat plane (see figure 59.8).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param tauPll:</th><td class="field-body">Tangential stress parallel to weld bead axis 
+in weld bead throat plane (see figure 59.8).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param fu:</th><td class="field-body">Steel ultimate strength (table 59.8.2 page 304 EAE).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param fy:</th><td class="field-body">limit of elasticity of the welding steel (see table 59.8.2) 
+expressed in pascals.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param gammaM2:</th><td class="field-body">Partial safety factor of value 1.25.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.getFilletWeldThroatPlaneCondition2CapacityFactor">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">getFilletWeldThroatPlaneCondition2CapacityFactor</code><span class="sig-paren">(</span><em>sigmaN</em>, <em>fu</em>, <em>gammaM2</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.getFilletWeldThroatPlaneCondition2CapacityFactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the capacity factor that correspond to the second condition of
+clause 59.8.2 of EAE (page 256).</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param sigmaN:</th><td class="field-body">Normal stress in weld bead throat plane (see figure 59.8).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param fu:</th><td class="field-body">Steel ultimate strength (table 59.8.2 page 304 EAE).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param gammaM2:</th><td class="field-body">Partial safety factor of value 1.25.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.getFilletWeldThroatPlaneYieldCriteriaLHS">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">getFilletWeldThroatPlaneYieldCriteriaLHS</code><span class="sig-paren">(</span><em>sigmaN</em>, <em>tauN</em>, <em>tauPll</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.getFilletWeldThroatPlaneYieldCriteriaLHS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the stress combination to use in the left hand side of the
+yield criterion checking according to clause 59.8.2 of EAE (page 256).</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param sigmaN:</th><td class="field-body">Normal stress in weld bead throat plane (see figure 59.8).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param tauN:</th><td class="field-body">Tangential stress normal to weld bead axis
+in weld bead throat plane (see figure 59.8).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param tauPll:</th><td class="field-body">Tangential stress parallel to weld bead axis 
+in weld bead throat plane (see figure 59.8).</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.getFilletWeldUltimateNormalStress">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">getFilletWeldUltimateNormalStress</code><span class="sig-paren">(</span><em>fu</em>, <em>gammaM2</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.getFilletWeldUltimateNormalStress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the ultimate stress of the weld bead to be used for checking the
+second condition in clause 59.8.2 of EAE (page 256).</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param fu:</th><td class="field-body">Steel ultimate strength (table 59.8.2 page 304 EAE).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param fy:</th><td class="field-body">limit of elasticity of the welding steel (see table 59.8.2) 
+expressed in pascals.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param gammaM2:</th><td class="field-body">Partial safety factor of value 1.25.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.getFilletWeldYieldCriteriaLHS">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">getFilletWeldYieldCriteriaLHS</code><span class="sig-paren">(</span><em>n</em>, <em>tn</em>, <em>ta</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.getFilletWeldYieldCriteriaLHS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the stress value to use in the right hand side of the yield criterion
+according to clause 59.8.2 of EAE (page 256)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>n</strong> &#8211; Normal stress over the rotated plane (see figure 24.1 
+on the book from UNED).</li>
+<li><strong>tn</strong> &#8211; Tangential stress over the rotated plane normal to the weld axis.</li>
+<li><strong>ta</strong> &#8211; Tangential stress over the rotated plane parallel to 
+the weld axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.getFilletWeldYieldCriteriaRHSValue">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">getFilletWeldYieldCriteriaRHSValue</code><span class="sig-paren">(</span><em>fu</em>, <em>fy</em>, <em>gammaM2</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.getFilletWeldYieldCriteriaRHSValue" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return weld bead ultimate stress to be used for strength checking </dt>
+<dd><p class="first">according to first condition in clause 59.8.2 of EAE (page 256).</p>
+<blockquote class="last">
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param fu:</th><td class="field-body">Steel ultimate strength (table 59.8.2 page 304 EAE).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param fy:</th><td class="field-body">limit of elasticity of the welding steel (see table 59.8.2) 
+expressed in pascals.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param gammaM2:</th><td class="field-body">Partial safety factor of value 1.25.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.getSigmaNThroatPlane">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">getSigmaNThroatPlane</code><span class="sig-paren">(</span><em>n</em>, <em>t</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.getSigmaNThroatPlane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the normal stress in the throat plane from the stress values
+in the section rotated onto one of the weld legs.
+See &#8220;Estructuras de Acero&#8221; of Ramón Argüelles Álvarez 
+(url={<a class="reference external" href="https://books.google.es/books?id=ubIXPwAACAAJ">https://books.google.es/books?id=ubIXPwAACAAJ</a>}, isbn={9788495279972}) 
+page 4.17 and the book &#8220;Estructuras. Estructuras metálicas. U.D.2, Uniones&#8221;
+(url={<a class="reference external" href="https://books.google.es/books?id=X9JIRAAACAAJ">https://books.google.es/books?id=X9JIRAAACAAJ</a>}, isbn={9788486957087}) 
+of Vicente Cudós Samblancat from Escuela de la Edificación.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>n</strong> &#8211; Normal stress over the rotated plane (see figure 24.1 
+on the book from UNED).</li>
+<li><strong>t</strong> &#8211; Tangential stress normal to the weld axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.getTauNThroatPlane">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">getTauNThroatPlane</code><span class="sig-paren">(</span><em>n</em>, <em>t</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.getTauNThroatPlane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the tangential stress normal to the weld axis on the throat plane
+from the values of the stress in the section rotated onto one of the weld
+legs.
+See &#8220;Estructuras de Acero&#8221; of Ramón Argüelles Álvarez 
+(url={<a class="reference external" href="https://books.google.es/books?id=ubIXPwAACAAJ">https://books.google.es/books?id=ubIXPwAACAAJ</a>}, isbn={9788495279972}) 
+page 4.17 and the book &#8220;Estructuras. Estructuras metálicas. U.D.2, Uniones&#8221;
+(url={<a class="reference external" href="https://books.google.es/books?id=X9JIRAAACAAJ">https://books.google.es/books?id=X9JIRAAACAAJ</a>}, isbn={9788486957087}) 
+of Vicente Cudós Samblancat from Escuela de la Edificación.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>n</strong> &#8211; Normal stress over the rotated plane (see figure 24.1 
+on the book from UNED).</li>
+<li><strong>t</strong> &#8211; Tangential stress normal to the weld axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.momPlastRig">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">momPlastRig</code><span class="sig-paren">(</span><em>tRig</em>, <em>c</em>, <em>fy</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.momPlastRig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return stiffener plastic moment.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>tRig</strong> &#8211; Stiffener thickness.</li>
+<li><strong>c</strong> &#8211; Maximum stiffener depth.</li>
+<li><strong>fy</strong> &#8211; Steel yield strength.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.ultimateLoad">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">ultimateLoad</code><span class="sig-paren">(</span><em>tf</em>, <em>tw</em>, <em>r</em>, <em>b</em>, <em>a</em>, <em>fy</em>, <em>fu</em>, <em>betaW</em>, <em>gammaM2</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.ultimateLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the bearing capacity of the angle support.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>tf</strong> &#8211; Thickness of beam flange.</li>
+<li><strong>tw</strong> &#8211; Thickness of beam web.</li>
+<li><strong>r</strong> &#8211; Flange-web fillet radius.</li>
+<li><strong>b</strong> &#8211; Support length measured perpendicular to the beam direction.</li>
+<li><strong>a</strong> &#8211; Weld bead throat thickness.</li>
+<li><strong>fy</strong> &#8211; Steel yield strength.</li>
+<li><strong>fu</strong> &#8211; Steel ultimate strength (table 59.8.2 page 304 EAE).</li>
+<li><strong>betaW</strong> &#8211; Correlation coefficient (table 59.8.2 page 304 EAE).</li>
+<li><strong>gammaM2</strong> &#8211; Partial safety factor for steel (clause 15.3 page 34 EAE).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.ultimateLoad1">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">ultimateLoad1</code><span class="sig-paren">(</span><em>tf</em>, <em>r</em>, <em>tw</em>, <em>fy</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.ultimateLoad1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the local crushing strength of the beam web.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>tf</strong> &#8211; Thickness of beam flange.</li>
+<li><strong>r</strong> &#8211; Flange-web fillet radius.</li>
+<li><strong>tw</strong> &#8211; Thickness of beam web.</li>
+<li><strong>fy</strong> &#8211; Steel yield strength.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.ultimateLoad2">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">ultimateLoad2</code><span class="sig-paren">(</span><em>b</em>, <em>a</em>, <em>fu</em>, <em>betaW</em>, <em>gammaM2</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.ultimateLoad2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the weld bead strength.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>b</strong> &#8211; Support length measured perpendicular to the beam direction.</li>
+<li><strong>a</strong> &#8211; Weld bead throat thickness.</li>
+<li><strong>fu</strong> &#8211; Steel ultimate strength (table 59.8.2 page 304 EAE).</li>
+<li><strong>betaW</strong> &#8211; Correlation coefficient (table 59.8.2 page 304 EAE).</li>
+<li><strong>gammaM2</strong> &#8211; Partial safety factor for steel (clause 15.3 page 34 EAE).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.ultimateLoad3">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">ultimateLoad3</code><span class="sig-paren">(</span><em>b</em>, <em>t</em>, <em>fy</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.ultimateLoad3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return angle leg shear strength.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>b</strong> &#8211; Support length measured perpendicular to the beam direction.</li>
+<li><strong>t</strong> &#8211; Angle leg thickness.</li>
+<li><strong>fy</strong> &#8211; Steel yield strength.</li>
+<li><strong>fu</strong> &#8211; Steel ultimate strength (table 59.8.2 page 304 EAE).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.ultimateLoadBead1">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">ultimateLoadBead1</code><span class="sig-paren">(</span><em>a1</em>, <em>l</em>, <em>H</em>, <em>fu</em>, <em>betaW</em>, <em>gammaM2</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.ultimateLoadBead1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the angle support strength due to the collapse of weld beads (1)
+(see figure 61.1.5.b page 325 EAE) that connect the stiffener to the
+angle leg.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>a1</strong> &#8211; Weld throat thickness (1).</li>
+<li><strong>l</strong> &#8211; Length of the horizontal cathetus of the stiffener.</li>
+<li><strong>H</strong> &#8211; Length of the vertical cathetus of the stiffener.</li>
+<li><strong>fu</strong> &#8211; Steel ultimate strength (table 59.8.2 page 304 EAE).</li>
+<li><strong>betaW</strong> &#8211; Correlation coefficient (table 59.8.2 page 304 EAE).</li>
+<li><strong>gammaM2</strong> &#8211; Partial safety factor for steel (clause 15.3 page 34 EAE).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.ultimateLoadBead2">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">ultimateLoadBead2</code><span class="sig-paren">(</span><em>a2</em>, <em>l</em>, <em>H</em>, <em>fu</em>, <em>betaW</em>, <em>gammaM2</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.ultimateLoadBead2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the angle support strength due to the collapse of weld beads (2)
+(see figure 61.1.5.b page 325 EAE) that connect the stiffener to the
+angle leg.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>a2</strong> &#8211; Weld throat thickness (2).</li>
+<li><strong>l</strong> &#8211; Length of the horizontal cathetus of the stiffener.</li>
+<li><strong>H</strong> &#8211; Length of the vertical cathetus of the stiffener.</li>
+<li><strong>fu</strong> &#8211; Steel ultimate strength (table 59.8.2 page 304 EAE).</li>
+<li><strong>betaW</strong> &#8211; Correlation coefficient (table 59.8.2 page 304 EAE).</li>
+<li><strong>gammaM2</strong> &#8211; Partial safety factor for steel (clause 15.3 page 34 EAE).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.ultimateLoadBead3">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">ultimateLoadBead3</code><span class="sig-paren">(</span><em>a3</em>, <em>b</em>, <em>l</em>, <em>H</em>, <em>fu</em>, <em>betaW</em>, <em>gammaM2</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.ultimateLoadBead3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the angle support strength due to the collapse of weld beads (3)
+(see figure 61.1.5.b page 325 EAE) that connect the stiffener to the
+angle leg.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>a3</strong> &#8211; Weld throat thickness (3).</li>
+<li><strong>b</strong> &#8211; Angle leg length (beads length 3).</li>
+<li><strong>l</strong> &#8211; Length of the horizontal cathetus of the stiffener.</li>
+<li><strong>H</strong> &#8211; Length of the vertical cathetus of the stiffener.</li>
+<li><strong>fu</strong> &#8211; Steel ultimate strength (table 59.8.2 page 304 EAE).</li>
+<li><strong>betaW</strong> &#8211; Correlation coefficient (table 59.8.2 page 304 EAE).</li>
+<li><strong>gammaM2</strong> &#8211; Partial safety factor for steel (clause 15.3 page 34 EAE).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.ultimateLoadRig">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">ultimateLoadRig</code><span class="sig-paren">(</span><em>CE</em>, <em>d</em>, <em>MplRd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.ultimateLoadRig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the angle support strength due to the collapse of the stiffener.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>CE</strong> &#8211; Coeficiente de escuadra.</li>
+<li><strong>d</strong> &#8211; Lever arm of the load.</li>
+<li><strong>MplRd</strong> &#8211; Momento plástico de la sección del rigidizador de depth c.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eae.EAE_limit_state_checking.widthMax">
+<code class="descclassname">materials.eae.EAE_limit_state_checking.</code><code class="descname">widthMax</code><span class="sig-paren">(</span><em>tChapa</em>, <em>l</em>, <em>H</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eae.EAE_limit_state_checking.widthMax" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the maximum depth of the stiffener (see figure 61.1.5.b
+page 325 EAE).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>tChapa</strong> &#8211; Thicness of the sheets that supports the load.</li>
+<li><strong>l</strong> &#8211; Length of the horizontal cathetus of the stiffener.</li>
+<li><strong>H</strong> &#8211; Length of the vertical cathetus of the stiffener.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 </div>
 
@@ -82,11 +672,7 @@
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Materials according to EAE code</a><ul>
-<li><a class="reference internal" href="#apoyo-por-soldadura-alma">apoyo_por_soldadura_alma</a></li>
-<li><a class="reference internal" href="#apoyo-sobre-casquillo-no-rig">apoyo_sobre_casquillo_no_rig</a></li>
-<li><a class="reference internal" href="#comprobacion-casquillo-rigidizado">comprobacion_casquillo_rigidizado</a></li>
-<li><a class="reference internal" href="#garganta-min-max-eae">garganta_min_max_EAE</a></li>
-<li><a class="reference internal" href="#resistencia-cordon-soldadura">resistencia_cordon_soldadura</a></li>
+<li><a class="reference internal" href="#module-materials.eae.EAE_limit_state_checking">EAE_limit_state_checking</a></li>
 </ul>
 </li>
 </ul>

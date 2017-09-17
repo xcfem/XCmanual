@@ -123,6 +123,16 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="xc.DqPtrsNode.pickNodesInside">
+<code class="descname">pickNodesInside</code><span class="sig-paren">(</span><em>(DqPtrsNode)arg1</em>, <em>(GeomObj3d)arg2</em>, <em>(float)arg3</em><span class="sig-paren">)</span> &rarr; DqPtrsNode :<a class="headerlink" href="#xc.DqPtrsNode.pickNodesInside" title="Permalink to this definition">¶</a></dt>
+<dd><p>pickNodesInside(geomObj,tol) return the nodes inside the geometric object.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::DqPtrsNode pickNodesInside(XC::DqPtrsNode {lvalue},GeomObj3d,double)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="xc.DqPtrsNode.pushFront">
 <code class="descname">pushFront</code><span class="sig-paren">(</span><em>(DqPtrsNode)arg1</em>, <em>(Node)arg2</em><span class="sig-paren">)</span> &rarr; bool :<a class="headerlink" href="#xc.DqPtrsNode.pushFront" title="Permalink to this definition">¶</a></dt>
 <dd><p>Push node at the beginning of the list.</p>
@@ -201,12 +211,62 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="xc.DqPtrsElem.getMaterials">
+<code class="descname">getMaterials</code><span class="sig-paren">(</span><em>(DqPtrsElem)arg1</em><span class="sig-paren">)</span> &rarr; list :<a class="headerlink" href="#xc.DqPtrsElem.getMaterials" title="Permalink to this definition">¶</a></dt>
+<dd><p>getElementMaterials() return a list with the names of the element materials in the container.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>boost::python::list getMaterials(XC::DqPtrsElem {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="xc.DqPtrsElem.getNearestElement">
 <code class="descname">getNearestElement</code><span class="sig-paren">(</span><em>(DqPtrsElem)arg1</em>, <em>(Pos3d)arg2</em><span class="sig-paren">)</span> &rarr; Element :<a class="headerlink" href="#xc.DqPtrsElem.getNearestElement" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns nearest element.</p>
 <dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>XC::Element* getNearestElement(XC::DqPtrsElem {lvalue},Pos3d)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.DqPtrsElem.getTypes">
+<code class="descname">getTypes</code><span class="sig-paren">(</span><em>(DqPtrsElem)arg1</em><span class="sig-paren">)</span> &rarr; list :<a class="headerlink" href="#xc.DqPtrsElem.getTypes" title="Permalink to this definition">¶</a></dt>
+<dd><p>getElementTypes() return a list with the element types in the container.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>boost::python::list getTypes(XC::DqPtrsElem {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.DqPtrsElem.pickElemsInside">
+<code class="descname">pickElemsInside</code><span class="sig-paren">(</span><em>(DqPtrsElem)arg1</em>, <em>(GeomObj3d)arg2</em>, <em>(float)arg3</em><span class="sig-paren">)</span> &rarr; DqPtrsElem :<a class="headerlink" href="#xc.DqPtrsElem.pickElemsInside" title="Permalink to this definition">¶</a></dt>
+<dd><p>pickElemsInside(geomObj,tol) return the elements inside the geometric object.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::DqPtrsElem pickElemsInside(XC::DqPtrsElem {lvalue},GeomObj3d,double)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.DqPtrsElem.pickElemsOfMaterial">
+<code class="descname">pickElemsOfMaterial</code><span class="sig-paren">(</span><em>(DqPtrsElem)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; DqPtrsElem :<a class="headerlink" href="#xc.DqPtrsElem.pickElemsOfMaterial" title="Permalink to this definition">¶</a></dt>
+<dd><p>pickElemsOfMaterial(materialName) return the elements that have that material.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::DqPtrsElem pickElemsOfMaterial(XC::DqPtrsElem {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.DqPtrsElem.pickElemsOfType">
+<code class="descname">pickElemsOfType</code><span class="sig-paren">(</span><em>(DqPtrsElem)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; DqPtrsElem :<a class="headerlink" href="#xc.DqPtrsElem.pickElemsOfType" title="Permalink to this definition">¶</a></dt>
+<dd><p>pickElemsOfType(typeName) return the elements whose type containts the string.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::DqPtrsElem pickElemsOfType(XC::DqPtrsElem {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
 </dl>
 </dd></dl>
 
@@ -324,6 +384,50 @@
 </dl>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="xc.SetMeshComp.constraints">
+<code class="descname">constraints</code><a class="headerlink" href="#xc.SetMeshComp.constraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>constraints of the set.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.SetMeshComp.elements">
+<code class="descname">elements</code><a class="headerlink" href="#xc.SetMeshComp.elements" title="Permalink to this definition">¶</a></dt>
+<dd><p>elements of the set.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.SetMeshComp.getConstraints">
+<code class="descname">getConstraints</code><a class="headerlink" href="#xc.SetMeshComp.getConstraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the constraints of the set.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.SetMeshComp.getElementMaterials">
+<code class="descname">getElementMaterials</code><span class="sig-paren">(</span><em>(SetMeshComp)arg1</em><span class="sig-paren">)</span> &rarr; list :<a class="headerlink" href="#xc.SetMeshComp.getElementMaterials" title="Permalink to this definition">¶</a></dt>
+<dd><p>getElementMaterials() return a list with the names of the element materials in the containe.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>boost::python::list getElementMaterials(XC::SetMeshComp {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.SetMeshComp.getElementTypes">
+<code class="descname">getElementTypes</code><span class="sig-paren">(</span><em>(SetMeshComp)arg1</em><span class="sig-paren">)</span> &rarr; list :<a class="headerlink" href="#xc.SetMeshComp.getElementTypes" title="Permalink to this definition">¶</a></dt>
+<dd><p>getElementTypes() return a list with the element types in the containe.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>boost::python::list getElementTypes(XC::SetMeshComp {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.SetMeshComp.getElements">
+<code class="descname">getElements</code><a class="headerlink" href="#xc.SetMeshComp.getElements" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the elements of the set.</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="xc.SetMeshComp.getNearestElement">
 <code class="descname">getNearestElement</code><span class="sig-paren">(</span><em>(SetMeshComp)arg1</em>, <em>(Pos3d)arg2</em><span class="sig-paren">)</span> &rarr; Element :<a class="headerlink" href="#xc.SetMeshComp.getNearestElement" title="Permalink to this definition">¶</a></dt>
@@ -342,6 +446,12 @@
 <dt>C++ signature :</dt>
 <dd>XC::Node* getNearestNode(XC::SetMeshComp {lvalue},Pos3d)</dd>
 </dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.SetMeshComp.getNodes">
+<code class="descname">getNodes</code><a class="headerlink" href="#xc.SetMeshComp.getNodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the nodes of the set.</p>
 </dd></dl>
 
 <dl class="method">
@@ -403,6 +513,52 @@
 </dl>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="xc.SetMeshComp.nodes">
+<code class="descname">nodes</code><a class="headerlink" href="#xc.SetMeshComp.nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>nodes of the set.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.SetMeshComp.pickElemsInside">
+<code class="descname">pickElemsInside</code><span class="sig-paren">(</span><em>(SetMeshComp)arg1</em>, <em>(str)arg2</em>, <em>(GeomObj3d)arg3</em>, <em>(float)arg4</em><span class="sig-paren">)</span> &rarr; SetMeshComp :<a class="headerlink" href="#xc.SetMeshComp.pickElemsInside" title="Permalink to this definition">¶</a></dt>
+<dd><p>pickElemsInside(newSetName, geomObj, tol) return a set with the elements inside the geometric object.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::SetMeshComp pickElemsInside(XC::SetMeshComp {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;,GeomObj3d,double)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.SetMeshComp.pickElemsOfMaterial">
+<code class="descname">pickElemsOfMaterial</code><span class="sig-paren">(</span><em>(SetMeshComp)arg1</em>, <em>(str)arg2</em>, <em>(str)arg3</em><span class="sig-paren">)</span> &rarr; SetMeshComp :<a class="headerlink" href="#xc.SetMeshComp.pickElemsOfMaterial" title="Permalink to this definition">¶</a></dt>
+<dd><p>pickElemsOfMaterial(materialName) return the elements that have that material.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::SetMeshComp pickElemsOfMaterial(XC::SetMeshComp {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;,std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.SetMeshComp.pickElemsOfType">
+<code class="descname">pickElemsOfType</code><span class="sig-paren">(</span><em>(SetMeshComp)arg1</em>, <em>(str)arg2</em>, <em>(str)arg3</em><span class="sig-paren">)</span> &rarr; SetMeshComp :<a class="headerlink" href="#xc.SetMeshComp.pickElemsOfType" title="Permalink to this definition">¶</a></dt>
+<dd><p>pickElemsOfType(typeName) return the elements whose type containts the string argument.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::SetMeshComp pickElemsOfType(XC::SetMeshComp {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;,std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.SetMeshComp.pickNodesInside">
+<code class="descname">pickNodesInside</code><span class="sig-paren">(</span><em>(SetMeshComp)arg1</em>, <em>(str)arg2</em>, <em>(GeomObj3d)arg3</em>, <em>(float)arg4</em><span class="sig-paren">)</span> &rarr; SetMeshComp :<a class="headerlink" href="#xc.SetMeshComp.pickNodesInside" title="Permalink to this definition">¶</a></dt>
+<dd><p>pickNodesInside(newSetName, geomObj, tol) return a set with the nodes inside the geometric object.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::SetMeshComp pickNodesInside(XC::SetMeshComp {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;,GeomObj3d,double)</dd>
+</dl>
+</dd></dl>
+
 <dl class="method">
 <dt id="xc.SetMeshComp.transforms">
 <code class="descname">transforms</code><span class="sig-paren">(</span><em>(SetMeshComp)arg1</em>, <em>(TrfGeom)arg2</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.SetMeshComp.transforms" title="Permalink to this definition">¶</a></dt>
@@ -451,7 +607,17 @@
 <dd><p>Appends a point at the end of the list.</p>
 <dl class="docutils">
 <dt>C++ signature :</dt>
-<dd>bool append(XC::DqPtrsNmb&lt;XC::Pnt&gt; {lvalue},XC::Pnt*)</dd>
+<dd>bool append(XC::DqPtrsEntities&lt;XC::Pnt&gt; {lvalue},XC::Pnt*)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.lstPnts.pickPointsInside">
+<code class="descname">pickPointsInside</code><span class="sig-paren">(</span><em>(lstPnts)arg1</em>, <em>(GeomObj3d)arg2</em>, <em>(float)arg3</em><span class="sig-paren">)</span> &rarr; lstPnts :<a class="headerlink" href="#xc.lstPnts.pickPointsInside" title="Permalink to this definition">¶</a></dt>
+<dd><p>pickPointsInside(geomObj,tol) return the nodes inside the geometric object.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::DqPtrsEntities&lt;XC::Pnt&gt; pickPointsInside(XC::DqPtrsEntities&lt;XC::Pnt&gt; {lvalue},GeomObj3d,double)</dd>
 </dl>
 </dd></dl>
 
@@ -461,7 +627,7 @@
 <dd><p>Push point at the beginning of the list.</p>
 <dl class="docutils">
 <dt>C++ signature :</dt>
-<dd>bool pushFront(XC::DqPtrsNmb&lt;XC::Pnt&gt; {lvalue},XC::Pnt*)</dd>
+<dd>bool pushFront(XC::DqPtrsEntities&lt;XC::Pnt&gt; {lvalue},XC::Pnt*)</dd>
 </dl>
 </dd></dl>
 
@@ -515,7 +681,17 @@
 <dd><p>Appends line at the end of the list.</p>
 <dl class="docutils">
 <dt>C++ signature :</dt>
-<dd>bool append(XC::DqPtrsNmb&lt;XC::Edge&gt; {lvalue},XC::Edge*)</dd>
+<dd>bool append(XC::DqPtrsEntities&lt;XC::Edge&gt; {lvalue},XC::Edge*)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.lstLines.pickLinesInside">
+<code class="descname">pickLinesInside</code><span class="sig-paren">(</span><em>(lstLines)arg1</em>, <em>(GeomObj3d)arg2</em>, <em>(float)arg3</em><span class="sig-paren">)</span> &rarr; lstLines :<a class="headerlink" href="#xc.lstLines.pickLinesInside" title="Permalink to this definition">¶</a></dt>
+<dd><p>pickLinesInside(geomObj,tol) return the nodes inside the geometric object.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::DqPtrsEntities&lt;XC::Edge&gt; pickLinesInside(XC::DqPtrsEntities&lt;XC::Edge&gt; {lvalue},GeomObj3d,double)</dd>
 </dl>
 </dd></dl>
 
@@ -525,7 +701,7 @@
 <dd><p>Push line at the beginning of the list.</p>
 <dl class="docutils">
 <dt>C++ signature :</dt>
-<dd>bool pushFront(XC::DqPtrsNmb&lt;XC::Edge&gt; {lvalue},XC::Edge*)</dd>
+<dd>bool pushFront(XC::DqPtrsEntities&lt;XC::Edge&gt; {lvalue},XC::Edge*)</dd>
 </dl>
 </dd></dl>
 
@@ -567,7 +743,17 @@
 <dd><p>Appends surface at the end of the list.</p>
 <dl class="docutils">
 <dt>C++ signature :</dt>
-<dd>bool append(XC::DqPtrsNmb&lt;XC::Face&gt; {lvalue},XC::Face*)</dd>
+<dd>bool append(XC::DqPtrsEntities&lt;XC::Face&gt; {lvalue},XC::Face*)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.lstSurfaces.pickSurfacesInside">
+<code class="descname">pickSurfacesInside</code><span class="sig-paren">(</span><em>(lstSurfaces)arg1</em>, <em>(GeomObj3d)arg2</em>, <em>(float)arg3</em><span class="sig-paren">)</span> &rarr; lstSurfaces :<a class="headerlink" href="#xc.lstSurfaces.pickSurfacesInside" title="Permalink to this definition">¶</a></dt>
+<dd><p>pickSurfacesInside(geomObj,tol) return the nodes inside the geometric object.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::DqPtrsEntities&lt;XC::Face&gt; pickSurfacesInside(XC::DqPtrsEntities&lt;XC::Face&gt; {lvalue},GeomObj3d,double)</dd>
 </dl>
 </dd></dl>
 
@@ -577,7 +763,7 @@
 <dd><p>Push surface at the beginning of the list.</p>
 <dl class="docutils">
 <dt>C++ signature :</dt>
-<dd>bool pushFront(XC::DqPtrsNmb&lt;XC::Face&gt; {lvalue},XC::Face*)</dd>
+<dd>bool pushFront(XC::DqPtrsEntities&lt;XC::Face&gt; {lvalue},XC::Face*)</dd>
 </dl>
 </dd></dl>
 
@@ -625,7 +811,17 @@
 <dd><p>Appends body at the end of the list.</p>
 <dl class="docutils">
 <dt>C++ signature :</dt>
-<dd>bool append(XC::DqPtrsNmb&lt;XC::Body&gt; {lvalue},XC::Body*)</dd>
+<dd>bool append(XC::DqPtrsEntities&lt;XC::Body&gt; {lvalue},XC::Body*)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.lstBodies.pickBodiesInside">
+<code class="descname">pickBodiesInside</code><span class="sig-paren">(</span><em>(lstBodies)arg1</em>, <em>(GeomObj3d)arg2</em>, <em>(float)arg3</em><span class="sig-paren">)</span> &rarr; lstBodies :<a class="headerlink" href="#xc.lstBodies.pickBodiesInside" title="Permalink to this definition">¶</a></dt>
+<dd><p>pickBodiesInside(geomObj,tol) return the nodes inside the geometric object.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::DqPtrsEntities&lt;XC::Body&gt; pickBodiesInside(XC::DqPtrsEntities&lt;XC::Body&gt; {lvalue},GeomObj3d,double)</dd>
 </dl>
 </dd></dl>
 
@@ -635,7 +831,7 @@
 <dd><p>Push body at the beginning of the list.</p>
 <dl class="docutils">
 <dt>C++ signature :</dt>
-<dd>bool pushFront(XC::DqPtrsNmb&lt;XC::Body&gt; {lvalue},XC::Body*)</dd>
+<dd>bool pushFront(XC::DqPtrsEntities&lt;XC::Body&gt; {lvalue},XC::Body*)</dd>
 </dl>
 </dd></dl>
 
@@ -651,14 +847,10 @@
 <dt id="xc.Set">
 <em class="property">class </em><code class="descclassname">xc.</code><code class="descname">Set</code><a class="headerlink" href="#xc.Set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#xc.SetMeshComp" title="xc.SetMeshComp"><code class="xref py py-class docutils literal"><span class="pre">xc.SetMeshComp</span></code></a></p>
-<dl class="method">
-<dt id="xc.Set.append">
-<code class="descname">append</code><span class="sig-paren">(</span><em>(Set)arg1</em>, <em>(Set)arg2</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.Set.append" title="Permalink to this definition">¶</a></dt>
-<dd><p>DEPRECATED use extend; extend the components whith those of the argument.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>void append(XC::Set {lvalue},XC::Set)</dd>
-</dl>
+<dl class="attribute">
+<dt id="xc.Set.bodies">
+<code class="descname">bodies</code><a class="headerlink" href="#xc.Set.bodies" title="Permalink to this definition">¶</a></dt>
+<dd><p>bodies of the set.</p>
 </dd></dl>
 
 <dl class="method">
@@ -675,16 +867,6 @@
 <dt id="xc.Set.description">
 <code class="descname">description</code><a class="headerlink" href="#xc.Set.description" title="Permalink to this definition">¶</a></dt>
 <dd><p>Description (string) of the set.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.Set.extend">
-<code class="descname">extend</code><span class="sig-paren">(</span><em>(Set)arg1</em>, <em>(Set)arg2</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.Set.extend" title="Permalink to this definition">¶</a></dt>
-<dd><p>Extend the components whith those of the argument.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>void extend(XC::Set {lvalue},XC::Set)</dd>
-</dl>
 </dd></dl>
 
 <dl class="method">
@@ -707,6 +889,36 @@
 </dl>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="xc.Set.getBodies">
+<code class="descname">getBodies</code><a class="headerlink" href="#xc.Set.getBodies" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the bodies of the set.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.Set.getLines">
+<code class="descname">getLines</code><a class="headerlink" href="#xc.Set.getLines" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the lines of the set.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.Set.getPoints">
+<code class="descname">getPoints</code><a class="headerlink" href="#xc.Set.getPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the points of the set.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.Set.getSurfaces">
+<code class="descname">getSurfaces</code><a class="headerlink" href="#xc.Set.getSurfaces" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the surfaces of the set.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.Set.lines">
+<code class="descname">lines</code><a class="headerlink" href="#xc.Set.lines" title="Permalink to this definition">¶</a></dt>
+<dd><p>lines of the set.</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="xc.Set.numerate">
 <code class="descname">numerate</code><span class="sig-paren">(</span><em>(Set)arg1</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.Set.numerate" title="Permalink to this definition">¶</a></dt>
@@ -715,6 +927,18 @@
 <dt>C++ signature :</dt>
 <dd>void numerate(XC::Set {lvalue})</dd>
 </dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.Set.points">
+<code class="descname">points</code><a class="headerlink" href="#xc.Set.points" title="Permalink to this definition">¶</a></dt>
+<dd><p>points of the set.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.Set.surfaces">
+<code class="descname">surfaces</code><a class="headerlink" href="#xc.Set.surfaces" title="Permalink to this definition">¶</a></dt>
+<dd><p>surfaces of the set.</p>
 </dd></dl>
 
 </dd></dl>

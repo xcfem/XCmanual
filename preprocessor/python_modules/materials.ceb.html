@@ -63,6 +63,30 @@
 <dt id="materials.ceb.CEB_materials.CEBPrestressingSteel">
 <em class="property">class </em><code class="descclassname">materials.ceb.CEB_materials.</code><code class="descname">CEBPrestressingSteel</code><span class="sig-paren">(</span><em>steelName</em>, <em>fpk</em>, <em>fmax=1860000000.0</em>, <em>alpha=0.75</em>, <em>steelRelaxationClass=1</em>, <em>tendonClass='strand'</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ceb.CEB_materials.CEBPrestressingSteel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="matGenTopics.html#materials.concrete_base.PrestressingSteel" title="materials.concrete_base.PrestressingSteel"><code class="xref py py-class docutils literal"><span class="pre">materials.concrete_base.PrestressingSteel</span></code></a></p>
+<p>Prestressing steel according to Model Code CEB-FIP 1990.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fpk</strong> &#8211; Elastic limit.</li>
+<li><strong>fmax</strong> &#8211; Steel strength.</li>
+<li><strong>alpha</strong> &#8211; stress-to-strength ratio.</li>
+<li><strong>steelRelaxationClass</strong> &#8211; Relaxation class 1: normal, 2: improved, 
+and 3: relaxation for bars.</li>
+<li><strong>tendonClass</strong> &#8211; Tendon class wire, strand or bar.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Points defined in figure 2.3.3. of Model Code CEB-FIP 1990
+that can be used to determine the relaxation at 1000 hours:</p>
+<ul class="simple">
+<li>ptsRO1000Class1: for normal relaxation strands and wires (class 1).</li>
+<li>ptsRO1000Class2: for low relaxation strands and wires.</li>
+<li>ptsRO1000Class3: for bars</li>
+</ul>
 <dl class="method">
 <dt id="materials.ceb.CEB_materials.CEBPrestressingSteel.getRO1000">
 <code class="descname">getRO1000</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ceb.CEB_materials.CEBPrestressingSteel.getRO1000" title="Permalink to this definition">¶</a></dt>
@@ -74,23 +98,34 @@ at Model Code)</p>
 <dt id="materials.ceb.CEB_materials.CEBPrestressingSteel.getRelaxationStressLossT">
 <code class="descname">getRelaxationStressLossT</code><span class="sig-paren">(</span><em>tDays</em>, <em>initialStress</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ceb.CEB_materials.CEBPrestressingSteel.getRelaxationStressLossT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return change in tendon stress due to relaxation at time t.</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>tDays: Time in days after prestressing</dt>
-<dd>(to make easier to deal with shrinkage and creep at the same time).</dd>
-</dl>
-<p>initialStress: Initial stress in tendon.</p>
-</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>tDays</strong> &#8211; Time in days after prestressing
+(to make easier to deal with shrinkage and creep at the same time).</li>
+<li><strong>initialStress</strong> &#8211; Initial stress in tendon.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.ceb.CEB_materials.CEBPrestressingSteel.getRelaxationT">
 <code class="descname">getRelaxationT</code><span class="sig-paren">(</span><em>tDays</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ceb.CEB_materials.CEBPrestressingSteel.getRelaxationT" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the relaxation at time tDias in days after stressing.</p>
-<dl class="docutils">
-<dt>tDays: Time in days after prestressing</dt>
-<dd>(to make easier to deal with shrinkage and creep at the same time).</dd>
-</dl>
+<dd><p>Return the relaxation at time tDays in days after stressing.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tDays</strong> &#8211; Time in days after prestressing
+(to make easier to deal with shrinkage and creep at the same time).</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">

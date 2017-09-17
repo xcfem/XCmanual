@@ -202,8 +202,8 @@ options: &#8220;XYZPos&#8221;, &#8220;&#8221;XYZNeg&#8221;,XPos&#8221;, &#8220;X
 in order to change perspective of isometric views 
 (defaults to 1, usual values 0.1 to 10)</li>
 <li><strong>viewNameBeams</strong> &#8211; name of the view  for beam elements displays (defaults to v&#8221;XYZPos&#8221;)</li>
-<li><strong>hCamFctBeams</strong> &#8211; factor that applies to the height of the camera position for
-beam displays (defaults to 1)</li>
+<li><strong>hCamFctBeams</strong> &#8211; factor that applies to the height of the camera 
+position for beam displays (defaults to 1)</li>
 </ul>
 </td>
 </tr>
@@ -234,8 +234,10 @@ a LaTex file</p>
 <dl class="method">
 <dt id="postprocess.reports.graphical_reports.RecordLoadCaseDisp.simplLCReports">
 <code class="descname">simplLCReports</code><span class="sig-paren">(</span><em>FEproblem</em>, <em>pathGr</em>, <em>texFile</em>, <em>grWdt</em>, <em>capStdTexts</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.RecordLoadCaseDisp.simplLCReports" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates the graphics files of displacements and internal forces 
-calculated for a simple load case and insert them in a LaTex file</p>
+<dd><dl class="docutils">
+<dt>Creates the graphics files of displacements and internal forces </dt>
+<dd>calculated for a simple load case and insert them in a LaTex file</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -246,12 +248,12 @@ calculated for a simple load case and insert them in a LaTex file</p>
 <li><strong>texFile</strong> &#8211; laTex file where to include the graphics 
 (e.g.:&#8217;text/report_loads.tex&#8217;)</li>
 <li><strong>grWdt</strong> &#8211; width to be applied to graphics</li>
+<li><strong>capStdTexts</strong> &#8211; dictionary with the standard captions.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>:param capStdTexts:dictionary with the standard captions</p>
 </dd></dl>
 
 </dd></dl>
@@ -259,52 +261,35 @@ calculated for a simple load case and insert them in a LaTex file</p>
 <dl class="function">
 <dt id="postprocess.reports.graphical_reports.checksReports">
 <code class="descclassname">postprocess.reports.graphical_reports.</code><code class="descname">checksReports</code><span class="sig-paren">(</span><em>limitStateLabel</em>, <em>setsShEl</em>, <em>argsShEl</em>, <em>capTexts</em>, <em>pathGr</em>, <em>texReportFile</em>, <em>grWdt</em>, <em>setsBmElView=[]</em>, <em>argsBmElScale=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.checksReports" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a LaTeX report including the desired graphical results obtained in
-the verification of a limit state.</p>
-<p>:param limitStateLabel:limit state
-:param setsShEl:   Ordered list of sets of shell elements (defined in</p>
-<blockquote>
-<div>model_data.py as instances of utils_display.setToDisplay)
-to be included in the report</div></blockquote>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>argsShEl</strong> &#8211; <dl class="docutils">
-<dt>Ordered list of arguments to be included in the report   </dt>
-<dd>for shell elements</dd>
+<dd><dl class="docutils">
+<dt>Create a LaTeX report including the desired graphical results obtained</dt>
+<dd>in the verification of a limit state.</dd>
 </dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param capTexts:</th><td class="field-body">dictionary from wich to read the texts for captions</td>
-</tr>
-</tbody>
-</table>
-</li>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>limitStateLabel</strong> &#8211; limit state</li>
+<li><strong>setsShEl</strong> &#8211; Ordered list of sets of shell elements (defined in 
+model_data.py as instances of utils_display.setToDisplay)
+to be included in the report</li>
+<li><strong>argsShEl</strong> &#8211; Ordered list of arguments to be included in the report   
+for shell elements</li>
+<li><strong>capTexts</strong> &#8211; dictionary from wich to read the texts for captions</li>
 <li><strong>pathGr</strong> &#8211; width to be applied to graphics</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<p>:param texReportFile:laTex file where to include the graphics
-:param grWdt:      width of the graphics for the tex file
-:param setsBmView: Ordered list of lists [set of beam elements, view to</p>
-<blockquote>
-<div>represent this set] to be included in the report. 
+<li><strong>texReportFile</strong> &#8211; laTex file where to include the graphics</li>
+<li><strong>grWdt</strong> &#8211; width of the graphics for the tex file</li>
+<li><strong>setsBmView</strong> &#8211; Ordered list of lists [set of beam elements, view to 
+represent this set] to be included in the report. 
 The sets have been defined in model_data.py 
 as instances of utils_display.setToDisplay and the 
 possible views are: &#8216;XYZPos&#8217;,&#8217;XNeg&#8217;,&#8217;XPos&#8217;,&#8217;YNeg&#8217;,&#8217;YPos&#8217;,
-&#8216;ZNeg&#8217;,&#8217;ZPos&#8217;  (defaults to &#8216;XYZPos&#8217;)</div></blockquote>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>argsShEl</strong> &#8211; Ordered list of lists [arguments, scale to represent the 
-argument] to be included in the report for beam elements</td>
+&#8216;ZNeg&#8217;,&#8217;ZPos&#8217;  (defaults to &#8216;XYZPos&#8217;)</li>
+<li><strong>argsShEl</strong> &#8211; Ordered list of lists [arguments, scale to represent the 
+argument] to be included in the report for beam elements</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -313,15 +298,14 @@ argument] to be included in the report for beam elements</td>
 <dl class="function">
 <dt id="postprocess.reports.graphical_reports.insertGrInTex">
 <code class="descclassname">postprocess.reports.graphical_reports.</code><code class="descname">insertGrInTex</code><span class="sig-paren">(</span><em>texFile</em>, <em>grFileNm</em>, <em>grWdt</em>, <em>capText</em>, <em>labl=''</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.insertGrInTex" title="Permalink to this definition">¶</a></dt>
-<dd><p>Include a graphic in a LaTeX file
-:param texFile:    laTex file where to include the graphics</p>
-<blockquote>
-<div>(e.g.:&#8217;text/report_loads.tex&#8217;)</div></blockquote>
+<dd><p>Include a graphic in a LaTeX file.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>texFile</strong> &#8211; laTex file where to include the graphics 
+(e.g.:&#8217;text/report_loads.tex&#8217;)</li>
 <li><strong>grFileNm</strong> &#8211; name of the graphic file with path and without extension</li>
 <li><strong>grWdt</strong> &#8211; width to be applied to graphics</li>
 <li><strong>capText</strong> &#8211; text for the caption</li>
@@ -837,46 +821,34 @@ materials.</p>
 <dl class="method">
 <dt id="postprocess.reports.report_material.ConcreteReport.tableCompress">
 <code class="descname">tableCompress</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.report_material.ConcreteReport.tableCompress" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a LaTeX table that depicts the concrete compressive</td>
-</tr>
-</tbody>
-</table>
-<p>properties.</p>
+<dd><p>returns a LaTeX table that depicts the concrete compressive 
+properties.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="postprocess.reports.report_material.ConcreteReport.tableTens">
 <code class="descname">tableTens</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.report_material.ConcreteReport.tableTens" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a LaTeX table that depicts the concrete tensile</td>
-</tr>
-</tbody>
-</table>
-<p>properties.</p>
+<dd><p>returns a LaTeX table that depicts the concrete tensile 
+properties.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="postprocess.reports.report_material.ConcreteReport.tableTensStiff">
-<code class="descname">tableTensStiff</code><span class="sig-paren">(</span><em>paramTensStiffeness</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.report_material.ConcreteReport.tableTensStiff" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<code class="descname">tableTensStiff</code><span class="sig-paren">(</span><em>paramTensStiffness</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.report_material.ConcreteReport.tableTensStiff" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>returns a LaTeX table that depicts the concrete tension </dt>
+<dd>stiffening properties (concrete of type concrete02).</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a LaTeX table that depicts the concrete tension</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>paramTensStiffness</strong> &#8211; instance of the object 
+concrete_base.paramTensStiffness that defines the parameters 
+of tension stiffness</td>
 </tr>
 </tbody>
 </table>
-<p>stiffening properties (concrete of type concrete02).
-:param paramTensStiffeness: instance of the object 
-concrete_base.paramTensStiffenes that defines the parameters 
-of tension stiffenes</p>
 </dd></dl>
 
 </dd></dl>
@@ -893,17 +865,17 @@ stress-strain graphic.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>concrDiag</strong> &#8211; concrete material of type concrete02</li>
-<li><strong>paramTensStiffening</strong> &#8211; instance of the object</li>
+<li><strong>paramTensStiffening</strong> &#8211; instance of the object 
+concrete_base.paramTensStiffness that defines the parameters 
+of tension stiffness.</li>
+<li><strong>grTitle</strong> &#8211; title for the graphic</li>
+<li><strong>grFileName</strong> &#8211; name of the graphics file</li>
+<li><strong>texFileName</strong> &#8211; name of the LaTeX file</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>concrete_base.paramTensStiffenes that defines the parameters 
-of tension stiffenes.
-:param grTitle: title for the graphic
-:param grFileName: name of the graphics file
-:param texFileName: name of the LaTeX file</p>
 </dd></dl>
 
 </div>

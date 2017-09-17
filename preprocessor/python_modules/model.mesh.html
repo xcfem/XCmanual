@@ -59,7 +59,7 @@
 <span id="mesh-utils"></span><h1>Mesh utils<a class="headerlink" href="#module-model.mesh.finit_el_model" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="model.mesh.finit_el_model.LinSetToMesh">
-<em class="property">class </em><code class="descclassname">model.mesh.finit_el_model.</code><code class="descname">LinSetToMesh</code><span class="sig-paren">(</span><em>linSet</em>, <em>matSect</em>, <em>elemSize</em>, <em>vDirLAxZ</em>, <em>elemType='elastic_beam_3d'</em>, <em>dimElemSpace=3</em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.LinSetToMesh" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">model.mesh.finit_el_model.</code><code class="descname">LinSetToMesh</code><span class="sig-paren">(</span><em>linSet</em>, <em>matSect</em>, <em>elemSize</em>, <em>vDirLAxZ</em>, <em>elemType='elastic_beam_3d'</em>, <em>dimElemSpace=3</em>, <em>coordTransfType='linear'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.LinSetToMesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#model.mesh.finit_el_model.RawLineSetToMesh" title="model.mesh.finit_el_model.RawLineSetToMesh"><code class="xref py py-class docutils literal"><span class="pre">model.mesh.finit_el_model.RawLineSetToMesh</span></code></a></p>
 <p>Define the parameters to mesh a set of lines. The method generateMesh
 meshes those lines and adds the nodes and elements created to the set .</p>
@@ -72,11 +72,14 @@ meshes those lines and adds the nodes and elements created to the set .</p>
 material-section to be applied to the set of lines.</li>
 <li><strong>vDirLAxZ</strong> &#8211; direction vector for the element local axis Z 
 defined as xc.Vector([x,y,z]). This is the direction in which
-the Z local axis of the reinforced concrete sections will be
+the Z local axis of the sections will be
 oriented (i.e. in the case of rectangular sections this Z 
-local axis of the RC section is parallel to the dimension
+local axis of the section is parallel to the dimension
 defined as width of the rectangle)</li>
 <li><strong>dimElemSpace</strong> &#8211; dimension of the element space (defaults to 3)</li>
+<li><strong>coordTransfType</strong> &#8211; type of coordinate transformation. Available 
+types: &#8216;linear&#8217;, &#8216;PDelta&#8217; and &#8216;corot&#8217; (defaults to 
+&#8216;linear&#8217;)</li>
 </ul>
 </td>
 </tr>
@@ -175,7 +178,7 @@ material-section to be applied to the set of surfaces.</li>
 
 <dl class="function">
 <dt id="model.mesh.finit_el_model.getDefaultCoordinateTransformation">
-<code class="descclassname">model.mesh.finit_el_model.</code><code class="descname">getDefaultCoordinateTransformation</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>coordTransfName</em>, <em>vDir</em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.getDefaultCoordinateTransformation" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">model.mesh.finit_el_model.</code><code class="descname">getDefaultCoordinateTransformation</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>coordTransfName</em>, <em>coordTransfType</em>, <em>vDir</em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.getDefaultCoordinateTransformation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a default coordinate transformation.</p>
 </dd></dl>
 

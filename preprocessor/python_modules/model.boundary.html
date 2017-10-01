@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Elastic foundation &mdash; XC 3.0 documentation</title>
+    <title>Generation of boundary conditions based on springs &mdash; XC 3.0 documentation</title>
     
     <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -54,11 +54,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-model.boundary_cond.elastic_foundation">
-<span id="elastic-foundation"></span><h1>Elastic foundation<a class="headerlink" href="#module-model.boundary_cond.elastic_foundation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-model.boundary_cond.spring_bound_cond">
+<span id="generation-of-boundary-conditions-based-on-springs"></span><h1>Generation of boundary conditions based on springs<a class="headerlink" href="#module-model.boundary_cond.spring_bound_cond" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
-<dt id="model.boundary_cond.elastic_foundation.ElasticFoundation">
-<em class="property">class </em><code class="descclassname">model.boundary_cond.elastic_foundation.</code><code class="descname">ElasticFoundation</code><span class="sig-paren">(</span><em>wModulus</em>, <em>cRoz</em><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.elastic_foundation.ElasticFoundation" title="Permalink to this definition">¶</a></dt>
+<dt id="model.boundary_cond.spring_bound_cond.ElasticFoundation">
+<em class="property">class </em><code class="descclassname">model.boundary_cond.spring_bound_cond.</code><code class="descname">ElasticFoundation</code><span class="sig-paren">(</span><em>wModulus</em>, <em>cRoz</em><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.ElasticFoundation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Region resting on springs (Winkler elastic foundation)</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -75,8 +75,8 @@ the contact plane (springs in X, Y directions)</li>
 </tbody>
 </table>
 <dl class="method">
-<dt id="model.boundary_cond.elastic_foundation.ElasticFoundation.calcPressures">
-<code class="descname">calcPressures</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.elastic_foundation.ElasticFoundation.calcPressures" title="Permalink to this definition">¶</a></dt>
+<dt id="model.boundary_cond.spring_bound_cond.ElasticFoundation.calcPressures">
+<code class="descname">calcPressures</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.ElasticFoundation.calcPressures" title="Permalink to this definition">¶</a></dt>
 <dd><p>Foundation pressures over the soil. Calculates pressures
 and forces in the free nodes of the springs
 (those that belongs to both the spring and the foundation)
@@ -86,26 +86,84 @@ property &#8216;soilReaction:&#8217; [xForce,yForce,zForce]</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="model.boundary_cond.elastic_foundation.ElasticFoundation.createMaterials">
-<code class="descname">createMaterials</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.elastic_foundation.ElasticFoundation.createMaterials" title="Permalink to this definition">¶</a></dt>
+<dt id="model.boundary_cond.spring_bound_cond.ElasticFoundation.createMaterials">
+<code class="descname">createMaterials</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.ElasticFoundation.createMaterials" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="model.boundary_cond.elastic_foundation.ElasticFoundation.displayPressures">
-<code class="descname">displayPressures</code><span class="sig-paren">(</span><em>defDisplay</em>, <em>caption</em>, <em>fUnitConv</em>, <em>unitDescription</em><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.elastic_foundation.ElasticFoundation.displayPressures" title="Permalink to this definition">¶</a></dt>
+<dt id="model.boundary_cond.spring_bound_cond.ElasticFoundation.displayPressures">
+<code class="descname">displayPressures</code><span class="sig-paren">(</span><em>defDisplay</em>, <em>caption</em>, <em>fUnitConv</em>, <em>unitDescription</em><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.ElasticFoundation.displayPressures" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display foundation pressures.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="model.boundary_cond.elastic_foundation.ElasticFoundation.generateSprings">
-<code class="descname">generateSprings</code><span class="sig-paren">(</span><em>xcSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.elastic_foundation.ElasticFoundation.generateSprings" title="Permalink to this definition">¶</a></dt>
+<dt id="model.boundary_cond.spring_bound_cond.ElasticFoundation.generateSprings">
+<code class="descname">generateSprings</code><span class="sig-paren">(</span><em>xcSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.ElasticFoundation.generateSprings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates the springs at the nodes.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="model.boundary_cond.elastic_foundation.ElasticFoundation.getCentroid">
-<code class="descname">getCentroid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.elastic_foundation.ElasticFoundation.getCentroid" title="Permalink to this definition">¶</a></dt>
+<dt id="model.boundary_cond.spring_bound_cond.ElasticFoundation.getCentroid">
+<code class="descname">getCentroid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.ElasticFoundation.getCentroid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the geometric baricenter of the springs.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="model.boundary_cond.spring_bound_cond.SpringBC">
+<em class="property">class </em><code class="descclassname">model.boundary_cond.spring_bound_cond.</code><code class="descname">SpringBC</code><span class="sig-paren">(</span><em>name</em>, <em>modelSpace</em>, <em>Kx=0</em>, <em>Ky=0</em>, <em>Kz=0</em><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.SpringBC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Spring to be used as boundary condition</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> &#8211; name</li>
+<li><strong>modelSpace</strong> &#8211; model space</li>
+<li><strong>Kx</strong> &#8211; spring stiffness in X direction (defaults to 0 -&gt; free)</li>
+<li><strong>Ky</strong> &#8211; spring stiffness in Y direction (defaults to 0 -&gt; free)</li>
+<li><strong>Kz</strong> &#8211; spring stiffness in Z direction (defaults to 0 -&gt; free)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="model.boundary_cond.spring_bound_cond.SpringBC.applyOnNodesIn3Dpos">
+<code class="descname">applyOnNodesIn3Dpos</code><span class="sig-paren">(</span><em>lst3DPos</em><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.SpringBC.applyOnNodesIn3Dpos" title="Permalink to this definition">¶</a></dt>
+<dd><p>create springs in the nearest nodes to the coordinates in the 
+list of 3D positions given as parameter</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.boundary_cond.spring_bound_cond.SpringBC.applyOnNodesInSet">
+<code class="descname">applyOnNodesInSet</code><span class="sig-paren">(</span><em>setEnt</em><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.SpringBC.applyOnNodesInSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>create springs in all the nodes included in the set of entities 
+given as parameter</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.boundary_cond.spring_bound_cond.SpringBC.applyOnNodesLst">
+<code class="descname">applyOnNodesLst</code><span class="sig-paren">(</span><em>Nodelist</em><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.SpringBC.applyOnNodesLst" title="Permalink to this definition">¶</a></dt>
+<dd><p>create spring boundary conditions in the nodes included in 
+the list of nodes passed as parameter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.boundary_cond.spring_bound_cond.SpringBC.applyOnPointsInSet">
+<code class="descname">applyOnPointsInSet</code><span class="sig-paren">(</span><em>setEnt</em><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.SpringBC.applyOnPointsInSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>create springs in all the points included in the set of entities 
+given as parameter</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.boundary_cond.spring_bound_cond.SpringBC.createSpringMaterials">
+<code class="descname">createSpringMaterials</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.SpringBC.createSpringMaterials" title="Permalink to this definition">¶</a></dt>
+<dd><p>create the spring materials in X, Y, Z directions. If there is
+no spring in any of these directions, its corresponding material is
+equal to None</p>
 </dd></dl>
 
 </dd></dl>
@@ -128,7 +186,7 @@ property &#8216;soilReaction:&#8217; [xForce,yForce,zForce]</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Elastic foundation</a></li>
+<li><a class="reference internal" href="#">Generation of boundary conditions based on springs</a></li>
 <li><a class="reference internal" href="#module-model.boundary_cond.opensees_style">OpenSees style</a></li>
 </ul>
 

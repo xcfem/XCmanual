@@ -629,8 +629,8 @@ and initial elastic tangent</li>
 <dl class="method">
 <dt id="materials.concrete_base.Concrete.Ecm">
 <code class="descname">Ecm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.Ecm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Módulo de deformación longitudinal secante a 28 días expresado
-en [Pa] [+]</p>
+<dd><p>longitudinal secant modulus of deformation, at 28 days
+(slope of the secant of the actual stress-strain curve)) [Pa] [+]</p>
 </dd></dl>
 
 <dl class="method">
@@ -1733,8 +1733,8 @@ post-cracking range, passings through the point (eps_ct,f_ct) [point of concrete
 </dd></dl>
 
 <dl class="class">
-<dt id="materials.structural_steel.SteelProfile">
-<em class="property">class </em><code class="descclassname">materials.structural_steel.</code><code class="descname">SteelProfile</code><span class="sig-paren">(</span><em>steel</em>, <em>name</em>, <em>table</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape">
+<em class="property">class </em><code class="descclassname">materials.structural_steel.</code><code class="descname">SteelShape</code><span class="sig-paren">(</span><em>steel</em>, <em>name</em>, <em>table</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#materials.section_properties.SectionProperties" title="materials.section_properties.SectionProperties"><code class="xref py py-class docutils literal"><span class="pre">materials.section_properties.SectionProperties</span></code></a></p>
 <p>Properties of a section in structural steel</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1744,8 +1744,8 @@ post-cracking range, passings through the point (eps_ct,f_ct) [point of concrete
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><strong>steel</strong> &#8211; steel object (e.g. S275JR)</li>
 <li><strong>table</strong> &#8211; module containing a dictionary with mechanical characteristics
-of a series of profiles 
-(e.g. materials.structural_shapes.arcelor.arcelor_he_profiles)</li>
+of a series of shapes 
+(e.g. materials.structural_shapes.arcelor_metric_shapes.IPE)</li>
 <li><strong>name</strong> &#8211; name identifying the section in the table</li>
 </ul>
 </td>
@@ -1753,94 +1753,94 @@ of a series of profiles
 </tbody>
 </table>
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.A">
-<code class="descname">A</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.A" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.A">
+<code class="descname">A</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.A" title="Permalink to this definition">¶</a></dt>
 <dd><p>return cross-sectional area of the section</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.EIy">
-<code class="descname">EIy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.EIy" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.EIy">
+<code class="descname">EIy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.EIy" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.EIz">
-<code class="descname">EIz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.EIz" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.EIz">
+<code class="descname">EIz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.EIz" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.GJ">
-<code class="descname">GJ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.GJ" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.GJ">
+<code class="descname">GJ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.GJ" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.It">
-<code class="descname">It</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.It" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.It">
+<code class="descname">It</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.It" title="Permalink to this definition">¶</a></dt>
 <dd><p>return torsional constant.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.Iw">
-<code class="descname">Iw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.Iw" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.Iw">
+<code class="descname">Iw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.Iw" title="Permalink to this definition">¶</a></dt>
 <dd><p>return warping constant.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.Iy">
-<code class="descname">Iy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.Iy" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.Iy">
+<code class="descname">Iy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.Iy" title="Permalink to this definition">¶</a></dt>
 <dd><p>return second moment of area about the local y-axis</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.Iz">
-<code class="descname">Iz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.Iz" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.Iz">
+<code class="descname">Iz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.Iz" title="Permalink to this definition">¶</a></dt>
 <dd><p>return second moment of area about the local z-axis</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.J">
-<code class="descname">J</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.J" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.J">
+<code class="descname">J</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.J" title="Permalink to this definition">¶</a></dt>
 <dd><p>return torsional moment of inertia of the section</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.alphaY">
-<code class="descname">alphaY</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.alphaY" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.alphaY">
+<code class="descname">alphaY</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.alphaY" title="Permalink to this definition">¶</a></dt>
 <dd><p>return shear shape factor with respect to local y-axis</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.alphaZ">
-<code class="descname">alphaZ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.alphaZ" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.alphaZ">
+<code class="descname">alphaZ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.alphaZ" title="Permalink to this definition">¶</a></dt>
 <dd><p>return shear shape factor with respect to local z-axis</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.checkBiaxialBendingForElement">
-<code class="descname">checkBiaxialBendingForElement</code><span class="sig-paren">(</span><em>elem</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.checkBiaxialBendingForElement" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.checkBiaxialBendingForElement">
+<code class="descname">checkBiaxialBendingForElement</code><span class="sig-paren">(</span><em>elem</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.checkBiaxialBendingForElement" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called in every commit to check biaxial bending criterion (bars in 3D problems).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.checkUniaxialBendingForElement">
-<code class="descname">checkUniaxialBendingForElement</code><span class="sig-paren">(</span><em>elem</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.checkUniaxialBendingForElement" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.checkUniaxialBendingForElement">
+<code class="descname">checkUniaxialBendingForElement</code><span class="sig-paren">(</span><em>elem</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.checkUniaxialBendingForElement" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called in every commit to check uniaxial bending criterion (bars in 2D problems).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.checkYShearForElement">
-<code class="descname">checkYShearForElement</code><span class="sig-paren">(</span><em>elem</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.checkYShearForElement" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.checkYShearForElement">
+<code class="descname">checkYShearForElement</code><span class="sig-paren">(</span><em>elem</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.checkYShearForElement" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called in every commit to y shear criterion.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.get">
-<code class="descname">get</code><span class="sig-paren">(</span><em>code</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.get" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>code</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.get" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.getAdimensionalSlendernessY">
-<code class="descname">getAdimensionalSlendernessY</code><span class="sig-paren">(</span><em>Leq</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getAdimensionalSlendernessY" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.getAdimensionalSlendernessY">
+<code class="descname">getAdimensionalSlendernessY</code><span class="sig-paren">(</span><em>Leq</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.getAdimensionalSlendernessY" title="Permalink to this definition">¶</a></dt>
 <dd><p>return adimensional slendernes as defined in EC3 part 1 5.5.1.2</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1857,8 +1857,8 @@ of a series of profiles
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.getAdimensionalSlendernessZ">
-<code class="descname">getAdimensionalSlendernessZ</code><span class="sig-paren">(</span><em>Leq</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getAdimensionalSlendernessZ" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.getAdimensionalSlendernessZ">
+<code class="descname">getAdimensionalSlendernessZ</code><span class="sig-paren">(</span><em>Leq</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.getAdimensionalSlendernessZ" title="Permalink to this definition">¶</a></dt>
 <dd><p>return adimensional slendernes as defined in EC3 part 1 5.5.1.2</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1875,14 +1875,14 @@ of a series of profiles
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.getAeff">
-<code class="descname">getAeff</code><span class="sig-paren">(</span><em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getAeff" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.getAeff">
+<code class="descname">getAeff</code><span class="sig-paren">(</span><em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.getAeff" title="Permalink to this definition">¶</a></dt>
 <dd><p>return effective area depending of the cross-section class.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.getBucklingReductionFactorY">
-<code class="descname">getBucklingReductionFactorY</code><span class="sig-paren">(</span><em>Leq</em>, <em>bucklingCurve</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getBucklingReductionFactorY" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.getBucklingReductionFactorY">
+<code class="descname">getBucklingReductionFactorY</code><span class="sig-paren">(</span><em>Leq</em>, <em>bucklingCurve</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.getBucklingReductionFactorY" title="Permalink to this definition">¶</a></dt>
 <dd><p>return buckling reduction factor as defined in EC3-1-1 6.3.1</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1900,8 +1900,8 @@ of a series of profiles
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.getBucklingReductionFactorZ">
-<code class="descname">getBucklingReductionFactorZ</code><span class="sig-paren">(</span><em>Leq</em>, <em>bucklingCurve</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getBucklingReductionFactorZ" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.getBucklingReductionFactorZ">
+<code class="descname">getBucklingReductionFactorZ</code><span class="sig-paren">(</span><em>Leq</em>, <em>bucklingCurve</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.getBucklingReductionFactorZ" title="Permalink to this definition">¶</a></dt>
 <dd><p>return buckling reduction factor as defined in EC3-1-1 6.3.1</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1919,8 +1919,8 @@ of a series of profiles
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.getBucklingResistance">
-<code class="descname">getBucklingResistance</code><span class="sig-paren">(</span><em>Leq</em>, <em>bucklingCurveY</em>, <em>bucklingCurveZ</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getBucklingResistance" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.getBucklingResistance">
+<code class="descname">getBucklingResistance</code><span class="sig-paren">(</span><em>Leq</em>, <em>bucklingCurveY</em>, <em>bucklingCurveZ</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.getBucklingResistance" title="Permalink to this definition">¶</a></dt>
 <dd><p>return buckling reduction factor as defined in EC3-1-1 6.3.1</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1938,8 +1938,8 @@ of a series of profiles
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.getBucklingResistanceY">
-<code class="descname">getBucklingResistanceY</code><span class="sig-paren">(</span><em>Leq</em>, <em>bucklingCurve</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getBucklingResistanceY" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.getBucklingResistanceY">
+<code class="descname">getBucklingResistanceY</code><span class="sig-paren">(</span><em>Leq</em>, <em>bucklingCurve</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.getBucklingResistanceY" title="Permalink to this definition">¶</a></dt>
 <dd><p>return buckling reduction factor as defined in EC3-1-1 6.3.1</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1957,8 +1957,8 @@ of a series of profiles
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.getBucklingResistanceZ">
-<code class="descname">getBucklingResistanceZ</code><span class="sig-paren">(</span><em>Leq</em>, <em>bucklingCurve</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getBucklingResistanceZ" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.getBucklingResistanceZ">
+<code class="descname">getBucklingResistanceZ</code><span class="sig-paren">(</span><em>Leq</em>, <em>bucklingCurve</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.getBucklingResistanceZ" title="Permalink to this definition">¶</a></dt>
 <dd><p>return buckling reduction factor as defined in EC3-1-1 6.3.1</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1976,20 +1976,20 @@ of a series of profiles
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.getGyrationRadiusY">
-<code class="descname">getGyrationRadiusY</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getGyrationRadiusY" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.getGyrationRadiusY">
+<code class="descname">getGyrationRadiusY</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.getGyrationRadiusY" title="Permalink to this definition">¶</a></dt>
 <dd><p>return radius of gyration about the local y-axis</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.getGyrationRadiusZ">
-<code class="descname">getGyrationRadiusZ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getGyrationRadiusZ" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.getGyrationRadiusZ">
+<code class="descname">getGyrationRadiusZ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.getGyrationRadiusZ" title="Permalink to this definition">¶</a></dt>
 <dd><p>return radius of gyration about the local z-axis</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.getNcr">
-<code class="descname">getNcr</code><span class="sig-paren">(</span><em>Leq</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getNcr" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.getNcr">
+<code class="descname">getNcr</code><span class="sig-paren">(</span><em>Leq</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.getNcr" title="Permalink to this definition">¶</a></dt>
 <dd><p>return theoretical critical axial force  (minimum of NcrY and NcrZ).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2002,8 +2002,8 @@ of a series of profiles
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.getNcrY">
-<code class="descname">getNcrY</code><span class="sig-paren">(</span><em>Leq</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getNcrY" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.getNcrY">
+<code class="descname">getNcrY</code><span class="sig-paren">(</span><em>Leq</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.getNcrY" title="Permalink to this definition">¶</a></dt>
 <dd><p>return theoretical critical axial force on y axis.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2016,8 +2016,8 @@ of a series of profiles
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.getNcrZ">
-<code class="descname">getNcrZ</code><span class="sig-paren">(</span><em>Leq</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getNcrZ" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.getNcrZ">
+<code class="descname">getNcrZ</code><span class="sig-paren">(</span><em>Leq</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.getNcrZ" title="Permalink to this definition">¶</a></dt>
 <dd><p>return theoretical critical axial force on z axis.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2030,8 +2030,8 @@ of a series of profiles
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.getSlendernessY">
-<code class="descname">getSlendernessY</code><span class="sig-paren">(</span><em>Leq</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getSlendernessY" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.getSlendernessY">
+<code class="descname">getSlendernessY</code><span class="sig-paren">(</span><em>Leq</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.getSlendernessY" title="Permalink to this definition">¶</a></dt>
 <dd><p>return buckling slendernes relative to the local y-axis</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2044,8 +2044,8 @@ of a series of profiles
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.getSlendernessZ">
-<code class="descname">getSlendernessZ</code><span class="sig-paren">(</span><em>Leq</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getSlendernessZ" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.getSlendernessZ">
+<code class="descname">getSlendernessZ</code><span class="sig-paren">(</span><em>Leq</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.getSlendernessZ" title="Permalink to this definition">¶</a></dt>
 <dd><p>return buckling slendernes relative to the local z-axis</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2058,20 +2058,20 @@ of a series of profiles
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.getWy">
-<code class="descname">getWy</code><span class="sig-paren">(</span><em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getWy" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.getWy">
+<code class="descname">getWy</code><span class="sig-paren">(</span><em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.getWy" title="Permalink to this definition">¶</a></dt>
 <dd><p>return section modulus with respect to local y-axis</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.getWz">
-<code class="descname">getWz</code><span class="sig-paren">(</span><em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.getWz" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.getWz">
+<code class="descname">getWz</code><span class="sig-paren">(</span><em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.getWz" title="Permalink to this definition">¶</a></dt>
 <dd><p>return section modulus with respect to local z-axis</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.structural_steel.SteelProfile.setupULSControlVars">
-<code class="descname">setupULSControlVars</code><span class="sig-paren">(</span><em>elems</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelProfile.setupULSControlVars" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.structural_steel.SteelShape.setupULSControlVars">
+<code class="descname">setupULSControlVars</code><span class="sig-paren">(</span><em>elems</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.structural_steel.SteelShape.setupULSControlVars" title="Permalink to this definition">¶</a></dt>
 <dd><p>For each element creates the variables
 needed to check ultimate limit state criterion to satisfy.</p>
 </dd></dl>
@@ -2273,7 +2273,7 @@ in tables 6.1 and 6.2 of EC3.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><a class="reference internal" href="../geom_cpp_classes/d2/d2.html#geom.BND2d.area" title="geom.BND2d.area"><strong>area</strong></a> &#8211; cross-sectional area</li>
-<li><a class="reference internal" href="#materials.section_properties.SectionProperties.Iy" title="materials.section_properties.SectionProperties.Iy"><strong>Iy</strong></a> &#8211; second moment of area about the local y-axis</li>
+<li><a class="reference internal" href="#materials.structural_steel.SteelShape.Iy" title="materials.structural_steel.SteelShape.Iy"><strong>Iy</strong></a> &#8211; second moment of area about the local y-axis</li>
 <li><a class="reference internal" href="#materials.section_properties.SectionProperties.Iz" title="materials.section_properties.SectionProperties.Iz"><strong>Iz</strong></a> &#8211; second moment of area about the local z-axis</li>
 <li><strong>Jtors</strong> &#8211; torsional constant of the section</li>
 <li><strong>Wy</strong> &#8211; section modulus with respect to local y-axis</li>

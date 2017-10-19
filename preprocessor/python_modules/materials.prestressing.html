@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Prestressed materials &mdash; XC 3.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="XC 3.0 documentation" href="../../index.html" />
+    <link rel="up" title="Material" href="../material.html" />
+    <link rel="next" title="ASTM materials" href="materials.astm.html" />
+    <link rel="prev" title="Materials according to SIA-262 code" href="materials.sia262.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="materials.astm.html" title="ASTM materials"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="materials.sia262.html" title="Materials according to SIA-262 code"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../material.html" accesskey="U">Material</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="prestressed-materials">
+<h1>Prestressed materials<a class="headerlink" href="#prestressed-materials" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-materials.prestressing.prestressed_concrete">
+<span id="prestressed-concrete"></span><h2>Prestressed concrete<a class="headerlink" href="#module-materials.prestressing.prestressed_concrete" title="Permalink to this headline">¶</a></h2>
+<p>Classes related to prestressed concrete</p>
+<dl class="class">
+<dt id="materials.prestressing.prestressed_concrete.PrestressTendon">
+<em class="property">class </em><code class="descclassname">materials.prestressing.prestressed_concrete.</code><code class="descname">PrestressTendon</code><span class="sig-paren">(</span><em>lstRoughPnts</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Geometry and prestressing losses of a prestressing tendon</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lstRoughPnt</strong> &#8211; list of 3D-coordinate tuples defining the points from 
+which to interpolate the cubic spline that will delineate
+the tendon geometry. e.g. [(x1,y1,z1),(x2,y2,z2),...]</li>
+<li><strong>roughCoordMtr</strong> &#8211; matrix 3*n_rough_ptos [[x1,x2, ..],[y1,y2,..],[z1,z2,..]]</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.prestressing.prestressed_concrete.PrestressTendon.calcLossAnchor">
+<code class="descname">calcLossAnchor</code><span class="sig-paren">(</span><em>Ep_by_anc_slip_extr1=0.0</em>, <em>Ep_by_anc_slip_extr2=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.calcLossAnchor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the attributes lossAnchor and stressAfterLossAnchor of type 
+array that contains  for each point in fineCoordMtr the cumulative 
+immediate loss of prestressing due to anchorage slip and the stress 
+after this loss, respectively.
+Loss due to friction must be previously calculated</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Ep_by_anc_slip_extr1</strong> &#8211; anchorage slip (data provided by the manufacturer
+of the anchorage system) at extremity 1 of 
+the tendon (starting point) muliplied by the elastic 
+modulus of the prestresing steel (= deltaL x Ep)</li>
+<li><strong>Ep_by_anc_slip_extr2</strong> &#8211; anchorage slip at extremity 2 of 
+the tendon (ending point) muliplied by the elastic 
+modulus of the prestresing steel  (= deltaL x Ep)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.prestressing.prestressed_concrete.PrestressTendon.calcLossFriction">
+<code class="descname">calcLossFriction</code><span class="sig-paren">(</span><em>coefFric</em>, <em>uninDev</em>, <em>sigmaP0_extr1=0.0</em>, <em>sigmaP0_extr2=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.calcLossFriction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the attributes lossFriction and stressAfterLossFriction of 
+type array that contains  for each point in fineCoordMtr the cumulative 
+immediate loss of prestressing due to friction and the stress after 
+this loss, respectively.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sigmaP0_extr1</strong> &#8211; maximum stress applied at the extremity 1 of 
+the tendon (starting point) (stress refers to its 
+value at the end of the anchorage, in the contact
+with concrete). Defaults to 0.0 (no prestress applied)</li>
+<li><strong>sigmaP0_extr2</strong> &#8211; idem for prestress applied at extremity 2
+(end point of the tendon). Defaults to 0.0 (no 
+prestress applied)</li>
+<li><strong>coefFric</strong> &#8211; coefficient of friction between the tendon and its 
+sheathing</li>
+<li><strong>uninDev</strong> &#8211; unintentional angular deviation (rad/m tendon)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.prestressing.prestressed_concrete.PrestressTendon.creaTendonElements">
+<code class="descname">creaTendonElements</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>materialName</em>, <em>elemTypeName</em>, <em>crdTransfName</em>, <em>areaTendon</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.creaTendonElements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the nodes and elements of the tendon and appends them to a set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preporcessor</strong> &#8211; preprocessor</li>
+<li><strong>materialName</strong> &#8211; name of the material</li>
+<li><strong>elemTypeName</strong> &#8211; name of the type of element</li>
+<li><strong>crdTransfName</strong> &#8211; name of the coordinate transformation</li>
+<li><strong>areaTendon</strong> &#8211; area of the cross-section of the tencon</li>
+<li><strong>setName</strong> &#8211; name of the set to which append the nodes and elements
+created (if the set doesn&#8217;t exist, it&#8217;s created)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.prestressing.prestressed_concrete.PrestressTendon.fAnc_ext1">
+<code class="descname">fAnc_ext1</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.fAnc_ext1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Funtion to obtain the parameters for calculating the loss due to
+anchorage slip in extremity 1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.prestressing.prestressed_concrete.PrestressTendon.fAnc_ext2">
+<code class="descname">fAnc_ext2</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.fAnc_ext2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Funtion to obtain the parameters for calculating the loss due to
+anchorage slip in extremity 2</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.prestressing.prestressed_concrete.PrestressTendon.getAngleSequence">
+<code class="descname">getAngleSequence</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.getAngleSequence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return for each point in fineCoordMtr the deviation deviation 
+(angle in rad) with respect to the preceding point</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.prestressing.prestressed_concrete.PrestressTendon.getCumAngle">
+<code class="descname">getCumAngle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.getCumAngle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return for each point in fineCoordMtr the cumulative angular 
+deviation (angle in rad) of the tendon from its starting point</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.prestressing.prestressed_concrete.PrestressTendon.getCumLength">
+<code class="descname">getCumLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.getCumLength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return for each point in fineCoordMtr the cumulative lenght of 
+tendon from its starting point</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.prestressing.prestressed_concrete.PrestressTendon.getLengthSequence">
+<code class="descname">getLengthSequence</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.getLengthSequence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return for each point in fineCoordMtr the distance to the preceding 
+point</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.prestressing.prestressed_concrete.PrestressTendon.getReverseCumAngle">
+<code class="descname">getReverseCumAngle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.getReverseCumAngle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return for each point in fineCoordMtr the cumulative angular 
+deviation (angle in rad) of the tendon from its ending point</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.prestressing.prestressed_concrete.PrestressTendon.getReverseCumLength">
+<code class="descname">getReverseCumLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.getReverseCumLength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return for each point in fineCoordMtr the cumulative lenght of 
+tendon from its ending point</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.prestressing.prestressed_concrete.PrestressTendon.plot2D">
+<code class="descname">plot2D</code><span class="sig-paren">(</span><em>XaxisValues='X'</em>, <em>fileName='plot.png'</em>, <em>symbolRougPoints=None</em>, <em>symbolFinePoints=None</em>, <em>symbolTendon=None</em>, <em>symbolLossFriction=None</em>, <em>symbolStressAfterLossFriction=None</em>, <em>symbolLossAnch=None</em>, <em>symbolStressAfterLossAnch=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.plot2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot in a 2D graphic the results to which a symbol is assigned.
+Symbol examples: &#8216;r-&#8216;: red solid line, &#8216;mo&#8217;: magenta circle, &#8216;b&#8211;&#8217;: blue dashes, &#8216;ks&#8217;:black square,&#8217;g^&#8217; green triangle_up, &#8216;c*&#8217;: cyan star, ...
+:param XaxisValues: =&#8217;X&#8217; (default) to represent in the diagram X-axis</p>
+<blockquote>
+<div><blockquote>
+<div>the X coordinates of the tendon,</div></blockquote>
+<dl class="docutils">
+<dt>=&#8217;Y&#8217; to represent in the diagram X-axis </dt>
+<dd>the Y coordinates of the tendon,</dd>
+<dt>=&#8217;S&#8217; to represent in the diagram X-axis </dt>
+<dd>the curviline coordinates of the tendon 
+(sqrt(X**2+Y**2)</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.prestressing.prestressed_concrete.PrestressTendon.plot3D">
+<code class="descname">plot3D</code><span class="sig-paren">(</span><em>fileName='plot.png'</em>, <em>symbolRougPoints=None</em>, <em>symbolFinePoints=None</em>, <em>symbolTendon=None</em>, <em>symbolLossFriction=None</em>, <em>symbolStressAfterLossFriction=None</em>, <em>symbolLossAnch=None</em>, <em>symbolStressAfterLossAnch=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.plot3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot in a 3D graphic the results to which a symbol is assigned.
+Symbol examples: &#8216;r-&#8216;: red solid line, &#8216;mo&#8217;: magenta circle, 
+&#8216;b&#8211;&#8217;: blue dashes, &#8216;ks&#8217;:black square,&#8217;g^&#8217; green triangle_up, 
+&#8216;c*&#8217;: cyan star, ...</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.prestressing.prestressed_concrete.PrestressTendon.pntsInterpTendon">
+<code class="descname">pntsInterpTendon</code><span class="sig-paren">(</span><em>nPntsFine</em>, <em>smoothness</em>, <em>kgrade=3</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.pntsInterpTendon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a cubic spline (default) or a spline of grade kgrade 
+interpolation from the rough points and calculates its value and 
+the value of its derivative in nPntsFine equispaced.
+Creates the following attributes:</p>
+<ul class="simple">
+<li>fineCoordMtr: matrix with coordinates of the interpolated points</li>
+</ul>
+<p>[[x1,x2, ..],[y1,y2,..],[z1,z2,..]]
+- fineDerivMtr: matrix with the vector representing the derivative
+in each interpolated  
+- tck: tuple (t,c,k) containing the vector of knots, the B-spline</p>
+<blockquote>
+<div>coefficients, and the degree of the spline.</div></blockquote>
+<ul class="simple">
+<li>fineScoord: coordinate by the projection of the curve on the XY</li>
+</ul>
+<p>plane. Matrix 1*nPntsFine whose first elements is 0 and the rest the 
+cumulative distance to the first point</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.prestressing.prestressed_concrete.angle_between">
+<code class="descclassname">materials.prestressing.prestressed_concrete.</code><code class="descname">angle_between</code><span class="sig-paren">(</span><em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.angle_between" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Prestressed materials</a><ul>
+<li><a class="reference internal" href="#module-materials.prestressing.prestressed_concrete">Prestressed concrete</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="materials.sia262.html"
+                        title="previous chapter">Materials according to SIA-262 code</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="materials.astm.html"
+                        title="next chapter">ASTM materials</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/preprocessor/python_modules/materials.prestressing.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="materials.astm.html" title="ASTM materials"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="materials.sia262.html" title="Materials according to SIA-262 code"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../material.html" >Material</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+    </div>
+  </body>
+</html>

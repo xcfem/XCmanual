@@ -107,9 +107,12 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>d</strong> &#8211; anchor diameter.</li>
+<li><strong>hEf</strong> &#8211; effective anchorage depth.</li>
+<li><strong>fckCube</strong> &#8211; characteristic concrete compression strength measured 
+on cubes with a side length of 150 mm (value of concrete 
+strength class according to ENV 206) (Pa).</li>
 <li><strong>c1</strong> &#8211; Distancia desde el centro de gravedad del grupo al borde situado frente al cortante.</li>
-<li><strong>d</strong> &#8211; Diámetro del perno.</li>
-<li><strong>hEf</strong> &#8211; Profundidad efectiva of the anchor.</li>
 </ul>
 </td>
 </tr>
@@ -138,25 +141,37 @@
 <dl class="function">
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.axialInitialResistanceConeFailure">
 <code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">axialInitialResistanceConeFailure</code><span class="sig-paren">(</span><em>k1</em>, <em>fck_cube</em>, <em>hEf</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.axialInitialResistanceConeFailure" title="Permalink to this definition">¶</a></dt>
-<dd><p>Valor inicial de la resistencia de un perno a tracción por
-extracción de cono de hormigón according to expression 5.3a in clause 5.2.2.4 a) of EOTA TR029.
-:param k1: 7.2 para hormigón fisurado y 10.1 para hormigón no fisurado.
-:param fck_cube: Concrete characteristic strength medida en probeta cúbica (Pa).
-:param hEf: Profundidad efectiva del anclaje (m).</p>
+<dd><p>Characteristic resistance of an anchor in case of concrete cone failure
+according to expression 5.3a in clause 5.2.2.4 a) of EOTA TR029.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>k1</strong> &#8211; 7.2 for applications in cracked concrete and 10.1 for applications in non-cracked concrete.</li>
+<li><strong>fck_cube</strong> &#8211; characteristic concrete compression strength measured 
+on cubes with a side length of 150 mm (value of concrete 
+strength class according to ENV 206) (Pa).</li>
+<li><strong>hEf</strong> &#8211; effective anchorage depth (m).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.axialInitialResistancePullOut">
 <code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">axialInitialResistancePullOut</code><span class="sig-paren">(</span><em>d</em>, <em>hEf</em>, <em>tauRk</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.axialInitialResistancePullOut" title="Permalink to this definition">¶</a></dt>
-<dd><p>Valor inicial de la resistencia de un perno a tracción por fallo combinado de arrancamiento y extracción de cono de hormigón according to expression 5.2a in clause 5.2.2.3 a) of EOTA TR029.</p>
+<dd><p>Characteristic resistance in case of combined pull -out and concrete cone failure according to expression 5.2a in clause 5.2.2.3 a) of EOTA TR029.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>d</strong> &#8211; Anchor diameter (m).</li>
-<li><strong>hEf</strong> &#8211; Profundidad efectiva del anclaje (m).</li>
-<li><strong>tauRk</strong> &#8211; Valor característico de la tensión de adherencia (debe tomarse del documento ETA que resulte aplicable) (Pa).</li>
+<li><strong>hEf</strong> &#8211; effective anchorage depth (m).</li>
+<li><strong>tauRk</strong> &#8211; Characteristic bond resistance, depending on the concrete strength class, (must be taken from relevant ETA) (Pa).</li>
 </ul>
 </td>
 </tr>
@@ -169,21 +184,21 @@ extracción de cono de hormigón according to expression 5.3a in clause 5.2.2.4 
 <code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">axialResistanceSteelFailure</code><span class="sig-paren">(</span><em>As</em>, <em>fuk</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.axialResistanceSteelFailure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Characteristic value of anchor bolt strength in tension
 due to steel collapse according to clause 5.2.2.2 of EOTA TR029.</p>
-<p>As: Bolt area (m2).
-fuk: Valor característico de la carga de rotura a tracción (Pa).</p>
+<p>As: stressed cross section of steel (m2).
+fuk: characteristic steel ultimate tensile strength (nominal value) (Pa).</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.getA0cN">
-<code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">getA0cN</code><span class="sig-paren">(</span><em>posPerno</em>, <em>hEf</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.getA0cN" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">getA0cN</code><span class="sig-paren">(</span><em>anchorPosition</em>, <em>hEf</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.getA0cN" title="Permalink to this definition">¶</a></dt>
 <dd><p>Polígono que representa el área de influencia de un anclaje individual according to clause 5.2.2.4 b) (figura 5.4a) of EOTA TR029.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>posPerno</strong> &#8211; Posición del del perno.</li>
-<li><strong>hEf</strong> &#8211; Profundidad efectiva del anclaje (m).</li>
+<li><strong>anchorPosition</strong> &#8211; anchor position.</li>
+<li><strong>hEf</strong> &#8211; effective anchorage depth (m).</li>
 </ul>
 </td>
 </tr>
@@ -193,17 +208,17 @@ fuk: Valor característico de la carga de rotura a tracción (Pa).</p>
 
 <dl class="function">
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.getA0pN">
-<code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">getA0pN</code><span class="sig-paren">(</span><em>d</em>, <em>posPerno</em>, <em>hEf</em>, <em>tauRkUcr</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.getA0pN" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">getA0pN</code><span class="sig-paren">(</span><em>d</em>, <em>anchorPosition</em>, <em>hEf</em>, <em>tauRkUcr</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.getA0pN" title="Permalink to this definition">¶</a></dt>
 <dd><p>Polígono que representa el área de influencia de un anclaje individual according to clause 5.2.2.3 b) (figura 5.1) of EOTA TR029.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>d</strong> &#8211; Diámetro del perno (m).</li>
-<li><strong>posPerno</strong> &#8211; Posición del del perno.</li>
-<li><strong>hEf</strong> &#8211; Profundidad efectiva del anclaje (m).</li>
-<li><strong>tauRkUcr</strong> &#8211; Valor característico de la tensión de adherencia con hormigón no fisurado (debe tomarse del documento ETA que resulte aplicable) (Pa).</li>
+<li><strong>d</strong> &#8211; anchor diameter (m).</li>
+<li><strong>anchorPosition</strong> &#8211; Posición del del perno.</li>
+<li><strong>hEf</strong> &#8211; effective anchorage depth (m).</li>
+<li><strong>tauRkUcr</strong> &#8211; Characteristic bond resistance for non-cracked concrete (must be taken from relevant ETA) (Pa).</li>
 </ul>
 </td>
 </tr>
@@ -213,7 +228,7 @@ fuk: Valor característico de la carga de rotura a tracción (Pa).</p>
 
 <dl class="function">
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.getA0spN">
-<code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">getA0spN</code><span class="sig-paren">(</span><em>posPerno</em>, <em>CcrSp</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.getA0spN" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">getA0spN</code><span class="sig-paren">(</span><em>anchorPosition</em>, <em>CcrSp</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.getA0spN" title="Permalink to this definition">¶</a></dt>
 <dd><p>Polígono que representa el área de influencia de un anclaje individual
 according to clause 5.2.2.6 b) of EOTA TR029.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -221,8 +236,11 @@ according to clause 5.2.2.6 b) of EOTA TR029.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>posPerno</strong> &#8211; Posición del del perno.</li>
-<li><strong>CcrSp</strong> &#8211; Distancia al borde crítica por splitting (m).</li>
+<li><strong>anchorPosition</strong> &#8211; anchor position.</li>
+<li><strong>CcrSp</strong> &#8211; edge distance for ensuring the transmission of the
+characteristic tensile resistance of a single
+anchor without spacing and edge effects in case of 
+splitting failure (m).</li>
 </ul>
 </td>
 </tr>
@@ -239,9 +257,9 @@ according to clause 5.2.2.6 b) of EOTA TR029.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>d</strong> &#8211; Diámetro del perno (m).</li>
-<li><strong>hEf</strong> &#8211; Profundidad efectiva del anclaje (m).</li>
-<li><strong>tauRkUcr</strong> &#8211; Valor característico de la tensión de adherencia con hormigón no fisurado (debe tomarse del documento ETA que resulte aplicable) (Pa).</li>
+<li><strong>d</strong> &#8211; anchor diameter (m).</li>
+<li><strong>hEf</strong> &#8211; effective anchorage depth (m).</li>
+<li><strong>tauRkUcr</strong> &#8211; Characteristic bond resistance for non-craked concrete (must be taken from relevant ETA) (Pa).</li>
 </ul>
 </td>
 </tr>
@@ -261,9 +279,9 @@ table 7 of ETA-05/0051 (page 19).</div></blockquote>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param h:</th><td class="field-body">Profundidad de la pieza (m).</td>
+<tr class="field-odd field"><th class="field-name">param h:</th><td class="field-body">thickness of concrete member (m).</td>
 </tr>
-<tr class="field-even field"><th class="field-name">param hEf:</th><td class="field-body">Profundidad efectiva del anclaje (m).</td>
+<tr class="field-even field"><th class="field-name">param hEf:</th><td class="field-body">effective anchorage depth (m).</td>
 </tr>
 </tbody>
 </table>
@@ -280,7 +298,7 @@ table 7 of ETA-05/0051 (page 19).</div></blockquote>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param C:</th><td class="field-body">Distancia al borde del perno.</td>
+<tr class="field-odd field"><th class="field-name">param C:</th><td class="field-body">edge distance.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">param CcrN:</th><td class="field-body">Semi-lado del área de influencia (distancia crítica al borde).</td>
 </tr>
@@ -354,7 +372,7 @@ clause 5.2.2.4 b) of EOTA TR029.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param hEf:</th><td class="field-body">Profundidad efectiva del anclaje (m).</td>
+<tr class="field-odd field"><th class="field-name">param hEf:</th><td class="field-body">effective anchorage depth (m).</td>
 </tr>
 </tbody>
 </table>
@@ -365,15 +383,21 @@ clause 5.2.2.4 b) of EOTA TR029.</p>
 <dl class="function">
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.getScrNp">
 <code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">getScrNp</code><span class="sig-paren">(</span><em>d</em>, <em>hEf</em>, <em>tauRkUcr</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.getScrNp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Lado del área de influencia (distancia crítica entre pernos) de un anclaje individual according to clause 5.2.2.3 b) (ecuación 5.2c) of EOTA TR029.</p>
+<dd><dl class="docutils">
+<dt>Spacing for ensuring the transmission of the characteristic resistance </dt>
+<dd>of a single anchor without spacing and edge effects in case of pullout
+failure. Is equal to the side of the influence area of an individual 
+anchor (critical distance between anchors) according to clause 5.2.2.3 b)
+(ecuación 5.2c) of EOTA TR029.</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>d</strong> &#8211; Diámetro del perno (m).</li>
-<li><strong>hEf</strong> &#8211; Profundidad efectiva del anclaje (m).</li>
-<li><strong>tauRkUcr</strong> &#8211; Valor característico de la tensión de adherencia con hormigón no fisurado (debe tomarse del documento ETA que resulte aplicable) (Pa).</li>
+<li><strong>d</strong> &#8211; anchor diameter (m).</li>
+<li><strong>hEf</strong> &#8211; effective anchorage depth (m).</li>
+<li><strong>tauRkUcr</strong> &#8211; Characteristic bond resistance for non-craked concrete (must be taken from relevant ETA) (Pa).</li>
 </ul>
 </td>
 </tr>
@@ -390,8 +414,8 @@ clause 5.2.2.4 b) of EOTA TR029.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>descr</strong> &#8211; Descriptor que puede tomar los valores:
-1: Anclaje en cracked concrete.
-2: Anclaje en non-cracked concrete.</td>
+1: anclaje en cracked concrete.
+2: anclaje en non-cracked concrete.</td>
 </tr>
 </tbody>
 </table>
@@ -459,9 +483,9 @@ expression 5.8f of the clause 5.2.3.4 of EOTA TR029.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>descr</strong> &#8211; Descriptor que puede tomar los valores:
-1: Anclaje en cracked concrete o no fisurado sin reinforcement de refuerzo en el borde.
-2: Anclaje en cracked concrete con reinforcement de refuerzo en el borde (diámetro &gt; 12mm).
-3: Anclaje en cracked concrete con reinforcement de refuerzo en el borde y estribos próximos entre si (separados menos de 10 cm).</td>
+1: anclaje en cracked concrete o no fisurado sin reinforcement de refuerzo en el borde.
+2: anclaje en cracked concrete con reinforcement de refuerzo en el borde (diámetro &gt; 12mm).
+3: anclaje en cracked concrete con reinforcement de refuerzo en el borde y estribos próximos entre si (separados menos de 10 cm).</td>
 </tr>
 </tbody>
 </table>
@@ -501,7 +525,7 @@ concrete cone failure (5.2.2.3 of EOTA TR029).</td>
 <tr class="field-even field"><th class="field-name">param NRkc:</th><td class="field-body">Characteristic resistance in case of concrete cone
 failure (5.2.2.4 of EOTA TR029).</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">param hEf:</th><td class="field-body">Profundidad efectiva of the anchor (m).</td>
+<tr class="field-odd field"><th class="field-name">param hEf:</th><td class="field-body">effective anchorage depth (m).</td>
 </tr>
 </tbody>
 </table>
@@ -514,9 +538,9 @@ failure (5.2.2.4 of EOTA TR029).</td>
 <code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">shearResistanceGroupWithoutLeverArm</code><span class="sig-paren">(</span><em>As</em>, <em>fuk</em>, <em>nr</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.shearResistanceGroupWithoutLeverArm" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Resistencia de un grupo de pernos a cortante according to clause 5.2.3.2 a) of EOTA TR029.</dt>
-<dd>As: Área de la sección transversal del perno.
-fuk: Valor característico de la carga de rotura a tracción.
-n: Número de pernos del grupo.</dd>
+<dd>As: stressed cross section of steel.
+fuk: characteristic steel ultimate tensile strength (nominal value).
+n: number of anchors in a group.</dd>
 </dl>
 </dd></dl>
 
@@ -529,8 +553,8 @@ n: Número de pernos del grupo.</dd>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>As</strong> &#8211; Área de la sección transversal del perno.</li>
-<li><strong>fuk</strong> &#8211; Valor característico de la carga de rotura a tracción.</li>
+<li><strong>As</strong> &#8211; stressed cross section of steel.</li>
+<li><strong>fuk</strong> &#8211; characteristic steel ultimate tensile strength (nominal value).</li>
 </ul>
 </td>
 </tr>

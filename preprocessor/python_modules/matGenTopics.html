@@ -681,7 +681,7 @@ and initial elastic tangent</li>
 <code class="descname">defElasticMembranePlateSection</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>thickness</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.defElasticMembranePlateSection" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Constructs an elastic isotropic section material appropiate </dt>
-<dd>for plate and shell analysis</dd>
+<dd>for elastic analysis of plate and shell elements</dd>
 </dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -703,7 +703,7 @@ and initial elastic tangent</li>
 <code class="descname">defElasticPlateSection</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>thickness</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.defElasticPlateSection" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Constructs an elastic isotropic section material appropiate </dt>
-<dd>for plate analysis.</dd>
+<dd>for elastic analysis of plate elements.</dd>
 </dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -713,6 +713,84 @@ and initial elastic tangent</li>
 <li><strong>preprocessor</strong> &#8211; preprocessor name</li>
 <li><strong>name</strong> &#8211; name identifying the section</li>
 <li><strong>thickness</strong> &#8211; section thickness.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.defElasticSection2d">
+<code class="descname">defElasticSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>sectionProperties</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.defElasticSection2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs an elastic section material appropiate 
+for elastic analysis of 2D beam elements.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> &#8211; preprocessor object.</li>
+<li><strong>sectionProperties</strong> &#8211; mass properties of the section.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.defElasticSection3d">
+<code class="descname">defElasticSection3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>sectionProperties</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.defElasticSection3d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs an elastic section material appropiate 
+for elastic analysis of 3D beam elements.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> &#8211; preprocessor object.</li>
+<li><strong>sectionProperties</strong> &#8211; mass properties of the section.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.defElasticShearSection2d">
+<code class="descname">defElasticShearSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>sectionProperties</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.defElasticShearSection2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs an elastic section material appropiate 
+for elastic analysis of 2D beam elements including shear
+deformations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> &#8211; preprocessor object.</li>
+<li><strong>sectionProperties</strong> &#8211; mass properties of the section.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.defElasticShearSection3d">
+<code class="descname">defElasticShearSection3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>sectionProperties</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.defElasticShearSection3d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs an elastic section material appropiate 
+for elastic analysis of 3D beam elements including shear
+deformations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> &#8211; preprocessor object.</li>
+<li><strong>sectionProperties</strong> &#8211; mass properties of the section.</li>
 </ul>
 </td>
 </tr>
@@ -970,6 +1048,12 @@ on the notional creep coefficient
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.Concrete.getElasticMaterialData">
+<code class="descname">getElasticMaterialData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getElasticMaterialData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the elastic material constitutive model.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1722,7 +1806,7 @@ post-cracking range, passings through the point (eps_ct,f_ct) [point of concrete
 
 <dl class="class">
 <dt id="materials.limit_state_checking_base.LimitStateControllerBase">
-<em class="property">class </em><code class="descclassname">materials.limit_state_checking_base.</code><code class="descname">LimitStateControllerBase</code><span class="sig-paren">(</span><em>limitStateLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.limit_state_checking_base.LimitStateControllerBase" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">materials.limit_state_checking_base.</code><code class="descname">LimitStateControllerBase</code><span class="sig-paren">(</span><em>limitStateLabel</em>, <em>fakeSection=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.limit_state_checking_base.LimitStateControllerBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Basic parameters for limit state control (normal stresses, shear, crack,...).</p>
 <dl class="method">

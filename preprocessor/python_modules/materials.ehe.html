@@ -700,13 +700,13 @@ as in clause 49.2.4 of EHE-08.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="materials.ehe.EHE_limit_state_checking.ShearControllerEHE">
-<em class="property">class </em><code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">ShearControllerEHE</code><span class="sig-paren">(</span><em>limitStateLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearControllerEHE" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.ehe.EHE_limit_state_checking.ShearController">
+<em class="property">class </em><code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">ShearController</code><span class="sig-paren">(</span><em>limitStateLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearController" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="matGenTopics.html#materials.limit_state_checking_base.LimitStateControllerBase" title="materials.limit_state_checking_base.LimitStateControllerBase"><code class="xref py py-class docutils literal"><span class="pre">materials.limit_state_checking_base.LimitStateControllerBase</span></code></a></p>
 <p>Shear control according to EHE-08.</p>
 <dl class="method">
-<dt id="materials.ehe.EHE_limit_state_checking.ShearControllerEHE.calcVuEHE08">
-<code class="descname">calcVuEHE08</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>scc</em>, <em>nmbParamsTorsion</em>, <em>concrete</em>, <em>reinfSteel</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearControllerEHE.calcVuEHE08" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.ehe.EHE_limit_state_checking.ShearController.calcVuEHE08">
+<code class="descname">calcVuEHE08</code><span class="sig-paren">(</span><em>scc</em>, <em>torsionParameters</em>, <em>concrete</em>, <em>reinfSteel</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearController.calcVuEHE08" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the shear strength at failure.
 XXX Presstressing contribution not implemented yet.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -714,6 +714,9 @@ XXX Presstressing contribution not implemented yet.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>scc</strong> &#8211; fiber model of the section.</li>
+<li><strong>torsionParameters</strong> &#8211; parameters that define torsional behaviour of
+the section as in clause 45.1 of EHE-08.</li>
 <li><strong>concrete</strong> &#8211; parameters to model concrete.</li>
 <li><strong>reinfSteel</strong> &#8211; parameters to model rebar&#8217;s steel.</li>
 <li><strong>Nd</strong> &#8211; Design value of axial force (positive if in tension)</li>
@@ -728,15 +731,17 @@ XXX Presstressing contribution not implemented yet.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.ehe.EHE_limit_state_checking.ShearControllerEHE.calcVuEHE08NoAt">
-<code class="descname">calcVuEHE08NoAt</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>scc</em>, <em>concrete</em>, <em>reinfSteel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearControllerEHE.calcVuEHE08NoAt" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the shear strength at failure without shear reinforcement.
+<dt id="materials.ehe.EHE_limit_state_checking.ShearController.calcVuEHE08NoAt">
+<code class="descname">calcVuEHE08NoAt</code><span class="sig-paren">(</span><em>scc</em>, <em>concrete</em>, <em>reinfSteel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearController.calcVuEHE08NoAt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the shear strength at failure without shear reinforcement
+according to clause 44.2.3.2.1 of EHE-08.
 XXX Presstressing contribution not implemented yet.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>scc</strong> &#8211; fiber model of the section.</li>
 <li><strong>reinfSteelMaterialTag</strong> &#8211; reinforcement steel material identifier.</li>
 <li><strong>concrete</strong> &#8211; parameters to modelize concrete.</li>
 <li><strong>reinfSteel</strong> &#8211; parameters to modelize reinforcement steel.</li>
@@ -748,8 +753,8 @@ XXX Presstressing contribution not implemented yet.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.ehe.EHE_limit_state_checking.ShearControllerEHE.calcVuEHE08SiAt">
-<code class="descname">calcVuEHE08SiAt</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>scc</em>, <em>paramsTorsion</em>, <em>concrete</em>, <em>reinfSteel</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearControllerEHE.calcVuEHE08SiAt" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.ehe.EHE_limit_state_checking.ShearController.calcVuEHE08SiAt">
+<code class="descname">calcVuEHE08SiAt</code><span class="sig-paren">(</span><em>scc</em>, <em>torsionParameters</em>, <em>concrete</em>, <em>reinfSteel</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearController.calcVuEHE08SiAt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the shear strength at failure WITH shear reinforcement.
 XXX Presstressing contribution not implemented yet.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -757,6 +762,9 @@ XXX Presstressing contribution not implemented yet.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>scc</strong> &#8211; fiber model of the section.</li>
+<li><strong>torsionParameters</strong> &#8211; parameters that define torsional behaviour of
+the section as in clause 45.1 of EHE-08.</li>
 <li><strong>reinfSteelMaterialTag</strong> &#8211; reinforcement steel material identifier.</li>
 <li><strong>concrete</strong> &#8211; concrete material.</li>
 <li><strong>reinfSteel</strong> &#8211; reinforcement steel.</li>
@@ -772,10 +780,43 @@ XXX Presstressing contribution not implemented yet.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.ehe.EHE_limit_state_checking.ShearControllerEHE.check">
-<code class="descname">check</code><span class="sig-paren">(</span><em>elements</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearControllerEHE.check" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.ehe.EHE_limit_state_checking.ShearController.check">
+<code class="descname">check</code><span class="sig-paren">(</span><em>elements</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearController.check" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check section shear strength.
 XXX Rebar orientation not taken into account yet.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.ehe.EHE_limit_state_checking.ShearController.extractFiberData">
+<code class="descname">extractFiberData</code><span class="sig-paren">(</span><em>scc</em>, <em>concrete</em>, <em>reinfSteel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearController.extractFiberData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract basic parameters from the fiber model of the section</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>scc</strong> &#8211; fiber model of the section.</li>
+<li><strong>concrete</strong> &#8211; parameters to modelize concrete.</li>
+<li><strong>reinfSteel</strong> &#8211; parameters to modelize reinforcement steel.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.ehe.EHE_limit_state_checking.ShearController.initControlVars">
+<code class="descname">initControlVars</code><span class="sig-paren">(</span><em>elements</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearController.initControlVars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize control variables over elements.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>elements</strong> &#8211; elements to define control variables in</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -785,7 +826,7 @@ XXX Rebar orientation not taken into account yet.</p>
 <em class="property">class </em><code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">TorsionParameters</code><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.TorsionParameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Methods for checking reinforced concrete section under torsion according to
-clause 45.1 or EHE-08.</p>
+clause 45.1 of EHE-08.</p>
 <dl class="method">
 <dt id="materials.ehe.EHE_limit_state_checking.TorsionParameters.A">
 <code class="descname">A</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.TorsionParameters.A" title="Permalink to this definition">¶</a></dt>

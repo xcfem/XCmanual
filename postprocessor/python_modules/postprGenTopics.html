@@ -1528,7 +1528,7 @@ see actions/combinations module.</li>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <dl class="method">
 <dt id="postprocess.phantom_model.PhantomModel.build">
-<code class="descname">build</code><span class="sig-paren">(</span><em>intForcCombFileName</em>, <em>controller</em>, <em>fakeSection=True</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.phantom_model.PhantomModel.build" title="Permalink to this definition">¶</a></dt>
+<code class="descname">build</code><span class="sig-paren">(</span><em>intForcCombFileName</em>, <em>controller</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.phantom_model.PhantomModel.build" title="Permalink to this definition">¶</a></dt>
 <dd><p>Builds the phantom model from the data read from the file.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1540,8 +1540,6 @@ bending moments obtained for each element for all
 the combinations analyzed</li>
 <li><strong>controller</strong> &#8211; object that takes the internal forces and the
 section definition and checks the limit state.</li>
-<li><strong>fakeSection</strong> &#8211; true if a fiber section model of the section is not 
-needed for control.</li>
 </ul>
 </td>
 </tr>
@@ -1551,7 +1549,7 @@ needed for control.</li>
 
 <dl class="method">
 <dt id="postprocess.phantom_model.PhantomModel.check">
-<code class="descname">check</code><span class="sig-paren">(</span><em>analysis</em>, <em>controller</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.phantom_model.PhantomModel.check" title="Permalink to this definition">¶</a></dt>
+<code class="descname">check</code><span class="sig-paren">(</span><em>controller</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.phantom_model.PhantomModel.check" title="Permalink to this definition">¶</a></dt>
 <dd><p>Runs the analysis (linear) and checking of combinations passed as
 parameters</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1571,7 +1569,7 @@ parameters</p>
 
 <dl class="method">
 <dt id="postprocess.phantom_model.PhantomModel.createElements">
-<code class="descname">createElements</code><span class="sig-paren">(</span><em>intForcCombFileName</em>, <em>controller</em>, <em>fakeSection=True</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.phantom_model.PhantomModel.createElements" title="Permalink to this definition">¶</a></dt>
+<code class="descname">createElements</code><span class="sig-paren">(</span><em>intForcCombFileName</em>, <em>controller</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.phantom_model.PhantomModel.createElements" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates the phantom model elements from the data read on the file.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1583,8 +1581,6 @@ forces obtained for each element for
 the combinations analyzed</li>
 <li><strong>controller</strong> &#8211; object that takes the internal forces and the
 section definition and checks the limit state.</li>
-<li><strong>fakeSection</strong> &#8211; true if a fiber section model of the section 
-is not needed for control.</li>
 </ul>
 </td>
 </tr>
@@ -1640,21 +1636,17 @@ the section to check.</li>
 
 <dl class="method">
 <dt id="postprocess.phantom_model.PhantomModel.runChecking">
-<code class="descname">runChecking</code><span class="sig-paren">(</span><em>intForcCombFileName</em>, <em>analysis</em>, <em>controller</em>, <em>outputFileName</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.phantom_model.PhantomModel.runChecking" title="Permalink to this definition">¶</a></dt>
+<code class="descname">runChecking</code><span class="sig-paren">(</span><em>limitStateData</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.phantom_model.PhantomModel.runChecking" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run the analysis, check the results and write them into a file</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>intForcCombFileName</strong> &#8211; name of the file containing the forces 
-and bending moments obtained for each element 
-for the combinations analyzed</li>
-<li><strong>analysis</strong> &#8211; type of analysis</li>
-<li><strong>controller</strong> &#8211; object that controls limit state in elements.</li>
-<li><strong>outputFileName</strong> &#8211; base name of output file (extensions .py and .tex)</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>limitStateData</strong> &#8211; object that contains the name of the file
+containing the internal forces 
+obtained for each element 
+for the combinations analyzed and the
+controller to use for the checking.</td>
 </tr>
 </tbody>
 </table>
@@ -1814,19 +1806,19 @@ as a parameter.</p>
 
 <dl class="method">
 <dt id="postprocess.RC_material_distribution.RCMaterialDistribution.internalForcesVerification2D">
-<code class="descname">internalForcesVerification2D</code><span class="sig-paren">(</span><em>intForcCombFileName</em>, <em>outputFileName</em>, <em>matDiagType</em>, <em>limitStateController</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.RC_material_distribution.RCMaterialDistribution.internalForcesVerification2D" title="Permalink to this definition">¶</a></dt>
+<code class="descname">internalForcesVerification2D</code><span class="sig-paren">(</span><em>limitStateData</em>, <em>matDiagType</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.RC_material_distribution.RCMaterialDistribution.internalForcesVerification2D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Limit state verification based on internal force (Fx,Fy,Mz) values.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>intForcCombFileName</strong> &#8211; name of the file containing the forces
-and bending moments obtained for each 
-element for the combinations analyzed</li>
-<li><strong>outputFileName</strong> &#8211; name of the output file containing the results 
-of the verification</li>
-<li><strong>limitStateController</strong> &#8211; object that controls the limit state on elements.</li>
+<li><strong>limitStateData</strong> &#8211; object that contains the name of the file
+containing the internal forces 
+obtained for each element 
+for the combinations analyzed and the
+controller to use for the checking.</li>
+<li><strong>matDiagType</strong> &#8211; type of the material diagram (d: design, k: characteristic).</li>
 </ul>
 </td>
 </tr>
@@ -1836,19 +1828,19 @@ of the verification</li>
 
 <dl class="method">
 <dt id="postprocess.RC_material_distribution.RCMaterialDistribution.internalForcesVerification3D">
-<code class="descname">internalForcesVerification3D</code><span class="sig-paren">(</span><em>intForcCombFileName</em>, <em>outputFileName</em>, <em>matDiagType</em>, <em>limitStateController</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.RC_material_distribution.RCMaterialDistribution.internalForcesVerification3D" title="Permalink to this definition">¶</a></dt>
+<code class="descname">internalForcesVerification3D</code><span class="sig-paren">(</span><em>limitStateData</em>, <em>matDiagType</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.RC_material_distribution.RCMaterialDistribution.internalForcesVerification3D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Limit state verification based on internal force (Fx,Fy,Fz,Mx,My,Mz) values.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>intForcCombFileName</strong> &#8211; name of the file containing the forces
-and bending moments obtained for each 
-element for the combinations analyzed</li>
-<li><strong>outputFileName</strong> &#8211; name of the output file containing the results 
-of the verification</li>
-<li><strong>limitStateController</strong> &#8211; object that controls the limit state on elements.</li>
+<li><strong>limitStateData</strong> &#8211; object that contains the name of the file
+containing the internal forces 
+obtained for each element 
+for the combinations analyzed and the
+controller to use for the checking.</li>
+<li><strong>matDiagType</strong> &#8211; type of the material diagram (d: design, k: characteristic).</li>
 </ul>
 </td>
 </tr>
@@ -1869,19 +1861,19 @@ of the verification</li>
 
 <dl class="method">
 <dt id="postprocess.RC_material_distribution.RCMaterialDistribution.runChecking">
-<code class="descname">runChecking</code><span class="sig-paren">(</span><em>intForcCombFileName</em>, <em>outputFileName</em>, <em>matDiagType</em>, <em>limitStateController</em>, <em>threeDim=True</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.RC_material_distribution.RCMaterialDistribution.runChecking" title="Permalink to this definition">¶</a></dt>
+<code class="descname">runChecking</code><span class="sig-paren">(</span><em>limitStateData</em>, <em>matDiagType</em>, <em>threeDim=True</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.RC_material_distribution.RCMaterialDistribution.runChecking" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates the phantom model and runs the verification on it.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>intForcCombFileName</strong> &#8211; name of the file containing the forces
-and bending moments obtained for each 
-element for the combinations analyzed</li>
-<li><strong>outputFileName</strong> &#8211; name of the output file containing the results 
-of the verification</li>
-<li><strong>limitStateController</strong> &#8211; object that controls the limit state on elements.</li>
+<li><strong>limitStateData</strong> &#8211; object that contains the name of the file
+containing the internal forces 
+obtained for each element 
+for the combinations analyzed and the
+controller to use for the checking.</li>
+<li><strong>matDiagType</strong> &#8211; type of the material diagram (d: design, k: characteristic).</li>
 <li><strong>threeDim</strong> &#8211; true if it&#8217;s 3D (Fx,Fy,Fz,Mx,My,Mz) false if it&#8217;s 2D (Fx,Fy,Mz).</li>
 </ul>
 </td>

@@ -81,13 +81,29 @@ the tendon geometry. e.g. [(x1,y1,z1),(x2,y2,z2),...]</li>
 <dl class="method">
 <dt id="materials.prestressing.prestressed_concrete.PrestressTendon.ScoordToXYprojCoord">
 <code class="descname">ScoordToXYprojCoord</code><span class="sig-paren">(</span><em>Scoord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.ScoordToXYprojCoord" title="Permalink to this definition">¶</a></dt>
-<dd><p>return the projected XYcoordinate of the tendon point corresponding to
-the value Scoord given as parameter</p>
+<dd><p>return the projected XYcoordinate of the tendon point corresponding 
+to the value Scoord given as parameter</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.prestressing.prestressed_concrete.PrestressTendon.applyStressToElems">
+<code class="descname">applyStressToElems</code><span class="sig-paren">(</span><em>stressMtr</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.applyStressToElems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes the stress in each tendon element with the corresponding 
+value of stress defined in stressMtr</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>stressMtr</strong> &#8211; matrix of dimension 1*number of elements in the tendon                          with the stress to be applied to each of the elements 
+(from left to right)</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.prestressing.prestressed_concrete.PrestressTendon.calcLossAnchor">
-<code class="descname">calcLossAnchor</code><span class="sig-paren">(</span><em>Ep_by_anc_slip_extr1=0.0</em>, <em>Ep_by_anc_slip_extr2=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.calcLossAnchor" title="Permalink to this definition">¶</a></dt>
+<code class="descname">calcLossAnchor</code><span class="sig-paren">(</span><em>Ep</em>, <em>anc_slip_extr1=0.0</em>, <em>anc_slip_extr2=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.calcLossAnchor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates the attributes lossAnchor and stressAfterLossAnchor of type 
 array that contains  for each point in fineCoordMtr the cumulative 
 immediate loss of prestressing due to anchorage slip and the stress 
@@ -98,13 +114,12 @@ Loss due to friction must be previously calculated</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>Ep_by_anc_slip_extr1</strong> &#8211; anchorage slip (data provided by the manufacturer
+<li><strong>Ep</strong> &#8211; elasic modulus of the prestressin steel</li>
+<li><strong>anc_slip_extr1</strong> &#8211; anchorage slip (data provided by the manufacturer
 of the anchorage system) at extremity 1 of 
-the tendon (starting point) muliplied by the elastic 
-modulus of the prestresing steel (= deltaL x Ep)</li>
-<li><strong>Ep_by_anc_slip_extr2</strong> &#8211; anchorage slip at extremity 2 of 
-the tendon (ending point) muliplied by the elastic 
-modulus of the prestresing steel  (= deltaL x Ep)</li>
+the tendon (starting point)  (= deltaL)</li>
+<li><strong>anc_slip_extr2</strong> &#8211; anchorage slip at extremity 2 of 
+the tendon (ending point) (= deltaL)</li>
 </ul>
 </td>
 </tr>
@@ -148,7 +163,7 @@ meter length of the tendon depending on the type of tendon.</li>
 <dl class="method">
 <dt id="materials.prestressing.prestressed_concrete.PrestressTendon.creaTendonElements">
 <code class="descname">creaTendonElements</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>materialName</em>, <em>elemTypeName</em>, <em>crdTransfName</em>, <em>areaTendon</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.creaTendonElements" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates the nodes and elements of the tendon and appends them to a set.</p>
+<dd><p>Creates the nodes and elements of the tendon and appends them to a set. Creates also the attribute lstOrderedElems as a list with the elements of the tendon ordered from left to right.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -159,8 +174,9 @@ meter length of the tendon depending on the type of tendon.</li>
 <li><strong>elemTypeName</strong> &#8211; name of the type of element</li>
 <li><strong>crdTransfName</strong> &#8211; name of the coordinate transformation</li>
 <li><strong>areaTendon</strong> &#8211; area of the cross-section of the tendon</li>
-<li><strong>setName</strong> &#8211; name of the set to which append the nodes and elements
-created (if the set doesn&#8217;t exist, it&#8217;s created)</li>
+<li><strong>setName</strong> &#8211; name of the set to which append the nodes and 
+elements created (if the set doesn&#8217;t exist, it&#8217;s 
+created)</li>
 </ul>
 </td>
 </tr>

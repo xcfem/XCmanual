@@ -596,9 +596,9 @@ in tables 6.1 and 6.2 of EC3.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../geom_cpp_classes/d2/d2.html#geom.BND2d.area" title="geom.BND2d.area"><strong>area</strong></a> &#8211; cross-sectional area</li>
+<li><a class="reference internal" href="../cpp_classes/material/section/repres/geom_section/reinfBar/reinfBar.html#xc.ReinfBar.area" title="xc.ReinfBar.area"><strong>area</strong></a> &#8211; cross-sectional area</li>
 <li><a class="reference internal" href="#materials.sections.section_properties.GenericSection.Iy" title="materials.sections.section_properties.GenericSection.Iy"><strong>Iy</strong></a> &#8211; second moment of area about the local y-axis</li>
-<li><a class="reference internal" href="#materials.sections.section_properties.ISection.Iz" title="materials.sections.section_properties.ISection.Iz"><strong>Iz</strong></a> &#8211; second moment of area about the local z-axis</li>
+<li><a class="reference internal" href="#materials.sections.section_properties.GenericSection.Iz" title="materials.sections.section_properties.GenericSection.Iz"><strong>Iz</strong></a> &#8211; second moment of area about the local z-axis</li>
 <li><strong>Jtors</strong> &#8211; torsional constant of the section</li>
 <li><strong>Wy</strong> &#8211; section modulus with respect to local y-axis</li>
 <li><strong>Wz</strong> &#8211; section modulus with respect to local z-axis</li>
@@ -1048,16 +1048,17 @@ made of the specified material</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.section_properties.SectionProperties.defSeccElastica2d">
-<code class="descname">defSeccElastica2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.defSeccElastica2d" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.section_properties.SectionProperties.defElasticSection2d">
+<code class="descname">defElasticSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.defElasticSection2d" title="Permalink to this definition">¶</a></dt>
 <dd><p>elastic section appropiate for 2D beam analysis, including shear deformations</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>preprocessor</strong> &#8211; preprocessor name</li>
-<li><strong>material</strong> &#8211; material (for which E is the Young&#8217;s modulus)</li>
+<li><strong>preprocessor</strong> &#8211; preprocessor object.</li>
+<li><strong>material</strong> &#8211; material constitutive model (for which 
+E is the Young&#8217;s modulus)</li>
 </ul>
 </td>
 </tr>
@@ -1066,15 +1067,15 @@ made of the specified material</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.section_properties.SectionProperties.defSeccElastica3d">
-<code class="descname">defSeccElastica3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.defSeccElastica3d" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.section_properties.SectionProperties.defElasticSection3d">
+<code class="descname">defElasticSection3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.defElasticSection3d" title="Permalink to this definition">¶</a></dt>
 <dd><p>elastic section appropiate for 3D beam analysis</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>preprocessor</strong> &#8211; preprocessor name</li>
+<li><strong>preprocessor</strong> &#8211; preprocessor object.</li>
 <li><strong>material</strong> &#8211; material (for which E is the Young&#8217;s modulus and G() the shear modulus)</li>
 </ul>
 </td>
@@ -1084,16 +1085,17 @@ made of the specified material</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.section_properties.SectionProperties.defSeccShElastica2d">
-<code class="descname">defSeccShElastica2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.defSeccShElastica2d" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.section_properties.SectionProperties.defElasticShearSection2d">
+<code class="descname">defElasticShearSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.defElasticShearSection2d" title="Permalink to this definition">¶</a></dt>
 <dd><p>elastic section appropiate for 2D beam analysis, including shear deformations</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>preprocessor</strong> &#8211; preprocessor name</li>
-<li><strong>material</strong> &#8211; material (for which E is the Young&#8217;s modulus and G() the shear modulus)</li>
+<li><strong>preprocessor</strong> &#8211; preprocessor object.</li>
+<li><strong>material</strong> &#8211; material constitutive model (for which 
+E is the Young&#8217;s modulus and G() the shear modulus).</li>
 </ul>
 </td>
 </tr>
@@ -1102,15 +1104,15 @@ made of the specified material</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.section_properties.SectionProperties.defSeccShElastica3d">
-<code class="descname">defSeccShElastica3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.defSeccShElastica3d" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.section_properties.SectionProperties.defElasticShearSection3d">
+<code class="descname">defElasticShearSection3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.defElasticShearSection3d" title="Permalink to this definition">¶</a></dt>
 <dd><p>elastic section appropiate for 3D beam analysis, including shear deformations</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>preprocessor</strong> &#8211; preprocessor name</li>
+<li><strong>preprocessor</strong> &#8211; preprocessor object.</li>
 <li><strong>material</strong> &#8211; material (for which E is the Young&#8217;s modulus and G() the shear modulus)</li>
 </ul>
 </td>
@@ -1122,7 +1124,8 @@ made of the specified material</p>
 <dl class="method">
 <dt id="materials.sections.section_properties.SectionProperties.getCrossSectionProperties2D">
 <code class="descname">getCrossSectionProperties2D</code><span class="sig-paren">(</span><em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.getCrossSectionProperties2D" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a CrossSectionProperties object with the 2D properties of the section.</p>
+<dd><p>Return a CrossSectionProperties object with the
+2D properties of the section.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1387,7 +1390,9 @@ the angle being passed as parameter.</p>
 <dl class="function">
 <dt id="materials.sections.internal_forces.transformInternalForces">
 <code class="descclassname">materials.sections.internal_forces.</code><code class="descname">transformInternalForces</code><span class="sig-paren">(</span><em>iForces</em>, <em>theta</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.internal_forces.transformInternalForces" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Computes internal forces in a system rotated theta
+degrees with respect to the z(3) axis.</p>
+</dd></dl>
 
 <div class="section" id="fiber-section-materials">
 <h2>Fiber section materials<a class="headerlink" href="#fiber-section-materials" title="Permalink to this headline">¶</a></h2>

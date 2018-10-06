@@ -1,34 +1,32 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Materials acccording to Eurocode 2 code &mdash; XC 3.0 documentation</title>
-    
+    <title>Materials acccording to Eurocode 2 code &#8212; XC 3.0 documentation</title>
     <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
         VERSION:     '3.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="XC 3.0 documentation" href="../../index.html" />
-    <link rel="up" title="Material" href="../material.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Materials according to EHE code" href="materials.ehe.html" />
     <link rel="prev" title="Materials according to CEB-FIP model code" href="materials.ceb.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,8 +42,8 @@
         <li class="right" >
           <a href="materials.ceb.html" title="Materials according to CEB-FIP model code"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../material.html" accesskey="U">Material</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../material.html" accesskey="U">Material</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -77,7 +75,7 @@ Ductility grades:</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><a class="reference internal" href="#materials.ec2.EC2_materials.EC2Concrete.typeAggregate" title="materials.ec2.EC2_materials.EC2Concrete.typeAggregate"><strong>typeAggregate</strong></a> &#8211; <p>type of aggregate</p>
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><a class="reference internal" href="#materials.ec2.EC2_materials.EC2Concrete.typeAggregate" title="materials.ec2.EC2_materials.EC2Concrete.typeAggregate"><strong>typeAggregate</strong></a> – <p>type of aggregate</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">Q</span></code> for quartzite aggregate</li>
 <li><code class="docutils literal"><span class="pre">L</span></code> for limestone aggregate</li>
@@ -160,6 +158,104 @@ Ductility grades:</p>
 <div class="section" id="module-materials.ec2.EC2_limit_state_checking">
 <span id="ec2-limit-state-checking"></span><h2>EC2_limit_state_checking<a class="headerlink" href="#module-materials.ec2.EC2_limit_state_checking" title="Permalink to this headline">¶</a></h2>
 <p>Classes and functions for limit state checking according to Eurocode 2.</p>
+<dl class="class">
+<dt id="materials.ec2.EC2_limit_state_checking.CrackStraightController">
+<em class="property">class </em><code class="descclassname">materials.ec2.EC2_limit_state_checking.</code><code class="descname">CrackStraightController</code><span class="sig-paren">(</span><em>limitStateLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec2.EC2_limit_state_checking.CrackStraightController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="matGenTopics.html#materials.limit_state_checking_base.LimitStateControllerBase" title="materials.limit_state_checking_base.LimitStateControllerBase"><code class="xref py py-class docutils literal"><span class="pre">materials.limit_state_checking_base.LimitStateControllerBase</span></code></a></p>
+<p>Definition of variables involved in the verification of the cracking
+serviceability limit state according to EC2 when considering a concrete
+stress-strain diagram that takes account of the effects of tension 
+stiffening.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>k1</strong> – coefficient that takes account of the bound properties of the 
+bonded reinforcement. k1=0.8 for high bond bars, k1=1.0 for bars with
+effectively plain surface (e.g. prestressing tendons). Defaults to 0.8</li>
+<li><strong>k3</strong> – defaults to the value recommended by EC2 and in EHE k3=3.4</li>
+<li><strong>k4</strong> – defaults to the value recommended by EC2 and EHE k4=0.425</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.ec2.EC2_limit_state_checking.CrackStraightController.EC2_hceff">
+<code class="descname">EC2_hceff</code><span class="sig-paren">(</span><em>h</em>, <em>d</em>, <em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec2.EC2_limit_state_checking.CrackStraightController.EC2_hceff" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the maximum height to be considered in the calculation of the 
+concrete effective area in tension.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>width</strong> – section width</li>
+<li><strong>h</strong> – lever arm</li>
+<li><strong>d</strong> – effective depth of the cross-section</li>
+<li><strong>x</strong> – depth of the neutral fiber.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.ec2.EC2_limit_state_checking.CrackStraightController.EC2_k2">
+<code class="descname">EC2_k2</code><span class="sig-paren">(</span><em>eps1</em>, <em>eps2</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec2.EC2_limit_state_checking.CrackStraightController.EC2_k2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the coefficient k2 involved in the calculation of the mean 
+crack distance according to EC2. This coefficient represents the effect of 
+the tension diagram in the section.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>eps1</strong> – maximum deformation calculated in the section at the limits 
+of the tension zone</li>
+<li><strong>eps2</strong> – minimum deformation calculated in the section at the limits 
+of the tension zone</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.ec2.EC2_limit_state_checking.CrackStraightController.check">
+<code class="descname">check</code><span class="sig-paren">(</span><em>elements</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec2.EC2_limit_state_checking.CrackStraightController.check" title="Permalink to this definition">¶</a></dt>
+<dd><p>For each element in the set ‘elememts’ passed as first parameter and 
+the resulting internal forces for the load combination ‘nmbComb’  
+passed as second parameter, this method calculates all the variables 
+involved in the crack-SLS checking and obtains the crack width.
+In the case that the calculated crack width is greater than the 
+biggest obtained for the element in previous load combinations, this value
+is saved in the element results record.</p>
+<p>Elements processed are those belonging to the phantom model, that is to 
+say, of type xc.ZeroLengthSection. As we have defined the variable 
+fakeSection as False, a reinfoced concrete fiber section is generated
+for each of these elements.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.ec2.EC2_limit_state_checking.CrackStraightController.initControlVars">
+<code class="descname">initControlVars</code><span class="sig-paren">(</span><em>elements</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec2.EC2_limit_state_checking.CrackStraightController.initControlVars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize control variables over elements.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>elements</strong> – elements to define control variables in</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="function">
 <dt id="materials.ec2.EC2_limit_state_checking.h_c_eff">
 <code class="descclassname">materials.ec2.EC2_limit_state_checking.</code><code class="descname">h_c_eff</code><span class="sig-paren">(</span><em>depth_tot</em>, <em>depht_eff</em>, <em>depth_neutral_axis</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec2.EC2_limit_state_checking.h_c_eff" title="Permalink to this definition">¶</a></dt>
@@ -170,9 +266,9 @@ the reinforcement or prestressing tendons, according to EC2</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>depth_tot</strong> &#8211; overall depth of the cross-section [h]</li>
-<li><strong>depht_eff</strong> &#8211; effective depth of the cross-section [d]</li>
-<li><strong>depth_neutral_axis</strong> &#8211; depht of the neutral axis[x]</li>
+<li><strong>depth_tot</strong> – overall depth of the cross-section [h]</li>
+<li><strong>depht_eff</strong> – effective depth of the cross-section [d]</li>
+<li><strong>depth_neutral_axis</strong> – depht of the neutral axis[x]</li>
 </ul>
 </td>
 </tr>
@@ -190,9 +286,9 @@ the reinforcement or prestressing tendons, according to EC2</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>A_s</strong> &#8211; area of reinforcment steel</li>
-<li><strong>width</strong> &#8211; width of the RC cross-section</li>
-<li><strong>,h_c_eff</strong> &#8211; depth of the effective area of concrete in</li>
+<li><strong>A_s</strong> – area of reinforcment steel</li>
+<li><strong>width</strong> – width of the RC cross-section</li>
+<li><strong>,</strong><strong>h_c_eff</strong> – depth of the effective area of concrete in</li>
 </ul>
 </td>
 </tr>
@@ -210,26 +306,26 @@ the reinforcement or prestressing tendons, according to EC2</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>k1</strong> &#8211; <p>coefficient which takes account of the bond properties
+<li><strong>k1</strong> – <p>coefficient which takes account of the bond properties
 of the bonded reinforcement:</p>
 <ul>
 <li>=0.8 for high bond bars</li>
 <li>=1.6 for bars with an effectively plain surface (e.g. prestressing tendons)</li>
 </ul>
 </li>
-<li><strong>k2</strong> &#8211; <p>coefficient that takes account of the distribution of strain:</p>
+<li><strong>k2</strong> – <p>coefficient that takes account of the distribution of strain:</p>
 <ul>
 <li>=0.5 for bending</li>
 <li>=1.0 for pure tension</li>
 <li>for cases of eccentric tension or for local areas, intermediate values of k2 should be used (see clause 7.3.4 EC2)</li>
 </ul>
 </li>
-<li><strong>k3</strong> &#8211; recommended k3=3.4</li>
-<li><strong>k4</strong> &#8211; recommended k4=0.425</li>
-<li><strong>cover</strong> &#8211; cover of the longitudinal reinforcement</li>
-<li><strong>fiReinf</strong> &#8211; bar diameter. Where a mixture of bar diameters is used in a
+<li><strong>k3</strong> – recommended k3=3.4</li>
+<li><strong>k4</strong> – recommended k4=0.425</li>
+<li><strong>cover</strong> – cover of the longitudinal reinforcement</li>
+<li><strong>fiReinf</strong> – bar diameter. Where a mixture of bar diameters is used in a
 section, an equivalent diameter is used (see clause 7.3.4 EC2)</li>
-<li><strong>ro_eff</strong> &#8211; effective reinforcement ratio</li>
+<li><strong>ro_eff</strong> – effective reinforcement ratio</li>
 </ul>
 </td>
 </tr>
@@ -264,21 +360,18 @@ section, an equivalent diameter is used (see clause 7.3.4 EC2)</li>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../../_sources/preprocessor/python_modules/materials.ec2.txt"
+      <li><a href="../../_sources/preprocessor/python_modules/materials.ec2.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -300,13 +393,13 @@ section, an equivalent diameter is used (see clause 7.3.4 EC2)</li>
         <li class="right" >
           <a href="materials.ceb.html" title="Materials according to CEB-FIP model code"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../material.html" >Material</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../material.html" >Material</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+        &#169; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
     </div>
   </body>
 </html>

@@ -1,34 +1,32 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Loaders &mdash; XC 3.0 documentation</title>
-    
+    <title>Loaders &#8212; XC 3.0 documentation</title>
     <link rel="stylesheet" href="../../../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../../',
         VERSION:     '3.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
-    <link rel="top" title="XC 3.0 documentation" href="../../../../index.html" />
-    <link rel="up" title="Utils" href="../../../utils.html" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="Component" href="../../domain/component/component.html" />
     <link rel="prev" title="Base set" href="../set_mgmt/set_mgmt.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,8 +42,8 @@
         <li class="right" >
           <a href="../set_mgmt/set_mgmt.html" title="Base set"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../../index.html">XC 3.0 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../../../utils.html" accesskey="U">Utils</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">XC 3.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../utils.html" accesskey="U">Utils</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -56,633 +54,6 @@
             
   <div class="section" id="module-xc">
 <span id="loaders"></span><h1>Loaders<a class="headerlink" href="#module-xc" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="xc.Loader">
-<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">Loader</code><a class="headerlink" href="#xc.Loader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">xc.PreprocessorContainer</span></code>, <code class="xref py py-class docutils literal"><span class="pre">xc.MovableObject</span></code></p>
-</dd></dl>
-
-<dl class="class">
-<dt id="xc.NodeLoader">
-<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">NodeLoader</code><a class="headerlink" href="#xc.NodeLoader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#xc.Loader" title="xc.Loader"><code class="xref py py-class docutils literal"><span class="pre">xc.Loader</span></code></a></p>
-<dl class="method">
-<dt id="xc.NodeLoader.calculateNodalReactions">
-<code class="descname">calculateNodalReactions</code><span class="sig-paren">(</span><em>(NodeLoader)arg1</em>, <em>(bool)arg2</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.NodeLoader.calculateNodalReactions" title="Permalink to this definition">¶</a></dt>
-<dd><p>calculateNodalReactions(inclInertia)
-Calculate nodal reaction forces and moments.
-If inclInertia is True, the unbalance load vector for each node is calculated including inertial forces.
-A tolerance of 1e-4 is taken as default value for the checking of the reaction forces and moments.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>void calculateNodalReactions(XC::NodeLoader {lvalue},bool)</dd>
-</dl>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="xc.NodeLoader.defaultTag">
-<code class="descname">defaultTag</code><a class="headerlink" href="#xc.NodeLoader.defaultTag" title="Permalink to this definition">¶</a></dt>
-<dd><p>Starting ID number to apply to the next creation of nodes</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="xc.NodeLoader.dimSpace">
-<code class="descname">dimSpace</code><a class="headerlink" href="#xc.NodeLoader.dimSpace" title="Permalink to this definition">¶</a></dt>
-<dd><p>Espace dimension.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.NodeLoader.duplicateNode">
-<code class="descname">duplicateNode</code><span class="sig-paren">(</span><em>(NodeLoader)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; Node :<a class="headerlink" href="#xc.NodeLoader.duplicateNode" title="Permalink to this definition">¶</a></dt>
-<dd><p>duplicateNode(tagNodoOrg) 
-Create a duplicate copy of node with ID=tagNodoOrg</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::Node* duplicateNode(XC::NodeLoader {lvalue},int)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.NodeLoader.getNode">
-<code class="descname">getNode</code><span class="sig-paren">(</span><em>(NodeLoader)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; Node :<a class="headerlink" href="#xc.NodeLoader.getNode" title="Permalink to this definition">¶</a></dt>
-<dd><p>getNode(tag)
-Return the node whose ID is the value tag passed as parameter.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::Node* getNode(XC::NodeLoader {lvalue},int)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.NodeLoader.newNodeFromVector">
-<code class="descname">newNodeFromVector</code><span class="sig-paren">(</span><em>(NodeLoader)arg1</em>, <em>(Vector)arg2</em><span class="sig-paren">)</span> &rarr; Node :<a class="headerlink" href="#xc.NodeLoader.newNodeFromVector" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a node at the position pointed by the vector passed as parameter.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::Node* newNodeFromVector(XC::NodeLoader {lvalue},XC::Vector)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.NodeLoader.newNodeIDV">
-<code class="descname">newNodeIDV</code><span class="sig-paren">(</span><em>(NodeLoader)arg1</em>, <em>(int)arg2</em>, <em>(Vector)arg3</em><span class="sig-paren">)</span> &rarr; Node :<a class="headerlink" href="#xc.NodeLoader.newNodeIDV" title="Permalink to this definition">¶</a></dt>
-<dd><p>newNodeIDV(tag,vector)Create a node whose ID=tag from the vector passed as parameter.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::Node* newNodeIDV(XC::NodeLoader {lvalue},int,XC::Vector)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.NodeLoader.newNodeIDXY">
-<code class="descname">newNodeIDXY</code><span class="sig-paren">(</span><em>(NodeLoader)arg1</em>, <em>(int)arg2</em>, <em>(float)arg3</em>, <em>(float)arg4</em><span class="sig-paren">)</span> &rarr; Node :<a class="headerlink" href="#xc.NodeLoader.newNodeIDXY" title="Permalink to this definition">¶</a></dt>
-<dd><p>newNodeIDXY(tag,x,y)Create a node whose ID=tag from global coordinates (x,y).</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::Node* newNodeIDXY(XC::NodeLoader {lvalue},int,double,double)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.NodeLoader.newNodeIDXYZ">
-<code class="descname">newNodeIDXYZ</code><span class="sig-paren">(</span><em>(NodeLoader)arg1</em>, <em>(int)arg2</em>, <em>(float)arg3</em>, <em>(float)arg4</em>, <em>(float)arg5</em><span class="sig-paren">)</span> &rarr; Node :<a class="headerlink" href="#xc.NodeLoader.newNodeIDXYZ" title="Permalink to this definition">¶</a></dt>
-<dd><p>newNodeIDXYZ(tag,x,y,z)Create a node whose ID=tag from global coordinates (x,y,z).</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::Node* newNodeIDXYZ(XC::NodeLoader {lvalue},int,double,double,double)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.NodeLoader.newNodeXY">
-<code class="descname">newNodeXY</code><span class="sig-paren">(</span><em>(NodeLoader)arg1</em>, <em>(float)arg2</em>, <em>(float)arg3</em><span class="sig-paren">)</span> &rarr; Node :<a class="headerlink" href="#xc.NodeLoader.newNodeXY" title="Permalink to this definition">¶</a></dt>
-<dd><p>newNodeXY(x,y)
-Create a node from global coordinates (x,y).</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::Node* newNodeXY(XC::NodeLoader {lvalue},double,double)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.NodeLoader.newNodeXYZ">
-<code class="descname">newNodeXYZ</code><span class="sig-paren">(</span><em>(NodeLoader)arg1</em>, <em>(float)arg2</em>, <em>(float)arg3</em>, <em>(float)arg4</em><span class="sig-paren">)</span> &rarr; Node :<a class="headerlink" href="#xc.NodeLoader.newNodeXYZ" title="Permalink to this definition">¶</a></dt>
-<dd><p>newNodeXYZ(x,y,z)
-Create a node from global coordinates (x,y,z).</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::Node* newNodeXYZ(XC::NodeLoader {lvalue},double,double,double)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.NodeLoader.newSeedNode">
-<code class="descname">newSeedNode</code><span class="sig-paren">(</span><em>(NodeLoader)arg1</em><span class="sig-paren">)</span> &rarr; Node :<a class="headerlink" href="#xc.NodeLoader.newSeedNode" title="Permalink to this definition">¶</a></dt>
-<dd><p>newSeedNode()
-Defines the seed node.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::Node* newSeedNode(XC::NodeLoader {lvalue})</dd>
-</dl>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="xc.NodeLoader.numGdls">
-<code class="descname">numGdls</code><a class="headerlink" href="#xc.NodeLoader.numGdls" title="Permalink to this definition">¶</a></dt>
-<dd><p>Number of degrees of freedom per node.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="xc.MaterialLoader">
-<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">MaterialLoader</code><a class="headerlink" href="#xc.MaterialLoader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#xc.Loader" title="xc.Loader"><code class="xref py py-class docutils literal"><span class="pre">xc.Loader</span></code></a></p>
-<dl class="method">
-<dt id="xc.MaterialLoader.calcInteractionDiagram">
-<code class="descname">calcInteractionDiagram</code><span class="sig-paren">(</span><em>(MaterialLoader)arg1</em>, <em>(str)arg2</em>, <em>(InteractionDiagramParameters)arg3</em><span class="sig-paren">)</span> &rarr; InteractionDiagram :<a class="headerlink" href="#xc.MaterialLoader.calcInteractionDiagram" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::InteractionDiagram* calcInteractionDiagram(XC::MaterialLoader {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;,XC::InteractionDiagramData)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.MaterialLoader.calcInteractionDiagramNMy">
-<code class="descname">calcInteractionDiagramNMy</code><span class="sig-paren">(</span><em>(MaterialLoader)arg1</em>, <em>(str)arg2</em>, <em>(InteractionDiagramParameters)arg3</em><span class="sig-paren">)</span> &rarr; InteractionDiagram2d :<a class="headerlink" href="#xc.MaterialLoader.calcInteractionDiagramNMy" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::InteractionDiagram2d* calcInteractionDiagramNMy(XC::MaterialLoader {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;,XC::InteractionDiagramData)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.MaterialLoader.calcInteractionDiagramNMz">
-<code class="descname">calcInteractionDiagramNMz</code><span class="sig-paren">(</span><em>(MaterialLoader)arg1</em>, <em>(str)arg2</em>, <em>(InteractionDiagramParameters)arg3</em><span class="sig-paren">)</span> &rarr; InteractionDiagram2d :<a class="headerlink" href="#xc.MaterialLoader.calcInteractionDiagramNMz" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::InteractionDiagram2d* calcInteractionDiagramNMz(XC::MaterialLoader {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;,XC::InteractionDiagramData)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.MaterialLoader.geomSectionExists">
-<code class="descname">geomSectionExists</code><span class="sig-paren">(</span><em>(MaterialLoader)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; bool :<a class="headerlink" href="#xc.MaterialLoader.geomSectionExists" title="Permalink to this definition">¶</a></dt>
-<dd><p>True if section&#8217;s shape is already defined.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>bool geomSectionExists(XC::MaterialLoader {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.MaterialLoader.getMaterial">
-<code class="descname">getMaterial</code><span class="sig-paren">(</span><em>(MaterialLoader)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; Material :<a class="headerlink" href="#xc.MaterialLoader.getMaterial" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the material cuyo nombre being passed as parameter.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::Material {lvalue} getMaterial(XC::MaterialLoader {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.MaterialLoader.getName">
-<code class="descname">getName</code><span class="sig-paren">(</span><em>(MaterialLoader)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; str :<a class="headerlink" href="#xc.MaterialLoader.getName" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the name thats corresponds to the identifier.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; getName(XC::MaterialLoader {lvalue},int)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.MaterialLoader.getSectionGeometry">
-<code class="descname">getSectionGeometry</code><span class="sig-paren">(</span><em>(MaterialLoader)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; GeomSection :<a class="headerlink" href="#xc.MaterialLoader.getSectionGeometry" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns section geometry whose name is given.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::GeomSection {lvalue} getSectionGeometry(XC::MaterialLoader {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.MaterialLoader.interactionDiag2dExists">
-<code class="descname">interactionDiag2dExists</code><span class="sig-paren">(</span><em>(MaterialLoader)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; bool :<a class="headerlink" href="#xc.MaterialLoader.interactionDiag2dExists" title="Permalink to this definition">¶</a></dt>
-<dd><p>True if intecractions diagram is already defined.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>bool interactionDiag2dExists(XC::MaterialLoader {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.MaterialLoader.interactionDiagExists">
-<code class="descname">interactionDiagExists</code><span class="sig-paren">(</span><em>(MaterialLoader)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; bool :<a class="headerlink" href="#xc.MaterialLoader.interactionDiagExists" title="Permalink to this definition">¶</a></dt>
-<dd><p>True if intecractions diagram is already defined.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>bool interactionDiagExists(XC::MaterialLoader {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.MaterialLoader.materialExists">
-<code class="descname">materialExists</code><span class="sig-paren">(</span><em>(MaterialLoader)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; bool :<a class="headerlink" href="#xc.MaterialLoader.materialExists" title="Permalink to this definition">¶</a></dt>
-<dd><p>True if material is already defined.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>bool materialExists(XC::MaterialLoader {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.MaterialLoader.new2DInteractionDiagram">
-<code class="descname">new2DInteractionDiagram</code><span class="sig-paren">(</span><em>(MaterialLoader)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; InteractionDiagram2d :<a class="headerlink" href="#xc.MaterialLoader.new2DInteractionDiagram" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::InteractionDiagram2d* new2DInteractionDiagram(XC::MaterialLoader {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.MaterialLoader.newInteractionDiagram">
-<code class="descname">newInteractionDiagram</code><span class="sig-paren">(</span><em>(MaterialLoader)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; InteractionDiagram :<a class="headerlink" href="#xc.MaterialLoader.newInteractionDiagram" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::InteractionDiagram* newInteractionDiagram(XC::MaterialLoader {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.MaterialLoader.newMaterial">
-<code class="descname">newMaterial</code><span class="sig-paren">(</span><em>(MaterialLoader)arg1</em>, <em>(str)arg2</em>, <em>(str)arg3</em><span class="sig-paren">)</span> &rarr; Material :<a class="headerlink" href="#xc.MaterialLoader.newMaterial" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a new material.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::Material* newMaterial(XC::MaterialLoader {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;,std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.MaterialLoader.newSectionGeometry">
-<code class="descname">newSectionGeometry</code><span class="sig-paren">(</span><em>(MaterialLoader)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; GeomSection :<a class="headerlink" href="#xc.MaterialLoader.newSectionGeometry" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::GeomSection* newSectionGeometry(XC::MaterialLoader {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="xc.BeamIntegratorLoader">
-<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">BeamIntegratorLoader</code><a class="headerlink" href="#xc.BeamIntegratorLoader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#xc.Loader" title="xc.Loader"><code class="xref py py-class docutils literal"><span class="pre">xc.Loader</span></code></a></p>
-<dl class="method">
-<dt id="xc.BeamIntegratorLoader.clear">
-<code class="descname">clear</code><span class="sig-paren">(</span><em>(BeamIntegratorLoader)arg1</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.BeamIntegratorLoader.clear" title="Permalink to this definition">¶</a></dt>
-<dd><p>Removes all items.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>void clear(XC::BeamIntegratorLoader {lvalue})</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.BeamIntegratorLoader.exists">
-<code class="descname">exists</code><span class="sig-paren">(</span><em>(BeamIntegratorLoader)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; bool :<a class="headerlink" href="#xc.BeamIntegratorLoader.exists" title="Permalink to this definition">¶</a></dt>
-<dd><p>True if integrator is already defined.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>bool exists(XC::BeamIntegratorLoader {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.BeamIntegratorLoader.get">
-<code class="descname">get</code><span class="sig-paren">(</span><em>(BeamIntegratorLoader)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; BeamIntegration :<a class="headerlink" href="#xc.BeamIntegratorLoader.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retunrs the integrator.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::BeamIntegration {lvalue} get(XC::BeamIntegratorLoader {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.BeamIntegratorLoader.newBeamIntegrator">
-<code class="descname">newBeamIntegrator</code><span class="sig-paren">(</span><em>(BeamIntegratorLoader)arg1</em>, <em>(str)arg2</em>, <em>(str)arg3</em><span class="sig-paren">)</span> &rarr; BeamIntegration :<a class="headerlink" href="#xc.BeamIntegratorLoader.newBeamIntegrator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a new integration scheme.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::BeamIntegration* newBeamIntegrator(XC::BeamIntegratorLoader {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;,std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
-</dl>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="xc.BeamIntegratorLoader.size">
-<code class="descname">size</code><a class="headerlink" href="#xc.BeamIntegratorLoader.size" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns container&#8217;s size (number of defined integration schemes).</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="xc.ProtoElementLoader">
-<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">ProtoElementLoader</code><a class="headerlink" href="#xc.ProtoElementLoader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#xc.Loader" title="xc.Loader"><code class="xref py py-class docutils literal"><span class="pre">xc.Loader</span></code></a></p>
-<dl class="attribute">
-<dt id="xc.ProtoElementLoader.defaultIntegrator">
-<code class="descname">defaultIntegrator</code><a class="headerlink" href="#xc.ProtoElementLoader.defaultIntegrator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the default integrator (called by its name) for the elements to be created</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="xc.ProtoElementLoader.defaultMaterial">
-<code class="descname">defaultMaterial</code><a class="headerlink" href="#xc.ProtoElementLoader.defaultMaterial" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the default material (called by its name) for the elements to be created</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="xc.ProtoElementLoader.defaultTransformation">
-<code class="descname">defaultTransformation</code><a class="headerlink" href="#xc.ProtoElementLoader.defaultTransformation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the default coordinate transformation (called by its name) for the elements to be created</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="xc.ProtoElementLoader.dimElem">
-<code class="descname">dimElem</code><a class="headerlink" href="#xc.ProtoElementLoader.dimElem" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the default dimension for the elements to be created: 0, 1, 2 or 3 for 0D, 1D, 2D or 3D, respectively.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.ProtoElementLoader.newElement">
-<code class="descname">newElement</code><span class="sig-paren">(</span><em>(ProtoElementLoader)arg1</em>, <em>(str)arg2</em>, <em>(ID)arg3</em><span class="sig-paren">)</span> &rarr; Element :<a class="headerlink" href="#xc.ProtoElementLoader.newElement" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div>newElement(tipo,iNodos): Create a new element of type &#8216;tipo&#8217; from the nodes passed as parameter with the XC.ID object &#8216;iNodos&#8217;.</div></blockquote>
-<p>Parameters:
--tipo: type of element. Available types:&#8217;truss&#8217;,&#8217;truss_section&#8217;,&#8217;corot_truss&#8217;,&#8217;corot_truss_section&#8217;,&#8217;muelle&#8217;, &#8216;spring&#8217;, &#8216;beam2d_02&#8217;, &#8216;beam2d_03&#8217;,  &#8216;beam2d_04&#8217;, &#8216;beam3d_01&#8217;, &#8216;beam3d_02&#8217;, &#8216;elastic_beam2d&#8217;, &#8216;elastic_beam3d&#8217;, &#8216;beam_with_hinges_2d&#8217;, &#8216;beam_with_hinges_3d&#8217;, &#8216;nl_beam_column_2d&#8217;, &#8216;nl_beam_column_3d&#8217;,&#8217;force_beam_column_2d&#8217;, &#8216;force_beam_column_3d&#8217;, &#8216;shell_mitc4&#8217;, &#8216; shell_nl&#8217;, &#8216;quad4n&#8217;, &#8216;tri31&#8217;, &#8216;brick&#8217;, &#8216;zero_length&#8217;, &#8216;zero_length_contact_2d&#8217;, &#8216;zero_length_contact_3d&#8217;, &#8216;zero_length_section&#8217;. 
--iNodos: nodes ID, e.g. xc.ID([1,2]) to create a linear element from node 1 to node 2.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::Element* newElement(XC::ProtoElementLoader {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;,XC::ID)</dd>
-</dl>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="xc.ProtoElementLoader.numSections">
-<code class="descname">numSections</code><a class="headerlink" href="#xc.ProtoElementLoader.numSections" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the default number of sections for the elements to be created</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="xc.SeedElement">
-<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">SeedElement</code><a class="headerlink" href="#xc.SeedElement" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#xc.ProtoElementLoader" title="xc.ProtoElementLoader"><code class="xref py py-class docutils literal"><span class="pre">xc.ProtoElementLoader</span></code></a></p>
-</dd></dl>
-
-<dl class="class">
-<dt id="xc.ElementLoader">
-<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">ElementLoader</code><a class="headerlink" href="#xc.ElementLoader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#xc.ProtoElementLoader" title="xc.ProtoElementLoader"><code class="xref py py-class docutils literal"><span class="pre">xc.ProtoElementLoader</span></code></a></p>
-<dl class="method">
-<dt id="xc.ElementLoader.getElement">
-<code class="descname">getElement</code><span class="sig-paren">(</span><em>(ElementLoader)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; Element :<a class="headerlink" href="#xc.ElementLoader.getElement" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the element identified by the parameter.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::Element* getElement(XC::ElementLoader {lvalue},int)</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="xc.ConstraintLoader">
-<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">ConstraintLoader</code><a class="headerlink" href="#xc.ConstraintLoader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#xc.Loader" title="xc.Loader"><code class="xref py py-class docutils literal"><span class="pre">xc.Loader</span></code></a></p>
-<dl class="attribute">
-<dt id="xc.ConstraintLoader.getNumLPs">
-<code class="descname">getNumLPs</code><a class="headerlink" href="#xc.ConstraintLoader.getNumLPs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Number of load patterns.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="xc.ConstraintLoader.getNumMPs">
-<code class="descname">getNumMPs</code><a class="headerlink" href="#xc.ConstraintLoader.getNumMPs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Number of multiple node constraints.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="xc.ConstraintLoader.getNumSPs">
-<code class="descname">getNumSPs</code><a class="headerlink" href="#xc.ConstraintLoader.getNumSPs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Number of single node constraints.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.ConstraintLoader.newEqualDOF">
-<code class="descname">newEqualDOF</code><span class="sig-paren">(</span><em>(ConstraintLoader)arg1</em>, <em>(int)arg2</em>, <em>(int)arg3</em>, <em>(ID)arg4</em><span class="sig-paren">)</span> &rarr; MFreedom_Constraint :<a class="headerlink" href="#xc.ConstraintLoader.newEqualDOF" title="Permalink to this definition">¶</a></dt>
-<dd><p>Imposes the same displacements on two nodes for the components specified in the argument.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::MFreedom_Constraint* newEqualDOF(XC::ConstraintLoader {lvalue},int,int,XC::ID)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.ConstraintLoader.newGlueNodeToElement">
-<code class="descname">newGlueNodeToElement</code><span class="sig-paren">(</span><em>(ConstraintLoader)arg1</em>, <em>(Node)arg2</em>, <em>(Element)arg3</em>, <em>(ID)arg4</em><span class="sig-paren">)</span> &rarr; MRMFreedom_Constraint :<a class="headerlink" href="#xc.ConstraintLoader.newGlueNodeToElement" title="Permalink to this definition">¶</a></dt>
-<dd><p>Glues a node to an element.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::MRMFreedom_Constraint* newGlueNodeToElement(XC::ConstraintLoader {lvalue},XC::Node,XC::Element,XC::ID)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.ConstraintLoader.newMPConstraint">
-<code class="descname">newMPConstraint</code><span class="sig-paren">(</span><em>(ConstraintLoader)arg1</em>, <em>(int)arg2</em>, <em>(int)arg3</em>, <em>(ID)arg4</em>, <em>(ID)arg5</em><span class="sig-paren">)</span> &rarr; MFreedom_Constraint :<a class="headerlink" href="#xc.ConstraintLoader.newMPConstraint" title="Permalink to this definition">¶</a></dt>
-<dd><p>New multi-freedom constraint.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::MFreedom_Constraint* newMPConstraint(XC::ConstraintLoader {lvalue},int,int,XC::ID,XC::ID)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.ConstraintLoader.newMRMPConstraint">
-<code class="descname">newMRMPConstraint</code><span class="sig-paren">(</span><em>(ConstraintLoader)arg1</em>, <em>(ID)arg2</em>, <em>(int)arg3</em>, <em>(ID)arg4</em><span class="sig-paren">)</span> &rarr; MRMFreedom_Constraint :<a class="headerlink" href="#xc.ConstraintLoader.newMRMPConstraint" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a new multi retained nodes constraint.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::MRMFreedom_Constraint* newMRMPConstraint(XC::ConstraintLoader {lvalue},XC::ID,int,XC::ID)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.ConstraintLoader.newRigidBeam">
-<code class="descname">newRigidBeam</code><span class="sig-paren">(</span><em>(ConstraintLoader)arg1</em>, <em>(int)arg2</em>, <em>(int)arg3</em><span class="sig-paren">)</span> &rarr; MFreedom_Constraint :<a class="headerlink" href="#xc.ConstraintLoader.newRigidBeam" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::MFreedom_Constraint* newRigidBeam(XC::ConstraintLoader {lvalue},int,int)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.ConstraintLoader.newRigidRod">
-<code class="descname">newRigidRod</code><span class="sig-paren">(</span><em>(ConstraintLoader)arg1</em>, <em>(int)arg2</em>, <em>(int)arg3</em><span class="sig-paren">)</span> &rarr; MFreedom_Constraint :<a class="headerlink" href="#xc.ConstraintLoader.newRigidRod" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::MFreedom_Constraint* newRigidRod(XC::ConstraintLoader {lvalue},int,int)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.ConstraintLoader.newSPConstraint">
-<code class="descname">newSPConstraint</code><span class="sig-paren">(</span><em>(ConstraintLoader)arg1</em>, <em>(int)arg2</em>, <em>(int)arg3</em>, <em>(float)arg4</em><span class="sig-paren">)</span> &rarr; SFreedom_Constraint :<a class="headerlink" href="#xc.ConstraintLoader.newSPConstraint" title="Permalink to this definition">¶</a></dt>
-<dd><p>newSPConstraint(tag_nod,id_gdl,valor) 
-Create a single-point boundary constraint by assigning a value=valor to the degree of freedom gdl of node whose ID is tag_nod.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::SFreedom_Constraint* newSPConstraint(XC::ConstraintLoader {lvalue},int,int,double)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.ConstraintLoader.removeSPConstraint">
-<code class="descname">removeSPConstraint</code><span class="sig-paren">(</span><em>(ConstraintLoader)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.ConstraintLoader.removeSPConstraint" title="Permalink to this definition">¶</a></dt>
-<dd><p>Deletes a single freedom constraint.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>void removeSPConstraint(XC::ConstraintLoader {lvalue},int)</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="xc.LoadLoader">
-<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">LoadLoader</code><a class="headerlink" href="#xc.LoadLoader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#xc.Loader" title="xc.Loader"><code class="xref py py-class docutils literal"><span class="pre">xc.Loader</span></code></a></p>
-<dl class="method">
-<dt id="xc.LoadLoader.addToDomain">
-<code class="descname">addToDomain</code><span class="sig-paren">(</span><em>(LoadLoader)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.LoadLoader.addToDomain" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add combination to the domain.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>void addToDomain(XC::LoadLoader {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.LoadLoader.removeAllFromDomain">
-<code class="descname">removeAllFromDomain</code><span class="sig-paren">(</span><em>(LoadLoader)arg1</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.LoadLoader.removeAllFromDomain" title="Permalink to this definition">¶</a></dt>
-<dd><p>Eliminates all loads cases from domain.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>void removeAllFromDomain(XC::LoadLoader {lvalue})</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.LoadLoader.removeFromDomain">
-<code class="descname">removeFromDomain</code><span class="sig-paren">(</span><em>(LoadLoader)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; None :<a class="headerlink" href="#xc.LoadLoader.removeFromDomain" title="Permalink to this definition">¶</a></dt>
-<dd><p>Eliminates combination from domain.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>void removeFromDomain(XC::LoadLoader {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="xc.TransfCooLoader">
-<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">TransfCooLoader</code><a class="headerlink" href="#xc.TransfCooLoader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#xc.Loader" title="xc.Loader"><code class="xref py py-class docutils literal"><span class="pre">xc.Loader</span></code></a></p>
-<dl class="method">
-<dt id="xc.TransfCooLoader.getCoordTransf">
-<code class="descname">getCoordTransf</code><span class="sig-paren">(</span><em>(TransfCooLoader)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; CrdTransf :<a class="headerlink" href="#xc.TransfCooLoader.getCoordTransf" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the coordinate transformation from its name.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::CrdTransf* getCoordTransf(XC::TransfCooLoader {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.TransfCooLoader.getName">
-<code class="descname">getName</code><span class="sig-paren">(</span><em>(TransfCooLoader)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &rarr; str :<a class="headerlink" href="#xc.TransfCooLoader.getName" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the name thats corresponds to the identifier.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; getName(XC::TransfCooLoader {lvalue},int)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.TransfCooLoader.newCorotCrdTransf2d">
-<code class="descname">newCorotCrdTransf2d</code><span class="sig-paren">(</span><em>(TransfCooLoader)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; CorotCrdTransf2d :<a class="headerlink" href="#xc.TransfCooLoader.newCorotCrdTransf2d" title="Permalink to this definition">¶</a></dt>
-<dd><p>New corotational 2d coordinate transformation.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::CorotCrdTransf2d* newCorotCrdTransf2d(XC::TransfCooLoader {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.TransfCooLoader.newCorotCrdTransf3d">
-<code class="descname">newCorotCrdTransf3d</code><span class="sig-paren">(</span><em>(TransfCooLoader)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; CorotCrdTransf3d :<a class="headerlink" href="#xc.TransfCooLoader.newCorotCrdTransf3d" title="Permalink to this definition">¶</a></dt>
-<dd><p>New corotational 3d coordinate transformation.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::CorotCrdTransf3d* newCorotCrdTransf3d(XC::TransfCooLoader {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.TransfCooLoader.newLinearCrdTransf2d">
-<code class="descname">newLinearCrdTransf2d</code><span class="sig-paren">(</span><em>(TransfCooLoader)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; LinearCrdTransf2d :<a class="headerlink" href="#xc.TransfCooLoader.newLinearCrdTransf2d" title="Permalink to this definition">¶</a></dt>
-<dd><p>New linear 2d coordinate transformation.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::LinearCrdTransf2d* newLinearCrdTransf2d(XC::TransfCooLoader {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.TransfCooLoader.newLinearCrdTransf3d">
-<code class="descname">newLinearCrdTransf3d</code><span class="sig-paren">(</span><em>(TransfCooLoader)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; LinearCrdTransf3d :<a class="headerlink" href="#xc.TransfCooLoader.newLinearCrdTransf3d" title="Permalink to this definition">¶</a></dt>
-<dd><p>New linear 3d coordinate transformation.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::LinearCrdTransf3d* newLinearCrdTransf3d(XC::TransfCooLoader {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.TransfCooLoader.newPDeltaCrdTransf2d">
-<code class="descname">newPDeltaCrdTransf2d</code><span class="sig-paren">(</span><em>(TransfCooLoader)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; PDeltaCrdTransf2d :<a class="headerlink" href="#xc.TransfCooLoader.newPDeltaCrdTransf2d" title="Permalink to this definition">¶</a></dt>
-<dd><p>New P-Delta 2d coordinate transformation.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::PDeltaCrdTransf2d* newPDeltaCrdTransf2d(XC::TransfCooLoader {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.TransfCooLoader.newPDeltaCrdTransf3d">
-<code class="descname">newPDeltaCrdTransf3d</code><span class="sig-paren">(</span><em>(TransfCooLoader)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &rarr; PDeltaCrdTransf3d :<a class="headerlink" href="#xc.TransfCooLoader.newPDeltaCrdTransf3d" title="Permalink to this definition">¶</a></dt>
-<dd><p>New P-Delta 3d coordinate transformation.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::PDeltaCrdTransf3d* newPDeltaCrdTransf3d(XC::TransfCooLoader {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 </div>
 
 
@@ -700,21 +71,18 @@ Create a single-point boundary constraint by assigning a value=valor to the degr
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../../../../_sources/preprocessor/cpp_classes/preprocessor/loaders/loaders.txt"
+      <li><a href="../../../../_sources/preprocessor/cpp_classes/preprocessor/loaders/loaders.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../../../../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -736,13 +104,13 @@ Create a single-point boundary constraint by assigning a value=valor to the degr
         <li class="right" >
           <a href="../set_mgmt/set_mgmt.html" title="Base set"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../../index.html">XC 3.0 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../../../utils.html" >Utils</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">XC 3.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../utils.html" >Utils</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+        &#169; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
     </div>
   </body>
 </html>

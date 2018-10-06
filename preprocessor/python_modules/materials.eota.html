@@ -1,34 +1,32 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Materials according to EOTA technical reports &mdash; XC 3.0 documentation</title>
-    
+    <title>Materials according to EOTA technical reports &#8212; XC 3.0 documentation</title>
     <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
         VERSION:     '3.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="XC 3.0 documentation" href="../../index.html" />
-    <link rel="up" title="Material" href="../material.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Materials according to SIA-263 code" href="materials.sia263.html" />
     <link rel="prev" title="Materials according to EAE code" href="materials.eae.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,8 +42,8 @@
         <li class="right" >
           <a href="materials.eae.html" title="Materials according to EAE code"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../material.html" accesskey="U">Material</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../material.html" accesskey="U">Material</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -68,9 +66,11 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>c1</strong> &#8211; Distancia desde el centro de gravedad del grupo al borde situado frente al cortante.</li>
-<li><strong>h</strong> &#8211; Concrete part thickness.</li>
-<li><strong>s2</strong> &#8211; Distance between the bolts.</li>
+<li><strong>c1</strong> – edge distance in direction 1; in case of anchorages close to an 
+edge loaded in shear c 1 is the edge distance in direction of 
+the shear load (see Figure 2.1b and Figure 5.7of EOTA TR029).</li>
+<li><strong>h</strong> – Concrete part thickness.</li>
+<li><strong>s2</strong> – Distance between the bolts.</li>
 </ul>
 </td>
 </tr>
@@ -87,10 +87,13 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>c1</strong> &#8211; Distancia desde el centro de gravedad del grupo al borde situado frente al cortante.</li>
-<li><strong>c2</strong> &#8211; Distancia desde el centro de gravedad del grupo al otro borde.</li>
-<li><strong>h</strong> &#8211; Concrete part thickness.</li>
-<li><strong>s2</strong> &#8211; Distance between the bolts.</li>
+<li><strong>c1</strong> – edge distance in direction 1; in case of anchorages close to an 
+edge loaded in shear c 1 is the edge distance in direction of 
+the shear load (see Figure 2.1b and Figure 5.7of EOTA TR029).</li>
+<li><strong>c2</strong> – edge distance in direction 2; direction 2 is perpendicular to 
+direction 1.</li>
+<li><strong>h</strong> – Concrete part thickness.</li>
+<li><strong>s2</strong> – Distance between the bolts.</li>
 </ul>
 </td>
 </tr>
@@ -101,18 +104,22 @@
 <dl class="function">
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.VRkC0Expr58">
 <code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">VRkC0Expr58</code><span class="sig-paren">(</span><em>k1</em>, <em>d</em>, <em>hEf</em>, <em>fckCube</em>, <em>c1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.VRkC0Expr58" title="Permalink to this definition">¶</a></dt>
-<dd><p>Valor inicial de la resistencia característica of the anchor a cortante por fallo del borde according to expression 5.8a of clause 5.2.3.4 (a) of EOTA TR029.</p>
+<dd><p>Initial value of the characteristic resistance of an anchor placed in cracked
+or non-cracked concrete and loaded perpendicular to the edge according to 
+expression 5.8a of clause 5.2.3.4 (a) of EOTA TR029.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>d</strong> &#8211; anchor diameter.</li>
-<li><strong>hEf</strong> &#8211; effective anchorage depth.</li>
-<li><strong>fckCube</strong> &#8211; characteristic concrete compression strength measured 
+<li><strong>d</strong> – anchor diameter.</li>
+<li><strong>hEf</strong> – effective anchorage depth.</li>
+<li><strong>fckCube</strong> – characteristic concrete compression strength measured 
 on cubes with a side length of 150 mm (value of concrete 
 strength class according to ENV 206) (Pa).</li>
-<li><strong>c1</strong> &#8211; Distancia desde el centro de gravedad del grupo al borde situado frente al cortante.</li>
+<li><strong>c1</strong> – edge distance in direction 1; in case of anchorages close to an 
+edge loaded in shear c 1 is the edge distance in direction of 
+the shear load (see Figure 2.1b and Figure 5.7of EOTA TR029).</li>
 </ul>
 </td>
 </tr>
@@ -123,14 +130,20 @@ strength class according to ENV 206) (Pa).</li>
 <dl class="function">
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.areaAcV0">
 <code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">areaAcV0</code><span class="sig-paren">(</span><em>h</em>, <em>c1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.areaAcV0" title="Permalink to this definition">¶</a></dt>
-<dd><p>Area del cono de anclaje a cortante para un perno. see figure 5.6 y expresión 5.8d of EOTA TR029.</p>
+<dd><p>area of concrete cone of an individual anchor at the lateral concrete surface
+not affected by edges parallel to the assumed loading direction, member 
+thickness or adjacent anchors, assuming the shape of the fracture area as a 
+half pyramid with a height equal to c1 and a base-length of 1.5 c1 and 3 c1.
+See figure 5.6 and expression 5.8d of EOTA TR029.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>h</strong> &#8211; Concrete part thickness.</li>
-<li><strong>c1</strong> &#8211; Distancia desde el centro de gravedad del grupo al borde situado frente al cortante.</li>
+<li><strong>h</strong> – Concrete part thickness.</li>
+<li><strong>c1</strong> – edge distance in direction 1; in case of anchorages close to an 
+edge loaded in shear c 1 is the edge distance in direction of 
+the shear load (see Figure 2.1b and Figure 5.7of EOTA TR029).</li>
 </ul>
 </td>
 </tr>
@@ -148,11 +161,11 @@ according to expression 5.3a in clause 5.2.2.4 a) of EOTA TR029.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>k1</strong> &#8211; 7.2 for applications in cracked concrete and 10.1 for applications in non-cracked concrete.</li>
-<li><strong>fck_cube</strong> &#8211; characteristic concrete compression strength measured 
+<li><strong>k1</strong> – 7.2 for applications in cracked concrete and 10.1 for applications in non-cracked concrete.</li>
+<li><strong>fck_cube</strong> – characteristic concrete compression strength measured 
 on cubes with a side length of 150 mm (value of concrete 
 strength class according to ENV 206) (Pa).</li>
-<li><strong>hEf</strong> &#8211; effective anchorage depth (m).</li>
+<li><strong>hEf</strong> – effective anchorage depth (m).</li>
 </ul>
 </td>
 </tr>
@@ -169,9 +182,9 @@ strength class according to ENV 206) (Pa).</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>d</strong> &#8211; Anchor diameter (m).</li>
-<li><strong>hEf</strong> &#8211; effective anchorage depth (m).</li>
-<li><strong>tauRk</strong> &#8211; Characteristic bond resistance, depending on the concrete strength class, (must be taken from relevant ETA) (Pa).</li>
+<li><strong>d</strong> – Anchor diameter (m).</li>
+<li><strong>hEf</strong> – effective anchorage depth (m).</li>
+<li><strong>tauRk</strong> – Characteristic bond resistance, depending on the concrete strength class, (must be taken from relevant ETA) (Pa).</li>
 </ul>
 </td>
 </tr>
@@ -191,14 +204,14 @@ fuk: characteristic steel ultimate tensile strength (nominal value) (Pa).</p>
 <dl class="function">
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.getA0cN">
 <code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">getA0cN</code><span class="sig-paren">(</span><em>anchorPosition</em>, <em>hEf</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.getA0cN" title="Permalink to this definition">¶</a></dt>
-<dd><p>Polígono que representa el área de influencia de un anclaje individual according to clause 5.2.2.4 b) (figura 5.4a) of EOTA TR029.</p>
+<dd><p>Polígono que representa el influence area of an individual anchor according to clause 5.2.2.4 b) (figura 5.4a) of EOTA TR029.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>anchorPosition</strong> &#8211; anchor position.</li>
-<li><strong>hEf</strong> &#8211; effective anchorage depth (m).</li>
+<li><strong>anchorPosition</strong> – anchor position.</li>
+<li><strong>hEf</strong> – effective anchorage depth (m).</li>
 </ul>
 </td>
 </tr>
@@ -209,16 +222,16 @@ fuk: characteristic steel ultimate tensile strength (nominal value) (Pa).</p>
 <dl class="function">
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.getA0pN">
 <code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">getA0pN</code><span class="sig-paren">(</span><em>d</em>, <em>anchorPosition</em>, <em>hEf</em>, <em>tauRkUcr</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.getA0pN" title="Permalink to this definition">¶</a></dt>
-<dd><p>Polígono que representa el área de influencia de un anclaje individual according to clause 5.2.2.3 b) (figura 5.1) of EOTA TR029.</p>
+<dd><p>Polígono que representa el influence area of an individual anchor according to clause 5.2.2.3 b) (figura 5.1) of EOTA TR029.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>d</strong> &#8211; anchor diameter (m).</li>
-<li><strong>anchorPosition</strong> &#8211; Posición del del perno.</li>
-<li><strong>hEf</strong> &#8211; effective anchorage depth (m).</li>
-<li><strong>tauRkUcr</strong> &#8211; Characteristic bond resistance for non-cracked concrete (must be taken from relevant ETA) (Pa).</li>
+<li><strong>d</strong> – anchor diameter (m).</li>
+<li><strong>anchorPosition</strong> – Posición del del perno.</li>
+<li><strong>hEf</strong> – effective anchorage depth (m).</li>
+<li><strong>tauRkUcr</strong> – Characteristic bond resistance for non-cracked concrete (must be taken from relevant ETA) (Pa).</li>
 </ul>
 </td>
 </tr>
@@ -229,15 +242,15 @@ fuk: characteristic steel ultimate tensile strength (nominal value) (Pa).</p>
 <dl class="function">
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.getA0spN">
 <code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">getA0spN</code><span class="sig-paren">(</span><em>anchorPosition</em>, <em>CcrSp</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.getA0spN" title="Permalink to this definition">¶</a></dt>
-<dd><p>Polígono que representa el área de influencia de un anclaje individual
+<dd><p>Polygon that represents the influence area of an individual anchor
 according to clause 5.2.2.6 b) of EOTA TR029.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>anchorPosition</strong> &#8211; anchor position.</li>
-<li><strong>CcrSp</strong> &#8211; edge distance for ensuring the transmission of the
+<li><strong>anchorPosition</strong> – anchor position.</li>
+<li><strong>CcrSp</strong> – edge distance for ensuring the transmission of the
 characteristic tensile resistance of a single
 anchor without spacing and edge effects in case of 
 splitting failure (m).</li>
@@ -251,15 +264,20 @@ splitting failure (m).</li>
 <dl class="function">
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.getCcrNp">
 <code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">getCcrNp</code><span class="sig-paren">(</span><em>d</em>, <em>hEf</em>, <em>tauRkUcr</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.getCcrNp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Semi-lado del área de influencia (distancia crítica al borde) de un anclaje individual according to clause 5.2.2.3 b) (ecuación 5.2d) of EOTA TR029.</p>
+<dd><dl class="docutils">
+<dt>Half-side of the influence area (critical distance to the edge) of an</dt>
+<dd>individual anchor according to clause 5.2.2.3 b) (equation 5.2d) 
+of EOTA TR029.</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>d</strong> &#8211; anchor diameter (m).</li>
-<li><strong>hEf</strong> &#8211; effective anchorage depth (m).</li>
-<li><strong>tauRkUcr</strong> &#8211; Characteristic bond resistance for non-craked concrete (must be taken from relevant ETA) (Pa).</li>
+<li><strong>d</strong> – anchor diameter (m).</li>
+<li><strong>hEf</strong> – effective anchorage depth (m).</li>
+<li><strong>tauRkUcr</strong> – Characteristic bond resistance for non-craked concrete 
+(must be taken from relevant ETA) (Pa).</li>
 </ul>
 </td>
 </tr>
@@ -271,9 +289,9 @@ splitting failure (m).</li>
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.getCcrSpHiltiHY150">
 <code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">getCcrSpHiltiHY150</code><span class="sig-paren">(</span><em>h</em>, <em>hEf</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.getCcrSpHiltiHY150" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>Semi-lado del área de influencia (distancia crítica al borde)</dt>
+<dt>half-side del influence area (critical distance to the edge)</dt>
 <dd><blockquote class="first">
-<div>de un anclaje individual according to 
+<div>of an individual anchor according to 
 table 7 of ETA-05/0051 (page 19).</div></blockquote>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -292,7 +310,9 @@ table 7 of ETA-05/0051 (page 19).</div></blockquote>
 <dl class="function">
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.getFactor1N">
 <code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">getFactor1N</code><span class="sig-paren">(</span><em>C</em>, <em>CcrN</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.getFactor1N" title="Permalink to this definition">¶</a></dt>
-<dd><p>Factor que introduce en el cálculo la influencia en la distribución de tensiones de la distancia al borde de la pieza soporte, according to expression 5.2e of clause 5.2.2.3 c).</p>
+<dd><p>Factor that takes into account the influence of the distance to the edge
+of the support member in the stress distribution, according to 
+expression 5.2e of clause 5.2.2.3 c).</p>
 <blockquote>
 <div><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -300,7 +320,7 @@ table 7 of ETA-05/0051 (page 19).</div></blockquote>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">param C:</th><td class="field-body">edge distance.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">param CcrN:</th><td class="field-body">Semi-lado del área de influencia (distancia crítica al borde).</td>
+<tr class="field-even field"><th class="field-name">param CcrN:</th><td class="field-body">half-side del influence area (critical distance to the edge).</td>
 </tr>
 </tbody>
 </table>
@@ -310,14 +330,16 @@ table 7 of ETA-05/0051 (page 19).</div></blockquote>
 <dl class="function">
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.getFactor2cN">
 <code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">getFactor2cN</code><span class="sig-paren">(</span><em>A0cN</em>, <em>AcN</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.getFactor2cN" title="Permalink to this definition">¶</a></dt>
-<dd><p>Factor que introduce en el cálculo la influencia de la distancia al borde de la pieza soporte according to clause 5.2.2.4.</p>
+<dd><p>Factor that takes into account the influence of the distance to the edge
+of the support member according to clause 5.2.2.4.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>A0cN</strong> &#8211; Área de influencia del anclaje (o grupo de anclajes).</li>
-<li><strong>AcN</strong> &#8211; Area of the intersection of the anchor influence area and the concrete support contour.</li>
+<li><strong>A0cN</strong> – influence area of the anchor (or anchor group).</li>
+<li><strong>AcN</strong> – area of the intersection of the anchor influence area and the 
+concrete support contour.</li>
 </ul>
 </td>
 </tr>
@@ -328,14 +350,15 @@ table 7 of ETA-05/0051 (page 19).</div></blockquote>
 <dl class="function">
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.getFactor2pN">
 <code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">getFactor2pN</code><span class="sig-paren">(</span><em>A0pN</em>, <em>ApN</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.getFactor2pN" title="Permalink to this definition">¶</a></dt>
-<dd><p>Factor que introduce en el cálculo la influencia de la distancia al borde de la pieza soporte according to clause 5.2.2.3 b).</p>
+<dd><p>Factor that takes into account the influence of the distance to the edge
+of the support member according to clause 5.2.2.3 b).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>A0pN</strong> &#8211; Área de influencia del anclaje (o grupo de anclajes).</li>
-<li><strong>ApN</strong> &#8211; Area of the intersection of the anchor influence area and the concrete support contour.</li>
+<li><strong>A0pN</strong> – influence area of the anchor (or anchor group).</li>
+<li><strong>ApN</strong> – Area of the intersection of the anchor influence area and the concrete support contour.</li>
 </ul>
 </td>
 </tr>
@@ -346,14 +369,18 @@ table 7 of ETA-05/0051 (page 19).</div></blockquote>
 <dl class="function">
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.getFactor2spN">
 <code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">getFactor2spN</code><span class="sig-paren">(</span><em>A0spN</em>, <em>AspN</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.getFactor2spN" title="Permalink to this definition">¶</a></dt>
-<dd><p>Factor que introduce en el cálculo la influencia de la distancia al borde de la pieza soporte according to clause 5.2.2.6 b).</p>
+<dd><dl class="docutils">
+<dt>Factor that takes into account the influence of the distance to the edge</dt>
+<dd>of the support member according to clause 5.2.2.6 b).</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>A0spN</strong> &#8211; Área de influencia del anclaje (o grupo de anclajes).</li>
-<li><strong>AspN</strong> &#8211; Area of the intersection of the anchor influence area and the concrete support contour.</li>
+<li><strong>A0spN</strong> – influence area of the anchor (or anchor group).</li>
+<li><strong>AspN</strong> – area of the intersection of the anchor influence area and the 
+concrete support contour.</li>
 </ul>
 </td>
 </tr>
@@ -365,8 +392,8 @@ table 7 of ETA-05/0051 (page 19).</div></blockquote>
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.getScrN">
 <code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">getScrN</code><span class="sig-paren">(</span><em>hEf</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.getScrN" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>Lado del área de influencia de un anclaje individual</dt>
-<dd><p class="first">according to clause 5.2.2.4 b) (ecuación 5.3b) del
+<dt>SideLength del influence area of an individual anchor</dt>
+<dd><p class="first">according to clause 5.2.2.4 b) (equation 5.3b) del
 clause 5.2.2.4 b) of EOTA TR029.</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -388,16 +415,16 @@ clause 5.2.2.4 b) of EOTA TR029.</p>
 <dd>of a single anchor without spacing and edge effects in case of pullout
 failure. Is equal to the side of the influence area of an individual 
 anchor (critical distance between anchors) according to clause 5.2.2.3 b)
-(ecuación 5.2c) of EOTA TR029.</dd>
+(equation 5.2c) of EOTA TR029.</dd>
 </dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>d</strong> &#8211; anchor diameter (m).</li>
-<li><strong>hEf</strong> &#8211; effective anchorage depth (m).</li>
-<li><strong>tauRkUcr</strong> &#8211; Characteristic bond resistance for non-craked concrete (must be taken from relevant ETA) (Pa).</li>
+<li><strong>d</strong> – anchor diameter (m).</li>
+<li><strong>hEf</strong> – effective anchorage depth (m).</li>
+<li><strong>tauRkUcr</strong> – Characteristic bond resistance for non-craked concrete (must be taken from relevant ETA) (Pa).</li>
 </ul>
 </td>
 </tr>
@@ -413,7 +440,7 @@ anchor (critical distance between anchors) according to clause 5.2.2.3 b)
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>descr</strong> &#8211; Descriptor que puede tomar los valores:
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>descr</strong> – Descriptor que puede tomar los valores:
 1: anclaje en cracked concrete.
 2: anclaje en non-cracked concrete.</td>
 </tr>
@@ -424,12 +451,12 @@ anchor (critical distance between anchors) according to clause 5.2.2.3 b)
 <dl class="function">
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.psiAlphaVFactor">
 <code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">psiAlphaVFactor</code><span class="sig-paren">(</span><em>alphaV</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.psiAlphaVFactor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Coeficiente que introduce la influencia del ángulo entre la carga aplicada y la perpendicular al borde libre de la pieza de hormigón (menor de 90 grados) see figure 4.7c y expresión 5.8g del apartado f) of clause 5.2.3.4 of EOTA TR029.</p>
+<dd><p>Factor that takes account of the angle between the applied load and the direction perpendicular to the free edge of the concrete member (must be less than 90 degrees) see figure 4.7c and expression 5.8g on section f) of clause 5.2.3.4 of EOTA TR029.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>alphaV</strong> &#8211; Ángulo entre la carga aplicada y la perpendicular al borde libre de la pieza de hormigón.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>alphaV</strong> – angle between the applied load and the direction perpendicular to the free edge of the concrete member.</td>
 </tr>
 </tbody>
 </table>
@@ -438,15 +465,20 @@ anchor (critical distance between anchors) according to clause 5.2.2.3 b)
 <dl class="function">
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.psiEcVFactor">
 <code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">psiEcVFactor</code><span class="sig-paren">(</span><em>ev</em>, <em>c1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.psiEcVFactor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Coeficiente que introduce la influencia de la variación de los cortantes en los distintos pernos de un grupo, calculado according to expression 5.8h del apartado f) of clause 5.2.3.4 of EOTA TR029.</p>
+<dd><p>Factor that takes account of a group effect when different shear loads are 
+acting on the individual anchors of a group, computed according to 
+expression 5.8h del section f) of clause 5.2.3.4 of EOTA TR029.</p>
 <blockquote>
 <div><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param ev:</th><td class="field-body">Excentricidad de la resultante de esfuerzos cortantes respecto al centro de gravedad del grupo.</td>
+<tr class="field-odd field"><th class="field-name">param ev:</th><td class="field-body">Eccentricity of the shear forces resultant with respect to the 
+group centroid.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">param c1:</th><td class="field-body">Distancia desde el centro de gravedad del grupo al borde situado frente al cortante.</td>
+<tr class="field-even field"><th class="field-name">param c1:</th><td class="field-body">edge distance in direction 1; in case of anchorages close to an 
+edge loaded in shear c 1 is the edge distance in direction of 
+the shear load (see Figure 2.1b and Figure 5.7of EOTA TR029).</td>
 </tr>
 </tbody>
 </table>
@@ -465,8 +497,10 @@ expression 5.8f of the clause 5.2.3.4 of EOTA TR029.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>h</strong> &#8211; Concrete part thickness.</li>
-<li><strong>c1</strong> &#8211; Distancia desde el centro de gravedad del grupo al borde situado frente al cortante.</li>
+<li><strong>h</strong> – Concrete part thickness.</li>
+<li><strong>c1</strong> – edge distance in direction 1; in case of anchorages close to an 
+edge loaded in shear c 1 is the edge distance in direction of 
+the shear load (see Figure 2.1b and Figure 5.7of EOTA TR029).</li>
 </ul>
 </td>
 </tr>
@@ -477,12 +511,12 @@ expression 5.8f of the clause 5.2.3.4 of EOTA TR029.</p>
 <dl class="function">
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.psiReVFactor">
 <code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">psiReVFactor</code><span class="sig-paren">(</span><em>descr</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.psiReVFactor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Coeficiente que introduce la influencia del tipo de refuerzo empleado en cracked concrete  en la expresión 5.8 of EOTA TR029, calculado according to apartado g) of clause 5.2.3.4 of EOTA TR029.</p>
+<dd><p>Coeficiente que introduce la influencia del tipo de refuerzo empleado en cracked concrete  en la expresión 5.8 of EOTA TR029, computed according to section g) of clause 5.2.3.4 of EOTA TR029.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>descr</strong> &#8211; Descriptor que puede tomar los valores:
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>descr</strong> – Descriptor que puede tomar los valores:
 1: anclaje en cracked concrete o no fisurado sin reinforcement de refuerzo en el borde.
 2: anclaje en cracked concrete con reinforcement de refuerzo en el borde (diámetro &gt; 12mm).
 3: anclaje en cracked concrete con reinforcement de refuerzo en el borde y estribos próximos entre si (separados menos de 10 cm).</td>
@@ -500,8 +534,11 @@ expression 5.8f of the clause 5.2.3.4 of EOTA TR029.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>c1</strong> &#8211; Distancia desde el centro de gravedad del grupo al borde situado frente al cortante.</li>
-<li><strong>c2</strong> &#8211; Distancia desde el centro de gravedad del grupo al otro borde libre.</li>
+<li><strong>c1</strong> – edge distance in direction 1; in case of anchorages close to an 
+edge loaded in shear c 1 is the edge distance in direction of 
+the shear load (see Figure 2.1b and Figure 5.7of EOTA TR029).</li>
+<li><strong>c2</strong> – edge distance in direction 2; direction 2 is perpendicular to 
+direction 1.</li>
 </ul>
 </td>
 </tr>
@@ -513,7 +550,7 @@ expression 5.8f of the clause 5.2.3.4 of EOTA TR029.</p>
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.shearResistanceConcretePryOut">
 <code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">shearResistanceConcretePryOut</code><span class="sig-paren">(</span><em>NRkp</em>, <em>NRkc</em>, <em>hEf</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.shearResistanceConcretePryOut" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>Resistencia de un perno a cortante por desprendimiento de cuña de hormigón</dt>
+<dt>Shear strength of a bolt por desprendimiento de cuña de hormigón</dt>
 <dd><p class="first">according to expressions 5.7 y 5.7a of clause 5.2.3.3 of EOTA TR029.</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -537,7 +574,7 @@ failure (5.2.2.4 of EOTA TR029).</td>
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.shearResistanceGroupWithoutLeverArm">
 <code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">shearResistanceGroupWithoutLeverArm</code><span class="sig-paren">(</span><em>As</em>, <em>fuk</em>, <em>nr</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.shearResistanceGroupWithoutLeverArm" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>Resistencia de un grupo de pernos a cortante according to clause 5.2.3.2 a) of EOTA TR029.</dt>
+<dt>Shear strenght of a bolt group according to clause 5.2.3.2 a) of EOTA TR029.</dt>
 <dd>As: stressed cross section of steel.
 fuk: characteristic steel ultimate tensile strength (nominal value).
 n: number of anchors in a group.</dd>
@@ -547,14 +584,14 @@ n: number of anchors in a group.</dd>
 <dl class="function">
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.shearResistanceWithoutLeverArm">
 <code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">shearResistanceWithoutLeverArm</code><span class="sig-paren">(</span><em>As</em>, <em>fuk</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.shearResistanceWithoutLeverArm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resistencia de un perno a cortante according to clause 5.2.3.2 a) of EOTA TR029.</p>
+<dd><p>Shear strength of a bolt according to clause 5.2.3.2 a) of EOTA TR029.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>As</strong> &#8211; stressed cross section of steel.</li>
-<li><strong>fuk</strong> &#8211; characteristic steel ultimate tensile strength (nominal value).</li>
+<li><strong>As</strong> – stressed cross section of steel.</li>
+<li><strong>fuk</strong> – characteristic steel ultimate tensile strength (nominal value).</li>
 </ul>
 </td>
 </tr>
@@ -588,21 +625,18 @@ n: number of anchors in a group.</dd>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../../_sources/preprocessor/python_modules/materials.eota.txt"
+      <li><a href="../../_sources/preprocessor/python_modules/materials.eota.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -624,13 +658,13 @@ n: number of anchors in a group.</dd>
         <li class="right" >
           <a href="materials.eae.html" title="Materials according to EAE code"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../material.html" >Material</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../material.html" >Material</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+        &#169; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
     </div>
   </body>
 </html>

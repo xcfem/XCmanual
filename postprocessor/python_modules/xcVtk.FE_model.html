@@ -1,34 +1,32 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Fields &mdash; XC 3.0 documentation</title>
-    
+    <title>Fields &#8212; XC 3.0 documentation</title>
     <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
         VERSION:     '3.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="XC 3.0 documentation" href="../../index.html" />
-    <link rel="up" title="XC_Vtk" href="xcVtk.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Reports" href="reports.html" />
     <link rel="prev" title="vtk_CAD_graphic" href="xcVtk.CAD_model.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,8 +42,8 @@
         <li class="right" >
           <a href="xcVtk.CAD_model.html" title="vtk_CAD_graphic"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="xcVtk.html" accesskey="U">XC_Vtk</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="xcVtk.html" accesskey="U">XC_Vtk</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -59,7 +57,7 @@
 <p>Graphic representation of fields over the mesh.</p>
 <dl class="class">
 <dt id="postprocess.xcVtk.FE_model.Fields.ExtrapolatedProperty">
-<em class="property">class </em><code class="descclassname">postprocess.xcVtk.FE_model.Fields.</code><code class="descname">ExtrapolatedProperty</code><span class="sig-paren">(</span><em>name</em>, <em>functionName</em>, <em>xcSet</em>, <em>component=None</em>, <em>fUnitConv=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.Fields.ExtrapolatedProperty" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">postprocess.xcVtk.FE_model.Fields.</code><code class="descname">ExtrapolatedProperty</code><span class="sig-paren">(</span><em>name</em>, <em>functionName</em>, <em>xcSet</em>, <em>component=None</em>, <em>fUnitConv=1.0</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.Fields.ExtrapolatedProperty" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#postprocess.xcVtk.FE_model.Fields.ExtrapolatedScalarField" title="postprocess.xcVtk.FE_model.Fields.ExtrapolatedScalarField"><code class="xref py py-class docutils literal"><span class="pre">postprocess.xcVtk.FE_model.Fields.ExtrapolatedScalarField</span></code></a></p>
 <p>Scalar field defined as property value at nodes.</p>
 <dl class="method">
@@ -81,9 +79,14 @@
 
 <dl class="class">
 <dt id="postprocess.xcVtk.FE_model.Fields.ExtrapolatedScalarField">
-<em class="property">class </em><code class="descclassname">postprocess.xcVtk.FE_model.Fields.</code><code class="descname">ExtrapolatedScalarField</code><span class="sig-paren">(</span><em>name</em>, <em>functionName</em>, <em>xcSet</em>, <em>component=None</em>, <em>fUnitConv=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.Fields.ExtrapolatedScalarField" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">postprocess.xcVtk.FE_model.Fields.</code><code class="descname">ExtrapolatedScalarField</code><span class="sig-paren">(</span><em>name</em>, <em>functionName</em>, <em>xcSet</em>, <em>component=None</em>, <em>fUnitConv=1.0</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.Fields.ExtrapolatedScalarField" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#postprocess.xcVtk.FE_model.Fields.ScalarField" title="postprocess.xcVtk.FE_model.Fields.ScalarField"><code class="xref py py-class docutils literal"><span class="pre">postprocess.xcVtk.FE_model.Fields.ScalarField</span></code></a></p>
-<p>Scalar field defined at nodes.</p>
+<p>Scalar field defined at nodes.
+:ivar rgMinMax: range (vmin,vmax) with the maximum and minimum values</p>
+<blockquote>
+<div>of the scalar field (if any) to be represented. All the values 
+less than vmin are displayed in blue and those greater than vmax 
+in red (defaults to None)</div></blockquote>
 <dl class="method">
 <dt id="postprocess.xcVtk.FE_model.Fields.ExtrapolatedScalarField.display">
 <code class="descname">display</code><span class="sig-paren">(</span><em>defDisplay</em>, <em>fName=None</em>, <em>caption=''</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.Fields.ExtrapolatedScalarField.display" title="Permalink to this definition">¶</a></dt>
@@ -98,9 +101,20 @@
 
 <dl class="class">
 <dt id="postprocess.xcVtk.FE_model.Fields.ScalarField">
-<em class="property">class </em><code class="descclassname">postprocess.xcVtk.FE_model.Fields.</code><code class="descname">ScalarField</code><span class="sig-paren">(</span><em>name</em>, <em>functionName</em>, <em>component=None</em>, <em>fUnitConv=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.Fields.ScalarField" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">postprocess.xcVtk.FE_model.Fields.</code><code class="descname">ScalarField</code><span class="sig-paren">(</span><em>name</em>, <em>functionName</em>, <em>component=None</em>, <em>fUnitConv=1.0</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.Fields.ScalarField" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="xcVtkGenTopics.html#postprocess.xcVtk.field_base.FieldBase" title="postprocess.xcVtk.field_base.FieldBase"><code class="xref py py-class docutils literal"><span class="pre">postprocess.xcVtk.field_base.FieldBase</span></code></a></p>
 <p>Scalar field defined at nodes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>rgMinMax</strong> – range (vmin,vmax) with the maximum and minimum values of 
+the field to be represented. All the values less than vmin are 
+displayed in blue and those greater than vmax in red
+(defaults to None)</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="postprocess.xcVtk.FE_model.Fields.ScalarField.fillArray">
 <code class="descname">fillArray</code><span class="sig-paren">(</span><em>nodeSet</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.Fields.ScalarField.fillArray" title="Permalink to this definition">¶</a></dt>
@@ -121,7 +135,7 @@
 
 <dl class="function">
 <dt id="postprocess.xcVtk.FE_model.Fields.getScalarFieldFromControlVar">
-<code class="descclassname">postprocess.xcVtk.FE_model.Fields.</code><code class="descname">getScalarFieldFromControlVar</code><span class="sig-paren">(</span><em>attributeName</em>, <em>argument</em>, <em>xcSet</em>, <em>component</em>, <em>fUnitConv</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.Fields.getScalarFieldFromControlVar" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">postprocess.xcVtk.FE_model.Fields.</code><code class="descname">getScalarFieldFromControlVar</code><span class="sig-paren">(</span><em>attributeName</em>, <em>argument</em>, <em>xcSet</em>, <em>component</em>, <em>fUnitConv</em>, <em>rgMinMax</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.Fields.getScalarFieldFromControlVar" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>return an scalar field that represents the control var over the </dt>
 <dd>elements in the set.</dd>
@@ -131,13 +145,13 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>attributeName</strong> &#8211; name of the element&#8217;s property that has the 
+<li><strong>attributeName</strong> – name of the element’s property that has the 
 control var in it for example as in 
 elem.getProp(attributeName).eval(argument).</li>
-<li><strong>argument</strong> &#8211; name of the control var to represent.</li>
-<li><strong>xcSet</strong> &#8211; represent the field over those elements.</li>
-<li><strong>component</strong> &#8211; component of the control var to represent.</li>
-<li><strong>fUnitConv</strong> &#8211; unit conversion factor (i.e N-&gt;kN =&gt; fUnitConv= 1e-3).</li>
+<li><strong>argument</strong> – name of the control var to represent.</li>
+<li><strong>xcSet</strong> – represent the field over those elements.</li>
+<li><strong>component</strong> – component of the control var to represent.</li>
+<li><strong>fUnitConv</strong> – unit conversion factor (i.e N-&gt;kN =&gt; fUnitConv= 1e-3).</li>
 </ul>
 </td>
 </tr>
@@ -148,9 +162,6 @@ elem.getProp(attributeName).eval(argument).</li>
 </div>
 <div class="section" id="module-postprocess.xcVtk.FE_model.quick_graphics">
 <span id="quick-graphics"></span><h1>quick_graphics<a class="headerlink" href="#module-postprocess.xcVtk.FE_model.quick_graphics" title="Permalink to this headline">¶</a></h1>
-<p>Providing the user with a quick and easy way to 
-display results (internal forces, displacements) of an user-defined
-load case.</p>
 <dl class="class">
 <dt id="postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics">
 <em class="property">class </em><code class="descclassname">postprocess.xcVtk.FE_model.quick_graphics.</code><code class="descname">QuickGraphics</code><span class="sig-paren">(</span><em>feProblem</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics" title="Permalink to this definition">¶</a></dt>
@@ -163,10 +174,10 @@ load case.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>loadCaseName</strong> &#8211; name of the load case to be created</li>
-<li><strong>loadCaseExpr</strong> &#8211; expression that defines de load case as a
+<li><strong>loadCaseName</strong> – name of the load case to be created</li>
+<li><strong>loadCaseExpr</strong> – expression that defines de load case as a
 combination of previously defined actions
-e.g. &#8216;1.0*GselfWeight+1.0*GearthPress&#8217;</li>
+e.g. ‘1.0*GselfWeight+1.0*GearthPress’</li>
 </ul>
 </td>
 </tr>
@@ -181,24 +192,30 @@ e.g. &#8216;1.0*GselfWeight+1.0*GearthPress&#8217;</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>setToDisplay</strong> &#8211; set of beam elements to be represented</li>
-<li><strong>fUnitConv</strong> &#8211; factor of conversion to be applied to the results (defaults to 1)</li>
-<li><strong>elLoadComp</strong> &#8211; <p>component of the loads on elements to be depicted
-[possible components: &#8216;axialComponent&#8217;, &#8216;transComponent&#8217;, &#8216;transYComponent&#8217;,</p>
+<li><strong>setToDisplay</strong> – set of beam elements to be represented</li>
+<li><strong>fUnitConv</strong> – factor of conversion to be applied to the results
+(defaults to 1)</li>
+<li><strong>elLoadComp</strong> – <p>component of the loads on elements to be depicted
+[possible components: ‘axialComponent’, ‘transComponent’,</p>
 <blockquote>
-<div>&#8216;transZComponent&#8217;]</div></blockquote>
+<div>’transYComponent’, ‘transZComponent’]</div></blockquote>
 </li>
-<li><strong>elLoadScaleF</strong> &#8211; factor of scale to apply to the diagram display of element loads (defaults to 1)</li>
-<li><strong>nodLoadScaleF</strong> &#8211; factor of scale to apply to the vector display of nodal loads (defaults to 1)</li>
-<li><strong>viewName</strong> &#8211; name of the view  that contains the renderer (possible
-options: &#8220;XYZPos&#8221;, &#8220;XPos&#8221;, &#8220;XNeg&#8221;,&#8221;YPos&#8221;, &#8220;YNeg&#8221;,
-&#8220;ZPos&#8221;, &#8220;ZNeg&#8221;) (defaults to &#8220;XYZPos&#8221;)</li>
-<li><strong>hCamFct</strong> &#8211; factor that applies to the height of the camera position in order to
-change perspective of isometric views (defaults to 1). Usual values 0.1 to 10</li>
-<li><strong>caption</strong> &#8211; caption for the graphic</li>
-<li><strong>fileName</strong> &#8211; name of the file to plot the graphic. Defaults to None,
+<li><strong>elLoadScaleF</strong> – factor of scale to apply to the diagram display 
+of element loads (defaults to 1)</li>
+<li><strong>nodLoadScaleF</strong> – factor of scale to apply to the vector display of 
+nodal loads (defaults to 1)</li>
+<li><strong>viewName</strong> – name of the view  that contains the renderer (possible
+options: “XYZPos”, “XPos”, “XNeg”,”YPos”, “YNeg”,
+“ZPos”, “ZNeg”) (defaults to “XYZPos”)</li>
+<li><strong>hCamFct</strong> – <p>factor that applies to the height of the camera position 
+in order to change perspective of isometric views (defaults to 1).</p>
+<blockquote>
+<div>Usual values 0.1 to 10</div></blockquote>
+</li>
+<li><strong>caption</strong> – caption for the graphic</li>
+<li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to None,
 in that case an screen display is generated</li>
-<li><strong>defFScale</strong> &#8211; factor to apply to current displacement of nodes 
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
 so that the display position of each node equals to
 the initial position plus its displacement multiplied
 by this factor. (Defaults to 0.0, i.e. display of 
@@ -212,7 +229,7 @@ initial/undeformed shape)</li>
 
 <dl class="method">
 <dt id="postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics.displayDispRot">
-<code class="descname">displayDispRot</code><span class="sig-paren">(</span><em>itemToDisp=''</em>, <em>setToDisplay=None</em>, <em>fConvUnits=1.0</em>, <em>unitDescription=''</em>, <em>viewName='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics.displayDispRot" title="Permalink to this definition">¶</a></dt>
+<code class="descname">displayDispRot</code><span class="sig-paren">(</span><em>itemToDisp=''</em>, <em>setToDisplay=None</em>, <em>fConvUnits=1.0</em>, <em>unitDescription=''</em>, <em>viewName='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>fileName=None</em>, <em>defFScale=0.0</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics.displayDispRot" title="Permalink to this definition">¶</a></dt>
 <dd><p>displays the component of the displacement or rotations in the 
 set of entities.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -220,20 +237,24 @@ set of entities.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>itemToDisp</strong> &#8211; component of the displacement (&#8216;uX&#8217;, &#8216;uY&#8217; or &#8216;uZ&#8217;) 
-or the rotation (&#8216;rotX&#8217;, rotY&#8217;, &#8216;rotZ&#8217;) to be depicted</li>
-<li><strong>setToDisplay</strong> &#8211; set of entities to be represented (defaults to all 
+<li><strong>itemToDisp</strong> – component of the displacement (‘uX’, ‘uY’ or ‘uZ’) 
+or the rotation (‘rotX’, rotY’, ‘rotZ’) to be depicted</li>
+<li><strong>setToDisplay</strong> – set of entities to be represented (defaults to all 
 entities)</li>
-<li><strong>fConvUnits</strong> &#8211; factor of conversion to be applied to the results 
+<li><strong>fConvUnits</strong> – factor of conversion to be applied to the results 
 (defaults to 1)</li>
-<li><strong>unitDescription</strong> &#8211; string describing units like &#8216;[mm] or [cm]&#8217;</li>
-<li><strong>fileName</strong> &#8211; name of the file to plot the graphic. Defaults to 
+<li><strong>unitDescription</strong> – string describing units like ‘[mm] or [cm]’</li>
+<li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to 
 None, in that case an screen display is generated</li>
-<li><strong>defFScale</strong> &#8211; factor to apply to current displacement of nodes 
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
 so that the display position of each node equals to
 the initial position plus its displacement multiplied
 by this factor. (Defaults to 0.0, i.e. display of 
 initial/undeformed shape)</li>
+<li><strong>rgMinMax</strong> – range (vmin,vmax) with the maximum and minimum values of 
+the field to be represented. All the values less than vmin are 
+displayed in blue and those greater than vmax in red
+(defaults to None)</li>
 </ul>
 </td>
 </tr>
@@ -246,28 +267,28 @@ initial/undeformed shape)</li>
 <code class="descname">displayIntForc</code><span class="sig-paren">(</span><em>itemToDisp=''</em>, <em>setToDisplay=None</em>, <em>fConvUnits=1.0</em>, <em>unitDescription=''</em>, <em>viewName='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics.displayIntForc" title="Permalink to this definition">¶</a></dt>
 <dd><p>displays the component of internal forces in the 
 set of entities as a scalar field (i.e. appropiated for 2D elements; 
-shells...).</p>
+shells…).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>itemToDisp</strong> &#8211; component of the internal forces (&#8216;N1&#8217;, &#8216;N2&#8217;, &#8216;N12&#8217;, 
-&#8216;M1&#8217;, &#8216;M2&#8217;, &#8216;M12&#8217;, &#8216;Q1&#8217;, &#8216;Q2&#8217;) to be depicted</li>
-<li><strong>setToDisplay</strong> &#8211; set of entities to be represented (default to all 
+<li><strong>itemToDisp</strong> – component of the internal forces (‘N1’, ‘N2’, ‘N12’, 
+‘M1’, ‘M2’, ‘M12’, ‘Q1’, ‘Q2’) to be depicted</li>
+<li><strong>setToDisplay</strong> – set of entities to be represented (default to all 
 entities)</li>
-<li><strong>fConvUnits</strong> &#8211; factor of conversion to be applied to the results 
+<li><strong>fConvUnits</strong> – factor of conversion to be applied to the results 
 (defalts to 1)</li>
-<li><strong>unitDescription</strong> &#8211; string like &#8216;[kN/m] or [kN m/m]&#8217;</li>
-<li><strong>viewName</strong> &#8211; name of the view  that contains the renderer (possible
-options: &#8220;XYZPos&#8221;, &#8220;XPos&#8221;, &#8220;XNeg&#8221;,&#8221;YPos&#8221;, &#8220;YNeg&#8221;, &#8220;ZPos&#8221;, &#8220;ZNeg&#8221;) 
-(defaults to &#8220;XYZPos&#8221;)</li>
-<li><strong>hCamFct</strong> &#8211; factor that applies to the height of the camera position
+<li><strong>unitDescription</strong> – string like ‘[kN/m] or [kN m/m]’</li>
+<li><strong>viewName</strong> – name of the view  that contains the renderer (possible
+options: “XYZPos”, “XPos”, “XNeg”,”YPos”, “YNeg”, “ZPos”, “ZNeg”) 
+(defaults to “XYZPos”)</li>
+<li><strong>hCamFct</strong> – factor that applies to the height of the camera position
 in order to change perspective of isometric views (defaults to 1, 
 usual values 0.1 to 10)</li>
-<li><strong>fileName</strong> &#8211; name of the file to plot the graphic. Defaults to None,
+<li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to None,
 in that case an screen display is generated</li>
-<li><strong>defFScale</strong> &#8211; factor to apply to current displacement of nodes 
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
 so that the display position of each node equals to
 the initial position plus its displacement multiplied
 by this factor. (Defaults to 0.0, i.e. display of 
@@ -282,28 +303,32 @@ initial/undeformed shape)</li>
 <dl class="method">
 <dt id="postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics.displayIntForcDiag">
 <code class="descname">displayIntForcDiag</code><span class="sig-paren">(</span><em>itemToDisp=''</em>, <em>setToDisplay=None</em>, <em>fConvUnits=1.0</em>, <em>scaleFactor=1.0</em>, <em>unitDescription=''</em>, <em>viewName='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics.displayIntForcDiag" title="Permalink to this definition">¶</a></dt>
-<dd><p>displays the component of internal forces in the 
-set of entities as a diagram over lines (i.e. appropiated for beam elements).</p>
+<dd><dl class="docutils">
+<dt>displays the component of internal forces in the set of entities as a </dt>
+<dd>diagram over lines (i.e. appropiated for beam elements).</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>itemToDisp</strong> &#8211; component of the internal forces (&#8216;N&#8217;, &#8216;Qy&#8217; (or &#8216;Vy&#8217;), &#8216;Qz&#8217; (or &#8216;Vz&#8217;), 
-&#8216;My&#8217;, &#8216;Mz&#8217;, &#8216;T&#8217;) to be depicted</li>
-<li><strong>setToDisplay</strong> &#8211; set of entities (elements of type beam) to be represented</li>
-<li><strong>fConvUnits</strong> &#8211; factor of conversion to be applied to the results (defalts to 1)</li>
-<li><strong>scaleFactor</strong> &#8211; factor of scale to apply to the diagram display of</li>
-<li><strong>unitDescription</strong> &#8211; string like &#8216;[kN/m] or [kN m/m]&#8217;</li>
-<li><strong>viewName</strong> &#8211; name of the view  that contains the renderer (possible
-options: &#8220;XYZPos&#8221;, &#8220;XPos&#8221;, &#8220;XNeg&#8221;,&#8221;YPos&#8221;, &#8220;YNeg&#8221;,
-&#8220;ZPos&#8221;, &#8220;ZNeg&#8221;) (defaults to &#8220;XYZPos&#8221;)</li>
-<li><strong>hCamFct</strong> &#8211; factor that applies to the height of the camera position
+<li><strong>itemToDisp</strong> – component of the internal forces 
+(‘N’, ‘Qy’ (or ‘Vy’), ‘Qz’ (or ‘Vz’), ‘My’, ‘Mz’, ‘T’) to be depicted</li>
+<li><strong>setToDisplay</strong> – set of entities (elements of type beam) to be 
+represented</li>
+<li><strong>fConvUnits</strong> – factor of conversion to be applied to the results 
+(defaults to 1)</li>
+<li><strong>scaleFactor</strong> – factor of scale to apply to the diagram display of</li>
+<li><strong>unitDescription</strong> – string like ‘[kN/m] or [kN m/m]’</li>
+<li><strong>viewName</strong> – name of the view  that contains the renderer (possible
+options: “XYZPos”, “XPos”, “XNeg”,”YPos”, “YNeg”,
+“ZPos”, “ZNeg”) (defaults to “XYZPos”)</li>
+<li><strong>hCamFct</strong> – factor that applies to the height of the camera position
 in order to change perspective of isometric views 
 (defaults to 1, usual values 0.1 to 10)</li>
-<li><strong>fileName</strong> &#8211; name of the file to plot the graphic. Defaults to None,
+<li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to None,
 in that case an screen display is generated</li>
-<li><strong>defFScale</strong> &#8211; factor to apply to current displacement of nodes 
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
 so that the display position of each node equals to
 the initial position plus its displacement multiplied
 by this factor. (Defaults to 0.0, i.e. display of 
@@ -318,27 +343,29 @@ initial/undeformed shape)</li>
 <dl class="method">
 <dt id="postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics.displayNodeValueDiagram">
 <code class="descname">displayNodeValueDiagram</code><span class="sig-paren">(</span><em>itemToDisp=''</em>, <em>setToDisplay=None</em>, <em>fConvUnits=1.0</em>, <em>scaleFactor=1.0</em>, <em>unitDescription=''</em>, <em>viewName='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics.displayNodeValueDiagram" title="Permalink to this definition">¶</a></dt>
-<dd><p>displays the a displacement (uX,uY,...) or a property defined in nodes 
+<dd><p>displays the a displacement (uX,uY,…) or a property defined in nodes 
 as a diagram over lines (i.e. appropiated for beam elements).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>itemToDisp</strong> &#8211; item to display.</li>
-<li><strong>setToDisplay</strong> &#8211; set of entities (elements of type beam) to be represented</li>
-<li><strong>fConvUnits</strong> &#8211; factor of conversion to be applied to the results (defalts to 1)</li>
-<li><strong>scaleFactor</strong> &#8211; factor of scale to apply to the diagram display of</li>
-<li><strong>unitDescription</strong> &#8211; string like &#8216;[m]&#8217; or &#8216;[rad]&#8217; or &#8216;[m/s2]&#8217;</li>
-<li><strong>viewName</strong> &#8211; name of the view  that contains the renderer (possible
-options: &#8220;XYZPos&#8221;, &#8220;XPos&#8221;, &#8220;XNeg&#8221;,&#8221;YPos&#8221;, &#8220;YNeg&#8221;,
-&#8220;ZPos&#8221;, &#8220;ZNeg&#8221;) (defaults to &#8220;XYZPos&#8221;)</li>
-<li><strong>hCamFct</strong> &#8211; factor that applies to the height of the camera position
+<li><strong>itemToDisp</strong> – item to display.</li>
+<li><strong>setToDisplay</strong> – set of entities (elements of type beam) to be 
+represented</li>
+<li><strong>fConvUnits</strong> – factor of conversion to be applied to the results 
+(defalts to 1)</li>
+<li><strong>scaleFactor</strong> – factor of scale to apply to the diagram display of</li>
+<li><strong>unitDescription</strong> – string like ‘[m]’ or ‘[rad]’ or ‘[m/s2]’</li>
+<li><strong>viewName</strong> – name of the view  that contains the renderer (possible
+options: “XYZPos”, “XPos”, “XNeg”,”YPos”, “YNeg”,
+“ZPos”, “ZNeg”) (defaults to “XYZPos”)</li>
+<li><strong>hCamFct</strong> – factor that applies to the height of the camera position
 in order to change perspective of isometric views 
 (defaults to 1, usual values 0.1 to 10)</li>
-<li><strong>fileName</strong> &#8211; name of the file to plot the graphic. Defaults to None,
+<li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to None,
 in that case an screen display is generated</li>
-<li><strong>defFScale</strong> &#8211; factor to apply to current displacement of nodes 
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
 so that the display position of each node equals to
 the initial position plus its displacement multiplied
 by this factor. (Defaults to 0.0, i.e. display of 
@@ -364,10 +391,10 @@ initial/undeformed shape)</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>viewName</strong> &#8211; name of the view that contains the renderer (possible
-options: &#8220;XYZPos&#8221;, &#8220;XPos&#8221;, &#8220;XNeg&#8221;,&#8221;YPos&#8221;, &#8220;YNeg&#8221;,
-&#8220;ZPos&#8221;, &#8220;ZNeg&#8221;) (defaults to &#8220;XYZPos&#8221;)</li>
-<li><strong>hCamFct</strong> &#8211; factor that applies to the height of the camera position
+<li><strong>viewName</strong> – name of the view that contains the renderer (possible
+options: “XYZPos”, “XPos”, “XNeg”,”YPos”, “YNeg”,
+“ZPos”, “ZNeg”) (defaults to “XYZPos”)</li>
+<li><strong>hCamFct</strong> – factor that applies to the height of the camera position
 in order to change perspective of isometric views 
 (defaults to 1, usual values 0.1 to 10)</li>
 </ul>
@@ -398,19 +425,65 @@ in order to change perspective of isometric views
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>vectorField</strong> &#8211; function that generates the vector field.</li>
-<li><strong>setToDisplay</strong> &#8211; set of elements to be displayed (defaults to total set)</li>
-<li><strong>vectorScale</strong> &#8211; factor to apply to the vectors length in the representation</li>
-<li><strong>viewNm</strong> &#8211; name of the view  that contains the renderer (possible options: &#8220;XYZPos&#8221;, &#8220;XPos&#8221;, &#8220;XNeg&#8221;,&#8221;YPos&#8221;, &#8220;YNeg&#8221;, &#8220;ZPos&#8221;, &#8220;ZNeg&#8221;)</li>
-<li><strong>hCamFct</strong> &#8211; factor that applies to the height of the camera position in order to
-change perspective of isometric views (defaults to 1). Usual values 0.1 to 10</li>
-<li><strong>fileName</strong> &#8211; full name of the graphic file to generate. Defaults to <cite>None</cite>, in this case it returns a console output graphic.</li>
-<li><strong>caption</strong> &#8211; text to display in the graphic</li>
-<li><strong>defFScale</strong> &#8211; factor to apply to current displacement of nodes 
+<li><strong>vectorField</strong> – function that generates the vector field.</li>
+<li><strong>setToDisplay</strong> – set of elements to be displayed (defaults to total set)</li>
+<li><strong>vectorScale</strong> – factor to apply to the vectors length in the 
+representation.</li>
+<li><strong>viewNm</strong> – name of the view  that contains the renderer 
+(possible options: 
+“XYZPos”, “XPos”, “XNeg”,”YPos”, “YNeg”, “ZPos”, “ZNeg”)</li>
+<li><strong>hCamFct</strong> – factor that applies to the height of the camera position 
+in order to change perspective of isometric views (defaults to 1). 
+Usual values 0.1 to 10</li>
+<li><strong>fileName</strong> – full name of the graphic file to generate. Defaults to 
+<cite>None</cite>, in this case it returns a console output graphic.</li>
+<li><strong>caption</strong> – text to display in the graphic</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
 so that the display position of each node equals to
 the initial position plus its displacement multiplied
 by this factor. (Defaults to 0.0, i.e. display of 
 initial/undeformed shape)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="postprocess.xcVtk.FE_model.quick_graphics.displayEigenResults">
+<code class="descclassname">postprocess.xcVtk.FE_model.quick_graphics.</code><code class="descname">displayEigenResults</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>eigenMode</em>, <em>setToDisplay=None</em>, <em>defShapeScale=0.0</em>, <em>equLoadVctScale=None</em>, <em>accelMode=None</em>, <em>unitsScale=1.0</em>, <em>viewNm='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>caption=''</em>, <em>fileName=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.displayEigenResults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the deformed shape and/or the equivalent static forces 
+associated with the eigenvibration mode passed as parameter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>eigenMode</strong> – eigenvibration mode to be displayed</li>
+<li><strong>setToDisplay</strong> – set of elements to be displayed (defaults to total set)</li>
+<li><strong>defShapeScale</strong> – factor to apply to deformed shape so that the 
+displayed position of each node equals to the initial position 
+plus its eigenVector multiplied by this factor. (Defaults to 0.0, 
+i.e. display of initial/undeformed shape)</li>
+<li><strong>equLoadVctScale</strong> – factor to apply to the vectors length in the 
+representation of equivalent loads on nodes. If vectorEqLoadScale
+equals 0 or None, equivalent static loads are not represented.
+(defaults to  None, in which case only deformed shape is depicted)</li>
+<li><strong>accelMode</strong> – acceleration associated with the eigen mode depicted, 
+only used if the equivalent static loads are to be displayed.</li>
+<li><strong>unitsScale</strong> – factor to apply to the results if we want to change the 
+unit system.</li>
+<li><strong>viewNm</strong> – name of the view  that contains the renderer 
+(possible options: 
+<cite>XYZPos</cite>, <cite>XYZNeg</cite>,`XPos`, <cite>XNeg</cite>,`YPos`, <cite>YNeg</cite>, <cite>ZPos</cite>, <cite>ZNeg</cite>)</li>
+<li><strong>hCamFct</strong> – factor that applies to the height of the camera position 
+in order to change perspective of isometric views (defaults to 1).
+Usual values 0.1 to 10</li>
+<li><strong>caption</strong> – text to display in the graphic</li>
+<li><strong>fileName</strong> – full name of the graphic file to generate. 
+Defaults to ` None`, in this case it returns a console output 
+graphic.</li>
 </ul>
 </td>
 </tr>
@@ -427,17 +500,24 @@ initial/undeformed shape)</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>setToDisplay</strong> &#8211; set of elements to be displayed (defaults to total set)</li>
-<li><strong>loadCaseNm</strong> &#8211; name of the load case to be depicted</li>
-<li><strong>unitsScale</strong> &#8211; factor to apply to the results if we want to change the units.</li>
-<li><strong>vectorScale</strong> &#8211; factor to apply to the vectors length in the representation</li>
-<li><strong>multByElemArea</strong> &#8211; boolean value that must be <cite>True</cite> if we want to represent the total load on each element (=load multiplied by element area) and <cite>False</cite> if we are going to depict the value of the uniform load per unit area</li>
-<li><strong>viewNm</strong> &#8211; name of the view  that contains the renderer (possible options: <cite>XYZPos</cite>, <cite>XYZNeg</cite>,`XPos`, <cite>XNeg</cite>,`YPos`, <cite>YNeg</cite>, <cite>ZPos</cite>, <cite>ZNeg</cite>)</li>
-<li><strong>hCamFct</strong> &#8211; factor that applies to the height of the camera position in order to
-change perspective of isometric views (defaults to 1). Usual values 0.1 to 10</li>
-<li><strong>fileName</strong> &#8211; full name of the graphic file to generate. Defaults to ` None`, in this case it returns a console output graphic.</li>
-<li><strong>caption</strong> &#8211; text to display in the graphic</li>
-<li><strong>defFScale</strong> &#8211; factor to apply to current displacement of nodes 
+<li><strong>setToDisplay</strong> – set of elements to be displayed (defaults to total set)</li>
+<li><strong>loadCaseNm</strong> – name of the load case to be depicted</li>
+<li><strong>unitsScale</strong> – factor to apply to the results if we want to change the 
+unit system.</li>
+<li><strong>vectorScale</strong> – factor to apply to the vectors length in the 
+representation</li>
+<li><strong>multByElemArea</strong> – <p>boolean value that must be <cite>True</cite> if we want to 
+represent the total load on each element (=load multiplied by 
+element area) and <cite>False</cite> if we are going to depict the value of</p>
+<blockquote>
+<div>the uniform load per unit area</div></blockquote>
+</li>
+<li><strong>viewNm</strong> – name of the view  that contains the renderer</li>
+<li><strong>hCamFct</strong> – factor that applies to the height of the camera position</li>
+<li><strong>fileName</strong> – full name of the graphic file to generate. Defaults to 
+` None`, in this case it returns a console output graphic.</li>
+<li><strong>caption</strong> – text to display in the graphic</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
 so that the display position of each node equals to
 the initial position plus its displacement multiplied
 by this factor. (Defaults to 0.0, i.e. display of 
@@ -458,14 +538,21 @@ initial/undeformed shape)</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>setToDisplay</strong> &#8211; set of elements to be displayed (defaults to total set)</li>
-<li><strong>vectorScale</strong> &#8211; factor to apply to the vectors length in the representation</li>
-<li><strong>viewNm</strong> &#8211; name of the view  that contains the renderer (possible options: &#8220;XYZPos&#8221;, &#8220;XPos&#8221;, &#8220;XNeg&#8221;,&#8221;YPos&#8221;, &#8220;YNeg&#8221;, &#8220;ZPos&#8221;, &#8220;ZNeg&#8221;)</li>
-<li><strong>hCamFct</strong> &#8211; factor that applies to the height of the camera position in order to
-change perspective of isometric views (defaults to 1). Usual values 0.1 to 10</li>
-<li><strong>fileName</strong> &#8211; full name of the graphic file to generate. Defaults to <cite>None</cite>, in this case it returns a console output graphic.</li>
-<li><strong>caption</strong> &#8211; text to display in the graphic</li>
-<li><strong>defFScale</strong> &#8211; factor to apply to current displacement of nodes 
+<li><strong>setToDisplay</strong> – set of elements to be displayed (defaults to total set)</li>
+<li><strong>vectorScale</strong> – factor to apply to the vectors length in the 
+representation.</li>
+<li><strong>viewNm</strong> – <p>name of the view  that contains the renderer 
+(possible options:</p>
+<blockquote>
+<div>”XYZPos”, “XPos”, “XNeg”,”YPos”, “YNeg”, “ZPos”, “ZNeg”)</div></blockquote>
+</li>
+<li><strong>hCamFct</strong> – factor that applies to the height of the camera position 
+in order to change perspective of isometric views (defaults to 1). 
+Usual values 0.1 to 10</li>
+<li><strong>fileName</strong> – full name of the graphic file to generate. 
+Defaults to <cite>None</cite>, in this case it returns a console output graphic.</li>
+<li><strong>caption</strong> – text to display in the graphic</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
 so that the display position of each node equals to
 the initial position plus its displacement multiplied
 by this factor. (Defaults to 0.0, i.e. display of 
@@ -480,20 +567,30 @@ initial/undeformed shape)</li>
 <dl class="function">
 <dt id="postprocess.xcVtk.FE_model.quick_graphics.displayStrongWeakAxis">
 <code class="descclassname">postprocess.xcVtk.FE_model.quick_graphics.</code><code class="descname">displayStrongWeakAxis</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>setToDisplay=None</em>, <em>vectorScale=1.0</em>, <em>viewNm='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>caption=''</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.displayStrongWeakAxis" title="Permalink to this definition">¶</a></dt>
-<dd><p>vector field display of the loads applied to the chosen set of elements in the load case passed as parameter</p>
+<dd><dl class="docutils">
+<dt>vector field display of the loads applied to the chosen set of elements </dt>
+<dd>in the load case passed as parameter</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>setToDisplay</strong> &#8211; set of elements to be displayed (defaults to total set)</li>
-<li><strong>vectorScale</strong> &#8211; factor to apply to the vectors length in the representation</li>
-<li><strong>viewNm</strong> &#8211; name of the view  that contains the renderer (possible options: &#8220;XYZPos&#8221;, &#8220;XPos&#8221;, &#8220;XNeg&#8221;,&#8221;YPos&#8221;, &#8220;YNeg&#8221;, &#8220;ZPos&#8221;, &#8220;ZNeg&#8221;)</li>
-<li><strong>hCamFct</strong> &#8211; factor that applies to the height of the camera position in order to
-change perspective of isometric views (defaults to 1). Usual values 0.1 to 10</li>
-<li><strong>fileName</strong> &#8211; full name of the graphic file to generate. Defaults to <cite>None</cite>, in this case it returns a console output graphic.</li>
-<li><strong>caption</strong> &#8211; text to display in the graphic</li>
-<li><strong>defFScale</strong> &#8211; factor to apply to current displacement of nodes 
+<li><strong>setToDisplay</strong> – set of elements to be displayed (defaults to total set)</li>
+<li><strong>vectorScale</strong> – factor to apply to the vectors length in the 
+representation.</li>
+<li><strong>viewNm</strong> – <p>name of the view  that contains the renderer 
+(possible options:</p>
+<blockquote>
+<div>”XYZPos”, “XPos”, “XNeg”,”YPos”, “YNeg”, “ZPos”, “ZNeg”)</div></blockquote>
+</li>
+<li><strong>hCamFct</strong> – factor that applies to the height of the camera position 
+in order to change perspective of isometric views (defaults to 1). 
+Usual values 0.1 to 10</li>
+<li><strong>fileName</strong> – full name of the graphic file to generate. Defaults to 
+<cite>None</cite>, in this case it returns a console output graphic.</li>
+<li><strong>caption</strong> – text to display in the graphic</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
 so that the display position of each node equals to
 the initial position plus its displacement multiplied
 by this factor. (Defaults to 0.0, i.e. display of 
@@ -522,13 +619,13 @@ initial/undeformed shape)</li>
 <div class="section" id="module-postprocess.xcVtk.FE_model.vtk_define_mesh_nodes">
 <span id="vtk-define-mesh-nodes"></span><h1>vtk_define_mesh_nodes<a class="headerlink" href="#module-postprocess.xcVtk.FE_model.vtk_define_mesh_nodes" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
-<dt id="postprocess.xcVtk.FE_model.vtk_define_mesh_nodes.VtkCargaIdsNodos">
-<code class="descclassname">postprocess.xcVtk.FE_model.vtk_define_mesh_nodes.</code><code class="descname">VtkCargaIdsNodos</code><span class="sig-paren">(</span><em>recordGrid</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_define_mesh_nodes.VtkCargaIdsNodos" title="Permalink to this definition">¶</a></dt>
+<dt id="postprocess.xcVtk.FE_model.vtk_define_mesh_nodes.VtkCargaIdsNodes">
+<code class="descclassname">postprocess.xcVtk.FE_model.vtk_define_mesh_nodes.</code><code class="descname">VtkCargaIdsNodes</code><span class="sig-paren">(</span><em>recordGrid</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_define_mesh_nodes.VtkCargaIdsNodes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="postprocess.xcVtk.FE_model.vtk_define_mesh_nodes.VtkDibujaIdsNodos">
-<code class="descclassname">postprocess.xcVtk.FE_model.vtk_define_mesh_nodes.</code><code class="descname">VtkDibujaIdsNodos</code><span class="sig-paren">(</span><em>recordGrid</em>, <em>renderer</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_define_mesh_nodes.VtkDibujaIdsNodos" title="Permalink to this definition">¶</a></dt>
+<dt id="postprocess.xcVtk.FE_model.vtk_define_mesh_nodes.VtkDibujaIdsNodes">
+<code class="descclassname">postprocess.xcVtk.FE_model.vtk_define_mesh_nodes.</code><code class="descname">VtkDibujaIdsNodes</code><span class="sig-paren">(</span><em>recordGrid</em>, <em>renderer</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_define_mesh_nodes.VtkDibujaIdsNodes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display node labels</p>
 </dd></dl>
 
@@ -538,25 +635,32 @@ initial/undeformed shape)</li>
 <p>Routines to display limit state results over the finite element mesh.</p>
 <dl class="function">
 <dt id="postprocess.xcVtk.FE_model.vtk_display_limit_state.displayFieldDirs1and2">
-<code class="descclassname">postprocess.xcVtk.FE_model.vtk_display_limit_state.</code><code class="descname">displayFieldDirs1and2</code><span class="sig-paren">(</span><em>limitStateLabel</em>, <em>argument</em>, <em>elementSet</em>, <em>component</em>, <em>fUnitConv</em>, <em>fileName</em>, <em>captionTexts</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_display_limit_state.displayFieldDirs1and2" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">postprocess.xcVtk.FE_model.vtk_display_limit_state.</code><code class="descname">displayFieldDirs1and2</code><span class="sig-paren">(</span><em>limitStateLabel</em>, <em>argument</em>, <em>elementSet</em>, <em>component</em>, <em>fUnitConv</em>, <em>fileName</em>, <em>captionTexts</em>, <em>defFScale=0.0</em>, <em>viewName='XYZPos'</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_display_limit_state.displayFieldDirs1and2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display a field defined over bi-dimensional elements in its two directions.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>limitStateLabel</strong> &#8211; label that identifies the limit state.</li>
-<li><strong>argument</strong> &#8211; name of the control var to represent.</li>
-<li><strong>xcSet</strong> &#8211; represent the field over those elements with &#8220;genDescr&#8221; and &#8220;sectDescr&#8221; attributes.</li>
-<li><strong>component</strong> &#8211; component of the control var to represent.</li>
-<li><strong>fUnitConv</strong> &#8211; unit conversion factor (i.e N-&gt;kN =&gt; fUnitConv= 1e-3).</li>
-<li><strong>fileName</strong> &#8211; file name to store the image. If none -&gt; window on screen.</li>
-<li><strong>captionTexts</strong> &#8211; dictionary of caption texts.</li>
-<li><strong>defFScale</strong> &#8211; factor to apply to current displacement of nodes 
+<li><strong>limitStateLabel</strong> – label that identifies the limit state.</li>
+<li><strong>argument</strong> – name of the control var to represent.</li>
+<li><strong>xcSet</strong> – represent the field over those elements with “genDescr” and “sectDescr” attributes.</li>
+<li><strong>component</strong> – component of the control var to represent.</li>
+<li><strong>fUnitConv</strong> – unit conversion factor (i.e N-&gt;kN =&gt; fUnitConv= 1e-3).</li>
+<li><strong>fileName</strong> – file name to store the image. If none -&gt; window on screen.</li>
+<li><strong>captionTexts</strong> – dictionary of caption texts.</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
 so that the display position of each node equals to
 the initial position plus its displacement multiplied
 by this factor. (Defaults to 0.0, i.e. display of 
 initial/undeformed shape)</li>
+<li><strong>viewName</strong> – name of the view that contains the renderer (possible
+options: “XYZPos”, “XPos”, “XNeg”,”YPos”, “YNeg”,
+“ZPos”, “ZNeg”) (defaults to “XYZPos”)</li>
+<li><strong>rgMinMax</strong> – range (vmin,vmax) with the maximum and minimum values  
+of the scalar field (if any) to be represented. All the values 
+less than vmin are displayed in blue and those greater than vmax 
+in red (defaults to None)</li>
 </ul>
 </td>
 </tr>
@@ -566,27 +670,34 @@ initial/undeformed shape)</li>
 
 <dl class="function">
 <dt id="postprocess.xcVtk.FE_model.vtk_display_limit_state.displayFieldDirs1and2Base">
-<code class="descclassname">postprocess.xcVtk.FE_model.vtk_display_limit_state.</code><code class="descname">displayFieldDirs1and2Base</code><span class="sig-paren">(</span><em>limitStateLabel</em>, <em>argument</em>, <em>elementSet</em>, <em>genDescr</em>, <em>sectDescr</em>, <em>component</em>, <em>fUnitConv</em>, <em>fileName</em>, <em>captionTexts</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_display_limit_state.displayFieldDirs1and2Base" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">postprocess.xcVtk.FE_model.vtk_display_limit_state.</code><code class="descname">displayFieldDirs1and2Base</code><span class="sig-paren">(</span><em>limitStateLabel</em>, <em>argument</em>, <em>elementSet</em>, <em>genDescr</em>, <em>sectDescr</em>, <em>component</em>, <em>fUnitConv</em>, <em>fileName</em>, <em>captionTexts</em>, <em>defFScale=0.0</em>, <em>viewName='XYZPos'</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_display_limit_state.displayFieldDirs1and2Base" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display a field defined over bi-dimensional elements in its two directions.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>limitStateLabel</strong> &#8211; label that identifies the limit state.</li>
-<li><strong>argument</strong> &#8211; name of the control var to represent.</li>
-<li><strong>xcSet</strong> &#8211; represent the field over those elements.</li>
-<li><strong>genDescr</strong> &#8211; text to identify the set (i.e &#8216;deck&#8217; or &#8216;west wall&#8217;).</li>
-<li><strong>sectDescr</strong> &#8211; text list to identify each direction (as [&#8216;vertical reinforcement&#8217;, &#8216;horizontal reinforcement&#8217;]).</li>
-<li><strong>component</strong> &#8211; component of the control var to represent.</li>
-<li><strong>fUnitConv</strong> &#8211; unit conversion factor (i.e N-&gt;kN =&gt; fUnitConv= 1e-3).</li>
-<li><strong>fileName</strong> &#8211; file name to store the image. If none -&gt; window on screen.</li>
-<li><strong>captionTexts</strong> &#8211; dictionary of caption texts.</li>
-<li><strong>defFScale</strong> &#8211; factor to apply to current displacement of nodes 
+<li><strong>limitStateLabel</strong> – label that identifies the limit state.</li>
+<li><strong>argument</strong> – name of the control var to represent.</li>
+<li><strong>xcSet</strong> – represent the field over those elements.</li>
+<li><strong>genDescr</strong> – text to identify the set (i.e ‘deck’ or ‘west wall’).</li>
+<li><strong>sectDescr</strong> – text list to identify each direction (as [‘vertical reinforcement’, ‘horizontal reinforcement’]).</li>
+<li><strong>component</strong> – component of the control var to represent.</li>
+<li><strong>fUnitConv</strong> – unit conversion factor (i.e N-&gt;kN =&gt; fUnitConv= 1e-3).</li>
+<li><strong>fileName</strong> – file name to store the image. If none -&gt; window on screen.</li>
+<li><strong>captionTexts</strong> – dictionary of caption texts.</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
 so that the display position of each node equals to
 the initial position plus its displacement multiplied
 by this factor. (Defaults to 0.0, i.e. display of 
 initial/undeformed shape)</li>
+<li><strong>viewName</strong> – name of the view that contains the renderer (possible
+options: “XYZPos”, “XPos”, “XNeg”,”YPos”, “YNeg”,
+“ZPos”, “ZNeg”) (defaults to “XYZPos”)</li>
+<li><strong>rgMinMax</strong> – range (vmin,vmax) with the maximum and minimum values  
+of the scalar field (if any) to be represented. All the values 
+less than vmin are displayed in blue and those greater than vmax 
+in red (defaults to None)</li>
 </ul>
 </td>
 </tr>
@@ -612,12 +723,12 @@ initial/undeformed shape)</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>xcSet</strong> &#8211; XC set of elements to be displayed</li>
-<li><strong>caption</strong> &#8211; text to write in the graphic</li>
-<li><strong>viewNm</strong> &#8211; name of the view to use for the representation
-predefined view names: &#8216;XYZPos&#8217;,&#8217;XNeg&#8217;,&#8217;XPos&#8217;,&#8217;YNeg&#8217;,&#8217;YPos&#8217;,
-&#8216;ZNeg&#8217;,&#8217;ZPos&#8217;  (defaults to &#8216;XYZPos&#8217;)</li>
-<li><strong>defFScale</strong> &#8211; factor to apply to current displacement of nodes 
+<li><strong>xcSet</strong> – XC set of elements to be displayed</li>
+<li><strong>caption</strong> – text to write in the graphic</li>
+<li><strong>viewNm</strong> – name of the view to use for the representation
+predefined view names: ‘XYZPos’,’XNeg’,’XPos’,’YNeg’,’YPos’,
+‘ZNeg’,’ZPos’  (defaults to ‘XYZPos’)</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
 so that the display position of each node equals to
 the initial position plus its displacement multiplied
 by this factor. (Defaults to 0.0, i.e. display of 
@@ -631,16 +742,18 @@ initial/undeformed shape)</li>
 
 <dl class="method">
 <dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.RecordDefDisplayEF.VtkDefineElementsActor">
-<code class="descname">VtkDefineElementsActor</code><span class="sig-paren">(</span><em>reprType</em>, <em>field</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.RecordDefDisplayEF.VtkDefineElementsActor" title="Permalink to this definition">¶</a></dt>
+<code class="descname">VtkDefineElementsActor</code><span class="sig-paren">(</span><em>reprType</em>, <em>field</em>, <em>color=&lt;xc.Vector object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.RecordDefDisplayEF.VtkDefineElementsActor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Define the actor to display elements</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>reprType</strong> &#8211; type of representation (&#8220;points&#8221;, &#8220;wireframe&#8221; or
-&#8220;surface&#8221;)</li>
-<li><strong>field</strong> &#8211; field to be repreresented</li>
+<li><strong>reprType</strong> – type of representation (“points”, “wireframe” or
+“surface”)</li>
+<li><strong>field</strong> – field to be repreresented</li>
+<li><strong>color</strong> – RGB color to represent the elements (defaults to random
+color)</li>
 </ul>
 </td>
 </tr>
@@ -656,7 +769,7 @@ initial/undeformed shape)</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>radius</strong> &#8211; radius of the sphere used as symbol to represent nodes.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>radius</strong> – radius of the sphere used as symbol to represent nodes.</td>
 </tr>
 </tbody>
 </table>
@@ -664,19 +777,24 @@ initial/undeformed shape)</li>
 
 <dl class="method">
 <dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.RecordDefDisplayEF.VtkLoadElemMesh">
-<code class="descname">VtkLoadElemMesh</code><span class="sig-paren">(</span><em>field</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.RecordDefDisplayEF.VtkLoadElemMesh" title="Permalink to this definition">¶</a></dt>
+<code class="descname">VtkLoadElemMesh</code><span class="sig-paren">(</span><em>field</em>, <em>defFScale=0.0</em>, <em>eigenMode=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.RecordDefDisplayEF.VtkLoadElemMesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load the element mesh</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>field</strong> &#8211; scalar field to be represented</li>
-<li><strong>defFScale</strong> &#8211; factor to apply to current displacement of nodes 
+<li><strong>field</strong> – scalar field to be represented</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
 so that the display position of each node equals to
 the initial position plus its displacement multiplied
-by this factor. (Defaults to 0.0, i.e. display of 
-initial/undeformed shape)</li>
+by this factor. In case of modal analysis, the displayed 
+position of each node equals to the initial position plus
+its eigenVector multiplied by this factor.
+(Defaults to 0.0, i.e. display of initial/undeformed shape)</li>
+<li><strong>eigenMode</strong> – eigenvibration mode if we want to display the deformed 
+shape associated with it when a modal analysis has been carried out. 
+Defaults to None: no modal analysis.</li>
 </ul>
 </td>
 </tr>
@@ -690,16 +808,21 @@ initial/undeformed shape)</li>
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.RecordDefDisplayEF.defineMeshActorsSet">
+<code class="descname">defineMeshActorsSet</code><span class="sig-paren">(</span><em>elemSet</em>, <em>field</em>, <em>defFScale</em>, <em>nodeSize</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.RecordDefDisplayEF.defineMeshActorsSet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.RecordDefDisplayEF.defineMeshScene">
-<code class="descname">defineMeshScene</code><span class="sig-paren">(</span><em>field</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.RecordDefDisplayEF.defineMeshScene" title="Permalink to this definition">¶</a></dt>
+<code class="descname">defineMeshScene</code><span class="sig-paren">(</span><em>field</em>, <em>defFScale=0.0</em>, <em>eigenMode=None</em>, <em>color=&lt;xc.Vector object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.RecordDefDisplayEF.defineMeshScene" title="Permalink to this definition">¶</a></dt>
 <dd><p>Define the scene for the mesh</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>field</strong> &#8211; scalar field to be represented</li>
-<li><strong>defFScale</strong> &#8211; factor to apply to current displacement of nodes 
+<li><strong>field</strong> – scalar field to be represented</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
 so that the display position of each node equals to
 the initial position plus its displacement multiplied
 by this factor. (Defaults to 0.0, i.e. display of 
@@ -736,12 +859,12 @@ initial/undeformed shape)</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>nod</strong> &#8211; node instance</li>
-<li><strong>color</strong> &#8211; color</li>
-<li><strong>force</strong> &#8211; force (displayed as a single arrow)</li>
-<li><strong>moment</strong> &#8211; moment (displayed as a double arrow)</li>
-<li><strong>fScale</strong> &#8211; scaling factor (forces and moments)</li>
-<li><strong>defFScale</strong> &#8211; factor to apply to current displacement of nodes 
+<li><strong>nod</strong> – node instance</li>
+<li><strong>color</strong> – color</li>
+<li><strong>force</strong> – force (displayed as a single arrow)</li>
+<li><strong>moment</strong> – moment (displayed as a double arrow)</li>
+<li><strong>fScale</strong> – scaling factor (forces and moments)</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
 so that the display position of each node equals to
 the initial position plus its displacement multiplied
 by this factor. (Defaults to 0.0, i.e. display of 
@@ -760,23 +883,26 @@ initial/undeformed shape)</li>
 
 <dl class="method">
 <dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.RecordDefDisplayEF.displayMesh">
-<code class="descname">displayMesh</code><span class="sig-paren">(</span><em>xcSet</em>, <em>field=None</em>, <em>diagrams=None</em>, <em>fName=None</em>, <em>caption=''</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.RecordDefDisplayEF.displayMesh" title="Permalink to this definition">¶</a></dt>
+<code class="descname">displayMesh</code><span class="sig-paren">(</span><em>xcSets</em>, <em>field=None</em>, <em>diagrams=None</em>, <em>fName=None</em>, <em>caption=''</em>, <em>defFScale=0.0</em>, <em>nodeSize=0.01</em>, <em>scaleConstr=0.2</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.RecordDefDisplayEF.displayMesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display the finite element mesh</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>xcSet</strong> &#8211; set to be displayed</li>
-<li><strong>field</strong> &#8211; scalar field to show (optional)</li>
-<li><strong>diagrams</strong> &#8211; diagrams to show (optional)</li>
-<li><strong>fName</strong> &#8211; name of the graphic file to create (if None -&gt; screen window).</li>
-<li><strong>caption</strong> &#8211; text to display in the graphic.</li>
-<li><strong>defFScale</strong> &#8211; factor to apply to current displacement of nodes 
+<li><strong>xcSets</strong> – set or list of sets to be displayed</li>
+<li><strong>field</strong> – scalar field to show (optional)</li>
+<li><strong>diagrams</strong> – diagrams to show (optional)</li>
+<li><strong>fName</strong> – name of the graphic file to create (if None -&gt; screen window).</li>
+<li><strong>caption</strong> – text to display in the graphic.</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
 so that the display position of each node equals to
 the initial position plus its displacement multiplied
 by this factor. (Defaults to 0.0, i.e. display of 
 initial/undeformed shape)</li>
+<li><strong>nodeSize</strong> – size of the points that represent nodes (defaults to
+0.01)</li>
+<li><strong>scaleConstr</strong> – scale of SPConstraints symbols (defaults to 0.2)</li>
 </ul>
 </td>
 </tr>
@@ -793,10 +919,10 @@ initial/undeformed shape)</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>preprocessor</strong> &#8211; preprocessor</li>
-<li><strong>loadPattern</strong> &#8211; load pattern</li>
-<li><strong>color</strong> &#8211; color of the symbols (arrows)</li>
-<li><strong>fScale</strong> &#8211; factor to apply to current displacement of nodes 
+<li><strong>preprocessor</strong> – preprocessor</li>
+<li><strong>loadPattern</strong> – load pattern</li>
+<li><strong>color</strong> – color of the symbols (arrows)</li>
+<li><strong>fScale</strong> – factor to apply to current displacement of nodes 
 so that the display position of each node equals to
 the initial position plus its displacement multiplied
 by this factor. (Defaults to 0.0, i.e. display of 
@@ -807,6 +933,11 @@ initial/undeformed shape)</li>
 </tbody>
 </table>
 </dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.RecordDefDisplayEF.displaySPconstraints">
+<code class="descname">displaySPconstraints</code><span class="sig-paren">(</span><em>xcSet</em>, <em>scale</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.RecordDefDisplayEF.displaySPconstraints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.RecordDefDisplayEF.displayScalarField">
@@ -827,8 +958,8 @@ initial/undeformed shape)</li>
 <div class="section" id="module-postprocess.xcVtk.FE_model.vtk_load_nodes">
 <span id="vtk-load-nodes"></span><h1>vtk_load_nodes<a class="headerlink" href="#module-postprocess.xcVtk.FE_model.vtk_load_nodes" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
-<dt id="postprocess.xcVtk.FE_model.vtk_load_nodes.VtkLoadNodos">
-<code class="descclassname">postprocess.xcVtk.FE_model.vtk_load_nodes.</code><code class="descname">VtkLoadNodos</code><span class="sig-paren">(</span><em>setName</em>, <em>nmbContndr</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_load_nodes.VtkLoadNodos" title="Permalink to this definition">¶</a></dt>
+<dt id="postprocess.xcVtk.FE_model.vtk_load_nodes.VtkLoadNodes">
+<code class="descclassname">postprocess.xcVtk.FE_model.vtk_load_nodes.</code><code class="descname">VtkLoadNodes</code><span class="sig-paren">(</span><em>setName</em>, <em>nmbContndr</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_load_nodes.VtkLoadNodes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -851,8 +982,8 @@ initial/undeformed shape)</li>
 <div class="section" id="module-postprocess.xcVtk.FE_model.vtk_plot_nodes">
 <span id="vtk-plot-nodes"></span><h1>vtk_plot_nodes<a class="headerlink" href="#module-postprocess.xcVtk.FE_model.vtk_plot_nodes" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
-<dt id="postprocess.xcVtk.FE_model.vtk_plot_nodes.VtkDibujaNodos">
-<code class="descclassname">postprocess.xcVtk.FE_model.vtk_plot_nodes.</code><code class="descname">VtkDibujaNodos</code><span class="sig-paren">(</span><em>nmbActor</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_plot_nodes.VtkDibujaNodos" title="Permalink to this definition">¶</a></dt>
+<dt id="postprocess.xcVtk.FE_model.vtk_plot_nodes.VtkDibujaNodes">
+<code class="descclassname">postprocess.xcVtk.FE_model.vtk_plot_nodes.</code><code class="descname">VtkDibujaNodes</code><span class="sig-paren">(</span><em>nmbActor</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_plot_nodes.VtkDibujaNodes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -887,21 +1018,18 @@ initial/undeformed shape)</li>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../../_sources/postprocessor/python_modules/xcVtk.FE_model.txt"
+      <li><a href="../../_sources/postprocessor/python_modules/xcVtk.FE_model.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -923,13 +1051,13 @@ initial/undeformed shape)</li>
         <li class="right" >
           <a href="xcVtk.CAD_model.html" title="vtk_CAD_graphic"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="xcVtk.html" >XC_Vtk</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="xcVtk.html" >XC_Vtk</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+        &#169; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
     </div>
   </body>
 </html>

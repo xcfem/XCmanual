@@ -1,34 +1,32 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Grid model &mdash; XC 3.0 documentation</title>
-    
+    <title>Grid model &#8212; XC 3.0 documentation</title>
     <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
         VERSION:     '3.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="XC 3.0 documentation" href="../../index.html" />
-    <link rel="up" title="CAD model" href="../CAD_model.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Predefined spaces" href="model.predef_spaces.html" />
     <link rel="prev" title="CAD model" href="../CAD_model.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,8 +42,8 @@
         <li class="right" >
           <a href="../CAD_model.html" title="CAD model"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../CAD_model.html" accesskey="U">CAD model</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../CAD_model.html" accesskey="U">CAD model</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -60,9 +58,9 @@
 usually referenced by their indices (i,j,k) that point to the global 
 coordinates (x,y,z).</p>
 <p>Generally, an ijkGrid contains the grid of points itself and all the 
-geometric entities (lines, surfaces, ...) attached to it. Dictionaries with 
+geometric entities (lines, surfaces, …) attached to it. Dictionaries with 
 those entities, identified by specific names, are created, in order to 
-facilitate and accelerate their creation, search, grouping in sets, ...</p>
+facilitate and accelerate their creation, search, grouping in sets, …</p>
 <p>Several grids can coexist in a FE problem.</p>
 <dl class="class">
 <dt id="model.geometry.grid_model.GridModel">
@@ -72,20 +70,20 @@ facilitate and accelerate their creation, search, grouping in sets, ...</p>
 usually referenced by their indices (i,j,k) that point to the global 
 coordinates (x,y,z).</p>
 <p>Generally, an ijkGrid contains the grid of points itself and all the 
-geometric entities (lines, surfaces, ...) attached to it. Dictionaries with 
+geometric entities (lines, surfaces, …) attached to it. Dictionaries with 
 those entities, identified by specific names, are created, in order to 
-facilitate and accelerate their creation, search, grouping in sets, ...</p>
+facilitate and accelerate their creation, search, grouping in sets, …</p>
 <p>Several grids can coexist in a FE problem.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>prep</strong> &#8211; preprocessor</li>
-<li><strong>dicLin</strong> &#8211; dictionary with all the lines linked to the grid. 
+<li><strong>prep</strong> – preprocessor</li>
+<li><strong>dicLin</strong> – dictionary with all the lines linked to the grid. 
 Each key is the name of a line, the value associated is the line 
 itself.</li>
-<li><strong>dicQuadSurf</strong> &#8211; dictionary with all the surfaces linked to the grid. 
+<li><strong>dicQuadSurf</strong> – dictionary with all the surfaces linked to the grid. 
 Each key is the name of a surface, the value associated is the surface 
 itself.</li>
 </ul>
@@ -93,6 +91,28 @@ itself.</li>
 </tr>
 </tbody>
 </table>
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.appendLinRange">
+<code class="descname">appendLinRange</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.appendLinRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>generate the lines limited by a region defined by the coordinates
+that correspond to the indices in the grid 
+ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
+ijkRange.ijkMax=(indXmax,indYmax,indZmax)
+and append them to the set named ‘nameSet’. 
+Add those lines to the dictionary dicLin.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.appendSurfRange">
+<code class="descname">appendSurfRange</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.appendSurfRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>generate the surfaces limited by a region defined by the coordinates
+that correspond to the indices in the grid 
+ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
+ijkRange.ijkMax=(indXmax,indYmax,indZmax)
+and append them to the set named ‘nameSet’.
+Add those surfaces to the dictionary dicQuadSurf.</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="model.geometry.grid_model.GridModel.genLinMultiRegion">
 <code class="descname">genLinMultiRegion</code><span class="sig-paren">(</span><em>lstIJKRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genLinMultiRegion" title="Permalink to this definition">¶</a></dt>
@@ -165,7 +185,7 @@ whose indices in the grid are passed as parameters.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ind2Pnt</strong> &#8211; tuple of ordered points defined by their grid indices 
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ind2Pnt</strong> – tuple of ordered points defined by their grid indices 
 (i,j,k)</td>
 </tr>
 </tbody>
@@ -182,7 +202,7 @@ whose indices in the grid are passed as parameters.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ind4Pnt</strong> &#8211; tuple of ordered points defined by their grid indices 
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ind4Pnt</strong> – tuple of ordered points defined by their grid indices 
 (i,j,k)</td>
 </tr>
 </tbody>
@@ -209,10 +229,25 @@ ijkRange.ijkMax=(indXmax,indYmax,indZmax).</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.geometry.grid_model.GridModel.getPntGrid">
+<code class="descname">getPntGrid</code><span class="sig-paren">(</span><em>indPnt</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getPntGrid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the point at indPnt=(i,j,k) index of the grid.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>indPnt</strong> – grid indices that point to the global (X, Y, Z)
+coordinates</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.geometry.grid_model.GridModel.getSetLinMultiRegion">
 <code class="descname">getSetLinMultiRegion</code><span class="sig-paren">(</span><em>lstIJKRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetLinMultiRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>return the set of lines and all the entities(points, elements, 
-nodes, ...) associated with them in a all the regions  included in the 
+nodes, …) associated with them in a all the regions  included in the 
 list of ijkRanges passed as parameter.
 Each region defines a volume limited by the coordinates    
 that correspond to the indices in the grid 
@@ -224,7 +259,7 @@ ijkRange.ijkMax=(indXmax,indYmax,indZmax).</p>
 <dt id="model.geometry.grid_model.GridModel.getSetLinOneRegion">
 <code class="descname">getSetLinOneRegion</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetLinOneRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>return the set of lines and all the entities(points, elements, 
-nodes, ...) associated with them in a region limited by the coordinates
+nodes, …) associated with them in a region limited by the coordinates
 that correspond to the indices in the grid 
 ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
 ijkRange.ijkMax=(indXmax,indYmax,indZmax).</p>
@@ -241,8 +276,8 @@ ijkRange.ijkMax=(indXmax,indYmax,indZmax)</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>ijkRange</strong> &#8211; range for the search</li>
-<li><strong>setName</strong> &#8211; name of the new set of points</li>
+<li><strong>ijkRange</strong> – range for the search</li>
+<li><strong>setName</strong> – name of the new set of points</li>
 </ul>
 </td>
 </tr>
@@ -254,7 +289,7 @@ ijkRange.ijkMax=(indXmax,indYmax,indZmax)</p>
 <dt id="model.geometry.grid_model.GridModel.getSetSurfMultiRegion">
 <code class="descname">getSetSurfMultiRegion</code><span class="sig-paren">(</span><em>lstIJKRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetSurfMultiRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>return the set of surfaces and all the entities(lines,
-points, elements, nodes, ...) associated with them in a all
+points, elements, nodes, …) associated with them in a all
 the regions  included in the list of ijkRanges passed as parameter.
 Each region defines a volume limited by the coordinates    
 that correspond to the indices in the grid 
@@ -266,7 +301,7 @@ ijkRange.ijkMax=(indXmax,indYmax,indZmax).</p>
 <dt id="model.geometry.grid_model.GridModel.getSetSurfOneRegion">
 <code class="descname">getSetSurfOneRegion</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetSurfOneRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>return the set of surfaces and all the entities(lines, 
-points, elements, nodes, ...) associated 
+points, elements, nodes, …) associated 
 with them in a region limited by the coordinates
 that correspond to the indices in the grid 
 ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
@@ -281,7 +316,7 @@ ijkRange.ijkMax=(indXmax,indYmax,indZmax).</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>indPnt</strong> &#8211; grid indices that point to the global (X, Y, Z)
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>indPnt</strong> – grid indices that point to the global (X, Y, Z)
 coordinates</td>
 </tr>
 </tbody>
@@ -296,7 +331,7 @@ coordinates</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pt1,pt2</strong> &#8211; tags of the points (in right order) that
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pt1</strong><strong>,</strong><strong>pt2</strong> – tags of the points (in right order) that
 define the line</td>
 </tr>
 </tbody>
@@ -311,7 +346,7 @@ define the line</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pt1,pt2,pt3,pt4</strong> &#8211; tags of the points (in right order) 
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pt1</strong><strong>,</strong><strong>pt2</strong><strong>,</strong><strong>pt3</strong><strong>,</strong><strong>pt4</strong> – tags of the points (in right order) 
 that define the surface</td>
 </tr>
 </tbody>
@@ -345,8 +380,8 @@ by applying a 3D displacement.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>ijkRange</strong> &#8211; range for the search</li>
-<li><strong>vDisp</strong> &#8211; xc vector displacement</li>
+<li><strong>ijkRange</strong> – range for the search</li>
+<li><strong>vDisp</strong> – xc vector displacement</li>
 </ul>
 </td>
 </tr>
@@ -363,7 +398,7 @@ are implicit in the name of the line.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>linName</strong> &#8211; name given to the grid line</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>linName</strong> – name given to the grid line</td>
 </tr>
 </tbody>
 </table>
@@ -379,11 +414,86 @@ are implicit in the name of the surface.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>surfName</strong> &#8211; name given to the grid surface</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>surfName</strong> – name given to the grid surface</td>
 </tr>
 </tbody>
 </table>
 <p>return the quadrangle surface</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.scaleCoorXPointsRange">
+<code class="descname">scaleCoorXPointsRange</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>xOrig</em>, <em>scale</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.scaleCoorXPointsRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies a scale in X with origin xOrig (fixed axis: X=xOrig) 
+to the points in a 3D grid-region limited by 
+ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
+ijkRange.ijkMax=(indXmax,indYmax,indZmax). Only X coordinate
+of points is modified in the following way:
+x_scaled=xOrig+scale*(x_inic-xOrig)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ijkRange</strong> – range for the search.</li>
+<li><strong>xOrig</strong> – origin X to apply scale (point in axis X=xOrig)
+are not affected by the transformation</li>
+<li><strong>scale</strong> – scale to apply to X coordinate</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.scaleCoorYPointsRange">
+<code class="descname">scaleCoorYPointsRange</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>yOrig</em>, <em>scale</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.scaleCoorYPointsRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies a scale in Y with origin yOrig (fixed axis: y=yOrig) 
+to the points in a 3D grid-region limited by 
+ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
+ijkRange.ijkMax=(indXmax,indYmax,indZmax). Only Y coordinate
+of points is modified in the following way:
+y_scaled=yOrig+scale*(y_inic-yOrig)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ijkRange</strong> – range for the search.</li>
+<li><strong>yOrig</strong> – origin Y to apply scale (point in axis Y=yOrig)
+are not affected by the transformation</li>
+<li><strong>scale</strong> – scale to apply to Y coordinate</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.scaleCoorZPointsRange">
+<code class="descname">scaleCoorZPointsRange</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>zOrig</em>, <em>scale</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.scaleCoorZPointsRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies a scale in Z with origin zOrig (fixed axis: z=zOrig) 
+to the points in a 3D grid-region limited by 
+ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
+ijkRange.ijkMax=(indXmax,indYmax,indZmax). Only Z coordinate
+of points is modified in the following way:
+z_scaled=zOrig+scale*(z_inic-zOrig)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ijkRange</strong> – range for the search.</li>
+<li><strong>zOrig</strong> – origin Z to apply scale (point in axis Z=zOrig)
+are not affected by the transformation</li>
+<li><strong>scale</strong> – scale to apply to Z coordinate</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -399,13 +509,13 @@ of points is modified.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>ijkRange</strong> &#8211; range for the search.</li>
-<li><strong>slopeX</strong> &#8211; slope in X direction, expressed as deltaZ/deltaX 
+<li><strong>ijkRange</strong> – range for the search.</li>
+<li><strong>slopeX</strong> – slope in X direction, expressed as deltaZ/deltaX 
 (defaults to 0 = no slope applied)</li>
-<li><strong>xZeroSlope</strong> &#8211; coordinate X of the &#8220;rotation axis&#8221;.</li>
-<li><strong>slopeY</strong> &#8211; slope in Y direction, expressed as deltaZ/deltaY)
+<li><strong>xZeroSlope</strong> – coordinate X of the “rotation axis”.</li>
+<li><strong>slopeY</strong> – slope in Y direction, expressed as deltaZ/deltaY)
 (defaults to 0 = no slope applied)</li>
-<li><strong>yZeroSlope</strong> &#8211; coordinate Y of the &#8220;rotation axis&#8221;.</li>
+<li><strong>yZeroSlope</strong> – coordinate Y of the “rotation axis”.</li>
 </ul>
 </td>
 </tr>
@@ -426,9 +536,9 @@ bounded by the coordinates associated with those indexes.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>ijkMin</strong> &#8211; tuple (or list) with minimum value of indexes 
+<li><strong>ijkMin</strong> – tuple (or list) with minimum value of indexes 
 (minIindex,minJindex,minKindex) that point to (xmin,ymin,zmin)</li>
-<li><strong>ijkMax</strong> &#8211; tuple (or list) with maximum value of indexes 
+<li><strong>ijkMax</strong> – tuple (or list) with maximum value of indexes 
 (maxIindex,maxJindex,maxKindex) that point to (xmax,ymax,zmax)</li>
 </ul>
 </td>
@@ -440,13 +550,13 @@ bounded by the coordinates associated with those indexes.</p>
 <code class="descname">extractIncludedIJranges</code><span class="sig-paren">(</span><em>step=1</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.IJKRange.extractIncludedIJranges" title="Permalink to this definition">¶</a></dt>
 <dd><p>return a list with all the sub-ranges included in the IJKRange 
 for which the index K is a constant. Graphically it can be seen as
-the set of planes &#8216;parallel&#8217; to global XY included in the region defined
+the set of planes ‘parallel’ to global XY included in the region defined
 by the IJKRange</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>step</strong> &#8211; K step to select the XY planes (defaults to 1)</td>
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>step</strong> – K step to select the XY planes (defaults to 1)</td>
 </tr>
 </tbody>
 </table>
@@ -457,13 +567,13 @@ by the IJKRange</p>
 <code class="descname">extractIncludedIKranges</code><span class="sig-paren">(</span><em>step=1</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.IJKRange.extractIncludedIKranges" title="Permalink to this definition">¶</a></dt>
 <dd><p>return a list with all the sub-ranges included in the IJKRange 
 for which the index J is a constant. Graphically it can be seen as
-the set of planes &#8216;parallel&#8217; to global XZ included in the region defined
+the set of planes ‘parallel’ to global XZ included in the region defined
 by the IJKRange</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>step</strong> &#8211; J step to select the XZ planes (defaults to 1)</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>step</strong> – J step to select the XZ planes (defaults to 1)</td>
 </tr>
 </tbody>
 </table>
@@ -474,13 +584,13 @@ by the IJKRange</p>
 <code class="descname">extractIncludedIranges</code><span class="sig-paren">(</span><em>stepJ=1</em>, <em>stepK=1</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.IJKRange.extractIncludedIranges" title="Permalink to this definition">¶</a></dt>
 <dd><p>return a list with all the sub-ranges included in the IJKRange 
 for which the indices J and K are a constant. Graphically 
-it can be seen as the set of lines &#8216;parallel&#8217; to global X 
+it can be seen as the set of lines ‘parallel’ to global X 
 axis included in the region defined by the IJKRange</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>stepJ</strong> &#8211; step to select the lines in Y direction (defaults to 1)</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>stepJ</strong> – step to select the lines in Y direction (defaults to 1)</td>
 </tr>
 </tbody>
 </table>
@@ -492,13 +602,13 @@ axis included in the region defined by the IJKRange</p>
 <code class="descname">extractIncludedJKranges</code><span class="sig-paren">(</span><em>step=1</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.IJKRange.extractIncludedJKranges" title="Permalink to this definition">¶</a></dt>
 <dd><p>return a list with all the sub-ranges included in the IJKRange 
 for which the index I is a constant. Graphically it can be seen as
-the set of planes &#8216;parallel&#8217; to global YZ included in the region defined
+the set of planes ‘parallel’ to global YZ included in the region defined
 by the IJKRange</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>step</strong> &#8211; I step to select the XZ planes (defaults to 1)</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>step</strong> – I step to select the XZ planes (defaults to 1)</td>
 </tr>
 </tbody>
 </table>
@@ -509,13 +619,13 @@ by the IJKRange</p>
 <code class="descname">extractIncludedJranges</code><span class="sig-paren">(</span><em>stepI=1</em>, <em>stepK=1</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.IJKRange.extractIncludedJranges" title="Permalink to this definition">¶</a></dt>
 <dd><p>return a list with all the sub-ranges included in the IJKRange 
 for which the indices I and K are a constant. Graphically it can be seen as
-the set of lines &#8216;parallel&#8217; to global Y axis included in the region defined
+the set of lines ‘parallel’ to global Y axis included in the region defined
 by the IJKRange</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>stepI</strong> &#8211; step to select the lines in X direction (defaults to 1)</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>stepI</strong> – step to select the lines in X direction (defaults to 1)</td>
 </tr>
 </tbody>
 </table>
@@ -527,13 +637,13 @@ by the IJKRange</p>
 <code class="descname">extractIncludedKranges</code><span class="sig-paren">(</span><em>stepI=1</em>, <em>stepJ=1</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.IJKRange.extractIncludedKranges" title="Permalink to this definition">¶</a></dt>
 <dd><p>return a list with all the sub-ranges included in the IJKRange 
 for which the indices I and J are a constant. Graphically it can be seen as
-the set of lines &#8216;parallel&#8217; to global Z axis included in the region defined
+the set of lines ‘parallel’ to global Z axis included in the region defined
 by the IJKRange</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>stepI</strong> &#8211; step to select the lines in X direction (defaults to 1)</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>stepI</strong> – step to select the lines in X direction (defaults to 1)</td>
 </tr>
 </tbody>
 </table>
@@ -622,21 +732,18 @@ and maxKindex</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../../_sources/preprocessor/python_modules/model.grid_model.txt"
+      <li><a href="../../_sources/preprocessor/python_modules/model.grid_model.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -658,13 +765,13 @@ and maxKindex</p>
         <li class="right" >
           <a href="../CAD_model.html" title="CAD model"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../CAD_model.html" >CAD model</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../CAD_model.html" >CAD model</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+        &#169; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
     </div>
   </body>
 </html>

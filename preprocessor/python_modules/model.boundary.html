@@ -1,34 +1,32 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Generation of boundary conditions based on springs &mdash; XC 3.0 documentation</title>
-    
+    <title>Generation of boundary conditions based on springs &#8212; XC 3.0 documentation</title>
     <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
         VERSION:     '3.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="XC 3.0 documentation" href="../../index.html" />
-    <link rel="up" title="Boundary conditions" href="../boundary_conditions.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Actions" href="../actions.html" />
     <link rel="prev" title="Constaints" href="../cpp_classes/domain/constraints/constraints.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -44,8 +42,8 @@
         <li class="right" >
           <a href="../cpp_classes/domain/constraints/constraints.html" title="Constaints"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../boundary_conditions.html" accesskey="U">Boundary conditions</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../boundary_conditions.html" accesskey="U">Boundary conditions</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -66,8 +64,8 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>wModulus</strong> &#8211; Winkler modulus of the foundation (springs in Z direction)</li>
-<li><strong>cRoz</strong> &#8211; fraction of the Winkler modulus to apply for friction in
+<li><strong>wModulus</strong> – Winkler modulus of the foundation (springs in Z direction)</li>
+<li><strong>cRoz</strong> – fraction of the Winkler modulus to apply for friction in
 the contact plane (springs in X, Y directions)</li>
 </ul>
 </td>
@@ -81,8 +79,8 @@ the contact plane (springs in X, Y directions)</li>
 and forces in the free nodes of the springs
 (those that belongs to both the spring and the foundation)
 and stores these values as properties of those nodes:
-property &#8216;soilPressure:&#8217; [xStress,yStress,zStress]
-property &#8216;soilReaction:&#8217; [xForce,yForce,zForce]</p>
+property ‘soilPressure:’ [xStress,yStress,zStress]
+property ‘soilReaction:’ [xForce,yForce,zForce]</p>
 </dd></dl>
 
 <dl class="method">
@@ -92,8 +90,13 @@ property &#8216;soilReaction:&#8217; [xForce,yForce,zForce]</p>
 
 <dl class="method">
 <dt id="model.boundary_cond.spring_bound_cond.ElasticFoundation.displayPressures">
-<code class="descname">displayPressures</code><span class="sig-paren">(</span><em>defDisplay</em>, <em>caption</em>, <em>fUnitConv</em>, <em>unitDescription</em><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.ElasticFoundation.displayPressures" title="Permalink to this definition">¶</a></dt>
-<dd><p>Display foundation pressures.</p>
+<code class="descname">displayPressures</code><span class="sig-paren">(</span><em>defDisplay</em>, <em>caption</em>, <em>fUnitConv</em>, <em>unitDescription</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.ElasticFoundation.displayPressures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display foundation pressures.
+:param rgMinMax: range (vmin,vmax) with the maximum and minimum values</p>
+<blockquote>
+<div>of the scalar field (if any) to be represented. All the values 
+less than vmin are displayed in blue and those greater than vmax 
+in red (defaults to None)</div></blockquote>
 </dd></dl>
 
 <dl class="method">
@@ -120,11 +123,11 @@ property &#8216;soilReaction:&#8217; [xForce,yForce,zForce]</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>name</strong> &#8211; name</li>
-<li><strong>modelSpace</strong> &#8211; model space</li>
-<li><strong>Kx</strong> &#8211; spring stiffness in X direction (defaults to 0 -&gt; free)</li>
-<li><strong>Ky</strong> &#8211; spring stiffness in Y direction (defaults to 0 -&gt; free)</li>
-<li><strong>Kz</strong> &#8211; spring stiffness in Z direction (defaults to 0 -&gt; free)</li>
+<li><strong>name</strong> – name</li>
+<li><strong>modelSpace</strong> – model space</li>
+<li><strong>Kx</strong> – spring stiffness in X direction (defaults to 0 -&gt; free)</li>
+<li><strong>Ky</strong> – spring stiffness in Y direction (defaults to 0 -&gt; free)</li>
+<li><strong>Kz</strong> – spring stiffness in Z direction (defaults to 0 -&gt; free)</li>
 </ul>
 </td>
 </tr>
@@ -173,7 +176,7 @@ equal to None</p>
 <span id="opensees-style"></span><h1>OpenSees style<a class="headerlink" href="#module-model.boundary_cond.opensees_style" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="model.boundary_cond.opensees_style.fix">
-<code class="descclassname">model.boundary_cond.opensees_style.</code><code class="descname">fix</code><span class="sig-paren">(</span><em>constraints</em>, <em>idNodo</em>, <em>gdls</em><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.opensees_style.fix" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">model.boundary_cond.opensees_style.</code><code class="descname">fix</code><span class="sig-paren">(</span><em>constraints</em>, <em>idNode</em>, <em>gdls</em><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.opensees_style.fix" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -199,21 +202,18 @@ equal to None</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../../_sources/preprocessor/python_modules/model.boundary.txt"
+      <li><a href="../../_sources/preprocessor/python_modules/model.boundary.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -235,13 +235,13 @@ equal to None</p>
         <li class="right" >
           <a href="../cpp_classes/domain/constraints/constraints.html" title="Constaints"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../boundary_conditions.html" >Boundary conditions</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../boundary_conditions.html" >Boundary conditions</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+        &#169; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
     </div>
   </body>
 </html>

@@ -1,33 +1,32 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Predefined solutions &mdash; XC 3.0 documentation</title>
-    
+    <title>Predefined solutions &#8212; XC 3.0 documentation</title>
     <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
         VERSION:     '3.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <link rel="top" title="XC 3.0 documentation" href="../../index.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Analysis" href="../cpp_classes/analysis.html" />
     <link rel="prev" title="Component" href="../../preprocessor/cpp_classes/domain/component/component.html" /> 
   </head>
-  <body role="document">
+  <body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -43,7 +42,7 @@
         <li class="right" >
           <a href="../../preprocessor/cpp_classes/domain/component/component.html" title="Component"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -63,16 +62,16 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>solu</strong> &#8211; </li>
-<li><strong>solCtrl</strong> &#8211; </li>
-<li><strong>sm</strong> &#8211; </li>
-<li><strong>numberer</strong> &#8211; DOF numberer. Determines the mapping between equation 
+<li><strong>solu</strong> – </li>
+<li><strong>solCtrl</strong> – </li>
+<li><strong>sm</strong> – </li>
+<li><strong>numberer</strong> – DOF numberer. Determines the mapping between equation 
 numbers and degrees of freedom (how DOF are numbered)</li>
-<li><strong>cHandler</strong> &#8211; constraint handler. Determines how the constraint equations 
+<li><strong>cHandler</strong> – constraint handler. Determines how the constraint equations 
 are enforced in the analysis, how it handles the boundary
 conditions/imposed displacements</li>
-<li><strong>smt</strong> &#8211; </li>
-<li><strong>solAlgo</strong> &#8211; <p>solution algorithm, which determines the sequence of steps
+<li><strong>analysisAggregation</strong> – </li>
+<li><strong>solAlgo</strong> – <p>solution algorithm, which determines the sequence of steps
 taken to solve the non-linear equation:</p>
 <ul>
 <li>linear</li>
@@ -85,7 +84,7 @@ taken to solve the non-linear equation:</p>
 - BFGS, for symetric systems
 - Broyden</p>
 </li>
-<li><strong>integ</strong> &#8211; <p>integrator, used to:</p>
+<li><strong>integ</strong> – <p>integrator, used to:</p>
 <ul>
 <li>determine the predictive step for time t+dt</li>
 <li>specify the tangent matrix and residual vectir at any
@@ -94,20 +93,25 @@ iteration</li>
 increment</li>
 </ul>
 </li>
-<li><strong>soe</strong> &#8211; sparse system of equations: band general, band SPD, 
+<li><strong>soe</strong> – sparse system of equations: band general, band SPD, 
 profile SPD, sparse general, umfPack, sparse SPD</li>
-<li><strong>solver</strong> &#8211; </li>
-<li><strong>analysis</strong> &#8211; determines what type of analysis is to be performed</li>
-<li><strong>convergenceTestTol</strong> &#8211; convergence tolerance (defaults to 1e-9)</li>
-<li><strong>maxNumIter</strong> &#8211; maximum number of iterations (defauts to 10)</li>
+<li><strong>solver</strong> – </li>
+<li><strong>analysis</strong> – determines what type of analysis is to be performed</li>
+<li><strong>convergenceTestTol</strong> – convergence tolerance (defaults to 1e-9)</li>
+<li><strong>maxNumIter</strong> – maximum number of iterations (defauts to 10)</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
+<dt id="solution.predefined_solutions.SolutionProcedure.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.clear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="solution.predefined_solutions.SolutionProcedure.frequencyAnalysis">
-<code class="descname">frequencyAnalysis</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.frequencyAnalysis" title="Permalink to this definition">¶</a></dt>
+<code class="descname">frequencyAnalysis</code><span class="sig-paren">(</span><em>prb</em>, <em>systemPrefix='sym_band'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.frequencyAnalysis" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -118,6 +122,11 @@ profile SPD, sparse general, umfPack, sparse SPD</li>
 <dl class="method">
 <dt id="solution.predefined_solutions.SolutionProcedure.penaltyNewtonRaphson">
 <code class="descname">penaltyNewtonRaphson</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.penaltyNewtonRaphson" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="solution.predefined_solutions.SolutionProcedure.plainLinearNewmark">
+<code class="descname">plainLinearNewmark</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.plainLinearNewmark" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -220,21 +229,18 @@ profile SPD, sparse general, umfPack, sparse SPD</li>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../../_sources/solution/python_modules/predef_sol.txt"
+      <li><a href="../../_sources/solution/python_modules/predef_sol.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -256,12 +262,12 @@ profile SPD, sparse general, umfPack, sparse SPD</li>
         <li class="right" >
           <a href="../../preprocessor/cpp_classes/domain/component/component.html" title="Component"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+        &#169; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
     </div>
   </body>
 </html>

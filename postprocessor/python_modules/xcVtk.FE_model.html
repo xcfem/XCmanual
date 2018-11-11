@@ -185,7 +185,7 @@ e.g. ‘1.0*GselfWeight+1.0*GearthPress’</li>
 </table>
 <dl class="method">
 <dt id="postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics.dispLoadCaseBeamEl">
-<code class="descname">dispLoadCaseBeamEl</code><span class="sig-paren">(</span><em>loadCaseName=''</em>, <em>setToDisplay=None</em>, <em>fUnitConv=1.0</em>, <em>elLoadComp='transComponent'</em>, <em>elLoadScaleF=1.0</em>, <em>nodLoadScaleF=1.0</em>, <em>viewName='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>caption=''</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics.dispLoadCaseBeamEl" title="Permalink to this definition">¶</a></dt>
+<code class="descname">dispLoadCaseBeamEl</code><span class="sig-paren">(</span><em>loadCaseName=''</em>, <em>setToDisplay=None</em>, <em>fUnitConv=1.0</em>, <em>elLoadComp='transComponent'</em>, <em>elLoadScaleF=1.0</em>, <em>nodLoadScaleF=1.0</em>, <em>viewDef=&lt;postprocess.xcVtk.vtk_graphic_base.CameraParameters object&gt;</em>, <em>caption=''</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics.dispLoadCaseBeamEl" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display the loads applied on beam elements and nodes for a given load case</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -204,14 +204,7 @@ e.g. ‘1.0*GselfWeight+1.0*GearthPress’</li>
 of element loads (defaults to 1)</li>
 <li><strong>nodLoadScaleF</strong> – factor of scale to apply to the vector display of 
 nodal loads (defaults to 1)</li>
-<li><strong>viewName</strong> – name of the view  that contains the renderer (possible
-options: “XYZPos”, “XPos”, “XNeg”,”YPos”, “YNeg”,
-“ZPos”, “ZNeg”) (defaults to “XYZPos”)</li>
-<li><strong>hCamFct</strong> – <p>factor that applies to the height of the camera position 
-in order to change perspective of isometric views (defaults to 1).</p>
-<blockquote>
-<div>Usual values 0.1 to 10</div></blockquote>
-</li>
+<li><strong>vwDef</strong> – camera parameters.</li>
 <li><strong>caption</strong> – caption for the graphic</li>
 <li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to None,
 in that case an screen display is generated</li>
@@ -229,7 +222,7 @@ initial/undeformed shape)</li>
 
 <dl class="method">
 <dt id="postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics.displayDispRot">
-<code class="descname">displayDispRot</code><span class="sig-paren">(</span><em>itemToDisp=''</em>, <em>setToDisplay=None</em>, <em>fConvUnits=1.0</em>, <em>unitDescription=''</em>, <em>viewName='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>fileName=None</em>, <em>defFScale=0.0</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics.displayDispRot" title="Permalink to this definition">¶</a></dt>
+<code class="descname">displayDispRot</code><span class="sig-paren">(</span><em>itemToDisp=''</em>, <em>setToDisplay=None</em>, <em>fConvUnits=1.0</em>, <em>unitDescription=''</em>, <em>viewDef=&lt;postprocess.xcVtk.vtk_graphic_base.CameraParameters object&gt;</em>, <em>fileName=None</em>, <em>defFScale=0.0</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics.displayDispRot" title="Permalink to this definition">¶</a></dt>
 <dd><p>displays the component of the displacement or rotations in the 
 set of entities.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -264,7 +257,7 @@ displayed in blue and those greater than vmax in red
 
 <dl class="method">
 <dt id="postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics.displayIntForc">
-<code class="descname">displayIntForc</code><span class="sig-paren">(</span><em>itemToDisp=''</em>, <em>setToDisplay=None</em>, <em>fConvUnits=1.0</em>, <em>unitDescription=''</em>, <em>viewName='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics.displayIntForc" title="Permalink to this definition">¶</a></dt>
+<code class="descname">displayIntForc</code><span class="sig-paren">(</span><em>itemToDisp=''</em>, <em>setToDisplay=None</em>, <em>fConvUnits=1.0</em>, <em>unitDescription=''</em>, <em>viewDef=&lt;postprocess.xcVtk.vtk_graphic_base.CameraParameters object&gt;</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics.displayIntForc" title="Permalink to this definition">¶</a></dt>
 <dd><p>displays the component of internal forces in the 
 set of entities as a scalar field (i.e. appropiated for 2D elements; 
 shells…).</p>
@@ -280,12 +273,7 @@ entities)</li>
 <li><strong>fConvUnits</strong> – factor of conversion to be applied to the results 
 (defalts to 1)</li>
 <li><strong>unitDescription</strong> – string like ‘[kN/m] or [kN m/m]’</li>
-<li><strong>viewName</strong> – name of the view  that contains the renderer (possible
-options: “XYZPos”, “XPos”, “XNeg”,”YPos”, “YNeg”, “ZPos”, “ZNeg”) 
-(defaults to “XYZPos”)</li>
-<li><strong>hCamFct</strong> – factor that applies to the height of the camera position
-in order to change perspective of isometric views (defaults to 1, 
-usual values 0.1 to 10)</li>
+<li><strong>viewDef</strong> – camera parameters.</li>
 <li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to None,
 in that case an screen display is generated</li>
 <li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
@@ -302,7 +290,7 @@ initial/undeformed shape)</li>
 
 <dl class="method">
 <dt id="postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics.displayIntForcDiag">
-<code class="descname">displayIntForcDiag</code><span class="sig-paren">(</span><em>itemToDisp=''</em>, <em>setToDisplay=None</em>, <em>fConvUnits=1.0</em>, <em>scaleFactor=1.0</em>, <em>unitDescription=''</em>, <em>viewName='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics.displayIntForcDiag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">displayIntForcDiag</code><span class="sig-paren">(</span><em>itemToDisp=''</em>, <em>setToDisplay=None</em>, <em>fConvUnits=1.0</em>, <em>scaleFactor=1.0</em>, <em>unitDescription=''</em>, <em>viewDef=&lt;postprocess.xcVtk.vtk_graphic_base.CameraParameters object&gt;</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics.displayIntForcDiag" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>displays the component of internal forces in the set of entities as a </dt>
 <dd>diagram over lines (i.e. appropiated for beam elements).</dd>
@@ -318,14 +306,9 @@ initial/undeformed shape)</li>
 represented</li>
 <li><strong>fConvUnits</strong> – factor of conversion to be applied to the results 
 (defaults to 1)</li>
-<li><strong>scaleFactor</strong> – factor of scale to apply to the diagram display of</li>
+<li><strong>scaleFactor</strong> – factor of scale to apply to the diagram display</li>
 <li><strong>unitDescription</strong> – string like ‘[kN/m] or [kN m/m]’</li>
-<li><strong>viewName</strong> – name of the view  that contains the renderer (possible
-options: “XYZPos”, “XPos”, “XNeg”,”YPos”, “YNeg”,
-“ZPos”, “ZNeg”) (defaults to “XYZPos”)</li>
-<li><strong>hCamFct</strong> – factor that applies to the height of the camera position
-in order to change perspective of isometric views 
-(defaults to 1, usual values 0.1 to 10)</li>
+<li><strong>vwDef</strong> – camera parameters.</li>
 <li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to None,
 in that case an screen display is generated</li>
 <li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
@@ -342,7 +325,7 @@ initial/undeformed shape)</li>
 
 <dl class="method">
 <dt id="postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics.displayNodeValueDiagram">
-<code class="descname">displayNodeValueDiagram</code><span class="sig-paren">(</span><em>itemToDisp=''</em>, <em>setToDisplay=None</em>, <em>fConvUnits=1.0</em>, <em>scaleFactor=1.0</em>, <em>unitDescription=''</em>, <em>viewName='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics.displayNodeValueDiagram" title="Permalink to this definition">¶</a></dt>
+<code class="descname">displayNodeValueDiagram</code><span class="sig-paren">(</span><em>itemToDisp=''</em>, <em>setToDisplay=None</em>, <em>fConvUnits=1.0</em>, <em>scaleFactor=1.0</em>, <em>unitDescription=''</em>, <em>viewDef=&lt;postprocess.xcVtk.vtk_graphic_base.CameraParameters object&gt;</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics.displayNodeValueDiagram" title="Permalink to this definition">¶</a></dt>
 <dd><p>displays the a displacement (uX,uY,…) or a property defined in nodes 
 as a diagram over lines (i.e. appropiated for beam elements).</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -357,12 +340,7 @@ represented</li>
 (defalts to 1)</li>
 <li><strong>scaleFactor</strong> – factor of scale to apply to the diagram display of</li>
 <li><strong>unitDescription</strong> – string like ‘[m]’ or ‘[rad]’ or ‘[m/s2]’</li>
-<li><strong>viewName</strong> – name of the view  that contains the renderer (possible
-options: “XYZPos”, “XPos”, “XNeg”,”YPos”, “YNeg”,
-“ZPos”, “ZNeg”) (defaults to “XYZPos”)</li>
-<li><strong>hCamFct</strong> – factor that applies to the height of the camera position
-in order to change perspective of isometric views 
-(defaults to 1, usual values 0.1 to 10)</li>
+<li><strong>viewDef</strong> – camera parameters.</li>
 <li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to None,
 in that case an screen display is generated</li>
 <li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
@@ -384,21 +362,13 @@ initial/undeformed shape)</li>
 
 <dl class="method">
 <dt id="postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics.getDisplay">
-<code class="descname">getDisplay</code><span class="sig-paren">(</span><em>vwName='XYZPos'</em>, <em>hCamF=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics.getDisplay" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getDisplay</code><span class="sig-paren">(</span><em>wmDef=&lt;postprocess.xcVtk.vtk_graphic_base.CameraParameters object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics.getDisplay" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a suitable display to show the graphics.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>viewName</strong> – name of the view that contains the renderer (possible
-options: “XYZPos”, “XPos”, “XNeg”,”YPos”, “YNeg”,
-“ZPos”, “ZNeg”) (defaults to “XYZPos”)</li>
-<li><strong>hCamFct</strong> – factor that applies to the height of the camera position
-in order to change perspective of isometric views 
-(defaults to 1, usual values 0.1 to 10)</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>vwDef</strong> – camera parameters.</td>
 </tr>
 </tbody>
 </table>
@@ -418,7 +388,7 @@ in order to change perspective of isometric views
 
 <dl class="function">
 <dt id="postprocess.xcVtk.FE_model.quick_graphics.displayAxes">
-<code class="descclassname">postprocess.xcVtk.FE_model.quick_graphics.</code><code class="descname">displayAxes</code><span class="sig-paren">(</span><em>vectorField</em>, <em>preprocessor</em>, <em>setToDisplay=None</em>, <em>vectorScale=1.0</em>, <em>viewNm='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>caption=''</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.displayAxes" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">postprocess.xcVtk.FE_model.quick_graphics.</code><code class="descname">displayAxes</code><span class="sig-paren">(</span><em>vectorField</em>, <em>preprocessor</em>, <em>setToDisplay=None</em>, <em>vectorScale=1.0</em>, <em>viewDef=&lt;postprocess.xcVtk.vtk_graphic_base.CameraParameters object&gt;</em>, <em>caption=''</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.displayAxes" title="Permalink to this definition">¶</a></dt>
 <dd><p>vector field display of the loads applied to the chosen set of elements in the load case passed as parameter</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -429,12 +399,7 @@ in order to change perspective of isometric views
 <li><strong>setToDisplay</strong> – set of elements to be displayed (defaults to total set)</li>
 <li><strong>vectorScale</strong> – factor to apply to the vectors length in the 
 representation.</li>
-<li><strong>viewNm</strong> – name of the view  that contains the renderer 
-(possible options: 
-“XYZPos”, “XPos”, “XNeg”,”YPos”, “YNeg”, “ZPos”, “ZNeg”)</li>
-<li><strong>hCamFct</strong> – factor that applies to the height of the camera position 
-in order to change perspective of isometric views (defaults to 1). 
-Usual values 0.1 to 10</li>
+<li><strong>viewDef</strong> – camera parameters.</li>
 <li><strong>fileName</strong> – full name of the graphic file to generate. Defaults to 
 <cite>None</cite>, in this case it returns a console output graphic.</li>
 <li><strong>caption</strong> – text to display in the graphic</li>
@@ -452,7 +417,7 @@ initial/undeformed shape)</li>
 
 <dl class="function">
 <dt id="postprocess.xcVtk.FE_model.quick_graphics.displayEigenResults">
-<code class="descclassname">postprocess.xcVtk.FE_model.quick_graphics.</code><code class="descname">displayEigenResults</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>eigenMode</em>, <em>setToDisplay=None</em>, <em>defShapeScale=0.0</em>, <em>equLoadVctScale=None</em>, <em>accelMode=None</em>, <em>unitsScale=1.0</em>, <em>viewNm='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>caption=''</em>, <em>fileName=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.displayEigenResults" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">postprocess.xcVtk.FE_model.quick_graphics.</code><code class="descname">displayEigenResults</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>eigenMode</em>, <em>setToDisplay=None</em>, <em>defShapeScale=0.0</em>, <em>equLoadVctScale=None</em>, <em>accelMode=None</em>, <em>unitsScale=1.0</em>, <em>viewDef=&lt;postprocess.xcVtk.vtk_graphic_base.CameraParameters object&gt;</em>, <em>caption=''</em>, <em>fileName=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.displayEigenResults" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display the deformed shape and/or the equivalent static forces 
 associated with the eigenvibration mode passed as parameter.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -474,12 +439,7 @@ equals 0 or None, equivalent static loads are not represented.
 only used if the equivalent static loads are to be displayed.</li>
 <li><strong>unitsScale</strong> – factor to apply to the results if we want to change the 
 unit system.</li>
-<li><strong>viewNm</strong> – name of the view  that contains the renderer 
-(possible options: 
-<cite>XYZPos</cite>, <cite>XYZNeg</cite>,`XPos`, <cite>XNeg</cite>,`YPos`, <cite>YNeg</cite>, <cite>ZPos</cite>, <cite>ZNeg</cite>)</li>
-<li><strong>hCamFct</strong> – factor that applies to the height of the camera position 
-in order to change perspective of isometric views (defaults to 1).
-Usual values 0.1 to 10</li>
+<li><strong>viewDef</strong> – camera parameters.</li>
 <li><strong>caption</strong> – text to display in the graphic</li>
 <li><strong>fileName</strong> – full name of the graphic file to generate. 
 Defaults to ` None`, in this case it returns a console output 
@@ -493,7 +453,7 @@ graphic.</li>
 
 <dl class="function">
 <dt id="postprocess.xcVtk.FE_model.quick_graphics.displayLoad">
-<code class="descclassname">postprocess.xcVtk.FE_model.quick_graphics.</code><code class="descname">displayLoad</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>setToDisplay=None</em>, <em>loadCaseNm=''</em>, <em>unitsScale=1.0</em>, <em>vectorScale=1.0</em>, <em>multByElemArea=False</em>, <em>viewNm='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>caption=''</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.displayLoad" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">postprocess.xcVtk.FE_model.quick_graphics.</code><code class="descname">displayLoad</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>setToDisplay=None</em>, <em>loadCaseNm=''</em>, <em>unitsScale=1.0</em>, <em>vectorScale=1.0</em>, <em>multByElemArea=False</em>, <em>viewDef=&lt;postprocess.xcVtk.vtk_graphic_base.CameraParameters object&gt;</em>, <em>caption=''</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.displayLoad" title="Permalink to this definition">¶</a></dt>
 <dd><p>vector field display of the loads applied to the chosen set of elements in the load case passed as parameter</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -512,8 +472,7 @@ element area) and <cite>False</cite> if we are going to depict the value of</p>
 <blockquote>
 <div>the uniform load per unit area</div></blockquote>
 </li>
-<li><strong>viewNm</strong> – name of the view  that contains the renderer</li>
-<li><strong>hCamFct</strong> – factor that applies to the height of the camera position</li>
+<li><strong>viewDef</strong> – camera parameters.</li>
 <li><strong>fileName</strong> – full name of the graphic file to generate. Defaults to 
 ` None`, in this case it returns a console output graphic.</li>
 <li><strong>caption</strong> – text to display in the graphic</li>
@@ -531,7 +490,7 @@ initial/undeformed shape)</li>
 
 <dl class="function">
 <dt id="postprocess.xcVtk.FE_model.quick_graphics.displayLocalAxes">
-<code class="descclassname">postprocess.xcVtk.FE_model.quick_graphics.</code><code class="descname">displayLocalAxes</code><span class="sig-paren">(</span><em>prep</em>, <em>setToDisplay=None</em>, <em>vectorScale=1.0</em>, <em>viewNm='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>caption=''</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.displayLocalAxes" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">postprocess.xcVtk.FE_model.quick_graphics.</code><code class="descname">displayLocalAxes</code><span class="sig-paren">(</span><em>prep</em>, <em>setToDisplay=None</em>, <em>vectorScale=1.0</em>, <em>viewDef=&lt;postprocess.xcVtk.vtk_graphic_base.CameraParameters object&gt;</em>, <em>caption=''</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.displayLocalAxes" title="Permalink to this definition">¶</a></dt>
 <dd><p>vector field display of the loads applied to the chosen set of elements in the load case passed as parameter</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -541,14 +500,7 @@ initial/undeformed shape)</li>
 <li><strong>setToDisplay</strong> – set of elements to be displayed (defaults to total set)</li>
 <li><strong>vectorScale</strong> – factor to apply to the vectors length in the 
 representation.</li>
-<li><strong>viewNm</strong> – <p>name of the view  that contains the renderer 
-(possible options:</p>
-<blockquote>
-<div>”XYZPos”, “XPos”, “XNeg”,”YPos”, “YNeg”, “ZPos”, “ZNeg”)</div></blockquote>
-</li>
-<li><strong>hCamFct</strong> – factor that applies to the height of the camera position 
-in order to change perspective of isometric views (defaults to 1). 
-Usual values 0.1 to 10</li>
+<li><strong>viewDef</strong> – camera parameters.</li>
 <li><strong>fileName</strong> – full name of the graphic file to generate. 
 Defaults to <cite>None</cite>, in this case it returns a console output graphic.</li>
 <li><strong>caption</strong> – text to display in the graphic</li>
@@ -566,7 +518,7 @@ initial/undeformed shape)</li>
 
 <dl class="function">
 <dt id="postprocess.xcVtk.FE_model.quick_graphics.displayStrongWeakAxis">
-<code class="descclassname">postprocess.xcVtk.FE_model.quick_graphics.</code><code class="descname">displayStrongWeakAxis</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>setToDisplay=None</em>, <em>vectorScale=1.0</em>, <em>viewNm='XYZPos'</em>, <em>hCamFct=1.0</em>, <em>caption=''</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.displayStrongWeakAxis" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">postprocess.xcVtk.FE_model.quick_graphics.</code><code class="descname">displayStrongWeakAxis</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>setToDisplay=None</em>, <em>vectorScale=1.0</em>, <em>viewDef=&lt;postprocess.xcVtk.vtk_graphic_base.CameraParameters object&gt;</em>, <em>caption=''</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.displayStrongWeakAxis" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>vector field display of the loads applied to the chosen set of elements </dt>
 <dd>in the load case passed as parameter</dd>
@@ -579,14 +531,7 @@ initial/undeformed shape)</li>
 <li><strong>setToDisplay</strong> – set of elements to be displayed (defaults to total set)</li>
 <li><strong>vectorScale</strong> – factor to apply to the vectors length in the 
 representation.</li>
-<li><strong>viewNm</strong> – <p>name of the view  that contains the renderer 
-(possible options:</p>
-<blockquote>
-<div>”XYZPos”, “XPos”, “XNeg”,”YPos”, “YNeg”, “ZPos”, “ZNeg”)</div></blockquote>
-</li>
-<li><strong>hCamFct</strong> – factor that applies to the height of the camera position 
-in order to change perspective of isometric views (defaults to 1). 
-Usual values 0.1 to 10</li>
+<li><strong>viewDef</strong> – camera parameters.</li>
 <li><strong>fileName</strong> – full name of the graphic file to generate. Defaults to 
 <cite>None</cite>, in this case it returns a console output graphic.</li>
 <li><strong>caption</strong> – text to display in the graphic</li>
@@ -635,7 +580,7 @@ initial/undeformed shape)</li>
 <p>Routines to display limit state results over the finite element mesh.</p>
 <dl class="function">
 <dt id="postprocess.xcVtk.FE_model.vtk_display_limit_state.displayFieldDirs1and2">
-<code class="descclassname">postprocess.xcVtk.FE_model.vtk_display_limit_state.</code><code class="descname">displayFieldDirs1and2</code><span class="sig-paren">(</span><em>limitStateLabel</em>, <em>argument</em>, <em>elementSet</em>, <em>component</em>, <em>fUnitConv</em>, <em>fileName</em>, <em>captionTexts</em>, <em>defFScale=0.0</em>, <em>viewName='XYZPos'</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_display_limit_state.displayFieldDirs1and2" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">postprocess.xcVtk.FE_model.vtk_display_limit_state.</code><code class="descname">displayFieldDirs1and2</code><span class="sig-paren">(</span><em>limitStateLabel</em>, <em>argument</em>, <em>elementSet</em>, <em>component</em>, <em>fUnitConv</em>, <em>fileName</em>, <em>captionTexts</em>, <em>defFScale=0.0</em>, <em>viewDef=&lt;postprocess.xcVtk.vtk_graphic_base.CameraParameters object&gt;</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_display_limit_state.displayFieldDirs1and2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display a field defined over bi-dimensional elements in its two directions.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -654,9 +599,7 @@ so that the display position of each node equals to
 the initial position plus its displacement multiplied
 by this factor. (Defaults to 0.0, i.e. display of 
 initial/undeformed shape)</li>
-<li><strong>viewName</strong> – name of the view that contains the renderer (possible
-options: “XYZPos”, “XPos”, “XNeg”,”YPos”, “YNeg”,
-“ZPos”, “ZNeg”) (defaults to “XYZPos”)</li>
+<li><strong>viewDef</strong> – camera parameters (position, orientation,…)</li>
 <li><strong>rgMinMax</strong> – range (vmin,vmax) with the maximum and minimum values  
 of the scalar field (if any) to be represented. All the values 
 less than vmin are displayed in blue and those greater than vmax 
@@ -670,7 +613,7 @@ in red (defaults to None)</li>
 
 <dl class="function">
 <dt id="postprocess.xcVtk.FE_model.vtk_display_limit_state.displayFieldDirs1and2Base">
-<code class="descclassname">postprocess.xcVtk.FE_model.vtk_display_limit_state.</code><code class="descname">displayFieldDirs1and2Base</code><span class="sig-paren">(</span><em>limitStateLabel</em>, <em>argument</em>, <em>elementSet</em>, <em>genDescr</em>, <em>sectDescr</em>, <em>component</em>, <em>fUnitConv</em>, <em>fileName</em>, <em>captionTexts</em>, <em>defFScale=0.0</em>, <em>viewName='XYZPos'</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_display_limit_state.displayFieldDirs1and2Base" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">postprocess.xcVtk.FE_model.vtk_display_limit_state.</code><code class="descname">displayFieldDirs1and2Base</code><span class="sig-paren">(</span><em>limitStateLabel</em>, <em>argument</em>, <em>elementSet</em>, <em>genDescr</em>, <em>sectDescr</em>, <em>component</em>, <em>fUnitConv</em>, <em>fileName</em>, <em>captionTexts</em>, <em>defFScale=0.0</em>, <em>viewDef=&lt;postprocess.xcVtk.vtk_graphic_base.CameraParameters object&gt;</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_display_limit_state.displayFieldDirs1and2Base" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display a field defined over bi-dimensional elements in its two directions.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -691,9 +634,7 @@ so that the display position of each node equals to
 the initial position plus its displacement multiplied
 by this factor. (Defaults to 0.0, i.e. display of 
 initial/undeformed shape)</li>
-<li><strong>viewName</strong> – name of the view that contains the renderer (possible
-options: “XYZPos”, “XPos”, “XNeg”,”YPos”, “YNeg”,
-“ZPos”, “ZNeg”) (defaults to “XYZPos”)</li>
+<li><strong>viewDef</strong> – camera parameters (position, orientation,…)</li>
 <li><strong>rgMinMax</strong> – range (vmin,vmax) with the maximum and minimum values  
 of the scalar field (if any) to be represented. All the values 
 less than vmin are displayed in blue and those greater than vmax 
@@ -712,11 +653,11 @@ in red (defaults to None)</li>
 <dl class="class">
 <dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.RecordDefDisplayEF">
 <em class="property">class </em><code class="descclassname">postprocess.xcVtk.FE_model.vtk_FE_graphic.</code><code class="descname">RecordDefDisplayEF</code><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.RecordDefDisplayEF" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="xcVtkGenTopics.html#postprocess.xcVtk.vtk_grafico_base.RecordDefDisplay" title="postprocess.xcVtk.vtk_grafico_base.RecordDefDisplay"><code class="xref py py-class docutils literal"><span class="pre">postprocess.xcVtk.vtk_grafico_base.RecordDefDisplay</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">postprocess.xcVtk.vtk_graphic_base.RecordDefDisplay</span></code></p>
 <p>Define the parameters to configure the output device.</p>
 <dl class="method">
 <dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.RecordDefDisplayEF.FEmeshGraphic">
-<code class="descname">FEmeshGraphic</code><span class="sig-paren">(</span><em>xcSet</em>, <em>caption=''</em>, <em>viewNm='XYZPos'</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.RecordDefDisplayEF.FEmeshGraphic" title="Permalink to this definition">¶</a></dt>
+<code class="descname">FEmeshGraphic</code><span class="sig-paren">(</span><em>xcSet</em>, <em>caption=''</em>, <em>cameraParameters=&lt;postprocess.xcVtk.vtk_graphic_base.CameraParameters object&gt;</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.RecordDefDisplayEF.FEmeshGraphic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Graphic of the FE mesh</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -725,9 +666,7 @@ in red (defaults to None)</li>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>xcSet</strong> – XC set of elements to be displayed</li>
 <li><strong>caption</strong> – text to write in the graphic</li>
-<li><strong>viewNm</strong> – name of the view to use for the representation
-predefined view names: ‘XYZPos’,’XNeg’,’XPos’,’YNeg’,’YPos’,
-‘ZNeg’,’ZPos’  (defaults to ‘XYZPos’)</li>
+<li><strong>cameraParameters</strong> – camera parameters (position, orientation,…).</li>
 <li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
 so that the display position of each node equals to
 the initial position plus its displacement multiplied

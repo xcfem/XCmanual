@@ -68,7 +68,7 @@
 <li><strong>table</strong> – module containing a dictionary with mechanical characteristics
 of a series of shapes 
 (e.g. materials.sections.structural_shapes.arcelor_metric_shapes.IPE)</li>
-<li><strong>name</strong> – name identifying the section in the table</li>
+<li><a class="reference internal" href="../cpp_classes/domain/mesh/element/utils/coordTransformation/coordTransformation.html#xc.CrdTransf.name" title="xc.CrdTransf.name"><strong>name</strong></a> – name identifying the section in the table</li>
 </ul>
 </td>
 </tr>
@@ -77,28 +77,31 @@ of a series of shapes
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.A">
 <code class="descname">A</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.A" title="Permalink to this definition">¶</a></dt>
-<dd><p>return cross-sectional area of the section</p>
+<dd><p>return cross-sectional area</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.EIy">
 <code class="descname">EIy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.EIy" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>return the product E*Iy</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.EIz">
 <code class="descname">EIz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.EIz" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>return the product E*Iz</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.GJ">
 <code class="descname">GJ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.GJ" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>return the product G*J (G=shear modulus, J=St. Venant torsional constant)</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.It">
 <code class="descname">It</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.It" title="Permalink to this definition">¶</a></dt>
-<dd><p>return torsional constant.</p>
+<dd><p>return Saint Venant torsional constant.</p>
 </dd></dl>
 
 <dl class="method">
@@ -110,13 +113,13 @@ of a series of shapes
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.Iy">
 <code class="descname">Iy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.Iy" title="Permalink to this definition">¶</a></dt>
-<dd><p>return second moment of area about the local y-axis</p>
+<dd><p>return second moment of area about y-axis (weak axis)</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.Iz">
 <code class="descname">Iz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.Iz" title="Permalink to this definition">¶</a></dt>
-<dd><p>return second moment of area about the local z-axis</p>
+<dd><p>return second moment of area about z-axis (strong axis)</p>
 </dd></dl>
 
 <dl class="method">
@@ -128,13 +131,7 @@ of a series of shapes
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.alphaY">
 <code class="descname">alphaY</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.alphaY" title="Permalink to this definition">¶</a></dt>
-<dd><p>return shear shape factor with respect to local y-axis</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.structural_steel.SteelShape.alphaZ">
-<code class="descname">alphaZ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.alphaZ" title="Permalink to this definition">¶</a></dt>
-<dd><p>return shear shape factor with respect to local z-axis</p>
+<dd><p>return shear shape factor with respect to y-axis (weak axis)</p>
 </dd></dl>
 
 <dl class="method">
@@ -163,14 +160,16 @@ of a series of shapes
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.getAdimensionalSlendernessY">
 <code class="descname">getAdimensionalSlendernessY</code><span class="sig-paren">(</span><em>Leq</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getAdimensionalSlendernessY" title="Permalink to this definition">¶</a></dt>
-<dd><p>return adimensional slendernes as defined in EC3 part 1 5.5.1.2</p>
+<dd><p>return adimensional slendernes relative to y-axis (weak axis) 
+as defined in EC3 part 1 6.3.1</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>Leq</strong> – buckling length for the column.</li>
-<li><strong>sectionClass</strong> – class of the section (1, 2, 3 or 4).</li>
+<li><strong>Leq</strong> – buckling length in XZ buckling plane.</li>
+<li><strong>sectionClass</strong> – class of the section (1 to 3, 4 not yet 
+implemented) (defaults to 1)</li>
 </ul>
 </td>
 </tr>
@@ -181,14 +180,16 @@ of a series of shapes
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.getAdimensionalSlendernessZ">
 <code class="descname">getAdimensionalSlendernessZ</code><span class="sig-paren">(</span><em>Leq</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getAdimensionalSlendernessZ" title="Permalink to this definition">¶</a></dt>
-<dd><p>return adimensional slendernes as defined in EC3 part 1 5.5.1.2</p>
+<dd><p>return adimensional slendernes relative to z-axis (strong axis) 
+as defined in EC3-1-1 6.3.1</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>Leq</strong> – buckling length for the column.</li>
-<li><strong>sectionClass</strong> – class of the section (1, 2, 3 or 4).</li>
+<li><strong>Leq</strong> – buckling length in XY buckling plane.</li>
+<li><strong>sectionClass</strong> – class of the section (1 to 3, 4 not yet 
+implemented) (defaults to 1)</li>
 </ul>
 </td>
 </tr>
@@ -199,125 +200,190 @@ of a series of shapes
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.getAeff">
 <code class="descname">getAeff</code><span class="sig-paren">(</span><em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getAeff" title="Permalink to this definition">¶</a></dt>
-<dd><p>return effective area depending of the cross-section class.</p>
+<dd><p>return effective area depending on the cross-section class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectionClass</strong> – class of the section (1 to 3, 4 not yet 
+implemented) (defaults to 1)</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.getBucklingReductionFactorY">
 <code class="descname">getBucklingReductionFactorY</code><span class="sig-paren">(</span><em>Leq</em>, <em>bucklingCurve</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getBucklingReductionFactorY" title="Permalink to this definition">¶</a></dt>
-<dd><p>return buckling reduction factor as defined in EC3-1-1 6.3.1</p>
-<table class="docutils field-list" frame="void" rules="none">
+<dd><p>return buckling reduction factor relative to y-axis (weak axis) 
+as defined in EC3-1-1 6.3.1</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>Leq</strong> – buckling length for the column.</li>
-<li><strong>bucklingCurve</strong> – buckling curve (a0,a,b,c or d).</li>
-<li><strong>sectionClass</strong> – class of the section (1, 2, 3 or 4).</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">param Leq:</th><td class="field-body">buckling length in XZ buckling plane.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">param bucklingCurve:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">buckling curve (a0,a,b,c or d) according 
+to table 6.2 of EN 1993-1-1:2005 “Selection of buckling 
+curve for a cross-section”. Note that in table 6.2 Y and 
+Z axes are swapped with respect to those used in XC. 
+XC axes: Y-&gt;weak axis, Z-&gt;strong axis.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">param sectionClass:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">class of the section (1 to 3, 4 not yet 
+implemented) (defaults to 1)</td>
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.getBucklingReductionFactorZ">
 <code class="descname">getBucklingReductionFactorZ</code><span class="sig-paren">(</span><em>Leq</em>, <em>bucklingCurve</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getBucklingReductionFactorZ" title="Permalink to this definition">¶</a></dt>
-<dd><p>return buckling reduction factor as defined in EC3-1-1 6.3.1</p>
-<table class="docutils field-list" frame="void" rules="none">
+<dd><p>return buckling reduction factor lative to z-axis (strong axis) 
+as defined in EC3-1-1 6.3.1</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>Leq</strong> – buckling length for the column.</li>
-<li><strong>bucklingCurve</strong> – buckling curve (a0,a,b,c or d).</li>
-<li><strong>sectionClass</strong> – class of the section (1, 2, 3 or 4).</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">param Leq:</th><td class="field-body">buckling length in XY buckling plane.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">param bucklingCurve:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">buckling curve (a0,a,b,c or d) according 
+to table 6.2 of EN 1993-1-1:2005 “Selection of buckling 
+curve for a cross-section”. Note that in table 6.2 Y and 
+Z axes are swapped with respect to those used in XC. 
+XC axes: Y-&gt;weak axis, Z-&gt;strong axis.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">param sectionClass:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">class of the section (1 to 3, 4 not yet 
+implemented) (defaults to 1)</td>
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.getBucklingResistance">
-<code class="descname">getBucklingResistance</code><span class="sig-paren">(</span><em>Leq</em>, <em>bucklingCurveY</em>, <em>bucklingCurveZ</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getBucklingResistance" title="Permalink to this definition">¶</a></dt>
-<dd><p>return buckling reduction factor as defined in EC3-1-1 6.3.1</p>
-<table class="docutils field-list" frame="void" rules="none">
+<code class="descname">getBucklingResistance</code><span class="sig-paren">(</span><em>LeqY</em>, <em>LeqZ</em>, <em>bucklingCurveY</em>, <em>bucklingCurveZ</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getBucklingResistance" title="Permalink to this definition">¶</a></dt>
+<dd><p>return minimum of buckling resistance in XY and XZ buckling planes
+calculated according to EC3-1-1 6.3.2</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>Leq</strong> – buckling length for the column.</li>
-<li><strong>bucklingCurve</strong> – buckling curve (a0,a,b,c or d).</li>
-<li><strong>sectionClass</strong> – class of the section (1, 2, 3 or 4).</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">param LeqY:</th><td class="field-body">buckling length of the member in XZ buckling plane.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param LeqZ:</th><td class="field-body">buckling length of the member in XY buckling plane.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">param bucklingCurveY:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">buckling curve (a0,a,b,c or d) with respect 
+to y-axis (weak axis) according 
+to table 6.2 of EN 1993-1-1:2005 “Selection of buckling 
+curve for a cross-section”. Note that in table 6.2 Y and 
+Z axes are swapped with respect to those used in XC. 
+XC axes: Y-&gt;weak axis, Z-&gt;strong axis.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">param bucklingCurveY:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">buckling curve (a0,a,b,c or d) with respect 
+to z-axis (strong axis)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">param sectionClass:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">class of the section (1 to 3, 4 not yet 
+implemented) (defaults to 1)</td>
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.getBucklingResistanceY">
 <code class="descname">getBucklingResistanceY</code><span class="sig-paren">(</span><em>Leq</em>, <em>bucklingCurve</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getBucklingResistanceY" title="Permalink to this definition">¶</a></dt>
-<dd><p>return buckling reduction factor as defined in EC3-1-1 6.3.1</p>
-<table class="docutils field-list" frame="void" rules="none">
+<dd><p>return buckling resistance relative to y-axis (weak axis)
+according to EC3-1-1 6.3.2</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>Leq</strong> – buckling length for the column.</li>
-<li><strong>bucklingCurve</strong> – buckling curve (a0,a,b,c or d).</li>
-<li><strong>sectionClass</strong> – class of the section (1, 2, 3 or 4).</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">param Leq:</th><td class="field-body">buckling length in XZ buckling plane.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">param bucklingCurve:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">buckling curve (a0,a,b,c or d) according 
+to table 6.2 of EN 1993-1-1:2005 “Selection of buckling 
+curve for a cross-section”. Note that in table 6.2 Y and 
+Z axes are swapped with respect to those used in XC. 
+XC axes: Y-&gt;weak axis, Z-&gt;strong axis.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">param sectionClass:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">class of the section (1 to 3, 4 not yet 
+implemented) (defaults to 1).</td>
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.getBucklingResistanceZ">
 <code class="descname">getBucklingResistanceZ</code><span class="sig-paren">(</span><em>Leq</em>, <em>bucklingCurve</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getBucklingResistanceZ" title="Permalink to this definition">¶</a></dt>
-<dd><p>return buckling reduction factor as defined in EC3-1-1 6.3.1</p>
-<table class="docutils field-list" frame="void" rules="none">
+<dd><p>return buckling resistance relative to z-axis (strong axis)
+according to EC3-1-1 6.3.2</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>Leq</strong> – buckling length for the column.</li>
-<li><strong>bucklingCurve</strong> – buckling curve (a0,a,b,c or d).</li>
-<li><strong>sectionClass</strong> – class of the section (1, 2, 3 or 4).</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">param Leq:</th><td class="field-body">buckling length in XY buckling plane.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">param bucklingCurve:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">buckling curve (a0,a,b,c or d) according 
+to table 6.2 of EN 1993-1-1:2005 “Selection of buckling 
+curve for a cross-section”. Note that in table 6.2 Y and 
+Z axes are swapped with respect to those used in XC. 
+XC axes: Y-&gt;weak axis, Z-&gt;strong axis.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">param sectionClass:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">class of the section (1 to 3, 4 not yet 
+implemented) (defaults to 1).</td>
 </tr>
 </tbody>
 </table>
+</div></blockquote>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.getGyrationRadiusY">
 <code class="descname">getGyrationRadiusY</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getGyrationRadiusY" title="Permalink to this definition">¶</a></dt>
-<dd><p>return radius of gyration about the local y-axis</p>
+<dd><p>return radius of gyration about y-axis (weak axis)</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.getGyrationRadiusZ">
 <code class="descname">getGyrationRadiusZ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getGyrationRadiusZ" title="Permalink to this definition">¶</a></dt>
-<dd><p>return radius of gyration about the local z-axis</p>
+<dd><p>return radius of gyration about z-axis (strong axis)</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.getNcr">
-<code class="descname">getNcr</code><span class="sig-paren">(</span><em>Leq</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getNcr" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getNcr</code><span class="sig-paren">(</span><em>LeqY</em>, <em>LeqZ</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getNcr" title="Permalink to this definition">¶</a></dt>
 <dd><p>return theoretical critical axial force  (minimum of NcrY and NcrZ).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Leq</strong> – buckling length for the column.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>LeqY</strong> – buckling length  of the member in XZ buckling plane.</li>
+<li><strong>LeqZ</strong> – buckling length  of the member in XY buckling plane.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -326,12 +392,12 @@ of a series of shapes
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.getNcrY">
 <code class="descname">getNcrY</code><span class="sig-paren">(</span><em>Leq</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getNcrY" title="Permalink to this definition">¶</a></dt>
-<dd><p>return theoretical critical axial force on y axis.</p>
+<dd><p>return theoretical critical axial force on y-axis (weak axis).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Leq</strong> – buckling length for the column.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Leq</strong> – buckling length of the member in XZ buckling plane.</td>
 </tr>
 </tbody>
 </table>
@@ -340,12 +406,12 @@ of a series of shapes
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.getNcrZ">
 <code class="descname">getNcrZ</code><span class="sig-paren">(</span><em>Leq</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getNcrZ" title="Permalink to this definition">¶</a></dt>
-<dd><p>return theoretical critical axial force on z axis.</p>
+<dd><p>return theoretical critical axial force on z-axis (strong axis).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Leq</strong> – buckling length for the column.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Leq</strong> – buckling length  of the member in XY buckling plane.</td>
 </tr>
 </tbody>
 </table>
@@ -354,12 +420,12 @@ of a series of shapes
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.getSlendernessY">
 <code class="descname">getSlendernessY</code><span class="sig-paren">(</span><em>Leq</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getSlendernessY" title="Permalink to this definition">¶</a></dt>
-<dd><p>return buckling slendernes relative to the local y-axis</p>
+<dd><p>return buckling slendernes relative to y-axis (weak axis)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Leq</strong> – buckling length for the column.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Leq</strong> – buckling length in XZ buckling plane.</td>
 </tr>
 </tbody>
 </table>
@@ -368,12 +434,12 @@ of a series of shapes
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.getSlendernessZ">
 <code class="descname">getSlendernessZ</code><span class="sig-paren">(</span><em>Leq</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getSlendernessZ" title="Permalink to this definition">¶</a></dt>
-<dd><p>return buckling slendernes relative to the local z-axis</p>
+<dd><p>return buckling slendernes relative to z-axis (strong axis)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Leq</strong> – buckling length for the column.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Leq</strong> – buckling length in XY buckling plane.</td>
 </tr>
 </tbody>
 </table>
@@ -382,13 +448,29 @@ of a series of shapes
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.getWy">
 <code class="descname">getWy</code><span class="sig-paren">(</span><em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getWy" title="Permalink to this definition">¶</a></dt>
-<dd><p>return section modulus with respect to local y-axis</p>
+<dd><p>return section modulus with respect to y-axis (weak axis)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectionClass</strong> – 1 to 3 (4 not yet implemented) (defaults to 1)</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.getWz">
 <code class="descname">getWz</code><span class="sig-paren">(</span><em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getWz" title="Permalink to this definition">¶</a></dt>
-<dd><p>return section modulus with respect to local z-axis</p>
+<dd><p>return section modulus with respect to z-axis (strong axis)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectionClass</strong> – 1 to 3 (4 not yet implemented) (defaults to 1)</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -403,13 +485,17 @@ needed to check ultimate limit state criterion to satisfy.</p>
 <dl class="function">
 <dt id="materials.sections.structural_steel.alphaImperfectionFactor">
 <code class="descclassname">materials.sections.structural_steel.</code><code class="descname">alphaImperfectionFactor</code><span class="sig-paren">(</span><em>bucklingCurve</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.alphaImperfectionFactor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the alpha imperfection factor called defined
-in tables 6.1 and 6.2 of EC3.</p>
+<dd><p>Return the alpha imperfection factor for buckling curves
+see tables 6.1 and 6.2 of EC3 (EN 19931-1:2005).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bucklingCurve</strong> – buckling curve (a0,a,b,c or d).</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bucklingCurve</strong> – buckling curve (a0,a,b,c or d) according 
+to table 6.2 of EN 1993-1-1:2005 “Selection of buckling 
+curve for a cross-section”. Note that in table 6.2 Y and 
+Z axes are swapped with respect to those used in XC. 
+XC axes: Y-&gt;weak axis, Z-&gt;strong axis.</td>
 </tr>
 </tbody>
 </table>
@@ -593,7 +679,7 @@ in tables 6.1 and 6.2 of EC3.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>name</strong> – name identifying the section</td>
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><a class="reference internal" href="../cpp_classes/domain/mesh/element/utils/coordTransformation/coordTransformation.html#xc.CrdTransf.name" title="xc.CrdTransf.name"><strong>name</strong></a> – name identifying the section</td>
 </tr>
 </tbody>
 </table>
@@ -658,8 +744,8 @@ in tables 6.1 and 6.2 of EC3.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><a class="reference internal" href="../cpp_classes/material/section/repres/geom_section/reinfBar/reinfBar.html#xc.ReinfBar.area" title="xc.ReinfBar.area"><strong>area</strong></a> – cross-sectional area</li>
-<li><a class="reference internal" href="#materials.sections.section_properties.GenericSection.Iy" title="materials.sections.section_properties.GenericSection.Iy"><strong>Iy</strong></a> – second moment of area about the local y-axis</li>
-<li><a class="reference internal" href="#materials.sections.section_properties.GenericSection.Iz" title="materials.sections.section_properties.GenericSection.Iz"><strong>Iz</strong></a> – second moment of area about the local z-axis</li>
+<li><a class="reference internal" href="../geom_cpp_classes/d2/d2.html#geom.Grid2d.Iy" title="geom.Grid2d.Iy"><strong>Iy</strong></a> – second moment of area about the local y-axis</li>
+<li><a class="reference internal" href="#materials.sections.section_properties.ISection.Iz" title="materials.sections.section_properties.ISection.Iz"><strong>Iz</strong></a> – second moment of area about the local z-axis</li>
 <li><strong>Jtors</strong> – torsional constant of the section</li>
 <li><strong>Wy</strong> – section modulus with respect to local y-axis</li>
 <li><strong>Wz</strong> – section modulus with respect to local z-axis</li>
@@ -1068,7 +1154,7 @@ made of the specified material</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>name</strong> – name identifying the section</td>
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><a class="reference internal" href="../cpp_classes/domain/mesh/element/utils/coordTransformation/coordTransformation.html#xc.CrdTransf.name" title="xc.CrdTransf.name"><strong>name</strong></a> – name identifying the section</td>
 </tr>
 </tbody>
 </table>

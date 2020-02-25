@@ -288,6 +288,16 @@ Return true if this object lies outside the geometric object.</p>
 <em class="property">class </em><code class="descclassname">xc.</code><code class="descname">Body</code><a class="headerlink" href="#xc.Body" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#xc.EntMdlr" title="xc.EntMdlr"><code class="xref py py-class docutils literal"><span class="pre">xc.EntMdlr</span></code></a></p>
 <p>Six-faced body.</p>
+<dl class="method">
+<dt id="xc.Body.getVertex">
+<code class="descname">getVertex</code><span class="sig-paren">(</span><em>(Body)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; Pnt :<a class="headerlink" href="#xc.Body.getVertex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the vertex corresponding to the index argument.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Pnt const* getVertex(XC::Body {lvalue},unsigned long)</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -295,12 +305,76 @@ Return true if this object lies outside the geometric object.</p>
 <em class="property">class </em><code class="descclassname">xc.</code><code class="descname">Block</code><a class="headerlink" href="#xc.Block" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#xc.Body" title="xc.Body"><code class="xref py py-class docutils literal"><span class="pre">xc.Body</span></code></a></p>
 <p>Six-faced solid.</p>
+<dl class="method">
+<dt id="xc.Block.getFace">
+<code class="descname">getFace</code><span class="sig-paren">(</span><em>(Block)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; BodyFace :<a class="headerlink" href="#xc.Block.getFace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the face corresponding to the indes argument.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Body::BodyFace const* getFace(XC::Block {lvalue},unsigned long)</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.Block.nDivI">
+<code class="descname">nDivI</code><a class="headerlink" href="#xc.Block.nDivI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number or divisions in I direction.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.Block.nDivJ">
+<code class="descname">nDivJ</code><a class="headerlink" href="#xc.Block.nDivJ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number or divisions in J direction.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.Block.nDivK">
+<code class="descname">nDivK</code><a class="headerlink" href="#xc.Block.nDivK" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number or divisions in K direction.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="xc.UniformGrid">
 <em class="property">class </em><code class="descclassname">xc.</code><code class="descname">UniformGrid</code><a class="headerlink" href="#xc.UniformGrid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#xc.EntMdlr" title="xc.EntMdlr"><code class="xref py py-class docutils literal"><span class="pre">xc.EntMdlr</span></code></a></p>
+<dl class="attribute">
+<dt id="xc.UniformGrid.Lx">
+<code class="descname">Lx</code><a class="headerlink" href="#xc.UniformGrid.Lx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Length in x direction.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.UniformGrid.Ly">
+<code class="descname">Ly</code><a class="headerlink" href="#xc.UniformGrid.Ly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Length in y direction.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.UniformGrid.Lz">
+<code class="descname">Lz</code><a class="headerlink" href="#xc.UniformGrid.Lz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Length in z direction.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.UniformGrid.nDivX">
+<code class="descname">nDivX</code><a class="headerlink" href="#xc.UniformGrid.nDivX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number or divisions in x direction.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.UniformGrid.nDivY">
+<code class="descname">nDivY</code><a class="headerlink" href="#xc.UniformGrid.nDivY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number or divisions in y direction.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.UniformGrid.nDivZ">
+<code class="descname">nDivZ</code><a class="headerlink" href="#xc.UniformGrid.nDivZ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number or divisions in z direction.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -381,7 +455,7 @@ Return true if this object lies outside the geometric object.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">xc.ModelComponentContainerBase</span></code></p>
 <dl class="method">
 <dt id="xc.MapCMBodies.exists">
-<code class="descname">exists</code><span class="sig-paren">(</span><em>(MapCMUgrids)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; bool :<a class="headerlink" href="#xc.MapCMBodies.exists" title="Permalink to this definition">¶</a></dt>
+<code class="descname">exists</code><span class="sig-paren">(</span><em>(MapCMBodies)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; bool :<a class="headerlink" href="#xc.MapCMBodies.exists" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>bool exists(XC::ModelComponentContainer&lt;XC::Body&gt; {lvalue},unsigned long)</dd>
@@ -390,7 +464,7 @@ Return true if this object lies outside the geometric object.</p>
 
 <dl class="method">
 <dt id="xc.MapCMBodies.get">
-<code class="descname">get</code><span class="sig-paren">(</span><em>(MapCMUgrids)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; Body :<a class="headerlink" href="#xc.MapCMBodies.get" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get</code><span class="sig-paren">(</span><em>(MapCMBodies)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; Body :<a class="headerlink" href="#xc.MapCMBodies.get" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>XC::Body* get(XC::ModelComponentContainer&lt;XC::Body&gt; {lvalue},unsigned long)</dd>
@@ -399,7 +473,7 @@ Return true if this object lies outside the geometric object.</p>
 
 <dl class="method">
 <dt id="xc.MapCMBodies.getKeys">
-<code class="descname">getKeys</code><span class="sig-paren">(</span><em>(MapCMUgrids)arg1</em><span class="sig-paren">)</span> &#x2192; list :<a class="headerlink" href="#xc.MapCMBodies.getKeys" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getKeys</code><span class="sig-paren">(</span><em>(MapCMBodies)arg1</em><span class="sig-paren">)</span> &#x2192; list :<a class="headerlink" href="#xc.MapCMBodies.getKeys" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>boost::python::list getKeys(XC::ModelComponentContainer&lt;XC::Body&gt; {lvalue})</dd>
@@ -412,6 +486,45 @@ Return true if this object lies outside the geometric object.</p>
 <dt id="xc.MapBodies">
 <em class="property">class </em><code class="descclassname">xc.</code><code class="descname">MapBodies</code><a class="headerlink" href="#xc.MapBodies" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">xc.map_bodies</span></code></p>
+<dl class="method">
+<dt id="xc.MapBodies.checkNDivs">
+<code class="descname">checkNDivs</code><span class="sig-paren">(</span><em>(MapBodies)arg1</em><span class="sig-paren">)</span> &#x2192; bool :<a class="headerlink" href="#xc.MapBodies.checkNDivs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check the number of divisions.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>bool checkNDivs(XC::BodyMap {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.MapBodies.conciliaNDivs">
+<code class="descname">conciliaNDivs</code><span class="sig-paren">(</span><em>(MapBodies)arg1</em><span class="sig-paren">)</span> &#x2192; bool :<a class="headerlink" href="#xc.MapBodies.conciliaNDivs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>bool conciliaNDivs(XC::BodyMap {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.MapBodies.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>(MapBodies)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; Body :<a class="headerlink" href="#xc.MapBodies.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the i-th face.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Body* get(XC::BodyMap {lvalue},unsigned long)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.MapBodies.newBlockPts">
+<code class="descname">newBlockPts</code><span class="sig-paren">(</span><em>(MapBodies)arg1</em>, <em>(int)arg2</em>, <em>(int)arg3</em>, <em>(int)arg4</em>, <em>(int)arg5</em>, <em>(int)arg6</em>, <em>(int)arg7</em>, <em>(int)arg8</em>, <em>(int)arg9</em><span class="sig-paren">)</span> &#x2192; Block :<a class="headerlink" href="#xc.MapBodies.newBlockPts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a hexahedrical block.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Block* newBlockPts(XC::BodyMap {lvalue},unsigned long,unsigned long,unsigned long,unsigned long,unsigned long,unsigned long,unsigned long,unsigned long)</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -423,16 +536,16 @@ Return true if this object lies outside the geometric object.</p>
 <code class="descname">exists</code><span class="sig-paren">(</span><em>(MapCMUgrids)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; bool :<a class="headerlink" href="#xc.MapCMUgrids.exists" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>C++ signature :</dt>
-<dd>bool exists(XC::ModelComponentContainer&lt;XC::Body&gt; {lvalue},unsigned long)</dd>
+<dd>bool exists(XC::ModelComponentContainer&lt;XC::UniformGrid&gt; {lvalue},unsigned long)</dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="xc.MapCMUgrids.get">
-<code class="descname">get</code><span class="sig-paren">(</span><em>(MapCMUgrids)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; Body :<a class="headerlink" href="#xc.MapCMUgrids.get" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get</code><span class="sig-paren">(</span><em>(MapCMUgrids)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; UniformGrid :<a class="headerlink" href="#xc.MapCMUgrids.get" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>C++ signature :</dt>
-<dd>XC::Body* get(XC::ModelComponentContainer&lt;XC::Body&gt; {lvalue},unsigned long)</dd>
+<dd>XC::UniformGrid* get(XC::ModelComponentContainer&lt;XC::UniformGrid&gt; {lvalue},unsigned long)</dd>
 </dl>
 </dd></dl>
 
@@ -441,7 +554,7 @@ Return true if this object lies outside the geometric object.</p>
 <code class="descname">getKeys</code><span class="sig-paren">(</span><em>(MapCMUgrids)arg1</em><span class="sig-paren">)</span> &#x2192; list :<a class="headerlink" href="#xc.MapCMUgrids.getKeys" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>C++ signature :</dt>
-<dd>boost::python::list getKeys(XC::ModelComponentContainer&lt;XC::Body&gt; {lvalue})</dd>
+<dd>boost::python::list getKeys(XC::ModelComponentContainer&lt;XC::UniformGrid&gt; {lvalue})</dd>
 </dl>
 </dd></dl>
 

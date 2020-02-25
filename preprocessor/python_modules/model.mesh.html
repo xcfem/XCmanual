@@ -68,6 +68,8 @@ meshes those lines and adds the nodes and elements created to the set .</p>
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><strong>matSect</strong> – instance of the class BeamMaterialData that defines the 
 material-section to be applied to the set of lines.</li>
+<li><strong>elemSize</strong> – mean size of the elements (in elemSize= None do not 
+change number of divisions).</li>
 <li><strong>vDirLAxZ</strong> – direction vector for the element local axis Z 
 defined as xc.Vector([x,y,z]). This is the direction in which
 the Z local axis of the sections will be
@@ -98,7 +100,10 @@ meshes those lines and adds the nodes and elements created to the set .</p>
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><strong>matSect</strong> – instance of the class BeamMaterialData that defines the 
 material-section to be applied to the set of lines.</li>
+<li><strong>elemSize</strong> – mean size of the elements (in elemSize= None do not 
+change number of divisions).</li>
 <li><strong>coordTransf</strong> – coordinate transformation for the elements.</li>
+<li><strong>elemType</strong> – type of element for the mesh (defaults to ‘ElasticBeam3d’).</li>
 <li><strong>dimElemSpace</strong> – dimension of the element space (defaults to 3)</li>
 </ul>
 </td>
@@ -130,7 +135,7 @@ material-section to be applied to the set of lines.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><strong>primitiveSet</strong> – set of lines/surfaces/blocks.</li>
-<li><strong>elemSize</strong> – mean size of the elements (in elemSize= None don’t 
+<li><strong>elemSize</strong> – mean size of the elements (in elemSize= None do not 
 change number of divisions).</li>
 <li><strong>elemType</strong> – type of element for the mesh.</li>
 </ul>
@@ -154,6 +159,8 @@ meshes those surfaces and adds the nodes and elements created to the set .</p>
 <li><strong>surfSet</strong> – set of surfaces.</li>
 <li><strong>matSect</strong> – instance of the class DeckMaterialData that defines the 
 material-section to be applied to the set of surfaces.</li>
+<li><strong>elemSize</strong> – mean size of the elements (in elemSize= None do not 
+change number of divisions).</li>
 <li><strong>elemType</strong> – type of element for the mesh (defaults to ‘ShellMITC4’)</li>
 </ul>
 </td>
@@ -172,6 +179,48 @@ material-section to be applied to the set of surfaces.</li>
 <dd><p>Return the element that will be use to mesh the set.</p>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="function">
+<dt id="model.mesh.finit_el_model.assign_ndiv_to_lines_in_set">
+<code class="descclassname">model.mesh.finit_el_model.</code><code class="descname">assign_ndiv_to_lines_in_set</code><span class="sig-paren">(</span><em>lnSet</em>, <em>ndiv</em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.assign_ndiv_to_lines_in_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign a number of divisions = ndiv to all the lines included 
+in set linSet</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="model.mesh.finit_el_model.createBeam2Pnts">
+<code class="descclassname">model.mesh.finit_el_model.</code><code class="descname">createBeam2Pnts</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>startPnt</em>, <em>endPnt</em>, <em>setName</em>, <em>matSect</em>, <em>elemSize</em>, <em>vDirLAxZ</em>, <em>elemType='ElasticBeam3d'</em>, <em>dimElemSpace=3</em>, <em>coordTransfType='linear'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.createBeam2Pnts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a set of beam elements created from startPnt to endPnt.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – preprocessor</li>
+<li><strong>startPnt</strong> – coordinates of first beam extremity (defined as 
+geom.Pos3d(x,y,z)</li>
+<li><strong>startPnt</strong> – coordinates of end beam extremity (defined as 
+geom.Pos3d(x,y,z)</li>
+<li><a class="reference internal" href="../../miscellany/import_export.sciaXML.xml_basics.html#import_export.sciaXML.xml_basics.TableBase.TableBase.setName" title="import_export.sciaXML.xml_basics.TableBase.TableBase.setName"><strong>setName</strong></a> – name of the set of entities created</li>
+<li><strong>matSect</strong> – instance of the class BeamMaterialData that defines the 
+material-section to be applied to the set of lines.</li>
+<li><strong>elemSize</strong> – mean size of the elements</li>
+<li><strong>vDirLAxZ</strong> – direction vector for the element local axis Z 
+defined as xc.Vector([x,y,z]). This is the direction in which
+the Z local axis of the sections will be
+oriented (i.e. in the case of rectangular sections this Z 
+local axis of the section is parallel to the dimension
+defined as width of the rectangle)</li>
+<li><strong>dimElemSpace</strong> – dimension of the element space (defaults to 3)</li>
+<li><strong>coordTransfType</strong> – type of coordinate transformation. Available 
+types: ‘linear’, ‘PDelta’ and ‘corot’ (defaults to 
+‘linear’)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">

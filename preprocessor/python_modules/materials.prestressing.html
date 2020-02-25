@@ -68,7 +68,9 @@
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><strong>lstRoughPnt</strong> – list of 3D-coordinate tuples defining the points from 
 which to interpolate the cubic spline that will delineate
-the tendon geometry. e.g. [(x1,y1,z1),(x2,y2,z2),…]</li>
+the tendon geometry. e.g. [(x1,y1,z1),(x2,y2,z2),…].
+For straight tendon only two 3D-coordinate tuples are 
+provided defining the two extremities of the tendon.</li>
 <li><strong>roughCoordMtr</strong> – matrix 3*n_rough_ptos [[x1,x2, ..],[y1,y2,..],[z1,z2,..]]</li>
 </ul>
 </td>
@@ -83,75 +85,33 @@ to the value Scoord given as parameter</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="materials.prestressing.prestressed_concrete.PrestressTendon.applyStressLossToElems">
+<code class="descname">applyStressLossToElems</code><span class="sig-paren">(</span><em>stressLossMtr</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.applyStressLossToElems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply stress loss in each tendon element with the corresponding 
+value of stress loss defined in stressMtr</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>stressLossMtr</strong> – matrix of dimension 1*number of nodes in the 
+tendon with the loss of stress to be applied to each of the 
+elements (from left to right)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.prestressing.prestressed_concrete.PrestressTendon.applyStressToElems">
 <code class="descname">applyStressToElems</code><span class="sig-paren">(</span><em>stressMtr</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.applyStressToElems" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initializes the stress in each tendon element with the corresponding 
+<dd><p>Apply stress in each tendon element with the corresponding 
 value of stress defined in stressMtr</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>stressMtr</strong> – matrix of dimension 1*number of elements in the tendon                          with the stress to be applied to each of the elements 
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>stressMtr</strong> – matrix of dimension 1*number of nodes in the tendon                          with the stress to be applied to each of the elements 
 (from left to right)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.prestressing.prestressed_concrete.PrestressTendon.calcLossAnchor">
-<code class="descname">calcLossAnchor</code><span class="sig-paren">(</span><em>Ep</em>, <em>anc_slip_extr1=0.0</em>, <em>anc_slip_extr2=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.calcLossAnchor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates the attributes lossAnchor and stressAfterLossAnchor of type 
-array that contains  for each point in fineCoordMtr the cumulative 
-immediate loss of prestressing due to anchorage slip and the stress 
-after this loss, respectively.
-Loss due to friction must be previously calculated</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>Ep</strong> – elasic modulus of the prestressing steel</li>
-<li><strong>anc_slip_extr1</strong> – anchorage slip (data provided by the manufacturer
-of the anchorage system) at extremity 1 of 
-the tendon (starting point)  (= deltaL)</li>
-<li><strong>anc_slip_extr2</strong> – anchorage slip at extremity 2 of 
-the tendon (ending point) (= deltaL)</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.prestressing.prestressed_concrete.PrestressTendon.calcLossFriction">
-<code class="descname">calcLossFriction</code><span class="sig-paren">(</span><em>coefFric</em>, <em>k</em>, <em>sigmaP0_extr1=0.0</em>, <em>sigmaP0_extr2=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.calcLossFriction" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates the attributes lossFriction and stressAfterLossFriction of 
-type array that contains  for each point in fineCoordMtr the cumulative 
-immediate loss of prestressing due to friction and the stress after 
-this loss, respectively.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>sigmaP0_extr1</strong> – maximum stress applied at the extremity 1 of 
-the tendon (starting point) (stress refers to its 
-value at the end of the anchorage, in the contact
-with concrete). Defaults to 0.0 (no prestress applied)</li>
-<li><strong>sigmaP0_extr2</strong> – idem for prestress applied at extremity 2
-(end point of the tendon). Defaults to 0.0 (no 
-prestress applied)</li>
-<li><strong>coefFric</strong> – coefficient of friction between the tendon and its 
-sheathing</li>
-<li><strong>k</strong> – wobble coefficient or coefficient for wave effect, that 
-refers to the unintentional deviation of the position of 
-the tendon along the duct. It’s expressed by unit length 
-of tendon. The value of k varies from 0.0015 to 0.0050 per 
-meter length of the tendon depending on the type of tendon.</li>
-</ul>
-</td>
 </tr>
 </tbody>
 </table>
@@ -160,13 +120,13 @@ meter length of the tendon depending on the type of tendon.</li>
 <dl class="method">
 <dt id="materials.prestressing.prestressed_concrete.PrestressTendon.creaTendonElements">
 <code class="descname">creaTendonElements</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>materialName</em>, <em>elemTypeName</em>, <em>crdTransfName</em>, <em>areaTendon</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.creaTendonElements" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates the nodes and elements of the tendon and appends them to a set. Creates also the attribute lstOrderedElems as a list with the elements of the tendon ordered from left to right.</p>
+<dd><p>Creates the nodes and elements of the tendon and appends them to the set returned. Creates also the attribute lstOrderedElems as a list with the elements of the tendon ordered from left to right.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>preporcessor</strong> – preprocessor</li>
+<li><strong>preprocessor</strong> – preprocessor</li>
 <li><strong>materialName</strong> – name of the material</li>
 <li><strong>elemTypeName</strong> – name of the type of element</li>
 <li><strong>crdTransfName</strong> – name of the coordinate transformation</li>
@@ -224,6 +184,65 @@ point</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="materials.prestressing.prestressed_concrete.PrestressTendon.getLossAnchor">
+<code class="descname">getLossAnchor</code><span class="sig-paren">(</span><em>Ep</em>, <em>anc_slip_extr1=0.0</em>, <em>anc_slip_extr2=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.getLossAnchor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an array that contains  for each point in fineCoordMtr 
+the cumulative loss of prestressing due to anchorage.
+Loss due to friction must be previously calculated</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Ep</strong> – elasic modulus of the prestressing steel</li>
+<li><strong>anc_slip_extr1</strong> – anchorage slip (data provided by the manufacturer
+of the anchorage system) at extremity 1 of 
+the tendon (starting point)  (= deltaL)</li>
+<li><strong>anc_slip_extr2</strong> – anchorage slip at extremity 2 of 
+the tendon (ending point) (= deltaL)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.prestressing.prestressed_concrete.PrestressTendon.getLossFriction">
+<code class="descname">getLossFriction</code><span class="sig-paren">(</span><em>coefFric</em>, <em>k</em>, <em>sigmaP0_extr1=0.0</em>, <em>sigmaP0_extr2=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.getLossFriction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an array that contains  for each point in fineCoordMtr the 
+cumulative immediate loss of prestressing due to friction.
+The method also creates the attribute stressAfterLossFriction, of 
+type array, that contains  for each point in fineCoordMtr the stress
+after after this loss (it is used in calculation of losses due to
+anchorage slip)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sigmaP0_extr1</strong> – maximum stress applied at the extremity 1 of 
+the tendon (starting point) (stress refers to its 
+value at the end of the anchorage, in the contact
+with concrete). Defaults to 0.0 (no prestress applied)</li>
+<li><strong>sigmaP0_extr2</strong> – idem for prestress applied at extremity 2
+(end point of the tendon). Defaults to 0.0 (no 
+prestress applied)</li>
+<li><strong>coefFric</strong> – coefficient of friction between the tendon and its 
+sheathing</li>
+<li><strong>k</strong> – wobble coefficient or coefficient for wave effect, that 
+refers to the unintentional deviation of the position of 
+the tendon along the duct. It’s expressed by unit length 
+of tendon. The value of k varies from 0.0015 to 0.0050 per 
+meter length of the tendon depending on the type of tendon.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.prestressing.prestressed_concrete.PrestressTendon.getReverseCumAngle">
 <code class="descname">getReverseCumAngle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.getReverseCumAngle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return for each point in fineCoordMtr the cumulative angular 
@@ -239,7 +258,7 @@ tendon from its ending point</p>
 
 <dl class="method">
 <dt id="materials.prestressing.prestressed_concrete.PrestressTendon.plot2D">
-<code class="descname">plot2D</code><span class="sig-paren">(</span><em>XaxisValues='X'</em>, <em>axisEqualScale='N'</em>, <em>symbolRougPoints=None</em>, <em>symbolFinePoints=None</em>, <em>symbolTendon=None</em>, <em>symbolLossFriction=None</em>, <em>symbolStressAfterLossFriction=None</em>, <em>symbolLossAnch=None</em>, <em>symbolStressAfterLossAnch=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.plot2D" title="Permalink to this definition">¶</a></dt>
+<code class="descname">plot2D</code><span class="sig-paren">(</span><em>XaxisValues='X'</em>, <em>axisEqualScale='N'</em>, <em>symbolRougPoints=None</em>, <em>symbolFinePoints=None</em>, <em>symbolTendon=None</em>, <em>resultsToPlot=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.plot2D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return in a 2D graphic the results to which a symbol is assigned.
 Symbol examples: ‘r-‘: red solid line, ‘mo’: magenta circle, ‘b–’: blue dashes, ‘ks’:black square,’g^’ green triangle_up, ‘c*’: cyan star, …
 :param XaxisValues: =’X’ (default) to represent in the diagram X-axis</p>
@@ -258,8 +277,22 @@ curve on the XY plane</dd>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>axisEqualScale</strong> – =’Y’, ‘y’,’yes’ or ‘Yes’ for equal aspect ratio
-(defaults to ‘N’)</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>axisEqualScale</strong> – =’Y’, ‘y’,’yes’ or ‘Yes’ for equal aspect ratio
+(defaults to ‘N’)</li>
+<li><strong>resultsToPlot</strong> – <p>list of results to plot. Each result to be
+displayed is input with the following parameters:
+(matRes,symb,label), where:
+- matRes: is the matrix of dimension 1*number of elements in the</p>
+<blockquote>
+<div>tendon with the value of the result for each of those elements</div></blockquote>
+<ul>
+<li>symb: is the symbol to use for representing this result</li>
+<li>label: is the text to label this result</li>
+</ul>
+</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -267,7 +300,7 @@ curve on the XY plane</dd>
 
 <dl class="method">
 <dt id="materials.prestressing.prestressed_concrete.PrestressTendon.plot3D">
-<code class="descname">plot3D</code><span class="sig-paren">(</span><em>axisEqualScale='N'</em>, <em>symbolRougPoints=None</em>, <em>symbolFinePoints=None</em>, <em>symbolTendon=None</em>, <em>symbolLossFriction=None</em>, <em>symbolStressAfterLossFriction=None</em>, <em>symbolLossAnch=None</em>, <em>symbolStressAfterLossAnch=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.plot3D" title="Permalink to this definition">¶</a></dt>
+<code class="descname">plot3D</code><span class="sig-paren">(</span><em>axisEqualScale='N'</em>, <em>symbolRougPoints=None</em>, <em>symbolFinePoints=None</em>, <em>symbolTendon=None</em>, <em>resultsToPlot=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.plot3D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return in a 3D graphic the results to which a symbol is assigned.
 Symbol examples: ‘r-‘: red solid line, ‘mo’: magenta circle, 
 ‘b–’: blue dashes, ‘ks’:black square,’g^’ green triangle_up, 
@@ -275,6 +308,24 @@ Symbol examples: ‘r-‘: red solid line, ‘mo’: magenta circle,
 :param axisEqualScale:  =’Y’, ‘y’,’yes’ or ‘Yes’ for equal aspect ratio</p>
 <blockquote>
 <div>(defaults to ‘N’)</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>resultsToPlot</strong> – <p>list of results to plot. Each result to be
+displayed is input with the following parameters:
+(matRes,symb,label), where:
+- matRes: is the matrix of dimension 1*number of elements in the</p>
+<blockquote>
+<div>tendon with the value of the result for each of those elements</div></blockquote>
+<ul class="simple">
+<li>symb: is the symbol to use for representing this result</li>
+<li>label: is the text to label this result</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -303,6 +354,17 @@ in each interpolated
 </ul>
 <p>plane. Matrix 1*nPntsFine whose first elements is 0 and the rest the 
 cumulative distance to the first point</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.prestressing.prestressed_concrete.PrestressTendon.pntsStraightTendon">
+<code class="descname">pntsStraightTendon</code><span class="sig-paren">(</span><em>eSize</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.prestressing.prestressed_concrete.PrestressTendon.pntsStraightTendon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpolates coordinates in the straight line defined by two points 
+in lstRoughPnt, spaced eSize. Creates attribute:</p>
+<ul class="simple">
+<li>fineCoordMtr: matrix with coordinates of the interpolated points</li>
+</ul>
+<p>[[x1,x2, ..],[y1,y2,..],[z1,z2,..]]</p>
 </dd></dl>
 
 </dd></dl>

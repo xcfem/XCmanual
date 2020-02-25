@@ -292,7 +292,7 @@ and 3: relaxation for bars.</li>
 
 <dl class="data">
 <dt id="materials.ehe.EHE_materials.concrOfName">
-<code class="descclassname">materials.ehe.EHE_materials.</code><code class="descname">concrOfName</code><em class="property"> = {'HA100': HA100, 'HA20': HA20, 'HA25': HA25, 'HA30': HA30, 'HA35': HA35, 'HA40': HA40, 'HA45': HA45, 'HA50': HA50, 'HA55': HA55, 'HA60': HA60, 'HA70': HA70, 'HA80': HA80, 'HA90': HA90, 'HP45': HP45, 'HP50': HP50}</em><a class="headerlink" href="#materials.ehe.EHE_materials.concrOfName" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">materials.ehe.EHE_materials.</code><code class="descname">concrOfName</code><em class="property"> = {'HA100': HA100, 'HA20': HA20, 'HA25': HA25, 'HA30': HA30, 'HA35': HA35, 'HA40': HA40, 'HA45': HA45, 'HA50': HA50, 'HA55': HA55, 'HA60': HA60, 'HA70': HA70, 'HA80': HA80, 'HA90': HA90, 'HP25': HP25, 'HP30': HP30, 'HP35': HP35, 'HP40': HP40, 'HP45': HP45, 'HP50': HP50}</em><a class="headerlink" href="#materials.ehe.EHE_materials.concrOfName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Factor that multiplies the characteristic value of concrete compressive strength from its age in days for normal hardening concrete (table 30.4.b EHE)</p>
 </dd></dl>
 
@@ -760,9 +760,118 @@ for each of these elements.</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="materials.ehe.EHE_limit_state_checking.LongShearJoints">
+<em class="property">class </em><code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">LongShearJoints</code><span class="sig-paren">(</span><em>concrete</em>, <em>reinfsteel</em>, <em>contactSurf</em>, <em>roughness='L'</em>, <em>dynamic='N'</em>, <em>sigma_cd=0</em>, <em>Ast=None</em>, <em>spacement=None</em>, <em>angRebars=90</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.LongShearJoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Verification of ultimate limit state due to longitudinal shear stress 
+at joints between concretes according to art. 47 EHE.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>concrete</strong> – weakest EHE concrete type (ex: EHE_materials.HA25)</li>
+<li><strong>reinfsteel</strong> – EHE reinforcing steel (ex: EHE_materials.B500S)</li>
+<li><strong>contactSurf</strong> – Contact surface per unit length. This shall not extend 
+to zones where the penetrating width is less than 20 mm 
+or the maximum diameter of the edge or with a cover of 
+less than 30 mm</li>
+<li><strong>roughness</strong> – roughness of surface (‘L’ for low degree of roughness,
+‘H’ for high degree of roughness). Defaults to ‘L’</li>
+<li><strong>dynamic</strong> – low fatigue or dynamic stresses consideration (‘Y’ if
+considered, ‘N’ for not considered). Defaults to ‘N’</li>
+<li><strong>sigma_cd</strong> – External design tensile stress perpendicular to the plane of the joint.
+(&lt;0 for compression tensions) (if sigma_cd &gt; 0, beta, fct_d=0). 
+Defaults to 0.</li>
+<li><strong>Ast</strong> – Cross-section of effectively anchored steel bars, closing 
+the joint (area of 1 those rebars, spacement is given also as a 
+parameter). Defaults to None = no reinforcement, in this case 
+all parameters attached to reinforcement are ignored .</li>
+<li><strong>spacement</strong> – distance between the closing bars along the joint plane.
+(defaults to None)</li>
+<li><strong>angRebars</strong> – Angle formed by the joining bars with the plane of the joint (degrees). 
+Reinforcements with α &gt; 135° or α &lt; 45° shall not be incorporated.
+Defaults to 90º</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.ehe.EHE_limit_state_checking.LongShearJoints.checkShearStressJoints">
+<code class="descname">checkShearStressJoints</code><span class="sig-paren">(</span><em>tao_rd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.LongShearJoints.checkShearStressJoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify the ultimate limit state due to longitudinal shear stress.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tao_rd</strong> – design longitudinal shear stress at a joint between
+concrete.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.ehe.EHE_limit_state_checking.LongShearJoints.getBetaCoef">
+<code class="descname">getBetaCoef</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.LongShearJoints.getBetaCoef" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return beta coefficient depending on the roughness of contact surfaces 
+(art. 47.2.1 EHE and table 47.2.2.2):</p>
+<blockquote>
+<div>-0.80 in rough contact surfaces of composite sections that are 
+interconnected so that one composite section may not overhang the 
+other, for example, are dovetailed, and if the surface is open and 
+rough, e.g. like joists as left by a floor laying machine.
+-0.40 in intentionally rough surfaces with a high degree of roughness.
+-0.20 in unintentionally rough surfaces with a low degree of roughness
+- at low fatigue or dynamic stresses beta shall be reduced by 50%.</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.ehe.EHE_limit_state_checking.LongShearJoints.getMuCoefCase1">
+<code class="descname">getMuCoefCase1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.LongShearJoints.getMuCoefCase1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return mu coefficient depending of roughness, for calculation of ultimate shear 
+stress at a joint in case 1 (art. 47.2.1 EHE, table 47.2.2.2):</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.ehe.EHE_limit_state_checking.LongShearJoints.getMuCoefCase2">
+<code class="descname">getMuCoefCase2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.LongShearJoints.getMuCoefCase2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return mu coefficient depending of roughness, for calculation of ultimate shear 
+stress at a joint in case 2 (art. 47.2.1 EHE, table 47.2.2.2):</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.ehe.EHE_limit_state_checking.LongShearJoints.getUltShearStressWithReinf">
+<code class="descname">getUltShearStressWithReinf</code><span class="sig-paren">(</span><em>tao_rd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.LongShearJoints.getUltShearStressWithReinf" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the ultimate longitudinal shear stress at a joint between</dt>
+<dd>concrete sections with transverse reinforcement.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tao_rd</strong> – design longitudinal shear stress at a joint between
+concrete.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.ehe.EHE_limit_state_checking.LongShearJoints.getUltShearStressWithoutReinf">
+<code class="descname">getUltShearStressWithoutReinf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.LongShearJoints.getUltShearStressWithoutReinf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the ultimate longitudinal shear stress in a section 
+without any transverse reinforcement</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="materials.ehe.EHE_limit_state_checking.ShearController">
 <em class="property">class </em><code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">ShearController</code><span class="sig-paren">(</span><em>limitStateLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearController" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="matGenTopics.html#materials.limit_state_checking_base.LimitStateControllerBase" title="materials.limit_state_checking_base.LimitStateControllerBase"><code class="xref py py-class docutils literal"><span class="pre">materials.limit_state_checking_base.LimitStateControllerBase</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="matGenTopics.html#materials.limit_state_checking_base.ShearControllerBase" title="materials.limit_state_checking_base.ShearControllerBase"><code class="xref py py-class docutils literal"><span class="pre">materials.limit_state_checking_base.ShearControllerBase</span></code></a></p>
 <p>Shear control according to EHE-08.</p>
 <dl class="method">
 <dt id="materials.ehe.EHE_limit_state_checking.ShearController.calcVuEHE08">
@@ -875,20 +984,6 @@ for each of these elements.</p>
 </table>
 </dd></dl>
 
-<dl class="method">
-<dt id="materials.ehe.EHE_limit_state_checking.ShearController.initControlVars">
-<code class="descname">initControlVars</code><span class="sig-paren">(</span><em>elements</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearController.initControlVars" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize control variables over elements.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>elements</strong> – elements to define control variables in</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="class">
@@ -919,27 +1014,34 @@ clause 45.1 of EHE-08.</p>
 <dl class="method">
 <dt id="materials.ehe.EHE_limit_state_checking.TorsionParameters.A">
 <code class="descname">A</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.TorsionParameters.A" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the area of the transverse section inscribed in the external circumference
+including inner void areas</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="materials.ehe.EHE_limit_state_checking.TorsionParameters.Ae">
 <code class="descname">Ae</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.TorsionParameters.Ae" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the area enclosed by the middle line of the design effective hollow 
+section</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="materials.ehe.EHE_limit_state_checking.TorsionParameters.he">
 <code class="descname">he</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.TorsionParameters.he" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the effective thickness of the wall of the design section.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="materials.ehe.EHE_limit_state_checking.TorsionParameters.u">
 <code class="descname">u</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.TorsionParameters.u" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the external perimeter of the transverse section.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="materials.ehe.EHE_limit_state_checking.TorsionParameters.ue">
 <code class="descname">ue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.TorsionParameters.ue" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the perimeter of the middle line in the design effective hollow section Ae</p>
+</dd></dl>
 
 </dd></dl>
 

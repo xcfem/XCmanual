@@ -144,7 +144,7 @@ Create a single-point boundary constraint by assigning a value to the degree of 
 <dl class="method">
 <dt id="xc.LoadPattern.clearLoads">
 <code class="descname">clearLoads</code><span class="sig-paren">(</span><em>(LoadPattern)arg1</em><span class="sig-paren">)</span> &#x2192; None :<a class="headerlink" href="#xc.LoadPattern.clearLoads" title="Permalink to this definition">¶</a></dt>
-<dd><p>Deletes the pattern loads.</p>
+<dd><p>Delete the pattern loads.</p>
 <dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>void clearLoads(XC::LoadPattern {lvalue})</dd>
@@ -206,7 +206,8 @@ Create a single-point boundary constraint by assigning a value to the degree of 
 <dl class="method">
 <dt id="xc.LoadPattern.newElementalLoad">
 <code class="descname">newElementalLoad</code><span class="sig-paren">(</span><em>(LoadPattern)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &#x2192; ElementalLoad :<a class="headerlink" href="#xc.LoadPattern.newElementalLoad" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a load over element.</p>
+<dd><p>Create a load over an element.
+Possible load types:  beam2d_uniform_load ,  beam2d_point_load , beam_strain_load , beam3d_point_load , beam3d_uniform_load , brick_self_weight , shell_uniform_load , bidim_strain_load , shell_strain_load , truss_temp_load</p>
 <dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>XC::ElementalLoad* newElementalLoad(XC::LoadPattern {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
@@ -226,7 +227,7 @@ Create a single-point boundary constraint by assigning a value to the degree of 
 <dl class="method">
 <dt id="xc.LoadPattern.removeElementalLoad">
 <code class="descname">removeElementalLoad</code><span class="sig-paren">(</span><em>(LoadPattern)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; bool :<a class="headerlink" href="#xc.LoadPattern.removeElementalLoad" title="Permalink to this definition">¶</a></dt>
-<dd><p>removes the elemental load with the tag passed as parameter.</p>
+<dd><p>remove the elemental load with the tag passed as parameter.</p>
 <dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>bool removeElementalLoad(XC::LoadPattern {lvalue},int)</dd>
@@ -258,23 +259,13 @@ Create a single-point boundary constraint by assigning a value to the degree of 
 <dl class="class">
 <dt id="xc.LoadCombination">
 <em class="property">class </em><code class="descclassname">xc.</code><code class="descname">LoadCombination</code><a class="headerlink" href="#xc.LoadCombination" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="../load.html#xc.ForceReprComponent" title="xc.ForceReprComponent"><code class="xref py py-class docutils literal"><span class="pre">xc.ForceReprComponent</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">xc.LoadPatternCombination</span></code></p>
 <dl class="method">
 <dt id="xc.LoadCombination.add">
 <code class="descname">add</code><span class="sig-paren">(</span><em>(LoadCombination)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &#x2192; LoadCombination :<a class="headerlink" href="#xc.LoadCombination.add" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>XC::LoadCombination {lvalue} add(XC::LoadCombination {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.LoadCombination.addToDomain">
-<code class="descname">addToDomain</code><span class="sig-paren">(</span><em>(LoadCombination)arg1</em><span class="sig-paren">)</span> &#x2192; bool :<a class="headerlink" href="#xc.LoadCombination.addToDomain" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add combination to the domain.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>bool addToDomain(XC::LoadCombination {lvalue})</dd>
 </dl>
 </dd></dl>
 
@@ -307,22 +298,6 @@ Create a single-point boundary constraint by assigning a value to the degree of 
 </dd></dl>
 
 <dl class="method">
-<dt id="xc.LoadCombination.getDescomp">
-<code class="descname">getDescomp</code><span class="sig-paren">(</span><em>(LoadCombination)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &#x2192; str :<a class="headerlink" href="#xc.LoadCombination.getDescomp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns combination expression.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; getDescomp(XC::LoadCombination {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
-</dl>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="xc.LoadCombination.getName">
-<code class="descname">getName</code><a class="headerlink" href="#xc.LoadCombination.getName" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns combination’s name.</p>
-</dd></dl>
-
-<dl class="method">
 <dt id="xc.LoadCombination.multiplica">
 <code class="descname">multiplica</code><span class="sig-paren">(</span><em>(LoadCombination)arg1</em>, <em>(float)arg2</em><span class="sig-paren">)</span> &#x2192; LoadCombination :<a class="headerlink" href="#xc.LoadCombination.multiplica" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
@@ -332,21 +307,11 @@ Create a single-point boundary constraint by assigning a value to the degree of 
 </dd></dl>
 
 <dl class="method">
-<dt id="xc.LoadCombination.removeFromDomain">
-<code class="descname">removeFromDomain</code><span class="sig-paren">(</span><em>(LoadCombination)arg1</em><span class="sig-paren">)</span> &#x2192; None :<a class="headerlink" href="#xc.LoadCombination.removeFromDomain" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove combination from the domain.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>void removeFromDomain(XC::LoadCombination {lvalue})</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.LoadCombination.substract">
-<code class="descname">substract</code><span class="sig-paren">(</span><em>(LoadCombination)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &#x2192; LoadCombination :<a class="headerlink" href="#xc.LoadCombination.substract" title="Permalink to this definition">¶</a></dt>
+<dt id="xc.LoadCombination.subtract">
+<code class="descname">subtract</code><span class="sig-paren">(</span><em>(LoadCombination)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &#x2192; LoadCombination :<a class="headerlink" href="#xc.LoadCombination.subtract" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>C++ signature :</dt>
-<dd>XC::LoadCombination {lvalue} substract(XC::LoadCombination {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
+<dd>XC::LoadCombination {lvalue} subtract(XC::LoadCombination {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
 </dl>
 </dd></dl>
 

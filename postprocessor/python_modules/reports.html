@@ -56,13 +56,8 @@
 <div class="section" id="module-postprocess.reports.common_formats">
 <span id="common-formats"></span><h2>common_formats<a class="headerlink" href="#module-postprocess.reports.common_formats" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-postprocess.reports.draw_schema_armature_mur">
-<span id="draw-schema-armature-mur"></span><h2>draw_schema_armature_mur<a class="headerlink" href="#module-postprocess.reports.draw_schema_armature_mur" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="postprocess.reports.draw_schema_armature_mur.getRebarAnnotationLines">
-<code class="descclassname">postprocess.reports.draw_schema_armature_mur.</code><code class="descname">getRebarAnnotationLines</code><span class="sig-paren">(</span><em>defStrings</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.draw_schema_armature_mur.getRebarAnnotationLines" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<div class="section" id="draw-schema-armature-mur">
+<h2>draw_schema_armature_mur<a class="headerlink" href="#draw-schema-armature-mur" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-postprocess.reports.export_displacements">
 <span id="export-displacements"></span><h2>export_displacements<a class="headerlink" href="#module-postprocess.reports.export_displacements" title="Permalink to this headline">¶</a></h2>
@@ -129,25 +124,15 @@
 <div class="section" id="module-postprocess.reports.graphical_reports">
 <span id="graphical-reports"></span><h2>graphical_reports<a class="headerlink" href="#module-postprocess.reports.graphical_reports" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="postprocess.reports.graphical_reports.RecordLoadCaseDisp">
-<em class="property">class </em><code class="descclassname">postprocess.reports.graphical_reports.</code><code class="descname">RecordLoadCaseDisp</code><span class="sig-paren">(</span><em>loadCaseName</em>, <em>loadCaseDescr</em>, <em>loadCaseExpr</em>, <em>setsToDispLoads</em>, <em>setsToDispDspRot</em>, <em>setsToDispIntForc</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.RecordLoadCaseDisp" title="Permalink to this definition">¶</a></dt>
+<dt id="postprocess.reports.graphical_reports.OuputUnits">
+<em class="property">class </em><code class="descclassname">postprocess.reports.graphical_reports.</code><code class="descname">OuputUnits</code><a class="headerlink" href="#postprocess.reports.graphical_reports.OuputUnits" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
-<p>Generation of graphic files and adding to report-tex files for a load case</p>
+<p>Unit for the generation of graphic files report files.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>loadCaseName</strong> – name of the load case to be depicted</li>
-<li><strong>loadCaseDescr</strong> – description text of the load case</li>
-<li><strong>loadCaseExpr</strong> – mathematical expression to define the load case (ex:
-‘1.0*GselfWeight+1.0*DeadLoad’)</li>
-<li><strong>setsToDispLoads</strong> – ordered list of sets of shell elements to display loads</li>
-<li><strong>setsToDispBeamLoads</strong> – ordered list of sets of beam elements to display 
-loads (defaults to [])</li>
-<li><strong>compElLoad</strong> – component of load on beam elements to be represented
-available components: ‘axialComponent’, ‘transComponent’, 
-‘transYComponent’,’transZComponent’ (defaults to ‘transComponent’)</li>
 <li><strong>unitsScaleLoads</strong> – factor to apply to loads if we want to change
 the units (defaults to 1).</li>
 <li><strong>unitsLoads</strong> – text to especify the units in which loads are 
@@ -156,6 +141,52 @@ represented (defaults to ‘units:[m,kN]’)</li>
 representation of element loads (defaults to 1).</li>
 <li><strong>vectorScalePointLoads</strong> – factor to apply to the vectors length in the 
 representation of nodal loads (defaults to 1).</li>
+<li><strong>unitsScaleDispl</strong> – factor to apply to displacements if we want to change
+the units (defaults to 1).</li>
+<li><strong>unitsDispl</strong> – text to especify the units in which displacements are 
+represented (defaults to ‘[m]’</li>
+<li><strong>scaleDispBeamIntForc</strong> – tuple (escN,escQ,escM) correponding to the scales
+to apply to displays of, respectively, axial forces (N),
+shear forces (Q) or bending moments (M) in beam elements
+(defaults to (1.0,1.0,1.0))</li>
+<li><strong>scaleDispReactions</strong> – tuple (escN,escM) correponding to the scales
+to apply to displays of, respectively, forces (F)
+or moments (M) in nodal reactions
+(defaults to (1.0,1.0))</li>
+<li><strong>scaleDispEigenvectors</strong> – tuple (escN,escM) correponding to the scales
+to apply to displays of eigenvectors
+(defaults to (1.0,1.0))</li>
+<li><strong>unitsScaleForc</strong> – factor to apply to internal forces if we want to change
+the units (defaults to 1).</li>
+<li><strong>unitsForc</strong> – text to especify the units in which forces are 
+represented (defaults to ‘[kN/m]’)</li>
+<li><strong>unitsScaleMom</strong> – factor to apply to internal moments if we want to change
+the units (defaults to 1).</li>
+<li><strong>unitsMom</strong> – text to especify the units in which bending moments are 
+represented (defaults to ‘[kN.m/m]’)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.reports.graphical_reports.RecordDisp">
+<em class="property">class </em><code class="descclassname">postprocess.reports.graphical_reports.</code><code class="descname">RecordDisp</code><span class="sig-paren">(</span><em>setsToDispLoads=None</em>, <em>setsToDispDspRot=None</em>, <em>setsToDispIntForc=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.RecordDisp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.reports.graphical_reports.OuputUnits" title="postprocess.reports.graphical_reports.OuputUnits"><code class="xref py py-class docutils literal"><span class="pre">postprocess.reports.graphical_reports.OuputUnits</span></code></a></p>
+<p>Generation of graphic displays</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>setsToDispLoads</strong> – ordered list of sets of shell elements to display loads</li>
+<li><strong>setsToDispBeamLoads</strong> – ordered list of sets of beam elements to display 
+loads (defaults to [])</li>
+<li><strong>compElLoad</strong> – component of load on beam elements to be represented
+available components: ‘axialComponent’, ‘transComponent’, 
+‘transYComponent’,’transZComponent’ (defaults to ‘transComponent’)</li>
 <li><strong>multByElemAreaLoads</strong> – boolean value that must be True if we want to 
 represent the total load on each element 
 (=load multiplied by element area) and False if we 
@@ -166,10 +197,6 @@ available components: ‘uX’, ‘uY’, ‘uZ’, ‘rotX’, rotY’, ‘rotZ
 (defaults to [‘uX’, ‘uY’, ‘uZ’])</li>
 <li><strong>setsToDispDspRot</strong> – ordered list of sets of elements to display displacements 
 or rotations</li>
-<li><strong>unitsScaleDispl</strong> – factor to apply to displacements if we want to change
-the units (defaults to 1).</li>
-<li><strong>unitsDispl</strong> – text to especify the units in which displacements are 
-represented (defaults to ‘[m]’</li>
 <li><strong>listIntForc</strong> – ordered list of internal forces to be displayed
 as scalar field over «shell» elements
 available components: ‘N1’, ‘N2’, ‘M1’, ‘M2’, ‘Q1’, ‘Q2’
@@ -182,18 +209,8 @@ available components: ‘N’, ‘My’, ‘Mz’, ‘Qy’, ‘Qz’,’T’
 (defaults to [‘N’, ‘My’, ‘Mz’, ‘Qy’, ‘Qz’,’T’])</li>
 <li><strong>setsToDispBeamIntForc</strong> – ordered list of sets of elements (of type «beam»)
 to display internal forces (defaults to [])</li>
-<li><strong>scaleDispBeamIntForc</strong> – tuple (escN,escQ,escM) correponding to the scales to apply to 
-displays of, respectively, axial forces (N), shear forces (Q)
-or bending moments (M) in beam elements
-(defaults to (1.0,1.0,1.0))</li>
-<li><strong>unitsScaleForc</strong> – factor to apply to internal forces if we want to change
-the units (defaults to 1).</li>
-<li><strong>unitsForc</strong> – text to especify the units in which forces are 
-represented (defaults to ‘[kN/m]’)</li>
-<li><strong>unitsScaleMom</strong> – factor to apply to internal moments if we want to change
-the units (defaults to 1).</li>
-<li><strong>unitsMom</strong> – text to especify the units in which bending moments are 
-represented (defaults to ‘[kN.m/m]’)</li>
+<li><strong>setsToDispReactions</strong> – ordered list of sets of nodes
+to display reactions (defaults to [])</li>
 <li><strong>cameraParameters</strong> – parameters that define the camera position,
 zoom, etc.</li>
 <li><strong>cameraParametersForBeams</strong> – parameters that define the camera position,
@@ -203,6 +220,197 @@ zoom, etc for displaying beam elements.</li>
 </tr>
 </tbody>
 </table>
+<dl class="method">
+<dt id="postprocess.reports.graphical_reports.RecordDisp.dispLoadCaseBeamEl">
+<code class="descname">dispLoadCaseBeamEl</code><span class="sig-paren">(</span><em>setToDisplay</em>, <em>caption=None</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.RecordDisp.dispLoadCaseBeamEl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the loads applied on beam elements and nodes for a given load case</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>setToDisplay</strong> – set of beam elements to be represented</li>
+<li><strong>caption</strong> – caption for the graphic</li>
+<li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to None,
+in that case an screen display is generated</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.reports.graphical_reports.RecordDisp.displayDispRot">
+<code class="descname">displayDispRot</code><span class="sig-paren">(</span><em>fileName=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.RecordDisp.displayDispRot" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Displays the component of the displacement or rotations</dt>
+<dd>on the set argument.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>setToDisplay</strong> – set of elements to be displayed (defaults to total set)</li>
+<li><strong>fileName</strong> – full name of the graphic file to generate. Defaults to 
+` None`, in this case it returns a console output graphic.,</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.reports.graphical_reports.RecordDisp.displayEigenvectorsOnSets">
+<code class="descname">displayEigenvectorsOnSets</code><span class="sig-paren">(</span><em>eigenMode</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.RecordDisp.displayEigenvectorsOnSets" title="Permalink to this definition">¶</a></dt>
+<dd><p>displays the reactions as vector on affected nodes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to None,
+in that case an screen display is generated</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.reports.graphical_reports.RecordDisp.displayIntForcDiag">
+<code class="descname">displayIntForcDiag</code><span class="sig-paren">(</span><em>itemToDisp</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.RecordDisp.displayIntForcDiag" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>displays the component of internal forces as a </dt>
+<dd>diagram over lines (i.e. appropiated for beam elements).</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>itemToDisp</strong> – component of the internal forces 
+(‘N’, ‘Qy’ (or ‘Vy’), ‘Qz’ (or ‘Vz’), ‘My’, ‘Mz’, ‘T’) to be depicted</li>
+<li><strong>unitDescription</strong> – string like ‘[kN/m] or [kN m/m]’</li>
+<li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to None,
+in that case an screen display is generated</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.reports.graphical_reports.RecordDisp.displayLoadOnSets">
+<code class="descname">displayLoadOnSets</code><span class="sig-paren">(</span><em>caption=None</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.RecordDisp.displayLoadOnSets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays load vectors for each of the sets in self.setsToDispLoads</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>caption</strong> – text to display in the graphic. Defaults to 
+` None` in this case the text is the load case description
+and the units of the loads.</li>
+<li><strong>fileName</strong> – full name of the graphic file to generate. Defaults to 
+` None`, in this case it returns a console output graphic.,</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.reports.graphical_reports.RecordDisp.displayReactionsOnSets">
+<code class="descname">displayReactionsOnSets</code><span class="sig-paren">(</span><em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.RecordDisp.displayReactionsOnSets" title="Permalink to this definition">¶</a></dt>
+<dd><p>displays the reactions as vector on affected nodes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to None,
+in that case an screen display is generated</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.reports.graphical_reports.RecordDisp.getDescription">
+<code class="descname">getDescription</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.RecordDisp.getDescription" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.reports.graphical_reports.RecordDisp.getOutputHandler">
+<code class="descname">getOutputHandler</code><span class="sig-paren">(</span><em>setToDisplay</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.RecordDisp.getOutputHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an output handler from the set argument.
+NOT a very elegant solution-&gt; to refactor.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.reports.graphical_reports.RecordLoadCaseDisp">
+<em class="property">class </em><code class="descclassname">postprocess.reports.graphical_reports.</code><code class="descname">RecordLoadCaseDisp</code><span class="sig-paren">(</span><em>loadCaseName</em>, <em>loadCaseDescr</em>, <em>loadCaseExpr</em>, <em>setsToDispLoads</em>, <em>setsToDispDspRot</em>, <em>setsToDispIntForc</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.RecordLoadCaseDisp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.reports.graphical_reports.RecordDisp" title="postprocess.reports.graphical_reports.RecordDisp"><code class="xref py py-class docutils literal"><span class="pre">postprocess.reports.graphical_reports.RecordDisp</span></code></a></p>
+<p>Generation of graphic files and adding to report-tex files for a load case</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>loadCaseName</strong> – name of the load case to be depicted</li>
+<li><strong>loadCaseDescr</strong> – description text of the load case</li>
+<li><strong>loadCaseExpr</strong> – mathematical expression to define the load case (ex:
+‘1.0*GselfWeight+1.0*DeadLoad’)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="postprocess.reports.graphical_reports.RecordLoadCaseDisp.getDescription">
+<code class="descname">getDescription</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.RecordLoadCaseDisp.getDescription" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="postprocess.reports.graphical_reports.RecordLoadCaseDisp.loadReports">
 <code class="descname">loadReports</code><span class="sig-paren">(</span><em>FEcase</em>, <em>pathGr</em>, <em>texFile</em>, <em>grWdt</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.RecordLoadCaseDisp.loadReports" title="Permalink to this definition">¶</a></dt>
@@ -504,7 +712,7 @@ elment set whose material is a steel shape.</p>
 
 <dl class="function">
 <dt id="postprocess.reports.list_data.listaElementosBarraSet">
-<code class="descclassname">postprocess.reports.list_data.</code><code class="descname">listaElementosBarraSet</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>setName</em>, <em>fileName</em>, <em>fmt</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_data.listaElementosBarraSet" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">postprocess.reports.list_data.</code><code class="descname">listaElementosBarraSet</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>setName</em>, <em>fName</em>, <em>fmt</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_data.listaElementosBarraSet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Writes a list of the bar elements from the set</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -776,18 +984,18 @@ argument set.</p>
 <div class="section" id="module-postprocess.reports.list_loads">
 <span id="list-loads"></span><h2>list_loads<a class="headerlink" href="#module-postprocess.reports.list_loads" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="postprocess.reports.list_loads.ListaCargaPuntual">
-<code class="descclassname">postprocess.reports.list_loads.</code><code class="descname">ListaCargaPuntual</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>loadPattern</em>, <em>archivo</em>, <em>carga</em>, <em>fmt</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_loads.ListaCargaPuntual" title="Permalink to this definition">¶</a></dt>
+<dt id="postprocess.reports.list_loads.ElementLoadList">
+<code class="descclassname">postprocess.reports.list_loads.</code><code class="descname">ElementLoadList</code><span class="sig-paren">(</span><em>loadPattern</em>, <em>archivo</em>, <em>fmt</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_loads.ElementLoadList" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="postprocess.reports.list_loads.ListaCargaUniforme">
-<code class="descclassname">postprocess.reports.list_loads.</code><code class="descname">ListaCargaUniforme</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>loadPattern</em>, <em>archivo</em>, <em>carga</em>, <em>fmt</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_loads.ListaCargaUniforme" title="Permalink to this definition">¶</a></dt>
+<dt id="postprocess.reports.list_loads.PunctualLoadList">
+<code class="descclassname">postprocess.reports.list_loads.</code><code class="descname">PunctualLoadList</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>loadPattern</em>, <em>archivo</em>, <em>carga</em>, <em>fmt</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_loads.PunctualLoadList" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="postprocess.reports.list_loads.ListaCargasElementos">
-<code class="descclassname">postprocess.reports.list_loads.</code><code class="descname">ListaCargasElementos</code><span class="sig-paren">(</span><em>loadPattern</em>, <em>archivo</em>, <em>fmt</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_loads.ListaCargasElementos" title="Permalink to this definition">¶</a></dt>
+<dt id="postprocess.reports.list_loads.UniformLoadList">
+<code class="descclassname">postprocess.reports.list_loads.</code><code class="descname">UniformLoadList</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>loadPattern</em>, <em>archivo</em>, <em>carga</em>, <em>fmt</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_loads.UniformLoadList" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
@@ -1034,7 +1242,7 @@ of tension stiffness.</li>
   <ul>
 <li><a class="reference internal" href="#">Reports</a><ul>
 <li><a class="reference internal" href="#module-postprocess.reports.common_formats">common_formats</a></li>
-<li><a class="reference internal" href="#module-postprocess.reports.draw_schema_armature_mur">draw_schema_armature_mur</a></li>
+<li><a class="reference internal" href="#draw-schema-armature-mur">draw_schema_armature_mur</a></li>
 <li><a class="reference internal" href="#module-postprocess.reports.export_displacements">export_displacements</a></li>
 <li><a class="reference internal" href="#module-postprocess.reports.export_internal_forces">export_internal_forces</a></li>
 <li><a class="reference internal" href="#module-postprocess.reports.graphical_reports">graphical_reports</a></li>

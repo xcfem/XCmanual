@@ -77,18 +77,25 @@
 
 <dl class="class">
 <dt id="actions.earth_pressure.earth_pressure.EarthPressureModel">
-<em class="property">class </em><code class="descclassname">actions.earth_pressure.earth_pressure.</code><code class="descname">EarthPressureModel</code><span class="sig-paren">(</span><em>K</em>, <em>zGround</em>, <em>gammaSoil</em>, <em>zWater</em>, <em>gammaWater</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.EarthPressureModel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#actions.earth_pressure.earth_pressure.EarthPressureBase" title="actions.earth_pressure.earth_pressure.EarthPressureBase"><code class="xref py py-class docutils literal"><span class="pre">actions.earth_pressure.earth_pressure.EarthPressureBase</span></code></a></p>
+<em class="property">class </em><code class="descclassname">actions.earth_pressure.earth_pressure.</code><code class="descname">EarthPressureModel</code><span class="sig-paren">(</span><em>zGround</em>, <em>zBottomSoils</em>, <em>KSoils</em>, <em>gammaSoils</em>, <em>zWater</em>, <em>gammaWater</em>, <em>qUnif=0</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.EarthPressureModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#actions.earth_pressure.earth_pressure.PressureModelBase" title="actions.earth_pressure.earth_pressure.PressureModelBase"><code class="xref py py-class docutils literal"><span class="pre">actions.earth_pressure.earth_pressure.PressureModelBase</span></code></a></p>
 <p>Parameters to define a load of type earth pressure</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>K</strong> – coefficient of pressure</li>
+<li><strong>zGround</strong> – global Z coordinate of ground level</li>
+<li><strong>zBottomSoils</strong> – list of global Z coordinates of the bottom level
+for each soil (from top to bottom)</li>
+<li><strong>KSoils</strong> – list of pressure coefficients for each soil (from top 
+to bottom)</li>
+<li><strong>gammaSoils</strong> – list of weight density for each soil (from top to
+bottom)</li>
 <li><strong>zWater</strong> – global Z coordinate of groundwater level 
 (if zGroundwater&lt;minimum z of model =&gt; there is no groundwater)</li>
 <li><strong>gammaWater</strong> – weight density of water</li>
+<li><strong>qUnif</strong> – uniform load over the backfill surface (defaults to 0)</li>
 </ul>
 </td>
 </tr>
@@ -99,6 +106,42 @@
 <code class="descname">getPressure</code><span class="sig-paren">(</span><em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.EarthPressureModel.getPressure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the earth pressure acting on the points at global coordinate z.</p>
 </dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="actions.earth_pressure.earth_pressure.EarthPressureSlopedWall">
+<em class="property">class </em><code class="descclassname">actions.earth_pressure.earth_pressure.</code><code class="descname">EarthPressureSlopedWall</code><span class="sig-paren">(</span><em>Ksoil</em>, <em>gammaSoil</em>, <em>zGroundPnt1</em>, <em>XYpnt1</em>, <em>zGroundPnt2</em>, <em>XYpnt2</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.EarthPressureSlopedWall" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Earth pressure on a sloped wall. A single soil type with no freatic
+is considered.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Ksoil</strong> – pressure coefficient of the soil</li>
+<li><strong>gammaSoil</strong> – weight density of the soil</li>
+<li><strong>zGroundPnt1</strong> – global Z coordinate of ground level at point of 
+coordinates XYpnt1</li>
+<li><strong>XYpnt1</strong> – (x,y) coordinates of point 1</li>
+<li><strong>zGroundPnt2</strong> – global Z coordinate of ground level at point of 
+coordinates XYpnt2</li>
+<li><strong>XYpnt2</strong> – (x,y) coordinates of point 2</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="actions.earth_pressure.earth_pressure.EarthPressureSlopedWall.appendLoadToCurrentLoadPattern">
+<code class="descname">appendLoadToCurrentLoadPattern</code><span class="sig-paren">(</span><em>xcSet</em>, <em>vDir</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.EarthPressureSlopedWall.appendLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="actions.earth_pressure.earth_pressure.EarthPressureSlopedWall.getPressure">
+<code class="descname">getPressure</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.EarthPressureSlopedWall.getPressure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -245,7 +288,7 @@ surcharge load</li>
 <dl class="class">
 <dt id="actions.earth_pressure.earth_pressure.PeckPressureEnvelope">
 <em class="property">class </em><code class="descclassname">actions.earth_pressure.earth_pressure.</code><code class="descname">PeckPressureEnvelope</code><span class="sig-paren">(</span><em>phi</em>, <em>zGround</em>, <em>gammaSoil</em>, <em>zWater</em>, <em>gammaWater</em>, <em>H</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.PeckPressureEnvelope" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#actions.earth_pressure.earth_pressure.EarthPressureModel" title="actions.earth_pressure.earth_pressure.EarthPressureModel"><code class="xref py py-class docutils literal"><span class="pre">actions.earth_pressure.earth_pressure.EarthPressureModel</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#actions.earth_pressure.earth_pressure.EarthPressureBase" title="actions.earth_pressure.earth_pressure.EarthPressureBase"><code class="xref py py-class docutils literal"><span class="pre">actions.earth_pressure.earth_pressure.EarthPressureBase</span></code></a></p>
 <dl class="docutils">
 <dt>Envelope of apparent lateral pressure diagrams for design </dt>
 <dd>of cuts in sand. See 10.2 in the book “Principles of Foundation

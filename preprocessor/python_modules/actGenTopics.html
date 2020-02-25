@@ -66,7 +66,7 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../cpp_classes/domain/mesh/element/utils/coordTransformation/coordTransformation.html#xc.CrdTransf.name" title="xc.CrdTransf.name"><strong>name</strong></a> – name identifying the load</li>
+<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – name identifying the load</li>
 <li><strong>loadVector</strong> – load xc.Vector</li>
 </ul>
 </td>
@@ -86,9 +86,9 @@ included in the set xcSet.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../cpp_classes/domain/mesh/element/utils/coordTransformation/coordTransformation.html#xc.CrdTransf.name" title="xc.CrdTransf.name"><strong>name</strong></a> – name identifying the load</li>
+<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – name identifying the load</li>
 <li><strong>xcSet</strong> – set that contains the elements (shells and/or beams)</li>
-<li><strong>soilProp</strong> – instance of the class EarthPressureModel that defines the 
+<li><strong>soilData</strong> – instance of the class EarthPressureModel that defines the 
 soil parameters required to calculate the earth pressure
 (K:coefficient of pressure, zGround: global Z coordinate of
 ground level,gammaSoil: weight density of soil, zWater: global Z
@@ -147,7 +147,7 @@ of mesh-sets</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../cpp_classes/domain/mesh/element/utils/coordTransformation/coordTransformation.html#xc.CrdTransf.name" title="xc.CrdTransf.name"><strong>name</strong></a> – name identifying the load</li>
+<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – name identifying the load</li>
 <li><strong>lstMeshSets</strong> – list of mesh-sets (of type LinSetToMesh or SurfSetToMesh)</li>
 <li><strong>vAccel</strong> – acceleration vector xc.Vector([ax,ay,az])</li>
 </ul>
@@ -178,7 +178,7 @@ of mesh-sets</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../cpp_classes/domain/mesh/element/utils/coordTransformation/coordTransformation.html#xc.CrdTransf.name" title="xc.CrdTransf.name"><strong>name</strong></a> – name identifying the load</li>
+<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – name identifying the load</li>
 <li><strong>lstNod</strong> – list of nodes on which the load is applied.</li>
 <li><strong>loadVector</strong> – xc.Vector with the six components of the 
 load: xc.Vector([Fx,Fy,Fz,Mx,My,Mz]).</li>
@@ -212,7 +212,7 @@ and one global axis.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../cpp_classes/domain/mesh/element/utils/coordTransformation/coordTransformation.html#xc.CrdTransf.name" title="xc.CrdTransf.name"><strong>name</strong></a> – name identifying the load</li>
+<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – name identifying the load</li>
 <li><strong>xcSet</strong> – set that contains the shell elements</li>
 <li><strong>loadVector</strong> – xc vector with the six components of the point load:
 xc.Vector([Fx,Fy,Fz,Mx,My,Mz]).</li>
@@ -273,6 +273,40 @@ all the lines in the xcSet.</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="actions.loads.StrainGradientThermalLoadOnShells">
+<em class="property">class </em><code class="descclassname">actions.loads.</code><code class="descname">StrainGradientThermalLoadOnShells</code><span class="sig-paren">(</span><em>name</em>, <em>elemSet</em>, <em>elThick</em>, <em>DOF</em>, <em>alpha</em>, <em>Ttop</em>, <em>Tbottom</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.loads.StrainGradientThermalLoadOnShells" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">actions.imposed_strain.imp_strain.gradThermalStrain</span></code></p>
+<p>Apply a thermal gradient between top and bottom faces of the shell 
+elements in xcSet.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – name identifying the load</li>
+<li><strong>xcSet</strong> – set that contains the elements</li>
+<li><strong>elThick</strong> – thickness of elements</li>
+<li><a class="reference internal" href="../../miscellany/roughCalcGenTopics.html#rough_calculations.masonryVault.FillingCharacteristics.alpha" title="rough_calculations.masonryVault.FillingCharacteristics.alpha"><strong>alpha</strong></a> – Thermal expansion coefficient of material (1/ºC)</li>
+<li><strong>Ttop</strong> – Temperature (ºC) at the top face of elements</li>
+<li><strong>Tbottom</strong> – Temperature (ºC) at the bottom face of elements</li>
+<li><strong>DOFstrain</strong> – degree of freedom to which apply the strain 
+3: curvature around local x
+4: curvature around local y
+5: curvature around local z</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="actions.loads.StrainGradientThermalLoadOnShells.appendLoadToCurrentLoadPattern">
+<code class="descname">appendLoadToCurrentLoadPattern</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.loads.StrainGradientThermalLoadOnShells.appendLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append load to the load pattern passed as parameter.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="actions.loads.StrainLoadOnShells">
 <em class="property">class </em><code class="descclassname">actions.loads.</code><code class="descname">StrainLoadOnShells</code><span class="sig-paren">(</span><em>name</em>, <em>xcSet</em>, <em>DOFstrain</em>, <em>strain</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.loads.StrainLoadOnShells" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
@@ -282,9 +316,12 @@ all the lines in the xcSet.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../cpp_classes/domain/mesh/element/utils/coordTransformation/coordTransformation.html#xc.CrdTransf.name" title="xc.CrdTransf.name"><strong>name</strong></a> – name identifying the load</li>
+<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – name identifying the load</li>
 <li><strong>xcSet</strong> – set that contains the elements</li>
-<li><strong>DOFstrain</strong> – degree of freedom to which apply the strain</li>
+<li><strong>DOFstrain</strong> – degree of freedom to which apply the strain 
+0: strain along local x
+1: strain along local y
+3: strain along local z</li>
 <li><strong>strain</strong> – strain (e.g.: alpha x deltaT for thermal expansion)</li>
 </ul>
 </td>
@@ -310,7 +347,7 @@ all the lines in the xcSet.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../cpp_classes/domain/mesh/element/utils/coordTransformation/coordTransformation.html#xc.CrdTransf.name" title="xc.CrdTransf.name"><strong>name</strong></a> – name identifying the load</li>
+<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – name identifying the load</li>
 <li><strong>xcSet</strong> – set that contains the lines</li>
 <li><strong>loadVector</strong> – xc.Vector with the six components of the load: 
 xc.Vector([Fx,Fy,Fz,Mx,My,Mz]).</li>
@@ -349,7 +386,7 @@ The uniform load is introduced as point loads in the nodes</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../cpp_classes/domain/mesh/element/utils/coordTransformation/coordTransformation.html#xc.CrdTransf.name" title="xc.CrdTransf.name"><strong>name</strong></a> – name identifying the load</li>
+<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – name identifying the load</li>
 <li><strong>xcSet</strong> – set that contains the lines</li>
 <li><strong>loadVector</strong> – xc.Vector with the six components of the load: 
 xc.Vector([Fx,Fy,Fz,Mx,My,Mz]).</li>
@@ -382,7 +419,7 @@ all the surfaces in the xcSet.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../cpp_classes/domain/mesh/element/utils/coordTransformation/coordTransformation.html#xc.CrdTransf.name" title="xc.CrdTransf.name"><strong>name</strong></a> – name identifying the load</li>
+<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – name identifying the load</li>
 <li><strong>xcSet</strong> – set that contains the surfaces</li>
 <li><strong>loadVector</strong> – xc.Vector with the six components of the load: 
 xc.Vector([Fx,Fy,Fz,Mx,My,Mz]).</li>
@@ -421,7 +458,7 @@ xc.Vector([Fx,Fy,Fz,Mx,My,Mz]).</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../cpp_classes/domain/mesh/element/utils/coordTransformation/coordTransformation.html#xc.CrdTransf.name" title="xc.CrdTransf.name"><strong>name</strong></a> – name given to the load case</li>
+<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – name given to the load case</li>
 <li><strong>loadPType</strong> – type of load pattern. Available types:
 “default”, “uniform_excitation”, “multi_support_pattern”, 
 “pbowl_loading”. Defaults to “default”</li>
@@ -534,6 +571,7 @@ xc.Vector([Fx,Fy,Fz,Mx,My,Mz]).</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>combName</strong> – name of the combination to create the record for.</li>
 <li><strong>setsToDispLoads</strong> – ordered list of sets of elements to display loads.</li>
 <li><strong>setsToDispDspRot</strong> – ordered list of sets of elements to display 
 displacements.</li>
@@ -600,7 +638,7 @@ represented (defaults to ‘[mm]’</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../cpp_classes/domain/mesh/element/utils/coordTransformation/coordTransformation.html#xc.CrdTransf.name" title="xc.CrdTransf.name"><strong>name</strong></a> – name to identify the limit state (serviceability, ultimate,…)</li>
+<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – name to identify the limit state (serviceability, ultimate,…)</li>
 <li><strong>rare</strong> – combination for a rare design situation</li>
 <li><strong>freq</strong> – combination for a frequent design situation</li>
 <li><a class="reference internal" href="actions.wind.html#actions.wind.windSIA261.qp" title="actions.wind.windSIA261.qp"><strong>qp</strong></a> – combination for a quasi-permanent design situation</li>
@@ -653,6 +691,7 @@ represented (defaults to ‘[mm]’</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>combName</strong> – name of the combination to create the record for.</li>
 <li><strong>setsToDispLoads</strong> – ordered list of sets of elements to display loads.</li>
 <li><strong>setsToDispDspRot</strong> – ordered list of sets of elements to display 
 displacements.</li>
@@ -677,7 +716,7 @@ internal forces.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../cpp_classes/domain/mesh/element/utils/coordTransformation/coordTransformation.html#xc.CrdTransf.name" title="xc.CrdTransf.name"><strong>name</strong></a> – name to identify the situation set</li>
+<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – name to identify the situation set</li>
 <li><strong>situations</strong> – set of situations</li>
 </ul>
 </td>
@@ -705,6 +744,7 @@ internal forces.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>combName</strong> – name of the combination to create the record for.</li>
 <li><strong>setsToDispLoads</strong> – ordered list of sets of elements to display loads.</li>
 <li><strong>setsToDispDspRot</strong> – ordered list of sets of elements to display 
 displacements.</li>
@@ -729,7 +769,7 @@ internal forces.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../cpp_classes/domain/mesh/element/utils/coordTransformation/coordTransformation.html#xc.CrdTransf.name" title="xc.CrdTransf.name"><strong>name</strong></a> – name to identify the limit state (ultimate,…)</li>
+<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – name to identify the limit state (ultimate,…)</li>
 <li><strong>perm</strong> – combination for a persistent or transient design situation</li>
 <li><strong>acc</strong> – combination for a accidental design situation</li>
 <li><strong>fatigue</strong> – combination for a fatigue design situation</li>

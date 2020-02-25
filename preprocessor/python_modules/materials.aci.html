@@ -60,9 +60,88 @@
 VERIFICATION TESTS REQUIRED!!!.</p>
 <dl class="class">
 <dt id="materials.aci.ACI_materials.ACIConcrete">
-<em class="property">class </em><code class="descclassname">materials.aci.ACI_materials.</code><code class="descname">ACIConcrete</code><span class="sig-paren">(</span><em>nmbConcrete</em>, <em>fck</em>, <em>gammaC</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_materials.ACIConcrete" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">materials.aci.ACI_materials.</code><code class="descname">ACIConcrete</code><span class="sig-paren">(</span><em>concreteName</em>, <em>fck</em>, <em>gammaC</em>, <em>Lambda=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_materials.ACIConcrete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="matGenTopics.html#materials.concrete_base.Concrete" title="materials.concrete_base.Concrete"><code class="xref py py-class docutils literal"><span class="pre">materials.concrete_base.Concrete</span></code></a></p>
 <p>Concrete model according to ACI 318</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>Lambda</strong> – modification factor to reflect the reduced mechanical
+properties of lightweight concrete relative to normalweight
+concrete of the same compressive strength.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.aci.ACI_materials.ACIConcrete.getEcm">
+<code class="descname">getEcm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_materials.ACIConcrete.getEcm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Longitudinal secant modulus of deformation at 28 days expressed
+in [Pa] [+] according to expression 19.2.2.1.b of ACI 318-14.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_materials.ACIConcrete.getEpsc2">
+<code class="descname">getEpsc2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_materials.ACIConcrete.getEpsc2" title="Permalink to this definition">¶</a></dt>
+<dd><p>return strain (&lt;0) at peak stress at parabola-rectangle diagram 
+(figure 6-8 of Portland Cement Association PCA notes on ACI 318-99)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_materials.ACIConcrete.getEpscu2">
+<code class="descname">getEpscu2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_materials.ACIConcrete.getEpscu2" title="Permalink to this definition">¶</a></dt>
+<dd><p>return nominal ultimate strain [-] at parabola-rectangle diagram 
+according to clause 22.2.2.1 of ACI 318-14</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_materials.ACIConcrete.getFctm">
+<code class="descname">getFctm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_materials.ACIConcrete.getFctm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fctm: mean tensile strength [Pa][+] (according to 
+ACI 318-14 R14.3.2.1 )</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_materials.ACIConcrete.getLambdaSqrtFck">
+<code class="descname">getLambdaSqrtFck</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_materials.ACIConcrete.getLambdaSqrtFck" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the product: Lambda*math.sqrd(fck).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_materials.ACIConcrete.getSqrtFck">
+<code class="descname">getSqrtFck</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_materials.ACIConcrete.getSqrtFck" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the product: Lambda*math.sqrd(fck).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.aci.ACI_materials.findNumberByArea">
+<code class="descclassname">materials.aci.ACI_materials.</code><code class="descname">findNumberByArea</code><span class="sig-paren">(</span><em>area</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_materials.findNumberByArea" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="materials.aci.ACI_materials.getPsi_sFromBarNumber">
+<code class="descclassname">materials.aci.ACI_materials.</code><code class="descname">getPsi_sFromBarNumber</code><span class="sig-paren">(</span><em>barNumber</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_materials.getPsi_sFromBarNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return factor used to modify development length based on
+reinforcement size according to table 25.4.2.4 of ACI
+318-14.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.aci.ACI_materials.getPsi_sFromDiameter">
+<code class="descclassname">materials.aci.ACI_materials.</code><code class="descname">getPsi_sFromDiameter</code><span class="sig-paren">(</span><em>phi</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_materials.getPsi_sFromDiameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return factor used to modify development length based on
+reinforcement size according to table 25.4.2.4 of ACI
+318-14.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>phi</strong> – bar diameter.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>

@@ -104,7 +104,7 @@ Add those lines to the dictionary dicLin.</p>
 
 <dl class="method">
 <dt id="model.geometry.grid_model.GridModel.appendSurfRange">
-<code class="descname">appendSurfRange</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.appendSurfRange" title="Permalink to this definition">¶</a></dt>
+<code class="descname">appendSurfRange</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>setSurf</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.appendSurfRange" title="Permalink to this definition">¶</a></dt>
 <dd><p>generate the surfaces limited by a region defined by the coordinates
 that correspond to the indices in the grid 
 ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
@@ -127,10 +127,32 @@ Add those lines to the dictionary dicLin.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.geometry.grid_model.GridModel.genLinMultiXYZRegion">
+<code class="descname">genLinMultiXYZRegion</code><span class="sig-paren">(</span><em>lstXYZRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genLinMultiXYZRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>generate the lines limited by all the regions included in the 
+list of coordinate passed as parameter.
+Each region defines a volume limited by the coordinates    
+that correspond to the ranges xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))
+Return a set with the lines generated.
+Add those lines to the dictionary dicLin.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.geometry.grid_model.GridModel.genLinOneRegion">
 <code class="descname">genLinOneRegion</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genLinOneRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>generate the lines limited by a region defined by the coordinates
 that correspond to the indices in the grid 
+ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
+ijkRange.ijkMax=(indXmax,indYmax,indZmax). 
+Return a set with the lines generated.
+Add those lines to the dictionary dicLin.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.genLinOneXYZRegion">
+<code class="descname">genLinOneXYZRegion</code><span class="sig-paren">(</span><em>xyzRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genLinOneXYZRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>generate the lines limited by a region defined by the coordinates
+defined in range xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))
 ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
 ijkRange.ijkMax=(indXmax,indYmax,indZmax). 
 Return a set with the lines generated.
@@ -151,6 +173,17 @@ Add those surfaces to the dictionary dicQuadSurf.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.geometry.grid_model.GridModel.genSurfMultiXYZRegion">
+<code class="descname">genSurfMultiXYZRegion</code><span class="sig-paren">(</span><em>lstXYZRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genSurfMultiXYZRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>generate the surfaces limited by all the regions included in the 
+list of xyzRanges passed as parameter.
+Each region defines a volume limited by the coordinates    
+that correspond to the coordinates in ranges xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))
+Return a set with the surfaces generated.
+Add those surfaces to the dictionary dicQuadSurf.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.geometry.grid_model.GridModel.genSurfOneRegion">
 <code class="descname">genSurfOneRegion</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genSurfOneRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>generate the surfaces limited by a region defined by the coordinates
@@ -162,9 +195,32 @@ Add those surfaces to the dictionary dicQuadSurf.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.geometry.grid_model.GridModel.genSurfOneXYZRegion">
+<code class="descname">genSurfOneXYZRegion</code><span class="sig-paren">(</span><em>xyzRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genSurfOneXYZRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>generate the surfaces limited by a region defined by the coordinates
+defined in the range  xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))
+Return a set with the surfaces generated.
+Add those surfaces to the dictionary dicQuadSurf.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.geometry.grid_model.GridModel.generatePoints">
 <code class="descname">generatePoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.generatePoints" title="Permalink to this definition">¶</a></dt>
 <dd><p>Point generation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.getIJKfromXYZ">
+<code class="descname">getIJKfromXYZ</code><span class="sig-paren">(</span><em>xyz</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getIJKfromXYZ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return (i,j,k) indexes that match with (x,y,z) coordinates</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.getIJKrangeFromXYZrange">
+<code class="descname">getIJKrangeFromXYZrange</code><span class="sig-paren">(</span><em>xyzRange</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getIJKrangeFromXYZrange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an ijkRange that matches with coordinates in xyzRange defined as:
+xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))
+Coordinates must be previously defined in the grid.</p>
 </dd></dl>
 
 <dl class="method">
@@ -174,6 +230,36 @@ Add those surfaces to the dictionary dicQuadSurf.</p>
 that correspond to the indices in the grid 
 ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
 ijkRange.ijkMax=(indXmax,indYmax,indZmax).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.getLstLinXYZRange">
+<code class="descname">getLstLinXYZRange</code><span class="sig-paren">(</span><em>xyzRange</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getLstLinXYZRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>return a list of lines in a region limited by the coordinates
+defined in range xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.getLstPntRange">
+<code class="descname">getLstPntRange</code><span class="sig-paren">(</span><em>ijkRange</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getLstPntRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the ordered list points in a 3D grid-region limited by 
+ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
+ijkRange.ijkMax=(indXmax,indYmax,indZmax)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ijkRange</strong> – range for the search</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.getLstPntXYZRange">
+<code class="descname">getLstPntXYZRange</code><span class="sig-paren">(</span><em>xyzRange</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getLstPntXYZRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the ordered list points in a 3D grid-region limited by 
+coordinates defined in xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))</p>
 </dd></dl>
 
 <dl class="method">
@@ -244,6 +330,12 @@ coordinates</td>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.geometry.grid_model.GridModel.getPntXYZ">
+<code class="descname">getPntXYZ</code><span class="sig-paren">(</span><em>xyz</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getPntXYZ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the point of the grid with coordinates (x,y,z)</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.geometry.grid_model.GridModel.getSetLinMultiRegion">
 <code class="descname">getSetLinMultiRegion</code><span class="sig-paren">(</span><em>lstIJKRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetLinMultiRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>return the set of lines and all the entities(points, elements, 
@@ -256,6 +348,16 @@ ijkRange.ijkMax=(indXmax,indYmax,indZmax).</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.geometry.grid_model.GridModel.getSetLinMultiXYZRegion">
+<code class="descname">getSetLinMultiXYZRegion</code><span class="sig-paren">(</span><em>lstXYZRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetLinMultiXYZRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the set of lines and all the entities(points, elements, 
+nodes, …) associated with them in a all the regions  included in the 
+list of xyzRanges passed as parameter.
+Each region defines a volume limited by the coordinates    
+defined in range xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.geometry.grid_model.GridModel.getSetLinOneRegion">
 <code class="descname">getSetLinOneRegion</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetLinOneRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>return the set of lines and all the entities(points, elements, 
@@ -263,6 +365,34 @@ nodes, …) associated with them in a region limited by the coordinates
 that correspond to the indices in the grid 
 ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
 ijkRange.ijkMax=(indXmax,indYmax,indZmax).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.getSetLinOneXYZRegion">
+<code class="descname">getSetLinOneXYZRegion</code><span class="sig-paren">(</span><em>xyzRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetLinOneXYZRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the set of lines and all the entities(points, elements, 
+nodes, …) associated with them in a region limited by the coordinates
+defined in range xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.getSetPntMultiRegion">
+<code class="descname">getSetPntMultiRegion</code><span class="sig-paren">(</span><em>lstIJKRange</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetPntMultiRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the set of points in a all the 3D grid-regions
+included in the list of ijkRanges passed as parameter
+Each region defines a volume limited by the coordinates    
+that correspond to the indices in the grid 
+ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
+ijkRange.ijkMax=(indXmax,indYmax,indZmax).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.getSetPntMultiXYZRegion">
+<code class="descname">getSetPntMultiXYZRegion</code><span class="sig-paren">(</span><em>lstXYZRange</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetPntMultiXYZRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the set of points in a all the 3D grid-regions
+included in the list of xyzRanges passed as parameter
+Each region defines a volume limited by the coordinates    
+defined in xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))</p>
 </dd></dl>
 
 <dl class="method">
@@ -286,6 +416,13 @@ ijkRange.ijkMax=(indXmax,indYmax,indZmax)</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.geometry.grid_model.GridModel.getSetPntXYZRange">
+<code class="descname">getSetPntXYZRange</code><span class="sig-paren">(</span><em>xyzRange</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetPntXYZRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the set of points in a 3D grid-region limited by 
+coordinates in xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.geometry.grid_model.GridModel.getSetSurfMultiRegion">
 <code class="descname">getSetSurfMultiRegion</code><span class="sig-paren">(</span><em>lstIJKRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetSurfMultiRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>return the set of surfaces and all the entities(lines,
@@ -298,6 +435,16 @@ ijkRange.ijkMax=(indXmax,indYmax,indZmax).</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.geometry.grid_model.GridModel.getSetSurfMultiXYZRegion">
+<code class="descname">getSetSurfMultiXYZRegion</code><span class="sig-paren">(</span><em>lstXYZRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetSurfMultiXYZRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the set of surfaces and all the entities(lines,
+points, elements, nodes, …) associated with them in a all
+the regions  included in the list of xyzRanges passed as parameter.
+Each region defines a volume limited by the coordinates    
+that correspond to coordinates in range xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.geometry.grid_model.GridModel.getSetSurfOneRegion">
 <code class="descname">getSetSurfOneRegion</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetSurfOneRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>return the set of surfaces and all the entities(lines, 
@@ -306,6 +453,15 @@ with them in a region limited by the coordinates
 that correspond to the indices in the grid 
 ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
 ijkRange.ijkMax=(indXmax,indYmax,indZmax).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.getSetSurfOneXYZRegion">
+<code class="descname">getSetSurfOneXYZRegion</code><span class="sig-paren">(</span><em>xyzRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetSurfOneXYZRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the set of surfaces and all the entities(lines, 
+points, elements, nodes, …) associated 
+with them in a region limited by the coordinates
+in range xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))</p>
 </dd></dl>
 
 <dl class="method">
@@ -390,6 +546,30 @@ by applying a 3D displacement.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.geometry.grid_model.GridModel.movePointsRangeToXcylinder">
+<code class="descname">movePointsRangeToXcylinder</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>yCent</em>, <em>zCent</em>, <em>R</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.movePointsRangeToXcylinder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves the points in the range to make them belong to 
+a cylinder with radius R and axis parallel to global X passing 
+through the point (0,yCent,zCent)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.movePointsRangeToYcylinder">
+<code class="descname">movePointsRangeToYcylinder</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>xCent</em>, <em>zCent</em>, <em>R</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.movePointsRangeToYcylinder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves the points in the range to make them belong to 
+a cylinder with radius R and axis parallel to global Y passing 
+through the point (xCent,0,zCent)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.movePointsRangeToZcylinder">
+<code class="descname">movePointsRangeToZcylinder</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>xCent</em>, <em>yCent</em>, <em>R</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.movePointsRangeToZcylinder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves the points in the range to make them belong to 
+a cylinder with radius R and axis parallel to global Z passing 
+through the point (xCent,yCent,0)</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.geometry.grid_model.GridModel.newGridLine">
 <code class="descname">newGridLine</code><span class="sig-paren">(</span><em>linName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.newGridLine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate the line defined by the 2 end-points whose tags
@@ -419,6 +599,25 @@ are implicit in the name of the surface.</p>
 </tbody>
 </table>
 <p>return the quadrangle surface</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.rotPntsZAxis">
+<code class="descname">rotPntsZAxis</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>angle</em>, <em>xyRotCent</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.rotPntsZAxis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotates points in ijkRange around a Z axis passing by xyRotCent.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ijkRange</strong> – range for the search.</li>
+<li><strong>angle</strong> – rotation angle (degrees)</li>
+<li><strong>xyRotCent</strong> – coordinates [x,y] of the axis Z of rotation</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">

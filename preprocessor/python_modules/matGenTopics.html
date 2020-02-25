@@ -76,7 +76,7 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../cpp_classes/domain/mesh/element/utils/coordTransformation/coordTransformation.html#xc.CrdTransf.name" title="xc.CrdTransf.name"><strong>name</strong></a> – name identifying the section</li>
+<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – name identifying the section</li>
 <li><strong>section</strong> – instance of a class that defines the geometric and
 mechanical characteristiscs of a section
 e.g: RectangularSection, CircularSection, ISection, …</li>
@@ -111,7 +111,7 @@ shear modulus and mass density of the material</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../cpp_classes/domain/mesh/element/utils/coordTransformation/coordTransformation.html#xc.CrdTransf.name" title="xc.CrdTransf.name"><strong>name</strong></a> – name identifying the section</li>
+<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – name identifying the section</li>
 <li><strong>thickness</strong> – overall depth of the section</li>
 <li><strong>material</strong> – instance of a class that defines the elastic modulus, 
 shear modulus and mass density of the material</li>
@@ -139,10 +139,21 @@ shear modulus and mass density of the material</li>
 <em class="property">class </em><code class="descclassname">materials.typical_materials.</code><code class="descname">MaterialData</code><span class="sig-paren">(</span><em>name</em>, <em>E</em>, <em>nu</em>, <em>rho</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.MaterialData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Base class to construct some material definition classes</p>
-<p># :ivar name:         name identifying the material
-# :ivar E:            Young’s modulus of the material
-# :ivar nu:           Poisson’s ratio
-# :ivar rho:          mass density</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – name identifying the material</li>
+<li><a class="reference internal" href="../cpp_classes/material/uniaxial/steel/steel.html#xc.SteelBaseMaterial.E" title="xc.SteelBaseMaterial.E"><strong>E</strong></a> – Young’s modulus of the material</li>
+<li><a class="reference internal" href="../cpp_classes/material/section/plate_section/plate_section.html#xc.ElasticPlateBase.nu" title="xc.ElasticPlateBase.nu"><strong>nu</strong></a> – Poisson’s ratio</li>
+<li><a class="reference internal" href="../cpp_classes/material/section/repres/repres.html#xc.CrossSectionProperties2d.rho" title="xc.CrossSectionProperties2d.rho"><strong>rho</strong></a> – mass density</li>
+<li><strong>xc_material</strong> – pointer to XC material.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="materials.typical_materials.MaterialData.G">
 <code class="descname">G</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.MaterialData.G" title="Permalink to this definition">¶</a></dt>
@@ -310,7 +321,7 @@ The initial slope for this model is (2*fpc/epsc0)</p>
 
 <dl class="function">
 <dt id="materials.typical_materials.defElasticMaterial">
-<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticMaterial</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>E</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticMaterial" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticMaterial</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>E</em>, <em>rho=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticMaterial" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs an elastic uniaxial material.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -400,7 +411,7 @@ The initial slope for this model is (2*fpc/epsc0)</p>
 
 <dl class="function">
 <dt id="materials.typical_materials.defElasticSection2d">
-<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>A</em>, <em>E</em>, <em>I</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticSection2d" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>A</em>, <em>E</em>, <em>I</em>, <em>rho=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticSection2d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs an elastic section appropiate for 2D beam analysis.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -421,7 +432,7 @@ The initial slope for this model is (2*fpc/epsc0)</p>
 
 <dl class="function">
 <dt id="materials.typical_materials.defElasticSection3d">
-<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticSection3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>A</em>, <em>E</em>, <em>G</em>, <em>Iz</em>, <em>Iy</em>, <em>J</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticSection3d" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticSection3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>A</em>, <em>E</em>, <em>G</em>, <em>Iz</em>, <em>Iy</em>, <em>J</em>, <em>rho=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticSection3d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs an elastic section appropiate for 3D beam analysis</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -487,7 +498,7 @@ mechanical properties of the section</li>
 
 <dl class="function">
 <dt id="materials.typical_materials.defElasticShearSection2d">
-<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticShearSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>A</em>, <em>E</em>, <em>G</em>, <em>I</em>, <em>alpha</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticShearSection2d" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticShearSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>A</em>, <em>E</em>, <em>G</em>, <em>I</em>, <em>alpha</em>, <em>rho=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticShearSection2d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs an elastic section appropiate for 2D beam analysis, 
 including shear deformations.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -511,7 +522,7 @@ including shear deformations.</p>
 
 <dl class="function">
 <dt id="materials.typical_materials.defElasticShearSection3d">
-<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticShearSection3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>A</em>, <em>E</em>, <em>G</em>, <em>Iz</em>, <em>Iy</em>, <em>J</em>, <em>alpha</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticShearSection3d" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticShearSection3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>A</em>, <em>E</em>, <em>G</em>, <em>Iz</em>, <em>Iy</em>, <em>J</em>, <em>alpha</em>, <em>rho=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticShearSection3d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs an elastic section appropiate for 3D beam analysis, 
 including shear deformations.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -633,7 +644,9 @@ the concrete01 diagram). Defaults to ‘N’</td>
 </table>
 <p>If tensionStiffparam==None and initTensStiff==’N’ (default values) no 
 tensile strength is considered; the stress strain relationship corresponds 
-to a concrete01 material (zero tensile strength).</p>
+to a concrete01 material (zero tensile strength).
+:ivar xc_plate_section: pointer to plate section material.
+:ivar xc_membrane_plate_section: pointer to membrane plate section material.</p>
 <dl class="method">
 <dt id="materials.concrete_base.Concrete.E0">
 <code class="descname">E0</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.E0" title="Permalink to this definition">¶</a></dt>
@@ -1431,6 +1444,23 @@ for the calculation of the drying shrinkage strain
 <dt id="materials.concrete_base.PrestressingSteel">
 <em class="property">class </em><code class="descclassname">materials.concrete_base.</code><code class="descname">PrestressingSteel</code><span class="sig-paren">(</span><em>steelName</em>, <em>fpk</em>, <em>fmax=1860000000.0</em>, <em>alpha=0.75</em>, <em>steelRelaxationClass=1</em>, <em>tendonClass='strand'</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.PrestressingSteel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="materials.sections.html#materials.sections.materialWithDKDiagrams.MaterialWithDKDiagrams" title="materials.sections.materialWithDKDiagrams.MaterialWithDKDiagrams"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.materialWithDKDiagrams.MaterialWithDKDiagrams</span></code></a></p>
+<p>Prestressing steel parameters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fpk</strong> – Elastic limit.</li>
+<li><strong>fmax</strong> – Steel strength.</li>
+<li><a class="reference internal" href="../../miscellany/roughCalcGenTopics.html#rough_calculations.masonryVault.FillingCharacteristics.alpha" title="rough_calculations.masonryVault.FillingCharacteristics.alpha"><strong>alpha</strong></a> – stress-to-strength ratio.</li>
+<li><strong>steelRelaxationClass</strong> – Relaxation class 1: normal, 2: improved, 
+and 3: relaxation for bars.</li>
+<li><strong>tendonClass</strong> – Tendon class wire, strand or bar.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="materials.concrete_base.PrestressingSteel.defDiagD">
 <code class="descname">defDiagD</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>initialStress</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.PrestressingSteel.defDiagD" title="Permalink to this definition">¶</a></dt>
@@ -1828,6 +1858,46 @@ post-cracking range, passings through the point (eps_ct,f_ct) [point of concrete
 <span id="limit-state-checking-base"></span><h1>limit_state_checking_base<a class="headerlink" href="#module-materials.limit_state_checking_base" title="Permalink to this headline">¶</a></h1>
 <p>Base classes for limit state control.</p>
 <dl class="class">
+<dt id="materials.limit_state_checking_base.BiaxialBendingNormalStressControllerBase">
+<em class="property">class </em><code class="descclassname">materials.limit_state_checking_base.</code><code class="descname">BiaxialBendingNormalStressControllerBase</code><span class="sig-paren">(</span><em>limitStateLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.limit_state_checking_base.BiaxialBendingNormalStressControllerBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.limit_state_checking_base.LimitStateControllerBase" title="materials.limit_state_checking_base.LimitStateControllerBase"><code class="xref py py-class docutils literal"><span class="pre">materials.limit_state_checking_base.LimitStateControllerBase</span></code></a></p>
+<p>Base class for object that controls normal stresses
+limit state.</p>
+<dl class="method">
+<dt id="materials.limit_state_checking_base.BiaxialBendingNormalStressControllerBase.check">
+<code class="descname">check</code><span class="sig-paren">(</span><em>elements</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.limit_state_checking_base.BiaxialBendingNormalStressControllerBase.check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launch checking.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>elements</strong> – elements to check.</li>
+<li><strong>nmbComb</strong> – load case name.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.limit_state_checking_base.BiaxialBendingNormalStressControllerBase.initControlVars">
+<code class="descname">initControlVars</code><span class="sig-paren">(</span><em>elements</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.limit_state_checking_base.BiaxialBendingNormalStressControllerBase.initControlVars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize control variables over elements.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>elements</strong> – elements to define control variables in</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="materials.limit_state_checking_base.CrackControlBaseParameters">
 <em class="property">class </em><code class="descclassname">materials.limit_state_checking_base.</code><code class="descname">CrackControlBaseParameters</code><span class="sig-paren">(</span><em>limitStateLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.limit_state_checking_base.CrackControlBaseParameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#materials.limit_state_checking_base.LimitStateControllerBase" title="materials.limit_state_checking_base.LimitStateControllerBase"><code class="xref py py-class docutils literal"><span class="pre">materials.limit_state_checking_base.LimitStateControllerBase</span></code></a></p>
@@ -1847,13 +1917,40 @@ post-cracking range, passings through the point (eps_ct,f_ct) [point of concrete
 <dl class="method">
 <dt id="materials.limit_state_checking_base.LimitStateControllerBase.check">
 <code class="descname">check</code><span class="sig-paren">(</span><em>elements</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.limit_state_checking_base.LimitStateControllerBase.check" title="Permalink to this definition">¶</a></dt>
-<dd><p>Crack control.</p>
+<dd><p>Limit state control.</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="materials.limit_state_checking_base.LimitStateControllerBase.tensionedRebarsFiberSetName">
 <code class="descname">tensionedRebarsFiberSetName</code><em class="property"> = 'tensionedReinforcement'</em><a class="headerlink" href="#materials.limit_state_checking_base.LimitStateControllerBase.tensionedRebarsFiberSetName" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.limit_state_checking_base.ShearControllerBase">
+<em class="property">class </em><code class="descclassname">materials.limit_state_checking_base.</code><code class="descname">ShearControllerBase</code><span class="sig-paren">(</span><em>limitStateLabel</em>, <em>fakeSection=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.limit_state_checking_base.ShearControllerBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.limit_state_checking_base.LimitStateControllerBase" title="materials.limit_state_checking_base.LimitStateControllerBase"><code class="xref py py-class docutils literal"><span class="pre">materials.limit_state_checking_base.LimitStateControllerBase</span></code></a></p>
+<p>Base class for shear controller classes.</p>
+<dl class="method">
+<dt id="materials.limit_state_checking_base.ShearControllerBase.check">
+<code class="descname">check</code><span class="sig-paren">(</span><em>elements</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.limit_state_checking_base.ShearControllerBase.check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shear control.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.limit_state_checking_base.ShearControllerBase.initControlVars">
+<code class="descname">initControlVars</code><span class="sig-paren">(</span><em>elements</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.limit_state_checking_base.ShearControllerBase.initControlVars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize control variables over elements.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>elements</strong> – elements to define control variables in</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
@@ -1884,6 +1981,37 @@ analysis.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tensionedReinforcement</strong> – fibers that represent tensioned rebars.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.limit_state_checking_base.UniaxialBendingNormalStressControllerBase">
+<em class="property">class </em><code class="descclassname">materials.limit_state_checking_base.</code><code class="descname">UniaxialBendingNormalStressControllerBase</code><span class="sig-paren">(</span><em>limitStateLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.limit_state_checking_base.UniaxialBendingNormalStressControllerBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.limit_state_checking_base.LimitStateControllerBase" title="materials.limit_state_checking_base.LimitStateControllerBase"><code class="xref py py-class docutils literal"><span class="pre">materials.limit_state_checking_base.LimitStateControllerBase</span></code></a></p>
+<p>Base class for object that controls normal stresses 
+limit state (uniaxial bending).</p>
+<dl class="method">
+<dt id="materials.limit_state_checking_base.UniaxialBendingNormalStressControllerBase.check">
+<code class="descname">check</code><span class="sig-paren">(</span><em>elements</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.limit_state_checking_base.UniaxialBendingNormalStressControllerBase.check" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Parameters:</dt>
+<dd>elements:    elements to check</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.limit_state_checking_base.UniaxialBendingNormalStressControllerBase.initControlVars">
+<code class="descname">initControlVars</code><span class="sig-paren">(</span><em>elements</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.limit_state_checking_base.UniaxialBendingNormalStressControllerBase.initControlVars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize control variables over elements.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>elements</strong> – elements to define control variables in</td>
 </tr>
 </tbody>
 </table>

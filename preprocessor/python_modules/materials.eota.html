@@ -103,7 +103,7 @@ direction 1.</li>
 
 <dl class="function">
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.VRkC0Expr58">
-<code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">VRkC0Expr58</code><span class="sig-paren">(</span><em>k1</em>, <em>d</em>, <em>hEf</em>, <em>fckCube</em>, <em>c1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.VRkC0Expr58" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">VRkC0Expr58</code><span class="sig-paren">(</span><em>d</em>, <em>hEf</em>, <em>fckCube</em>, <em>c1</em>, <em>cracked</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.VRkC0Expr58" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initial value of the characteristic resistance of an anchor placed in cracked
 or non-cracked concrete and loaded perpendicular to the edge according to 
 expression 5.8a of clause 5.2.3.4 (a) of EOTA TR029.</p>
@@ -120,8 +120,26 @@ strength class according to ENV 206) (Pa).</li>
 <li><strong>c1</strong> – edge distance in direction 1; in case of anchorages close to an 
 edge loaded in shear c 1 is the edge distance in direction of 
 the shear load (see Figure 2.1b and Figure 5.7of EOTA TR029).</li>
+<li><strong>cracked</strong> – True if placed on cracked concrete:</li>
 </ul>
 </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eota.EOTA_TR029_limit_state_checking.angleFactor">
+<code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">angleFactor</code><span class="sig-paren">(</span><em>alpha_v</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.angleFactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Factor that introduces the influence of angle alpha_v between the load 
+applied, V, and the direction perpendicular to the free edge of the 
+concrete member (alpha_v≤ 90°, see Figure 4.7c onf EOTA TR029).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>alpha_v</strong> – angle between the load  applied, V, and the direction 
+perpendicular to the free edge of the concrete member</td>
 </tr>
 </tbody>
 </table>
@@ -389,6 +407,37 @@ concrete support contour.</li>
 </dd></dl>
 
 <dl class="function">
+<dt id="materials.eota.EOTA_TR029_limit_state_checking.getFactor3N">
+<code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">getFactor3N</code><span class="sig-paren">(</span><em>d</em>, <em>spacing</em>, <em>n</em>, <em>hEf</em>, <em>tauRk</em>, <em>fck_cube</em>, <em>cracked</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.getFactor3N" title="Permalink to this definition">¶</a></dt>
+<dd><p>Factor that takes into account the influence of the failure surface
+for anchor groups according to expression 5.2f of clause 5.2.2.3 d).</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param d:</th><td class="field-body">anchor diameter (m).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param spacing:</th><td class="field-body">spacing of the anchor group.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param n:</th><td class="field-body">number of anchors in a group.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param hEf:</th><td class="field-body">effective anchorage depth (m).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param tauRk:</th><td class="field-body">Characteristic bond resistance (must be taken from relevant ETA) (Pa).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param fck_cube:</th><td class="field-body">characteristic concrete compression strength measured 
+on cubes with a side length of 150 mm (value of concrete 
+strength class according to ENV 206) (Pa).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param cracked:</th><td class="field-body">true if cracked concrete.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.getScrN">
 <code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">getScrN</code><span class="sig-paren">(</span><em>hEf</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.getScrN" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
@@ -434,15 +483,36 @@ anchor (critical distance between anchors) according to clause 5.2.2.3 b)
 
 <dl class="function">
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.k1Expr58A">
-<code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">k1Expr58A</code><span class="sig-paren">(</span><em>descr</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.k1Expr58A" title="Permalink to this definition">¶</a></dt>
-<dd><p>Coeficiente que introduce la influencia de la fisuración del hormigón en la expresión 5.8a of EOTA TR029.</p>
+<code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">k1Expr58A</code><span class="sig-paren">(</span><em>cracked</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.k1Expr58A" title="Permalink to this definition">¶</a></dt>
+<dd><p>Factor that introduces the influence of the concrete cracking in expression
+5.8a of EOTA TR029.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>descr</strong> – Descriptor que puede tomar los valores:
-1: anclaje en cracked concrete.
-2: anclaje en non-cracked concrete.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cracked</strong> – True if placed on cracked concrete:</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.eota.EOTA_TR029_limit_state_checking.memberThicknessFactor">
+<code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">memberThicknessFactor</code><span class="sig-paren">(</span><em>h</em>, <em>c1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.memberThicknessFactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Factor that introduces the influence of the act that the shear 
+resistance does not decrease proportionally to the member thickness as 
+assumed by the ratio A c,V / A c,V</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>h</strong> – Concrete part thickness.</li>
+<li><strong>c1</strong> – edge distance in direction 1; in case of anchorages close to an 
+edge loaded in shear c 1 is the edge distance in direction of 
+the shear load (see Figure 2.1b and Figure 5.7of EOTA TR029).</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -550,7 +620,7 @@ direction 1.</li>
 <dt id="materials.eota.EOTA_TR029_limit_state_checking.shearResistanceConcretePryOut">
 <code class="descclassname">materials.eota.EOTA_TR029_limit_state_checking.</code><code class="descname">shearResistanceConcretePryOut</code><span class="sig-paren">(</span><em>NRkp</em>, <em>NRkc</em>, <em>hEf</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.eota.EOTA_TR029_limit_state_checking.shearResistanceConcretePryOut" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>Shear strength of a bolt por desprendimiento de cuña de hormigón</dt>
+<dt>Shear strength of a bolt by concrete pry-out failure</dt>
 <dd><p class="first">according to expressions 5.7 y 5.7a of clause 5.2.3.3 of EOTA TR029.</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />

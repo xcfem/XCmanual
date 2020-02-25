@@ -89,14 +89,50 @@ property ‘soilReaction:’ [xForce,yForce,zForce]</p>
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="model.boundary_cond.spring_bound_cond.ElasticFoundation.displayMaxPressures">
+<code class="descname">displayMaxPressures</code><span class="sig-paren">(</span><em>FEcase</em>, <em>combs</em>, <em>caption</em>, <em>fUnitConv</em>, <em>unitDescription</em>, <em>rgMinMax=None</em>, <em>fileName=None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.ElasticFoundation.displayMaxPressures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate and display the maximum earth pressures (Z direction)
+obtained from the group of load combinations passed as paremeter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>FEcase</strong> – finite element problem</li>
+<li><strong>combs</strong> – load cases to analyze and compare to obtain the maximum 
+pressures.</li>
+<li><strong>caption</strong> – caption text to diaplay.</li>
+<li><strong>fUnitConv</strong> – factor to apply to results (unit conversion)</li>
+<li><strong>unitDescription</strong> – text to display as unit description.</li>
+<li><strong>rgMinMax</strong> – range (vmin,vmax) with the maximum and minimum values  
+of the scalar field (if any) to be represented. All the values 
+less than vmin are displayed in blue and those greater than vmax 
+in red (defaults to None)</li>
+<li><strong>fileName</strong> – file name (defaults to None -&gt; screen display)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.boundary_cond.spring_bound_cond.ElasticFoundation.displayPressures">
-<code class="descname">displayPressures</code><span class="sig-paren">(</span><em>defDisplay</em>, <em>caption</em>, <em>fUnitConv</em>, <em>unitDescription</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.ElasticFoundation.displayPressures" title="Permalink to this definition">¶</a></dt>
-<dd><p>Display foundation pressures.
+<code class="descname">displayPressures</code><span class="sig-paren">(</span><em>caption</em>, <em>fUnitConv</em>, <em>unitDescription</em>, <em>rgMinMax=None</em>, <em>fileName=None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.ElasticFoundation.displayPressures" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display foundation pressures for a single load case.
 :param rgMinMax: range (vmin,vmax) with the maximum and minimum values</p>
 <blockquote>
 <div>of the scalar field (if any) to be represented. All the values 
 less than vmin are displayed in blue and those greater than vmax 
 in red (defaults to None)</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fileName</strong> – file name (defaults to None -&gt; screen display)</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -114,6 +150,118 @@ in red (defaults to None)</div></blockquote>
 </dd></dl>
 
 <dl class="class">
+<dt id="model.boundary_cond.spring_bound_cond.PileFoundation">
+<em class="property">class </em><code class="descclassname">model.boundary_cond.spring_bound_cond.</code><code class="descname">PileFoundation</code><span class="sig-paren">(</span><em>setPile</em>, <em>pileDiam</em>, <em>E</em>, <em>pileType</em>, <em>pileBearingCapacity</em>, <em>groundLevel</em>, <em>soilsProp</em><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.PileFoundation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Pile foundation model according to art. 5.13.1 (single pile) and art. 
+5.13.3. (pile group) of «Guía de cimentaciones para obras de carretera»,  
+by «Ministerio de Fomento».</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first simple">
+<li><strong>pileSet</strong> – set of elements defining a single pile</li>
+<li><strong>pileDiam</strong> – diameter of the pile</li>
+<li><strong>pileType</strong> – “endBearing” for end bearing piles 
+“friction” for friction piles</li>
+<li><strong>groundLevel</strong> – ground elevation</li>
+<li><strong>soilsProp</strong> – <p>properties of the levels of soil, defined from 
+top to bottom as a list: 
+- [[zBottomSoil,typeSoil,propSoil], …] where,
+‘zBottomSoil’ is the global Z coordinate of the 
+bottom level of the soil,
+-‘typeSoil’ is the type od soil: ‘sandy’ or ‘clay’
+-‘propSoil’ is the property of the soil:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>-‘nh’ for sandy soil, corresponding to the </dt>
+<dd>compactness of the sandy soil.</dd>
+<dt>-‘su’ for clay soil, corresponding to the </dt>
+<dd>shear strength of the saturated cohesive soil.</dd>
+</dl>
+</div></blockquote>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Ival E:</th><td class="field-body"><p class="first">elastic modulus of pile material</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Ival pileBearingCapacity:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first last">total bearing capacity (skin friction + 
+point bearing capacity ) of the pile.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="model.boundary_cond.spring_bound_cond.PileFoundation.generateSpringsPile">
+<code class="descname">generateSpringsPile</code><span class="sig-paren">(</span><em>alphaKh_x</em>, <em>alphaKh_y</em>, <em>alphaKv_z</em><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.PileFoundation.generateSpringsPile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate the springs that simulate the soils along the pile</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>alphaKh_x</strong> – coefficient to be applied to the horizontal stiffness
+of a single pile in X direction</li>
+<li><strong>alphaKh_y</strong> – coefficient to be applied to the horizontal stiffness
+of a single pile in Y direction</li>
+<li><strong>alphaKh_Z</strong> – coefficient to be applied to the vertical stiffness of
+a single pile in Z direction</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.boundary_cond.spring_bound_cond.PileFoundation.getAreaPile">
+<code class="descname">getAreaPile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.PileFoundation.getAreaPile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the cross-sectional area of the cylindrical pile</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.boundary_cond.spring_bound_cond.PileFoundation.getCalcLength">
+<code class="descname">getCalcLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.PileFoundation.getCalcLength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the calculation length for a single pile</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.boundary_cond.spring_bound_cond.PileFoundation.getCalcLengthEndBearingPile">
+<code class="descname">getCalcLengthEndBearingPile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.PileFoundation.getCalcLengthEndBearingPile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the calculation length for a single end bearing pile</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.boundary_cond.spring_bound_cond.PileFoundation.getCalcLengthFrictionPile">
+<code class="descname">getCalcLengthFrictionPile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.PileFoundation.getCalcLengthFrictionPile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the calculation length for a single friction pile</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.boundary_cond.spring_bound_cond.PileFoundation.getPileAerialLength">
+<code class="descname">getPileAerialLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.PileFoundation.getPileAerialLength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the length of pile above the ground surface</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.boundary_cond.spring_bound_cond.PileFoundation.getPileBuriedLength">
+<code class="descname">getPileBuriedLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.PileFoundation.getPileBuriedLength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the length of pile below the ground surface</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.boundary_cond.spring_bound_cond.PileFoundation.getVerticalStiffnessSinglePile">
+<code class="descname">getVerticalStiffnessSinglePile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.PileFoundation.getVerticalStiffnessSinglePile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the vertical stiffness of a single pile</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="model.boundary_cond.spring_bound_cond.SpringBC">
 <em class="property">class </em><code class="descclassname">model.boundary_cond.spring_bound_cond.</code><code class="descname">SpringBC</code><span class="sig-paren">(</span><em>name</em>, <em>modelSpace</em>, <em>Kx=0</em>, <em>Ky=0</em>, <em>Kz=0</em><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.SpringBC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
@@ -123,7 +271,7 @@ in red (defaults to None)</div></blockquote>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>name</strong> – name</li>
+<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – name</li>
 <li><strong>modelSpace</strong> – model space</li>
 <li><strong>Kx</strong> – spring stiffness in X direction (defaults to 0 -&gt; free)</li>
 <li><strong>Ky</strong> – spring stiffness in Y direction (defaults to 0 -&gt; free)</li>
@@ -170,6 +318,11 @@ equal to None</p>
 </dd></dl>
 
 </dd></dl>
+
+<dl class="function">
+<dt id="model.boundary_cond.spring_bound_cond.takeSecond">
+<code class="descclassname">model.boundary_cond.spring_bound_cond.</code><code class="descname">takeSecond</code><span class="sig-paren">(</span><em>elem</em><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.takeSecond" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </div>
 <div class="section" id="module-model.boundary_cond.opensees_style">

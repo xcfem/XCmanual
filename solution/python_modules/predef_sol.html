@@ -62,18 +62,27 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>solu</strong> – </li>
-<li><strong>solCtrl</strong> – </li>
-<li><strong>sm</strong> – </li>
-<li><strong>numberer</strong> – DOF numberer. Determines the mapping between equation 
-numbers and degrees of freedom (how DOF are numbered)</li>
+<li><a class="reference internal" href="../cpp_classes/analysis/analysis/analysis_types.html#xc.Analysis.analysisAggregation" title="xc.Analysis.analysisAggregation"><strong>analysisAggregation</strong></a> – object that aggregates all the component objects
+that define the type of analysis (constraint handler, DOF_Numberer, 
+integrator, solution algorithm, system of equations, convergence test)</li>
 <li><strong>cHandler</strong> – constraint handler. Determines how the constraint equations 
 are enforced in the analysis, how it handles the boundary
 conditions/imposed displacements</li>
-<li><strong>analysisAggregation</strong> – </li>
+<li><strong>numberer</strong> – DOF numberer. Determines the mapping between equation 
+numbers and degrees of freedom (how DOF are numbered)</li>
+<li><strong>integ</strong> – <p>integrator, used to:</p>
+<ul>
+<li>determine the predictive step for time t+dt</li>
+<li>specify the tangent matrix and residual vector at any
+iteration</li>
+<li>determine the corrective step based on the displacement 
+increment</li>
+</ul>
+</li>
 <li><strong>solAlgo</strong> – <p>solution algorithm, which determines the sequence of steps
 taken to solve the non-linear equation:</p>
-<ul>
+<blockquote>
+<div><ul>
 <li>linear</li>
 <li>Newton Raphson (the tangent is updated at each iteration)</li>
 <li>Newton with Line Search</li>
@@ -83,15 +92,7 @@ taken to solve the non-linear equation:</p>
 - Kyrlov-Newton
 - BFGS, for symetric systems
 - Broyden</p>
-</li>
-<li><strong>integ</strong> – <p>integrator, used to:</p>
-<ul>
-<li>determine the predictive step for time t+dt</li>
-<li>specify the tangent matrix and residual vectir at any
-iteration</li>
-<li>determine the corrective step based on the displacement 
-increment</li>
-</ul>
+</div></blockquote>
 </li>
 <li><strong>soe</strong> – sparse system of equations: band general, band SPD, 
 profile SPD, sparse general, umfPack, sparse SPD</li>
@@ -99,6 +100,9 @@ profile SPD, sparse general, umfPack, sparse SPD</li>
 <li><strong>analysis</strong> – determines what type of analysis is to be performed</li>
 <li><strong>convergenceTestTol</strong> – convergence tolerance (defaults to 1e-9)</li>
 <li><strong>maxNumIter</strong> – maximum number of iterations (defauts to 10)</li>
+<li><strong>solu</strong> – </li>
+<li><strong>solCtrl</strong> – </li>
+<li><strong>sm</strong> – </li>
 </ul>
 </td>
 </tr>

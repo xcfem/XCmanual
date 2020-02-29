@@ -1,0 +1,515 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Colored diagram &#8212; XC 3.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="vtk CAD graphic" href="xcVtk.CAD_model.html" />
+    <link rel="prev" title="Field base" href="xcVtk.fields.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="xcVtk.CAD_model.html" title="vtk CAD graphic"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="xcVtk.fields.html" title="Field base"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="xcVtk.html" accesskey="U">Graphics XC_Vtk</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-postprocess.xcVtk.diagrams.colored_diagram">
+<span id="colored-diagram"></span><h1>Colored diagram<a class="headerlink" href="#module-postprocess.xcVtk.diagrams.colored_diagram" title="Permalink to this headline">¶</a></h1>
+<p>Colored diagram of a function over a linear domain (set of 1D elments for example).</p>
+<dl class="class">
+<dt id="postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram">
+<em class="property">class </em><code class="descclassname">postprocess.xcVtk.diagrams.colored_diagram.</code><code class="descname">ColoredDiagram</code><span class="sig-paren">(</span><em>scale</em>, <em>fUnitConv</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="xcVtk.fields.html#postprocess.xcVtk.fields.vtk_lut_field.LUTField" title="postprocess.xcVtk.fields.vtk_lut_field.LUTField"><code class="xref py py-class docutils literal"><span class="pre">postprocess.xcVtk.fields.vtk_lut_field.LUTField</span></code></a></p>
+<p>Colored diagram of a function over a linear domain (set of 1D 
+elements for example).</p>
+<dl class="method">
+<dt id="postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram.addDiagramToScene">
+<code class="descname">addDiagramToScene</code><span class="sig-paren">(</span><em>recordDisplay</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram.addDiagramToScene" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds the diagram to de scene</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram.appendDataFromElementEnds">
+<code class="descname">appendDataFromElementEnds</code><span class="sig-paren">(</span><em>vDir</em>, <em>elem</em>, <em>indxDiagram</em>, <em>value1</em>, <em>value2</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram.appendDataFromElementEnds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append to the diagram the data from the element ends as follows:</p>
+<blockquote>
+<div>___—-* value2</div></blockquote>
+<dl class="docutils">
+<dt>value1  <a href="#id1"><span class="problematic" id="id2">*</span></a>—       |</dt>
+<dd><blockquote class="first">
+<div><div class="line-block">
+<div class="line"><a href="#id3"><span class="problematic" id="id4">|</span></a></div>
+<div class="line"><a href="#id5"><span class="problematic" id="id6">|</span></a></div>
+</div>
+</div></blockquote>
+<p class="last">1 +———-+ 2</p>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>elem</strong> – element over which diagram is represented.</li>
+<li><strong>indxDiagrama</strong> – index-counter for the values to insert.</li>
+<li><strong>value1</strong> – value at the start node.</li>
+<li><strong>value2</strong> – value at the end node.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram.appendDataToDiagram">
+<code class="descname">appendDataToDiagram</code><span class="sig-paren">(</span><em>elem</em>, <em>indxDiagrama</em>, <em>v0</em>, <em>v1</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram.appendDataToDiagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Appends to the diagram the values being passed as parameter.</p>
+<blockquote>
+<div>___—-* value2</div></blockquote>
+<dl class="docutils">
+<dt>value1  <a href="#id7"><span class="problematic" id="id8">*</span></a>—       |</dt>
+<dd><blockquote class="first">
+<div><div class="line-block">
+<div class="line"><a href="#id9"><span class="problematic" id="id10">|</span></a></div>
+<div class="line"><a href="#id11"><span class="problematic" id="id12">|</span></a></div>
+</div>
+</div></blockquote>
+<p class="last">1 +———-+ 2</p>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>elem</strong> – element over which diagram is represented.</li>
+<li><strong>indxDiagrama</strong> – index-counter for the values to insert.</li>
+<li><strong>v0</strong> – value at the start node.</li>
+<li><strong>v1</strong> – value at the end node.</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram.creaActorDiagrama">
+<code class="descname">creaActorDiagrama</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram.creaActorDiagrama" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram.creaEstrucDatosDiagrama">
+<code class="descname">creaEstrucDatosDiagrama</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram.creaEstrucDatosDiagrama" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram.creaTramoDiagrama">
+<code class="descname">creaTramoDiagrama</code><span class="sig-paren">(</span><em>offset</em>, <em>org</em>, <em>valOrg</em>, <em>dest</em>, <em>valDest</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram.creaTramoDiagrama" title="Permalink to this definition">¶</a></dt>
+<dd><p>Crea un tramo de diagrama.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>offset</strong> – index-counter for the values to insert.</li>
+<li><strong>org</strong> – Extremo dorsal del elemento lineal.</li>
+<li><strong>dest</strong> – Extremo frontal del elemento lineal.</li>
+<li><strong>valOrg</strong> – Valor del campo escalar en el extremo dorsal.</li>
+<li><strong>valDest</strong> – Valor del campo escalar en el extremo frontal.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram.creaTramoDiagramaCambioSigno">
+<code class="descname">creaTramoDiagramaCambioSigno</code><span class="sig-paren">(</span><em>offset</em>, <em>org</em>, <em>valOrg</em>, <em>dest</em>, <em>valDest</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram.creaTramoDiagramaCambioSigno" title="Permalink to this definition">¶</a></dt>
+<dd><p>Crea un tramo de diagrama en el que la función a representar
+cambia de signo.</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param offset:</th><td class="field-body">Offset for the index of the values to insert.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param org:</th><td class="field-body">Back end of the 1D element.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param dest:</th><td class="field-body">Front end of the 1D element.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">param valOrg:</th><td class="field-body">Value of the field at the back end.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">param valDest:</th><td class="field-body">Value of the field at the front end.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram.creaTramoDiagramaSignoCte">
+<code class="descname">creaTramoDiagramaSignoCte</code><span class="sig-paren">(</span><em>offset</em>, <em>org</em>, <em>valOrg</em>, <em>dest</em>, <em>valDest</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram.creaTramoDiagramaSignoCte" title="Permalink to this definition">¶</a></dt>
+<dd><p>Crea un tramo de diagrama en el que la función a representar
+no cambia de signo.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>offset</strong> – Offset for the index of the values to insert.</li>
+<li><strong>org</strong> – Back end of the 1D element.</li>
+<li><strong>dest</strong> – Front end of the 1D element.</li>
+<li><strong>valOrg</strong> – Value of the field at the back end.</li>
+<li><strong>valDest</strong> – Value of the field at the front end.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram.getRaizTramoDiagrama">
+<code class="descname">getRaizTramoDiagrama</code><span class="sig-paren">(</span><em>org</em>, <em>valOrg</em>, <em>dest</em>, <em>valDest</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram.getRaizTramoDiagrama" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Calcula la posición de la raíz del diagrama que se define</dt>
+<dd><blockquote class="first">
+<div>mediante los siguientes parámetros:</div></blockquote>
+<p class="last">org: Extremo dorsal del elemento lineal.</p>
+</dd>
+</dl>
+<p>dest: Extremo frontal del elemento lineal.
+valOrg: Valor del campo escalar en el extremo dorsal.
+valDest: Valor del campo escalar en el extremo frontal.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram.resetEstrucDatosDiagrama">
+<code class="descname">resetEstrucDatosDiagrama</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram.resetEstrucDatosDiagrama" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-postprocess.xcVtk.diagrams.control_var_diagram">
+<span id="diagram-control-variables"></span><h1>Diagram control variables<a class="headerlink" href="#module-postprocess.xcVtk.diagrams.control_var_diagram" title="Permalink to this headline">¶</a></h1>
+<p>Display of diagrams (forces, moments, …) on linear elements</p>
+<dl class="class">
+<dt id="postprocess.xcVtk.diagrams.control_var_diagram.ControlVarDiagram">
+<em class="property">class </em><code class="descclassname">postprocess.xcVtk.diagrams.control_var_diagram.</code><code class="descname">ControlVarDiagram</code><span class="sig-paren">(</span><em>scaleFactor</em>, <em>fUnitConv</em>, <em>sets</em>, <em>attributeName</em>, <em>component</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.control_var_diagram.ControlVarDiagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram" title="postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram"><code class="xref py py-class docutils literal"><span class="pre">postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram</span></code></a></p>
+<p>Diagram of control var values (capacity factor values, 
+internal forces values (N,My,Mz,T,Vy,Vz), crack width values,…</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first simple">
+<li><strong>scaleFactor</strong> – scale factor for the diagram (can be negative  
+too).</li>
+<li><strong>fUnitConv</strong> – unit conversion factor (i.e N-&gt;kN =&gt; fUnitConv= 1e-3).</li>
+<li><strong>sets</strong> – list of element sets for which the diagram will be 
+displayed.</li>
+<li><strong>component</strong> – property to be displayed 
+(possible arguments: ‘CF’, ‘N’, ‘My’, ‘Mz’, ‘wk’,…)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first last"><strong>attributeName</strong> – name of the element’s property that has the 
+control var in it for example as in 
+elem.getProp(attributeName).component.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="postprocess.xcVtk.diagrams.control_var_diagram.ControlVarDiagram.addDiagram">
+<code class="descname">addDiagram</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.control_var_diagram.ControlVarDiagram.addDiagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add diagram to the scene</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.diagrams.control_var_diagram.ControlVarDiagram.getElementComponentData">
+<code class="descname">getElementComponentData</code><span class="sig-paren">(</span><em>elem</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.control_var_diagram.ControlVarDiagram.getElementComponentData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the data to use to represent the diagram over the element</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>elem</strong> – element to deal with.</li>
+<li><strong>component</strong> – component to show. 
+Valid components are: ‘N’, ‘Qy’, ‘Vy’, ‘Qz’, ‘Vz’, ‘My’, ‘Mz’, 
+‘T’</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.diagrams.control_var_diagram.ControlVarDiagram.getMaxAbsComp">
+<code class="descname">getMaxAbsComp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.control_var_diagram.ControlVarDiagram.getMaxAbsComp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the maximum absolute value of the component.
+It is used only for calculating auto-scale parameter, so 
+we compare only values of the component in first node of the elements</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-postprocess.xcVtk.diagrams.linear_load_diagram">
+<span id="linear-load-diagram"></span><h1>Linear load diagram<a class="headerlink" href="#module-postprocess.xcVtk.diagrams.linear_load_diagram" title="Permalink to this headline">¶</a></h1>
+<p>Display of loads over linear elements.</p>
+<dl class="class">
+<dt id="postprocess.xcVtk.diagrams.linear_load_diagram.LinearLoadDiagram">
+<em class="property">class </em><code class="descclassname">postprocess.xcVtk.diagrams.linear_load_diagram.</code><code class="descname">LinearLoadDiagram</code><span class="sig-paren">(</span><em>setToDisp</em>, <em>scale</em>, <em>fUnitConv</em>, <em>component</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.linear_load_diagram.LinearLoadDiagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram" title="postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram"><code class="xref py py-class docutils literal"><span class="pre">postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram</span></code></a></p>
+<p>Draw a load over a set of linear element (qx,qy,qz,…)</p>
+<dl class="method">
+<dt id="postprocess.xcVtk.diagrams.linear_load_diagram.LinearLoadDiagram.addDiagram">
+<code class="descname">addDiagram</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.linear_load_diagram.LinearLoadDiagram.addDiagram" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.diagrams.linear_load_diagram.LinearLoadDiagram.dumpElementalLoads">
+<code class="descname">dumpElementalLoads</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>lp</em>, <em>indxDiagram</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.linear_load_diagram.LinearLoadDiagram.dumpElementalLoads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over loaded elements dumping its loads into the graphic.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.diagrams.linear_load_diagram.LinearLoadDiagram.dumpLoads">
+<code class="descname">dumpLoads</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>indxDiagram</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.linear_load_diagram.LinearLoadDiagram.dumpLoads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dump loads over elements.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.diagrams.linear_load_diagram.LinearLoadDiagram.getMaxAbsComp">
+<code class="descname">getMaxAbsComp</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.linear_load_diagram.LinearLoadDiagram.getMaxAbsComp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the maximum absolute value of the component.
+It is used for calculating auto-scale parameter</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-postprocess.xcVtk.diagrams.node_property_diagram">
+<span id="node-property-diagram"></span><h1>Node property diagram<a class="headerlink" href="#module-postprocess.xcVtk.diagrams.node_property_diagram" title="Permalink to this headline">¶</a></h1>
+<p>Diagram to display a property defined at nodes over linear elements.</p>
+<dl class="class">
+<dt id="postprocess.xcVtk.diagrams.node_property_diagram.NodePropertyDiagram">
+<em class="property">class </em><code class="descclassname">postprocess.xcVtk.diagrams.node_property_diagram.</code><code class="descname">NodePropertyDiagram</code><span class="sig-paren">(</span><em>scaleFactor</em>, <em>fUnitConv</em>, <em>sets</em>, <em>attributeName</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.node_property_diagram.NodePropertyDiagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram" title="postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram"><code class="xref py py-class docutils literal"><span class="pre">postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram</span></code></a></p>
+<p>Diagram to display a property defined at nodes over linear elements.</p>
+<dl class="method">
+<dt id="postprocess.xcVtk.diagrams.node_property_diagram.NodePropertyDiagram.addDiagram">
+<code class="descname">addDiagram</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.node_property_diagram.NodePropertyDiagram.addDiagram" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.diagrams.node_property_diagram.NodePropertyDiagram.appendDataSetToDiagram">
+<code class="descname">appendDataSetToDiagram</code><span class="sig-paren">(</span><em>eSet</em>, <em>indxDiagrama</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.node_property_diagram.NodePropertyDiagram.appendDataSetToDiagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append property values to diagram .
+:param eSet: Element set.
+:param defFScale: factor to apply to current displacement of nodes</p>
+<blockquote>
+<div>so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.diagrams.node_property_diagram.NodePropertyDiagram.getValueForNode">
+<code class="descname">getValueForNode</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.node_property_diagram.NodePropertyDiagram.getValueForNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="element-property-diagram">
+<h1>Element property diagram<a class="headerlink" href="#element-property-diagram" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-postprocess.xcVtk.diagrams.element_property_diagram"></span><p>Diagram display a property defined over linear elements.</p>
+<dl class="class">
+<dt id="postprocess.xcVtk.diagrams.element_property_diagram.ElementPropertyDiagram">
+<em class="property">class </em><code class="descclassname">postprocess.xcVtk.diagrams.element_property_diagram.</code><code class="descname">ElementPropertyDiagram</code><span class="sig-paren">(</span><em>scaleFactor</em>, <em>fUnitConv</em>, <em>sets</em>, <em>propertyName</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.element_property_diagram.ElementPropertyDiagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram" title="postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram"><code class="xref py py-class docutils literal"><span class="pre">postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram</span></code></a></p>
+<p>Diagram of element properties</p>
+<dl class="method">
+<dt id="postprocess.xcVtk.diagrams.element_property_diagram.ElementPropertyDiagram.addDiagram">
+<code class="descname">addDiagram</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.element_property_diagram.ElementPropertyDiagram.addDiagram" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.diagrams.element_property_diagram.ElementPropertyDiagram.appendDataSetToDiagram">
+<code class="descname">appendDataSetToDiagram</code><span class="sig-paren">(</span><em>eSet</em>, <em>indxDiagrama</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.element_property_diagram.ElementPropertyDiagram.appendDataSetToDiagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append property values to diagram .
+:param  eSet: Element set.
+:param defFScale: factor to apply to current displacement of nodes</p>
+<blockquote>
+<div>so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</div></blockquote>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="postprocess.xcVtk.diagrams.element_property_diagram.ElementPropertyDiagram.envelopes">
+<code class="descname">envelopes</code><em class="property"> = set(['Vz+', 'N+', 'N-', 'Vz-', 'My+', 'T-', 'My-', 'T+', 'Vy+', 'Mz-', 'Vy-', 'Mz+'])</em><a class="headerlink" href="#postprocess.xcVtk.diagrams.element_property_diagram.ElementPropertyDiagram.envelopes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-postprocess.xcVtk.diagrams.vtk_internal_force_diagram">
+<span id="internal-force-diagram"></span><h1>Internal force diagram<a class="headerlink" href="#module-postprocess.xcVtk.diagrams.vtk_internal_force_diagram" title="Permalink to this headline">¶</a></h1>
+<p>Display of diagrams (forces, moments, …) on linear elements</p>
+<dl class="class">
+<dt id="postprocess.xcVtk.diagrams.vtk_internal_force_diagram.InternalForceDiagram">
+<em class="property">class </em><code class="descclassname">postprocess.xcVtk.diagrams.vtk_internal_force_diagram.</code><code class="descname">InternalForceDiagram</code><span class="sig-paren">(</span><em>scale</em>, <em>fUnitConv</em>, <em>sets</em>, <em>component</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.vtk_internal_force_diagram.InternalForceDiagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram" title="postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram"><code class="xref py py-class docutils literal"><span class="pre">postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram</span></code></a></p>
+<p>Diagram of internal forces (N,My,Mz,T,Vy,Vz)</p>
+<dl class="method">
+<dt id="postprocess.xcVtk.diagrams.vtk_internal_force_diagram.InternalForceDiagram.addDiagram">
+<code class="descname">addDiagram</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.vtk_internal_force_diagram.InternalForceDiagram.addDiagram" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.diagrams.vtk_internal_force_diagram.InternalForceDiagram.getElementComponentData">
+<code class="descname">getElementComponentData</code><span class="sig-paren">(</span><em>elem</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.vtk_internal_force_diagram.InternalForceDiagram.getElementComponentData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the data to use to represent the diagram over the element</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>elem</strong> – element to deal with.</li>
+<li><strong>component</strong> – component to represent:</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Colored diagram</a></li>
+<li><a class="reference internal" href="#module-postprocess.xcVtk.diagrams.control_var_diagram">Diagram control variables</a></li>
+<li><a class="reference internal" href="#module-postprocess.xcVtk.diagrams.linear_load_diagram">Linear load diagram</a></li>
+<li><a class="reference internal" href="#module-postprocess.xcVtk.diagrams.node_property_diagram">Node property diagram</a></li>
+<li><a class="reference internal" href="#element-property-diagram">Element property diagram</a></li>
+<li><a class="reference internal" href="#module-postprocess.xcVtk.diagrams.vtk_internal_force_diagram">Internal force diagram</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="xcVtk.fields.html"
+                        title="previous chapter">Field base</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="xcVtk.CAD_model.html"
+                        title="next chapter">vtk CAD graphic</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/postprocessor/python_modules/xcVtk.diagrams.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="xcVtk.CAD_model.html" title="vtk CAD graphic"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="xcVtk.fields.html" title="Field base"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="xcVtk.html" >Graphics XC_Vtk</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+    </div>
+  </body>
+</html>

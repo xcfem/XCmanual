@@ -24,7 +24,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Materials according to CEB-FIP model code" href="materials.ceb.html" />
-    <link rel="prev" title="createFiberSets" href="materials.fiber_section.html" /> 
+    <link rel="prev" title="Fiber sets" href="materials.fiber_section.html" /> 
   </head>
   <body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -40,7 +40,7 @@
           <a href="materials.ceb.html" title="Materials according to CEB-FIP model code"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="materials.fiber_section.html" title="createFiberSets"
+          <a href="materials.fiber_section.html" title="Fiber sets"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../material.html" accesskey="U">Material</a> &#187;</li> 
@@ -55,7 +55,7 @@
   <div class="section" id="materials-according-to-aci-codes">
 <h1>Materials according to ACI codes<a class="headerlink" href="#materials-according-to-aci-codes" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-materials.aci.ACI_materials">
-<span id="aci-materials"></span><h2>ACI_materials<a class="headerlink" href="#module-materials.aci.ACI_materials" title="Permalink to this headline">¶</a></h2>
+<span id="aci-materials"></span><h2>ACI materials<a class="headerlink" href="#module-materials.aci.ACI_materials" title="Permalink to this headline">¶</a></h2>
 <p>Reinforced concrete materials according to ACI 318. 
 VERIFICATION TESTS REQUIRED!!!.</p>
 <dl class="class">
@@ -145,6 +145,1052 @@ reinforcement size according to table 25.4.2.4 of ACI
 </dd></dl>
 
 </div>
+<div class="section" id="module-materials.aci.ACI_limit_state_checking">
+<span id="aci-limit-state-checking"></span><h2>ACI limit state checking<a class="headerlink" href="#module-materials.aci.ACI_limit_state_checking" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="materials.aci.ACI_limit_state_checking.ACIDoubleRebarFamily">
+<em class="property">class </em><code class="descclassname">materials.aci.ACI_limit_state_checking.</code><code class="descname">ACIDoubleRebarFamily</code><span class="sig-paren">(</span><em>f1</em>, <em>f2</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ACIDoubleRebarFamily" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="materials.sections.html#materials.sections.rebar_family.DoubleRebarFamily" title="materials.sections.rebar_family.DoubleRebarFamily"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.rebar_family.DoubleRebarFamily</span></code></a></p>
+<p>Two reinforcement bars families.</p>
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.ACIDoubleRebarFamily.getCopy">
+<code class="descname">getCopy</code><span class="sig-paren">(</span><em>barController</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ACIDoubleRebarFamily.getCopy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.ACIDoubleRebarFamily.getVR">
+<code class="descname">getVR</code><span class="sig-paren">(</span><em>concrete</em>, <em>Nd</em>, <em>Md</em>, <em>b</em>, <em>thickness</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ACIDoubleRebarFamily.getVR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the shear resistance of the (b x thickness) rectangular section.
+:param concrete: concrete material.
+:param Nd: design axial force.
+:param Md: design bending moment.
+:param b: width of the rectangular section.
+:param thickness: height of the rectangular section.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.ACIDoubleRebarFamily.writeRebars">
+<code class="descname">writeRebars</code><span class="sig-paren">(</span><em>outputFile</em>, <em>concrete</em>, <em>AsMin</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ACIDoubleRebarFamily.writeRebars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write rebar family data.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.aci.ACI_limit_state_checking.ACIFamNBars">
+<em class="property">class </em><code class="descclassname">materials.aci.ACI_limit_state_checking.</code><code class="descname">ACIFamNBars</code><span class="sig-paren">(</span><em>steel</em>, <em>n</em>, <em>barNumber</em>, <em>spacing</em>, <em>concreteCover</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ACIFamNBars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.aci.ACI_limit_state_checking.ACIRebarFamily" title="materials.aci.ACI_limit_state_checking.ACIRebarFamily"><code class="xref py py-class docutils literal"><span class="pre">materials.aci.ACI_limit_state_checking.ACIRebarFamily</span></code></a></p>
+<dl class="attribute">
+<dt id="materials.aci.ACI_limit_state_checking.ACIFamNBars.n">
+<code class="descname">n</code><em class="property"> = 2</em><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ACIFamNBars.n" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.ACIFamNBars.writeDef">
+<code class="descname">writeDef</code><span class="sig-paren">(</span><em>outputFile</em>, <em>concrete</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ACIFamNBars.writeDef" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.aci.ACI_limit_state_checking.ACIRebarFamily">
+<em class="property">class </em><code class="descclassname">materials.aci.ACI_limit_state_checking.</code><code class="descname">ACIRebarFamily</code><span class="sig-paren">(</span><em>steel</em>, <em>barNumber</em>, <em>spacing</em>, <em>concreteCover</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ACIRebarFamily" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="materials.sections.html#materials.sections.rebar_family.RebarFamily" title="materials.sections.rebar_family.RebarFamily"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.rebar_family.RebarFamily</span></code></a></p>
+<p>Family or reinforcement bars with checking according to ACI 318-14.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>barNumber</strong> – bar number in ACI 318 code.</li>
+<li><strong>psi_t</strong> – reinforcement location factor; “concrete below” is 
+taken as the depth from the rebar center to the bottom 
+of the concrete section.
+* 1.3 for concrete below ≥ 12 inches 
+* 1.0 for concrete below &lt; 12 inches</li>
+<li><strong>psi_e</strong> – <p>coating factor 
+* 1.5 for epoxy coated bars with cover (to center of bar)</p>
+<blockquote>
+<div>less than 3db (spacing is not calculated)</div></blockquote>
+<ul>
+<li>1.2 for all other epoxy coated bars</li>
+<li>1.0 for uncoated bars</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.ACIRebarFamily.getBasicAnchorageLength">
+<code class="descname">getBasicAnchorageLength</code><span class="sig-paren">(</span><em>concrete</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ACIRebarFamily.getBasicAnchorageLength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the basic anchorage length of the bars.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.ACIRebarFamily.getCopy">
+<code class="descname">getCopy</code><span class="sig-paren">(</span><em>barController</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ACIRebarFamily.getCopy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.ACIRebarFamily.getMinReinfAreaUnderFlexion">
+<code class="descname">getMinReinfAreaUnderFlexion</code><span class="sig-paren">(</span><em>thickness</em>, <em>b=1.0</em>, <em>type='slab'</em>, <em>concrete=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ACIRebarFamily.getMinReinfAreaUnderFlexion" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the minimun amount of bonded reinforcement to control cracking</dt>
+<dd>for reinforced concrete sections under flexion per unit length 
+according to clauses 7.6.1.1, 8.6.1.1, 9.6.1.2, 10.6.1.1, 11.6.1,
+12.6.1</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>steel</strong> – reinforcement steel.</li>
+<li><strong>thickness</strong> – gross thickness of concrete section (doesn’t include 
+the area of the voids).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.ACIRebarFamily.getMinReinfAreaUnderTension">
+<code class="descname">getMinReinfAreaUnderTension</code><span class="sig-paren">(</span><em>thickness</em>, <em>type='slab'</em>, <em>concrete=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ACIRebarFamily.getMinReinfAreaUnderTension" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the minimun amount of bonded reinforcement to control cracking</dt>
+<dd>for reinforced concrete sections under tension.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>concrete</strong> – concrete material.</li>
+<li><strong>thickness</strong> – thickness of the tensioned member.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.ACIRebarFamily.getRebarController">
+<code class="descname">getRebarController</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ACIRebarFamily.getRebarController" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.ACIRebarFamily.getVR">
+<code class="descname">getVR</code><span class="sig-paren">(</span><em>concrete</em>, <em>Nd</em>, <em>Md</em>, <em>b</em>, <em>thickness</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ACIRebarFamily.getVR" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the shear resistance carried by the concrete on a (b x thickness)</dt>
+<dd>rectangular section according to clause 22.5.5.1 of ACI 318-14.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>concrete</strong> – concrete material.</li>
+<li><strong>Nd</strong> – design axial force.</li>
+<li><strong>Md</strong> – design bending moment.</li>
+<li><strong>b</strong> – width of the rectangular section.</li>
+<li><strong>thickness</strong> – height of the rectangular section.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.ACIRebarFamily.writeRebars">
+<code class="descname">writeRebars</code><span class="sig-paren">(</span><em>outputFile</em>, <em>concrete</em>, <em>AsMin</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ACIRebarFamily.writeRebars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write rebar family data.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.aci.ACI_limit_state_checking.AnchorBolt">
+<em class="property">class </em><code class="descclassname">materials.aci.ACI_limit_state_checking.</code><code class="descname">AnchorBolt</code><span class="sig-paren">(</span><em>ca1</em>, <em>ca2</em>, <em>ha</em>, <em>concrete</em>, <em>steel</em>, <em>diam</em>, <em>hef</em>, <em>cast_in=False</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.AnchorBolt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Anchor bolt design according to ACI 349-97</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ca1</strong> – distance from the center of an anchor shaft to the edge of 
+concrete in one direction. If shear is applied to anchor, ca1 
+is taken in the direc-tion of the applied shear. If the
+tension isapplied to the anchor, ca1 is the minimum edge 
+distance.</li>
+<li><strong>ca2</strong> – distance from center of an anchor shaft to the edge of concrete
+in the direction orthogonal to ca1.</li>
+<li><strong>ha</strong> – thickness  of  member  in  which  an  anchor  is
+located, measured parallel to anchor axis.</li>
+<li><strong>concrete</strong> – concrete material.</li>
+<li><strong>steel</strong> – anchor steel.</li>
+<li><strong>diam</strong> – anchor diameter.</li>
+<li><strong>hef</strong> – effective embedment depth of anchor.</li>
+<li><strong>cast_in</strong> – true if cast-in anchor false for post-installed
+anchors.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.AnchorBolt.getANc">
+<code class="descname">getANc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.AnchorBolt.getANc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the projected concrete failure area of a single anchor 
+that shall be approximated as the base of the rectilinear geometrical 
+figure that results from projecting the failure surface outward 1.5hef 
+from the centerlines of the anchor, or in the case of a group of 
+anchors, from a line through a row of adjacent anchors.
+Note: For now, only single stud away from edge case is considered</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.AnchorBolt.getANco">
+<code class="descname">getANco</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.AnchorBolt.getANco" title="Permalink to this definition">¶</a></dt>
+<dd><p>he projected concrete failure area of a single
+anchor with an edge distance equal to or greater than 1.5hef</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.AnchorBolt.getAnchorArea">
+<code class="descname">getAnchorArea</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.AnchorBolt.getAnchorArea" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the anchor area.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.AnchorBolt.getAvc">
+<code class="descname">getAvc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.AnchorBolt.getAvc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the projected area the projected area of the failure 
+surface on the side of the concrete member at its edge for a single 
+anchor.
+It is evaluated as the base of a truncated
+half-pyramid projected on the side face of the member where
+the top of the half-pyramid is given by the axis of the anchor
+row selected as critical. 
+Only case when edges are supposed far enough away in considered
+(see article D.6.2.1 for other cases).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.AnchorBolt.getAvco">
+<code class="descname">getAvco</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.AnchorBolt.getAvco" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the projected area for a single anchor in a deep
+member with a distance from edges equal or greater than
+1.5ca1 the direction perpendicular to the shear force. 
+It is evaluated as the base of a half-pyramid with
+a side length parallel to the edge of 3ca1 and a depth of 1.5ca1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.AnchorBolt.getBasicConcreteBreakoutStrengthTension">
+<code class="descname">getBasicConcreteBreakoutStrengthTension</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.AnchorBolt.getBasicConcreteBreakoutStrengthTension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the asic concrete breakout strength of a single
+anchor in tension in cracked concrete.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.AnchorBolt.getBasicConrBreakoutStrengthShear">
+<code class="descname">getBasicConrBreakoutStrengthShear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.AnchorBolt.getBasicConrBreakoutStrengthShear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the basic concrete breakout strength in shear of
+a single anchor in cracked concrete.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.AnchorBolt.getConcrBreakoutStrengthShear">
+<code class="descname">getConcrBreakoutStrengthShear</code><span class="sig-paren">(</span><em>ShForcPerp=True</em>, <em>cracking=True</em>, <em>reinfBarDiam=0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.AnchorBolt.getConcrBreakoutStrengthShear" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the nominal concrete breakout strength in shear of a single </dt>
+<dd><p class="first">anchor (art. D.6.2. ACI-349.2R)</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">param ShForcPerp:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">True for shear force perpendicular to the edge, 
+False for shear force parallel to the edge</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>cracking</strong> – True for anchors located in a region of a concrete 
+member where analysis indicates cracking. (Defaults to True)</li>
+<li><strong>reinfBarDiam</strong> – Diameter of the inforcement bars (Defaults to
+0 == no reinforcement)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.AnchorBolt.getConcrBreakoutStrengthTension">
+<code class="descname">getConcrBreakoutStrengthTension</code><span class="sig-paren">(</span><em>cracking=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.AnchorBolt.getConcrBreakoutStrengthTension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the nominal concrete breakout strength  of a single anchor
+in tension</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cracking</strong> – True for anchors located in a region of a concrete 
+member where analysis indicates cracking. (Defaults to True)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.AnchorBolt.getDesignSteelStrength">
+<code class="descname">getDesignSteelStrength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.AnchorBolt.getDesignSteelStrength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the design steel strength of the anchor
+according to section D.3.6.1.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.AnchorBolt.getDesignStrengthShear">
+<code class="descname">getDesignStrengthShear</code><span class="sig-paren">(</span><em>ductility</em>, <em>loadCombAlt=False</em>, <em>sleeveTrhShearPlane=True</em>, <em>ShForcPerp=True</em>, <em>cracking=True</em>, <em>reinfBarDiam=0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.AnchorBolt.getDesignStrengthShear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the design strength of a single anchor in shear. 
+It must be greater than the factored applied load.
+Strength reduction factors are based on art. D.4.5.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ductility</strong> – <p>True if ductile steel element, False if brittle steel element
+:param loadCombAlt: True if load combinations of Appendix C of ACI-31 are used,</p>
+<blockquote>
+<div>False if load combinations of art. 9.2. of ACI-31 are used
+(defaults to False)</div></blockquote>
+</li>
+<li><strong>sleeveTrhShearPlane</strong> – <dl class="docutils">
+<dt>True if sleeves extend through the shear </dt>
+<dd>plane (defaults to True)</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">param ShForcPerp:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">True for shear force perpendicular to the edge, 
+False for shear force parallel to the edge</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><strong>cracking</strong> – True for anchors located in a region of a concrete 
+member where analysis indicates cracking. (Defaults to True)</li>
+<li><strong>reinfBarDiam</strong> – Diameter of the inforcement bars (Defaults to
+0 == no reinforcement)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.AnchorBolt.getDesignStrengthTension">
+<code class="descname">getDesignStrengthTension</code><span class="sig-paren">(</span><em>Abearing</em>, <em>ductility</em>, <em>loadCombAlt=False</em>, <em>cracking=True</em>, <em>reinfBarDiam=0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.AnchorBolt.getDesignStrengthTension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the design strength of a single anchor in tension. 
+It must be greater than the factored applied load.
+Strength reduction factors are based on art. D.4.5.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Abearing</strong> – bearing area (see tables 4, 5, 6 Appendix A)</li>
+<li><strong>ductility</strong> – True if ductile steel element, False if brittle steel element</li>
+<li><strong>loadCombAlt</strong> – True if load combinations of Appendix C of ACI-31 are used,
+False if load combinations of art. 9.2. of ACI-31 are used
+(defaults to False)</li>
+<li><strong>cracking</strong> – True for anchors located in a region of a concrete 
+member where analysis indicates cracking. (Defaults to True)</li>
+<li><strong>reinfBarDiam</strong> – Diameter of the inforcement bars (Defaults to
+0 == no reinforcement)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.AnchorBolt.getFactorCrackingN">
+<code class="descname">getFactorCrackingN</code><span class="sig-paren">(</span><em>cracking=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.AnchorBolt.getFactorCrackingN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a modification factor depending on the cracking in 
+concrete</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cracking</strong> – True for anchors located in a region of a concrete 
+member where analysis indicates cracking. (Defaults to True)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.AnchorBolt.getFactorCrackingV">
+<code class="descname">getFactorCrackingV</code><span class="sig-paren">(</span><em>cracking=True</em>, <em>reinfBarDiam=0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.AnchorBolt.getFactorCrackingV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a modification factor depending on the cracking in 
+concrete and the reinforcement.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>cracking</strong> – True for anchors located in a region of a concrete 
+member where analysis indicates cracking. (Defaults to True)</li>
+<li><strong>reinfBarDiam</strong> – Diameter of the inforcement bars (Defaults to
+0 == no reinforcement)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.AnchorBolt.getFactorEdgeN">
+<code class="descname">getFactorEdgeN</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.AnchorBolt.getFactorEdgeN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the modification factor for edge effect for a
+single anchor or group of anchors loaded in tension</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.AnchorBolt.getFactorEdgeV">
+<code class="descname">getFactorEdgeV</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.AnchorBolt.getFactorEdgeV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the modification factor for edge effect for a
+single anchor or group of anchors loaded in shear</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.AnchorBolt.getFactorModifN">
+<code class="descname">getFactorModifN</code><span class="sig-paren">(</span><em>cracking=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.AnchorBolt.getFactorModifN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.AnchorBolt.getFuta">
+<code class="descname">getFuta</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.AnchorBolt.getFuta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the the tensile strength of an anchor that meets the tensile 
+strength requirement futa &lt;= min(1.9fya,125 ksi)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.AnchorBolt.getNominalSteelStrengthTension">
+<code class="descname">getNominalSteelStrengthTension</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.AnchorBolt.getNominalSteelStrengthTension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the nominal steel strength of the anchor
+according to section D.3.6.1.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.AnchorBolt.getPryoutStrengthShear">
+<code class="descname">getPryoutStrengthShear</code><span class="sig-paren">(</span><em>cracking=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.AnchorBolt.getPryoutStrengthShear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the nominal pryout strength, for a single anchor in shear
+(article D.6.3. ACI-349.2R)
+:param cracking: True for anchors located in a region of a concrete</p>
+<blockquote>
+<div>member where analysis indicates cracking. (Defaults to True)</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.AnchorBolt.getPulloutStrengthTension">
+<code class="descname">getPulloutStrengthTension</code><span class="sig-paren">(</span><em>Abearing</em>, <em>cracking=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.AnchorBolt.getPulloutStrengthTension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the nominal pullout strength of a single anchor
+in tension to check head of the stud (article D.5.3 ACI-349.2R)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Abearing</strong> – bearing area (see tables 4, 5, 6 Appendix A)</li>
+<li><strong>cracking</strong> – True for anchors located in a region of a concrete 
+member where analysis indicates cracking. (Defaults to True)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.AnchorBolt.getSteelStrengthShear">
+<code class="descname">getSteelStrengthShear</code><span class="sig-paren">(</span><em>sleeveTrhShearPlane=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.AnchorBolt.getSteelStrengthShear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the nominal strength of an anchor in shear as governed by 
+steel (art. D.6.1. ACI-349.2R)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sleeveTrhShearPlane</strong> – True if sleeves extend through the shear 
+plane (defaults to True)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.AnchorBolt.getStrengthDuctilityShear">
+<code class="descname">getStrengthDuctilityShear</code><span class="sig-paren">(</span><em>ShForcPerp=True</em>, <em>cracking=True</em>, <em>reinfBarDiam=0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.AnchorBolt.getStrengthDuctilityShear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the design strength of a single anchor in shear
+to check ductility 
+(if greater than the factored applied load -&gt; ductility OK.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ShForcPerp</strong> – True for shear force perpendicular to the edge, 
+False for shear force parallel to the edge</li>
+<li><strong>cracking</strong> – True for anchors located in a region of a concrete 
+member where analysis indicates cracking. (Defaults to True)</li>
+<li><strong>reinfBarDiam</strong> – Diameter of the inforcement bars (Defaults to
+0 == no reinforcement)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.AnchorBolt.getStrengthDuctilityTension">
+<code class="descname">getStrengthDuctilityTension</code><span class="sig-paren">(</span><em>Abearing</em>, <em>cracking=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.AnchorBolt.getStrengthDuctilityTension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the design strength of a single anchor in tension
+to check ductility 
+(if greater than the factored applied load -&gt; ductility OK.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Abearing</strong> – bearing area (see tables 4, 5, 6 Appendix A)</li>
+<li><strong>cracking</strong> – True for anchors located in a region of a concrete 
+member where analysis indicates cracking. (Defaults to True)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.aci.ACI_limit_state_checking.BiaxialBendingNormalStressController">
+<em class="property">class </em><code class="descclassname">materials.aci.ACI_limit_state_checking.</code><code class="descname">BiaxialBendingNormalStressController</code><span class="sig-paren">(</span><em>limitStateLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.BiaxialBendingNormalStressController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="matGenTopics.html#materials.limit_state_checking_base.BiaxialBendingNormalStressControllerBase" title="materials.limit_state_checking_base.BiaxialBendingNormalStressControllerBase"><code class="xref py py-class docutils literal"><span class="pre">materials.limit_state_checking_base.BiaxialBendingNormalStressControllerBase</span></code></a></p>
+<p>Object that controls normal stresses limit state.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.aci.ACI_limit_state_checking.Corbel">
+<em class="property">class </em><code class="descclassname">materials.aci.ACI_limit_state_checking.</code><code class="descname">Corbel</code><span class="sig-paren">(</span><em>concrete</em>, <em>steel</em>, <em>width</em>, <em>thickness</em>, <em>depth</em>, <em>Asc</em>, <em>Ah</em>, <em>alpha=1.5707963267948966</em>, <em>lambda_c=1.0</em>, <em>monolithic=True</em>, <em>contact_condition='a'</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.Corbel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.aci.ACI_limit_state_checking.ShearPlane" title="materials.aci.ACI_limit_state_checking.ShearPlane"><code class="xref py py-class docutils literal"><span class="pre">materials.aci.ACI_limit_state_checking.ShearPlane</span></code></a></p>
+<p>Reinforcing concrete corbel design to ACI 318</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="../geom_cpp_classes/d3/d3.html#geom.BND3d.width" title="geom.BND3d.width"><strong>width</strong></a> – width of corbel.</li>
+<li><strong>thickness</strong> – total thickness of corbel.</li>
+<li><strong>depth</strong> – depth to main reinforcement.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.Corbel.getAn">
+<code class="descname">getAn</code><span class="sig-paren">(</span><em>Nd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.Corbel.getAn" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the area or the required reinforcement</dt>
+<dd>according to section 16.5.4.3 of ACI 318-14.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Nd</strong> – design value of axial load.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.Corbel.getBendingMoment">
+<code class="descname">getBendingMoment</code><span class="sig-paren">(</span><em>Vd</em>, <em>Nd</em>, <em>av</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.Corbel.getBendingMoment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the bending moment on the corbel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Vd</strong> – design value of vertical load.</li>
+<li><strong>Nd</strong> – design value of axial load.</li>
+<li><strong>av</strong> – eccentricity of the vertical load with respect
+to the corbel shear plane.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.Corbel.getMinimumPrimaryReinforcement">
+<code class="descname">getMinimumPrimaryReinforcement</code><span class="sig-paren">(</span><em>Vd</em>, <em>Nd</em>, <em>av</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.Corbel.getMinimumPrimaryReinforcement" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the minimum area of the primary reinforcement</dt>
+<dd>according to section 16.5.5.1 of ACI 318-14.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Vd</strong> – design value of vertical load.</li>
+<li><strong>Nd</strong> – design value of axial load.</li>
+<li><strong>av</strong> – eccentricity of the vertical load with respect
+to the corbel shear plane.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.Corbel.getMinimumShearReinforcement">
+<code class="descname">getMinimumShearReinforcement</code><span class="sig-paren">(</span><em>Vd</em>, <em>Nd</em>, <em>av</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.Corbel.getMinimumShearReinforcement" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the minimum area of shear reinforcement</dt>
+<dd>according to section 16.5.5.2 of ACI 318-14.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Vd</strong> – design value of vertical load.</li>
+<li><strong>Nd</strong> – design value of axial load.</li>
+<li><strong>av</strong> – eccentricity of the vertical load with respect
+to the corbel shear plane.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.Corbel.getNominalVerticalLoadCapacity">
+<code class="descname">getNominalVerticalLoadCapacity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.Corbel.getNominalVerticalLoadCapacity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the nominal vertical load capacity of the corbel
+according to section 16.5.2.4 of ACI 318-14.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.Corbel.getRequiredPrimaryReinforcement">
+<code class="descname">getRequiredPrimaryReinforcement</code><span class="sig-paren">(</span><em>Vd</em>, <em>Nd</em>, <em>av</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.Corbel.getRequiredPrimaryReinforcement" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the area or the required reinforcement</dt>
+<dd>according to sections 16.5.4.3 and 16.5.4.5
+of ACI 318-14.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Vd</strong> – design value of vertical load.</li>
+<li><strong>Nd</strong> – design value of axial load.</li>
+<li><strong>av</strong> – eccentricity of the vertical load with respect
+to the corbel shear plane.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.aci.ACI_limit_state_checking.RebarController">
+<em class="property">class </em><code class="descclassname">materials.aci.ACI_limit_state_checking.</code><code class="descname">RebarController</code><span class="sig-paren">(</span><em>psi_t=1.3</em>, <em>psi_e=1.0</em>, <em>concreteCover=0.035</em>, <em>spacing=0.15</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.RebarController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Control of some parameters as development lenght 
+minimum reinforcement and so on.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>psi_t</strong> – reinforcement location factor; “concrete below” is 
+taken as the depth from the rebar center to the bottom 
+of the concrete section.
+* 1.3 for concrete below ≥ 12 inches 
+* 1.0 for concrete below &lt; 12 inches</li>
+<li><strong>psi_e</strong> – <p>coating factor 
+* 1.5 for epoxy coated bars with cover (to center of bar)</p>
+<blockquote>
+<div>less than 3db (spacing is not calculated)</div></blockquote>
+<ul>
+<li>1.2 for all other epoxy coated bars</li>
+<li>1.0 for uncoated bars</li>
+</ul>
+</li>
+<li><strong>Ktr</strong> – transverse reinforcement index. Factor that represents the 
+contribution of confining reinforcement across potential 
+splitting planes; is conservatively assumed to be zero.</li>
+<li><strong>concreteCover</strong> – the distance from center of a bar or wire to 
+nearest concrete surface.</li>
+<li><strong>spacing</strong> – center-to-center spacing of bars or wires being 
+developed, in.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.RebarController.getBasicAnchorageLength">
+<code class="descname">getBasicAnchorageLength</code><span class="sig-paren">(</span><em>concrete</em>, <em>phi</em>, <em>steel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.RebarController.getBasicAnchorageLength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns anchorage length in tension according to ACI-318 25.4.2.3.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>concrete</strong> – concrete material.</li>
+<li><strong>phi</strong> – nominal diameter of bar, wire, or prestressing strand.</li>
+<li><strong>fck</strong> – concrete characteristic compressive strength.</li>
+<li><strong>steel</strong> – reinforcement steel.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.RebarController.getConfinementTerm">
+<code class="descname">getConfinementTerm</code><span class="sig-paren">(</span><em>phi</em>, <em>n=1</em>, <em>Atr=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.RebarController.getConfinementTerm" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the confinement term as defined in clause 25.4.2.3 </dt>
+<dd>of ACI 318-14.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>phi</strong> – nominal diameter of bar, wire, or prestressing strand.</li>
+<li><strong>n</strong> – number of bars or wires being developed or
+lap spliced along the plane of splitting.</li>
+<li><strong>Atr</strong> – total cross-sectional area of all transverse reinforcement
+within spacing s that crosses the potential plane of
+splitting through the reinforcement being developed.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.RebarController.getKtr">
+<code class="descname">getKtr</code><span class="sig-paren">(</span><em>n=1</em>, <em>Atr=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.RebarController.getKtr" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the transverse reinforcing index according to</dt>
+<dd>clause 25.4.2.3 of ACI 318-14.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>n</strong> – number of bars or wires being developed or
+lap spliced along the plane of splitting.</li>
+<li><strong>Atr</strong> – total cross-sectional area of all transverse reinforcement
+within spacing s that crosses the potential plane of
+splitting through the reinforcement being developed.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.aci.ACI_limit_state_checking.ShearController">
+<em class="property">class </em><code class="descclassname">materials.aci.ACI_limit_state_checking.</code><code class="descname">ShearController</code><span class="sig-paren">(</span><em>limitStateLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ShearController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="matGenTopics.html#materials.limit_state_checking_base.ShearControllerBase" title="materials.limit_state_checking_base.ShearControllerBase"><code class="xref py py-class docutils literal"><span class="pre">materials.limit_state_checking_base.ShearControllerBase</span></code></a></p>
+<p>Object that controls shear limit state according to ACI 318.</p>
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.ShearController.calcVc">
+<code class="descname">calcVc</code><span class="sig-paren">(</span><em>Nd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ShearController.calcVc" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Computes the shear strength of the section without </dt>
+<dd>shear reinforcement.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>concrete</strong> – concrete material.</li>
+<li><strong>Nd</strong> – design axial force.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.ShearController.calcVu">
+<code class="descname">calcVu</code><span class="sig-paren">(</span><em>Nd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ShearController.calcVu" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the ultimate shear resistance carried by the concrete on </dt>
+<dd>a (b x thickness) rectangular section according to clause 
+22.5.1.2 of ACI 318-14.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Nd</strong> – design axial force.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.ShearController.check">
+<code class="descname">check</code><span class="sig-paren">(</span><em>elements</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ShearController.check" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Check the shear strength of the RC section.</dt>
+<dd>Transverse reinforcement is not
+taken into account yet.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.ShearController.getV_max">
+<code class="descname">getV_max</code><span class="sig-paren">(</span><em>Nd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ShearController.getV_max" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the maximum shear resistance that can be carried by </dt>
+<dd>the concrete of the section according to clause 
+22.5.1.2 of ACI 318-14.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Nd</strong> – design axial force.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.ShearController.getVcNoShearRebars">
+<code class="descname">getVcNoShearRebars</code><span class="sig-paren">(</span><em>Nd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ShearController.getVcNoShearRebars" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the shear resistance carried by the concrete on a (b x thickness)</dt>
+<dd>rectangular section according to clause 22.5.5.1 of ACI 318-14.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Nd</strong> – design axial force.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.ShearController.getVu">
+<code class="descname">getVu</code><span class="sig-paren">(</span><em>Nd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ShearController.getVu" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the shear strength of the concrete section</dt>
+<dd>according to clause 16.5.2.3 of ACI 318-14.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Nd</strong> – design axial force.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.ShearController.setSection">
+<code class="descname">setSection</code><span class="sig-paren">(</span><em>rcSection</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ShearController.setSection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.aci.ACI_limit_state_checking.ShearPlane">
+<em class="property">class </em><code class="descclassname">materials.aci.ACI_limit_state_checking.</code><code class="descname">ShearPlane</code><span class="sig-paren">(</span><em>concrete</em>, <em>steel</em>, <em>avf</em>, <em>alpha=1.5707963267948966</em>, <em>lambda_c=1.0</em>, <em>monolithic=True</em>, <em>contact_condition='a'</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ShearPlane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Shear plane according to seciont 22.9 of ACI 318-14</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="#materials.aci.ACI_limit_state_checking.ShearPlane.phi" title="materials.aci.ACI_limit_state_checking.ShearPlane.phi"><strong>phi</strong></a> – strength reduction factor</li>
+<li><strong>concrete</strong> – concrete material.</li>
+<li><strong>reinfSteel</strong> – reinforcement steel material.</li>
+<li><strong>Avf</strong> – area of reinforcement crossing the shear plane.</li>
+<li><a class="reference internal" href="../../miscellany/roughCalcGenTopics.html#rough_calculations.masonry_vault.FillingCharacteristics.alpha" title="rough_calculations.masonry_vault.FillingCharacteristics.alpha"><strong>alpha</strong></a> – angle between the reinforcement and the shear plane.</li>
+<li><strong>lambda_c</strong> – 1.0 for normal weight concrete</li>
+<li><strong>monolithic</strong> – true if no construction joint in the shear plane.</li>
+<li><strong>contact_condition</strong> – contact condition as in table 22.9.4.2</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.ShearPlane.getCoefficientOfFriction">
+<code class="descname">getCoefficientOfFriction</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ShearPlane.getCoefficientOfFriction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the coefficient of friction according to
+table 22.9.4.2 for ACI 318-14.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.ShearPlane.getMaximumShearTransferStrength">
+<code class="descname">getMaximumShearTransferStrength</code><span class="sig-paren">(</span><em>Ac</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ShearPlane.getMaximumShearTransferStrength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the maximum shear-transfer strength permitted
+across a shear plane monolithically according to table 22.9.4.4
+of ACI-318-14</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Ac</strong> – area of the shear plane.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.ShearPlane.getNominalShearStrength">
+<code class="descname">getNominalShearStrength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ShearPlane.getNominalShearStrength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the nominal shear strength according to section
+22.9.4.3 of ACI 318-14.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.aci.ACI_limit_state_checking.ShearPlane.getShearCapacityFactor">
+<code class="descname">getShearCapacityFactor</code><span class="sig-paren">(</span><em>Vd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ShearPlane.getShearCapacityFactor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the capacity factor for shear according</dt>
+<dd>to section 16.5.4.4 of ACI 318-14.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Vd</strong> – design shear force.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="materials.aci.ACI_limit_state_checking.ShearPlane.phi">
+<code class="descname">phi</code><em class="property"> = 0.75</em><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.ShearPlane.phi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.aci.ACI_limit_state_checking.UniaxialBendingNormalStressController">
+<em class="property">class </em><code class="descclassname">materials.aci.ACI_limit_state_checking.</code><code class="descname">UniaxialBendingNormalStressController</code><span class="sig-paren">(</span><em>limitStateLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.UniaxialBendingNormalStressController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="matGenTopics.html#materials.limit_state_checking_base.UniaxialBendingNormalStressControllerBase" title="materials.limit_state_checking_base.UniaxialBendingNormalStressControllerBase"><code class="xref py py-class docutils literal"><span class="pre">materials.limit_state_checking_base.UniaxialBendingNormalStressControllerBase</span></code></a></p>
+<p>Object that controls normal stresses limit state (uniaxial bending).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.aci.ACI_limit_state_checking.V_max">
+<code class="descclassname">materials.aci.ACI_limit_state_checking.</code><code class="descname">V_max</code><span class="sig-paren">(</span><em>concrete</em>, <em>Nd</em>, <em>b</em>, <em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.V_max" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the ultimate shear strength of the section </dt>
+<dd>a (b x thickness) rectangular section according to clause 
+22.5.1.2 of ACI 318-14.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>concrete</strong> – concrete material.</li>
+<li><strong>Nd</strong> – design axial force.</li>
+<li><strong>b</strong> – width of the rectangular section.</li>
+<li><strong>d</strong> – effective thickness of the RC section.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.aci.ACI_limit_state_checking.VcNoShearRebars">
+<code class="descclassname">materials.aci.ACI_limit_state_checking.</code><code class="descname">VcNoShearRebars</code><span class="sig-paren">(</span><em>concrete</em>, <em>Nd</em>, <em>b</em>, <em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.aci.ACI_limit_state_checking.VcNoShearRebars" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return concrete shear capacity on a (b x thickness)</dt>
+<dd>rectangular section according to clause 22.5.5.1 of ACI 318-14.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>concrete</strong> – concrete material.</li>
+<li><strong>Nd</strong> – design axial force.</li>
+<li><strong>b</strong> – width of the rectangular section.</li>
+<li><strong>d</strong> – effective thickness of the RC section.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
 </div>
 
 
@@ -156,14 +1202,15 @@ reinforcement size according to table 25.4.2.4 of ACI
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Materials according to ACI codes</a><ul>
-<li><a class="reference internal" href="#module-materials.aci.ACI_materials">ACI_materials</a></li>
+<li><a class="reference internal" href="#module-materials.aci.ACI_materials">ACI materials</a></li>
+<li><a class="reference internal" href="#module-materials.aci.ACI_limit_state_checking">ACI limit state checking</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="materials.fiber_section.html"
-                        title="previous chapter">createFiberSets</a></p>
+                        title="previous chapter">Fiber sets</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="materials.ceb.html"
                         title="next chapter">Materials according to CEB-FIP model code</a></p>
@@ -201,7 +1248,7 @@ reinforcement size according to table 25.4.2.4 of ACI
           <a href="materials.ceb.html" title="Materials according to CEB-FIP model code"
              >next</a> |</li>
         <li class="right" >
-          <a href="materials.fiber_section.html" title="createFiberSets"
+          <a href="materials.fiber_section.html" title="Fiber sets"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../material.html" >Material</a> &#187;</li> 

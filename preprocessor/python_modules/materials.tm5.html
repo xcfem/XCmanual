@@ -1,0 +1,653 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Masonry materials according to TM 5-809-3 code &#8212; XC 3.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Boundary conditions" href="../boundary_conditions.html" />
+    <link rel="prev" title="AWC-NDS materials" href="materials.awcnds.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../boundary_conditions.html" title="Boundary conditions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="materials.awcnds.html" title="AWC-NDS materials"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../material.html" accesskey="U">Material</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="masonry-materials-according-to-tm-5-809-3-code">
+<h1>Masonry materials according to TM 5-809-3 code<a class="headerlink" href="#masonry-materials-according-to-tm-5-809-3-code" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-materials.tm5_809_3.tm5_809_3_materials">
+<span id="tm-5-809-3-materials"></span><h2>TM 5-809-3 materials<a class="headerlink" href="#module-materials.tm5_809_3.tm5_809_3_materials" title="Permalink to this headline">¶</a></h2>
+<p>Masonry structural design according to TM 5-809-3.</p>
+<dl class="class">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallCellReinforcement">
+<em class="property">class </em><code class="descclassname">materials.tm5_809_3.tm5_809_3_materials.</code><code class="descname">CMUWallCellReinforcement</code><span class="sig-paren">(</span><em>steelType=A615G60</em>, <em>reinfArea=0.0</em>, <em>nBars=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallCellReinforcement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Masonry wall cell reinforcement</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>steelType</strong> – steel type.</li>
+<li><strong>reinfArea</strong> – area of reinforcement on each cell.</li>
+<li><strong>nBars</strong> – number of bars per cell.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallCellReinforcement.Fs">
+<code class="descname">Fs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallCellReinforcement.Fs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return allowable working stress according to
+table 5-8 of TM 5-809-3.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric">
+<em class="property">class </em><code class="descclassname">materials.tm5_809_3.tm5_809_3_materials.</code><code class="descname">CMUWallFabric</code><span class="sig-paren">(</span><em>thickness</em>, <em>spacing</em>, <em>mortar=&lt;materials.tm5_809_3.tm5_809_3_materials.Mortar object&gt;</em>, <em>cellReinf=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Masonry wall</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>thickness</strong> – nominal wall thickness.</li>
+<li><strong>groutedCellsSpacing</strong> – spacing of grouted cells.</li>
+<li><strong>mortar</strong> – type of mortar.</li>
+<li><strong>cellReinf</strong> – reinforcement on each cell.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.fD1">
+<code class="descname">fD1</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.fD1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.fD2">
+<code class="descname">fD2</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.fD2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.fEffectiveArea">
+<code class="descname">fEffectiveArea</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp2d object&gt;</em><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.fEffectiveArea" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.fEquivalentThickness">
+<code class="descname">fEquivalentThickness</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp2d object&gt;</em><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.fEquivalentThickness" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.fInertia">
+<code class="descname">fInertia</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp2d object&gt;</em><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.fInertia" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.fMoment">
+<code class="descname">fMoment</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp2d object&gt;</em><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.fMoment" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.fWeight">
+<code class="descname">fWeight</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp2d object&gt;</em><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.fWeight" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getAllowableAxialStress">
+<code class="descname">getAllowableAxialStress</code><span class="sig-paren">(</span><em>h=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getAllowableAxialStress" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the allowable axial strees according to equation </dt>
+<dd>5-24 of TM 5-809-3.</dd>
+</dl>
+<p>The stress reduction factor (R) limits the axial stress on the wall so 
+that buckling  will not occur. When analyzing the top or bottom of
+a wall, where buckling is not a concern, the stress reduction factor 
+should not be used.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>h</strong> – clear height of the wall. None if buckling is not
+a concern.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getBalancedSteelRatio">
+<code class="descname">getBalancedSteelRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getBalancedSteelRatio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the balanced steel ratio defined as the reinforcing 
+ratio where the steel and the masonry reach their maximum 
+allowable stresses for the same applied moment, according
+to equation 5-11 of TM 5-809-3.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getBw">
+<code class="descname">getBw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getBw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the width of the masonry element effective in 
+resisting out-of-plane shear as shown in figure
+5-2c and given in table 5-1 of TM 5-809-3.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getCapacityFactor">
+<code class="descname">getCapacityFactor</code><span class="sig-paren">(</span><em>axialLoad</em>, <em>bendingMoment</em>, <em>h=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getCapacityFactor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the capacity factor of the masonry fabric under</dt>
+<dd>the internal forces being passed as parameter.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>axialLoad</strong> – axial load (N/m).</li>
+<li><strong>bendingMoment</strong> – bending moment (N.m/m).</li>
+<li><strong>h</strong> – clear height of the wall. None if buckling is not
+a concern.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getCompressiveStress">
+<code class="descname">getCompressiveStress</code><span class="sig-paren">(</span><em>P</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getCompressiveStress" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the compressive stress in the masonry</dt>
+<dd>according to equation 5-21 of TM 5-809-3.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>P</strong> – axial load (N/m)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getCrackingMomentStrength">
+<code class="descname">getCrackingMomentStrength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getCrackingMomentStrength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the cracking moment strength of the fabric
+according to equation 5-7 of  TM 5-809-3.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getEffectiveArea">
+<code class="descname">getEffectiveArea</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getEffectiveArea" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the effective area.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getEffectiveAreaPerUnitLength">
+<code class="descname">getEffectiveAreaPerUnitLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getEffectiveAreaPerUnitLength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the effective area per unit length according to
+table 5-3 of TM 5-809-3.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getEffectiveDepth">
+<code class="descname">getEffectiveDepth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getEffectiveDepth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the total depth from the compression face to 
+the reinforcing steel.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getEffectiveWidth">
+<code class="descname">getEffectiveWidth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getEffectiveWidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the effective width of the fabric
+according to remark 2 on table 5-4
+of TM 5-809-3.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getEquivalentWallThickness">
+<code class="descname">getEquivalentWallThickness</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getEquivalentWallThickness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the equivalent wall thickness according to
+table 5-2 of TM 5-809-3.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getGrossMomentOfInertia">
+<code class="descname">getGrossMomentOfInertia</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getGrossMomentOfInertia" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the gross moment of inertia
+according to table 5-4 of TM 5-809-3.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getInPlaneShearStress">
+<code class="descname">getInPlaneShearStress</code><span class="sig-paren">(</span><em>V</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getInPlaneShearStress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the in-plane shear stress according to equation
+5-23 of TM 5-809-3.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>V</strong> – in-plane shear load (N/m)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getJCoefficient">
+<code class="descname">getJCoefficient</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getJCoefficient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the ratio of the distance between the resultant 
+compressive force and the centroid of the tensile force 
+to the distance d, according to equation 5-9
+of TM 5-809-3.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getKCoefficient">
+<code class="descname">getKCoefficient</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getKCoefficient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the ratio of the depth of the compressive stress 
+block to the total depth from the compression face to 
+the reinforcing steel: d, according to equation 5-9
+of TM 5-809-3.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getMasonryResistingMoment">
+<code class="descname">getMasonryResistingMoment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getMasonryResistingMoment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the resisting moment for the masonry
+according to equation 5-15 of TM 5-809-3.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getMasonryResistingMomentPerUnitLength">
+<code class="descname">getMasonryResistingMomentPerUnitLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getMasonryResistingMomentPerUnitLength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the resisting moment for the masonry
+per unit length.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getMassPerSquareMeter">
+<code class="descname">getMassPerSquareMeter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getMassPerSquareMeter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the mass of the fabric per square meter
+according to table 5-5 of TM 5-809-3.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getReinforcementResistingMoment">
+<code class="descname">getReinforcementResistingMoment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getReinforcementResistingMoment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the resisting moment for the reinforcement
+according to equation 5-14 of TM 5-809-3.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getReinforcementResistingMomentPerUnitLength">
+<code class="descname">getReinforcementResistingMomentPerUnitLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getReinforcementResistingMomentPerUnitLength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the resisting moment for the reinforcement
+per unit length.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getResistingAxialForce">
+<code class="descname">getResistingAxialForce</code><span class="sig-paren">(</span><em>h=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getResistingAxialForce" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the resisting axial force of the masonry fabric.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>h</strong> – clear height of the wall. None if buckling is not
+a concern.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getResistingAxialForcePerUnitLength">
+<code class="descname">getResistingAxialForcePerUnitLength</code><span class="sig-paren">(</span><em>h=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getResistingAxialForcePerUnitLength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the resisting axial force of the masonry fabric</dt>
+<dd>per unit length.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>h</strong> – clear height of the wall. None if buckling is not
+a concern.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getResistingMoment">
+<code class="descname">getResistingMoment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getResistingMoment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the resisting moment of the masonry fabric.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getResistingMomentPerUnitLength">
+<code class="descname">getResistingMomentPerUnitLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getResistingMomentPerUnitLength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the resisting moment of the masonry fabric
+per unit length.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getSectionModulus">
+<code class="descname">getSectionModulus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getSectionModulus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the section modulus
+(see TM 5-809-3 page 5-4).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getShearEffectiveDepth">
+<code class="descname">getShearEffectiveDepth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getShearEffectiveDepth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the depth of the masonry element effective in 
+resisting the out-of-plane shear according to table 5.1 
+of TM 5-809-3.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getShearStress">
+<code class="descname">getShearStress</code><span class="sig-paren">(</span><em>V</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getShearStress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the out-of-plane shear stress according to equation
+5-22 of TM 5-809-3.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>V</strong> – out-of-plane shear load</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getSteelRatio">
+<code class="descname">getSteelRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getSteelRatio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the steel ratio according to equation 5-8
+of TM 5-809-3.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getStressReductionFactor">
+<code class="descname">getStressReductionFactor</code><span class="sig-paren">(</span><em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.getStressReductionFactor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the stress reduction factor due to buckling according </dt>
+<dd>to equation 5-25 of TM 5-809-3.</dd>
+</dl>
+<p>The stress reduction factor (R) limits the axial stress on the wall so 
+that buckling  will not occur. When analyzing the top or bottom of
+a wall, where buckling is not a concern, the stress reduction factor 
+should not be used.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>h</strong> – clear height of the wall. None if buckling is not
+a concern.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.get_n">
+<code class="descname">get_n</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.get_n" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the ratio between the elasctic modulus of
+the reinforcing steel and the mortar.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.xA">
+<code class="descname">xA</code><em class="property"> = [6, 8, 10, 12]</em><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.xA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.xD1">
+<code class="descname">xD1</code><em class="property"> = [6, 8, 10, 12]</em><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.xD1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.xD2">
+<code class="descname">xD2</code><em class="property"> = [6, 8, 10, 12]</em><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.xD2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.xI">
+<code class="descname">xI</code><em class="property"> = [6, 8, 10, 12]</em><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.xI" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.xM">
+<code class="descname">xM</code><em class="property"> = [6, 8, 10, 12]</em><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.xM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.xT">
+<code class="descname">xT</code><em class="property"> = [6, 8, 10, 12]</em><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.xT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.xW">
+<code class="descname">xW</code><em class="property"> = [6, 8, 10, 12]</em><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.xW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.yA">
+<code class="descname">yA</code><em class="property"> = [0.0, 16.0, 24.0, 32.0, 40.0, 48.0, 56.0, 64.0, 72.0, 1000000.0]</em><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.yA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.yD1">
+<code class="descname">yD1</code><em class="property"> = [2.81, 3.81, 4.81, 5.81]</em><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.yD1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.yD2">
+<code class="descname">yD2</code><em class="property"> = [2.81, 5.31, 7.06, 8.81]</em><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.yD2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.yI">
+<code class="descname">yI</code><em class="property"> = [8.0, 16.0, 24.0, 32.0, 40.0, 48.0]</em><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.yI" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.yM">
+<code class="descname">yM</code><em class="property"> = [8.0, 16.0, 24.0, 32.0, 40.0, 48.0]</em><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.yM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.yT">
+<code class="descname">yT</code><em class="property"> = [0.0, 16.0, 24.0, 32.0, 40.0, 48.0, 56.0, 64.0, 72.0, 1000000.0]</em><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.yT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.yW">
+<code class="descname">yW</code><em class="property"> = [0.0, 16.0, 24.0, 32.0, 40.0, 48.0, 56.0, 64.0, 72.0, 1000000.0]</em><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.yW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.zA">
+<code class="descname">zA</code><em class="property"> = [[68.0, 92.0, 116.0, 140.0], [44.0, 59.0, 72.0, 85.0], [38.0, 49.0, 59.0, 68.0], [34.0, 44.0, 52.0, 60.0], [32.0, 42.0, 48.0, 55.0], [31.0, 40.0, 46.0, 52.0], [30.0, 38.0, 44.0, 50.0], [29.0, 37.0, 43.0, 48.0], [28.0, 36.0, 42.0, 47.0], [24.0, 30.0, 33.0, 36.0]]</em><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.zA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.zI">
+<code class="descname">zI</code><em class="property"> = [[119.0, 296.0, 594.0, 1047.0], [204.0, 496.0, 959.0, 1640.0], [290.0, 702.0, 1337.0, 2260.0], [377.0, 907.0, 1714.0, 2879.0], [0.0, 1113.0, 2092.0, 3499.0], [0.0, 1319.0, 2470.0, 4119.0]]</em><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.zI" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.zM">
+<code class="descname">zM</code><em class="property"> = [[323.0, 593.0, 946.0, 1379.0], [554.0, 995.0, 1525.0, 2160.0], [791.0, 1409.0, 2126.0, 2976.0], [1027.0, 1822.0, 2727.0, 3792.0], [0.0, 2235.0, 3328.0, 4608.0], [0.0, 2648.0, 3929.0, 5424.0]]</em><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.zM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.zT">
+<code class="descname">zT</code><em class="property"> = [[5.62, 7.62, 9.62, 11.62], [3.7, 4.9, 5.98, 7.04], [3.13, 4.1, 4.91, 5.7], [2.85, 3.7, 4.37, 5.02], [2.68, 3.46, 4.05, 4.62], [2.57, 3.3, 3.83, 4.35], [2.49, 3.19, 3.67, 4.16], [2.42, 3.1, 3.56, 4.01], [2.38, 3.03, 3.47, 3.9], [2.0, 2.5, 2.75, 3.0]]</em><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.zT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.zW">
+<code class="descname">zW</code><em class="property"> = [[68.0, 92.0, 116.0, 140.0], [58.0, 75.0, 92.0, 111.0], [53.0, 69.0, 85.0, 102.0], [51.0, 65.0, 78.0, 93.0], [50.0, 62.0, 75.0, 89.0], [49.0, 60.0, 72.0, 85.0], [48.0, 58.0, 70.0, 83.0], [47.0, 57.0, 69.0, 81.0], [46.0, 56.0, 68.0, 80.0], [43.0, 50.0, 59.0, 69.0]]</em><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.zW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.Mortar">
+<em class="property">class </em><code class="descclassname">materials.tm5_809_3.tm5_809_3_materials.</code><code class="descname">Mortar</code><span class="sig-paren">(</span><em>fm</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.Mortar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Mortar according to TM 5-809-3.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>fm</strong> – compressive strenght.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.Mortar.Em">
+<code class="descname">Em</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.Mortar.Em" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modulus of elasticity.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.Mortar.Ev">
+<code class="descname">Ev</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.Mortar.Ev" title="Permalink to this definition">¶</a></dt>
+<dd><p>Elastic modulus.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.Mortar.Fm">
+<code class="descname">Fm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.Mortar.Fm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the allowable flexural compressive stress in the masonry.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.tm5_809_3.tm5_809_3_materials.Mortar.fr">
+<code class="descname">fr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.tm5_809_3.tm5_809_3_materials.Mortar.fr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modulus of rupture (see TM 5-809-3 page 5-4).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Masonry materials according to TM 5-809-3 code</a><ul>
+<li><a class="reference internal" href="#module-materials.tm5_809_3.tm5_809_3_materials">TM 5-809-3 materials</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="materials.awcnds.html"
+                        title="previous chapter">AWC-NDS materials</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../boundary_conditions.html"
+                        title="next chapter">Boundary conditions</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/preprocessor/python_modules/materials.tm5.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../boundary_conditions.html" title="Boundary conditions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="materials.awcnds.html" title="AWC-NDS materials"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../material.html" >Material</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+    </div>
+  </body>
+</html>

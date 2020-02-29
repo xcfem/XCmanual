@@ -1,0 +1,376 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Structural elements &#8212; XC 3.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="FE model" href="../FE_model.html" />
+    <link rel="prev" title="Model inquiry" href="model.inquiry.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../FE_model.html" title="FE model"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="model.inquiry.html" title="Model inquiry"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../CAD_model.html" accesskey="U">CAD model</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="structural-elements">
+<h1>Structural elements<a class="headerlink" href="#structural-elements" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-model.geometry.tensegrity">
+<span id="tensegrity"></span><h2>Tensegrity<a class="headerlink" href="#module-model.geometry.tensegrity" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="model.geometry.tensegrity.tensegrityPrism">
+<em class="property">class </em><code class="descclassname">model.geometry.tensegrity.</code><code class="descname">tensegrityPrism</code><span class="sig-paren">(</span><em>nSidPol</em>, <em>RbaseC</em>, <em>RtopC</em>, <em>Hprism=0</em>, <em>Lstruts=0</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.tensegrity.tensegrityPrism" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>This class is aimed at constructing the model of a rotationally symetric     tensegrity prism with n-polygons on two parallel planes, twisted over angle 
+alfa with respect to each other. The twist angle is obtained by the 
+theorem of Tobie and Kenner as: alfa=pi/2-pi/n.
+The origin of the cartesian coordinate system is placed at the center of 
+the base circle, with the z-axis in the axis of the cylinder and joint 
+n+1.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nSidPol</strong> – number of sides of the regular n-polygon</li>
+<li><strong>RbaseC</strong> – radius of the base circle circunscribing the n-polygon</li>
+<li><strong>RtopC</strong> – radius of the top circle circunscribing the n-polygon</li>
+<li><strong>Hprism</strong> – heigth of the prism (defaults to 0, change its value only if we want to fix 
+the height of the prism, otherwise Hprism is calculated as a function of the
+given length of the struts)</li>
+<li><strong>Lstruts</strong> – length of the stuts (defaults to 0, only change this value if we want to 
+fix the length of the struts and calculate the height of the prism as a 
+function of Lstruts)</li>
+<li><a class="reference internal" href="../../miscellany/roughCalcGenTopics.html#rough_calculations.masonry_vault.FillingCharacteristics.alpha" title="rough_calculations.masonry_vault.FillingCharacteristics.alpha"><strong>alpha</strong></a> – twist angle</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="model.geometry.tensegrity.tensegrityPrism.genJointsCoor">
+<code class="descname">genJointsCoor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.tensegrity.tensegrityPrism.genJointsCoor" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the cart. coord. of the joinst of a rotationally symetric  
+tensegrity prism with n-polygons on two parallel planes, twisted over angle 
+alfa with respect to each other. The twist angle is obtained by the 
+theorem of Tobie and Kenner as: alfa=pi/2-pi/n.
+The origin of the cartesian coordinate system is placed at the center of 
+the base circle, with the z-axis in the axis of the cylinder and joint 
+n+1.
+‘jt’ corresponds to joints in the top circle
+‘jb’ corresponds to joints in the base circle</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.tensegrity.tensegrityPrism.genLineLinkedJoints">
+<code class="descname">genLineLinkedJoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.tensegrity.tensegrityPrism.genLineLinkedJoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the joints id linked by each line (strut or cable)
+‘strut’ corresponds to compression bars
+‘sadd’ corresponds to saddle strings (cables forming the n-polygons)
+‘diag’ corresponds to diagonal strings</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-model.geometry.tensegrity">
+<span id="trusses"></span><h2>Trusses<a class="headerlink" href="#module-model.geometry.tensegrity" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt>
+<em class="property">class </em><code class="descclassname">model.geometry.tensegrity.</code><code class="descname">tensegrityPrism</code><span class="sig-paren">(</span><em>nSidPol</em>, <em>RbaseC</em>, <em>RtopC</em>, <em>Hprism=0</em>, <em>Lstruts=0</em><span class="sig-paren">)</span></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>This class is aimed at constructing the model of a rotationally symetric     tensegrity prism with n-polygons on two parallel planes, twisted over angle 
+alfa with respect to each other. The twist angle is obtained by the 
+theorem of Tobie and Kenner as: alfa=pi/2-pi/n.
+The origin of the cartesian coordinate system is placed at the center of 
+the base circle, with the z-axis in the axis of the cylinder and joint 
+n+1.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nSidPol</strong> – number of sides of the regular n-polygon</li>
+<li><strong>RbaseC</strong> – radius of the base circle circunscribing the n-polygon</li>
+<li><strong>RtopC</strong> – radius of the top circle circunscribing the n-polygon</li>
+<li><strong>Hprism</strong> – heigth of the prism (defaults to 0, change its value only if we want to fix 
+the height of the prism, otherwise Hprism is calculated as a function of the
+given length of the struts)</li>
+<li><strong>Lstruts</strong> – length of the stuts (defaults to 0, only change this value if we want to 
+fix the length of the struts and calculate the height of the prism as a 
+function of Lstruts)</li>
+<li><a class="reference internal" href="../../miscellany/roughCalcGenTopics.html#rough_calculations.masonry_vault.FillingCharacteristics.alpha" title="rough_calculations.masonry_vault.FillingCharacteristics.alpha"><strong>alpha</strong></a> – twist angle</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt>
+<code class="descname">genJointsCoor</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>return the cart. coord. of the joinst of a rotationally symetric  
+tensegrity prism with n-polygons on two parallel planes, twisted over angle 
+alfa with respect to each other. The twist angle is obtained by the 
+theorem of Tobie and Kenner as: alfa=pi/2-pi/n.
+The origin of the cartesian coordinate system is placed at the center of 
+the base circle, with the z-axis in the axis of the cylinder and joint 
+n+1.
+‘jt’ corresponds to joints in the top circle
+‘jb’ corresponds to joints in the base circle</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">genLineLinkedJoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Return the joints id linked by each line (strut or cable)
+‘strut’ corresponds to compression bars
+‘sadd’ corresponds to saddle strings (cables forming the n-polygons)
+‘diag’ corresponds to diagonal strings</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-model.geometry.retaining_wall_geometry">
+<span id="retaining-wall-geometry"></span><h2>Retaining wall geometry<a class="headerlink" href="#module-model.geometry.retaining_wall_geometry" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry">
+<em class="property">class </em><code class="descclassname">model.geometry.retaining_wall_geometry.</code><code class="descname">CantileverRetainingWallGeometry</code><span class="sig-paren">(</span><em>name='prb'</em>, <em>stemBottomWidth=0.25</em>, <em>stemTopWidth=0.25</em>, <em>footingThickness=0.25</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Geometry of a cantilever retaining wall.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="../cpp_classes/domain/mesh/element/utils/coordTransformation/coordTransformation.html#xc.CrdTransf.name" title="xc.CrdTransf.name"><strong>name</strong></a> – (string) Identifier.</li>
+<li><strong>stemHeight</strong> – (float) Height of the stem.</li>
+<li><strong>stemBottomWidth</strong> – (float) Stem width at his contact with the footing.</li>
+<li><strong>stemTopWidth</strong> – (float) Stem width at his top.</li>
+<li><strong>footingThickness</strong> – (float) Thickness of the footing.</li>
+<li><strong>bToe</strong> – (float) Toe length.</li>
+<li><strong>bHeel</strong> – (float) Heel length.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.defaultDimensions">
+<code class="descname">defaultDimensions</code><span class="sig-paren">(</span><em>totalHeight</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.defaultDimensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes default dimension from the total height.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.defineWireframeModel">
+<code class="descname">defineWireframeModel</code><span class="sig-paren">(</span><em>nodes</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.defineWireframeModel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.getDepth">
+<code class="descname">getDepth</code><span class="sig-paren">(</span><em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.getDepth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return stem section depth for height “y”).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.getFootingMidPlane">
+<code class="descname">getFootingMidPlane</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.getFootingMidPlane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the midplane of the footing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.getFootingWidth">
+<code class="descname">getFootingWidth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.getFootingWidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return total width of the footing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.getFoundationCenterPosition">
+<code class="descname">getFoundationCenterPosition</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.getFoundationCenterPosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the position of the foundation center (for excentricity
+computation).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.getFoundationDepth">
+<code class="descname">getFoundationDepth</code><span class="sig-paren">(</span><em>toeFillDepth</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.getFoundationDepth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return wall foundation depth.
+Args:</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">toeFillDepth:</th><td class="field-body">(float) depht of the soil filling overt the toe.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.getFoundationPlane">
+<code class="descname">getFoundationPlane</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.getFoundationPlane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the foundation plane.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.getToePosition">
+<code class="descname">getToePosition</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.getToePosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the position of the toe (for overturning moment computation).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.getTotalHeight">
+<code class="descname">getTotalHeight</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.getTotalHeight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return total height of the wall.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.getWFHeelEndPosition">
+<code class="descname">getWFHeelEndPosition</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.getWFHeelEndPosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the position of the heel end in the wireframe model.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.getWFStemBottomPosition">
+<code class="descname">getWFStemBottomPosition</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.getWFStemBottomPosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the position of the stem bottom in the wireframe model.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.getWFStemHeigth">
+<code class="descname">getWFStemHeigth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.getWFStemHeigth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the height of the stem in the wireframe model.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.getWFStemTopPosition">
+<code class="descname">getWFStemTopPosition</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.getWFStemTopPosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the position of the stem top in the wireframe model.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.getWFToeEndPosition">
+<code class="descname">getWFToeEndPosition</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.getWFToeEndPosition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the position of the toe end in the wireframe model.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.writeGeometry">
+<code class="descname">writeGeometry</code><span class="sig-paren">(</span><em>outputFile</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry.writeGeometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write wall geometry in LaTeX format.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Structural elements</a><ul>
+<li><a class="reference internal" href="#module-model.geometry.tensegrity">Tensegrity</a></li>
+<li><a class="reference internal" href="#module-model.geometry.tensegrity">Trusses</a></li>
+<li><a class="reference internal" href="#module-model.geometry.retaining_wall_geometry">Retaining wall geometry</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="model.inquiry.html"
+                        title="previous chapter">Model inquiry</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../FE_model.html"
+                        title="next chapter">FE model</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/preprocessor/python_modules/model.structelements.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../FE_model.html" title="FE model"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="model.inquiry.html" title="Model inquiry"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../CAD_model.html" >CAD model</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+    </div>
+  </body>
+</html>

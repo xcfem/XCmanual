@@ -1,0 +1,700 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Field base &#8212; XC 3.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Colored diagram" href="xcVtk.diagrams.html" />
+    <link rel="prev" title="Screen annotations" href="xcVtkGenTopics.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="xcVtk.diagrams.html" title="Colored diagram"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="xcVtkGenTopics.html" title="Screen annotations"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="xcVtk.html" accesskey="U">Graphics XC_Vtk</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-postprocess.xcVtk.fields.field_base">
+<span id="field-base"></span><h1>Field base<a class="headerlink" href="#module-postprocess.xcVtk.fields.field_base" title="Permalink to this headline">¶</a></h1>
+<p>Graphic representation of fields. Base class</p>
+<dl class="class">
+<dt id="postprocess.xcVtk.fields.field_base.FieldBase">
+<em class="property">class </em><code class="descclassname">postprocess.xcVtk.fields.field_base.</code><code class="descname">FieldBase</code><span class="sig-paren">(</span><em>name</em>, <em>fUnitConv</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.field_base.FieldBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.xcVtk.fields.vtk_lut_field.LUTField" title="postprocess.xcVtk.fields.vtk_lut_field.LUTField"><code class="xref py py-class docutils literal"><span class="pre">postprocess.xcVtk.fields.vtk_lut_field.LUTField</span></code></a></p>
+<p>Scalar field defined at nodes.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-postprocess.xcVtk.fields.vector_field_data">
+<span id="vector-field-data"></span><h1>Vector field data<a class="headerlink" href="#module-postprocess.xcVtk.fields.vector_field_data" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="postprocess.xcVtk.fields.vector_field_data.VectorFieldData">
+<em class="property">class </em><code class="descclassname">postprocess.xcVtk.fields.vector_field_data.</code><code class="descname">VectorFieldData</code><span class="sig-paren">(</span><em>name</em>, <em>numberOfComponents=3</em>, <em>scaleFactor=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vector_field_data.VectorFieldData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Vectors defined at points.</p>
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.vector_field_data.VectorFieldData.calculateLengths">
+<code class="descname">calculateLengths</code><span class="sig-paren">(</span><em>fUnitConv=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vector_field_data.VectorFieldData.calculateLengths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lengths of the vectors.
+Parameters:</p>
+<blockquote>
+<div>fUnitConv: unit conversion scale factor i.e. kN -&gt; 1e-3.</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.vector_field_data.VectorFieldData.getNumberOfTuples">
+<code class="descname">getNumberOfTuples</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vector_field_data.VectorFieldData.getNumberOfTuples" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.vector_field_data.VectorFieldData.getPolydata">
+<code class="descname">getPolydata</code><span class="sig-paren">(</span><em>fUnitConv=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vector_field_data.VectorFieldData.getPolydata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.vector_field_data.VectorFieldData.insertNextPair">
+<code class="descname">insertNextPair</code><span class="sig-paren">(</span><em>px</em>, <em>py</em>, <em>pz</em>, <em>vx</em>, <em>vy</em>, <em>vz</em>, <em>fUnitConv=1.0</em>, <em>pushing=False</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vector_field_data.VectorFieldData.insertNextPair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inserts a point in the collection.
+Parameters:</p>
+<blockquote>
+<div><p>px,py,pz: coordinates of the point.
+vx,vy,vz: coordinates of the vector.
+pushing: true: arrow ends in the point.</p>
+<blockquote>
+<div>false: arrow starts in the point.</div></blockquote>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.vector_field_data.VectorFieldData.insertNextVector">
+<code class="descname">insertNextVector</code><span class="sig-paren">(</span><em>vx</em>, <em>vy</em>, <em>vz</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vector_field_data.VectorFieldData.insertNextVector" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.vector_field_data.VectorFieldData.setupGlyph">
+<code class="descname">setupGlyph</code><span class="sig-paren">(</span><em>fUnitConv=1.0</em>, <em>symType=(vtkFiltersSourcesPython.vtkArrowSource)0x7f145bb53280</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vector_field_data.VectorFieldData.setupGlyph" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-postprocess.xcVtk.fields.vector_field">
+<span id="vector-field"></span><h1>Vector field<a class="headerlink" href="#module-postprocess.xcVtk.fields.vector_field" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="postprocess.xcVtk.fields.vector_field.VectorField">
+<em class="property">class </em><code class="descclassname">postprocess.xcVtk.fields.vector_field.</code><code class="descname">VectorField</code><span class="sig-paren">(</span><em>name</em>, <em>fUnitConv</em>, <em>scaleFactor</em>, <em>showPushing=True</em>, <em>symType=(vtkFiltersSourcesPython.vtkArrowSource)0x7f1487c50980</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vector_field.VectorField" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.xcVtk.fields.field_base.FieldBase" title="postprocess.xcVtk.fields.field_base.FieldBase"><code class="xref py py-class docutils literal"><span class="pre">postprocess.xcVtk.fields.field_base.FieldBase</span></code></a></p>
+<p>Vector field defined at points.</p>
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.vector_field.VectorField.addToDisplay">
+<code class="descname">addToDisplay</code><span class="sig-paren">(</span><em>recordDisplay</em>, <em>orientation='H'</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vector_field.VectorField.addToDisplay" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.vector_field.VectorField.populateFromPairList">
+<code class="descname">populateFromPairList</code><span class="sig-paren">(</span><em>pairList</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vector_field.VectorField.populateFromPairList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds vector data from the pair list
+argument.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.vector_field.VectorField.setupActor">
+<code class="descname">setupActor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vector_field.VectorField.setupActor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.vector_field.VectorField.setupMapper">
+<code class="descname">setupMapper</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vector_field.VectorField.setupMapper" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-postprocess.xcVtk.fields.load_vector_field">
+<span id="load-vector-field"></span><h1>Load vector field<a class="headerlink" href="#module-postprocess.xcVtk.fields.load_vector_field" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="postprocess.xcVtk.fields.load_vector_field.LoadOnPoints">
+<em class="property">class </em><code class="descclassname">postprocess.xcVtk.fields.load_vector_field.</code><code class="descname">LoadOnPoints</code><span class="sig-paren">(</span><em>loadPatternName, fUnitConv=0.001, scaleFactor=1.0, showPushing=True, components=[0, 1, 2]</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.load_vector_field.LoadOnPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.xcVtk.fields.vector_field.VectorField" title="postprocess.xcVtk.fields.vector_field.VectorField"><code class="xref py py-class docutils literal"><span class="pre">postprocess.xcVtk.fields.vector_field.VectorField</span></code></a></p>
+<p>Draws punctual loads.</p>
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.load_vector_field.LoadOnPoints.getMaxLoad">
+<code class="descname">getMaxLoad</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.load_vector_field.LoadOnPoints.getMaxLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the maximum absolute value of the loads on the
+vector container.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.xcVtk.fields.load_vector_field.LoadVectorField">
+<em class="property">class </em><code class="descclassname">postprocess.xcVtk.fields.load_vector_field.</code><code class="descname">LoadVectorField</code><span class="sig-paren">(</span><em>loadPatternName, setToDisp, fUnitConv=0.001, scaleFactor=1.0, showPushing=True, components=[0, 1, 2], multiplyByElementArea=True</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.load_vector_field.LoadVectorField" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.xcVtk.fields.load_vector_field.LoadOnPoints" title="postprocess.xcVtk.fields.load_vector_field.LoadOnPoints"><code class="xref py py-class docutils literal"><span class="pre">postprocess.xcVtk.fields.load_vector_field.LoadOnPoints</span></code></a></p>
+<p>Draws a load over a point on nodes and on elements.</p>
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.load_vector_field.LoadVectorField.dumpElementalPositions">
+<code class="descname">dumpElementalPositions</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>lp</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.load_vector_field.LoadVectorField.dumpElementalPositions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over cumulated loads dumping them into the graphic.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.load_vector_field.LoadVectorField.dumpNodalLoads">
+<code class="descname">dumpNodalLoads</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>defFScale</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.load_vector_field.LoadVectorField.dumpNodalLoads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over nodal loads dumping them into the graphic.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lp</strong> – load pattern</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.load_vector_field.LoadVectorField.dumpNodalPositions">
+<code class="descname">dumpNodalPositions</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>lp</em>, <em>defFScale</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.load_vector_field.LoadVectorField.dumpNodalPositions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over loaded nodes dumping its loads into the graphic.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lp</strong> – load pattern</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.load_vector_field.LoadVectorField.dumpVectors">
+<code class="descname">dumpVectors</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>defFScale</em>, <em>showElementalLoads=True</em>, <em>showNodalLoads=True</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.load_vector_field.LoadVectorField.dumpVectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over loads dumping them into the graphic.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lp</strong> – load pattern</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor.</li>
+<li><strong>showElementalLoads</strong> – if true show loads over elements.</li>
+<li><strong>showNodalLoads</strong> – if true show loads over nodes.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.load_vector_field.LoadVectorField.populateLoads">
+<code class="descname">populateLoads</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>lp</em>, <em>showElementalLoads=True</em>, <em>showNodalLoads=True</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.load_vector_field.LoadVectorField.populateLoads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Populate the vector container with loads 
+from the load pattern argument.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.load_vector_field.LoadVectorField.populateWithElementalLoads">
+<code class="descname">populateWithElementalLoads</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>lp</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.load_vector_field.LoadVectorField.populateWithElementalLoads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Populate the vector container with elemental loads 
+from the load pattern argument.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.load_vector_field.LoadVectorField.populateWithNodalLoads">
+<code class="descname">populateWithNodalLoads</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>lp</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.load_vector_field.LoadVectorField.populateWithNodalLoads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Populate the vector container with nodal loads 
+from the load pattern argument.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.load_vector_field.LoadVectorField.sumElementalLoads">
+<code class="descname">sumElementalLoads</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>lp</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.load_vector_field.LoadVectorField.sumElementalLoads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over loaded elements and cumulate their loads.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.load_vector_field.LoadVectorField.sumNodalLoads">
+<code class="descname">sumNodalLoads</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>lp</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.load_vector_field.LoadVectorField.sumNodalLoads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over loaded nodes to cumulate their loads.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lp</strong> – load pattern</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-postprocess.xcVtk.fields.local_axes_vector_field">
+<span id="local-axes-vector-field"></span><h1>Local axes vector field<a class="headerlink" href="#module-postprocess.xcVtk.fields.local_axes_vector_field" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="postprocess.xcVtk.fields.local_axes_vector_field.LocalAxesVectorField">
+<em class="property">class </em><code class="descclassname">postprocess.xcVtk.fields.local_axes_vector_field.</code><code class="descname">LocalAxesVectorField</code><span class="sig-paren">(</span><em>name</em>, <em>scaleFactor=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.local_axes_vector_field.LocalAxesVectorField" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Draws the local axes on elements.</p>
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.local_axes_vector_field.LocalAxesVectorField.addToDisplay">
+<code class="descname">addToDisplay</code><span class="sig-paren">(</span><em>recordDisplay</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.local_axes_vector_field.LocalAxesVectorField.addToDisplay" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.local_axes_vector_field.LocalAxesVectorField.dumpPair">
+<code class="descname">dumpPair</code><span class="sig-paren">(</span><em>centroid</em>, <em>axes</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.local_axes_vector_field.LocalAxesVectorField.dumpPair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dump the pair into the xAxes, yAxes and zAxes objet.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.local_axes_vector_field.LocalAxesVectorField.dumpVectors">
+<code class="descname">dumpVectors</code><span class="sig-paren">(</span><em>xcSet</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.local_axes_vector_field.LocalAxesVectorField.dumpVectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over the elements dumping its axes into the graphic.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="postprocess.xcVtk.fields.local_axes_vector_field.LocalAxesVectorField.xColor">
+<code class="descname">xColor</code><em class="property"> = [1.0, 0.0, 0.0]</em><a class="headerlink" href="#postprocess.xcVtk.fields.local_axes_vector_field.LocalAxesVectorField.xColor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="postprocess.xcVtk.fields.local_axes_vector_field.LocalAxesVectorField.yColor">
+<code class="descname">yColor</code><em class="property"> = [0.0, 1.0, 0.0]</em><a class="headerlink" href="#postprocess.xcVtk.fields.local_axes_vector_field.LocalAxesVectorField.yColor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="postprocess.xcVtk.fields.local_axes_vector_field.LocalAxesVectorField.zColor">
+<code class="descname">zColor</code><em class="property"> = [0.0, 0.0, 1.0]</em><a class="headerlink" href="#postprocess.xcVtk.fields.local_axes_vector_field.LocalAxesVectorField.zColor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.xcVtk.fields.local_axes_vector_field.QuadSurfacesLocalAxesVectorField">
+<em class="property">class </em><code class="descclassname">postprocess.xcVtk.fields.local_axes_vector_field.</code><code class="descname">QuadSurfacesLocalAxesVectorField</code><span class="sig-paren">(</span><em>name</em>, <em>scaleFactor=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.local_axes_vector_field.QuadSurfacesLocalAxesVectorField" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.xcVtk.fields.local_axes_vector_field.LocalAxesVectorField" title="postprocess.xcVtk.fields.local_axes_vector_field.LocalAxesVectorField"><code class="xref py py-class docutils literal"><span class="pre">postprocess.xcVtk.fields.local_axes_vector_field.LocalAxesVectorField</span></code></a></p>
+<p>Draws the local axes on quadrilateral surfaces.</p>
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.local_axes_vector_field.QuadSurfacesLocalAxesVectorField.dumpVectors">
+<code class="descname">dumpVectors</code><span class="sig-paren">(</span><em>xcSet</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.local_axes_vector_field.QuadSurfacesLocalAxesVectorField.dumpVectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over the surfaces dumping its axes into the graphic.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.xcVtk.fields.local_axes_vector_field.StrongWeakAxisVectorField">
+<em class="property">class </em><code class="descclassname">postprocess.xcVtk.fields.local_axes_vector_field.</code><code class="descname">StrongWeakAxisVectorField</code><span class="sig-paren">(</span><em>name</em>, <em>scaleFactor=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.local_axes_vector_field.StrongWeakAxisVectorField" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Draws a the strong axis on elements.</p>
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.local_axes_vector_field.StrongWeakAxisVectorField.addToDisplay">
+<code class="descname">addToDisplay</code><span class="sig-paren">(</span><em>recordDisplay</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.local_axes_vector_field.StrongWeakAxisVectorField.addToDisplay" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.local_axes_vector_field.StrongWeakAxisVectorField.dumpPair">
+<code class="descname">dumpPair</code><span class="sig-paren">(</span><em>element</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.local_axes_vector_field.StrongWeakAxisVectorField.dumpPair" title="Permalink to this definition">¶</a></dt>
+<dd><p>dump weak and strong axis into the graphic.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.local_axes_vector_field.StrongWeakAxisVectorField.dumpVectors">
+<code class="descname">dumpVectors</code><span class="sig-paren">(</span><em>xcSet</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.local_axes_vector_field.StrongWeakAxisVectorField.dumpVectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over the elements dumping its axes into the graphic.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="postprocess.xcVtk.fields.local_axes_vector_field.StrongWeakAxisVectorField.strongColor">
+<code class="descname">strongColor</code><em class="property"> = [1.0, 0.0, 0.0]</em><a class="headerlink" href="#postprocess.xcVtk.fields.local_axes_vector_field.StrongWeakAxisVectorField.strongColor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="postprocess.xcVtk.fields.local_axes_vector_field.StrongWeakAxisVectorField.weakColor">
+<code class="descname">weakColor</code><em class="property"> = [0.0, 0.0, 1.0]</em><a class="headerlink" href="#postprocess.xcVtk.fields.local_axes_vector_field.StrongWeakAxisVectorField.weakColor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-postprocess.xcVtk.fields.vtk_lut_field">
+<span id="linear-element-field"></span><h1>Linear element field<a class="headerlink" href="#module-postprocess.xcVtk.fields.vtk_lut_field" title="Permalink to this headline">¶</a></h1>
+<p>Drawing of diagrams showing a law of internal 
+forces (or any other input) on linear elements</p>
+<dl class="class">
+<dt id="postprocess.xcVtk.fields.vtk_lut_field.LUTField">
+<em class="property">class </em><code class="descclassname">postprocess.xcVtk.fields.vtk_lut_field.</code><code class="descname">LUTField</code><span class="sig-paren">(</span><em>fUnitConv</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vtk_lut_field.LUTField" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Provides de variables involved in the drawing of a
+diagram showing a law of internal forces (or any other input)
+on linear elements</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>fUnitConv</strong> – units conversion factor</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>:ivar lookUpTable:object that is used by mapper objects to map scalar values</dt>
+<dd>into rga (red-green-blue-alpha transparency) color specification
+or rga into scalar values.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>scalarBar</strong> – legend that indicates to the viewer the correspondence between 
+color value and data value.</li>
+<li><strong>mapper</strong> – object that specifies the interface between data and graphic 
+primitives.</li>
+<li><strong>actor</strong> – used to represent an entity in a rendering scene. The actor has position, 
+orientation, scaling, a reference to the defining geometry, rendering 
+properties and possibly a texture map.</li>
+<li><strong>valMin</strong> – minimum value of the diagram.</li>
+<li><strong>valMax</strong> – maximum value of the diagram.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.vtk_lut_field.LUTField.creaColorScaleBar">
+<code class="descname">creaColorScaleBar</code><span class="sig-paren">(</span><em>orientation='H'</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vtk_lut_field.LUTField.creaColorScaleBar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the scalar bar that indicates to the viewer the correspondence
+between color values and data values</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>orientation</strong> – ‘H’ for horizontal bar, ‘V’ for vertical bar (defaults to ‘H’)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.vtk_lut_field.LUTField.creaLookUpTable">
+<code class="descname">creaLookUpTable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vtk_lut_field.LUTField.creaLookUpTable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a  lookUpTable, that is an object used by mapper objects 
+to map scalar values into rga (red-green-blue-alpha transparency) color 
+specification or rga into scalar values.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.vtk_lut_field.LUTField.creaVertColorScaleBar">
+<code class="descname">creaVertColorScaleBar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vtk_lut_field.LUTField.creaVertColorScaleBar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the scalar bar that indicates to the viewer the correspondence
+between color values and data values</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.vtk_lut_field.LUTField.initializeMinMax">
+<code class="descname">initializeMinMax</code><span class="sig-paren">(</span><em>value=1e+99</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vtk_lut_field.LUTField.initializeMinMax" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize minimum and maximum values that hopefully
+will be replaced by the real ones.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.vtk_lut_field.LUTField.isValid">
+<code class="descname">isValid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vtk_lut_field.LUTField.isValid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.vtk_lut_field.LUTField.updateActorDiagrama">
+<code class="descname">updateActorDiagrama</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vtk_lut_field.LUTField.updateActorDiagrama" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates de actor</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.vtk_lut_field.LUTField.updateLookUpTable">
+<code class="descname">updateLookUpTable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vtk_lut_field.LUTField.updateLookUpTable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the minimum and maximum scalar values for scalar mapping.
+Scalar values less than minimum and greater than maximum range values 
+are respectively clamped to those minimum and maximum range values</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.vtk_lut_field.LUTField.updateMinMax">
+<code class="descname">updateMinMax</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vtk_lut_field.LUTField.updateMinMax" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.vtk_lut_field.LUTField.updateMinMaxWithinRange">
+<code class="descname">updateMinMaxWithinRange</code><span class="sig-paren">(</span><em>value</em>, <em>rg</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vtk_lut_field.LUTField.updateMinMaxWithinRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>updates the minimum and maximum values of the scalar field
+forcing these extreme values within the range rg=(vmin,vmax)</p>
+<p>All the values less than vmin are represented in blue and those greater than
+vmax are displayed in red</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="direction-field-data">
+<h1>Direction field data<a class="headerlink" href="#direction-field-data" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="module-postprocess.xcVtk.fields.fields">
+<span id="fields"></span><h1>Fields<a class="headerlink" href="#module-postprocess.xcVtk.fields.fields" title="Permalink to this headline">¶</a></h1>
+<p>Graphic representation of fields over the mesh.</p>
+<dl class="class">
+<dt id="postprocess.xcVtk.fields.fields.ExtrapolatedProperty">
+<em class="property">class </em><code class="descclassname">postprocess.xcVtk.fields.fields.</code><code class="descname">ExtrapolatedProperty</code><span class="sig-paren">(</span><em>name</em>, <em>functionName</em>, <em>xcSet</em>, <em>component=None</em>, <em>fUnitConv=1.0</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.fields.ExtrapolatedProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.xcVtk.fields.fields.ExtrapolatedScalarField" title="postprocess.xcVtk.fields.fields.ExtrapolatedScalarField"><code class="xref py py-class docutils literal"><span class="pre">postprocess.xcVtk.fields.fields.ExtrapolatedScalarField</span></code></a></p>
+<p>Scalar field defined as property value at nodes.</p>
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.fields.ExtrapolatedProperty.display">
+<code class="descname">display</code><span class="sig-paren">(</span><em>defDisplay</em>, <em>caption=''</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.fields.ExtrapolatedProperty.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the field.</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">param fileName:</th><td class="field-body">name of the graphic file to create (if None -&gt; screen window).</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>caption</strong> – text to display in the graphic.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.fields.ExtrapolatedProperty.extrapolate">
+<code class="descname">extrapolate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.fields.ExtrapolatedProperty.extrapolate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.xcVtk.fields.fields.ExtrapolatedScalarField">
+<em class="property">class </em><code class="descclassname">postprocess.xcVtk.fields.fields.</code><code class="descname">ExtrapolatedScalarField</code><span class="sig-paren">(</span><em>name</em>, <em>functionName</em>, <em>xcSet</em>, <em>component=None</em>, <em>fUnitConv=1.0</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.fields.ExtrapolatedScalarField" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.xcVtk.fields.fields.ScalarField" title="postprocess.xcVtk.fields.fields.ScalarField"><code class="xref py py-class docutils literal"><span class="pre">postprocess.xcVtk.fields.fields.ScalarField</span></code></a></p>
+<p>Scalar field defined at nodes.
+:ivar rgMinMax: range (vmin,vmax) with the maximum and minimum values</p>
+<blockquote>
+<div>of the scalar field (if any) to be represented. All the values 
+less than vmin are displayed in blue and those greater than vmax 
+in red (defaults to None)</div></blockquote>
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.fields.ExtrapolatedScalarField.display">
+<code class="descname">display</code><span class="sig-paren">(</span><em>defDisplay</em>, <em>caption=''</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.fields.ExtrapolatedScalarField.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the scalar field graphic.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fileName</strong> – name of the graphic file to create (if None -&gt; screen window).</li>
+<li><strong>caption</strong> – text to display in the graphic.</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.xcVtk.fields.fields.ScalarField">
+<em class="property">class </em><code class="descclassname">postprocess.xcVtk.fields.fields.</code><code class="descname">ScalarField</code><span class="sig-paren">(</span><em>name</em>, <em>functionName</em>, <em>component=None</em>, <em>fUnitConv=1.0</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.fields.ScalarField" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.xcVtk.fields.field_base.FieldBase" title="postprocess.xcVtk.fields.field_base.FieldBase"><code class="xref py py-class docutils literal"><span class="pre">postprocess.xcVtk.fields.field_base.FieldBase</span></code></a></p>
+<p>Scalar field defined at nodes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>rgMinMax</strong> – range (vmin,vmax) with the maximum and minimum values of 
+the field to be represented. All the values less than vmin are 
+displayed in blue and those greater than vmax iqn red
+(defaults to None)</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.fields.ScalarField.fillArray">
+<code class="descname">fillArray</code><span class="sig-paren">(</span><em>nodeSet</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.fields.ScalarField.fillArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an vtkDoubleArray filled with the proper values.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.fields.ScalarField.setupOnGrid">
+<code class="descname">setupOnGrid</code><span class="sig-paren">(</span><em>uGrid</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.fields.ScalarField.setupOnGrid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.fields.ScalarField.setupOnMapper">
+<code class="descname">setupOnMapper</code><span class="sig-paren">(</span><em>gridMapper</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.fields.ScalarField.setupOnMapper" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="postprocess.xcVtk.fields.fields.getScalarFieldFromControlVar">
+<code class="descclassname">postprocess.xcVtk.fields.fields.</code><code class="descname">getScalarFieldFromControlVar</code><span class="sig-paren">(</span><em>attributeName</em>, <em>argument</em>, <em>xcSet</em>, <em>component</em>, <em>fUnitConv</em>, <em>rgMinMax</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.fields.getScalarFieldFromControlVar" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>return an scalar field that represents the control var over the </dt>
+<dd>elements in the set.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>attributeName</strong> – name of the element’s property that has the 
+control var in it for example as in 
+elem.getProp(attributeName).eval(argument).</li>
+<li><strong>argument</strong> – name of the control var to represent.</li>
+<li><strong>xcSet</strong> – represent the field over those elements.</li>
+<li><strong>component</strong> – component of the control var to represent.</li>
+<li><strong>fUnitConv</strong> – unit conversion factor (i.e N-&gt;kN =&gt; fUnitConv= 1e-3).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Field base</a></li>
+<li><a class="reference internal" href="#module-postprocess.xcVtk.fields.vector_field_data">Vector field data</a></li>
+<li><a class="reference internal" href="#module-postprocess.xcVtk.fields.vector_field">Vector field</a></li>
+<li><a class="reference internal" href="#module-postprocess.xcVtk.fields.load_vector_field">Load vector field</a></li>
+<li><a class="reference internal" href="#module-postprocess.xcVtk.fields.local_axes_vector_field">Local axes vector field</a></li>
+<li><a class="reference internal" href="#module-postprocess.xcVtk.fields.vtk_lut_field">Linear element field</a></li>
+<li><a class="reference internal" href="#direction-field-data">Direction field data</a></li>
+<li><a class="reference internal" href="#module-postprocess.xcVtk.fields.fields">Fields</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="xcVtkGenTopics.html"
+                        title="previous chapter">Screen annotations</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="xcVtk.diagrams.html"
+                        title="next chapter">Colored diagram</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/postprocessor/python_modules/xcVtk.fields.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="xcVtk.diagrams.html" title="Colored diagram"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="xcVtkGenTopics.html" title="Screen annotations"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="xcVtk.html" >Graphics XC_Vtk</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+    </div>
+  </body>
+</html>

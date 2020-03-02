@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Callback controls &#8212; XC 3.0 documentation</title>
+    <title>General topics &#8212; XC 3.0 documentation</title>
     <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Graphics XC_Vtk" href="xcVtk.html" />
+    <link rel="next" title="Configuration" href="postprocess.config.html" />
     <link rel="prev" title="Utils" href="../../solution/python_modules/utils.html" /> 
   </head>
   <body>
@@ -37,7 +37,7 @@
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="xcVtk.html" title="Graphics XC_Vtk"
+          <a href="postprocess.config.html" title="Configuration"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="../../solution/python_modules/utils.html" title="Utils"
@@ -51,8 +51,897 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-postprocess.callback_controls">
-<span id="callback-controls"></span><h1>Callback controls<a class="headerlink" href="#module-postprocess.callback_controls" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="general-topics">
+<h1>General topics<a class="headerlink" href="#general-topics" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-postprocess.output_handler">
+<span id="output-handler"></span><h2>Output handler<a class="headerlink" href="#module-postprocess.output_handler" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="postprocess.output_handler.OutputHandler">
+<em class="property">class </em><code class="descclassname">postprocess.output_handler.</code><code class="descname">OutputHandler</code><span class="sig-paren">(</span><em>modelSpace=None</em>, <em>outputStyle=&lt;postprocess.output_styles.OutputStyle object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Object that handles the ouput (graphics, etc.)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>modelSpace</strong> – FE model data.</li>
+<li><strong>outputStyle</strong> – style of the output.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="postprocess.output_handler.OutputHandler.displayBeamResult">
+<code class="descname">displayBeamResult</code><span class="sig-paren">(</span><em>attributeName</em>, <em>itemToDisp</em>, <em>beamSetDispRes</em>, <em>setToDisplay=None</em>, <em>caption=None</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayBeamResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>display results for beam elements from a limit state verification file.</p>
+<p>:param attributeName:attribute name(e.g. ‘ULS_normalStressesResistance’)
+:param itemToDisp:   result item to display (e.g. ‘N’, ‘My’, …)
+:param beamSetDispRes:set of linear elements to which display results 
+:param setToDisplay: set of elements (any type) to be depicted</p>
+<blockquote>
+<div>(defaults to None, in that case only elements in beamSetDispRes
+are displayed)</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>caption</strong> – caption to display
+(defaults to ‘attributeName + itemToDisp’)</li>
+<li><strong>fileName</strong> – file to dump the display (defaults to screen display)</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_handler.OutputHandler.displayBlocks">
+<code class="descname">displayBlocks</code><span class="sig-paren">(</span><em>setToDisplay=None</em>, <em>caption=None</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayBlocks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the blocks (points, lines, surfaces and volumes)
+of the set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>setToDisplay</strong> – set to display.</li>
+<li><strong>caption</strong> – title of the graphic.</li>
+<li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to 
+None, in that case an screen display is generated</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_handler.OutputHandler.displayDiagram">
+<code class="descname">displayDiagram</code><span class="sig-paren">(</span><em>attributeName</em>, <em>component</em>, <em>setToDispRes</em>, <em>setDisp</em>, <em>caption</em>, <em>scaleFactor=1.0</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayDiagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Auxiliary function to display results on linear elements.</p>
+<p>:param attributeName:attribute name(e.g. ‘ULS_normalStressesResistance’)
+:param component:    result item to display (e.g. ‘N’, ‘My’, …)
+:param setToDispRes: set of linear elements to which display results
+:param setToDisplay:      set of elements (any type) to be depicted
+:param scaleFactor:  factor of scale to apply to the auto-scaled display</p>
+<blockquote>
+<div>(defaults to 1)</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>caption</strong> – caption to display</li>
+<li><strong>fileName</strong> – file to dump the display</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_handler.OutputHandler.displayDispRot">
+<code class="descname">displayDispRot</code><span class="sig-paren">(</span><em>itemToDisp</em>, <em>setToDisplay=None</em>, <em>fileName=None</em>, <em>defFScale=0.0</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayDispRot" title="Permalink to this definition">¶</a></dt>
+<dd><p>displays the component of the displacement or rotations in the 
+set of entities.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>itemToDisp</strong> – component of the displacement (‘uX’, ‘uY’ or ‘uZ’) 
+or the rotation (‘rotX’, rotY’, ‘rotZ’) to be depicted</li>
+<li><strong>setToDisplay</strong> – set of entities to be represented.</li>
+<li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to 
+None, in that case an screen display is generated</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+<li><strong>rgMinMax</strong> – range (vmin,vmax) with the maximum and minimum values of 
+the field to be represented. All the values less than vmin are 
+displayed in blue and those greater than vmax in red
+(defaults to None)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_handler.OutputHandler.displayEigenResult">
+<code class="descname">displayEigenResult</code><span class="sig-paren">(</span><em>eigenMode</em>, <em>setToDisplay=None</em>, <em>accelMode=None</em>, <em>caption=''</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayEigenResult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the deformed shape and/or the equivalent static forces 
+associated with the eigenvibration mode passed as parameter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>eigenMode</strong> – eigenvibration mode to be displayed</li>
+<li><strong>setToDisplay</strong> – set of elements to be displayed (defaults to total set)</li>
+<li><strong>accelMode</strong> – acceleration associated with the eigen mode depicted, 
+only used if the equivalent static loads are to be displayed.</li>
+<li><strong>caption</strong> – text to display in the graphic</li>
+<li><strong>fileName</strong> – full name of the graphic file to generate. 
+Defaults to ` None`, in this case it returns a console output 
+graphic.</li>
+<li><strong>defFScale</strong> – factor to apply to deformed shape so that the 
+displayed position of each node equals to the initial position 
+plus its eigenVector multiplied by this factor. (Defaults to 0.0 
+i.e. display of initial/undeformed shape)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_handler.OutputHandler.displayEigenvectors">
+<code class="descname">displayEigenvectors</code><span class="sig-paren">(</span><em>mode=1</em>, <em>setToDisplay=None</em>, <em>caption=None</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayEigenvectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays the computed eigenvectors on the set argument.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>setToDisplay</strong> – set of elements to be displayed (defaults to total set)</li>
+<li><strong>mode</strong> – mode to which the eigenvectors belong.</li>
+<li><strong>caption</strong> – text to display in the graphic. Defaults to 
+` None` in this case the text is the load case description
+and the units of the loads.</li>
+<li><strong>fileName</strong> – full name of the graphic file to generate. Defaults to 
+` None`, in this case it returns a console output graphic.,</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_handler.OutputHandler.displayEigenvectorsOnSets">
+<code class="descname">displayEigenvectorsOnSets</code><span class="sig-paren">(</span><em>eigenMode</em>, <em>setsToDisplay</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayEigenvectorsOnSets" title="Permalink to this definition">¶</a></dt>
+<dd><p>displays the reactions as vector on affected nodes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>eigenMode</strong> – mode to which the eigenvectors belong.</li>
+<li><strong>setsToDisplay</strong> – sets to display on batch mode.</li>
+<li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to None,
+in that case an screen display is generated</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_handler.OutputHandler.displayFEMesh">
+<code class="descname">displayFEMesh</code><span class="sig-paren">(</span><em>setsToDisplay=None</em>, <em>caption=None</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayFEMesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the mesh (nodes, elements and constraints)
+of the set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>setsToDisplay</strong> – list of sets to display (defaults to TotalSet).</li>
+<li><strong>caption</strong> – title of the graphic.</li>
+<li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to 
+None, in that case an screen display is generated</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_handler.OutputHandler.displayFieldDirs1and2">
+<code class="descname">displayFieldDirs1and2</code><span class="sig-paren">(</span><em>limitStateLabel</em>, <em>argument</em>, <em>component</em>, <em>setToDisplay</em>, <em>fileName</em>, <em>defFScale=0.0</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayFieldDirs1and2" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Display a field defined over bi-dimensional elements in its two </dt>
+<dd>directions.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>limitStateLabel</strong> – label that identifies the limit state.</li>
+<li><strong>argument</strong> – name of the control var to represent.</li>
+<li><strong>component</strong> – component of the control var to represent.</li>
+<li><strong>setToDisplay</strong> – represent the field over those elements.</li>
+<li><strong>fileName</strong> – file name to store the image. If none -&gt; window on screen.</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+<li><strong>rgMinMax</strong> – range (vmin,vmax) with the maximum and minimum values  
+of the scalar field (if any) to be represented. All the values 
+less than vmin are displayed in blue and those greater than vmax 
+in red (defaults to None)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_handler.OutputHandler.displayIntForc">
+<code class="descname">displayIntForc</code><span class="sig-paren">(</span><em>itemToDisp</em>, <em>setToDisplay=None</em>, <em>fileName=None</em>, <em>defFScale=0.0</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayIntForc" title="Permalink to this definition">¶</a></dt>
+<dd><p>displays the component of internal forces in the 
+set of entities as a scalar field (i.e. appropiated for 2D elements; 
+shells…).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>itemToDisp</strong> – component of the internal forces (‘N1’, ‘N2’, ‘N12’, 
+‘M1’, ‘M2’, ‘M12’, ‘Q1’, ‘Q2’) to be depicted</li>
+<li><strong>setToDisplay</strong> – set of entities to be represented (default to all 
+entities)</li>
+<li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to None,
+in that case an screen display is generated</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+<li><strong>rgMinMax</strong> – range (vmin,vmax) with the maximum and minimum values of 
+the field to be represented. All the values less than vmin are 
+displayed in blue and those greater than vmax in red
+(defaults to None)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_handler.OutputHandler.displayIntForcDiag">
+<code class="descname">displayIntForcDiag</code><span class="sig-paren">(</span><em>itemToDisp</em>, <em>setToDisplay=None</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayIntForcDiag" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>displays the component of internal forces in the set of entities as a </dt>
+<dd>diagram over lines (i.e. appropiated for beam elements).</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>itemToDisp</strong> – component of the internal forces 
+(‘N’, ‘Qy’ (or ‘Vy’), ‘Qz’ (or ‘Vz’), ‘My’, ‘Mz’, ‘T’) to be depicted</li>
+<li><strong>setToDisplay</strong> – set of entities (elements of type beam) to be 
+represented</li>
+<li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to None,
+in that case an screen display is generated</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_handler.OutputHandler.displayLoadVectors">
+<code class="descname">displayLoadVectors</code><span class="sig-paren">(</span><em>setToDisplay=None</em>, <em>caption=None</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayLoadVectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Displays load vectors on the set argument.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>setToDisplay</strong> – set of elements to be displayed (defaults to total set)</li>
+<li><strong>caption</strong> – text to display in the graphic. Defaults to 
+` None` in this case the text is the load case description
+and the units of the loads.</li>
+<li><strong>fileName</strong> – full name of the graphic file to generate. Defaults to 
+` None`, in this case it returns a console output graphic.,</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_handler.OutputHandler.displayLoads">
+<code class="descname">displayLoads</code><span class="sig-paren">(</span><em>setToDisplay=None</em>, <em>elLoadComp='transComponent'</em>, <em>fUnitConv=1</em>, <em>caption=None</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayLoads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the loads applied on beam elements and nodes for a given load case</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>setToDisplay</strong> – set of beam elements to be represented (defaults to TotalSet)</li>
+<li><strong>elLoadComp</strong> – <p>component of the loads on elements to be depicted
+[possible components: ‘axialComponent’, ‘transComponent’,</p>
+<blockquote>
+<div>’transYComponent’, ‘transZComponent’]</div></blockquote>
+</li>
+<li><strong>fUnitConv</strong> – factor of conversion to be applied to the results
+(defaults to 1)</li>
+<li><strong>caption</strong> – caption for the graphic</li>
+<li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to None,
+in that case an screen display is generated</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_handler.OutputHandler.displayLocalAxes">
+<code class="descname">displayLocalAxes</code><span class="sig-paren">(</span><em>setToDisplay=None</em>, <em>caption=None</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayLocalAxes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the local axes of the elements contained in the set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>setToDisplay</strong> – set to display.</li>
+<li><strong>caption</strong> – title of the graphic.</li>
+<li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to 
+None, in that case an screen display is generated</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_handler.OutputHandler.displayNodeValueDiagram">
+<code class="descname">displayNodeValueDiagram</code><span class="sig-paren">(</span><em>itemToDisp</em>, <em>setToDisplay=None</em>, <em>caption=None</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayNodeValueDiagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>displays the a displacement (uX,uY,…) or a property defined in nodes 
+as a diagram over lines.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>itemToDisp</strong> – item to display (uX,uY,…).</li>
+<li><strong>setToDisplay</strong> – set of entities (elements of type beam) to be 
+represented</li>
+<li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to None,
+in that case an screen display is generated</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_handler.OutputHandler.displayReactions">
+<code class="descname">displayReactions</code><span class="sig-paren">(</span><em>setToDisplay=None</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayReactions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display reactions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>setToDisplay</strong> – set of entities to be represented.</li>
+<li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to 
+None, in that case an screen display is generated</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_handler.OutputHandler.displayScalarProperty">
+<code class="descname">displayScalarProperty</code><span class="sig-paren">(</span><em>propToDisp</em>, <em>fUnitConv</em>, <em>unitDescription</em>, <em>captionText</em>, <em>setToDisplay</em>, <em>fileName=None</em>, <em>defFScale=0.0</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayScalarProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>displays the component of the displacement or rotations in the 
+set of entities.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>propeToDisp</strong> – scalar property defined at nodes.</li>
+<li><strong>fUnitConv</strong> – conversion factor for units</li>
+<li><strong>unitDescription</strong> – unit(s) symbol(s)</li>
+<li><strong>setToDisplay</strong> – set of entities to be represented.</li>
+<li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to 
+None, in that case an screen display is generated</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+<li><strong>rgMinMax</strong> – range (vmin,vmax) with the maximum and minimum values of 
+the field to be represented. All the values less than vmin are 
+displayed in blue and those greater than vmax in red
+(defaults to None)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_handler.OutputHandler.displayStrains">
+<code class="descname">displayStrains</code><span class="sig-paren">(</span><em>itemToDisp</em>, <em>setToDisplay=None</em>, <em>fileName=None</em>, <em>defFScale=0.0</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayStrains" title="Permalink to this definition">¶</a></dt>
+<dd><p>displays the component of the displacement or rotations in the 
+set of entities.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>itemToDisp</strong> – component of the stress (‘sigma_11’, ‘sigma_22’…)</li>
+<li><strong>setToDisplay</strong> – set of entities to be represented.</li>
+<li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to 
+None, in that case an screen display is generated</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+<li><strong>rgMinMax</strong> – range (vmin,vmax) with the maximum and minimum values of 
+the field to be represented. All the values less than vmin are 
+displayed in blue and those greater than vmax in red
+(defaults to None)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_handler.OutputHandler.displayStresses">
+<code class="descname">displayStresses</code><span class="sig-paren">(</span><em>itemToDisp</em>, <em>setToDisplay=None</em>, <em>fileName=None</em>, <em>defFScale=0.0</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayStresses" title="Permalink to this definition">¶</a></dt>
+<dd><p>displays the component of the displacement or rotations in the 
+set of entities.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>itemToDisp</strong> – component of the stress (‘sigma_11’, ‘sigma_22’…)</li>
+<li><strong>setToDisplay</strong> – set of entities to be represented.</li>
+<li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to 
+None, in that case an screen display is generated</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+<li><strong>rgMinMax</strong> – range (vmin,vmax) with the maximum and minimum values of 
+the field to be represented. All the values less than vmin are 
+displayed in blue and those greater than vmax in red
+(defaults to None)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_handler.OutputHandler.displayStrongWeakAxis">
+<code class="descname">displayStrongWeakAxis</code><span class="sig-paren">(</span><em>setToDisplay=None</em>, <em>caption=None</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayStrongWeakAxis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the local axes of the elements contained in the set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>setToDisplay</strong> – set to display.</li>
+<li><strong>caption</strong> – title of the graphic.</li>
+<li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to 
+None, in that case an screen display is generated</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_handler.OutputHandler.getCameraParameters">
+<code class="descname">getCameraParameters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.getCameraParameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a suitable set of camera parameters if not
+already defined.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_handler.OutputHandler.getDefaultCameraParameters">
+<code class="descname">getDefaultCameraParameters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.getDefaultCameraParameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the default camera parameters.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-postprocess.output_styles">
+<span id="output-styles"></span><h2>Output styles<a class="headerlink" href="#module-postprocess.output_styles" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="postprocess.output_styles.OutputStyle">
+<em class="property">class </em><code class="descclassname">postprocess.output_styles.</code><code class="descname">OutputStyle</code><span class="sig-paren">(</span><em>cameraParameters=None</em>, <em>outputUnits=&lt;postprocess.output_units.OutputUnits object&gt;</em>, <em>constraintsScaleFactor=0.4</em>, <em>localAxesVectorScaleFactor=0.5</em>, <em>language=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_styles.OutputStyle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Pararameters used in the output routines (graphics, etc.)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first simple">
+<li><strong>cameraParameters</strong> – camera position and orientation.</li>
+<li><strong>outputUnits</strong> – output units and unit conversion.</li>
+<li><strong>constraintsScaleFactor</strong> – scale factor to display DOF constraints.</li>
+<li><strong>localAxesVectorScaleFactor</strong> – scale factor to display local axes vectors.</li>
+<li><strong>reactionVectorScaleFactor</strong> – scale factor to display reactions.</li>
+<li><strong>eigenvectorScaleFactor</strong> – scale factor to display eigenvectors.</li>
+<li><strong>equivalentLoadVectorsScaleFactor</strong> – factor to apply to the vectors 
+length in the representation of equivalent loads on nodes. If 
+vectorEqLoadScale equals 0, equivalent static loads are not 
+represented.
+(defaults to 0.0 in which case only deformed shape is depicted)</li>
+<li><strong>loadVectorsScaleFactor</strong> – factor to apply to the vectors length in the 
+representation of element loads (defaults to 1).</li>
+<li><strong>loadDiagramsScaleFactor</strong> – scale factor to apply to the diagram display 
+of element loads (defaults to 1).</li>
+<li><strong>showLoadsPushing</strong> – true if the vector ends in the loaded node (push
+the node).</li>
+<li><strong>multByElemAreaLoads</strong> – boolean value that must be True if we want to 
+represent the total load on each element 
+(=load multiplied by element area) and False if we 
+are going to depict the value of the uniform load 
+per unit area (defaults to False)</li>
+<li><strong>language</strong> – english, spanish, french</li>
+<li><strong>directionDescr</strong> – text list to identify each direction (as [‘vertical reinforcement’, ‘horizontal reinforcement’]).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Iver nodalLoadBarOrientation:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first last">orientation of scale bar for nodal loads
+‘H’ -&gt; horizontal, ‘V’ -&gt; vertical</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="postprocess.output_styles.OutputStyle.getCaptionTextsDict">
+<code class="descname">getCaptionTextsDict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_styles.OutputStyle.getCaptionTextsDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dictionary with the caption texts to use 
+in graphic output.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_styles.OutputStyle.getDisplacementUnitsDescription">
+<code class="descname">getDisplacementUnitsDescription</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_styles.OutputStyle.getDisplacementUnitsDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the description for the displacement units.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_styles.OutputStyle.getDisplacementUnitsScaleFactor">
+<code class="descname">getDisplacementUnitsScaleFactor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_styles.OutputStyle.getDisplacementUnitsScaleFactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the scale factor for the displacement units.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_styles.OutputStyle.getForceUnitsDescription">
+<code class="descname">getForceUnitsDescription</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_styles.OutputStyle.getForceUnitsDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the description for the displacement units.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_styles.OutputStyle.getForceUnitsScaleFactor">
+<code class="descname">getForceUnitsScaleFactor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_styles.OutputStyle.getForceUnitsScaleFactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the scale factor for the displacement units.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_styles.OutputStyle.getPressureUnitsDescription">
+<code class="descname">getPressureUnitsDescription</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_styles.OutputStyle.getPressureUnitsDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the description for the displacement units.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_styles.OutputStyle.getPressureUnitsScaleFactor">
+<code class="descname">getPressureUnitsScaleFactor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_styles.OutputStyle.getPressureUnitsScaleFactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the scale factor for the displacement units.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_styles.OutputStyle.getRotationUnitsDescription">
+<code class="descname">getRotationUnitsDescription</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_styles.OutputStyle.getRotationUnitsDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the descrioption for the displacement units.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_styles.OutputStyle.getRotationUnitsScaleFactor">
+<code class="descname">getRotationUnitsScaleFactor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_styles.OutputStyle.getRotationUnitsScaleFactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the scale factor for the displacement units.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_styles.OutputStyle.getUnitParameters">
+<code class="descname">getUnitParameters</code><span class="sig-paren">(</span><em>itemToDisp</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_styles.OutputStyle.getUnitParameters" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the pair (scale factor, description) for</dt>
+<dd>the argument parameter.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>itemToDisp</strong> – item to display (uX, uY, N, Mz,…).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-postprocess.output_units">
+<span id="output-units"></span><h2>Output units<a class="headerlink" href="#module-postprocess.output_units" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="postprocess.output_units.DisplacementUnits">
+<em class="property">class </em><code class="descclassname">postprocess.output_units.</code><code class="descname">DisplacementUnits</code><span class="sig-paren">(</span><em>lengthUnit=&lt;postprocess.output_units.UnitDefinitionPair object&gt;</em>, <em>planeAngleUnit=&lt;postprocess.output_units.UnitDefinitionPair object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_units.DisplacementUnits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Units to use for the output of displacement magnitudes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lengthUnit</strong> – unit to express lengths.</li>
+<li><strong>planeAngleUnit</strong> – unit to express angles.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="postprocess.output_units.DisplacementUnits.getDecoratedDisplSymbol">
+<code class="descname">getDecoratedDisplSymbol</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_units.DisplacementUnits.getDecoratedDisplSymbol" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_units.DisplacementUnits.getDecoratedRotSymbol">
+<code class="descname">getDecoratedRotSymbol</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_units.DisplacementUnits.getDecoratedRotSymbol" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.output_units.DynamicsUnits">
+<em class="property">class </em><code class="descclassname">postprocess.output_units.</code><code class="descname">DynamicsUnits</code><span class="sig-paren">(</span><em>forceUnit=&lt;postprocess.output_units.UnitDefinitionPair object&gt;</em>, <em>lengthUnit=&lt;postprocess.output_units.UnitDefinitionPair object&gt;</em>, <em>pressureUnit=&lt;postprocess.output_units.UnitDefinitionPair object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_units.DynamicsUnits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Units to use for the output of forces</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>forceUnit</strong> – unit to express forces.</li>
+<li><strong>lengthUnit</strong> – unit to express lengths.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="postprocess.output_units.DynamicsUnits.getDecoratedForceUnitsText">
+<code class="descname">getDecoratedForceUnitsText</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_units.DynamicsUnits.getDecoratedForceUnitsText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_units.DynamicsUnits.getDecoratedPressureUnitsText">
+<code class="descname">getDecoratedPressureUnitsText</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_units.DynamicsUnits.getDecoratedPressureUnitsText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.output_units.OutputUnits">
+<em class="property">class </em><code class="descclassname">postprocess.output_units.</code><code class="descname">OutputUnits</code><span class="sig-paren">(</span><em>displacementUnits=&lt;postprocess.output_units.DisplacementUnits object&gt;</em>, <em>dynamicUnits=&lt;postprocess.output_units.DynamicsUnits object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_units.OutputUnits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Units to use in output stuff (graphics, etc.)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>displacementUnits</strong> – units for the displacements</li>
+<li><strong>dynamicUnits</strong> – units for the forces and moments</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="postprocess.output_units.OutputUnits.getDisplacementUnitsDescription">
+<code class="descname">getDisplacementUnitsDescription</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_units.OutputUnits.getDisplacementUnitsDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the description for the displacement units.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_units.OutputUnits.getDisplacementUnitsScaleFactor">
+<code class="descname">getDisplacementUnitsScaleFactor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_units.OutputUnits.getDisplacementUnitsScaleFactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the scale factor for the displacement units.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_units.OutputUnits.getForceUnitsDescription">
+<code class="descname">getForceUnitsDescription</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_units.OutputUnits.getForceUnitsDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the description for the displacement units.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_units.OutputUnits.getForceUnitsScaleFactor">
+<code class="descname">getForceUnitsScaleFactor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_units.OutputUnits.getForceUnitsScaleFactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the scale factor for the displacement units.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_units.OutputUnits.getPressureUnitsDescription">
+<code class="descname">getPressureUnitsDescription</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_units.OutputUnits.getPressureUnitsDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the description for the displacement units.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_units.OutputUnits.getPressureUnitsScaleFactor">
+<code class="descname">getPressureUnitsScaleFactor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_units.OutputUnits.getPressureUnitsScaleFactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the scale factor for the displacement units.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_units.OutputUnits.getRotationUnitsDescription">
+<code class="descname">getRotationUnitsDescription</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_units.OutputUnits.getRotationUnitsDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the description for the displacement units.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_units.OutputUnits.getRotationUnitsScaleFactor">
+<code class="descname">getRotationUnitsScaleFactor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_units.OutputUnits.getRotationUnitsScaleFactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the scale factor for the displacement units.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.output_units.UnitDefinitionPair">
+<em class="property">class </em><code class="descclassname">postprocess.output_units.</code><code class="descname">UnitDefinitionPair</code><span class="sig-paren">(</span><em>symbol</em>, <em>scaleFactor</em>, <em>quantity</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_units.UnitDefinitionPair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Text symbol describing the unit (kN,lb,N,m,mm,in, etc) and
+scale factor to apply to the results in order to obtain 
+the desired output units (i.e.: N-&gt;kN scaleUnitsForce: 1e-3).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>symbol</strong> – symbol of the unit</li>
+<li><strong>scaleFactor</strong> – scale factor to apply to the results
+in order to obtain the desired output units
+(i.e.: N-&gt;kN scaleUnitsForce: 1e-3).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="postprocess.output_units.UnitDefinitionPair.getDecoratedSymbol">
+<code class="descname">getDecoratedSymbol</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_units.UnitDefinitionPair.getDecoratedSymbol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the symbol between brackets.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-postprocess.callback_controls">
+<span id="callback-controls"></span><h2>Callback controls<a class="headerlink" href="#module-postprocess.callback_controls" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="postprocess.callback_controls.controTensRecElastico2d">
 <code class="descclassname">postprocess.callback_controls.</code><code class="descname">controTensRecElastico2d</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.callback_controls.controTensRecElastico2d" title="Permalink to this definition">¶</a></dt>
@@ -122,7 +1011,7 @@
 
 </div>
 <div class="section" id="module-postprocess.control_vars">
-<span id="control-variables"></span><h1>Control variables<a class="headerlink" href="#module-postprocess.control_vars" title="Permalink to this headline">¶</a></h1>
+<span id="control-variables"></span><h2>Control variables<a class="headerlink" href="#module-postprocess.control_vars" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="postprocess.control_vars.AxialForceControlVars">
 <em class="property">class </em><code class="descclassname">postprocess.control_vars.</code><code class="descname">AxialForceControlVars</code><span class="sig-paren">(</span><em>idSection='nil'</em>, <em>combName='nil'</em>, <em>N=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.AxialForceControlVars" title="Permalink to this definition">¶</a></dt>
@@ -1186,7 +2075,7 @@ the results to a file, generation or not of lists, …)</li>
 
 </div>
 <div class="section" id="module-postprocess.def_vars_control">
-<span id="control-variables-definition"></span><h1>Control variables definition<a class="headerlink" href="#module-postprocess.def_vars_control" title="Permalink to this headline">¶</a></h1>
+<span id="control-variables-definition"></span><h2>Control variables definition<a class="headerlink" href="#module-postprocess.def_vars_control" title="Permalink to this headline">¶</a></h2>
 <p>THIS PROPERTIES MUST BE REPLACED BY THE CLASSES 
 DEFINED IN control_vars.py 
 THIS FILE MUST DISSAPEAR.</p>
@@ -1245,7 +2134,7 @@ THIS FILE MUST DISSAPEAR.</p>
 
 </div>
 <div class="section" id="displayable-results">
-<h1>Displayable_results<a class="headerlink" href="#displayable-results" title="Permalink to this headline">¶</a></h1>
+<h2>Displayable_results<a class="headerlink" href="#displayable-results" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><span class="target" id="module-postprocess.displayable_results"></span><dl class="class">
 <dt id="postprocess.displayable_results.ResultDescription">
@@ -1326,7 +2215,7 @@ THIS FILE MUST DISSAPEAR.</p>
 </div></blockquote>
 </div>
 <div class="section" id="module-postprocess.element_section_map">
-<span id="element-section-map"></span><h1>Element section map<a class="headerlink" href="#module-postprocess.element_section_map" title="Permalink to this headline">¶</a></h1>
+<span id="element-section-map"></span><h2>Element section map<a class="headerlink" href="#module-postprocess.element_section_map" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="postprocess.element_section_map.ElementSectionMap">
 <em class="property">class </em><code class="descclassname">postprocess.element_section_map.</code><code class="descname">ElementSectionMap</code><a class="headerlink" href="#postprocess.element_section_map.ElementSectionMap" title="Permalink to this definition">¶</a></dt>
@@ -1369,7 +2258,7 @@ rebar positions,…</li>
 
 </div>
 <div class="section" id="module-postprocess.extrapolate_elem_attr">
-<span id="extrapolate-elemement-attributes"></span><h1>Extrapolate elemement attributes<a class="headerlink" href="#module-postprocess.extrapolate_elem_attr" title="Permalink to this headline">¶</a></h1>
+<span id="extrapolate-elemement-attributes"></span><h2>Extrapolate elemement attributes<a class="headerlink" href="#module-postprocess.extrapolate_elem_attr" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="postprocess.extrapolate_elem_attr.average_on_nodes">
 <code class="descclassname">postprocess.extrapolate_elem_attr.</code><code class="descname">average_on_nodes</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>touchedNodesTags</em>, <em>attributeName</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.extrapolate_elem_attr.average_on_nodes" title="Permalink to this definition">¶</a></dt>
@@ -1462,7 +2351,7 @@ at the nodes.</li>
 
 </div>
 <div class="section" id="module-postprocess.figure_collection">
-<span id="figure-collection"></span><h1>Figure collection<a class="headerlink" href="#module-postprocess.figure_collection" title="Permalink to this headline">¶</a></h1>
+<span id="figure-collection"></span><h2>Figure collection<a class="headerlink" href="#module-postprocess.figure_collection" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="postprocess.figure_collection.FigsCollectionPlotter">
 <em class="property">class </em><code class="descclassname">postprocess.figure_collection.</code><code class="descname">FigsCollectionPlotter</code><a class="headerlink" href="#postprocess.figure_collection.FigsCollectionPlotter" title="Permalink to this definition">¶</a></dt>
@@ -1536,7 +2425,7 @@ at the nodes.</li>
 
 </div>
 <div class="section" id="module-postprocess.get_reactions">
-<span id="get-reactions"></span><h1>Get reactions<a class="headerlink" href="#module-postprocess.get_reactions" title="Permalink to this headline">¶</a></h1>
+<span id="get-reactions"></span><h2>Get reactions<a class="headerlink" href="#module-postprocess.get_reactions" title="Permalink to this headline">¶</a></h2>
 <p>Reactions on nodes.</p>
 <dl class="class">
 <dt id="postprocess.get_reactions.Reactions">
@@ -1565,7 +2454,7 @@ The key of the map is the node tag.</p>
 
 </div>
 <div class="section" id="module-postprocess.limit_state_data">
-<span id="limit-state-data"></span><h1>Limit state data<a class="headerlink" href="#module-postprocess.limit_state_data" title="Permalink to this headline">¶</a></h1>
+<span id="limit-state-data"></span><h2>Limit state data<a class="headerlink" href="#module-postprocess.limit_state_data" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="postprocess.limit_state_data.FatigueResistanceRCLimitStateData">
 <em class="property">class </em><code class="descclassname">postprocess.limit_state_data.</code><code class="descname">FatigueResistanceRCLimitStateData</code><a class="headerlink" href="#postprocess.limit_state_data.FatigueResistanceRCLimitStateData" title="Permalink to this definition">¶</a></dt>
@@ -2039,10 +2928,10 @@ results are analyzed)</li>
 
 </div>
 <div class="section" id="module-postprocess.med_xc_vars">
-<span id="medmem-to-xc-variables"></span><h1>MEDMEM to XC variables<a class="headerlink" href="#module-postprocess.med_xc_vars" title="Permalink to this headline">¶</a></h1>
+<span id="medmem-to-xc-variables"></span><h2>MEDMEM to XC variables<a class="headerlink" href="#module-postprocess.med_xc_vars" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-postprocess.phantom_model">
-<span id="phantom-model"></span><h1>Phantom model<a class="headerlink" href="#module-postprocess.phantom_model" title="Permalink to this headline">¶</a></h1>
+<span id="phantom-model"></span><h2>Phantom model<a class="headerlink" href="#module-postprocess.phantom_model" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="postprocess.phantom_model.PhantomModel">
 <em class="property">class </em><code class="descclassname">postprocess.phantom_model.</code><code class="descname">PhantomModel</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>sectionDistribution</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.phantom_model.PhantomModel" title="Permalink to this definition">¶</a></dt>
@@ -2251,7 +3140,7 @@ the results to a file, generation or not of lists, …)</li>
 
 </div>
 <div class="section" id="module-postprocess.prop_statistics">
-<span id="statistics-propeties"></span><h1>Statistics propeties<a class="headerlink" href="#module-postprocess.prop_statistics" title="Permalink to this headline">¶</a></h1>
+<span id="statistics-propeties"></span><h2>Statistics propeties<a class="headerlink" href="#module-postprocess.prop_statistics" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="postprocess.prop_statistics.getItemWithMaxProp">
 <code class="descclassname">postprocess.prop_statistics.</code><code class="descname">getItemWithMaxProp</code><span class="sig-paren">(</span><em>iterable</em>, <em>attrName</em>, <em>argv=''</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.prop_statistics.getItemWithMaxProp" title="Permalink to this definition">¶</a></dt>
@@ -2295,7 +3184,7 @@ the results to a file, generation or not of lists, …)</li>
 
 </div>
 <div class="section" id="module-postprocess.RC_material_distribution">
-<span id="rc-material-distribution"></span><h1>RC material distribution<a class="headerlink" href="#module-postprocess.RC_material_distribution" title="Permalink to this headline">¶</a></h1>
+<span id="rc-material-distribution"></span><h2>RC material distribution<a class="headerlink" href="#module-postprocess.RC_material_distribution" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="postprocess.RC_material_distribution.RCMaterialDistribution">
 <em class="property">class </em><code class="descclassname">postprocess.RC_material_distribution.</code><code class="descname">RCMaterialDistribution</code><a class="headerlink" href="#postprocess.RC_material_distribution.RCMaterialDistribution" title="Permalink to this definition">¶</a></dt>
@@ -2458,7 +3347,7 @@ generation or not of lists, …)</li>
 
 </div>
 <div class="section" id="module-postprocess.recorders">
-<span id="recorders"></span><h1>Recorders<a class="headerlink" href="#module-postprocess.recorders" title="Permalink to this headline">¶</a></h1>
+<span id="recorders"></span><h2>Recorders<a class="headerlink" href="#module-postprocess.recorders" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="postprocess.recorders.installNodeDisplacementRecorder">
 <code class="descclassname">postprocess.recorders.</code><code class="descname">installNodeDisplacementRecorder</code><span class="sig-paren">(</span><em>recorderName</em>, <em>nodeSet</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.recorders.installNodeDisplacementRecorder" title="Permalink to this definition">¶</a></dt>
@@ -2466,7 +3355,7 @@ generation or not of lists, …)</li>
 
 </div>
 <div class="section" id="module-postprocess.utils_display">
-<span id="utils-display"></span><h1>Utils display<a class="headerlink" href="#module-postprocess.utils_display" title="Permalink to this headline">¶</a></h1>
+<span id="utils-display"></span><h2>Utils display<a class="headerlink" href="#module-postprocess.utils_display" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="postprocess.utils_display.FigureBase">
 <em class="property">class </em><code class="descclassname">postprocess.utils_display.</code><code class="descname">FigureBase</code><span class="sig-paren">(</span><em>pLabel</em>, <em>limitStateLabel</em>, <em>figDescr</em>, <em>reinfDescr=None</em>, <em>units=None</em>, <em>sz='90mm'</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.utils_display.FigureBase" title="Permalink to this definition">¶</a></dt>
@@ -2699,6 +3588,7 @@ and reports associated with the calculation</p>
 </dd></dl>
 
 </div>
+</div>
 
 
           </div>
@@ -2708,7 +3598,11 @@ and reports associated with the calculation</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Callback controls</a></li>
+<li><a class="reference internal" href="#">General topics</a><ul>
+<li><a class="reference internal" href="#module-postprocess.output_handler">Output handler</a></li>
+<li><a class="reference internal" href="#module-postprocess.output_styles">Output styles</a></li>
+<li><a class="reference internal" href="#module-postprocess.output_units">Output units</a></li>
+<li><a class="reference internal" href="#module-postprocess.callback_controls">Callback controls</a></li>
 <li><a class="reference internal" href="#module-postprocess.control_vars">Control variables</a></li>
 <li><a class="reference internal" href="#module-postprocess.def_vars_control">Control variables definition</a></li>
 <li><a class="reference internal" href="#displayable-results">Displayable_results</a></li>
@@ -2724,13 +3618,15 @@ and reports associated with the calculation</p>
 <li><a class="reference internal" href="#module-postprocess.recorders">Recorders</a></li>
 <li><a class="reference internal" href="#module-postprocess.utils_display">Utils display</a></li>
 </ul>
+</li>
+</ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="../../solution/python_modules/utils.html"
                         title="previous chapter">Utils</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="xcVtk.html"
-                        title="next chapter">Graphics XC_Vtk</a></p>
+  <p class="topless"><a href="postprocess.config.html"
+                        title="next chapter">Configuration</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -2762,7 +3658,7 @@ and reports associated with the calculation</p>
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="xcVtk.html" title="Graphics XC_Vtk"
+          <a href="postprocess.config.html" title="Configuration"
              >next</a> |</li>
         <li class="right" >
           <a href="../../solution/python_modules/utils.html" title="Utils"

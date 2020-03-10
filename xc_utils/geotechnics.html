@@ -1,0 +1,1352 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Geotechnic utils &#8212; XC 3.0 documentation</title>
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Utils" href="../miscellany/misc.html" />
+    <link rel="prev" title="Arch bridge base" href="../miscellany/roughCalcGenTopics.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../miscellany/misc.html" title="Utils"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../miscellany/roughCalcGenTopics.html" title="Arch bridge base"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">XC 3.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="geotechnic-utils">
+<h1>Geotechnic utils<a class="headerlink" href="#geotechnic-utils" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-geotechnics.frictional_cohesional_soil">
+<span id="soil-with-friction-and-cohesion"></span><h2>Soil with friction and cohesion<a class="headerlink" href="#module-geotechnics.frictional_cohesional_soil" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil">
+<em class="property">class </em><code class="descclassname">geotechnics.frictional_cohesional_soil.</code><code class="descname">FrictionalCohesionalSoil</code><span class="sig-paren">(</span><em>phi</em>, <em>c</em>, <em>rho=2100.0</em>, <em>gammaMPhi=1.0</em>, <em>gammaMc=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geotechnics.frictional_soil.FrictionalSoil" title="geotechnics.frictional_soil.FrictionalSoil"><code class="xref py py-class docutils literal"><span class="pre">geotechnics.frictional_soil.FrictionalSoil</span></code></a></p>
+<p>Soil with friction and cohesion</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><a class="reference internal" href="geom_utils.html#geom_utils.parabola.Parabola.c" title="geom_utils.parabola.Parabola.c"><strong>c</strong></a> – soil cohesion</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.Ka_bell">
+<code class="descname">Ka_bell</code><span class="sig-paren">(</span><em>sg_v</em>, <em>a</em>, <em>b</em>, <em>d=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.Ka_bell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the active earth pressure coefficient according to Bell’s
+relationship.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sg_v</strong> – vertical stress.</li>
+<li><strong>a</strong> – angle of the back of the retaining wall (radians).</li>
+<li><strong>b</strong> – slope of the backfill (radians).</li>
+<li><strong>d</strong> – friction angle between soil an back of retaining wall (radians).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.Kp_bell">
+<code class="descname">Kp_bell</code><span class="sig-paren">(</span><em>sg_v</em>, <em>a</em>, <em>b</em>, <em>d=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.Kp_bell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the passive earth pressure coefficient according to Bell’s
+relationship.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sg_v</strong> – vertical stress.</li>
+<li><strong>a</strong> – angle of the back of the retaining wall (radians).</li>
+<li><strong>b</strong> – slope of the backfill (radians).</li>
+<li><strong>d</strong> – friction angle between soil an back of retaining 
+wall (radians).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.Nc">
+<code class="descname">Nc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.Nc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the cohesion multiplier for the Brinch-Hasen formula.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.Ngamma">
+<code class="descname">Ngamma</code><span class="sig-paren">(</span><em>NgammaCoef=1.5</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.Ngamma" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the wedge weight multiplier for the Brinch-Hasen formula.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>NgammaCoef</strong> – 1.5 in reference [1], 1.8 in reference 2 
+and 2 in reference 3</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.Nq">
+<code class="descname">Nq</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.Nq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the overburden multiplier for the Brinch-Hasen formula.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.dc">
+<code class="descname">dc</code><span class="sig-paren">(</span><em>D</em>, <em>Beff</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.dc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Depth factor for cohesion.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>D</strong> – foundation depth.</li>
+<li><strong>Beff</strong> – Width of the effective foundation area
+(see figure 12 in page 44 of reference[2]).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.dgamma">
+<code class="descname">dgamma</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.dgamma" title="Permalink to this definition">¶</a></dt>
+<dd><p>Factor that introduces the effect of foundation depth on
+the self weight component.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.dq">
+<code class="descname">dq</code><span class="sig-paren">(</span><em>D</em>, <em>Beff</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.dq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overburden factor for foundation depth.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>D</strong> – foundation depth.</li>
+<li><strong>Beff</strong> – Width of the effective foundation area
+(see figure 12 in page 44 of reference[2]).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.ea_coulomb">
+<code class="descname">ea_coulomb</code><span class="sig-paren">(</span><em>sg_v</em>, <em>a</em>, <em>b</em>, <em>d=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.ea_coulomb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the lateral earth active pressure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sg_v</strong> – vertical stress.</li>
+<li><strong>a</strong> – angle of the back of the retaining wall (radians).</li>
+<li><strong>b</strong> – slope of the backfill (radians).</li>
+<li><strong>d</strong> – friction angle between soil an back of retaining wall (radians). See Jiménez Salas, Geotecnia y Cimientos page 682 and Bell’s relationship.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.eah_coulomb">
+<code class="descname">eah_coulomb</code><span class="sig-paren">(</span><em>sg_v</em>, <em>a</em>, <em>b</em>, <em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.eah_coulomb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the horizontal component of the lateral earth active pressure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sg_v</strong> – vertical stress.</li>
+<li><strong>a</strong> – angle of the back of the retaining wall (radians).</li>
+<li><strong>b</strong> – slope of the backfill (radians).</li>
+<li><strong>d</strong> – friction angle between soil an back of retaining wall (radians).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.eav_coulomb">
+<code class="descname">eav_coulomb</code><span class="sig-paren">(</span><em>sg_v</em>, <em>a</em>, <em>b</em>, <em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.eav_coulomb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the vertical component of the active earth pressure coefficient
+according to Coulomb’s theory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sg_v</strong> – vertical stress.</li>
+<li><strong>a</strong> – angle of the back of the retaining wall (radians).</li>
+<li><strong>b</strong> – slope of the backfill (radians).</li>
+<li><strong>fi</strong> – internal friction angle of the soil (radians).</li>
+<li><strong>d</strong> – friction angle between soil an back of retaining wall (radians).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.ep_coulomb">
+<code class="descname">ep_coulomb</code><span class="sig-paren">(</span><em>sg_v</em>, <em>a</em>, <em>b</em>, <em>d=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.ep_coulomb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the lateral earth passive pressure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sg_v</strong> – vertical stress.</li>
+<li><strong>a</strong> – angle of the back of the retaining wall (radians).</li>
+<li><strong>b</strong> – slope of the backfill (radians).</li>
+<li><strong>d</strong> – friction angle between soil an back of retaining wall (radians). See Jiménez Salas, Geotecnia y Cimientos page 682 and Bell’s relationship.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.eph_coulomb">
+<code class="descname">eph_coulomb</code><span class="sig-paren">(</span><em>sg_v</em>, <em>a</em>, <em>b</em>, <em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.eph_coulomb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the horizontal component of the lateral earth passive pressure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sg_v</strong> – vertical stress.</li>
+<li><strong>a</strong> – angle of the back of the retaining wall (radians).</li>
+<li><strong>b</strong> – slope of the backfill (radians).</li>
+<li><strong>d</strong> – friction angle between soil an back of retaining wall (radians).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.epv_coulomb">
+<code class="descname">epv_coulomb</code><span class="sig-paren">(</span><em>sg_v</em>, <em>a</em>, <em>b</em>, <em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.epv_coulomb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the vertical component of the passive earth pressure
+according to Coulomb’s theory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sg_v</strong> – vertical stress.</li>
+<li><strong>a</strong> – angle of the back of the retaining wall (radians).</li>
+<li><strong>b</strong> – slope of the backfill (radians).</li>
+<li><strong>fi</strong> – internal friction angle of the soil (radians).</li>
+<li><strong>d</strong> – friction angle between soil an back of retaining wall (radians).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.eq_bell">
+<code class="descname">eq_bell</code><span class="sig-paren">(</span><em>p</em>, <em>a</em>, <em>b</em>, <em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.eq_bell" title="Permalink to this definition">¶</a></dt>
+<dd><p>eq_bell(p,a,b,d):
+Return the lateral earth pressure caused by a uniform load q
+action over the backfill surface according to Coulomb’s theory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>a</strong> – angle of the back of the retaining wall (radians).</li>
+<li><strong>b</strong> – slope of the backfill (radians).</li>
+<li><strong>d</strong> – friction angle between soil an back of retaining wall (radians).</li>
+<li><strong>q</strong> – Uniform load.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.getDesignC">
+<code class="descname">getDesignC</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.getDesignC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the design value of the soil cohesion.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.ic">
+<code class="descname">ic</code><span class="sig-paren">(</span><em>deltaB</em>, <em>deltaL</em>, <em>Hload</em>, <em>Beff</em>, <em>Leff</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.ic" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Factor that introduces the effect of load inclination on</dt>
+<dd>the cohesion component.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>deltaB</strong> – angle between the load and the foundation width
+atan(HloadB/VLoad).</li>
+<li><strong>deltaL</strong> – angle between the load and the foundation length
+atan(HloadL/VLoad).</li>
+<li><strong>Hload</strong> – Horizontal load.</li>
+<li><strong>Beff</strong> – Width of the effective foundation area
+(see figure 12 in page 44 of reference[2]).</li>
+<li><strong>Leff</strong> – Length of the effective foundation area
+(see figure 12 in page 44 of reference[2]).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.igamma">
+<code class="descname">igamma</code><span class="sig-paren">(</span><em>deltaB</em>, <em>deltaL</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.igamma" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Factor that introduces the effect of load inclination on</dt>
+<dd>the self weight component.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>deltaB</strong> – angle between the load and the foundation width
+atan(HloadB/VLoad).</li>
+<li><strong>deltaL</strong> – angle between the load and the foundation length
+atan(HloadL/VLoad).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.iq">
+<code class="descname">iq</code><span class="sig-paren">(</span><em>deltaB</em>, <em>deltaL</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.iq" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Factor that introduces the effect of load inclination on</dt>
+<dd>the overburden component.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>deltaB</strong> – angle between the load and the foundation width
+atan(HloadB/VLoad).</li>
+<li><strong>deltaL</strong> – angle between the load and the foundation length
+atan(HloadL/VLoad).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.qu">
+<code class="descname">qu</code><span class="sig-paren">(</span><em>q</em>, <em>D</em>, <em>Beff</em>, <em>Leff</em>, <em>Vload</em>, <em>HloadB</em>, <em>HloadL</em>, <em>NgammaCoef=1.5</em>, <em>psi=0.0</em>, <em>eta=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.qu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ultimate bearing capacity pressure of the soil.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>D</strong> – foundation depth.</li>
+<li><strong>Beff</strong> – Width of the effective foundation area
+(see figure 12 in page 44 of reference[2]).</li>
+<li><strong>Leff</strong> – Length of the effective foundation area
+(see figure 12 in page 44 of reference[2]).</li>
+<li><strong>Vload</strong> – Vertical load (positive downwards).</li>
+<li><strong>HloadB</strong> – Horizontal load on Beff direction.</li>
+<li><strong>HloadL</strong> – Horizontal load on Leff direction.</li>
+<li><strong>NgammaCoef</strong> – 1.5 in reference [1], 1.8 in reference 2 
+and 2 in reference 3</li>
+<li><strong>psi</strong> – angle of the line on wich the q load acts 
+(see figure 4.7 in page 102 of reference [3])
+must be determined by iterations.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.quCohesion">
+<code class="descname">quCohesion</code><span class="sig-paren">(</span><em>D</em>, <em>Beff</em>, <em>Leff</em>, <em>Vload</em>, <em>HloadB</em>, <em>HloadL</em>, <em>psi=0.0</em>, <em>eta=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.quCohesion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cohesion “component” of the ultimate bearing capacity pressure of the soil.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>D</strong> – foundation depth.</li>
+<li><strong>Beff</strong> – Width of the effective foundation area
+(see figure 12 in page 44 of reference[2]).</li>
+<li><strong>Leff</strong> – Length of the effective foundation area
+(see figure 12 in page 44 of reference[2]).</li>
+<li><strong>Vload</strong> – Vertical load.</li>
+<li><strong>HloadB</strong> – Horizontal load on Beff direction.</li>
+<li><strong>HloadL</strong> – Horizontal load on Leff direction.</li>
+<li><strong>NgammaCoef</strong> – 1.5 in reference [1], 1.8 in reference 2 
+and 2 in reference 3</li>
+<li><strong>psi</strong> – angle of the line on wich the q load acts 
+(see figure 4.7 in page 102 of reference [3])
+must be determined by iterations.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.quGamma">
+<code class="descname">quGamma</code><span class="sig-paren">(</span><em>D</em>, <em>Beff</em>, <em>Leff</em>, <em>Vload</em>, <em>HloadB</em>, <em>HloadL</em>, <em>NgammaCoef=1.5</em>, <em>psi=0.0</em>, <em>eta=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.quGamma" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Gamma “component” of the ultimate bearing capacity pressure of </dt>
+<dd>the soil.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>D</strong> – foundation depth.</li>
+<li><strong>Beff</strong> – Width of the effective foundation area
+(see figure 12 in page 44 of reference[2]).</li>
+<li><strong>Leff</strong> – Length of the effective foundation area
+(see figure 12 in page 44 of reference[2]).</li>
+<li><strong>Vload</strong> – Vertical load.</li>
+<li><strong>HloadB</strong> – Horizontal load on Beff direction.</li>
+<li><strong>HloadL</strong> – Horizontal load on Leff direction.</li>
+<li><strong>NgammaCoef</strong> – 1.5 in reference [1], 1.8 in reference 2 
+and 2 in reference 3</li>
+<li><strong>psi</strong> – angle of the line on wich the q load acts 
+(see figure 4.7 in page 102 of reference [3])
+must be determined by iterations.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.quQ">
+<code class="descname">quQ</code><span class="sig-paren">(</span><em>q</em>, <em>D</em>, <em>Beff</em>, <em>Leff</em>, <em>Vload</em>, <em>HloadB</em>, <em>HloadL</em>, <em>psi=0.0</em>, <em>eta=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.quQ" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Overburden “component of the ultimate bearing capacity pressure </dt>
+<dd>of the soil.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>D</strong> – foundation depth.</li>
+<li><strong>Beff</strong> – Width of the effective foundation area
+(see figure 12 in page 44 of reference[2]).</li>
+<li><strong>Leff</strong> – Length of the effective foundation area
+(see figure 12 in page 44 of reference[2]).</li>
+<li><strong>Vload</strong> – Vertical load.</li>
+<li><strong>HloadB</strong> – Horizontal load on Beff direction.</li>
+<li><strong>HloadL</strong> – Horizontal load on Leff direction.</li>
+<li><strong>NgammaCoef</strong> – 1.5 in reference [1], 1.8 in reference 2 
+and 2 in reference 3</li>
+<li><strong>psi</strong> – angle of the line on wich the q load acts 
+(see figure 4.7 in page 102 of reference [3])
+must be determined by iterations.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.rc">
+<code class="descname">rc</code><span class="sig-paren">(</span><em>eta=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.rc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Factor that introduces the effect of sloped footing.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>eta</strong> – angle between the foundation plane with and the 
+(see figure 4.8 in page 104 of reference [3])
+favourable effect when eta&lt;0.0.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.rgamma">
+<code class="descname">rgamma</code><span class="sig-paren">(</span><em>eta=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.rgamma" title="Permalink to this definition">¶</a></dt>
+<dd><p>Factor that introduces the effect of sloped footing.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>eta</strong> – angle between the foundation plane with and the 
+(see figure 4.8 in page 104 of reference [3])
+favourable effect when eta&lt;0.0.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.rq">
+<code class="descname">rq</code><span class="sig-paren">(</span><em>eta=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.rq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Factor that introduces the effect of sloped footing.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>eta</strong> – angle between the foundation plane with and the 
+(see figure 4.8 in page 104 of reference [3])
+favourable effect when eta&lt;0.0.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.sc">
+<code class="descname">sc</code><span class="sig-paren">(</span><em>Beff</em>, <em>Leff</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.sc" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Factor that introduces the effect of foundation shape on</dt>
+<dd>the cohesion component.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Beff</strong> – Width of the effective foundation area
+(see figure 12 in page 44 of reference[2]).</li>
+<li><strong>Leff</strong> – Length of the effective foundation area
+(see figure 12 in page 44 of reference[2]).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.sgamma">
+<code class="descname">sgamma</code><span class="sig-paren">(</span><em>Beff</em>, <em>Leff</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.sgamma" title="Permalink to this definition">¶</a></dt>
+<dd><p>Factor that introduces the effect of foundation shape on
+the self weight component.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Beff</strong> – Width of the effective foundation area
+(see figure 12 in page 44 of reference[2]).</li>
+<li><strong>Leff</strong> – Length of the effective foundation area
+(see figure 12 in page 44 of reference[2]).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.sq">
+<code class="descname">sq</code><span class="sig-paren">(</span><em>Beff</em>, <em>Leff</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.sq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Factor that introduces the effect of foundation shape on
+the overburden component.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Beff</strong> – Width of the effective foundation area
+(see figure 12 in page 44 of reference[2]).</li>
+<li><strong>Leff</strong> – Length of the effective foundation area
+(see figure 12 in page 44 of reference[2]).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.tc">
+<code class="descname">tc</code><span class="sig-paren">(</span><em>psi=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.tc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Factor that introduces the effect of the proximity of an slope.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>psi</strong> – angle of the line on wich the q load acts 
+(see figure 4.7 in page 102 of reference [3])
+must be determined by iterations.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.tgamma">
+<code class="descname">tgamma</code><span class="sig-paren">(</span><em>psi=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.tgamma" title="Permalink to this definition">¶</a></dt>
+<dd><p>Factor that introduces the effect of the proximity of an slope.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>psi</strong> – angle of the line on wich the q load acts 
+(see figure 4.7 in page 102 of reference [3])
+must be determined by iterations.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.tq">
+<code class="descname">tq</code><span class="sig-paren">(</span><em>psi=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.FrictionalCohesionalSoil.tq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Factor that introduces the effect of the proximity of an slope.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>psi</strong> – angle of the line on wich the q load acts 
+(see figure 4.7 in page 102 of reference [3])
+must be determined by iterations.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="geotechnics.frictional_cohesional_soil.StratifiedSoil">
+<em class="property">class </em><code class="descclassname">geotechnics.frictional_cohesional_soil.</code><code class="descname">StratifiedSoil</code><span class="sig-paren">(</span><em>hi</em>, <em>rhoi</em>, <em>phii</em>, <em>ci</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.StratifiedSoil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Soil with layers with different properties.</p>
+<p>Soil with layers of different properties as described in
+4.5.5.7 “Guía de cimentaciones en obras de carreteras”
+(<a class="reference external" href="https://books.google.ch/books?id=a0eoygAACAAJ">https://books.google.ch/books?id=a0eoygAACAAJ</a>)
+2009</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>hi</strong> – (float list) layer thicknesses.</li>
+<li><strong>rhoi</strong> – (float list) layer densities.</li>
+<li><strong>phii</strong> – (float list) layer internal friction angle.</li>
+<li><strong>ci</strong> – (float list) layer cohesions.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.StratifiedSoil.computeAffectedDepth">
+<code class="descname">computeAffectedDepth</code><span class="sig-paren">(</span><em>Beff</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.StratifiedSoil.computeAffectedDepth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes affected depth.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Beff:</th><td class="field-body">(float) width of the effective foundation area
+(see figure 12 in page 44 of reference[2]).</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.StratifiedSoil.getAffectedHeights">
+<code class="descname">getAffectedHeights</code><span class="sig-paren">(</span><em>affectedDepth</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.StratifiedSoil.getAffectedHeights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the layer at depths less than H.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.StratifiedSoil.getEquivalentC">
+<code class="descname">getEquivalentC</code><span class="sig-paren">(</span><em>affectedDepth</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.StratifiedSoil.getEquivalentC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return equivalent cohesion.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.StratifiedSoil.getEquivalentPhi">
+<code class="descname">getEquivalentPhi</code><span class="sig-paren">(</span><em>affectedDepth</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.StratifiedSoil.getEquivalentPhi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return equivalent cohesion.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.StratifiedSoil.getEquivalentRho">
+<code class="descname">getEquivalentRho</code><span class="sig-paren">(</span><em>affectedDepth</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.StratifiedSoil.getEquivalentRho" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return equivalent density.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_cohesional_soil.StratifiedSoil.getEquivalentSoil">
+<code class="descname">getEquivalentSoil</code><span class="sig-paren">(</span><em>Beff</em>, <em>gMPhi</em>, <em>gMc</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_cohesional_soil.StratifiedSoil.getEquivalentSoil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes affected depth.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Beff:</th><td class="field-body">(float) width of the effective foundation area
+(see figure 12 in page 44 of reference[2]).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">gammaMPhi:</th><td class="field-body">(float) partial reduction factor for internal 
+friction angle of the soil.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">gammaMc:</th><td class="field-body">(float) partial reduction factor for soil cohesion.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geotechnics.frictional_soil">
+<span id="frictional-soil"></span><h2>Frictional soil<a class="headerlink" href="#module-geotechnics.frictional_soil" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geotechnics.frictional_soil.FrictionalSoil">
+<em class="property">class </em><code class="descclassname">geotechnics.frictional_soil.</code><code class="descname">FrictionalSoil</code><span class="sig-paren">(</span><em>phi</em>, <em>rho=2100.0</em>, <em>gammaMPhi=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_soil.FrictionalSoil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Free-running type of soil, such as sand or gravel, whose strength depends on friction between particles.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="../preprocessor/python_modules/materials.aci.html#materials.aci.ACI_limit_state_checking.ShearPlane.phi" title="materials.aci.ACI_limit_state_checking.ShearPlane.phi"><strong>phi</strong></a> – internal friction angle of the soil</li>
+<li><a class="reference internal" href="../preprocessor/python_modules/materials.awcnds.html#materials.awc_nds.AWCNDS_materials.OSBPanel.rho" title="materials.awc_nds.AWCNDS_materials.OSBPanel.rho"><strong>rho</strong></a> – soil density (mass per unit volume)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="geotechnics.frictional_soil.FrictionalSoil.K0Jaky">
+<code class="descname">K0Jaky</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_soil.FrictionalSoil.K0Jaky" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns Jaky’s earth pressure at rest.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_soil.FrictionalSoil.Ka">
+<code class="descname">Ka</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_soil.FrictionalSoil.Ka" title="Permalink to this definition">¶</a></dt>
+<dd><p>Active earth pressure coefficient.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_soil.FrictionalSoil.Ka_coulomb">
+<code class="descname">Ka_coulomb</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>d=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_soil.FrictionalSoil.Ka_coulomb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the active earth pressure coefficient according to Coulomb’s theory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>a</strong> – angle of the back of the retaining wall (radians).</li>
+<li><strong>b</strong> – slope of the backfill (radians).</li>
+<li><strong>d</strong> – friction angle between soil an back of retaining wall (radians). See Recomendaciones para obras marítimas ROM 0.5-05 page 315</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_soil.FrictionalSoil.Kah_coulomb">
+<code class="descname">Kah_coulomb</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_soil.FrictionalSoil.Kah_coulomb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the horizontal component of the active earth pressure coefficient
+according to Coulomb’s theory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>a</strong> – angle of the back of the retaining wall (radians).</li>
+<li><strong>b</strong> – slope of the backfill (radians).</li>
+<li><strong>d</strong> – friction angle between soil an back of retaining wall (radians).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_soil.FrictionalSoil.Kav_coulomb">
+<code class="descname">Kav_coulomb</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_soil.FrictionalSoil.Kav_coulomb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the vertical component of the active earth pressure coefficient
+according to Coulomb’s theory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>a</strong> – angle of the back of the retaining wall (radians).</li>
+<li><strong>b</strong> – slope of the backfill (radians).</li>
+<li><strong>fi</strong> – internal friction angle of the soil (radians).</li>
+<li><strong>d</strong> – friction angle between soil an back of retaining wall (radians).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_soil.FrictionalSoil.Kp">
+<code class="descname">Kp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_soil.FrictionalSoil.Kp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Passive earth pressure coefficient.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_soil.FrictionalSoil.Kp_coulomb">
+<code class="descname">Kp_coulomb</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>d=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_soil.FrictionalSoil.Kp_coulomb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the passive earth pressure coefficient according to Coulomb’s theory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>a</strong> – angle of the back of the retaining wall (radians).</li>
+<li><strong>b</strong> – slope of the backfill (radians).</li>
+<li><strong>d</strong> – friction angle between soil an back of retaining wall (radians).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_soil.FrictionalSoil.eq_coulomb">
+<code class="descname">eq_coulomb</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>d</em>, <em>p</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_soil.FrictionalSoil.eq_coulomb" title="Permalink to this definition">¶</a></dt>
+<dd><p>eq_coulomb(a,b,d,p):
+Return the lateral earth pressure caused by a uniform load q
+action over the backfill surface according to Coulomb’s theory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>a</strong> – angle of the back of the retaining wall (radians).</li>
+<li><strong>b</strong> – slope of the backfill (radians).</li>
+<li><strong>d</strong> – friction angle between soil an back of retaining wall (radians).</li>
+<li><strong>p</strong> – Uniform load.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_soil.FrictionalSoil.gamma">
+<code class="descname">gamma</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_soil.FrictionalSoil.gamma" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unit weight of soil</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_soil.FrictionalSoil.getDesignC">
+<code class="descname">getDesignC</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_soil.FrictionalSoil.getDesignC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the design value of the soil cohesion.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_soil.FrictionalSoil.getDesignPhi">
+<code class="descname">getDesignPhi</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_soil.FrictionalSoil.getDesignPhi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the design value of the soil internal friction angle.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.frictional_soil.FrictionalSoil.getMononobeOkabeDryOverpressure">
+<code class="descname">getMononobeOkabeDryOverpressure</code><span class="sig-paren">(</span><em>H</em>, <em>kv</em>, <em>kh</em>, <em>psi=1.5707963267948966</em>, <em>delta_ad=0.0</em>, <em>beta=0.0</em>, <em>Kas=None</em>, <em>g=9.81</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.frictional_soil.FrictionalSoil.getMononobeOkabeDryOverpressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overpressure due to seismic action according to Mononobe-Okabe</p>
+<p>Args:
+:H: height of the structure.
+:kv: seismic coefficient of vertical acceleration.
+:kh: seismic coefficient of horizontal acceleration.
+:psi: back face inclination of the structure (&lt; PI/2)
+:beta: slope inclination of backfill.
+:delta_ad: angle of friction soil - structure.
+:Kas: static earth pressure coefficient</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-geotechnics.earth_pressure">
+<span id="earth-pressure"></span><h2>Earth pressure<a class="headerlink" href="#module-geotechnics.earth_pressure" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="geotechnics.earth_pressure.RankineSoil">
+<em class="property">class </em><code class="descclassname">geotechnics.earth_pressure.</code><code class="descname">RankineSoil</code><span class="sig-paren">(</span><em>phi</em>, <em>beta=0.0</em>, <em>rho=2100.0</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.earth_pressure.RankineSoil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#geotechnics.frictional_soil.FrictionalSoil" title="geotechnics.frictional_soil.FrictionalSoil"><code class="xref py py-class docutils literal"><span class="pre">geotechnics.frictional_soil.FrictionalSoil</span></code></a></p>
+<p>From Wikipedia: Rankine’s theory, developed in 1857, is a stress field solution that predicts active and passive earth pressure. It assumes that the soil is cohesionless, the wall is frictionless, the soil-wall interface is vertical, the failure surface on which the soil moves is planar, and the resultant force is angled parallel to the backfill surface. The equations for active and passive lateral earth pressure coefficients are given below. Note that φ is the angle of shearing resistance of the soil and the backfill is inclined at angle β to the horizontal.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="../preprocessor/python_modules/materials.aci.html#materials.aci.ACI_limit_state_checking.ShearPlane.phi" title="materials.aci.ACI_limit_state_checking.ShearPlane.phi"><strong>phi</strong></a> – internal friction angle of the soil</li>
+<li><a class="reference internal" href="../miscellany/roughCalcGenTopics.html#rough_calculations.masonry_vault.FillingCharacteristics.beta" title="rough_calculations.masonry_vault.FillingCharacteristics.beta"><strong>beta</strong></a> – angle of backfill with horizontal</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="geotechnics.earth_pressure.RankineSoil.Ka">
+<code class="descname">Ka</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.earth_pressure.RankineSoil.Ka" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns Rankine’s active earth pressure coefficient.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="geotechnics.earth_pressure.RankineSoil.Kp">
+<code class="descname">Kp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.earth_pressure.RankineSoil.Kp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns Rankine’s passive earth pressure coefficient.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="geotechnics.earth_pressure.eq_coulomb">
+<code class="descclassname">geotechnics.earth_pressure.</code><code class="descname">eq_coulomb</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>fi</em>, <em>d</em>, <em>p</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.earth_pressure.eq_coulomb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the lateral earth pressure caused by a uniform load q
+action over the backfill surface according to Coulomb’s theory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>a</strong> – angle of the back of the retaining wall (radians).</li>
+<li><strong>b</strong> – slope of the backfill (radians).</li>
+<li><strong>fi</strong> – internal friction angle of the soil (radians).</li>
+<li><strong>d</strong> – friction angle between soil an back of retaining wall (radians).</li>
+<li><strong>q</strong> – Uniform load.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="geotechnics.earth_pressure.eql_coulomb">
+<code class="descclassname">geotechnics.earth_pressure.</code><code class="descname">eql_coulomb</code><span class="sig-paren">(</span><em>x</em>, <em>H</em>, <em>z</em>, <em>ql</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.earth_pressure.eql_coulomb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the earth pressure due to a linear load ql acting on a line
+parallel to the top of the wall on the surface of the retained backfill.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> – Distance from the top of the back and the linea where the load is applied.</li>
+<li><strong>H</strong> – Depth of the bottom end of the wall back.</li>
+<li><strong>z</strong> – depth of the point for which the pressure is computed.</li>
+<li><strong>l</strong> – value of the linear load.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="geotechnics.earth_pressure.eqp_coulomb">
+<code class="descclassname">geotechnics.earth_pressure.</code><code class="descname">eqp_coulomb</code><span class="sig-paren">(</span><em>x</em>, <em>H</em>, <em>z</em>, <em>qp</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.earth_pressure.eqp_coulomb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the earth pressure resulting from a vertical point load qp
+acting behind a retaining wall and is contained in the same vertical
+plane of the wall section.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> – Distance from the top of the trasdós to the point of application 
+of the load.</li>
+<li><strong>H</strong> – Profundidad del extremo inferior del trasdós.</li>
+<li><strong>z</strong> – depth of the point for which the pressure is computed.</li>
+<li><strong>qp</strong> – punctual load</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="geotechnics.earth_pressure.k_janssen">
+<code class="descclassname">geotechnics.earth_pressure.</code><code class="descname">k_janssen</code><span class="sig-paren">(</span><em>k</em>, <em>d</em>, <em>B</em>, <em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.earth_pressure.k_janssen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lateral earth pressure coefficient for limited backfills according
+to Janssen’s Theory (1895) and Kniss et Al (2007):</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>k</strong> – lateral earth pressure (usually k= K_0).</li>
+<li><strong>d</strong> – friction angle between soil an back of retaining wall (radians).</li>
+<li><strong>B</strong> – width of the backfill (radians).</li>
+<li><strong>z</strong> – depth from top of wall.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="geotechnics.earth_pressure.ka_coulomb">
+<code class="descclassname">geotechnics.earth_pressure.</code><code class="descname">ka_coulomb</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>fi</em>, <em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.earth_pressure.ka_coulomb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the active earth pressure coefficient according to Coulomb theory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>a</strong> – angle of the back of the retaining wall (radians).</li>
+<li><strong>b</strong> – slope of the backfill (radians).</li>
+<li><strong>fi</strong> – internal friction angle of the soil (radians).</li>
+<li><strong>d</strong> – friction angle between soil an back of retaining wall (radians).See Jiménez Salas, Geotecnia y Cimientos page 682.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="geotechnics.earth_pressure.kah_coulomb">
+<code class="descclassname">geotechnics.earth_pressure.</code><code class="descname">kah_coulomb</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>fi</em>, <em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.earth_pressure.kah_coulomb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the horizontal component of the active earth pressure coefficient
+according to Coulomb’s theory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>a</strong> – angle of the back of the retaining wall (radians).</li>
+<li><strong>b</strong> – slope of the backfill (radians).</li>
+<li><strong>fi</strong> – internal friction angle of the soil (radians).</li>
+<li><strong>d</strong> – friction angle between soil an back of retaining wall (radians).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="geotechnics.earth_pressure.kav_coulomb">
+<code class="descclassname">geotechnics.earth_pressure.</code><code class="descname">kav_coulomb</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>fi</em>, <em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.earth_pressure.kav_coulomb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the vertical component of the active earth pressure coefficient
+according to Coulomb’s theory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>a</strong> – angle of the back of the retaining wall (radians).</li>
+<li><strong>b</strong> – slope of the backfill (radians).</li>
+<li><strong>fi</strong> – internal friction angle of the soil (radians).</li>
+<li><strong>d</strong> – friction angle between soil an back of retaining wall (radians).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="geotechnics.earth_pressure.kp_coulomb">
+<code class="descclassname">geotechnics.earth_pressure.</code><code class="descname">kp_coulomb</code><span class="sig-paren">(</span><em>a</em>, <em>b</em>, <em>fi</em>, <em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.earth_pressure.kp_coulomb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the passive earth pressure coefficient according to Coulomb’s theory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>a</strong> – angle of the back of the retaining wall (radians).</li>
+<li><strong>b</strong> – slope of the backfill (radians).</li>
+<li><strong>fi</strong> – internal friction angle of the soil (radians).</li>
+<li><strong>d</strong> – friction angle between soil an back of retaining wall (radians).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-geotechnics.mononobe_okabe">
+<span id="mononobe-okabe"></span><h2>Mononobe okabe<a class="headerlink" href="#module-geotechnics.mononobe_okabe" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geotechnics.mononobe_okabe.active_earth_pressure_coefficient_Kad">
+<code class="descclassname">geotechnics.mononobe_okabe.</code><code class="descname">active_earth_pressure_coefficient_Kad</code><span class="sig-paren">(</span><em>psi</em>, <em>phi</em>, <em>theta</em>, <em>delta_ad</em>, <em>beta</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.mononobe_okabe.active_earth_pressure_coefficient_Kad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the active earth pressure coefficient according
+to Mononobe-Okabe.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>psi</strong> – back face inclination of the structure (&lt; PI/2)ç</li>
+<li><strong>phi</strong> – angle of internal friction of soil.</li>
+<li><strong>theta</strong> – angle of weight with vertical:
+- kv= seismic coefficient of vertical acceleration.
+- kh= seismic coefficient of horizontal acceleration.
+- tan(theta)= kh/(1+kv) AND tan(theta)= kh/(1-kv)</li>
+<li><strong>delta_ad</strong> – angle of friction soil - structure.</li>
+<li><strong>beta</strong> – slope inclination of terrain.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="geotechnics.mononobe_okabe.overpressure_dry">
+<code class="descclassname">geotechnics.mononobe_okabe.</code><code class="descname">overpressure_dry</code><span class="sig-paren">(</span><em>H</em>, <em>gamma_soil</em>, <em>kv</em>, <em>kh</em>, <em>psi</em>, <em>phi</em>, <em>delta_ad</em>, <em>beta</em>, <em>Kas</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.mononobe_okabe.overpressure_dry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overpressure due to seismic action according to Mononobe-Okabe</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>H</strong> – height of the structure.</li>
+<li><strong>gamma_soil</strong> – unit weight of soil (backfill)</li>
+<li><strong>kv</strong> – seismic coefficient of vertical acceleration.</li>
+<li><strong>kh</strong> – seismic coefficient of horizontal acceleration.</li>
+<li><strong>psi</strong> – back face inclination of the structure (&lt;= PI/2)</li>
+<li><strong>phi</strong> – angle of internal friction of soil.</li>
+<li><strong>delta_ad</strong> – angle of friction soil - structure.</li>
+<li><strong>beta</strong> – slope inclination of backfill.</li>
+<li><strong>Kas</strong> – static earth pressure coefficient</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-geotechnics.settlement">
+<span id="settlement"></span><h2>Settlement<a class="headerlink" href="#module-geotechnics.settlement" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="geotechnics.settlement.average_stress_increment_under_concentrated_load">
+<code class="descclassname">geotechnics.settlement.</code><code class="descname">average_stress_increment_under_concentrated_load</code><span class="sig-paren">(</span><em>P</em>, <em>x</em>, <em>y</em>, <em>z1</em>, <em>z2</em>, <em>zInc=0.2</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.settlement.average_stress_increment_under_concentrated_load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the average increment in the vertical stress of a the points
+between z1 and z2.</p>
+<p>Parameters:
+:param P: value of the load.
+:param x: x-coordinate of the point relative to the loaded point.
+:param y: y-coordinate of the point relative to the loaded point.
+:param z1: upper limit of the z-coordinate.
+:param z2: lower limit of the z-coordinate.
+:param zInc: size of the discretization.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geotechnics.settlement.average_stress_increment_under_rectangular_loaded_area">
+<code class="descclassname">geotechnics.settlement.</code><code class="descname">average_stress_increment_under_rectangular_loaded_area</code><span class="sig-paren">(</span><em>q</em>, <em>B</em>, <em>L</em>, <em>x</em>, <em>y</em>, <em>z1</em>, <em>z2</em>, <em>eSize=0.1</em>, <em>zInc=0.2</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.settlement.average_stress_increment_under_rectangular_loaded_area" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the average increment in the vertical stress of the
+points between z1 and z2 inside an homogeneous and elastic soil 
+due to a load distributed on a rectangular area.</p>
+<p>Parameters:
+:param q: pressure on the loaded area.
+:param B: dimension of the rectangular area in direction x.
+:param L: dimension of the rectangular area in direction y.
+:param x: x-coordinate of the point relative to the rectangle center.
+:param y: y-coordinate of the point relative to the rectangle center.
+:param z: z-coordinate of the point relative to the rectangle center.
+:param z1: upper limit of the z-coordinate.
+:param z2: lower limit of the z-coordinate.
+:param zInc: size of the discretization.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geotechnics.settlement.stress_increment_under_concentrated_load">
+<code class="descclassname">geotechnics.settlement.</code><code class="descname">stress_increment_under_concentrated_load</code><span class="sig-paren">(</span><em>P</em>, <em>x</em>, <em>y</em>, <em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.settlement.stress_increment_under_concentrated_load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the increment in the vertical stress of a point inside an
+homogeneous and elastic soil due to a load on the surface.</p>
+<p>Parameters:
+:param P: value of the load.
+:param x: x-coordinate of the point relative to the loaded point.
+:param y: y-coordinate of the point relative to the loaded point.
+:param z: z-coordinate of the point relative to the loaded point.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="geotechnics.settlement.stress_increment_under_rectangular_loaded_area">
+<code class="descclassname">geotechnics.settlement.</code><code class="descname">stress_increment_under_rectangular_loaded_area</code><span class="sig-paren">(</span><em>q</em>, <em>B</em>, <em>L</em>, <em>x</em>, <em>y</em>, <em>z</em>, <em>eSize=0.1</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.settlement.stress_increment_under_rectangular_loaded_area" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the increment in the vertical stress of a point inside an
+homogeneous and elastic soil due to a load distributed on
+a rectangular area.</p>
+<p>Parameters:
+:param q: pressure on the loaded area.
+:param B: dimension of the rectangular area in direction x.
+:param L: dimension of the rectangular area in direction y.
+:param eSize: length of the side for the discretization.
+:param x: x-coordinate of the point relative to the rectangle center.
+:param y: y-coordinate of the point relative to the rectangle center.
+:param z: z-coordinate of the point relative to the rectangle center.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Geotechnic utils</a><ul>
+<li><a class="reference internal" href="#module-geotechnics.frictional_cohesional_soil">Soil with friction and cohesion</a></li>
+<li><a class="reference internal" href="#module-geotechnics.frictional_soil">Frictional soil</a></li>
+<li><a class="reference internal" href="#module-geotechnics.earth_pressure">Earth pressure</a></li>
+<li><a class="reference internal" href="#module-geotechnics.mononobe_okabe">Mononobe okabe</a></li>
+<li><a class="reference internal" href="#module-geotechnics.settlement">Settlement</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../miscellany/roughCalcGenTopics.html"
+                        title="previous chapter">Arch bridge base</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../miscellany/misc.html"
+                        title="next chapter">Utils</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/xc_utils/geotechnics.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../miscellany/misc.html" title="Utils"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../miscellany/roughCalcGenTopics.html" title="Arch bridge base"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">XC 3.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+    </div>
+  </body>
+</html>

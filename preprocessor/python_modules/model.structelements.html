@@ -112,59 +112,252 @@ n+1.
 </dd></dl>
 
 </div>
-<div class="section" id="module-model.geometry.tensegrity">
-<span id="trusses"></span><h2>Trusses<a class="headerlink" href="#module-model.geometry.tensegrity" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-model.geometry.truss_generators">
+<span id="trusses"></span><h2>Trusses<a class="headerlink" href="#module-model.geometry.truss_generators" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt>
-<em class="property">class </em><code class="descclassname">model.geometry.tensegrity.</code><code class="descname">tensegrityPrism</code><span class="sig-paren">(</span><em>nSidPol</em>, <em>RbaseC</em>, <em>RtopC</em>, <em>Hprism=0</em>, <em>Lstruts=0</em><span class="sig-paren">)</span></dt>
+<dt id="model.geometry.truss_generators.FanTruss">
+<em class="property">class </em><code class="descclassname">model.geometry.truss_generators.</code><code class="descname">FanTruss</code><span class="sig-paren">(</span><em>lowerChordAxis</em>, <em>upperChordAxis</em>, <em>trussModule</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.FanTruss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#model.geometry.truss_generators.WarrenTruss" title="model.geometry.truss_generators.WarrenTruss"><code class="xref py py-class docutils literal"><span class="pre">model.geometry.truss_generators.WarrenTruss</span></code></a></p>
+<p>Fan truss.</p>
+<dl class="method">
+<dt id="model.geometry.truss_generators.FanTruss.computeJointPositions">
+<code class="descname">computeJointPositions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.FanTruss.computeJointPositions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the positions of the truss joints.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.truss_generators.FanTruss.createDiagonalsGeometry">
+<code class="descname">createDiagonalsGeometry</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.FanTruss.createDiagonalsGeometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the geometry of the truss diagonals.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.truss_generators.FanTruss.createPostsGeometry">
+<code class="descname">createPostsGeometry</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.FanTruss.createPostsGeometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the geometry of the Truss.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="model.geometry.truss_generators.TrussBase">
+<em class="property">class </em><code class="descclassname">model.geometry.truss_generators.</code><code class="descname">TrussBase</code><span class="sig-paren">(</span><em>lowerChordAxis</em>, <em>upperChordAxis</em>, <em>trussModule</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.TrussBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#model.geometry.truss_generators.TrussGeometry" title="model.geometry.truss_generators.TrussGeometry"><code class="xref py py-class docutils literal"><span class="pre">model.geometry.truss_generators.TrussGeometry</span></code></a></p>
+<p>Base class for truss generators.</p>
+<dl class="method">
+<dt id="model.geometry.truss_generators.TrussBase.createChordsGeometry">
+<code class="descname">createChordsGeometry</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.TrussBase.createChordsGeometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the geometry of the truss chords.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.truss_generators.TrussBase.createCoordTransformation">
+<code class="descname">createCoordTransformation</code><span class="sig-paren">(</span><em>coordTransfType='linear'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.TrussBase.createCoordTransformation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a coordinate transformation for the truss elements.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.truss_generators.TrussBase.createGeometry">
+<code class="descname">createGeometry</code><span class="sig-paren">(</span><em>feProblem</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.TrussBase.createGeometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the geometry of the Truss.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.truss_generators.TrussBase.createKeyPoints">
+<code class="descname">createKeyPoints</code><span class="sig-paren">(</span><em>feProblem</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.TrussBase.createKeyPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the key points for the Truss.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.truss_generators.TrussBase.createSelfWeightLoads">
+<code class="descname">createSelfWeightLoads</code><span class="sig-paren">(</span><em>grav</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.TrussBase.createSelfWeightLoads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the self weight loads for the
+elements of the truss.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>rho</strong> – material density</li>
+<li><strong>grav</strong> – gravity acceleration (vector).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.truss_generators.TrussBase.createSets">
+<code class="descname">createSets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.TrussBase.createSets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the sets for the truss.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.truss_generators.TrussBase.fillDownwards">
+<code class="descname">fillDownwards</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.TrussBase.fillDownwards" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the sets of the truss.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.truss_generators.TrussBase.genMesh">
+<code class="descname">genMesh</code><span class="sig-paren">(</span><em>feProblem</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.TrussBase.genMesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the elements.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="model.geometry.truss_generators.TrussGeometry">
+<em class="property">class </em><code class="descclassname">model.geometry.truss_generators.</code><code class="descname">TrussGeometry</code><span class="sig-paren">(</span><em>lowerChordAxis</em>, <em>upperChordAxis</em>, <em>trussModule</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.TrussGeometry" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
-<p>This class is aimed at constructing the model of a rotationally symetric     tensegrity prism with n-polygons on two parallel planes, twisted over angle 
-alfa with respect to each other. The twist angle is obtained by the 
-theorem of Tobie and Kenner as: alfa=pi/2-pi/n.
-The origin of the cartesian coordinate system is placed at the center of 
-the base circle, with the z-axis in the axis of the cylinder and joint 
-n+1.</p>
+<p>Base class for truss overall geometry.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>nSidPol</strong> – number of sides of the regular n-polygon</li>
-<li><strong>RbaseC</strong> – radius of the base circle circunscribing the n-polygon</li>
-<li><strong>RtopC</strong> – radius of the top circle circunscribing the n-polygon</li>
-<li><strong>Hprism</strong> – heigth of the prism (defaults to 0, change its value only if we want to fix 
-the height of the prism, otherwise Hprism is calculated as a function of the
-given length of the struts)</li>
-<li><strong>Lstruts</strong> – length of the stuts (defaults to 0, only change this value if we want to 
-fix the length of the struts and calculate the height of the prism as a 
-function of Lstruts)</li>
-<li><a class="reference internal" href="../../miscellany/roughCalcGenTopics.html#rough_calculations.masonry_vault.FillingCharacteristics.alpha" title="rough_calculations.masonry_vault.FillingCharacteristics.alpha"><strong>alpha</strong></a> – twist angle</li>
+<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.longitudinal_profile.GuitarString.name" title="geom_utils.longitudinal_profile.GuitarString.name"><strong>name</strong></a> – name of the truss (automatically assigned).</li>
+<li><strong>lowerChordAxis</strong> – axis of the lower chord.</li>
+<li><strong>upperChordAxis</strong> – axis of the upper chord.</li>
+<li><strong>moduleWidth</strong> – width of each truss</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
-<dt>
-<code class="descname">genJointsCoor</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>return the cart. coord. of the joinst of a rotationally symetric  
-tensegrity prism with n-polygons on two parallel planes, twisted over angle 
-alfa with respect to each other. The twist angle is obtained by the 
-theorem of Tobie and Kenner as: alfa=pi/2-pi/n.
-The origin of the cartesian coordinate system is placed at the center of 
-the base circle, with the z-axis in the axis of the cylinder and joint 
-n+1.
-‘jt’ corresponds to joints in the top circle
-‘jb’ corresponds to joints in the base circle</p>
+<dt id="model.geometry.truss_generators.TrussGeometry.fixNodes">
+<code class="descname">fixNodes</code><span class="sig-paren">(</span><em>modelSpace</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.TrussGeometry.fixNodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fix the supported nodes.</p>
 </dd></dl>
 
 <dl class="method">
-<dt>
-<code class="descname">genLineLinkedJoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
-<dd><p>Return the joints id linked by each line (strut or cable)
-‘strut’ corresponds to compression bars
-‘sadd’ corresponds to saddle strings (cables forming the n-polygons)
-‘diag’ corresponds to diagonal strings</p>
+<dt id="model.geometry.truss_generators.TrussGeometry.getDeflection">
+<code class="descname">getDeflection</code><span class="sig-paren">(</span><em>axis=2</em>, <em>globalCreepFactor=1.5</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.TrussGeometry.getDeflection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the deflection of the truss</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>axis</strong> – axis for the deflection displacement.</li>
+<li><strong>globalCreepFactor</strong> – creep factor.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.truss_generators.TrussGeometry.getLowerChordBackEndPoint">
+<code class="descname">getLowerChordBackEndPoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.TrussGeometry.getLowerChordBackEndPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the back end of the lower chord.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.truss_generators.TrussGeometry.getLowerChordDirection">
+<code class="descname">getLowerChordDirection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.TrussGeometry.getLowerChordDirection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.truss_generators.TrussGeometry.getLowerChordFrontEndPoint">
+<code class="descname">getLowerChordFrontEndPoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.TrussGeometry.getLowerChordFrontEndPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the front end of the lower chord.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.truss_generators.TrussGeometry.getNormalVector">
+<code class="descname">getNormalVector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.TrussGeometry.getNormalVector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a vector normal to the truss plane.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.truss_generators.TrussGeometry.getReactions">
+<code class="descname">getReactions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.TrussGeometry.getReactions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.truss_generators.TrussGeometry.getUpDirection">
+<code class="descname">getUpDirection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.TrussGeometry.getUpDirection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.truss_generators.TrussGeometry.getUpperChordBackEndPoint">
+<code class="descname">getUpperChordBackEndPoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.TrussGeometry.getUpperChordBackEndPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the back end of the upper chord.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.truss_generators.TrussGeometry.getUpperChordDirection">
+<code class="descname">getUpperChordDirection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.TrussGeometry.getUpperChordDirection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.truss_generators.TrussGeometry.getUpperChordFrontEndPoint">
+<code class="descname">getUpperChordFrontEndPoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.TrussGeometry.getUpperChordFrontEndPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the front end of the upper chord.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.truss_generators.TrussGeometry.populateChords">
+<code class="descname">populateChords</code><span class="sig-paren">(</span><em>lowerChordX</em>, <em>upperChordX</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.TrussGeometry.populateChords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the positions along the chords.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.truss_generators.TrussGeometry.span">
+<code class="descname">span</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.TrussGeometry.span" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the span of the truss.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="model.geometry.truss_generators.WarrenTruss">
+<em class="property">class </em><code class="descclassname">model.geometry.truss_generators.</code><code class="descname">WarrenTruss</code><span class="sig-paren">(</span><em>lowerChordAxis</em>, <em>upperChordAxis</em>, <em>trussModule</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.WarrenTruss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#model.geometry.truss_generators.TrussBase" title="model.geometry.truss_generators.TrussBase"><code class="xref py py-class docutils literal"><span class="pre">model.geometry.truss_generators.TrussBase</span></code></a></p>
+<p>Warren truss.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lowerChordJointsPos</strong> – (list) truss lower chord joint positions.</li>
+<li><strong>upperChordJointsPos</strong> – (list) truss upper chord joint positions</li>
+<li><strong>lowerChordPoints</strong> – (list) truss lower chord key points.</li>
+<li><strong>upperChordPoints</strong> – (list) truss upper chord key points.</li>
+<li><strong>lowerChordLines</strong> – (list) truss lower chord lines.</li>
+<li><strong>upperChordLines</strong> – (list) truss upper chord lines.</li>
+<li><strong>diagonalLines</strong> – (list) truss diagonals.</li>
+<li><strong>posts</strong> – (list) vertical lines at the ends of the truss.</li>
+<li><strong>lowerChordMaterial</strong> – material for the lower chord elements.</li>
+<li><strong>upperChordMaterial</strong> – material for the upper chord elements.</li>
+<li><strong>diagonalLines</strong> – material for the diagonals.</li>
+<li><strong>diagonalArea</strong> – area of the diagonals cross-section.</li>
+<li><strong>postsMaterial</strong> – material for the posts.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="model.geometry.truss_generators.WarrenTruss.computeJointPositions">
+<code class="descname">computeJointPositions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.WarrenTruss.computeJointPositions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the positions of the truss joints.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.truss_generators.WarrenTruss.createDiagonalsGeometry">
+<code class="descname">createDiagonalsGeometry</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.WarrenTruss.createDiagonalsGeometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the geometry of the truss diagonals.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.truss_generators.WarrenTruss.createPostsGeometry">
+<code class="descname">createPostsGeometry</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.truss_generators.WarrenTruss.createPostsGeometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the geometry of the truss posts.</p>
 </dd></dl>
 
 </dd></dl>
@@ -182,7 +375,7 @@ n+1.
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../cpp_classes/domain/mesh/element/utils/coordTransformation/coordTransformation.html#xc.CrdTransf.name" title="xc.CrdTransf.name"><strong>name</strong></a> – (string) Identifier.</li>
+<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.longitudinal_profile.GuitarString.name" title="geom_utils.longitudinal_profile.GuitarString.name"><strong>name</strong></a> – (string) Identifier.</li>
 <li><strong>stemHeight</strong> – (float) Height of the stem.</li>
 <li><strong>stemBottomWidth</strong> – (float) Stem width at his contact with the footing.</li>
 <li><strong>stemTopWidth</strong> – (float) Stem width at his top.</li>
@@ -316,7 +509,7 @@ Args:</p>
   <ul>
 <li><a class="reference internal" href="#">Structural elements</a><ul>
 <li><a class="reference internal" href="#module-model.geometry.tensegrity">Tensegrity</a></li>
-<li><a class="reference internal" href="#module-model.geometry.tensegrity">Trusses</a></li>
+<li><a class="reference internal" href="#module-model.geometry.truss_generators">Trusses</a></li>
 <li><a class="reference internal" href="#module-model.geometry.retaining_wall_geometry">Retaining wall geometry</a></li>
 </ul>
 </li>

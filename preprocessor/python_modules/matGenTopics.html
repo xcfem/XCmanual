@@ -147,7 +147,7 @@ shear modulus and mass density of the material</li>
 <li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – name identifying the material</li>
 <li><a class="reference internal" href="materials.awcnds.html#materials.awc_nds.AWCNDS_materials.LSL_155E.E" title="materials.awc_nds.AWCNDS_materials.LSL_155E.E"><strong>E</strong></a> – Young’s modulus of the material</li>
 <li><a class="reference internal" href="materials.awcnds.html#materials.awc_nds.dimensional_lumber.SprucePineFirWood.nu" title="materials.awc_nds.dimensional_lumber.SprucePineFirWood.nu"><strong>nu</strong></a> – Poisson’s ratio</li>
-<li><a class="reference internal" href="materials.awcnds.html#materials.awc_nds.AWCNDS_materials.PlywoodPanel.rho" title="materials.awc_nds.AWCNDS_materials.PlywoodPanel.rho"><strong>rho</strong></a> – mass density</li>
+<li><a class="reference internal" href="materials.awcnds.html#materials.awc_nds.AWCNDS_materials.OSBPanel.rho" title="materials.awc_nds.AWCNDS_materials.OSBPanel.rho"><strong>rho</strong></a> – mass density</li>
 <li><strong>xc_material</strong> – pointer to XC material.</li>
 </ul>
 </td>
@@ -2059,7 +2059,7 @@ tension stiffening properties of concrete and the cracking distance.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="materials.awcnds.html#materials.awc_nds.AWCNDS_materials.PlywoodPanel.rho" title="materials.awc_nds.AWCNDS_materials.PlywoodPanel.rho"><strong>rho</strong></a> – material density</li>
+<li><a class="reference internal" href="materials.awcnds.html#materials.awc_nds.AWCNDS_materials.OSBPanel.rho" title="materials.awc_nds.AWCNDS_materials.OSBPanel.rho"><strong>rho</strong></a> – material density</li>
 <li><a class="reference internal" href="../cpp_classes/material/uniaxial/steel/steel.html#xc.SteelBaseMaterial.fy" title="xc.SteelBaseMaterial.fy"><strong>fy</strong></a> – Yield stress.</li>
 <li><strong>fu</strong> – ultimate stress.</li>
 <li><strong>gammaM</strong> – partial factor for cross-section resistance.</li>
@@ -2173,22 +2173,22 @@ that are approximately equal to those of the real bearing.</p>
 <dt id="materials.bridge_bearings.Bearing.setBearing">
 <code class="descname">setBearing</code><span class="sig-paren">(</span><em>predefinedSpace</em>, <em>iNodA</em>, <em>orientation=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.Bearing.setBearing" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modelize a bearing on X, XY or XYZ directions.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>predefinedSpace: model space (object).
-iNod: (int) node identifier (tag).
-bearingMaterials (list): material names for the zero length element.</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">(int, int) new node tag, new element tag.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>predefinedSpace</strong> – model space (object).</li>
+<li><strong>iNod</strong> – (int) node identifier (tag).</li>
+<li><strong>(</strong><strong>list</strong><strong>)</strong> (<em>bearingMaterials</em>) – material names for the zero length element.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return rtype:</th><td class="field-body"><p class="first last">(int, int) new node tag, new element tag.</p>
+</td>
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="method">
@@ -2251,18 +2251,14 @@ e: (float) Net thickness of the bearing (without steel plates).</div></blockquot
 <dt id="materials.bridge_bearings.ElastomericBearing.defineMaterials">
 <code class="descname">defineMaterials</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.defineMaterials" title="Permalink to this definition">¶</a></dt>
 <dd><p>Define the materials to modelize the elastomeric bearing.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">preprocessor:</th><td class="field-body">(:obj:’Preprocessor’) preprocessor to use.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – (:obj:’Preprocessor’) preprocessor to use.</td>
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="method">
@@ -2332,12 +2328,9 @@ parallel to the lintel by the center of the bearing.</p>
 <dt id="materials.bridge_bearings.ElastomericBearing.putBetweenNodes">
 <code class="descname">putBetweenNodes</code><span class="sig-paren">(</span><em>modelSpace</em>, <em>iNodA</em>, <em>iNodB</em>, <em>orientation=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.putBetweenNodes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Puts the bearing between the nodes.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd>modelSpace (:obj:’PredefinedSpace’): space dimension and number of DOFs.
-iNodA (int): first node identifier (tag).
-iNodB (int): second node identifier (tag).</dd>
-</dl>
+<p>:param modelSpace (:obj:’PredefinedSpace’): space dimension and number of DOFs.
+:param iNodA (int): first node identifier (tag).
+:param iNodB (int): second node identifier (tag).</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -2418,22 +2411,19 @@ iNodB (int): second node identifier (tag).</dd>
 <dt id="materials.bridge_bearings.PTFEPotBearing.defineMaterials">
 <code class="descname">defineMaterials</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.PTFEPotBearing.defineMaterials" title="Permalink to this definition">¶</a></dt>
 <dd><p>Define the materials to modelize the pot (Teflon).</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">preprocessor:</th><td class="field-body">(:obj:’Preprocessor’) preprocessor to use.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">matKX:</th><td class="field-body">(str) name for the uniaxial material in direction X.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">matKY:</th><td class="field-body">(str) name for the uniaxial material in direction Y.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – (:obj:’Preprocessor’) preprocessor to use.</li>
+<li><strong>matKX</strong> – (str) name for the uniaxial material in direction X.</li>
+<li><strong>matKY</strong> – (str) name for the uniaxial material in direction Y.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="method">
@@ -2450,69 +2440,57 @@ mov= 20e-3 Displacement when the friction force is reached.</p>
 <dt id="materials.bridge_bearings.PTFEPotBearing.putBetweenNodes">
 <code class="descname">putBetweenNodes</code><span class="sig-paren">(</span><em>modelSpace</em>, <em>iNodA</em>, <em>iNodB</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.PTFEPotBearing.putBetweenNodes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Puts the bearing between the nodes.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">modelSpace:</th><td class="field-body">(:obj:’PredefinedSpace’) space dimension and number
-of DOFs.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">iNodA:</th><td class="field-body">(int) first node identifier (tag).</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">iNodB:</th><td class="field-body">(int) second node identifier (tag).</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>modelSpace</strong> – (:obj:’PredefinedSpace’) space dimension and number of DOFs.</li>
+<li><strong>iNodA</strong> – (int) first node identifier (tag).</li>
+<li><strong>iNodB</strong> – (int) second node identifier (tag).</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.bridge_bearings.PTFEPotBearing.putOnXBetweenNodes">
 <code class="descname">putOnXBetweenNodes</code><span class="sig-paren">(</span><em>modelSpace</em>, <em>iNodA</em>, <em>iNodB</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.PTFEPotBearing.putOnXBetweenNodes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Puts the bearing between the nodes only in direction X.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">modelSpace:</th><td class="field-body">(:obj:’PredefinedSpace’) space dimension and number
-of DOFs.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">iNodA:</th><td class="field-body">(int) first node identifier (tag).</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">iNodB:</th><td class="field-body">(int) second node identifier (tag).</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>modelSpace</strong> – (:obj:’PredefinedSpace’) space dimension and number of DOFs.</li>
+<li><strong>iNodA</strong> – (int) first node identifier (tag).</li>
+<li><strong>iNodB</strong> – (int) second node identifier (tag).</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.bridge_bearings.PTFEPotBearing.putOnYBetweenNodes">
 <code class="descname">putOnYBetweenNodes</code><span class="sig-paren">(</span><em>modelSpace</em>, <em>iNodA</em>, <em>iNodB</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.PTFEPotBearing.putOnYBetweenNodes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Puts the bearing between the nodes only in direction Y.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">modelSpace:</th><td class="field-body">(:obj:’PredefinedSpace’) space dimension and number
-of DOFs.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">iNodA:</th><td class="field-body">(int) first node identifier (tag).</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">iNodB:</th><td class="field-body">(int) second node identifier (tag).</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>modelSpace</strong> – (:obj:’PredefinedSpace’) space dimension and number of DOFs.</li>
+<li><strong>iNodA</strong> – (int) first node identifier (tag).</li>
+<li><strong>iNodB</strong> – (int) second node identifier (tag).</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="attribute">
@@ -2526,22 +2504,19 @@ of DOFs.</td>
 <dt id="materials.bridge_bearings.get_reaction_on_pot">
 <code class="descclassname">materials.bridge_bearings.</code><code class="descname">get_reaction_on_pot</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>iElem</em>, <em>inclInertia=False</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.get_reaction_on_pot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the element reaction.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">preprocessor:</th><td class="field-body">(:obj:’Preprocessor’) preprocessor to use.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">iElem:</th><td class="field-body">(int) new zero length elem identifier (tag).</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">inclInertia:</th><td class="field-body">(bool) true if the reaction must include inertia forces.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – (:obj:’Preprocessor’) preprocessor to use.</li>
+<li><strong>iElem</strong> – (int) new zero length elem identifier (tag).</li>
+<li><strong>inclInertia</strong> – (bool) true if the reaction must include inertia forces.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 </dd></dl>
 
 </div>

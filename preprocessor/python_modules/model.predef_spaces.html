@@ -172,114 +172,83 @@ combination) to the domain.</p>
 <dt id="model.predefined_spaces.PredefinedSpace.setBearing">
 <code class="descname">setBearing</code><span class="sig-paren">(</span><em>iNod</em>, <em>bearingMaterialNames</em>, <em>orientation=None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.setBearing" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modelize a bearing on X, XY or XYZ directions.</p>
-<blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param iNod:</th><td class="field-body"><p class="first">(int) node identifier (tag).</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">param bearingMaterialNames (list):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">(list) material names for the zero 
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>iNod</strong> – (int) node identifier (tag).</li>
+<li><strong>(</strong><strong>list</strong><strong>)</strong> (<em>bearingMaterialNames</em>) – (list) material names for the zero 
 length element [mat1,mat2,mat3,mat4,mat5,mat6], where:
 mat1,mat2,mat3 correspond to translations along local x,y,z 
 axes, respectively,
 mat3,mat4,mat5 correspond to rotation about local x,y,z 
-axes, respectively.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">param orientation:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"><dl class="first docutils">
+axes, respectively.</li>
+<li><strong>orientation</strong> – <dl class="docutils">
 <dt>(list) of two vectors [x,yp] used to orient </dt>
-<dd><p class="first">the zero length element, where: 
-x: are the vector components in global coordinates defining</p>
-<blockquote>
-<div><p>local x-axis (optional)</p>
-</div></blockquote>
-<dl class="last docutils">
+<dd>the zero length element, where: 
+- x: are the vector components in global coordinates defining<blockquote>
+<div>local x-axis (optional)</div></blockquote>
+<ul class="last">
+<li><dl class="first docutils">
 <dt>yp: vector components in global coordinates defining a  vector</dt>
-<dd><p class="first last">that lies in the local x-y plane of the element(optional).</p>
+<dd>that lies in the local x-y plane of the element(optional).</dd>
+</dl>
+</li>
+</ul>
 </dd>
 </dl>
-</dd>
-</dl>
-<p class="last">If the optional orientation vector are not specified, the local
+<p>If the optional orientation vector are not specified, the local
 element axes coincide with the global axes. Otherwise, the local
 z-axis is defined by the cross product between the vectors x 
 and yp specified in the command line.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return rtype:</th><td class="field-body"><p class="first last">(int, int) new node tag, new element tag.</p>
 </td>
 </tr>
 </tbody>
 </table>
-</div></blockquote>
-<dl class="docutils">
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">rtype:</th><td class="field-body">(int, int) new node tag, new element tag.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="model.predefined_spaces.PredefinedSpace.setBearingBetweenNodes">
 <code class="descname">setBearingBetweenNodes</code><span class="sig-paren">(</span><em>iNodA</em>, <em>iNodB</em>, <em>bearingMaterialNames</em>, <em>orientation=None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.setBearingBetweenNodes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modelize a bearing between the nodes</p>
-<blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param iNodA:</th><td class="field-body"><p class="first">(int) first node identifier (tag).</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">param iNodB:</th><td class="field-body"><p class="first">(int) second node identifier (tag).</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">param bearingMaterialNames:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">(list) material names for the zero 
-length element [mat1,mat2,mat3,mat4,mat5,mat6], where:
-mat1,mat2,mat3 correspond to translations along local x,y,z 
-axes, respectively,
-mat3,mat4,mat5 correspond to rotation about local x,y,z 
-axes, respectively.</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">param orientation:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body"><dl class="first docutils">
-<dt>(list) of two vectors [x,yp] used to orient </dt>
-<dd><p class="first">the zero length element, where: 
-x: are the vector components in global coordinates defining</p>
-<blockquote>
-<div><p>local x-axis (optional)</p>
-</div></blockquote>
-<dl class="last docutils">
-<dt>yp: vector components in global coordinates defining a  vector</dt>
-<dd><p class="first last">that lies in the local x-y plane of the element(optional).</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<p class="last">If the optional orientation vector are not specified, the local
-element axes coincide with the global axes. Otherwise, the local
-z-axis is defined by the cross product between the vectors x 
-and yp specified in the command line.</p>
-</td>
-</tr>
-</tbody>
-</table>
-</div></blockquote>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">newly created zero length element that represents the bearing.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>iNodA</strong> – (int) first node identifier (tag).</li>
+<li><strong>iNodB</strong> – (int) second node identifier (tag).</li>
+<li><strong>bearingMaterialNames</strong> – (list) material names for the zero 
+length element [mat1,mat2,mat3,mat4,mat5,mat6], where:
+mat1,mat2,mat3 correspond to translations along local x,y,z 
+axes, respectively,
+mat3,mat4,mat5 correspond to rotation about local x,y,z 
+axes, respectively.</li>
+<li><strong>orientation</strong> – <dl class="docutils">
+<dt>(list) of two vectors [x,yp] used to orient </dt>
+<dd>the zero length element, where: 
+x: are the vector components in global coordinates defining<blockquote>
+<div>local x-axis (optional)</div></blockquote>
+<dl class="last docutils">
+<dt>yp: vector components in global coordinates defining a  vector</dt>
+<dd>that lies in the local x-y plane of the element(optional).</dd>
+</dl>
+</dd>
+</dl>
+<p>If the optional orientation vector are not specified, the local
+element axes coincide with the global axes. Otherwise, the local
+z-axis is defined by the cross product between the vectors x 
+and yp specified in the command line.
+:return: newly created zero length element that represents the bearing.</p>
+</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>

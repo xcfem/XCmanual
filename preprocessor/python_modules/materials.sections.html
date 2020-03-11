@@ -229,7 +229,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.longitudinal_profile.GuitarString.name" title="geom_utils.longitudinal_profile.GuitarString.name"><strong>name</strong></a> – name identifying the section</td>
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – name identifying the section</td>
 </tr>
 </tbody>
 </table>
@@ -293,8 +293,8 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../cpp_classes/material/section/repres/geom_section/reinfBar/reinfBar.html#xc.ReinfBar.area" title="xc.ReinfBar.area"><strong>area</strong></a> – cross-sectional area</li>
-<li><a class="reference internal" href="#materials.sections.section_properties.GenericSection.Iy" title="materials.sections.section_properties.GenericSection.Iy"><strong>Iy</strong></a> – second moment of area about the local y-axis</li>
+<li><a class="reference internal" href="../geom_cpp_classes/d2/d2.html#geom.BND2d.area" title="geom.BND2d.area"><strong>area</strong></a> – cross-sectional area</li>
+<li><a class="reference internal" href="#materials.sections.structural_steel.SteelShape.Iy" title="materials.sections.structural_steel.SteelShape.Iy"><strong>Iy</strong></a> – second moment of area about the local y-axis</li>
 <li><a class="reference internal" href="#materials.sections.section_properties.ISection.Iz" title="materials.sections.section_properties.ISection.Iz"><strong>Iz</strong></a> – second moment of area about the local z-axis</li>
 <li><strong>Jtors</strong> – torsional constant of the section</li>
 <li><strong>Wy</strong> – section modulus with respect to local y-axis</li>
@@ -530,7 +530,7 @@ origin.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><a class="reference internal" href="../../miscellany/roughCalcGenTopics.html#rough_calculations.ng_rc_section.RCSection.b" title="rough_calculations.ng_rc_section.RCSection.b"><strong>b</strong></a> – cross-section width (parallel to local z-axis)</li>
-<li><a class="reference internal" href="#materials.sections.structural_steel.QHShape.h" title="materials.sections.structural_steel.QHShape.h"><strong>h</strong></a> – cross-section depth (parallel to local y-axis)</li>
+<li><a class="reference internal" href="../../miscellany/roughCalcGenTopics.html#rough_calculations.ng_rc_section.RCSection.h" title="rough_calculations.ng_rc_section.RCSection.h"><strong>h</strong></a> – cross-section depth (parallel to local y-axis)</li>
 </ul>
 </td>
 </tr>
@@ -1426,7 +1426,7 @@ in web (table 5.2 EC3-1-1)</p>
 <li><strong>table</strong> – module containing a dictionary with mechanical characteristics
 of a series of shapes 
 (e.g. materials.sections.structural_shapes.arcelor_metric_shapes.IPE)</li>
-<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.longitudinal_profile.GuitarString.name" title="geom_utils.longitudinal_profile.GuitarString.name"><strong>name</strong></a> – name identifying the section in the table</li>
+<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – name identifying the section in the table</li>
 </ul>
 </td>
 </tr>
@@ -1575,27 +1575,24 @@ implemented) (defaults to 1)</td>
 <code class="descname">getBucklingReductionFactorY</code><span class="sig-paren">(</span><em>Leq</em>, <em>bucklingCurve</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getBucklingReductionFactorY" title="Permalink to this definition">¶</a></dt>
 <dd><p>return buckling reduction factor relative to y-axis (weak axis) 
 as defined in EC3-1-1 6.3.1</p>
-<blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param Leq:</th><td class="field-body">buckling length in XZ buckling plane.</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">param bucklingCurve:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">buckling curve (a0,a,b,c or d) according 
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Leq</strong> – buckling length in XZ buckling plane.</li>
+<li><strong>bucklingCurve</strong> – buckling curve (a0,a,b,c or d) according 
 to table 6.2 of EN 1993-1-1:2005 “Selection of buckling 
 curve for a cross-section”. Note that in table 6.2 Y and 
 Z axes are swapped with respect to those used in XC. 
-XC axes: Y-&gt;weak axis, Z-&gt;strong axis.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">param sectionClass:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">class of the section (1 to 3, 4 not yet 
-implemented) (defaults to 1)</td>
+XC axes: Y-&gt;weak axis, Z-&gt;strong axis.</li>
+<li><strong>sectionClass</strong> – class of the section (1 to 3, 4 not yet 
+implemented) (defaults to 1)</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
-</div></blockquote>
 </dd></dl>
 
 <dl class="method">
@@ -1603,27 +1600,24 @@ implemented) (defaults to 1)</td>
 <code class="descname">getBucklingReductionFactorZ</code><span class="sig-paren">(</span><em>Leq</em>, <em>bucklingCurve</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getBucklingReductionFactorZ" title="Permalink to this definition">¶</a></dt>
 <dd><p>return buckling reduction factor lative to z-axis (strong axis) 
 as defined in EC3-1-1 6.3.1</p>
-<blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param Leq:</th><td class="field-body">buckling length in XY buckling plane.</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">param bucklingCurve:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">buckling curve (a0,a,b,c or d) according 
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Leq</strong> – buckling length in XY buckling plane.</li>
+<li><strong>bucklingCurve</strong> – buckling curve (a0,a,b,c or d) according 
 to table 6.2 of EN 1993-1-1:2005 “Selection of buckling 
 curve for a cross-section”. Note that in table 6.2 Y and 
 Z axes are swapped with respect to those used in XC. 
-XC axes: Y-&gt;weak axis, Z-&gt;strong axis.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">param sectionClass:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">class of the section (1 to 3, 4 not yet 
-implemented) (defaults to 1)</td>
+XC axes: Y-&gt;weak axis, Z-&gt;strong axis.</li>
+<li><strong>sectionClass</strong> – class of the section (1 to 3, 4 not yet 
+implemented) (defaults to 1)</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
-</div></blockquote>
 </dd></dl>
 
 <dl class="method">
@@ -1631,34 +1625,28 @@ implemented) (defaults to 1)</td>
 <code class="descname">getBucklingResistance</code><span class="sig-paren">(</span><em>LeqY</em>, <em>LeqZ</em>, <em>bucklingCurveY</em>, <em>bucklingCurveZ</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getBucklingResistance" title="Permalink to this definition">¶</a></dt>
 <dd><p>return minimum of buckling resistance in XY and XZ buckling planes
 calculated according to EC3-1-1 6.3.2</p>
-<blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param LeqY:</th><td class="field-body">buckling length of the member in XZ buckling plane.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">param LeqZ:</th><td class="field-body">buckling length of the member in XY buckling plane.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">param bucklingCurveY:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">buckling curve (a0,a,b,c or d) with respect 
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>LeqY</strong> – buckling length of the member in XZ buckling plane.</li>
+<li><strong>LeqZ</strong> – buckling length of the member in XY buckling plane.</li>
+<li><strong>bucklingCurveY</strong> – buckling curve (a0,a,b,c or d) with respect 
 to y-axis (weak axis) according 
 to table 6.2 of EN 1993-1-1:2005 “Selection of buckling 
 curve for a cross-section”. Note that in table 6.2 Y and 
 Z axes are swapped with respect to those used in XC. 
-XC axes: Y-&gt;weak axis, Z-&gt;strong axis.</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">param bucklingCurveY:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">buckling curve (a0,a,b,c or d) with respect 
-to z-axis (strong axis)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">param sectionClass:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">class of the section (1 to 3, 4 not yet 
-implemented) (defaults to 1)</td>
+XC axes: Y-&gt;weak axis, Z-&gt;strong axis.</li>
+<li><strong>bucklingCurveY</strong> – buckling curve (a0,a,b,c or d) with respect 
+to z-axis (strong axis)</li>
+<li><strong>sectionClass</strong> – class of the section (1 to 3, 4 not yet 
+implemented) (defaults to 1)</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
-</div></blockquote>
 </dd></dl>
 
 <dl class="method">
@@ -1666,27 +1654,23 @@ implemented) (defaults to 1)</td>
 <code class="descname">getBucklingResistanceY</code><span class="sig-paren">(</span><em>Leq</em>, <em>bucklingCurve</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getBucklingResistanceY" title="Permalink to this definition">¶</a></dt>
 <dd><p>return buckling resistance relative to y-axis (weak axis)
 according to EC3-1-1 6.3.2</p>
-<blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param Leq:</th><td class="field-body">buckling length in XZ buckling plane.</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">param bucklingCurve:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">buckling curve (a0,a,b,c or d) according 
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Leq</strong> – buckling length in XZ buckling plane.</li>
+<li><strong>bucklingCurve</strong> – buckling curve (a0,a,b,c or d) according 
 to table 6.2 of EN 1993-1-1:2005 “Selection of buckling 
 curve for a cross-section”. Note that in table 6.2 Y and 
 Z axes are swapped with respect to those used in XC. 
-XC axes: Y-&gt;weak axis, Z-&gt;strong axis.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">param sectionClass:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">class of the section (1 to 3, 4 not yet 
-implemented) (defaults to 1).</td>
+XC axes: Y-&gt;weak axis, Z-&gt;strong axis.</li>
+<li><strong>sectionClass</strong> – class of the section (1 to 3, 4 not yet implemented) (defaults to 1).</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
-</div></blockquote>
 </dd></dl>
 
 <dl class="method">
@@ -1694,27 +1678,24 @@ implemented) (defaults to 1).</td>
 <code class="descname">getBucklingResistanceZ</code><span class="sig-paren">(</span><em>Leq</em>, <em>bucklingCurve</em>, <em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getBucklingResistanceZ" title="Permalink to this definition">¶</a></dt>
 <dd><p>return buckling resistance relative to z-axis (strong axis)
 according to EC3-1-1 6.3.2</p>
-<blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param Leq:</th><td class="field-body">buckling length in XY buckling plane.</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">param bucklingCurve:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">buckling curve (a0,a,b,c or d) according 
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Leq</strong> – buckling length in XY buckling plane.</li>
+<li><strong>bucklingCurve</strong> – buckling curve (a0,a,b,c or d) according 
 to table 6.2 of EN 1993-1-1:2005 “Selection of buckling 
 curve for a cross-section”. Note that in table 6.2 Y and 
 Z axes are swapped with respect to those used in XC. 
-XC axes: Y-&gt;weak axis, Z-&gt;strong axis.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">param sectionClass:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">class of the section (1 to 3, 4 not yet 
-implemented) (defaults to 1).</td>
+XC axes: Y-&gt;weak axis, Z-&gt;strong axis.</li>
+<li><strong>sectionClass</strong> – class of the section (1 to 3, 4 not yet 
+implemented) (defaults to 1).</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
-</div></blockquote>
 </dd></dl>
 
 <dl class="method">

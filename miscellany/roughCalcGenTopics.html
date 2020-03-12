@@ -64,7 +64,7 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../preprocessor/python_modules/materials.structural_shapes.html#materials.sections.structural_shapes.arcelor_metric_shapes.IPNShape.d" title="materials.sections.structural_shapes.arcelor_metric_shapes.IPNShape.d"><strong>d</strong></a> – rise (depth) of the arch at midspan</li>
+<li><a class="reference internal" href="../preprocessor/python_modules/materials.sections.html#materials.sections.structural_steel.IShape.d" title="materials.sections.structural_steel.IShape.d"><strong>d</strong></a> – rise (depth) of the arch at midspan</li>
 <li><strong>L</strong> – horizontal distance between supports</li>
 </ul>
 </td>
@@ -233,26 +233,21 @@ as an approximation for the compressive force in the arch at any location</p>
 <em class="property">class </em><code class="descclassname">rough_calculations.masonry_vault.</code><code class="descname">archGeometry</code><span class="sig-paren">(</span><em>coefPolArch=[0, 0, 0, 0], XRot=[0, 0, 0, 0], arcThick=0, arcSpan=15, arcEffL=4</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.masonry_vault.archGeometry" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Geometric definition of the arc:</p>
-<blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">ivar coefPolArch=[f,j,k,r]:</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Coefficients of polynomial y=fx^4+jx^3+kx^2+rx+u (u=0)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">ivar XRot=[xA,xB,xC,xD]:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">X coordinates of the rotules A,B,C,D [m]</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">ivar arcThick:</th><td class="field-body">arch thickness [m]</td>
-</tr>
-<tr class="field-even field"><th class="field-name">ivar arcSpan:</th><td class="field-body">arch span [m]</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">ivar arcEffL:</th><td class="field-body">effective arch width [m]</td>
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>coefPolArch=</strong><strong>[</strong><strong>f</strong><strong>,</strong><strong>j</strong><strong>,</strong><a class="reference internal" href="../preprocessor/python_modules/matGenTopics.html#materials.concrete_base.ReinforcingSteel.k" title="materials.concrete_base.ReinforcingSteel.k"><strong>k</strong></a><strong>,</strong><a class="reference internal" href="../preprocessor/python_modules/materials.sections.html#materials.sections.structural_steel.UShape.r" title="materials.sections.structural_steel.UShape.r"><strong>r</strong></a><strong>]</strong> – Coefficients of polynomial y=fx^4+jx^3+kx^2+rx+u (u=0)</li>
+<li><strong>XRot=</strong><strong>[</strong><a class="reference internal" href="../preprocessor/python_modules/materials.tm5.html#materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.xA" title="materials.tm5_809_3.tm5_809_3_materials.CMUWallFabric.xA"><strong>xA</strong></a><strong>,</strong><strong>xB</strong><strong>,</strong><strong>xC</strong><strong>,</strong><strong>xD</strong><strong>]</strong> – X coordinates of the rotules A,B,C,D [m]</li>
+<li><strong>arcThick</strong> – arch thickness [m]</li>
+<li><strong>arcSpan</strong> – arch span [m]</li>
+<li><strong>arcEffL</strong> – effective arch width [m]</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
-</div></blockquote>
 <dl class="method">
 <dt id="rough_calculations.masonry_vault.archGeometry.aux1">
 <code class="descname">aux1</code><span class="sig-paren">(</span><em>x1</em>, <em>x0</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.masonry_vault.archGeometry.aux1" title="Permalink to this definition">¶</a></dt>
@@ -702,7 +697,7 @@ as an approximation for the compressive force in the arch at any location</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><strong>sphRadius</strong> – radius of curvature (spherical radius)</li>
-<li><a class="reference internal" href="#rough_calculations.masonry_vault.FillingCharacteristics.alpha" title="rough_calculations.masonry_vault.FillingCharacteristics.alpha"><strong>alpha</strong></a> – angle from the top of the dome to the bottom of the dome
+<li><a class="reference internal" href="#rough_calculations.ng_prestressed_concrete.prestressingWire.alpha" title="rough_calculations.ng_prestressed_concrete.prestressingWire.alpha"><strong>alpha</strong></a> – angle from the top of the dome to the bottom of the dome
 measured along the meridian [radians]</li>
 </ul>
 </td>
@@ -1341,8 +1336,9 @@ Si el esfuerzo de punzonamiento es mayor habrá que:</p>
 <code class="descclassname">rough_calculations.ng_punching_shear.</code><code class="descname">reinforcementPunz</code><span class="sig-paren">(</span><em>Vd</em>, <em>fck</em>, <em>d</em>, <em>a</em>, <em>b</em>, <em>h</em>, <em>fyd</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_punching_shear.reinforcementPunz" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Estimate the punching reinforcement area</dt>
-<dd><p class="first">computed at the critical perimeter defined to occur at 
-d/2 from the column faces (HL.3 números gordos)</p>
+<dd><blockquote class="first">
+<div>computed at the critical perimeter defined to occur at 
+d/2 from the column faces (HL.3 números gordos)</div></blockquote>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2402,7 +2398,7 @@ a load acting on the backfill.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../preprocessor/python_modules/materials.structural_shapes.html#materials.sections.structural_shapes.arcelor_metric_shapes.IPNShape.d" title="materials.sections.structural_shapes.arcelor_metric_shapes.IPNShape.d"><strong>d</strong></a> – rise (depth) of the arch at midspan</li>
+<li><a class="reference internal" href="../preprocessor/python_modules/materials.sections.html#materials.sections.structural_steel.IShape.d" title="materials.sections.structural_steel.IShape.d"><strong>d</strong></a> – rise (depth) of the arch at midspan</li>
 <li><strong>L</strong> – horizontal distance between supports</li>
 </ul>
 </td>
@@ -2944,14 +2940,26 @@ bridgeClass: COI, COII, COIII</p>
 <dl class="function">
 <dt id="rough_calculations.profile_mechanical_prop.Iprofile">
 <code class="descclassname">rough_calculations.profile_mechanical_prop.</code><code class="descname">Iprofile</code><span class="sig-paren">(</span><em>h</em>, <em>b</em>, <em>tw</em>, <em>tf</em>, <em>r</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.profile_mechanical_prop.Iprofile" title="Permalink to this definition">¶</a></dt>
-<dd><p>print mechanical properties of an I-shaped profile
-Z: strong axis
-Y: weak axis
-:param h: height
-:param b: widht
-:param tw: web thickness
-:param tf: flange thickness
-:param r: radius</p>
+<dd><p>print mechanical properties of an I-shaped profile</p>
+<ul class="simple">
+<li>Z: strong axis</li>
+<li>Y: weak axis</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>h</strong> – height</li>
+<li><strong>b</strong> – widht</li>
+<li><strong>tw</strong> – web thickness</li>
+<li><strong>tf</strong> – flange thickness</li>
+<li><strong>r</strong> – radius</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>

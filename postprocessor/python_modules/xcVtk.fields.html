@@ -110,7 +110,7 @@ pushing: true: arrow ends in the point.</p>
 
 <dl class="method">
 <dt id="postprocess.xcVtk.fields.vector_field_data.VectorFieldData.setupGlyph">
-<code class="descname">setupGlyph</code><span class="sig-paren">(</span><em>fUnitConv=1.0</em>, <em>symType=(vtkFiltersSourcesPython.vtkArrowSource)0x7fb2b2d142f0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vector_field_data.VectorFieldData.setupGlyph" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setupGlyph</code><span class="sig-paren">(</span><em>fUnitConv=1.0</em>, <em>symType=(vtkFiltersSourcesPython.vtkArrowSource)0x7fe94e933980</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vector_field_data.VectorFieldData.setupGlyph" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -120,7 +120,7 @@ pushing: true: arrow ends in the point.</p>
 <span id="vector-field"></span><h1>Vector field<a class="headerlink" href="#module-postprocess.xcVtk.fields.vector_field" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="postprocess.xcVtk.fields.vector_field.VectorField">
-<em class="property">class </em><code class="descclassname">postprocess.xcVtk.fields.vector_field.</code><code class="descname">VectorField</code><span class="sig-paren">(</span><em>name</em>, <em>fUnitConv</em>, <em>scaleFactor</em>, <em>showPushing=True</em>, <em>symType=(vtkFiltersSourcesPython.vtkArrowSource)0x7fb2b3311050</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vector_field.VectorField" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">postprocess.xcVtk.fields.vector_field.</code><code class="descname">VectorField</code><span class="sig-paren">(</span><em>name</em>, <em>fUnitConv</em>, <em>scaleFactor</em>, <em>showPushing=True</em>, <em>symType=(vtkFiltersSourcesPython.vtkArrowSource)0x7fe94c54a8a0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vector_field.VectorField" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#postprocess.xcVtk.fields.field_base.FieldBase" title="postprocess.xcVtk.fields.field_base.FieldBase"><code class="xref py py-class docutils literal"><span class="pre">postprocess.xcVtk.fields.field_base.FieldBase</span></code></a></p>
 <p>Vector field defined at points.</p>
 <dl class="method">
@@ -527,21 +527,15 @@ vmax are displayed in red</p>
 <dt id="postprocess.xcVtk.fields.fields.ExtrapolatedProperty.display">
 <code class="descname">display</code><span class="sig-paren">(</span><em>defDisplay</em>, <em>caption=''</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.fields.ExtrapolatedProperty.display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display the field.</p>
-<blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">param fileName:</th><td class="field-body">name of the graphic file to create (if None -&gt; screen window).</td>
-</tr>
-</tbody>
-</table>
-</div></blockquote>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>caption</strong> – text to display in the graphic.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fileName</strong> – name of the graphic file to create (if None -&gt; screen window).</li>
+<li><strong>caption</strong> – text to display in the graphic.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -558,12 +552,18 @@ vmax are displayed in red</p>
 <dt id="postprocess.xcVtk.fields.fields.ExtrapolatedScalarField">
 <em class="property">class </em><code class="descclassname">postprocess.xcVtk.fields.fields.</code><code class="descname">ExtrapolatedScalarField</code><span class="sig-paren">(</span><em>name</em>, <em>functionName</em>, <em>xcSet</em>, <em>component=None</em>, <em>fUnitConv=1.0</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.fields.ExtrapolatedScalarField" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#postprocess.xcVtk.fields.fields.ScalarField" title="postprocess.xcVtk.fields.fields.ScalarField"><code class="xref py py-class docutils literal"><span class="pre">postprocess.xcVtk.fields.fields.ScalarField</span></code></a></p>
-<p>Scalar field defined at nodes.
-:ivar rgMinMax: range (vmin,vmax) with the maximum and minimum values</p>
-<blockquote>
-<div>of the scalar field (if any) to be represented. All the values 
+<p>Scalar field defined at nodes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>rgMinMax</strong> – range (vmin,vmax) with the maximum and minimum values  
+of the scalar field (if any) to be represented. All the values 
 less than vmin are displayed in blue and those greater than vmax 
-in red (defaults to None)</div></blockquote>
+in red (defaults to None)</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="postprocess.xcVtk.fields.fields.ExtrapolatedScalarField.display">
 <code class="descname">display</code><span class="sig-paren">(</span><em>defDisplay</em>, <em>caption=''</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.fields.ExtrapolatedScalarField.display" title="Permalink to this definition">¶</a></dt>

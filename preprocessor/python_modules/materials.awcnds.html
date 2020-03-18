@@ -63,61 +63,326 @@
 </dl>
 <p>VERIFICATION TESTS REQUIRED!!!.</p>
 <dl class="class">
-<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumber">
-<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">DimensionLumber</code><span class="sig-paren">(</span><em>name</em>, <em>b</em>, <em>h</em>, <em>woodMaterial</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumber" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.BeamMember">
+<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">BeamMember</code><span class="sig-paren">(</span><em>unbracedLength</em>, <em>section</em>, <em>connection=&lt;materials.buckling_base.MemberConnection object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.BeamMember" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.awc_nds.AWCNDS_materials.MemberBase" title="materials.awc_nds.AWCNDS_materials.MemberBase"><code class="xref py py-class docutils literal"><span class="pre">materials.awc_nds.AWCNDS_materials.MemberBase</span></code></a></p>
+<p>Column member according to chapter 3.3 of NDS-2018.</p>
+<dl class="method">
+<dt id="materials.awc_nds.AWCNDS_materials.BeamMember.getBeamStabilityFactor">
+<code class="descname">getBeamStabilityFactor</code><span class="sig-paren">(</span><em>numberOfConcentratedLoads=0</em>, <em>lateralSupport=False</em>, <em>cantilever=False</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.BeamMember.getBeamStabilityFactor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the beam stability factor according to equation </dt>
+<dd>3.3.6 of NDS-2018.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>numberOfConcentratedLoads</strong> – number of concentrated loads equally
+spaced along the beam (0: uniform load).</li>
+<li><strong>lateralSupport</strong> – if true beam has a lateral support on each load.</li>
+<li><strong>cantilever</strong> – if true cantilever beam otherwise single span beam.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.awc_nds.AWCNDS_materials.BeamMember.getBendingSlendernessRatio">
+<code class="descname">getBendingSlendernessRatio</code><span class="sig-paren">(</span><em>numberOfConcentratedLoads=0</em>, <em>lateralSupport=False</em>, <em>cantilever=False</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.BeamMember.getBendingSlendernessRatio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the slenderness ratio according to equation</dt>
+<dd>3.3-5 of NDS-2018.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>numberOfConcentratedLoads</strong> – number of concentrated loads equally
+spaced along the beam (0: uniform load).</li>
+<li><strong>lateralSupport</strong> – if true beam has a lateral support on each load.</li>
+<li><strong>cantilever</strong> – if true cantilever beam otherwise single span beam.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.awc_nds.AWCNDS_materials.BeamMember.getEffectiveLength">
+<code class="descname">getEffectiveLength</code><span class="sig-paren">(</span><em>numberOfConcentratedLoads=0</em>, <em>lateralSupport=False</em>, <em>cantilever=False</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.BeamMember.getEffectiveLength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the effective length of the beam according to table</dt>
+<dd>3.3.3 of NDS-2018.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>numberOfConcentratedLoads</strong> – number of concentrated loads equally
+spaced along the beam (0: uniform load).</li>
+<li><strong>lateralSupport</strong> – if true beam has a lateral support on each load.</li>
+<li><strong>cantilever</strong> – if true cantilever beam otherwise single span beam.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.awc_nds.AWCNDS_materials.BeamMember.getFbECriticalBucklingDesignValue">
+<code class="descname">getFbECriticalBucklingDesignValue</code><span class="sig-paren">(</span><em>numberOfConcentratedLoads=0</em>, <em>lateralSupport=False</em>, <em>cantilever=False</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.BeamMember.getFbECriticalBucklingDesignValue" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the critical bucking design value for bending according to </dt>
+<dd>section 3.3.3.8 of NDS-2018.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>numberOfConcentratedLoads</strong> – number of concentrated loads equally
+spaced along the beam (0: uniform load).</li>
+<li><strong>lateralSupport</strong> – if true beam has a lateral support on each load.</li>
+<li><strong>cantilever</strong> – if true cantilever beam otherwise single span beam.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.awc_nds.AWCNDS_materials.ColumnMember">
+<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">ColumnMember</code><span class="sig-paren">(</span><em>unbracedLengthB</em>, <em>unbracedLengthH</em>, <em>section</em>, <em>connection=&lt;materials.buckling_base.MemberConnection object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.ColumnMember" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.awc_nds.AWCNDS_materials.MemberBase" title="materials.awc_nds.AWCNDS_materials.MemberBase"><code class="xref py py-class docutils literal"><span class="pre">materials.awc_nds.AWCNDS_materials.MemberBase</span></code></a></p>
+<p>Column member according to chapter 3.7 and 3.9 of NDS-2018.</p>
+<dl class="method">
+<dt id="materials.awc_nds.AWCNDS_materials.ColumnMember.getBSlendernessRatio">
+<code class="descname">getBSlendernessRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.ColumnMember.getBSlendernessRatio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the slenderness ratio for the B dimension.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.awc_nds.AWCNDS_materials.ColumnMember.getBendingSlendernessRatioB">
+<code class="descname">getBendingSlendernessRatioB</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.ColumnMember.getBendingSlendernessRatioB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the slenderness ratio for bending in the
+B plane.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.awc_nds.AWCNDS_materials.ColumnMember.getBendingSlendernessRatioH">
+<code class="descname">getBendingSlendernessRatioH</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.ColumnMember.getBendingSlendernessRatioH" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the slenderness ratio for bending in
+the h plane.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.awc_nds.AWCNDS_materials.ColumnMember.getCapacityFactor">
+<code class="descname">getCapacityFactor</code><span class="sig-paren">(</span><em>E_adj</em>, <em>Fc_adj</em>, <em>Fb1_adj</em>, <em>Fb2_adj</em>, <em>fc</em>, <em>fb1</em>, <em>fb2</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.ColumnMember.getCapacityFactor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the capacity factor for members subjected to a </dt>
+<dd>combination of bending about one or both principal axes 
+and axial compression according to section 3.9.2 of
+NDS-2.018.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>E_adj</strong> – adjusted modulus of elasticity for beam 
+stability and column stability calculations.</li>
+<li><strong>Fc_adj</strong> – adjusted value of reference compression stress.</li>
+<li><strong>Fb1_adj</strong> – adjusted value of reference bending stress (for
+bending load applied to narrow face of member).</li>
+<li><strong>Fb2_adj</strong> – adjusted value of reference bending stress (for
+bending load applied to wide face of member).</li>
+<li><strong>fc</strong> – compression stress.</li>
+<li><strong>fb1</strong> – bending stress (bending load applied to narrow face
+of member).</li>
+<li><strong>fb2</strong> – bending stress (bending load applied to wide face
+of member).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.awc_nds.AWCNDS_materials.ColumnMember.getColumnStabilityFactor">
+<code class="descname">getColumnStabilityFactor</code><span class="sig-paren">(</span><em>c</em>, <em>E_adj</em>, <em>Fc_adj</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.ColumnMember.getColumnStabilityFactor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the column stability factor according</dt>
+<dd>to expression 3.7-1 of NDS-2.018.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>E_adj</strong> – adjusted modulus of elasticity for beam 
+stability and column stability calculations.</li>
+<li><strong>Fc_adj</strong> – adjusted compression stress design value parallel 
+to grain.</li>
+<li><strong>c</strong> – 0.8 for sawn lumber, 0.85 for round timber poles 
+and piles and 0.9 for structural glued laminated
+timber structural composite lumber, and 
+cross-laminated timber.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.awc_nds.AWCNDS_materials.ColumnMember.getEffectiveBucklingLengthCoefficientRecommended">
+<code class="descname">getEffectiveBucklingLengthCoefficientRecommended</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.ColumnMember.getEffectiveBucklingLengthCoefficientRecommended" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the column effective buckling length coefficients
+according to NDS 2018 appendix G</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.awc_nds.AWCNDS_materials.ColumnMember.getFbE">
+<code class="descname">getFbE</code><span class="sig-paren">(</span><em>E_adj</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.ColumnMember.getFbE" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the value of F_{bE} as defined in section</dt>
+<dd>3.9.2 of NDS-2.018.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>E_adj</strong> – adjusted modulus of elasticity for beam 
+stability and column stability calculations.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.awc_nds.AWCNDS_materials.ColumnMember.getFcE1">
+<code class="descname">getFcE1</code><span class="sig-paren">(</span><em>E_adj</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.ColumnMember.getFcE1" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the value of F_{cE1} as defined in section</dt>
+<dd>3.9.2 of NDS-2.018.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>E_adj</strong> – adjusted modulus of elasticity for beam 
+stability and column stability calculations.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.awc_nds.AWCNDS_materials.ColumnMember.getFcE2">
+<code class="descname">getFcE2</code><span class="sig-paren">(</span><em>E_adj</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.ColumnMember.getFcE2" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the value of F_{cE2} as defined in section</dt>
+<dd>3.9.2 of NDS-2.018.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>E_adj</strong> – adjusted modulus of elasticity for beam 
+stability and column stability calculations.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.awc_nds.AWCNDS_materials.ColumnMember.getHSlendernessRatio">
+<code class="descname">getHSlendernessRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.ColumnMember.getHSlendernessRatio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the slenderness ratio for the H dimension.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.awc_nds.AWCNDS_materials.ColumnMember.getSlendernessRatio">
+<code class="descname">getSlendernessRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.ColumnMember.getSlendernessRatio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the slenderness ratio.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.awc_nds.AWCNDS_materials.ColumnMember.getUnbracedLengthB">
+<code class="descname">getUnbracedLengthB</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.ColumnMember.getUnbracedLengthB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the B unbraced lenght.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumberSection">
+<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">DimensionLumberSection</code><span class="sig-paren">(</span><em>name</em>, <em>b</em>, <em>h</em>, <em>woodMaterial</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumberSection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="materials.sections.html#materials.sections.section_properties.RectangularSection" title="materials.sections.section_properties.RectangularSection"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.section_properties.RectangularSection</span></code></a></p>
-<p>Dimension lumber.</p>
+<p>Section of a dimension lumber member.</p>
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumber.defElasticShearSection2d">
-<code class="descname">defElasticShearSection2d</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumber.defElasticShearSection2d" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumberSection.defElasticShearSection2d">
+<code class="descname">defElasticShearSection2d</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumberSection.defElasticShearSection2d" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumber.defElasticShearSection3d">
-<code class="descname">defElasticShearSection3d</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumber.defElasticShearSection3d" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumberSection.defElasticShearSection3d">
+<code class="descname">defElasticShearSection3d</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumberSection.defElasticShearSection3d" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumber.getBendingFlatUseFactor">
-<code class="descname">getBendingFlatUseFactor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumber.getBendingFlatUseFactor" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumberSection.getBendingFlatUseFactor">
+<code class="descname">getBendingFlatUseFactor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumberSection.getBendingFlatUseFactor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the flat use factor for the bending design
 value Fb.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumber.getBendingSizeFactor">
-<code class="descname">getBendingSizeFactor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumber.getBendingSizeFactor" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumberSection.getBendingSizeFactor">
+<code class="descname">getBendingSizeFactor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumberSection.getBendingSizeFactor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the size factor for the bending design
 value Fb.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumber.getCompressionSizeFactor">
-<code class="descname">getCompressionSizeFactor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumber.getCompressionSizeFactor" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumberSection.getCompressionSizeFactor">
+<code class="descname">getCompressionSizeFactor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumberSection.getCompressionSizeFactor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the size factor for the compression design
 value Fc.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumber.getEAdj">
-<code class="descname">getEAdj</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumber.getEAdj" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumberSection.getEAdj">
+<code class="descname">getEAdj</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumberSection.getEAdj" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the adjusted value of E.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumber.getEminAdj">
-<code class="descname">getEminAdj</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumber.getEminAdj" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumberSection.getEminAdj">
+<code class="descname">getEminAdj</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumberSection.getEminAdj" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the adjusted value of Emin.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumber.getFb">
-<code class="descname">getFb</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumber.getFb" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumberSection.getFb">
+<code class="descname">getFb</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumberSection.getFb" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumber.getFbAdj">
-<code class="descname">getFbAdj</code><span class="sig-paren">(</span><em>Cr=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumber.getFbAdj" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumberSection.getFbAdj">
+<code class="descname">getFbAdj</code><span class="sig-paren">(</span><em>Cr=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumberSection.getFbAdj" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the adjusted value of Fb.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -130,14 +395,14 @@ value Fc.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumber.getFcAdj">
-<code class="descname">getFcAdj</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumber.getFcAdj" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumberSection.getFcAdj">
+<code class="descname">getFcAdj</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumberSection.getFcAdj" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the adjusted value of Fc.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumber.getFc_perpAdj">
-<code class="descname">getFc_perpAdj</code><span class="sig-paren">(</span><em>Cb=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumber.getFc_perpAdj" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumberSection.getFc_perpAdj">
+<code class="descname">getFc_perpAdj</code><span class="sig-paren">(</span><em>Cb=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumberSection.getFc_perpAdj" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the adjusted value of Fc_perp.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -150,20 +415,20 @@ value Fc.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumber.getFtAdj">
-<code class="descname">getFtAdj</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumber.getFtAdj" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumberSection.getFtAdj">
+<code class="descname">getFtAdj</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumberSection.getFtAdj" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the adjusted value of Ft.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumber.getFvAdj">
-<code class="descname">getFvAdj</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumber.getFvAdj" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumberSection.getFvAdj">
+<code class="descname">getFvAdj</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumberSection.getFvAdj" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the adjusted value of Fv.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumber.getTensionSizeFactor">
-<code class="descname">getTensionSizeFactor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumber.getTensionSizeFactor" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.DimensionLumberSection.getTensionSizeFactor">
+<code class="descname">getTensionSizeFactor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.DimensionLumberSection.getTensionSizeFactor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the size factor for the tension design
 value Ft.</p>
 </dd></dl>
@@ -171,46 +436,46 @@ value Ft.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="materials.awc_nds.AWCNDS_materials.Header">
-<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">Header</code><span class="sig-paren">(</span><em>name</em>, <em>b</em>, <em>h</em>, <em>Ms</em>, <em>Vs</em>, <em>linearDensity</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.Header" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.HeaderSection">
+<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">HeaderSection</code><span class="sig-paren">(</span><em>name</em>, <em>b</em>, <em>h</em>, <em>Ms</em>, <em>Vs</em>, <em>linearDensity</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.HeaderSection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="materials.sections.html#materials.sections.section_properties.RectangularSection" title="materials.sections.section_properties.RectangularSection"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.section_properties.RectangularSection</span></code></a></p>
 <p>Structural beam/header.</p>
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.Header.defElasticShearSection2d">
-<code class="descname">defElasticShearSection2d</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.Header.defElasticShearSection2d" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.HeaderSection.defElasticShearSection2d">
+<code class="descname">defElasticShearSection2d</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.HeaderSection.defElasticShearSection2d" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.Header.defElasticShearSection3d">
-<code class="descname">defElasticShearSection3d</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.Header.defElasticShearSection3d" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.HeaderSection.defElasticShearSection3d">
+<code class="descname">defElasticShearSection3d</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.HeaderSection.defElasticShearSection3d" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.Header.defXCMaterial">
-<code class="descname">defXCMaterial</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.Header.defXCMaterial" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.HeaderSection.defXCMaterial">
+<code class="descname">defXCMaterial</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.HeaderSection.defXCMaterial" title="Permalink to this definition">¶</a></dt>
 <dd><p>Defines the material in XC.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.Header.getFb">
-<code class="descname">getFb</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.Header.getFb" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.HeaderSection.getFb">
+<code class="descname">getFb</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.HeaderSection.getFb" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="materials.awc_nds.AWCNDS_materials.Header.nu">
-<code class="descname">nu</code><em class="property"> = 0.2</em><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.Header.nu" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.HeaderSection.nu">
+<code class="descname">nu</code><em class="property"> = 0.2</em><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.HeaderSection.nu" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
-<dt id="materials.awc_nds.AWCNDS_materials.LSLHeader">
-<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">LSLHeader</code><span class="sig-paren">(</span><em>name</em>, <em>b</em>, <em>h</em>, <em>Ms</em>, <em>Vs</em>, <em>linearDensity</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.LSLHeader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.awc_nds.AWCNDS_materials.Header" title="materials.awc_nds.AWCNDS_materials.Header"><code class="xref py py-class docutils literal"><span class="pre">materials.awc_nds.AWCNDS_materials.Header</span></code></a></p>
+<dt id="materials.awc_nds.AWCNDS_materials.LSLHeaderSection">
+<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">LSLHeaderSection</code><span class="sig-paren">(</span><em>name</em>, <em>b</em>, <em>h</em>, <em>Ms</em>, <em>Vs</em>, <em>linearDensity</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.LSLHeaderSection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.awc_nds.AWCNDS_materials.HeaderSection" title="materials.awc_nds.AWCNDS_materials.HeaderSection"><code class="xref py py-class docutils literal"><span class="pre">materials.awc_nds.AWCNDS_materials.HeaderSection</span></code></a></p>
 <p>LSL structural beam/header.</p>
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.LSLHeader.getVolumeFactor">
-<code class="descname">getVolumeFactor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.LSLHeader.getVolumeFactor" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.LSLHeaderSection.getVolumeFactor">
+<code class="descname">getVolumeFactor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.LSLHeaderSection.getVolumeFactor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return volumen factor.</p>
 </dd></dl>
 
@@ -254,9 +519,9 @@ value Ft.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="materials.awc_nds.AWCNDS_materials.LSL_135E_Header">
-<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">LSL_135E_Header</code><span class="sig-paren">(</span><em>name</em>, <em>b</em>, <em>h</em>, <em>Ms</em>, <em>Vs</em>, <em>linearDensity</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.LSL_135E_Header" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.awc_nds.AWCNDS_materials.LSLHeader" title="materials.awc_nds.AWCNDS_materials.LSLHeader"><code class="xref py py-class docutils literal"><span class="pre">materials.awc_nds.AWCNDS_materials.LSLHeader</span></code></a></p>
+<dt id="materials.awc_nds.AWCNDS_materials.LSL_135E_HeaderSection">
+<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">LSL_135E_HeaderSection</code><span class="sig-paren">(</span><em>name</em>, <em>b</em>, <em>h</em>, <em>Ms</em>, <em>Vs</em>, <em>linearDensity</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.LSL_135E_HeaderSection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.awc_nds.AWCNDS_materials.LSLHeaderSection" title="materials.awc_nds.AWCNDS_materials.LSLHeaderSection"><code class="xref py py-class docutils literal"><span class="pre">materials.awc_nds.AWCNDS_materials.LSLHeaderSection</span></code></a></p>
 <p>LSL 1.35E structural beam/header.</p>
 </dd></dl>
 
@@ -298,20 +563,20 @@ value Ft.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="materials.awc_nds.AWCNDS_materials.LSL_155E_Header">
-<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">LSL_155E_Header</code><span class="sig-paren">(</span><em>name</em>, <em>b</em>, <em>h</em>, <em>Ms</em>, <em>Vs</em>, <em>linearDensity</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.LSL_155E_Header" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.awc_nds.AWCNDS_materials.LSLHeader" title="materials.awc_nds.AWCNDS_materials.LSLHeader"><code class="xref py py-class docutils literal"><span class="pre">materials.awc_nds.AWCNDS_materials.LSLHeader</span></code></a></p>
+<dt id="materials.awc_nds.AWCNDS_materials.LSL_155E_HeaderSection">
+<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">LSL_155E_HeaderSection</code><span class="sig-paren">(</span><em>name</em>, <em>b</em>, <em>h</em>, <em>Ms</em>, <em>Vs</em>, <em>linearDensity</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.LSL_155E_HeaderSection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.awc_nds.AWCNDS_materials.LSLHeaderSection" title="materials.awc_nds.AWCNDS_materials.LSLHeaderSection"><code class="xref py py-class docutils literal"><span class="pre">materials.awc_nds.AWCNDS_materials.LSLHeaderSection</span></code></a></p>
 <p>LSL 1.55E structural beam/header.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="materials.awc_nds.AWCNDS_materials.LVLHeader">
-<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">LVLHeader</code><span class="sig-paren">(</span><em>name</em>, <em>b</em>, <em>h</em>, <em>Ms</em>, <em>Vs</em>, <em>linearDensity</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.LVLHeader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.awc_nds.AWCNDS_materials.Header" title="materials.awc_nds.AWCNDS_materials.Header"><code class="xref py py-class docutils literal"><span class="pre">materials.awc_nds.AWCNDS_materials.Header</span></code></a></p>
+<dt id="materials.awc_nds.AWCNDS_materials.LVLHeaderSection">
+<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">LVLHeaderSection</code><span class="sig-paren">(</span><em>name</em>, <em>b</em>, <em>h</em>, <em>Ms</em>, <em>Vs</em>, <em>linearDensity</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.LVLHeaderSection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.awc_nds.AWCNDS_materials.HeaderSection" title="materials.awc_nds.AWCNDS_materials.HeaderSection"><code class="xref py py-class docutils literal"><span class="pre">materials.awc_nds.AWCNDS_materials.HeaderSection</span></code></a></p>
 <p>LVL structural beam/header.</p>
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.LVLHeader.getVolumeFactor">
-<code class="descname">getVolumeFactor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.LVLHeader.getVolumeFactor" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.LVLHeaderSection.getVolumeFactor">
+<code class="descname">getVolumeFactor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.LVLHeaderSection.getVolumeFactor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return volumen factor.</p>
 </dd></dl>
 
@@ -355,192 +620,40 @@ value Ft.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="materials.awc_nds.AWCNDS_materials.LVL_2900Fb2E_Header">
-<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">LVL_2900Fb2E_Header</code><span class="sig-paren">(</span><em>name</em>, <em>b</em>, <em>h</em>, <em>Ms</em>, <em>Vs</em>, <em>linearDensity</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.LVL_2900Fb2E_Header" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.awc_nds.AWCNDS_materials.LVLHeader" title="materials.awc_nds.AWCNDS_materials.LVLHeader"><code class="xref py py-class docutils literal"><span class="pre">materials.awc_nds.AWCNDS_materials.LVLHeader</span></code></a></p>
+<dt id="materials.awc_nds.AWCNDS_materials.LVL_2900Fb2E_HeaderSection">
+<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">LVL_2900Fb2E_HeaderSection</code><span class="sig-paren">(</span><em>name</em>, <em>b</em>, <em>h</em>, <em>Ms</em>, <em>Vs</em>, <em>linearDensity</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.LVL_2900Fb2E_HeaderSection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.awc_nds.AWCNDS_materials.LVLHeaderSection" title="materials.awc_nds.AWCNDS_materials.LVLHeaderSection"><code class="xref py py-class docutils literal"><span class="pre">materials.awc_nds.AWCNDS_materials.LVLHeaderSection</span></code></a></p>
 <p>LVL 2900Fb 2.0E structural beam/header.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="materials.awc_nds.AWCNDS_materials.Member">
-<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">Member</code><span class="sig-paren">(</span><em>unbracedLengthB</em>, <em>unbracedLengthH</em>, <em>section</em>, <em>connection=&lt;materials.buckling_base.MemberConnection object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.Member" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.MemberBase">
+<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">MemberBase</code><span class="sig-paren">(</span><em>unbracedLength</em>, <em>section</em>, <em>connection=&lt;materials.buckling_base.MemberConnection object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.MemberBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
-<p>Beam/Column according to chapter 3.7 and 3.9 of NDS-2018.</p>
-<dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.Member.getBSlendernessRatio">
-<code class="descname">getBSlendernessRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.Member.getBSlendernessRatio" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the slenderness ratio for the B dimension.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.Member.getBendingSlendernessRatioB">
-<code class="descname">getBendingSlendernessRatioB</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.Member.getBendingSlendernessRatioB" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the slenderness ratio for bending in the
-B plane.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.Member.getBendingSlendernessRatioH">
-<code class="descname">getBendingSlendernessRatioH</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.Member.getBendingSlendernessRatioH" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the slenderness ratio for bending in
-the h plane.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.Member.getCapacityFactor">
-<code class="descname">getCapacityFactor</code><span class="sig-paren">(</span><em>E_adj</em>, <em>Fc_adj</em>, <em>Fb1_adj</em>, <em>Fb2_adj</em>, <em>fc</em>, <em>fb1</em>, <em>fb2</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.Member.getCapacityFactor" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Return the capacity factor for members subjected to a </dt>
-<dd>combination of bending about one or both principal axes 
-and axial compression according to section 3.9.2 of
-NDS-2.018.</dd>
-</dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>E_adj</strong> – adjusted modulus of elasticity for beam 
-stability and column stability calculations.</li>
-<li><strong>Fc_adj</strong> – adjusted value of reference compression stress.</li>
-<li><strong>Fb1_adj</strong> – adjusted value of reference bending stress (for
-bending load applied to narrow face of member).</li>
-<li><strong>Fb2_adj</strong> – adjusted value of reference bending stress (for
-bending load applied to wide face of member).</li>
-<li><strong>fc</strong> – compression stress.</li>
-<li><strong>fb1</strong> – bending stress (bending load applied to narrow face
-of member).</li>
-<li><strong>fb2</strong> – bending stress (bending load applied to wide face
-of member).</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.Member.getColumnStabilityFactor">
-<code class="descname">getColumnStabilityFactor</code><span class="sig-paren">(</span><em>c</em>, <em>E_adj</em>, <em>Fc_adj</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.Member.getColumnStabilityFactor" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Return the column stability factor according</dt>
-<dd>to expression 3.7-1 of NDS-2.018.</dd>
-</dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>E_adj</strong> – adjusted modulus of elasticity for beam 
-stability and column stability calculations.</li>
-<li><strong>Fc_adj</strong> – adjusted compression stress design value parallel 
-to grain.</li>
-<li><strong>c</strong> – 0.8 for sawn lumber, 0.85 for round timber poles 
-and piles and 0.9 for structural glued laminated
-timber structural composite lumber, and 
-cross-laminated timber.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.Member.getEffectiveBucklingLengthCoefficientRecommended">
-<code class="descname">getEffectiveBucklingLengthCoefficientRecommended</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.Member.getEffectiveBucklingLengthCoefficientRecommended" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the column effective buckling length coefficients
-according to NDS 2018 appendix G</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.Member.getFbE">
-<code class="descname">getFbE</code><span class="sig-paren">(</span><em>E_adj</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.Member.getFbE" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Return the value of F_{bE} as defined in section</dt>
-<dd>3.9.2 of NDS-2.018.</dd>
-</dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>E_adj</strong> – adjusted modulus of elasticity for beam 
-stability and column stability calculations.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.Member.getFcE1">
-<code class="descname">getFcE1</code><span class="sig-paren">(</span><em>E_adj</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.Member.getFcE1" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Return the value of F_{cE1} as defined in section</dt>
-<dd>3.9.2 of NDS-2.018.</dd>
-</dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>E_adj</strong> – adjusted modulus of elasticity for beam 
-stability and column stability calculations.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.Member.getFcE2">
-<code class="descname">getFcE2</code><span class="sig-paren">(</span><em>E_adj</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.Member.getFcE2" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Return the value of F_{cE2} as defined in section</dt>
-<dd>3.9.2 of NDS-2.018.</dd>
-</dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>E_adj</strong> – adjusted modulus of elasticity for beam 
-stability and column stability calculations.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.Member.getHSlendernessRatio">
-<code class="descname">getHSlendernessRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.Member.getHSlendernessRatio" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the slenderness ratio for the H dimension.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.Member.getSlendernessRatio">
-<code class="descname">getSlendernessRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.Member.getSlendernessRatio" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the slenderness ratio.</p>
-</dd></dl>
-
+<p>Base class for beam and column members according to chapter 
+3 of NDS-2018.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="materials.awc_nds.AWCNDS_materials.OSBPanel">
-<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">OSBPanel</code><span class="sig-paren">(</span><em>name</em>, <em>b</em>, <em>h</em>, <em>shear_constant</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.OSBPanel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.awc_nds.AWCNDS_materials.WoodPanel" title="materials.awc_nds.AWCNDS_materials.WoodPanel"><code class="xref py py-class docutils literal"><span class="pre">materials.awc_nds.AWCNDS_materials.WoodPanel</span></code></a></p>
+<dt id="materials.awc_nds.AWCNDS_materials.OSBPanelSection">
+<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">OSBPanelSection</code><span class="sig-paren">(</span><em>name</em>, <em>b</em>, <em>h</em>, <em>shear_constant</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.OSBPanelSection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.awc_nds.AWCNDS_materials.WoodPanelSection" title="materials.awc_nds.AWCNDS_materials.WoodPanelSection"><code class="xref py py-class docutils literal"><span class="pre">materials.awc_nds.AWCNDS_materials.WoodPanelSection</span></code></a></p>
 <p>Oriented strand board panel.</p>
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.OSBPanel.defElasticShearSection2d">
-<code class="descname">defElasticShearSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>angle=1.5707963267948966</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.OSBPanel.defElasticShearSection2d" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.OSBPanelSection.defElasticShearSection2d">
+<code class="descname">defElasticShearSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>angle=1.5707963267948966</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.OSBPanelSection.defElasticShearSection2d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Defines a elastic shear section for two-dimensional
 problems.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.OSBPanel.getArealDensity">
-<code class="descname">getArealDensity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.OSBPanel.getArealDensity" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.OSBPanelSection.getArealDensity">
+<code class="descname">getArealDensity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.OSBPanelSection.getArealDensity" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.OSBPanel.getE">
-<code class="descname">getE</code><span class="sig-paren">(</span><em>angle=1.5707963267948966</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.OSBPanel.getE" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.OSBPanelSection.getE">
+<code class="descname">getE</code><span class="sig-paren">(</span><em>angle=1.5707963267948966</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.OSBPanelSection.getE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the bending stress Fb or the panel according
 to the table A of the document:
 “Design Capacities for Oriented Strand Board V1.0 – 01/2008”
@@ -549,8 +662,8 @@ from PFS TECO • 1507 Matt Pass, Cottage Grove, WI 53527, USA</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.OSBPanel.getFb">
-<code class="descname">getFb</code><span class="sig-paren">(</span><em>angle=1.5707963267948966</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.OSBPanel.getFb" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.OSBPanelSection.getFb">
+<code class="descname">getFb</code><span class="sig-paren">(</span><em>angle=1.5707963267948966</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.OSBPanelSection.getFb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the bending stress Fb or the panel according
 to the table A of the document:
 “Design Capacities for Oriented Strand Board V1.0 – 01/2008”
@@ -559,8 +672,8 @@ from PFS TECO • 1507 Matt Pass, Cottage Grove, WI 53527, USA</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.OSBPanel.getFv">
-<code class="descname">getFv</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.OSBPanel.getFv" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.OSBPanelSection.getFv">
+<code class="descname">getFv</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.OSBPanelSection.getFv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the bending stress Fb or the panel according
 to the table A of the document:
 “Design Capacities for Oriented Strand Board V1.0 – 01/2008”
@@ -568,25 +681,25 @@ from PFS TECO • 1507 Matt Pass, Cottage Grove, WI 53527, USA</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="materials.awc_nds.AWCNDS_materials.OSBPanel.rho">
-<code class="descname">rho</code><em class="property"> = 632.62</em><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.OSBPanel.rho" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.OSBPanelSection.rho">
+<code class="descname">rho</code><em class="property"> = 632.62</em><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.OSBPanelSection.rho" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
-<dt id="materials.awc_nds.AWCNDS_materials.PlywoodPanel">
-<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">PlywoodPanel</code><span class="sig-paren">(</span><em>name</em>, <em>b</em>, <em>h</em>, <em>shear_constant</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.PlywoodPanel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.awc_nds.AWCNDS_materials.WoodPanel" title="materials.awc_nds.AWCNDS_materials.WoodPanel"><code class="xref py py-class docutils literal"><span class="pre">materials.awc_nds.AWCNDS_materials.WoodPanel</span></code></a></p>
+<dt id="materials.awc_nds.AWCNDS_materials.PlywoodPanelSection">
+<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">PlywoodPanelSection</code><span class="sig-paren">(</span><em>name</em>, <em>b</em>, <em>h</em>, <em>shear_constant</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.PlywoodPanelSection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.awc_nds.AWCNDS_materials.WoodPanelSection" title="materials.awc_nds.AWCNDS_materials.WoodPanelSection"><code class="xref py py-class docutils literal"><span class="pre">materials.awc_nds.AWCNDS_materials.WoodPanelSection</span></code></a></p>
 <p>Plywood structural panel.</p>
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.PlywoodPanel.getArealDensity">
-<code class="descname">getArealDensity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.PlywoodPanel.getArealDensity" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.PlywoodPanelSection.getArealDensity">
+<code class="descname">getArealDensity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.PlywoodPanelSection.getArealDensity" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="materials.awc_nds.AWCNDS_materials.PlywoodPanel.rho">
-<code class="descname">rho</code><em class="property"> = 577.941243312</em><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.PlywoodPanel.rho" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.PlywoodPanelSection.rho">
+<code class="descname">rho</code><em class="property"> = 577.941243312</em><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.PlywoodPanelSection.rho" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -604,7 +717,7 @@ from PFS TECO • 1507 Matt Pass, Cottage Grove, WI 53527, USA</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.longitudinal_profile.GuitarString.name" title="geom_utils.longitudinal_profile.GuitarString.name"><strong>name</strong></a> – wood name.</li>
+<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – wood name.</li>
 <li><strong>specificGravity</strong> – specific gravity of the wood
 member.</li>
 </ul>
@@ -639,13 +752,13 @@ direction of grain (longitudinal axis of member).</li>
 </dd></dl>
 
 <dl class="class">
-<dt id="materials.awc_nds.AWCNDS_materials.WoodPanel">
-<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">WoodPanel</code><span class="sig-paren">(</span><em>name</em>, <em>b</em>, <em>h</em>, <em>shear_constant</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.WoodPanel" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.WoodPanelSection">
+<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">WoodPanelSection</code><span class="sig-paren">(</span><em>name</em>, <em>b</em>, <em>h</em>, <em>shear_constant</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.WoodPanelSection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="materials.sections.html#materials.sections.section_properties.RectangularSection" title="materials.sections.section_properties.RectangularSection"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.section_properties.RectangularSection</span></code></a></p>
 <p>Plywood structural panel.</p>
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.WoodPanel.getAPARatedSturdIFloor">
-<code class="descname">getAPARatedSturdIFloor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.WoodPanel.getAPARatedSturdIFloor" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.WoodPanelSection.getAPARatedSturdIFloor">
+<code class="descname">getAPARatedSturdIFloor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.WoodPanelSection.getAPARatedSturdIFloor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the APA rated Sturd-I-Floor from the panel thickness 
 according to the table B of the documents:
 “Design Capacities for Oriented Strand Board V1.0 – 01/2008”
@@ -654,8 +767,8 @@ both from PFS TECO • 1507 Matt Pass, Cottage Grove, WI 53527, USA</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.awc_nds.AWCNDS_materials.WoodPanel.getSpanRating">
-<code class="descname">getSpanRating</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.WoodPanel.getSpanRating" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.awc_nds.AWCNDS_materials.WoodPanelSection.getSpanRating">
+<code class="descname">getSpanRating</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.WoodPanelSection.getSpanRating" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the span rating from the panel thickness according
 to the table B of the documents:
 “Design Capacities for Oriented Strand Board V1.0 – 01/2008”
@@ -1033,6 +1146,19 @@ XC material.</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="materials.awc_nds.dimensional_lumber.DouglasFirLarchWood">
+<em class="property">class </em><code class="descclassname">materials.awc_nds.dimensional_lumber.</code><code class="descname">DouglasFirLarchWood</code><span class="sig-paren">(</span><em>name='DouglasFirLarch'</em>, <em>grade='no_2'</em>, <em>sub_grade=''</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.dimensional_lumber.DouglasFirLarchWood" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.awc_nds.dimensional_lumber.DimensionLumberWood" title="materials.awc_nds.dimensional_lumber.DimensionLumberWood"><code class="xref py py-class docutils literal"><span class="pre">materials.awc_nds.dimensional_lumber.DimensionLumberWood</span></code></a></p>
+<p>Douglas Fir-Larch refence design values according to
+table 4A of National Design Specification page 34.</p>
+<dl class="attribute">
+<dt id="materials.awc_nds.dimensional_lumber.DouglasFirLarchWood.nu">
+<code class="descname">nu</code><em class="property"> = 0.2</em><a class="headerlink" href="#materials.awc_nds.dimensional_lumber.DouglasFirLarchWood.nu" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="materials.awc_nds.dimensional_lumber.SouthernPineWood">
 <em class="property">class </em><code class="descclassname">materials.awc_nds.dimensional_lumber.</code><code class="descname">SouthernPineWood</code><span class="sig-paren">(</span><em>name='SouthernPine'</em>, <em>grade='no_2'</em>, <em>sub_grade=''</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.dimensional_lumber.SouthernPineWood" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#materials.awc_nds.dimensional_lumber.DimensionLumberWood" title="materials.awc_nds.dimensional_lumber.DimensionLumberWood"><code class="xref py py-class docutils literal"><span class="pre">materials.awc_nds.dimensional_lumber.DimensionLumberWood</span></code></a></p>
@@ -1054,7 +1180,7 @@ and AWC National Design Specification</p>
 <dt id="materials.awc_nds.dimensional_lumber.SprucePineFirWood">
 <em class="property">class </em><code class="descclassname">materials.awc_nds.dimensional_lumber.</code><code class="descname">SprucePineFirWood</code><span class="sig-paren">(</span><em>name='SprucePineFir'</em>, <em>grade='no_2'</em>, <em>sub_grade=''</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.dimensional_lumber.SprucePineFirWood" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#materials.awc_nds.dimensional_lumber.DimensionLumberWood" title="materials.awc_nds.dimensional_lumber.DimensionLumberWood"><code class="xref py py-class docutils literal"><span class="pre">materials.awc_nds.dimensional_lumber.DimensionLumberWood</span></code></a></p>
-<p>Spruce-pine-fir rerence design values according to
+<p>Spruce-pine-fir refence design values according to
 table 4A of National Design Specification page 37.</p>
 <dl class="attribute">
 <dt id="materials.awc_nds.dimensional_lumber.SprucePineFirWood.nu">

@@ -54,14 +54,6 @@
             
   <div class="section" id="module-model.geometry.grid_model">
 <span id="grid-model"></span><h1>Grid model<a class="headerlink" href="#module-model.geometry.grid_model" title="Permalink to this headline">¶</a></h1>
-<p>Particular geometry organization, linked to a framework of spaced points, 
-usually referenced by their indices (i,j,k) that point to the global 
-coordinates (x,y,z).</p>
-<p>Generally, an ijkGrid contains the grid of points itself and all the 
-geometric entities (lines, surfaces, …) attached to it. Dictionaries with 
-those entities, identified by specific names, are created, in order to 
-facilitate and accelerate their creation, search, grouping in sets, …</p>
-<p>Several grids can coexist in a FE problem.</p>
 <dl class="class">
 <dt id="model.geometry.grid_model.GridModel">
 <em class="property">class </em><code class="descclassname">model.geometry.grid_model.</code><code class="descname">GridModel</code><span class="sig-paren">(</span><em>prep</em>, <em>xList</em>, <em>yList</em>, <em>zList</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel" title="Permalink to this definition">¶</a></dt>
@@ -459,6 +451,88 @@ ijkRange.ijkMax=(indXmax,indYmax,indZmax).</p>
 <dt id="model.geometry.grid_model.GridModel.getSetSurfOneXYZRegion">
 <code class="descname">getSetSurfOneXYZRegion</code><span class="sig-paren">(</span><em>xyzRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetSurfOneXYZRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>return the set of surfaces and all the entities(lines, 
+points, elements, nodes, …) associated 
+with them in a region limited by the coordinates
+in range xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.getSubsetLinMultiRegion">
+<code class="descname">getSubsetLinMultiRegion</code><span class="sig-paren">(</span><em>superset</em>, <em>lstIJKRange</em>, <em>nameSubset</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSubsetLinMultiRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>return from the set ‘superset’ the set of lines and all the entities(points, elements, 
+nodes, …) associated with them in a all the regions  included in the 
+list of ijkRanges passed as parameter.
+Each region defines a volume limited by the coordinates    
+that correspond to the indices in the grid 
+ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
+ijkRange.ijkMax=(indXmax,indYmax,indZmax).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.getSubsetLinMultiXYZRegion">
+<code class="descname">getSubsetLinMultiXYZRegion</code><span class="sig-paren">(</span><em>superset</em>, <em>lstXYZRange</em>, <em>nameSubset</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSubsetLinMultiXYZRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>return from the set ‘superset’ the set of lines and all the entities(points, elements, 
+nodes, …) associated with them in a all the regions  included in the 
+list of xyzRanges passed as parameter.
+Each region defines a volume limited by the coordinates    
+defined in range xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.getSubsetLinOneRegion">
+<code class="descname">getSubsetLinOneRegion</code><span class="sig-paren">(</span><em>superset</em>, <em>ijkRange</em>, <em>nameSubset</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSubsetLinOneRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>return from the set ‘superset’ the set of lines and all the entities(points, elements, 
+nodes, …) associated with them in a region limited by the coordinates
+that correspond to the indices in the grid 
+ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
+ijkRange.ijkMax=(indXmax,indYmax,indZmax).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.getSubsetLinOneXYZRegion">
+<code class="descname">getSubsetLinOneXYZRegion</code><span class="sig-paren">(</span><em>superset</em>, <em>xyzRange</em>, <em>nameSubset</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSubsetLinOneXYZRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>return from the set ‘superset’ the set of lines and all the entities(points, elements, 
+nodes, …) associated with them in a region limited by the coordinates
+defined in range xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.getSubsetSurfMultiRegion">
+<code class="descname">getSubsetSurfMultiRegion</code><span class="sig-paren">(</span><em>superset</em>, <em>lstIJKRange</em>, <em>nameSubset</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSubsetSurfMultiRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>return from the set ‘superset’ the set of surfaces and all the entities(lines,
+points, elements, nodes, …) associated with them in a all
+the regions  included in the list of ijkRanges passed as parameter.
+Each region defines a volume limited by the coordinates    
+that correspond to the indices in the grid 
+ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
+ijkRange.ijkMax=(indXmax,indYmax,indZmax).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.getSubsetSurfMultiXYZRegion">
+<code class="descname">getSubsetSurfMultiXYZRegion</code><span class="sig-paren">(</span><em>superset</em>, <em>lstXYZRange</em>, <em>nameSubset</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSubsetSurfMultiXYZRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>return from the set ‘superset’ the set of surfaces and all the entities(lines,
+points, elements, nodes, …) associated with them in a all
+the regions  included in the list of xyzRanges passed as parameter.
+Each region defines a volume limited by the coordinates    
+that correspond to coordinates in range xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.getSubsetSurfOneRegion">
+<code class="descname">getSubsetSurfOneRegion</code><span class="sig-paren">(</span><em>superset</em>, <em>ijkRange</em>, <em>nameSubset</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSubsetSurfOneRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>return from the set ‘superset’ the set of surfaces and all the entities(lines, 
+points, elements, nodes, …) associated 
+with them in a region limited by the coordinates
+that correspond to the indices in the grid 
+ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
+ijkRange.ijkMax=(indXmax,indYmax,indZmax).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.getSubsetSurfOneXYZRegion">
+<code class="descname">getSubsetSurfOneXYZRegion</code><span class="sig-paren">(</span><em>superset</em>, <em>xyzRange</em>, <em>nameSubset</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSubsetSurfOneXYZRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>return from the set ‘superset’ the set of surfaces and all the entities(lines, 
 points, elements, nodes, …) associated 
 with them in a region limited by the coordinates
 in range xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))</p>
@@ -912,6 +986,42 @@ and maxKindex</p>
 <dd><p>return a list with the range of indexes between minIindex and maxIindex</p>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="function">
+<dt id="model.geometry.grid_model.getSetIntersLin">
+<code class="descclassname">model.geometry.grid_model.</code><code class="descname">getSetIntersLin</code><span class="sig-paren">(</span><em>set1</em>, <em>set2</em>, <em>nameSetInter</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.getSetIntersLin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a set of lines intersection of those in ‘set1’ and ‘set2’</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>set2</strong> (<em>set1</em><em>,</em>) – sets containing lines to search intersection</li>
+<li><strong>nameSetInter</strong> – name of the set of lines to return</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="model.geometry.grid_model.getSetIntersSurf">
+<code class="descclassname">model.geometry.grid_model.</code><code class="descname">getSetIntersSurf</code><span class="sig-paren">(</span><em>set1</em>, <em>set2</em>, <em>nameSetInter</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.getSetIntersSurf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a set of surfaces intersection of those in ‘set1’ and ‘set2’</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>set2</strong> (<em>set1</em><em>,</em>) – sets containing surfaces to search intersection</li>
+<li><strong>nameSetInter</strong> – name of the set of surfaces to return</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>

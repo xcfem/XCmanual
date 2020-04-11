@@ -56,13 +56,44 @@
 <span id="typical-materials"></span><h1>Typical materials<a class="headerlink" href="#module-materials.typical_materials" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="materials.typical_materials.BasicElasticMaterial">
-<em class="property">class </em><code class="descclassname">materials.typical_materials.</code><code class="descname">BasicElasticMaterial</code><span class="sig-paren">(</span><em>E</em>, <em>nu</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.BasicElasticMaterial" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">materials.typical_materials.</code><code class="descname">BasicElasticMaterial</code><span class="sig-paren">(</span><em>E</em>, <em>nu</em>, <em>rho=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.BasicElasticMaterial" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Basic elastic material</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="materials.awcnds.html#materials.awc_nds.AWCNDS_materials.LSL_155E.E" title="materials.awc_nds.AWCNDS_materials.LSL_155E.E"><strong>E</strong></a> – Young’s modulus of the material</li>
+<li><a class="reference internal" href="materials.awcnds.html#materials.awc_nds.dimensional_lumber.SprucePineFirWood.nu" title="materials.awc_nds.dimensional_lumber.SprucePineFirWood.nu"><strong>nu</strong></a> – Poisson’s ratio</li>
+<li><a class="reference internal" href="materials.awcnds.html#materials.awc_nds.AWCNDS_materials.OSBPanelSection.rho" title="materials.awc_nds.AWCNDS_materials.OSBPanelSection.rho"><strong>rho</strong></a> – mass density</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="materials.typical_materials.BasicElasticMaterial.G">
 <code class="descname">G</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.BasicElasticMaterial.G" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>shear modulus</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.typical_materials.BasicElasticMaterial.defElasticMaterial">
+<code class="descname">defElasticMaterial</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.BasicElasticMaterial.defElasticMaterial" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return an elastic material appropiate for example for</dt>
+<dd>truss elements</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
@@ -137,7 +168,7 @@ shear modulus and mass density of the material</li>
 <dl class="class">
 <dt id="materials.typical_materials.MaterialData">
 <em class="property">class </em><code class="descclassname">materials.typical_materials.</code><code class="descname">MaterialData</code><span class="sig-paren">(</span><em>name</em>, <em>E</em>, <em>nu</em>, <em>rho</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.MaterialData" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="#materials.typical_materials.BasicElasticMaterial" title="materials.typical_materials.BasicElasticMaterial"><code class="xref py py-class docutils literal"><span class="pre">materials.typical_materials.BasicElasticMaterial</span></code></a></p>
 <p>Base class to construct some material definition classes</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -145,21 +176,12 @@ shear modulus and mass density of the material</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – name identifying the material</li>
-<li><a class="reference internal" href="materials.awcnds.html#materials.awc_nds.AWCNDS_materials.LSL_155E.E" title="materials.awc_nds.AWCNDS_materials.LSL_155E.E"><strong>E</strong></a> – Young’s modulus of the material</li>
-<li><a class="reference internal" href="materials.awcnds.html#materials.awc_nds.dimensional_lumber.SprucePineFirWood.nu" title="materials.awc_nds.dimensional_lumber.SprucePineFirWood.nu"><strong>nu</strong></a> – Poisson’s ratio</li>
-<li><a class="reference internal" href="materials.awcnds.html#materials.awc_nds.AWCNDS_materials.OSBPanelSection.rho" title="materials.awc_nds.AWCNDS_materials.OSBPanelSection.rho"><strong>rho</strong></a> – mass density</li>
 <li><strong>xc_material</strong> – pointer to XC material.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<dl class="method">
-<dt id="materials.typical_materials.MaterialData.G">
-<code class="descname">G</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.MaterialData.G" title="Permalink to this definition">¶</a></dt>
-<dd><p>shear modulus</p>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="function">
@@ -321,7 +343,7 @@ The initial slope for this model is (2*fpc/epsc0)</p>
 
 <dl class="function">
 <dt id="materials.typical_materials.defElasticMaterial">
-<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticMaterial</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>E</em>, <em>rho=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticMaterial" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticMaterial</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>E</em>, <em>rho=0.0</em>, <em>nu=0.3</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticMaterial" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs an elastic uniaxial material.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2068,14 +2090,14 @@ tension stiffening properties of concrete and the cracking distance.</p>
 </tr>
 </tbody>
 </table>
+<dl class="attribute">
+<dt id="materials.steel_base.BasicSteel.alpha">
+<code class="descname">alpha</code><em class="property"> = 1.2e-05</em><a class="headerlink" href="#materials.steel_base.BasicSteel.alpha" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="materials.steel_base.BasicSteel.fyd">
 <code class="descname">fyd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.steel_base.BasicSteel.fyd" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="materials.steel_base.BasicSteel.rho">
-<code class="descname">rho</code><em class="property"> = 7850</em><a class="headerlink" href="#materials.steel_base.BasicSteel.rho" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

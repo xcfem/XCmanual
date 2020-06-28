@@ -93,12 +93,12 @@ itself.</li>
 </table>
 <dl class="method">
 <dt id="model.geometry.grid_model.GridModel.appendLinRange">
-<code class="descname">appendLinRange</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.appendLinRange" title="Permalink to this definition">¶</a></dt>
+<code class="descname">appendLinRange</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.appendLinRange" title="Permalink to this definition">¶</a></dt>
 <dd><p>generate the lines limited by a region defined by the coordinates
 that correspond to the indices in the grid 
 ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
 ijkRange.ijkMax=(indXmax,indYmax,indZmax)
-and append them to the set named ‘nameSet’. 
+and append them to the set named ‘setName’. 
 Add those lines to the dictionary dicLin.</p>
 </dd></dl>
 
@@ -109,7 +109,7 @@ Add those lines to the dictionary dicLin.</p>
 that correspond to the indices in the grid 
 ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
 ijkRange.ijkMax=(indXmax,indYmax,indZmax)
-and append them to the set named ‘nameSet’.
+and append them to the set named ‘setName’.
 Add those surfaces to the dictionary dicQuadSurf.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -129,7 +129,7 @@ Add those surfaces to the dictionary dicQuadSurf.</p>
 
 <dl class="method">
 <dt id="model.geometry.grid_model.GridModel.genLinMultiRegion">
-<code class="descname">genLinMultiRegion</code><span class="sig-paren">(</span><em>lstIJKRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genLinMultiRegion" title="Permalink to this definition">¶</a></dt>
+<code class="descname">genLinMultiRegion</code><span class="sig-paren">(</span><em>lstIJKRange</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genLinMultiRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>generate the lines limited by all the regions included in the 
 list of ijkRanges passed as parameter.
 Each region defines a volume limited by the coordinates    
@@ -142,7 +142,7 @@ Add those lines to the dictionary dicLin.</p>
 
 <dl class="method">
 <dt id="model.geometry.grid_model.GridModel.genLinMultiXYZRegion">
-<code class="descname">genLinMultiXYZRegion</code><span class="sig-paren">(</span><em>lstXYZRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genLinMultiXYZRegion" title="Permalink to this definition">¶</a></dt>
+<code class="descname">genLinMultiXYZRegion</code><span class="sig-paren">(</span><em>lstXYZRange</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genLinMultiXYZRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>generate the lines limited by all the regions included in the 
 list of coordinate passed as parameter.
 Each region defines a volume limited by the coordinates    
@@ -153,7 +153,7 @@ Add those lines to the dictionary dicLin.</p>
 
 <dl class="method">
 <dt id="model.geometry.grid_model.GridModel.genLinOneRegion">
-<code class="descname">genLinOneRegion</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genLinOneRegion" title="Permalink to this definition">¶</a></dt>
+<code class="descname">genLinOneRegion</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genLinOneRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>generate the lines limited by a region defined by the coordinates
 that correspond to the indices in the grid 
 ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
@@ -164,7 +164,7 @@ Add those lines to the dictionary dicLin.</p>
 
 <dl class="method">
 <dt id="model.geometry.grid_model.GridModel.genLinOneXYZRegion">
-<code class="descname">genLinOneXYZRegion</code><span class="sig-paren">(</span><em>xyzRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genLinOneXYZRegion" title="Permalink to this definition">¶</a></dt>
+<code class="descname">genLinOneXYZRegion</code><span class="sig-paren">(</span><em>xyzRange</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genLinOneXYZRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>generate the lines limited by a region defined by the coordinates
 defined in range xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))
 ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
@@ -174,8 +174,80 @@ Add those lines to the dictionary dicLin.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.geometry.grid_model.GridModel.genSetLinFromLstGridPnt">
+<code class="descname">genSetLinFromLstGridPnt</code><span class="sig-paren">(</span><em>lstGridPnt</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genSetLinFromLstGridPnt" title="Permalink to this definition">¶</a></dt>
+<dd><p>generate the set of lines that joint the successive points defined 
+in ‘lstGridPnt’ by their indexes in the grid.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lstGridPnt</strong> – list of successive points [(i1,j1,k1),(i2,j2,k2), …]</li>
+<li><strong>setName</strong> – name of the set.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.genSetLinFromLstXYZPnt">
+<code class="descname">genSetLinFromLstXYZPnt</code><span class="sig-paren">(</span><em>lstXYZPnt</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genSetLinFromLstXYZPnt" title="Permalink to this definition">¶</a></dt>
+<dd><p>generate the set of lines that joint the successive points defined 
+in ‘lstXYZPnt’ by their coordinates (x,y,z).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lstXYZPnt</strong> – list of successive points [(x1,y1,z1),(x2,y2,z2), …]</li>
+<li><strong>setName</strong> – name of the set.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.genSetLinFromMultiLstGridPnt">
+<code class="descname">genSetLinFromMultiLstGridPnt</code><span class="sig-paren">(</span><em>multiLstGridPnt</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genSetLinFromMultiLstGridPnt" title="Permalink to this definition">¶</a></dt>
+<dd><p>generate the set of lines that joint the successive points defined 
+in ‘multiLstGridPnt’ by their indexes in the grid.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>multiLstGridPnt</strong> – list of lists of successive points</td>
+</tr>
+</tbody>
+</table>
+<p>[[(i1,j1,k1),(i2,j2,k2), …],[],…]
+:param setName: name of the set.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.genSetLinFromMultiLstXYZPnt">
+<code class="descname">genSetLinFromMultiLstXYZPnt</code><span class="sig-paren">(</span><em>multiLstXYZPnt</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genSetLinFromMultiLstXYZPnt" title="Permalink to this definition">¶</a></dt>
+<dd><p>generate the set of lines that joint the successive points defined 
+in ‘multiLstXYZPnt’ by their coordinates (x,y,z)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>multiLstXYZPnt</strong> – list of lists of successive points</td>
+</tr>
+</tbody>
+</table>
+<p>[[(x1,y1,z1),(x2,y2,z2), …],[],…]
+:param setName: name of the set.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.geometry.grid_model.GridModel.genSurfMultiRegion">
-<code class="descname">genSurfMultiRegion</code><span class="sig-paren">(</span><em>lstIJKRange</em>, <em>nameSet</em>, <em>closeCyl='N'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genSurfMultiRegion" title="Permalink to this definition">¶</a></dt>
+<code class="descname">genSurfMultiRegion</code><span class="sig-paren">(</span><em>lstIJKRange</em>, <em>setName</em>, <em>closeCyl='N'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genSurfMultiRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>generate the surfaces limited by all the regions included in the 
 list of ijkRanges passed as parameter.
 Each region defines a volume limited by the coordinates    
@@ -190,7 +262,7 @@ Add those surfaces to the dictionary dicQuadSurf.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>lstIJKRange</strong> – list of instances of IJKRange class</li>
-<li><strong>nameSet</strong> – name of the set</li>
+<li><strong>setName</strong> – name of the set</li>
 <li><strong>closeCyl</strong> – ‘Y’ to close cylinder when using cylindrical coordinate system
 (defaults to ‘N’)</li>
 </ul>
@@ -202,7 +274,7 @@ Add those surfaces to the dictionary dicQuadSurf.</p>
 
 <dl class="method">
 <dt id="model.geometry.grid_model.GridModel.genSurfMultiXYZRegion">
-<code class="descname">genSurfMultiXYZRegion</code><span class="sig-paren">(</span><em>lstXYZRange</em>, <em>nameSet</em>, <em>closeCyl='N'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genSurfMultiXYZRegion" title="Permalink to this definition">¶</a></dt>
+<code class="descname">genSurfMultiXYZRegion</code><span class="sig-paren">(</span><em>lstXYZRange</em>, <em>setName</em>, <em>closeCyl='N'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genSurfMultiXYZRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>generate the surfaces limited by all the regions included in the 
 list of xyzRanges passed as parameter.
 Each region defines a volume limited by the coordinates    
@@ -215,7 +287,7 @@ Add those surfaces to the dictionary dicQuadSurf.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>lstXYZRange</strong> – list of ranges xyz</li>
-<li><strong>nameSet</strong> – name of the set</li>
+<li><strong>setName</strong> – name of the set</li>
 <li><strong>closeCyl</strong> – ‘Y’ to close cylinder when using cylindrical coordinate system
 (defaults to ‘N’)</li>
 </ul>
@@ -227,7 +299,7 @@ Add those surfaces to the dictionary dicQuadSurf.</p>
 
 <dl class="method">
 <dt id="model.geometry.grid_model.GridModel.genSurfOneRegion">
-<code class="descname">genSurfOneRegion</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>nameSet</em>, <em>closeCyl='N'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genSurfOneRegion" title="Permalink to this definition">¶</a></dt>
+<code class="descname">genSurfOneRegion</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>setName</em>, <em>closeCyl='N'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genSurfOneRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>generate the surfaces limited by a region defined by the coordinates
 that correspond to the indices in the grid 
 ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
@@ -240,7 +312,7 @@ Add those surfaces to the dictionary dicQuadSurf.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>ijkRange</strong> – instance of IJKRange class</li>
-<li><strong>nameSet</strong> – name of the set</li>
+<li><strong>setName</strong> – name of the set</li>
 <li><strong>closeCyl</strong> – ‘Y’ to close cylinder when using cylindrical coordinate system
 (defaults to ‘N’)</li>
 </ul>
@@ -252,7 +324,7 @@ Add those surfaces to the dictionary dicQuadSurf.</p>
 
 <dl class="method">
 <dt id="model.geometry.grid_model.GridModel.genSurfOneXYZRegion">
-<code class="descname">genSurfOneXYZRegion</code><span class="sig-paren">(</span><em>xyzRange</em>, <em>nameSet</em>, <em>closeCyl='N'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genSurfOneXYZRegion" title="Permalink to this definition">¶</a></dt>
+<code class="descname">genSurfOneXYZRegion</code><span class="sig-paren">(</span><em>xyzRange</em>, <em>setName</em>, <em>closeCyl='N'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genSurfOneXYZRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>generate the surfaces limited by a region defined by the coordinates
 defined in the range  xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))
 Return a set with the surfaces generated.
@@ -263,7 +335,7 @@ Add those surfaces to the dictionary dicQuadSurf.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>xyzRange</strong> – range xyz</li>
-<li><strong>nameSet</strong> – name of the set</li>
+<li><strong>setName</strong> – name of the set</li>
 <li><strong>closeCyl</strong> – ‘Y’ to close cylinder when using cylindrical coordinate system
 (defaults to ‘N’)</li>
 </ul>
@@ -437,8 +509,80 @@ coordinates</td>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.geometry.grid_model.GridModel.getSetLinFromLstGridPnt">
+<code class="descname">getSetLinFromLstGridPnt</code><span class="sig-paren">(</span><em>lstGridPnt</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetLinFromLstGridPnt" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the set of lines that joint the successive points defined 
+in ‘lstGridPnt’ by their indexes in the grid.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lstGridPnt</strong> – list of successive points [(i1,j1,k1),(i2,j2,k2), …]</li>
+<li><strong>setName</strong> – name of the set.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.getSetLinFromLstXYZPnt">
+<code class="descname">getSetLinFromLstXYZPnt</code><span class="sig-paren">(</span><em>lstXYZPnt</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetLinFromLstXYZPnt" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the set of lines that joint the successive points defined 
+in ‘lstXYZPnt’ by their coordinates (x,y,z).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lstXYZPnt</strong> – list of successive points [(x1,y1,z1),(x2,y2,z2), …]</li>
+<li><strong>setName</strong> – name of the set.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.getSetLinFromMultiLstGridPnt">
+<code class="descname">getSetLinFromMultiLstGridPnt</code><span class="sig-paren">(</span><em>multiLstGridPnt</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetLinFromMultiLstGridPnt" title="Permalink to this definition">¶</a></dt>
+<dd><p>retur the set of lines that joint the successive points defined 
+in ‘multiLstGridPnt’ by their indexes in the grid.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>multiLstGridPnt</strong> – list of lists of successive points</td>
+</tr>
+</tbody>
+</table>
+<p>[[(i1,j1,k1),(i2,j2,k2), …],[],…]
+:param setName: name of the set.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.getSetLinFromMultiLstXYZPnt">
+<code class="descname">getSetLinFromMultiLstXYZPnt</code><span class="sig-paren">(</span><em>multiLstXYZPnt</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetLinFromMultiLstXYZPnt" title="Permalink to this definition">¶</a></dt>
+<dd><p>generate the set of lines that joint the successive points defined 
+in ‘multiLstXYZPnt’ by their coordinates (x,y,z)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>multiLstXYZPnt</strong> – list of lists of successive points</td>
+</tr>
+</tbody>
+</table>
+<p>[[(x1,y1,z1),(x2,y2,z2), …],[],…]
+:param setName: name of the set.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.geometry.grid_model.GridModel.getSetLinMultiRegion">
-<code class="descname">getSetLinMultiRegion</code><span class="sig-paren">(</span><em>lstIJKRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetLinMultiRegion" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getSetLinMultiRegion</code><span class="sig-paren">(</span><em>lstIJKRange</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetLinMultiRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>return the set of lines and all the entities(points, elements, 
 nodes, …) associated with them in a all the regions  included in the 
 list of ijkRanges passed as parameter.
@@ -450,7 +594,7 @@ ijkRange.ijkMax=(indXmax,indYmax,indZmax).</p>
 
 <dl class="method">
 <dt id="model.geometry.grid_model.GridModel.getSetLinMultiXYZRegion">
-<code class="descname">getSetLinMultiXYZRegion</code><span class="sig-paren">(</span><em>lstXYZRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetLinMultiXYZRegion" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getSetLinMultiXYZRegion</code><span class="sig-paren">(</span><em>lstXYZRange</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetLinMultiXYZRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>return the set of lines and all the entities(points, elements, 
 nodes, …) associated with them in a all the regions  included in the 
 list of xyzRanges passed as parameter.
@@ -460,7 +604,7 @@ defined in range xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))</p>
 
 <dl class="method">
 <dt id="model.geometry.grid_model.GridModel.getSetLinOneRegion">
-<code class="descname">getSetLinOneRegion</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetLinOneRegion" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getSetLinOneRegion</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetLinOneRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>return the set of lines and all the entities(points, elements, 
 nodes, …) associated with them in a region limited by the coordinates
 that correspond to the indices in the grid 
@@ -470,7 +614,7 @@ ijkRange.ijkMax=(indXmax,indYmax,indZmax).</p>
 
 <dl class="method">
 <dt id="model.geometry.grid_model.GridModel.getSetLinOneXYZRegion">
-<code class="descname">getSetLinOneXYZRegion</code><span class="sig-paren">(</span><em>xyzRange</em>, <em>nameSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetLinOneXYZRegion" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getSetLinOneXYZRegion</code><span class="sig-paren">(</span><em>xyzRange</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetLinOneXYZRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>return the set of lines and all the entities(points, elements, 
 nodes, …) associated with them in a region limited by the coordinates
 defined in range xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))</p>
@@ -525,7 +669,7 @@ coordinates in xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))</p>
 
 <dl class="method">
 <dt id="model.geometry.grid_model.GridModel.getSetSurfMultiRegion">
-<code class="descname">getSetSurfMultiRegion</code><span class="sig-paren">(</span><em>lstIJKRange</em>, <em>nameSet</em>, <em>closeCyl='N'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetSurfMultiRegion" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getSetSurfMultiRegion</code><span class="sig-paren">(</span><em>lstIJKRange</em>, <em>setName</em>, <em>closeCyl='N'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetSurfMultiRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>return the set of surfaces and all the entities(lines,
 points, elements, nodes, …) associated with them in a all
 the regions  included in the list of ijkRanges passed as parameter.
@@ -539,7 +683,7 @@ ijkRange.ijkMax=(indXmax,indYmax,indZmax).</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>lstIJKRange</strong> – list of instances of IJKRange class</li>
-<li><strong>nameSet</strong> – name of the set</li>
+<li><strong>setName</strong> – name of the set</li>
 <li><strong>closeCyl</strong> – ‘Y’ to close cylinder when using cylindrical coordinate system
 (defaults to ‘N’)</li>
 </ul>
@@ -551,7 +695,7 @@ ijkRange.ijkMax=(indXmax,indYmax,indZmax).</p>
 
 <dl class="method">
 <dt id="model.geometry.grid_model.GridModel.getSetSurfMultiXYZRegion">
-<code class="descname">getSetSurfMultiXYZRegion</code><span class="sig-paren">(</span><em>lstXYZRange</em>, <em>nameSet</em>, <em>closeCyl='N'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetSurfMultiXYZRegion" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getSetSurfMultiXYZRegion</code><span class="sig-paren">(</span><em>lstXYZRange</em>, <em>setName</em>, <em>closeCyl='N'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetSurfMultiXYZRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>return the set of surfaces and all the entities(lines,
 points, elements, nodes, …) associated with them in a all
 the regions  included in the list of xyzRanges passed as parameter.
@@ -561,7 +705,7 @@ that correspond to coordinates in range xyzRange=((xmin,ymin,zmin),(xmax,ymax,zm
 
 <dl class="method">
 <dt id="model.geometry.grid_model.GridModel.getSetSurfOneRegion">
-<code class="descname">getSetSurfOneRegion</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>nameSet</em>, <em>closeCyl='N'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetSurfOneRegion" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getSetSurfOneRegion</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>setName</em>, <em>closeCyl='N'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetSurfOneRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>return the set of surfaces and all the entities(lines, 
 points, elements, nodes, …) associated 
 with them in a region limited by the coordinates
@@ -574,7 +718,7 @@ ijkRange.ijkMax=(indXmax,indYmax,indZmax).</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>ijkRange</strong> – instance of IJKRange class</li>
-<li><strong>nameSet</strong> – name of the set</li>
+<li><strong>setName</strong> – name of the set</li>
 <li><strong>closeCyl</strong> – ‘Y’ to close cylinder when using cylindrical coordinate system
 (defaults to ‘N’)</li>
 </ul>
@@ -586,7 +730,7 @@ ijkRange.ijkMax=(indXmax,indYmax,indZmax).</p>
 
 <dl class="method">
 <dt id="model.geometry.grid_model.GridModel.getSetSurfOneXYZRegion">
-<code class="descname">getSetSurfOneXYZRegion</code><span class="sig-paren">(</span><em>xyzRange</em>, <em>nameSet</em>, <em>closeCyl='N'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetSurfOneXYZRegion" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getSetSurfOneXYZRegion</code><span class="sig-paren">(</span><em>xyzRange</em>, <em>setName</em>, <em>closeCyl='N'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getSetSurfOneXYZRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>return the set of surfaces and all the entities(lines, 
 points, elements, nodes, …) associated 
 with them in a region limited by the coordinates
@@ -1135,7 +1279,7 @@ and maxKindex</p>
 
 <dl class="function">
 <dt id="model.geometry.grid_model.getSetIntersLin">
-<code class="descclassname">model.geometry.grid_model.</code><code class="descname">getSetIntersLin</code><span class="sig-paren">(</span><em>set1</em>, <em>set2</em>, <em>nameSetInter</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.getSetIntersLin" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">model.geometry.grid_model.</code><code class="descname">getSetIntersLin</code><span class="sig-paren">(</span><em>set1</em>, <em>set2</em>, <em>setNameInter</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.getSetIntersLin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a set of lines intersection of those in ‘set1’ and ‘set2’</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1143,7 +1287,7 @@ and maxKindex</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>set2</strong> (<em>set1</em><em>,</em>) – sets containing lines to search intersection</li>
-<li><strong>nameSetInter</strong> – name of the set of lines to return</li>
+<li><strong>setNameInter</strong> – name of the set of lines to return</li>
 </ul>
 </td>
 </tr>
@@ -1153,7 +1297,7 @@ and maxKindex</p>
 
 <dl class="function">
 <dt id="model.geometry.grid_model.getSetIntersSurf">
-<code class="descclassname">model.geometry.grid_model.</code><code class="descname">getSetIntersSurf</code><span class="sig-paren">(</span><em>set1</em>, <em>set2</em>, <em>nameSetInter</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.getSetIntersSurf" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">model.geometry.grid_model.</code><code class="descname">getSetIntersSurf</code><span class="sig-paren">(</span><em>set1</em>, <em>set2</em>, <em>setNameInter</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.getSetIntersSurf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a set of surfaces intersection of those in ‘set1’ and ‘set2’</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1161,7 +1305,7 @@ and maxKindex</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>set2</strong> (<em>set1</em><em>,</em>) – sets containing surfaces to search intersection</li>
-<li><strong>nameSetInter</strong> – name of the set of surfaces to return</li>
+<li><strong>setNameInter</strong> – name of the set of surfaces to return</li>
 </ul>
 </td>
 </tr>

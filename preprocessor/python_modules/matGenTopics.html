@@ -66,7 +66,7 @@
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><a class="reference internal" href="materials.awcnds.html#materials.awc_nds.AWCNDS_materials.LSL_155E.E" title="materials.awc_nds.AWCNDS_materials.LSL_155E.E"><strong>E</strong></a> – Young’s modulus of the material</li>
 <li><a class="reference internal" href="materials.awcnds.html#materials.awc_nds.dimensional_lumber.SprucePineFirWood.nu" title="materials.awc_nds.dimensional_lumber.SprucePineFirWood.nu"><strong>nu</strong></a> – Poisson’s ratio</li>
-<li><a class="reference internal" href="materials.awcnds.html#materials.awc_nds.AWCNDS_materials.OSBPanelSection.rho" title="materials.awc_nds.AWCNDS_materials.OSBPanelSection.rho"><strong>rho</strong></a> – mass density</li>
+<li><a class="reference internal" href="materials.awcnds.html#materials.awc_nds.AWCNDS_materials.PlywoodPanelSection.rho" title="materials.awc_nds.AWCNDS_materials.PlywoodPanelSection.rho"><strong>rho</strong></a> – mass density</li>
 </ul>
 </td>
 </tr>
@@ -432,6 +432,27 @@ The initial slope for this model is (2*fpc/epsc0)</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="materials.typical_materials.defElasticSection1d">
+<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticSection1d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>A</em>, <em>E</em>, <em>rho=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticSection1d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs an elastic section appropiate for 1D beam analysis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – preprocessor</li>
+<li><strong>name</strong> – name identifying the section</li>
+<li><strong>A</strong> – cross-sectional area of the section</li>
+<li><strong>E</strong> – Young’s modulus of material</li>
+<li><strong>I</strong> – second moment of area about the local z-axis</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
 <dt id="materials.typical_materials.defElasticSection2d">
 <code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>A</em>, <em>E</em>, <em>I</em>, <em>rho=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticSection2d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs an elastic section appropiate for 2D beam analysis.</p>
@@ -469,6 +490,27 @@ The initial slope for this model is (2*fpc/epsc0)</p>
 <li><strong>Iz</strong> – second moment of area about the local z-axis</li>
 <li><strong>Iy</strong> – second moment of area about the local y-axis</li>
 <li><strong>J</strong> – torsional moment of inertia of the section</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.typical_materials.defElasticSectionFromMechProp1d">
+<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticSectionFromMechProp1d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>mechProp1d</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticSectionFromMechProp1d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs an elastic section appropiate for 1D beam analysis, 
+taking mechanical properties of the section form a MechProp1d object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – preprocessor</li>
+<li><strong>name</strong> – name identifying the section</li>
+<li><strong>mechProp1d</strong> – object of type MechProp1d that contains the mechanical 
+properties of the section</li>
 </ul>
 </td>
 </tr>
@@ -617,7 +659,6 @@ and initial elastic tangent</li>
 </div>
 <div class="section" id="module-materials.concrete_base">
 <span id="concrete-base"></span><h1>Concrete base<a class="headerlink" href="#module-materials.concrete_base" title="Permalink to this headline">¶</a></h1>
-<p>Base classes for reinforced concrete materials.</p>
 <dl class="class">
 <dt id="materials.concrete_base.Concrete">
 <em class="property">class </em><code class="descclassname">materials.concrete_base.</code><code class="descname">Concrete</code><span class="sig-paren">(</span><em>nmbConcrete</em>, <em>fck</em>, <em>gammaC</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete" title="Permalink to this definition">¶</a></dt>
@@ -2081,7 +2122,7 @@ tension stiffening properties of concrete and the cracking distance.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="materials.awcnds.html#materials.awc_nds.AWCNDS_materials.OSBPanelSection.rho" title="materials.awc_nds.AWCNDS_materials.OSBPanelSection.rho"><strong>rho</strong></a> – material density</li>
+<li><a class="reference internal" href="materials.awcnds.html#materials.awc_nds.AWCNDS_materials.PlywoodPanelSection.rho" title="materials.awc_nds.AWCNDS_materials.PlywoodPanelSection.rho"><strong>rho</strong></a> – material density</li>
 <li><a class="reference internal" href="../cpp_classes/material/uniaxial/steel/steel.html#xc.SteelBaseMaterial.fy" title="xc.SteelBaseMaterial.fy"><strong>fy</strong></a> – yield stress.</li>
 <li><strong>fu</strong> – ultimate stress.</li>
 <li><strong>gammaM</strong> – partial factor.</li>
@@ -2105,6 +2146,65 @@ tension stiffening properties of concrete and the cracking distance.</p>
 </div>
 <div class="section" id="module-materials.buckling_base">
 <span id="buckling-base"></span><h1>Buckling base<a class="headerlink" href="#module-materials.buckling_base" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="materials.buckling_base.MemberBase">
+<em class="property">class </em><code class="descclassname">materials.buckling_base.</code><code class="descname">MemberBase</code><span class="sig-paren">(</span><em>name</em>, <em>shape</em>, <em>lstLines=None</em>, <em>lstPoints=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.buckling_base.MemberBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Base class for steel members.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – object name.</li>
+<li><strong>shape</strong> – cross-section shape (e.g. IPNShape, IPEShape, …)</li>
+<li><a class="reference internal" href="../cpp_classes/preprocessor/set_mgmt/set_mgmt.html#xc.lstLines" title="xc.lstLines"><strong>lstLines</strong></a> – ordered list of lines that make up the beam 
+(defaults to None).</li>
+<li><strong>lstPoints</strong> – ordered list of points that make up the beam. Ignored if 
+lstLines is given (defaults to None)</li>
+<li><strong>contrPnt</strong> – control points along the beam.</li>
+<li><strong>elemSet</strong> – elements along the beam.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.buckling_base.MemberBase.createElementSet">
+<code class="descname">createElementSet</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.buckling_base.MemberBase.createElementSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the attributes ‘length’ and ‘elemSet’ that 
+represent the length of the beam and the set of elements included in it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.buckling_base.MemberBase.getBendingMomentsAtControlPoints">
+<code class="descname">getBendingMomentsAtControlPoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.buckling_base.MemberBase.getBendingMomentsAtControlPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the bending moments at control points.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.buckling_base.MemberBase.getPreprocessor">
+<code class="descname">getPreprocessor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.buckling_base.MemberBase.getPreprocessor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the XC preprocessor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.buckling_base.MemberBase.setControlPoints">
+<code class="descname">setControlPoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.buckling_base.MemberBase.setControlPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the five equally spaced points in the beam where the moment Mz 
+will be evaluated in order to obtain the moment gradient factor 
+involved in the calculation of the lateral-torsional buckling reduction 
+factor.</p>
+<p>An attribute of member is created, named ‘contrPnt’ that contains 
+a list of five tuples (elem,relativDist), each of which contains the
+element of the beam nearest to one control-point and the relative 
+distance from this control point to the first node of the element.
+The method also creates the attributes ‘length’ and ‘elemSet’ that 
+represent the length of the beam and the set of elements included in it.</p>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="class">
 <dt id="materials.buckling_base.MemberConnection">
 <em class="property">class </em><code class="descclassname">materials.buckling_base.</code><code class="descname">MemberConnection</code><span class="sig-paren">(</span><em>rotI='free'</em>, <em>transI='fixed'</em>, <em>rotJ='free'</em>, <em>transJ='fixed'</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.buckling_base.MemberConnection" title="Permalink to this definition">¶</a></dt>

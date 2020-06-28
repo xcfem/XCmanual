@@ -58,6 +58,196 @@
 <span id="aisc-steel-shapes-metric"></span><h2>AISC steel shapes (metric)<a class="headerlink" href="#module-materials.sections.structural_shapes.aisc_metric_shapes" title="Permalink to this headline">¶</a></h2>
 <p>AISC’s structural steel shapes (metric units).</p>
 <dl class="class">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape">
+<em class="property">class </em><code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">CHSSShape</code><span class="sig-paren">(</span><em>steel</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="materials.sections.html#materials.sections.structural_steel.CHShape" title="materials.sections.structural_steel.CHShape"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.structural_steel.CHShape</span></code></a></p>
+<p>Circular hollow structural section.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>steel</strong> – steel material.</li>
+<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – shape name (i.e. HSS16.000X0.375).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.compactRatio">
+<code class="descname">compactRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.compactRatio" title="Permalink to this definition">¶</a></dt>
+<dd><p>If section is compact according to case
+20 (round HSS sections subject to flexure) of
+table B4.1b of AISC-360-16 return a value 
+less than one.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getAw">
+<code class="descname">getAw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getAw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return area for shear strength calculation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getDesignFlexuralStrength">
+<code class="descname">getDesignFlexuralStrength</code><span class="sig-paren">(</span><em>lateralUnbracedLength</em>, <em>Cb</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getDesignFlexuralStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design flexural strength of the section</dt>
+<dd>according to section F1 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lateralUnbracedLength</strong> – length between points that are either 
+braced against lateral displacement of
+the compression flange or braced against 
+twist of the cross section.</li>
+<li><strong>Cb</strong> – lateral-torsional buckling modification factor.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getDesignShearStrength">
+<code class="descname">getDesignShearStrength</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getDesignShearStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design shear strength according to equation</dt>
+<dd>section G1 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – dummy argument needed for compatibility with
+the other shapes.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLambdaP">
+<code class="descname">getLambdaP</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLambdaP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting Width-to-Thickness Ratio (compact/noncompact)
+according to table B4.1b of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLambdaR">
+<code class="descname">getLambdaR</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLambdaR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting Width-to-Thickness Ratio (compact/noncompact)
+according to table B4.1b of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLimitingWidthToThicknessRatio">
+<code class="descname">getLimitingWidthToThicknessRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLimitingWidthToThicknessRatio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the Limiting Width-to-Thickness Ratio 
+according to table B4.1A of AISC-360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getNominalFlexuralStrength">
+<code class="descname">getNominalFlexuralStrength</code><span class="sig-paren">(</span><em>lateralUnbracedLength</em>, <em>Cb</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getNominalFlexuralStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the nominal flexural strength of the member</dt>
+<dd>according to equations F7-1 to F7-13 and F8-1 to F8-4 
+of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lateralUnbracedLength</strong> – length between points that are either 
+braced against lateral displacement of
+the compression flange or braced against 
+twist of the cross section.</li>
+<li><strong>Cb</strong> – lateral-torsional buckling modification factor.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getNominalShearStrength">
+<code class="descname">getNominalShearStrength</code><span class="sig-paren">(</span><em>Lv=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getNominalShearStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the nominal shear strength according to equations</dt>
+<dd>G4-1 and G5-1, G5-2a and G5-2b of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Lv</strong> – distance from maximum to zero shear force.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getPlasticAxialLoad">
+<code class="descname">getPlasticAxialLoad</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getPlasticAxialLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the plastic axial load of the section.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getPlasticMoment">
+<code class="descname">getPlasticMoment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getPlasticMoment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the plastic moment of the section.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getTorsionalElasticBucklingStress">
+<code class="descname">getTorsionalElasticBucklingStress</code><span class="sig-paren">(</span><em>Lc</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getTorsionalElasticBucklingStress" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the torsional or flexural-torsional elastic buckling stress</dt>
+<dd>of the member according to equations E4-2 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Lc</strong> – effective length of member for torsional buckling 
+about longitudinal axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.slenderRatio">
+<code class="descname">slenderRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.slenderRatio" title="Permalink to this definition">¶</a></dt>
+<dd><p>If section is noncompact according to table B4.1b of 
+AISC-360-16 return a value less than one otherwise
+they are slender.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.slendernessCheck">
+<code class="descname">slendernessCheck</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.slendernessCheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify that the section doesn’t contains slender elements
+according to case 9 of table B4.1a of AISC-360-16.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape">
 <em class="property">class </em><code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">CShape</code><span class="sig-paren">(</span><em>steel</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="materials.sections.html#materials.sections.structural_steel.UShape" title="materials.sections.structural_steel.UShape"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.structural_steel.UShape</span></code></a></p>
@@ -68,12 +258,421 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><strong>steel</strong> – steel material.</li>
-<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – shape name (i.e. C380X74).</li>
+<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – shape name (i.e. C15X50).</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.compactFlangeRatio">
+<code class="descname">compactFlangeRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.compactFlangeRatio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>If flanges are compact according to table 4.1b of </dt>
+<dd>AISC-360-16 return a value less than one.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.compactWebAndFlangeRatio">
+<code class="descname">compactWebAndFlangeRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.compactWebAndFlangeRatio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>If web and flanges are compact according to table 4.1b of </dt>
+<dd>AISC-360-16 return a value less than one.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.compactWebRatio">
+<code class="descname">compactWebRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.compactWebRatio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>If web is compact according to case 15 of table 4.1b of </dt>
+<dd>AISC-360-16 return a value less than one.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getAw">
+<code class="descname">getAw</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getAw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return area for shear strength calculation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getCCoefficient">
+<code class="descname">getCCoefficient</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getCCoefficient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the c coefficient according to equation
+F2-8b of AISC-360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getCriticalStressF">
+<code class="descname">getCriticalStressF</code><span class="sig-paren">(</span><em>lateralUnbracedLength</em>, <em>Cb</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getCriticalStressF" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the critical stress for the limit state </dt>
+<dd>of lateral-torsional buckling according to
+equation F2-4 of  AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+<li><strong>lateralUnbracedLength</strong> – length between points that are either 
+braced against lateral displacement of
+the compression flange or braced against 
+twist of the cross section.</li>
+<li><strong>Cb</strong> – lateral-torsional buckling modification factor.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getDesignFlexuralStrength">
+<code class="descname">getDesignFlexuralStrength</code><span class="sig-paren">(</span><em>lateralUnbracedLength</em>, <em>Cb</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getDesignFlexuralStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design flexural strength of the section</dt>
+<dd>according to section F1 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lateralUnbracedLength</strong> – length between points that are either 
+braced against lateral displacement of
+the compression flange or braced against 
+twist of the cross section.</li>
+<li><strong>Cb</strong> – lateral-torsional buckling modification factor.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getDesignShearStrength">
+<code class="descname">getDesignShearStrength</code><span class="sig-paren">(</span><em>a=1000000.0</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getDesignShearStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design shear strength according to equation</dt>
+<dd>section G1 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>a</strong> – clear distance between transverse stiffeners.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getDesignShearStrengthWithoutTensionFieldAction">
+<code class="descname">getDesignShearStrengthWithoutTensionFieldAction</code><span class="sig-paren">(</span><em>a=1000000.0</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getDesignShearStrengthWithoutTensionFieldAction" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design shear strength according to equation</dt>
+<dd>section G1 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>a</strong> – clear distance between transverse stiffeners.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getFlexuralConstant">
+<code class="descname">getFlexuralConstant</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getFlexuralConstant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the flexural constant of the section according
+to equation E4-8 of AISC-360-16..</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLambdaPFlange">
+<code class="descname">getLambdaPFlange</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLambdaPFlange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return he limiting slenderness for a compact flange, 
+defined in Table B4.1b of AISC-360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLambdaRFlange">
+<code class="descname">getLambdaRFlange</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLambdaRFlange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return he limiting slenderness for a noncompact flange, 
+defined in Table B4.1b of AISC-360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLp">
+<code class="descname">getLp</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLp" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the limiting laterally unbraced length for the </dt>
+<dd>limit state of yielding according to
+equation F2-5 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLr">
+<code class="descname">getLr</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLr" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the limiting unbraced length for the limit state </dt>
+<dd>of inelastic lateral-torsional buckling according to
+equation F2-6 of  AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getNominalFlexuralStrength">
+<code class="descname">getNominalFlexuralStrength</code><span class="sig-paren">(</span><em>lateralUnbracedLength</em>, <em>Cb</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getNominalFlexuralStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the nominal flexural strength of the member</dt>
+<dd>according to equations F2-1 to F2-3 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lateralUnbracedLength</strong> – length between points that are either 
+braced against lateral displacement of
+the compression flange or braced against 
+twist of the cross section.</li>
+<li><strong>Cb</strong> – lateral-torsional buckling modification factor.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getNominalShearStrengthWithoutTensionFieldAction">
+<code class="descname">getNominalShearStrengthWithoutTensionFieldAction</code><span class="sig-paren">(</span><em>a=1000000.0</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getNominalShearStrengthWithoutTensionFieldAction" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the nominal shear strength according to equation</dt>
+<dd>G2-1 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>a</strong> – clear distance between transverse stiffeners.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getPlasticAxialLoad">
+<code class="descname">getPlasticAxialLoad</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getPlasticAxialLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the plastic axial load of the section.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getPlasticMoment">
+<code class="descname">getPlasticMoment</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getPlasticMoment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the plastic moment of the section.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getRts">
+<code class="descname">getRts</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getRts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the squared value of rts according to equation F2-7</dt>
+<dd>of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getTorsionalElasticBucklingStress">
+<code class="descname">getTorsionalElasticBucklingStress</code><span class="sig-paren">(</span><em>Lc</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getTorsionalElasticBucklingStress" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the torsional or flexural-torsional elastic buckling stress</dt>
+<dd>of the member according to equations E4-7 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Lc</strong> – effective length of member for torsional buckling 
+about longitudinal axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getWebPlateShearBucklingCoefficient">
+<code class="descname">getWebPlateShearBucklingCoefficient</code><span class="sig-paren">(</span><em>shape</em>, <em>a=1000000.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getWebPlateShearBucklingCoefficient" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the web plate shear buckling coefficient</dt>
+<dd>according to expression G2-5 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>a</strong> – clear distance between transverse stiffeners.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getWebShearBucklingStrengthCoefficient">
+<code class="descname">getWebShearBucklingStrengthCoefficient</code><span class="sig-paren">(</span><em>kv</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getWebShearBucklingStrengthCoefficient" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the web shear stress coefficient Cv2 according</dt>
+<dd>to section G2.2 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>kv</strong> – web plate shear buckling coefficient.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getWebShearStrengthCoefficient">
+<code class="descname">getWebShearStrengthCoefficient</code><span class="sig-paren">(</span><em>a=1000000.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getWebShearStrengthCoefficient" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the web shear stress coefficient Cv1 according</dt>
+<dd>to equations G2-3 and G2-4 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>a</strong> – clear distance between transverse stiffeners.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.slenderFlangeRatio">
+<code class="descname">slenderFlangeRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.slenderFlangeRatio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>If flanges are noncompact according to table 4.1b of </dt>
+<dd>AISC-360-16 return a value less than one otherwise
+they are slender.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.slenderWebRatio">
+<code class="descname">slenderWebRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.slenderWebRatio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>If web is noncompact according to case 15 of table 4.1b of </dt>
+<dd>AISC-360-16 return a value less than one, otherwise the web
+is slender.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.slendernessCheck">
+<code class="descname">slendernessCheck</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.slendernessCheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify that the section doesn’t contains slender elements
+according to table B4.1 a of AISC-360-16.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -93,6 +692,486 @@
 </tr>
 </tbody>
 </table>
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.compactFlangeRatio">
+<code class="descname">compactFlangeRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.compactFlangeRatio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>If flanges are compact according to case</dt>
+<dd>17 (HSS sections subject to flexure) of
+table 4.1b of AISC-360-16 return a value 
+less than one.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.compactWebAndFlangeRatio">
+<code class="descname">compactWebAndFlangeRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.compactWebAndFlangeRatio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>If web and flanges are compact according to table 4.1b of </dt>
+<dd>AISC-360-16 return a value less than one.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.compactWebRatio">
+<code class="descname">compactWebRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.compactWebRatio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>If webs are compact according to table 4.1b of </dt>
+<dd>AISC-360-16 return a value less than one.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getAw">
+<code class="descname">getAw</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getAw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return area for shear strength calculation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getBClassification">
+<code class="descname">getBClassification</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getBClassification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the classification for local buckling of the
+“b” wall of the section according to table B4.1a
+of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getBFlexureClassification">
+<code class="descname">getBFlexureClassification</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getBFlexureClassification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the classification for local buckling of the
+“b” wall of the section according to table B4.1b
+of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getClassification">
+<code class="descname">getClassification</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getClassification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the classification for local buckling of the
+section according to table B4.1a of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getDesignFlexuralStrength">
+<code class="descname">getDesignFlexuralStrength</code><span class="sig-paren">(</span><em>lateralUnbracedLength</em>, <em>Cb</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getDesignFlexuralStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design flexural strength of the section</dt>
+<dd>according to section F1 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lateralUnbracedLength</strong> – length between points that are either 
+braced against lateral displacement of
+the compression flange or braced against 
+twist of the cross section.</li>
+<li><strong>Cb</strong> – lateral-torsional buckling modification factor.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getDesignShearStrength">
+<code class="descname">getDesignShearStrength</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getDesignShearStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design shear strength according to equation</dt>
+<dd>section G1 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>a</strong> – clear distance between transverse stiffeners.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getEffectiveArea">
+<code class="descname">getEffectiveArea</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getEffectiveArea" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the effective area.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getEffectiveInertia">
+<code class="descname">getEffectiveInertia</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getEffectiveInertia" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the effective moment of inertia for</dt>
+<dd>rectangular HSS sections due to 
+the “removed” area from the flange.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getEffectiveSectionModulus">
+<code class="descname">getEffectiveSectionModulus</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getEffectiveSectionModulus" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the effective section modulus determined </dt>
+<dd>with the effective width of the compression angle
+calculated with equation F7-4 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getEffectiveWidth">
+<code class="descname">getEffectiveWidth</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getEffectiveWidth" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the effective width of the flange for</dt>
+<dd>rectangular HSS sections according 
+to equation F7-4 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getFlangeLocalBucklingLimit">
+<code class="descname">getFlangeLocalBucklingLimit</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getFlangeLocalBucklingLimit" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the limit for nominal flexural strength for square of</dt>
+<dd>rectangular HSS sections due to flange buckling according 
+to section F7.2 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getHClassification">
+<code class="descname">getHClassification</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getHClassification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the classification for local buckling of the
+“h” wall of the section according to table B4.1a
+of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getHFlexureClassification">
+<code class="descname">getHFlexureClassification</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getHFlexureClassification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the classification for local buckling of the
+“h” wall of the section according to table B4.1b
+of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLambdaP">
+<code class="descname">getLambdaP</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLambdaP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting Width-to-Thickness Ratio (compact/noncompact)
+according to table B4.1b of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLambdaR">
+<code class="descname">getLambdaR</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLambdaR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting Width-to-Thickness Ratio (compact/noncompact)
+according to table B4.1b of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLateralTorsionalBucklingLimit">
+<code class="descname">getLateralTorsionalBucklingLimit</code><span class="sig-paren">(</span><em>Lb</em>, <em>Cb</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLateralTorsionalBucklingLimit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the maximum flexural strength
+due to lateral-torsional buckling according to
+expressions F7-10 to F7-11 of AISC 360-16</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Lb</strong> – Length between points that are either braced 
+against lateral displacement of compression 
+flange or braced against twist of the cross section.</li>
+<li><strong>Cb</strong> – lateral-torsional buckling modification factor Cb
+for non uniform moment diagrams when both ends of the 
+segment are braced according to expression 
+F1-1 of AISC 360-16.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLimitingLaterallyUnbracedLengthForInelasticBuckling">
+<code class="descname">getLimitingLaterallyUnbracedLengthForInelasticBuckling</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLimitingLaterallyUnbracedLengthForInelasticBuckling" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the limiting laterally unbraced length </dt>
+<dd>for the limit state of inelastic lateral torsional
+buckling according to expression F7-13 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLimitingLaterallyUnbracedLengthForYielding">
+<code class="descname">getLimitingLaterallyUnbracedLengthForYielding</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLimitingLaterallyUnbracedLengthForYielding" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the limiting laterally unbraced length </dt>
+<dd>for the limit state of yielding according
+to expression F7-12 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLimitingWidthToThicknessRatio">
+<code class="descname">getLimitingWidthToThicknessRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLimitingWidthToThicknessRatio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the Limiting Width-to-Thickness Ratio 
+according to table B4.1a of AISC-360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getNominalFlexuralStrength">
+<code class="descname">getNominalFlexuralStrength</code><span class="sig-paren">(</span><em>lateralUnbracedLength</em>, <em>Cb</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getNominalFlexuralStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the nominal flexural strength of the member</dt>
+<dd>according to equations F7-1 to F7-13 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lateralUnbracedLength</strong> – length between points that are either 
+braced against lateral displacement of
+the compression flange or braced against 
+twist of the cross section.</li>
+<li><strong>Cb</strong> – lateral-torsional buckling modification factor.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getNominalShearStrength">
+<code class="descname">getNominalShearStrength</code><span class="sig-paren">(</span><em>Lv=1000000.0</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getNominalShearStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the nominal shear strength according to equations</dt>
+<dd>G4-1 and G6-1 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Lv</strong> – distance from maximum to zero shear force.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getPlasticAxialLoad">
+<code class="descname">getPlasticAxialLoad</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getPlasticAxialLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the plastic axial load of the section.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getPlasticMoment">
+<code class="descname">getPlasticMoment</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getPlasticMoment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the plastic moment of the section.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getReducedEffectiveB">
+<code class="descname">getReducedEffectiveB</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getReducedEffectiveB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the reduced effective width corresponding
+to the “b” walls of the shape.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getReducedEffectiveH">
+<code class="descname">getReducedEffectiveH</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getReducedEffectiveH" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the reduced effective width corresponding
+to the “h” walls of the shape.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getTorsionalElasticBucklingStress">
+<code class="descname">getTorsionalElasticBucklingStress</code><span class="sig-paren">(</span><em>Lc</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getTorsionalElasticBucklingStress" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the torsional or flexural-torsional elastic buckling stress</dt>
+<dd>of the member according to equations E4-2 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Lc</strong> – effective length of member for torsional buckling 
+about longitudinal axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getWebLocalBucklingLimit">
+<code class="descname">getWebLocalBucklingLimit</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getWebLocalBucklingLimit" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the limit for nominal flexural strength for square of</dt>
+<dd>rectangular HSS sections due to web buckling according 
+to section F7.3 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getWebShearBucklingStrengthCoefficient">
+<code class="descname">getWebShearBucklingStrengthCoefficient</code><span class="sig-paren">(</span><em>kv</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getWebShearBucklingStrengthCoefficient" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the web shear stress coefficient Cv2 according</dt>
+<dd>to section G2.2 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>kv</strong> – web plate shear buckling coefficient.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.slenderFlangeRatio">
+<code class="descname">slenderFlangeRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.slenderFlangeRatio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>If flanges are noncompact according to table 4.1b of </dt>
+<dd>AISC-360-16 return a value less than one otherwise
+they are slender.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.slenderWebRatio">
+<code class="descname">slenderWebRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.slenderWebRatio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>If web is noncompact according to table 4.1b of </dt>
+<dd>AISC-360-16 return a value less than one otherwise
+it’s slender.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.slendernessCheck">
+<code class="descname">slendernessCheck</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.slendernessCheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify that the section doesn’t contains slender elements
+according to table B4.1 a of AISC-360-16.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -113,6 +1192,57 @@
 </tbody>
 </table>
 <dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.compactFlangeRatio">
+<code class="descname">compactFlangeRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.compactFlangeRatio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>If flanges are compact according to table 4.1b of </dt>
+<dd>AISC-360-16 return a value less than one.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.compactWebAndFlangeRatio">
+<code class="descname">compactWebAndFlangeRatio</code><span class="sig-paren">(</span><em>shape</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.compactWebAndFlangeRatio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>If web and flanges are compact according to table 4.1b of </dt>
+<dd>AISC-360-16 return a value less than one.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.compactWebRatio">
+<code class="descname">compactWebRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.compactWebRatio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>If web is compact according to case 15 of table 4.1b of </dt>
+<dd>AISC-360-16 return a value less than one.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.d">
 <code class="descname">d</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return internal web height: clear distance between flanges
@@ -121,31 +1251,309 @@ less the fillet at each flange (h in AISC tables).</p>
 
 <dl class="method">
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getAw">
-<code class="descname">getAw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getAw" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return A_w according to AISC specification Section G2.1b</p>
+<code class="descname">getAw</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getAw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return area for shear strength calculation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getCCoefficient">
+<code class="descname">getCCoefficient</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getCCoefficient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the c coefficient according to equation
+F2-8a of AISC-360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getCriticalStressF">
+<code class="descname">getCriticalStressF</code><span class="sig-paren">(</span><em>lateralUnbracedLength</em>, <em>Cb</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getCriticalStressF" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the critical stress for the limit state </dt>
+<dd>of lateral-torsional buckling according to
+equation F2-4 of  AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+<li><strong>lateralUnbracedLength</strong> – length between points that are either 
+braced against lateral displacement of
+the compression flange or braced against 
+twist of the cross section.</li>
+<li><strong>Cb</strong> – lateral-torsional buckling modification factor.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getDesignFlexuralStrength">
+<code class="descname">getDesignFlexuralStrength</code><span class="sig-paren">(</span><em>lateralUnbracedLength</em>, <em>Cb</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getDesignFlexuralStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design flexural strength of the section</dt>
+<dd>according to section F1 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lateralUnbracedLength</strong> – length between points that are either 
+braced against lateral displacement of
+the compression flange or braced against 
+twist of the cross section.</li>
+<li><strong>Cb</strong> – lateral-torsional buckling modification factor.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getDesignShearStrength">
+<code class="descname">getDesignShearStrength</code><span class="sig-paren">(</span><em>a=1000000.0</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getDesignShearStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design shear strength according to equation</dt>
+<dd>section G1 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>a</strong> – clear distance between transverse stiffeners.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getDesignShearStrengthWithoutTensionFieldAction">
+<code class="descname">getDesignShearStrengthWithoutTensionFieldAction</code><span class="sig-paren">(</span><em>a=1000000.0</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getDesignShearStrengthWithoutTensionFieldAction" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design shear strength according to equation</dt>
+<dd>section G1 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>a</strong> – clear distance between transverse stiffeners.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLambdaPFlange">
+<code class="descname">getLambdaPFlange</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLambdaPFlange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return he limiting slenderness for a compact flange, 
+defined in Table B4.1b of AISC-360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLambdaRFlange">
+<code class="descname">getLambdaRFlange</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLambdaRFlange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return he limiting slenderness for a noncompact flange, 
+defined in Table B4.1b of AISC-360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLp">
+<code class="descname">getLp</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLp" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the limiting laterally unbraced length for the </dt>
+<dd>limit state of yielding according to
+equation F2-5 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLr">
+<code class="descname">getLr</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLr" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the limiting unbraced length for the limit state </dt>
+<dd>of inelastic lateral-torsional buckling according to
+equation F2-6 of  AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getNominalFlexuralStrength">
+<code class="descname">getNominalFlexuralStrength</code><span class="sig-paren">(</span><em>lateralUnbracedLength</em>, <em>Cb</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getNominalFlexuralStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the nominal flexural strength of the member</dt>
+<dd>according to equations F2-1 to F2-3 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lateralUnbracedLength</strong> – length between points that are either 
+braced against lateral displacement of
+the compression flange or braced against 
+twist of the cross section.</li>
+<li><strong>Cb</strong> – lateral-torsional buckling modification factor.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getNominalShearStrengthWithoutTensionFieldAction">
-<code class="descname">getNominalShearStrengthWithoutTensionFieldAction</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getNominalShearStrengthWithoutTensionFieldAction" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the nominal shear strength according to equation
-2.1 of “Specification for Structural Steel Buildings,
-July 7, 2016 AISC”</p>
+<code class="descname">getNominalShearStrengthWithoutTensionFieldAction</code><span class="sig-paren">(</span><em>a=1000000.0</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getNominalShearStrengthWithoutTensionFieldAction" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the nominal shear strength according to equation</dt>
+<dd>G2-1 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>a</strong> – clear distance between transverse stiffeners.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getPlasticAxialLoad">
+<code class="descname">getPlasticAxialLoad</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getPlasticAxialLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the plastic axial load of the section.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getPlasticMoment">
+<code class="descname">getPlasticMoment</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getPlasticMoment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the plastic moment of the section.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getRts">
+<code class="descname">getRts</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getRts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the value of rts according to equation F2-7</dt>
+<dd>of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getShearResistanceFactor">
 <code class="descname">getShearResistanceFactor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getShearResistanceFactor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the resistance factor for shear according to
-section G2.1a.</p>
+sections G1 and G2.1(a) of AISC-360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getTorsionalElasticBucklingStress">
+<code class="descname">getTorsionalElasticBucklingStress</code><span class="sig-paren">(</span><em>Lc</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getTorsionalElasticBucklingStress" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the torsional or flexural-torsional elastic buckling stress</dt>
+<dd>of the member according to equations E4-2 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Lc</strong> – effective length of member for torsional buckling 
+about longitudinal axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getWebPlateShearBucklingCoefficient">
+<code class="descname">getWebPlateShearBucklingCoefficient</code><span class="sig-paren">(</span><em>a=1000000.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getWebPlateShearBucklingCoefficient" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the web plate shear buckling coefficient</dt>
+<dd>according to expression G2-5 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>a</strong> – clear distance between transverse stiffeners.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getWebShearBucklingStrengthCoefficient">
+<code class="descname">getWebShearBucklingStrengthCoefficient</code><span class="sig-paren">(</span><em>kv</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getWebShearBucklingStrengthCoefficient" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the web shear stress coefficient Cv2 according</dt>
+<dd>to section G2.2 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>kv</strong> – web plate shear buckling coefficient.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getWebShearStrengthCoefficient">
-<code class="descname">getWebShearStrengthCoefficient</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getWebShearStrengthCoefficient" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the web shear stress coefficient Cv1 according
-to equations G2-2, G2-3 and G2-4 of “Specification for 
-Structural Steel Buildings, July 7, 2016 AISC”</p>
+<code class="descname">getWebShearStrengthCoefficient</code><span class="sig-paren">(</span><em>a=1000000.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getWebShearStrengthCoefficient" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the web shear stress coefficient Cv1 according</dt>
+<dd>to equations G2-2, G2-3 and G2-4 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>a</strong> – clear distance between transverse stiffeners.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -154,6 +1562,322 @@ Structural Steel Buildings, July 7, 2016 AISC”</p>
 <dd><p>Return overall depth of member (d in AISC tables).</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.slenderFlangeRatio">
+<code class="descname">slenderFlangeRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.slenderFlangeRatio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>If flanges are noncompact according to table 4.1b of </dt>
+<dd>AISC-360-16 return a value less than one otherwise
+they are slender.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.slenderWebRatio">
+<code class="descname">slenderWebRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.slenderWebRatio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>If web is noncompact according to case 15 of table 4.1b of </dt>
+<dd>AISC-360-16 return a value less than one, otherwise the web
+is slender.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.slendernessCheck">
+<code class="descname">slendernessCheck</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.slendernessCheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify that the section doesn’t contains slender elements
+according to table B4.1a of AISC-360-16.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getG22WebShearBucklingStrengthCoefficient">
+<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getG22WebShearBucklingStrengthCoefficient</code><span class="sig-paren">(</span><em>shape</em>, <em>kv</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getG22WebShearBucklingStrengthCoefficient" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the web shear stress coefficient Cv2 according</dt>
+<dd>to section G2.2 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>kv</strong> – web plate shear buckling coefficient.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getMetricLabel">
+<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getMetricLabel</code><span class="sig-paren">(</span><em>USLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getMetricLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the metric label from the US customary one.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getShapeCompactWebAndFlangeRatio">
+<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getShapeCompactWebAndFlangeRatio</code><span class="sig-paren">(</span><em>shape</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getShapeCompactWebAndFlangeRatio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>If web and flanges are compact according to table 4.1b of </dt>
+<dd>AISC-360-16 return a value less than one.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getShapePlasticAxialLoad">
+<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getShapePlasticAxialLoad</code><span class="sig-paren">(</span><em>shape</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getShapePlasticAxialLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the plastic axial load of the shape.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>shape</strong> – structural shape.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getShapePlasticMoment">
+<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getShapePlasticMoment</code><span class="sig-paren">(</span><em>shape</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getShapePlasticMoment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the plastic moment of the shape.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>shape</strong> – structural shape.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getShapeTorsionalElasticBucklingStress">
+<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getShapeTorsionalElasticBucklingStress</code><span class="sig-paren">(</span><em>shape</em>, <em>effectiveLengthX</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getShapeTorsionalElasticBucklingStress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the torsional or flexural-torsional elastic buckling stress
+of the member according to equations E4-2, E4-3 and E4-4 of 
+AISC-360-16.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>effectiveLengthX</strong> – effective length of member (torsion).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getUIAw">
+<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getUIAw</code><span class="sig-paren">(</span><em>shape</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getUIAw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return area for shear strength calculation.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getUINominalShearStrengthWithoutTensionFieldAction">
+<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getUINominalShearStrengthWithoutTensionFieldAction</code><span class="sig-paren">(</span><em>shape</em>, <em>a=1000000.0</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getUINominalShearStrengthWithoutTensionFieldAction" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the nominal shear strength according to equation</dt>
+<dd>G2-1 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>a</strong> – clear distance between transverse stiffeners.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeCriticalStressF">
+<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getUIShapeCriticalStressF</code><span class="sig-paren">(</span><em>shape</em>, <em>lateralUnbracedLength</em>, <em>Cb</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeCriticalStressF" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the critical stress for the limit state </dt>
+<dd>of lateral-torsional buckling according to
+equation F2-4 of  AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>shape</strong> – I or channel structural shape.</li>
+<li><strong>lateralUnbracedLength</strong> – length between points that are either 
+braced against lateral displacement of
+the compression flange or braced against 
+twist of the cross section.</li>
+<li><strong>Cb</strong> – lateral-torsional buckling modification factor.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLambdaPFlange">
+<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getUIShapeLambdaPFlange</code><span class="sig-paren">(</span><em>shape</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLambdaPFlange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return he limiting slenderness for a compact flange, 
+defined in Table B4.1b of AISC-360-16.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLambdaRFlange">
+<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getUIShapeLambdaRFlange</code><span class="sig-paren">(</span><em>shape</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLambdaRFlange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return he limiting slenderness for a noncompact flange, 
+defined in Table B4.1b of AISC-360-16.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLp">
+<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getUIShapeLp</code><span class="sig-paren">(</span><em>shape</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLp" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the limiting laterally unbraced length for the limit state</dt>
+<dd>of yielding according to equation F2-5 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>shape</strong> – I or channel structural shape.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLr">
+<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getUIShapeLr</code><span class="sig-paren">(</span><em>shape</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLr" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the limiting unbraced length for the limit state </dt>
+<dd>of inelastic lateral-torsional buckling according to
+equation F2-6 of  AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>shape</strong> – I or channel structural shape.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeNominalFlexuralStrength">
+<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getUIShapeNominalFlexuralStrength</code><span class="sig-paren">(</span><em>shape</em>, <em>lateralUnbracedLength</em>, <em>Cb</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeNominalFlexuralStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the nominal flexural strength of the member</dt>
+<dd>according to equations F2-1 to F2-3 or F3-1 to F3-2 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>shape</strong> – I or channel structural shape.</li>
+<li><strong>lateralUnbracedLength</strong> – length between points that are either 
+braced against lateral displacement of
+the compression flange or braced against 
+twist of the cross section.</li>
+<li><strong>Cb</strong> – lateral-torsional buckling modification factor.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeRts">
+<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getUIShapeRts</code><span class="sig-paren">(</span><em>shape</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeRts" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the value of rts according to equation F2-7</dt>
+<dd>of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>shape</strong> – I or channel structural shape.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getUIWebPlateShearBucklingCoefficient">
+<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getUIWebPlateShearBucklingCoefficient</code><span class="sig-paren">(</span><em>shape</em>, <em>a=1000000.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getUIWebPlateShearBucklingCoefficient" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the web plate shear buckling coefficient</dt>
+<dd>according to expression G2-5 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>a</strong> – clear distance between transverse stiffeners</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getUSLabel">
+<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getUSLabel</code><span class="sig-paren">(</span><em>metricLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getUSLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the US customary label from the metric one.</p>
 </dd></dl>
 
 </div>
@@ -166,7 +1890,7 @@ Structural Steel Buildings, July 7, 2016 AISC”</p>
 <dl class="method">
 <dt id="materials.sections.structural_shapes.arcelor_metric_shapes.AUShape.getRho">
 <code class="descname">getRho</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.arcelor_metric_shapes.AUShape.getRho" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns mass per unit lenght.</p>
+<dd><p>Returns mass per unit length.</p>
 </dd></dl>
 
 </dd></dl>
@@ -190,7 +1914,7 @@ Structural Steel Buildings, July 7, 2016 AISC”</p>
 <dl class="method">
 <dt id="materials.sections.structural_shapes.arcelor_metric_shapes.CHSShape.getRho">
 <code class="descname">getRho</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.arcelor_metric_shapes.CHSShape.getRho" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns mass per unit lenght.</p>
+<dd><p>Returns mass per unit length.</p>
 </dd></dl>
 
 </dd></dl>

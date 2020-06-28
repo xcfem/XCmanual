@@ -105,7 +105,7 @@ initial/undeformed shape)</li>
 
 <dl class="method">
 <dt id="postprocess.output_handler.OutputHandler.displayBlocks">
-<code class="descname">displayBlocks</code><span class="sig-paren">(</span><em>setToDisplay=None</em>, <em>caption=None</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayBlocks" title="Permalink to this definition">¶</a></dt>
+<code class="descname">displayBlocks</code><span class="sig-paren">(</span><em>setToDisplay=None</em>, <em>caption=None</em>, <em>fileName=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayBlocks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display the blocks (points, lines, surfaces and volumes)
 of the set.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -117,11 +117,6 @@ of the set.</p>
 <li><strong>caption</strong> – title of the graphic.</li>
 <li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to 
 None, in that case an screen display is generated</li>
-<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
-so that the display position of each node equals to
-the initial position plus its displacement multiplied
-by this factor. (Defaults to 0.0, i.e. display of 
-initial/undeformed shape)</li>
 </ul>
 </td>
 </tr>
@@ -133,18 +128,17 @@ initial/undeformed shape)</li>
 <dt id="postprocess.output_handler.OutputHandler.displayDiagram">
 <code class="descname">displayDiagram</code><span class="sig-paren">(</span><em>attributeName</em>, <em>component</em>, <em>setToDispRes</em>, <em>setDisp</em>, <em>caption</em>, <em>scaleFactor=1.0</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayDiagram" title="Permalink to this definition">¶</a></dt>
 <dd><p>Auxiliary function to display results on linear elements.</p>
-<p>:param attributeName:attribute name(e.g. ‘ULS_normalStressesResistance’)
-:param component:    result item to display (e.g. ‘N’, ‘My’, …)
-:param setToDispRes: set of linear elements to which display results
-:param setToDisplay:      set of elements (any type) to be depicted
-:param scaleFactor:  factor of scale to apply to the auto-scaled display</p>
-<blockquote>
-<div>(defaults to 1)</div></blockquote>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>attributeName</strong> – attribute name(e.g. ‘ULS_normalStressesResistance’)</li>
+<li><strong>component</strong> – result item to display (e.g. ‘N’, ‘My’, …)</li>
+<li><strong>setToDispRes</strong> – set of linear elements to which display results</li>
+<li><strong>setToDisplay</strong> – set of elements (any type) to be depicted</li>
+<li><strong>scaleFactor</strong> – factor of scale to apply to the auto-scaled display
+(defaults to 1)</li>
 <li><strong>caption</strong> – caption to display</li>
 <li><strong>fileName</strong> – file to dump the display</li>
 <li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
@@ -258,6 +252,33 @@ initial/undeformed shape)</li>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>eigenMode</strong> – mode to which the eigenvectors belong.</li>
 <li><strong>setsToDisplay</strong> – sets to display on batch mode.</li>
+<li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to None,
+in that case an screen display is generated</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_handler.OutputHandler.displayElementValueDiagram">
+<code class="descname">displayElementValueDiagram</code><span class="sig-paren">(</span><em>itemToDisp</em>, <em>setToDisplay=None</em>, <em>caption=None</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayElementValueDiagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>displays the a displacement (uX,uY,…) or a property defined in nodes 
+as a diagram over lines.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>itemToDisp</strong> – item to display (uX,uY,…).</li>
+<li><strong>setToDisplay</strong> – set of entities (elements of type beam) to be 
+represented</li>
 <li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to None,
 in that case an screen display is generated</li>
 <li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
@@ -423,7 +444,7 @@ initial/undeformed shape)</li>
 
 <dl class="method">
 <dt id="postprocess.output_handler.OutputHandler.displayLoads">
-<code class="descname">displayLoads</code><span class="sig-paren">(</span><em>setToDisplay=None</em>, <em>elLoadComp='transComponent'</em>, <em>fUnitConv=1</em>, <em>caption=None</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayLoads" title="Permalink to this definition">¶</a></dt>
+<code class="descname">displayLoads</code><span class="sig-paren">(</span><em>setToDisplay=None</em>, <em>elLoadComp='xyzComponents'</em>, <em>fUnitConv=1</em>, <em>caption=None</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayLoads" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display the loads applied on beam elements and nodes for a given load case</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -434,7 +455,7 @@ initial/undeformed shape)</li>
 <li><strong>elLoadComp</strong> – <p>component of the loads on elements to be depicted
 [possible components: ‘axialComponent’, ‘transComponent’,</p>
 <blockquote>
-<div>’transYComponent’, ‘transZComponent’]</div></blockquote>
+<div>’transYComponent’, ‘transZComponent’,’xyzComponents’]</div></blockquote>
 </li>
 <li><strong>fUnitConv</strong> – factor of conversion to be applied to the results
 (defaults to 1)</li>
@@ -530,10 +551,9 @@ initial/undeformed shape)</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="postprocess.output_handler.OutputHandler.displayScalarProperty">
-<code class="descname">displayScalarProperty</code><span class="sig-paren">(</span><em>propToDisp</em>, <em>fUnitConv</em>, <em>unitDescription</em>, <em>captionText</em>, <em>setToDisplay</em>, <em>fileName=None</em>, <em>defFScale=0.0</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayScalarProperty" title="Permalink to this definition">¶</a></dt>
-<dd><p>displays the component of the displacement or rotations in the 
-set of entities.</p>
+<dt id="postprocess.output_handler.OutputHandler.displayScalarPropertyAtNodes">
+<code class="descname">displayScalarPropertyAtNodes</code><span class="sig-paren">(</span><em>propToDisp</em>, <em>fUnitConv</em>, <em>unitDescription</em>, <em>captionText</em>, <em>setToDisplay</em>, <em>fileName=None</em>, <em>defFScale=0.0</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayScalarPropertyAtNodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>displays the scalar property defined at the nodes of the set.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -564,14 +584,13 @@ displayed in blue and those greater than vmax in red
 <dl class="method">
 <dt id="postprocess.output_handler.OutputHandler.displayStrains">
 <code class="descname">displayStrains</code><span class="sig-paren">(</span><em>itemToDisp</em>, <em>setToDisplay=None</em>, <em>fileName=None</em>, <em>defFScale=0.0</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayStrains" title="Permalink to this definition">¶</a></dt>
-<dd><p>displays the component of the displacement or rotations in the 
-set of entities.</p>
+<dd><p>displays the strains on the elements.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>itemToDisp</strong> – component of the stress (‘sigma_11’, ‘sigma_22’…)</li>
+<li><strong>itemToDisp</strong> – component of the stress (‘eps_11’, ‘eps_22’…)</li>
 <li><strong>setToDisplay</strong> – set of entities to be represented.</li>
 <li><strong>fileName</strong> – name of the file to plot the graphic. Defaults to 
 None, in that case an screen display is generated</li>
@@ -594,8 +613,7 @@ displayed in blue and those greater than vmax in red
 <dl class="method">
 <dt id="postprocess.output_handler.OutputHandler.displayStresses">
 <code class="descname">displayStresses</code><span class="sig-paren">(</span><em>itemToDisp</em>, <em>setToDisplay=None</em>, <em>fileName=None</em>, <em>defFScale=0.0</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayStresses" title="Permalink to this definition">¶</a></dt>
-<dd><p>displays the component of the displacement or rotations in the 
-set of entities.</p>
+<dd><p>display the stresses on the elements.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -651,6 +669,12 @@ initial/undeformed shape)</li>
 <code class="descname">getCameraParameters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.getCameraParameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a suitable set of camera parameters if not
 already defined.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_handler.OutputHandler.getCaptionText">
+<code class="descname">getCaptionText</code><span class="sig-paren">(</span><em>itemToDisp</em>, <em>unitDescription</em>, <em>setToDisplay</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.getCaptionText" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the text to use in the image caption.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1013,6 +1037,42 @@ in order to obtain the desired output units
 <div class="section" id="module-postprocess.control_vars">
 <span id="control-variables"></span><h2>Control variables<a class="headerlink" href="#module-postprocess.control_vars" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
+<dt id="postprocess.control_vars.AISCBiaxialBendingControlVars">
+<em class="property">class </em><code class="descclassname">postprocess.control_vars.</code><code class="descname">AISCBiaxialBendingControlVars</code><span class="sig-paren">(</span><em>idSection='nil'</em>, <em>combName='nil'</em>, <em>CF=-1.0</em>, <em>N=0.0</em>, <em>My=0.0</em>, <em>Mz=0.0</em>, <em>Ncrd=0.0</em>, <em>McRdy=0.0</em>, <em>McRdz=0.0</em>, <em>MvRdz=0.0</em>, <em>MbRdz=0.0</em>, <em>chiLT=1.0</em>, <em>chiN=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.AISCBiaxialBendingControlVars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.SSBiaxialBendingControlVars" title="postprocess.control_vars.SSBiaxialBendingControlVars"><code class="xref py py-class docutils literal"><span class="pre">postprocess.control_vars.SSBiaxialBendingControlVars</span></code></a></p>
+<p>Control variables for biaxial bending normal stresses LS 
+verification in steel-shape elements according to AISC.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>chiN</strong> – reduction factor for compressive strength (defaults to 1)</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="postprocess.control_vars.AISCBiaxialBendingControlVars.getLaTeXFields">
+<code class="descname">getLaTeXFields</code><span class="sig-paren">(</span><em>factor=0.001</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.AISCBiaxialBendingControlVars.getLaTeXFields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string with the intermediate fields of the LaTeX string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>factor</strong> – factor for units (default 1e-3 -&gt; kN)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.control_vars.AISCBiaxialBendingControlVars.getStrArguments">
+<code class="descname">getStrArguments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.AISCBiaxialBendingControlVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string for a ‘copy’ (kind of) constructor.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="postprocess.control_vars.AxialForceControlVars">
 <em class="property">class </em><code class="descclassname">postprocess.control_vars.</code><code class="descname">AxialForceControlVars</code><span class="sig-paren">(</span><em>idSection='nil'</em>, <em>combName='nil'</em>, <em>N=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.AxialForceControlVars" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.ControlVarsBase" title="postprocess.control_vars.ControlVarsBase"><code class="xref py py-class docutils literal"><span class="pre">postprocess.control_vars.ControlVarsBase</span></code></a></p>
@@ -1065,7 +1125,7 @@ in order to obtain the desired output units
 
 <dl class="method">
 <dt id="postprocess.control_vars.AxialForceControlVars.getStrArguments">
-<code class="descname">getStrArguments</code><span class="sig-paren">(</span><em>factor</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.AxialForceControlVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getStrArguments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.AxialForceControlVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string for a ‘copy’ (kind of) constructor.</p>
 </dd></dl>
 
@@ -1127,7 +1187,7 @@ in order to obtain the desired output units
 
 <dl class="method">
 <dt id="postprocess.control_vars.BiaxialBendingControlVars.getStrArguments">
-<code class="descname">getStrArguments</code><span class="sig-paren">(</span><em>factor</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.BiaxialBendingControlVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getStrArguments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.BiaxialBendingControlVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string for a ‘copy’ (kind of) constructor.</p>
 </dd></dl>
 
@@ -1215,7 +1275,7 @@ in order to obtain the desired output units
 
 <dl class="method">
 <dt id="postprocess.control_vars.CFNMyMz.getStrArguments">
-<code class="descname">getStrArguments</code><span class="sig-paren">(</span><em>factor</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.CFNMyMz.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getStrArguments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.CFNMyMz.getStrArguments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string for a ‘copy’ (kind of) constructor.</p>
 </dd></dl>
 
@@ -1325,26 +1385,18 @@ in order to obtain the desired output units
 
 <dl class="method">
 <dt id="postprocess.control_vars.ControlVarsBase.getStrArguments">
-<code class="descname">getStrArguments</code><span class="sig-paren">(</span><em>factor</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.ControlVarsBase.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getStrArguments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.ControlVarsBase.getStrArguments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string for a ‘copy’ (kind of) constructor.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>factor</strong> – factor for units (default 1e-3 -&gt; kN)</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="postprocess.control_vars.ControlVarsBase.getStrConstructor">
-<code class="descname">getStrConstructor</code><span class="sig-paren">(</span><em>factor=0.001</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.ControlVarsBase.getStrConstructor" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getStrConstructor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.ControlVarsBase.getStrConstructor" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="postprocess.control_vars.ControlVarsBase.strElementProp">
-<code class="descname">strElementProp</code><span class="sig-paren">(</span><em>eTag</em>, <em>nmbProp</em>, <em>factor=0.001</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.ControlVarsBase.strElementProp" title="Permalink to this definition">¶</a></dt>
+<code class="descname">strElementProp</code><span class="sig-paren">(</span><em>eTag</em>, <em>nmbProp</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.ControlVarsBase.strElementProp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Writes a string that will serve to read the element property from a file.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1353,7 +1405,6 @@ in order to obtain the desired output units
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>eTag</strong> – element identifier.</li>
 <li><strong>nmbProp</strong> – name of the element property</li>
-<li><strong>factor</strong> – factor for units (default 1e-3 -&gt; kN)</li>
 </ul>
 </td>
 </tr>
@@ -1419,7 +1470,7 @@ in order to obtain the desired output units
 
 <dl class="method">
 <dt id="postprocess.control_vars.CrackControlBaseVars.getStrArguments">
-<code class="descname">getStrArguments</code><span class="sig-paren">(</span><em>factor</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.CrackControlBaseVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getStrArguments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.CrackControlBaseVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string for a ‘copy’ (kind of) constructor.</p>
 </dd></dl>
 
@@ -1469,7 +1520,7 @@ factor: factor for units (default 1e-3 -&gt; kN)</p>
 
 <dl class="method">
 <dt id="postprocess.control_vars.CrackControlVars.getStrArguments">
-<code class="descname">getStrArguments</code><span class="sig-paren">(</span><em>factor</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.CrackControlVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getStrArguments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.CrackControlVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string for a ‘copy’ (kind of) constructor.</p>
 </dd></dl>
 
@@ -1533,7 +1584,7 @@ factor: factor for units (default 1e-3 -&gt; kN)</p>
 
 <dl class="method">
 <dt id="postprocess.control_vars.FatigueControlBaseVars.getStrArguments">
-<code class="descname">getStrArguments</code><span class="sig-paren">(</span><em>factor</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.FatigueControlBaseVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getStrArguments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.FatigueControlBaseVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string for a ‘copy’ (kind of) constructor.</p>
 </dd></dl>
 
@@ -1616,7 +1667,7 @@ factor: factor for units (default 1e-3 -&gt; kN)</p>
 
 <dl class="method">
 <dt id="postprocess.control_vars.FatigueControlVars.getStrArguments">
-<code class="descname">getStrArguments</code><span class="sig-paren">(</span><em>factor</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.FatigueControlVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getStrArguments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.FatigueControlVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string for a ‘copy’ (kind of) constructor.</p>
 </dd></dl>
 
@@ -1675,7 +1726,7 @@ factor: factor for units (default 1e-3 -&gt; kN)</p>
 
 <dl class="method">
 <dt id="postprocess.control_vars.NMy.getStrArguments">
-<code class="descname">getStrArguments</code><span class="sig-paren">(</span><em>factor</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.NMy.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getStrArguments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.NMy.getStrArguments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string for a ‘copy’ (kind of) constructor.</p>
 </dd></dl>
 
@@ -1735,7 +1786,7 @@ factor: factor for units (default 1e-3 -&gt; kN)</p>
 
 <dl class="method">
 <dt id="postprocess.control_vars.NMyMz.getStrArguments">
-<code class="descname">getStrArguments</code><span class="sig-paren">(</span><em>factor</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.NMyMz.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getStrArguments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.NMyMz.getStrArguments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string for a ‘copy’ (kind of) constructor.</p>
 </dd></dl>
 
@@ -1782,7 +1833,7 @@ the effects of tension stiffening.</p>
 
 <dl class="method">
 <dt id="postprocess.control_vars.RCCrackStraightControlVars.getStrArguments">
-<code class="descname">getStrArguments</code><span class="sig-paren">(</span><em>factor</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.RCCrackStraightControlVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getStrArguments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.RCCrackStraightControlVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string for a ‘copy’ (kind of) constructor.</p>
 </dd></dl>
 
@@ -1808,9 +1859,9 @@ the effects of tension stiffening.</p>
 <li><strong>Vy</strong> – shear force parallel to the y axis</li>
 <li><strong>Vz</strong> – shear force parallel to the z axis</li>
 <li><strong>theta</strong> – angle between the concrete compression struts and the beam axis</li>
-<li><strong>Vcu</strong> – Vcu component of the shear resistance (defined in the codes)</li>
-<li><strong>Vsu</strong> – Vsu component of the shear resistance (defined in the codes)</li>
-<li><a class="reference internal" href="../../preprocessor/python_modules/materials.sia262.html#materials.sia262.SIA262_limit_state_checking.ShearController.Vu" title="materials.sia262.SIA262_limit_state_checking.ShearController.Vu"><strong>Vu</strong></a> – shear resistance</li>
+<li><strong>Vcu</strong> – Vcu component of the shear strength (defined in the codes)</li>
+<li><strong>Vsu</strong> – Vsu component of the shear strength (defined in the codes)</li>
+<li><a class="reference internal" href="../../preprocessor/python_modules/materials.sia262.html#materials.sia262.SIA262_limit_state_checking.ShearController.Vu" title="materials.sia262.SIA262_limit_state_checking.ShearController.Vu"><strong>Vu</strong></a> – shear strength</li>
 </ul>
 </td>
 </tr>
@@ -1851,7 +1902,7 @@ the effects of tension stiffening.</p>
 
 <dl class="method">
 <dt id="postprocess.control_vars.RCShearControlVars.getStrArguments">
-<code class="descname">getStrArguments</code><span class="sig-paren">(</span><em>factor</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.RCShearControlVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getStrArguments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.RCShearControlVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string for a ‘copy’ (kind of) constructor.</p>
 </dd></dl>
 
@@ -1874,11 +1925,11 @@ verification en steel-shape elements.</p>
 <li><a class="reference internal" href="../../preprocessor/python_modules/materials.sections.html#materials.sections.stress_calc.StressCalc.N" title="materials.sections.stress_calc.StressCalc.N"><strong>N</strong></a> – axial force (defaults to 0.0)</li>
 <li><strong>My</strong> – bending moment about Y (weak) axis (defaults to 0.0)</li>
 <li><strong>Mz</strong> – bending moment about Z (strong) axis (defaults to 0.0)</li>
-<li><strong>Ncrd</strong> – design resistance to axial compression</li>
-<li><strong>McRdy</strong> – design moment resistance about Y (weak) axis</li>
-<li><strong>McRdz</strong> – design moment resistance about Z (strong) axis</li>
-<li><strong>MvRdz</strong> – reduced design moment resistance about Z (strong) axis for shear interaction</li>
-<li><strong>MbRdz</strong> – reduced design moment resistance about Z (strong) axis for lateral-torsional bucking</li>
+<li><strong>Ncrd</strong> – design strength to axial compression</li>
+<li><strong>McRdy</strong> – design moment strength about Y (weak) axis</li>
+<li><strong>McRdz</strong> – design moment strength about Z (strong) axis</li>
+<li><strong>MvRdz</strong> – reduced design moment strength about Z (strong) axis for shear interaction</li>
+<li><strong>MbRdz</strong> – reduced design moment strength about Z (strong) axis for lateral-torsional bucking</li>
 <li><strong>chiLT</strong> – reduction factor for lateral-torsional buckling (defaults to 1)</li>
 </ul>
 </td>
@@ -1901,7 +1952,7 @@ verification en steel-shape elements.</p>
 
 <dl class="method">
 <dt id="postprocess.control_vars.SSBiaxialBendingControlVars.getStrArguments">
-<code class="descname">getStrArguments</code><span class="sig-paren">(</span><em>factor</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.SSBiaxialBendingControlVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getStrArguments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.SSBiaxialBendingControlVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string for a ‘copy’ (kind of) constructor.</p>
 </dd></dl>
 
@@ -1959,7 +2010,7 @@ verification en steel-shape elements.</p>
 
 <dl class="method">
 <dt id="postprocess.control_vars.ShVy.getStrArguments">
-<code class="descname">getStrArguments</code><span class="sig-paren">(</span><em>factor</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.ShVy.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getStrArguments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.ShVy.getStrArguments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string for a ‘copy’ (kind of) constructor.</p>
 </dd></dl>
 
@@ -2000,16 +2051,8 @@ verification en steel-shape elements.</p>
 
 <dl class="method">
 <dt id="postprocess.control_vars.ShearYControlVars.getStrArguments">
-<code class="descname">getStrArguments</code><span class="sig-paren">(</span><em>factor</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.ShearYControlVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getStrArguments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.ShearYControlVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string for a ‘copy’ (kind of) constructor.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>factor</strong> – factor for units (default 1e-3 -&gt; kN)</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
 </dd></dl>
@@ -2050,16 +2093,8 @@ verification en steel-shape elements.</p>
 
 <dl class="method">
 <dt id="postprocess.control_vars.UniaxialBendingControlVars.getStrArguments">
-<code class="descname">getStrArguments</code><span class="sig-paren">(</span><em>factor</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.UniaxialBendingControlVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getStrArguments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.UniaxialBendingControlVars.getStrArguments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string for a ‘copy’ (kind of) constructor.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>factor</strong> – factor for units (default 1e-3 -&gt; kN)</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
 </dd></dl>
@@ -2330,10 +2365,433 @@ rebar positions,…</li>
 
 </dd></dl>
 
-<dl class="function">
-<dt id="postprocess.element_section_map.loadElementSectionMap">
-<code class="descclassname">postprocess.element_section_map.</code><code class="descname">loadElementSectionMap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.loadElementSectionMap" title="Permalink to this definition">¶</a></dt>
+<dl class="class">
+<dt id="postprocess.element_section_map.ElementSections">
+<em class="property">class </em><code class="descclassname">postprocess.element_section_map.</code><code class="descname">ElementSections</code><span class="sig-paren">(</span><em>name, directions=[1, 2], gaussPoints=[1], elemSet=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.ElementSections" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>This class defines the list of reinforced concrete sections that are going 
+to be associated to a set of elements in order to carry out the verifications 
+of the limit states.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – name given to the list of reinforced concrete sections</li>
+<li><strong>directions</strong> – list of the directions to consider for each integration
+point.</li>
+<li><strong>gaussPoints</strong> – list of the integration points to consider for each
+element.</li>
+<li><strong>lstRCSects</strong> – <p>list of reinforced concrete fiber-sections that will be 
+associated to a set of elements in order to carry out 
+their LS verifications. The items of the list are 
+instances of the objects derived from <em>RCSectionBase</em></p>
+<p>The sections are ordered by integration point and then 
+by direction. For example for an element with three integration
+point and two directions the order is as follows:</p>
+<p>lstRCSects[0]= integration point 1, direction 1
+lstRCSects[1]= integration point 1, direction 2
+lstRCSects[2]= integration point 2, direction 1
+lstRCSects[3]= integration point 2, direction 2
+lstRCSects[4]= integration point 3, direction 1
+lstRCSects[5]= integration point 3, direction 2</p>
+</li>
+<li><strong>elemSet</strong> – set with the elements to which to assign the section
+(defaults to None).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="postprocess.element_section_map.ElementSections.append_section">
+<code class="descname">append_section</code><span class="sig-paren">(</span><em>RCSimplSect</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.ElementSections.append_section" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.ElementSections.creaSingleSection">
+<code class="descname">creaSingleSection</code><span class="sig-paren">(</span><em>templateSection</em>, <em>direction</em>, <em>gaussPnt</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.ElementSections.creaSingleSection" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a copy of the section argument for the gauss points and
+the direction arguments.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.ElementSections.createSections">
+<code class="descname">createSections</code><span class="sig-paren">(</span><em>templateSections</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.ElementSections.createSections" title="Permalink to this definition">¶</a></dt>
+<dd><p>create the fiber sections that represent the material to be used 
+for the checking on each integration point and/or each direction. These
+sections are also added to the attribute ‘lstRCSects’ that contains 
+the list of sections.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.element_section_map.RCMemberSection">
+<em class="property">class </em><code class="descclassname">postprocess.element_section_map.</code><code class="descname">RCMemberSection</code><span class="sig-paren">(</span><em>name, templateSections, directions=[1], gaussPoints=[1, 2], elemSet=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCMemberSection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.element_section_map.ElementSections" title="postprocess.element_section_map.ElementSections"><code class="xref py py-class docutils literal"><span class="pre">postprocess.element_section_map.ElementSections</span></code></a></p>
+<p>This class is an specialization of ElemenSections for rectangular
+sections. The items of the list are instances of the object <em>RCRectangularSection</em></p>
+<dl class="method">
+<dt id="postprocess.element_section_map.RCMemberSection.createSections">
+<code class="descname">createSections</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCMemberSection.createSections" title="Permalink to this definition">¶</a></dt>
+<dd><p>create the fiber sections that represent the reinforced concrete fiber 
+section to be used for the checking on each integration point and/or each 
+direction. These sections are also added to the attribute ‘lstRCSects’ 
+that contains the list of sections.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.element_section_map.RCSlabBeamSection">
+<em class="property">class </em><code class="descclassname">postprocess.element_section_map.</code><code class="descname">RCSlabBeamSection</code><span class="sig-paren">(</span><em>name</em>, <em>sectionDescr</em>, <em>concrType</em>, <em>reinfSteelType</em>, <em>depth</em>, <em>width=1.0</em>, <em>elemSet=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCSlabBeamSection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.element_section_map.setRCSections2SetElVerif" title="postprocess.element_section_map.setRCSections2SetElVerif"><code class="xref py py-class docutils literal"><span class="pre">postprocess.element_section_map.setRCSections2SetElVerif</span></code></a></p>
+<p>This class is used to define the variables that make up the two 
+reinforced concrete sections that define the two reinforcement directions
+of a slab or the front and back ending sections of a beam element</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sectionDescr</strong> – section description</li>
+<li><strong>concrType</strong> – type of concrete (e.g. EHE_materials.HA25)</li>
+<li><strong>reinfSteelType</strong> – type of reinforcement steel</li>
+<li><strong>depth</strong> – cross-section depth</li>
+<li><a class="reference internal" href="../../preprocessor/geom_cpp_classes/d2/d2.html#geom.BND2d.width" title="geom.BND2d.width"><strong>width</strong></a> – cross-section width (defaults to 1.0)</li>
+<li><strong>dir1PositvRebarRows</strong> – layers of main rebars in direction 1 in the local 
+positive face of the section (list of ReinfRow)</li>
+<li><strong>dir1NegatvRebarRows</strong> – layers of main rebars in direction 1 in the local 
+negative face of the section (list of ReinfRow)</li>
+<li><strong>dir2PositvRebarRows</strong> – layers of main rebars in direction 2 in the local 
+positive face of the section (list of ReinfRow)</li>
+<li><strong>dir2NegatvRebarRows</strong> – layers of main rebars in direction 2 in the local 
+negative face of the section (list of ReinfRow)</li>
+<li><strong>dir1ShReinfY</strong> – instance of class ShearReinforcement that represents  
+the Y shear reinforcement in section 1</li>
+<li><strong>dir1ShReinfZ</strong> – instance of class ShearReinforcement that represents                      
+the Z shear reinforcement in section 1</li>
+<li><strong>dir2ShReinfY</strong> – instance of class ShearReinforcement that represents
+the Y shear reinforcement in section 2</li>
+<li><strong>dir2ShReinfZ</strong> – instance of class ShearReinforcement that represents
+the Z shear reinforcement in section 2</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="postprocess.element_section_map.RCSlabBeamSection.createSections">
+<code class="descname">createSections</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCSlabBeamSection.createSections" title="Permalink to this definition">¶</a></dt>
+<dd><p>create the fiber sections of type ‘RCRectangularSection’ that represent
+the reinforced concrete fiber section to be used for the checking on each
+integration point and/or each direction. These sections are also added to
+the attribute ‘lstRCSects’ that contains the list of sections.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.RCSlabBeamSection.getAs1neg">
+<code class="descname">getAs1neg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCSlabBeamSection.getAs1neg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Steel area in local negative face direction 1.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.RCSlabBeamSection.getAs1pos">
+<code class="descname">getAs1pos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCSlabBeamSection.getAs1pos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Steel area in local positive face direction 1.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.RCSlabBeamSection.getAs2neg">
+<code class="descname">getAs2neg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCSlabBeamSection.getAs2neg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Steel area in local negative face direction 2.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.RCSlabBeamSection.getAs2pos">
+<code class="descname">getAs2pos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCSlabBeamSection.getAs2pos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Steel area in local positive face direction 2.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.RCSlabBeamSection.getDiam">
+<code class="descname">getDiam</code><span class="sig-paren">(</span><em>code</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCSlabBeamSection.getDiam" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of bar diameter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.RCSlabBeamSection.getDiam1neg">
+<code class="descname">getDiam1neg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCSlabBeamSection.getDiam1neg" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of bar diameter in rows of the local negative face direction 1.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.RCSlabBeamSection.getDiam1pos">
+<code class="descname">getDiam1pos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCSlabBeamSection.getDiam1pos" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of bar diameter in rows of the local positive face direction 1.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.RCSlabBeamSection.getDiam2neg">
+<code class="descname">getDiam2neg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCSlabBeamSection.getDiam2neg" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of bar diameter in rows of the local negative face direction 2.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.RCSlabBeamSection.getDiam2pos">
+<code class="descname">getDiam2pos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCSlabBeamSection.getDiam2pos" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of bar diameter in rows of the local positive face direction 2.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.RCSlabBeamSection.getMainReinfProperty">
+<code class="descname">getMainReinfProperty</code><span class="sig-paren">(</span><em>code</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCSlabBeamSection.getMainReinfProperty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.RCSlabBeamSection.getNBar1neg">
+<code class="descname">getNBar1neg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCSlabBeamSection.getNBar1neg" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of number of bars in rows of the local negative face direction 1.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.RCSlabBeamSection.getNBar1pos">
+<code class="descname">getNBar1pos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCSlabBeamSection.getNBar1pos" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of number of bars in rows of the local positive face direction 1.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.RCSlabBeamSection.getNBar2neg">
+<code class="descname">getNBar2neg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCSlabBeamSection.getNBar2neg" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of number of bars in rows of the local negative face direction 2.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.RCSlabBeamSection.getNBar2pos">
+<code class="descname">getNBar2pos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCSlabBeamSection.getNBar2pos" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of number of bars in rows of the local positive face direction 2.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.RCSlabBeamSection.getReinfArea">
+<code class="descname">getReinfArea</code><span class="sig-paren">(</span><em>code</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCSlabBeamSection.getReinfArea" title="Permalink to this definition">¶</a></dt>
+<dd><p>get steel area.
+code=’As1+’ for direction 1, positive face
+code=’As1-‘ for direction 1, negative face
+code=’As2+’ for direction 2, positive face
+code=’As2-‘ for direction 2, negative face</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.RCSlabBeamSection.getS">
+<code class="descname">getS</code><span class="sig-paren">(</span><em>code</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCSlabBeamSection.getS" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of distances between bars
+code=’s1+’ for direction 1, positive face
+code=’s1-‘ for direction 1, negative face
+code=’s2+’ for direction 2, positive face
+code=’s2-‘ for direction 2, negative face</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.RCSlabBeamSection.getS1neg">
+<code class="descname">getS1neg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCSlabBeamSection.getS1neg" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of distances between bars of rows  in the local negative face direction 1.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.RCSlabBeamSection.getS1pos">
+<code class="descname">getS1pos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCSlabBeamSection.getS1pos" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of distances between bars of rows the in local positive face direction 1.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.RCSlabBeamSection.getS2neg">
+<code class="descname">getS2neg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCSlabBeamSection.getS2neg" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of distances between bars of rows  in the local negative face direction 2.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.RCSlabBeamSection.getS2pos">
+<code class="descname">getS2pos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCSlabBeamSection.getS2pos" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of distances between bars of rows  in the local positive face direction 2.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.RCSlabBeamSection.getTemplateSection">
+<code class="descname">getTemplateSection</code><span class="sig-paren">(</span><em>posReb</em>, <em>negReb</em>, <em>YShReinf</em>, <em>ZShReinf</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCSlabBeamSection.getTemplateSection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the template section to use with createSingleSection
+method.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.RCSlabBeamSection.setShearReinfD1">
+<code class="descname">setShearReinfD1</code><span class="sig-paren">(</span><em>nShReinfBranches</em>, <em>areaShReinfBranch</em>, <em>spacing</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCSlabBeamSection.setShearReinfD1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.RCSlabBeamSection.setShearReinfD2">
+<code class="descname">setShearReinfD2</code><span class="sig-paren">(</span><em>nShReinfBranches</em>, <em>areaShReinfBranch</em>, <em>spacing</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCSlabBeamSection.setShearReinfD2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="postprocess.element_section_map.loadMainRefPropertyIntoElements">
+<code class="descclassname">postprocess.element_section_map.</code><code class="descname">loadMainRefPropertyIntoElements</code><span class="sig-paren">(</span><em>elemSet</em>, <em>sectionContainer</em>, <em>code</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.loadMainRefPropertyIntoElements" title="Permalink to this definition">¶</a></dt>
+<dd><p>add to each element of the set the
+desired property (As1+,As1-,…,d1+,d1-,…).</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="postprocess.element_section_map.setRCSections2SetElVerif">
+<em class="property">class </em><code class="descclassname">postprocess.element_section_map.</code><code class="descname">setRCSections2SetElVerif</code><span class="sig-paren">(</span><em>name</em>, <em>directions</em>, <em>gaussPoints</em>, <em>elemSet</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.setRCSections2SetElVerif" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.element_section_map.ElementSections" title="postprocess.element_section_map.ElementSections"><code class="xref py py-class docutils literal"><span class="pre">postprocess.element_section_map.ElementSections</span></code></a></p>
+<p>This class is an specialization of ElemenSections for rectangular
+sections. The items of the list are instances of the object <em>RCRectangularSection</em></p>
+<dl class="method">
+<dt id="postprocess.element_section_map.setRCSections2SetElVerif.getAsneg">
+<code class="descname">getAsneg</code><span class="sig-paren">(</span><em>sectNmb</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.setRCSections2SetElVerif.getAsneg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Steel area in local negative face of the simple section identified by the sectNmb</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectNmb</strong> – integer number identifying the section 
+(1 correponds to the section stored in  lstRCSects[0] …)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.setRCSections2SetElVerif.getAspos">
+<code class="descname">getAspos</code><span class="sig-paren">(</span><em>sectNmb</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.setRCSections2SetElVerif.getAspos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Steel area in local positive face of the simple section identified by the sectNmb</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectNmb</strong> – integer number identifying the section 
+(1 correponds to the section stored in  lstRCSects[0] …)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.setRCSections2SetElVerif.getDiamneg">
+<code class="descname">getDiamneg</code><span class="sig-paren">(</span><em>sectNmb</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.setRCSections2SetElVerif.getDiamneg" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of bar diameter in rows of the local negative face  of the simple section identified by the sectNmb</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectNmb</strong> – integer number identifying the section 
+(1 correponds to the section stored in  lstRCSects[0] …)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.setRCSections2SetElVerif.getDiampos">
+<code class="descname">getDiampos</code><span class="sig-paren">(</span><em>sectNmb</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.setRCSections2SetElVerif.getDiampos" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of bar diameter in rows of the local positive face of the simple section identified by the sectNmb</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectNmb</strong> – integer number identifying the section 
+(1 correponds to the section stored in  lstRCSects[0] …)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.setRCSections2SetElVerif.getNBarneg">
+<code class="descname">getNBarneg</code><span class="sig-paren">(</span><em>sectNmb</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.setRCSections2SetElVerif.getNBarneg" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of number of bars in rows of the local negative face of the simple section identified by the sectNmb</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectNmb</strong> – integer number identifying the section 
+(1 correponds to the section stored in  lstRCSects[0] …)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.setRCSections2SetElVerif.getNBarpos">
+<code class="descname">getNBarpos</code><span class="sig-paren">(</span><em>sectNmb</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.setRCSections2SetElVerif.getNBarpos" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of number of bars in rows of the local positive face of the simple section identified by the sectNmb</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectNmb</strong> – integer number identifying the section 
+(1 correponds to the section stored in  lstRCSects[0] …)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.setRCSections2SetElVerif.getSneg">
+<code class="descname">getSneg</code><span class="sig-paren">(</span><em>sectNmb</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.setRCSections2SetElVerif.getSneg" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of distances between bars of rows  in the local negative face of the simple section identified by the sectNmb</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectNmb</strong> – integer number identifying the section 
+(1 correponds to the section stored in  lstRCSects[0] …)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.setRCSections2SetElVerif.getSpos">
+<code class="descname">getSpos</code><span class="sig-paren">(</span><em>sectNmb</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.setRCSections2SetElVerif.getSpos" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of distances between bars of rows the in local positive face of the simple section identified by the sectNmb</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectNmb</strong> – integer number identifying the section 
+(1 correponds to the section stored in  lstRCSects[0] …)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.element_section_map.setRCSections2SetElVerif.setShearReinf">
+<code class="descname">setShearReinf</code><span class="sig-paren">(</span><em>sectNmb</em>, <em>nShReinfBranches</em>, <em>areaShReinfBranch</em>, <em>spacing</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.setRCSections2SetElVerif.setShearReinf" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets parameters of the shear reinforcement of the simple section 
+identified by the sectNmb</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sectNmb</strong> – integer number identifying the section 
+(1 correponds to the section stored in  lstRCSects[0] …)</li>
+<li><strong>nShReinfBranches</strong> – number of shear reinforcing branches</li>
+<li><strong>areaShReinfBranch</strong> – area of the cross-section of each stirrup</li>
+<li><strong>spacing</strong> – spacing of the stirrups</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
 
 </div>
 <div class="section" id="module-postprocess.extrapolate_elem_attr">
@@ -2682,6 +3140,12 @@ see actions/combinations module.</li>
 <dt id="postprocess.limit_state_data.LimitStateData">
 <em class="property">class </em><code class="descclassname">postprocess.limit_state_data.</code><code class="descname">LimitStateData</code><span class="sig-paren">(</span><em>limitStateLabel</em>, <em>outputDataBaseFileName</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.limit_state_data.LimitStateData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="postprocess.limit_state_data.LimitStateData.createOutputFiles">
+<code class="descname">createOutputFiles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.limit_state_data.LimitStateData.createOutputFiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the internal forces and displacement output files.</p>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="postprocess.limit_state_data.LimitStateData.envConfig">
 <code class="descname">envConfig</code><em class="property"> = None</em><a class="headerlink" href="#postprocess.limit_state_data.LimitStateData.envConfig" title="Permalink to this definition">¶</a></dt>
@@ -2699,6 +3163,13 @@ displacements (ux,uy,uz,rotX,rotY,rotZ).</p>
 <code class="descname">getInternalForcesFileName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.limit_state_data.LimitStateData.getInternalForcesFileName" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the file name to read: combination name, element number and 
 internal forces.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.limit_state_data.LimitStateData.getLastCalculationTime">
+<code class="descname">getLastCalculationTime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.limit_state_data.LimitStateData.getLastCalculationTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the time of last modification of the internal
+forces file.</p>
 </dd></dl>
 
 <dl class="method">
@@ -2752,14 +3223,13 @@ is desired to be generated (defaults to ‘N’)</li>
 
 <dl class="method">
 <dt id="postprocess.limit_state_data.LimitStateData.saveAll">
-<code class="descname">saveAll</code><span class="sig-paren">(</span><em>feProblem</em>, <em>combContainer</em>, <em>setCalc</em>, <em>fConvIntForc=1.0</em>, <em>analysisToPerform=&lt;function defaultAnalysis&gt;</em>, <em>lstSteelBeams=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.limit_state_data.LimitStateData.saveAll" title="Permalink to this definition">¶</a></dt>
+<code class="descname">saveAll</code><span class="sig-paren">(</span><em>combContainer</em>, <em>setCalc</em>, <em>fConvIntForc=1.0</em>, <em>analysisToPerform=&lt;function defaultAnalysis&gt;</em>, <em>lstSteelBeams=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.limit_state_data.LimitStateData.saveAll" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write internal forces, displacements, .., for each combination</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>feProblem</strong> – XC finite element problem to deal with.</li>
 <li><strong>setCalc</strong> – set of entities for which the verification is 
 going to be performed</li>
 <li><strong>fConvIntForc</strong> – conversion factor between the unit of force 
@@ -2772,6 +3242,33 @@ one desired for the displaying of internal forces
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.limit_state_data.LimitStateData.writeDisplacements">
+<code class="descname">writeDisplacements</code><span class="sig-paren">(</span><em>combNm</em>, <em>nodSet</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.limit_state_data.LimitStateData.writeDisplacements" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Writes the resuls of displacements in a load combination </dt>
+<dd>and set of nodes given as parameters</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>combNM</strong> – name of the load combination</li>
+<li><strong>nodSet</strong> – set of nodes</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.limit_state_data.LimitStateData.writeInternalForces">
+<code class="descname">writeInternalForces</code><span class="sig-paren">(</span><em>internalForcesDict</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.limit_state_data.LimitStateData.writeInternalForces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the internal forces results.</p>
 </dd></dl>
 
 </dd></dl>
@@ -2943,8 +3440,8 @@ results are analyzed)</li>
 existing file of results (defaults to ‘N’)</li>
 <li><strong>listFile</strong> – ‘Yes’,’Y’,’y’,.., if latex listing file of results 
 is desired to be generated (defaults to ‘N’)</li>
-<li><strong>calcMeanCF</strong> – ‘Yes’,’Y’,’y’,.., if mean capacity factor is desired
-to be calculated (defaults to ‘N’)</li>
+<li><strong>calcMeanCF</strong> – ‘Yes’,’Y’,’y’,.., if average capacity factor is
+meant to be calculated (defaults to ‘N’)</li>
 </ul>
 </td>
 </tr>
@@ -2974,6 +3471,54 @@ outputFileName file.</p>
 <dt id="postprocess.limit_state_data.defaultAnalysis">
 <code class="descclassname">postprocess.limit_state_data.</code><code class="descname">defaultAnalysis</code><span class="sig-paren">(</span><em>feProb</em>, <em>steps=1</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.limit_state_data.defaultAnalysis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Default analysis procedure for saveAll method.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="postprocess.limit_state_data.oldReadIntForcesFile">
+<code class="descclassname">postprocess.limit_state_data.</code><code class="descname">oldReadIntForcesFile</code><span class="sig-paren">(</span><em>intForcCombFileName</em>, <em>setCalc=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.limit_state_data.oldReadIntForcesFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extracts element and combination identifiers from the internal
+forces listing file. Return elementTags, idCombs and 
+internal-forces values</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>intForcCombFileName</strong> – name of the file containing the internal
+forces obtained for each element for 
+the combinations analyzed</li>
+<li><strong>setCalc</strong> – set of elements to be analyzed (defaults to None which 
+means that all the elements in the file of internal forces
+results are analyzed)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="postprocess.limit_state_data.readIntForcesDict">
+<code class="descclassname">postprocess.limit_state_data.</code><code class="descname">readIntForcesDict</code><span class="sig-paren">(</span><em>intForcCombFileName</em>, <em>setCalc=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.limit_state_data.readIntForcesDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extracts element and combination identifiers from the internal
+forces listing file. Return elementTags, idCombs and 
+internal-forces values</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>intForcCombFileName</strong> – name of the file containing the internal
+forces obtained for each element for 
+the combinations analyzed</li>
+<li><strong>setCalc</strong> – set of elements to be analyzed (defaults to None which 
+means that all the elements in the file of internal forces
+results are analyzed)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -3485,7 +4030,7 @@ generation or not of lists, …)</li>
 
 <dl class="method">
 <dt id="postprocess.utils_display.FigureDefinition.genGraphicFile">
-<code class="descname">genGraphicFile</code><span class="sig-paren">(</span><em>defDisplay</em>, <em>xcSet</em>, <em>nmbFichGraf</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.utils_display.FigureDefinition.genGraphicFile" title="Permalink to this definition">¶</a></dt>
+<code class="descname">genGraphicFile</code><span class="sig-paren">(</span><em>displaySettings</em>, <em>xcSet</em>, <em>nmbFichGraf</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.utils_display.FigureDefinition.genGraphicFile" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -3558,7 +4103,7 @@ generation or not of lists, …)</li>
 <dd><p>Bases: <a class="reference internal" href="#postprocess.utils_display.FigureBase" title="postprocess.utils_display.FigureBase"><code class="xref py py-class docutils literal"><span class="pre">postprocess.utils_display.FigureBase</span></code></a></p>
 <dl class="method">
 <dt id="postprocess.utils_display.SlideDefinition.genGraphicFile">
-<code class="descname">genGraphicFile</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>defDisplay</em>, <em>xcSet</em>, <em>nmbFichGraf</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.utils_display.SlideDefinition.genGraphicFile" title="Permalink to this definition">¶</a></dt>
+<code class="descname">genGraphicFile</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>displaySettings</em>, <em>xcSet</em>, <em>nmbFichGraf</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.utils_display.SlideDefinition.genGraphicFile" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">

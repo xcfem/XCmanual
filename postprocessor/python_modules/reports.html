@@ -56,27 +56,8 @@
 <div class="section" id="module-postprocess.reports.common_formats">
 <span id="common-formats"></span><h2>Common formats<a class="headerlink" href="#module-postprocess.reports.common_formats" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-postprocess.reports.export_displacements">
-<span id="export-displacements"></span><h2>Export displacements<a class="headerlink" href="#module-postprocess.reports.export_displacements" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="postprocess.reports.export_displacements.exportDisplacements">
-<code class="descclassname">postprocess.reports.export_displacements.</code><code class="descname">exportDisplacements</code><span class="sig-paren">(</span><em>combNm</em>, <em>nodSet</em>, <em>fDesc</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.export_displacements.exportDisplacements" title="Permalink to this definition">¶</a></dt>
-<dd><p>Prints the specified file the resuls of displacements in a combination and set of nodes given as parameters</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>combNM</strong> – name of the combination</li>
-<li><strong>nodSet</strong> – set of nodes</li>
-<li><strong>fDesc</strong> – name of the file to save the displacements</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
+<div class="section" id="export-displacements">
+<h2>Export displacements<a class="headerlink" href="#export-displacements" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-postprocess.reports.export_internal_forces">
 <span id="export-internal-forces"></span><h2>Export internal forces<a class="headerlink" href="#module-postprocess.reports.export_internal_forces" title="Permalink to this headline">¶</a></h2>
@@ -115,6 +96,25 @@
 <dt id="postprocess.reports.export_internal_forces.exportaEsfuerzosShellSet">
 <code class="descclassname">postprocess.reports.export_internal_forces.</code><code class="descname">exportaEsfuerzosShellSet</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>nmbComb</em>, <em>st</em>, <em>fName</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.export_internal_forces.exportaEsfuerzosShellSet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Writes a comma separated values file with the element’s internal forces.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="postprocess.reports.export_internal_forces.getInternalForcesDict">
+<code class="descclassname">postprocess.reports.export_internal_forces.</code><code class="descname">getInternalForcesDict</code><span class="sig-paren">(</span><em>nmbComb</em>, <em>elems</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.export_internal_forces.getInternalForcesDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a dictionary with the element’s internal forces.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nmbComb</strong> – combination name.</li>
+<li><strong>elems</strong> – element set.</li>
+<li><strong>fDesc</strong> – file descriptor to write internal forces on.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -410,7 +410,7 @@ NOT a very elegant solution-&gt; to refactor.</p>
 
 <dl class="method">
 <dt id="postprocess.reports.graphical_reports.RecordLoadCaseDisp.loadReports">
-<code class="descname">loadReports</code><span class="sig-paren">(</span><em>FEcase</em>, <em>pathGr</em>, <em>texFile</em>, <em>grWdt</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.RecordLoadCaseDisp.loadReports" title="Permalink to this definition">¶</a></dt>
+<code class="descname">loadReports</code><span class="sig-paren">(</span><em>FEcase</em>, <em>texFile</em>, <em>cfg</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.RecordLoadCaseDisp.loadReports" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates the graphics files of loads for the load case and insert them in
 a LaTex file</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -419,10 +419,9 @@ a LaTex file</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>FEcase</strong> – finite element case</li>
-<li><strong>pathGr</strong> – directory to place figures (ex: ‘text/graphics/loads/’)</li>
 <li><strong>texFile</strong> – laTex file where to include the graphics 
 (e.g.:’text/report_loads.tex’)</li>
-<li><strong>grWdt</strong> – width to be applied to graphics</li>
+<li><strong>cfg</strong> – instance of EnvConfig class with config parameters</li>
 </ul>
 </td>
 </tr>
@@ -432,7 +431,7 @@ a LaTex file</p>
 
 <dl class="method">
 <dt id="postprocess.reports.graphical_reports.RecordLoadCaseDisp.simplLCReports">
-<code class="descname">simplLCReports</code><span class="sig-paren">(</span><em>FEproblem</em>, <em>pathGr</em>, <em>texFile</em>, <em>grWdt</em>, <em>capStdTexts</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.RecordLoadCaseDisp.simplLCReports" title="Permalink to this definition">¶</a></dt>
+<code class="descname">simplLCReports</code><span class="sig-paren">(</span><em>FEproblem</em>, <em>texFile</em>, <em>cfg</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.RecordLoadCaseDisp.simplLCReports" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Creates the graphics files of displacements and internal forces </dt>
 <dd>calculated for a simple load case and insert them in a LaTex file</dd>
@@ -443,11 +442,9 @@ a LaTex file</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>FEproblem</strong> – finite element problem</li>
-<li><strong>pathGr</strong> – directory to place figures (ex: ‘text/graphics/loads/’)</li>
 <li><strong>texFile</strong> – laTex file where to include the graphics 
 (e.g.:’text/report_loads.tex’)</li>
-<li><strong>grWdt</strong> – width to be applied to graphics</li>
-<li><strong>capStdTexts</strong> – dictionary with the standard captions.</li>
+<li><strong>cfg</strong> – instance of EnvConfig class with config parameters</li>
 </ul>
 </td>
 </tr>
@@ -459,7 +456,7 @@ a LaTex file</p>
 
 <dl class="function">
 <dt id="postprocess.reports.graphical_reports.checksReports">
-<code class="descclassname">postprocess.reports.graphical_reports.</code><code class="descname">checksReports</code><span class="sig-paren">(</span><em>limitStateLabel</em>, <em>setsShEl</em>, <em>argsShEl</em>, <em>capTexts</em>, <em>pathGr</em>, <em>texReportFile</em>, <em>grWdt</em>, <em>setsBmElView=[]</em>, <em>argsBmElScale=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.checksReports" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">postprocess.reports.graphical_reports.</code><code class="descname">checksReports</code><span class="sig-paren">(</span><em>limitStateLabel</em>, <em>setsShEl</em>, <em>argsShEl</em>, <em>cfg</em>, <em>setsBmElView=[]</em>, <em>argsBmElScale=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.checksReports" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Create a LaTeX report including the desired graphical results obtained</dt>
 <dd>in the verification of a limit state.</dd>
@@ -475,17 +472,14 @@ model_data.py as instances of utils_display.setToDisplay)
 to be included in the report</li>
 <li><strong>argsShEl</strong> – Ordered list of arguments to be included in the report   
 for shell elements</li>
-<li><strong>capTexts</strong> – dictionary from wich to read the texts for captions</li>
-<li><strong>pathGr</strong> – width to be applied to graphics</li>
-<li><strong>texReportFile</strong> – laTex file where to include the graphics</li>
-<li><strong>grWdt</strong> – width of the graphics for the tex file</li>
+<li><strong>cfg</strong> – instance of EnvConfig class with config parameters</li>
 <li><strong>setsBmView</strong> – Ordered list of lists [set of beam elements, view to 
 represent this set] to be included in the report. 
 The sets have been defined in model_data.py 
 as instances of utils_display.setToDisplay and the 
 possible views are: ‘XYZPos’,’XNeg’,’XPos’,’YNeg’,’YPos’,
 ‘ZNeg’,’ZPos’  (defaults to ‘XYZPos’)</li>
-<li><strong>argsShEl</strong> – Ordered list of lists [arguments, scale to represent the 
+<li><strong>argsBmElScale</strong> – Ordered list of lists [arguments, scale to represent the 
 argument] to be included in the report for beam elements</li>
 </ul>
 </td>
@@ -708,8 +702,8 @@ elment set whose material is a steel shape.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="postprocess.reports.list_data.listaElementosBarraSet">
-<code class="descclassname">postprocess.reports.list_data.</code><code class="descname">listaElementosBarraSet</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>setName</em>, <em>fName</em>, <em>fmt</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_data.listaElementosBarraSet" title="Permalink to this definition">¶</a></dt>
+<dt id="postprocess.reports.list_data.listaBarElementSet">
+<code class="descclassname">postprocess.reports.list_data.</code><code class="descname">listaBarElementSet</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>setName</em>, <em>fName</em>, <em>fmt</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_data.listaBarElementSet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Writes a list of the bar elements from the set</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -929,43 +923,51 @@ were obtained.</li>
 <div class="section" id="module-postprocess.reports.list_internal_forces">
 <span id="lists-of-internal-forces-for-reports"></span><h2>Lists of internal forces for reports<a class="headerlink" href="#module-postprocess.reports.list_internal_forces" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="postprocess.reports.list_internal_forces.listaDatosEsfuerzosTrussSet">
-<code class="descclassname">postprocess.reports.list_internal_forces.</code><code class="descname">listaDatosEsfuerzosTrussSet</code><span class="sig-paren">(</span><em>nmbComb</em>, <em>setName</em>, <em>fmt</em>, <em>fName</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_internal_forces.listaDatosEsfuerzosTrussSet" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="postprocess.reports.list_internal_forces.listaEsfuerzosBarrasLineas">
-<code class="descclassname">postprocess.reports.list_internal_forces.</code><code class="descname">listaEsfuerzosBarrasLineas</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>nmbComb</em>, <em>setNameLineas</em>, <em>fmt</em>, <em>fName</em>, <em>encab</em>, <em>tit</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_internal_forces.listaEsfuerzosBarrasLineas" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="postprocess.reports.list_internal_forces.listaEsfuerzosBarrasSet">
-<code class="descclassname">postprocess.reports.list_internal_forces.</code><code class="descname">listaEsfuerzosBarrasSet</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>nmbComb</em>, <em>setName</em>, <em>fmt</em>, <em>fName</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_internal_forces.listaEsfuerzosBarrasSet" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="postprocess.reports.list_internal_forces.listaEsfuerzosElasticBeam3dSet">
-<code class="descclassname">postprocess.reports.list_internal_forces.</code><code class="descname">listaEsfuerzosElasticBeam3dSet</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>nmbComb</em>, <em>setName</em>, <em>fmt</em>, <em>fName</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_internal_forces.listaEsfuerzosElasticBeam3dSet" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="postprocess.reports.list_internal_forces.listaEsfuerzosFCBarrasLineas">
-<code class="descclassname">postprocess.reports.list_internal_forces.</code><code class="descname">listaEsfuerzosFCBarrasLineas</code><span class="sig-paren">(</span><em>nmbComb</em>, <em>setNameLineas</em>, <em>fmt</em>, <em>fName</em>, <em>encab</em>, <em>tit</em>, <em>nmbDiag</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_internal_forces.listaEsfuerzosFCBarrasLineas" title="Permalink to this definition">¶</a></dt>
-<dd><p>Print internal forces and capacity factor of the elements contained in the
-lines of the argument set.</p>
+<dt id="postprocess.reports.list_internal_forces.listBarSetInternalForces">
+<code class="descclassname">postprocess.reports.list_internal_forces.</code><code class="descname">listBarSetInternalForces</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>nmbComb</em>, <em>setName</em>, <em>fmt</em>, <em>fName</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_internal_forces.listBarSetInternalForces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print internal forces on the elements in the set argument.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="postprocess.reports.list_internal_forces.listaEsfuerzosFCBarrasSet">
-<code class="descclassname">postprocess.reports.list_internal_forces.</code><code class="descname">listaEsfuerzosFCBarrasSet</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>nmbComb</em>, <em>setName</em>, <em>fmt</em>, <em>fName</em>, <em>nmbDiag</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_internal_forces.listaEsfuerzosFCBarrasSet" title="Permalink to this definition">¶</a></dt>
+<dt id="postprocess.reports.list_internal_forces.listBarSetInternalForcesAndCF">
+<code class="descclassname">postprocess.reports.list_internal_forces.</code><code class="descname">listBarSetInternalForcesAndCF</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>nmbComb</em>, <em>setName</em>, <em>fmt</em>, <em>fName</em>, <em>nmbDiag</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_internal_forces.listBarSetInternalForcesAndCF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print internal forces and capacity factor of the elements contained in the
 argument set.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="postprocess.reports.list_internal_forces.listLineSetInternalForces">
+<code class="descclassname">postprocess.reports.list_internal_forces.</code><code class="descname">listLineSetInternalForces</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>nmbComb</em>, <em>setNameLineas</em>, <em>fmt</em>, <em>fName</em>, <em>encab</em>, <em>tit</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_internal_forces.listLineSetInternalForces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print internal forces on the elements of the lines in the
+set argument.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="postprocess.reports.list_internal_forces.listLineSetInternalForcesAndCF">
+<code class="descclassname">postprocess.reports.list_internal_forces.</code><code class="descname">listLineSetInternalForcesAndCF</code><span class="sig-paren">(</span><em>nmbComb</em>, <em>setNameLineas</em>, <em>fmt</em>, <em>fName</em>, <em>encab</em>, <em>tit</em>, <em>nmbDiag</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_internal_forces.listLineSetInternalForcesAndCF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print internal forces and capacity factor of the elements contained in the
+lines of the argument set.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="postprocess.reports.list_internal_forces.listaDatosEsfuerzosTrussSet">
+<code class="descclassname">postprocess.reports.list_internal_forces.</code><code class="descname">listaDatosEsfuerzosTrussSet</code><span class="sig-paren">(</span><em>nmbComb</em>, <em>setName</em>, <em>fmt</em>, <em>fName</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_internal_forces.listaDatosEsfuerzosTrussSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print internal forces on the truss elements in the set argument.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="postprocess.reports.list_internal_forces.listaEsfuerzosElasticBeam3dSet">
+<code class="descclassname">postprocess.reports.list_internal_forces.</code><code class="descname">listaEsfuerzosElasticBeam3dSet</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>nmbComb</em>, <em>setName</em>, <em>fmt</em>, <em>fName</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_internal_forces.listaEsfuerzosElasticBeam3dSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print internal forces on the truss elements of the lines in the
+set argument.</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="postprocess.reports.list_internal_forces.listaEsfuerzosTrussLineas">
 <code class="descclassname">postprocess.reports.list_internal_forces.</code><code class="descname">listaEsfuerzosTrussLineas</code><span class="sig-paren">(</span><em>nmbComb</em>, <em>setNameLineas</em>, <em>fmt</em>, <em>fName</em>, <em>encab</em>, <em>tit</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_internal_forces.listaEsfuerzosTrussLineas" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Print internal forces on the truss elements of the lines in the
+set argument.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="postprocess.reports.list_internal_forces.listaEsfuerzosTrussSet">
@@ -973,9 +975,11 @@ argument set.</p>
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="postprocess.reports.list_internal_forces.listaEsfuerzosZeroLenghtSet">
-<code class="descclassname">postprocess.reports.list_internal_forces.</code><code class="descname">listaEsfuerzosZeroLenghtSet</code><span class="sig-paren">(</span><em>nmbComb</em>, <em>setName</em>, <em>fmt</em>, <em>fName</em>, <em>encab</em>, <em>tit</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_internal_forces.listaEsfuerzosZeroLenghtSet" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="postprocess.reports.list_internal_forces.listaEsfuerzosZeroLengthSet">
+<code class="descclassname">postprocess.reports.list_internal_forces.</code><code class="descname">listaEsfuerzosZeroLengthSet</code><span class="sig-paren">(</span><em>nmbComb</em>, <em>setName</em>, <em>fmt</em>, <em>fName</em>, <em>encab</em>, <em>tit</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_internal_forces.listaEsfuerzosZeroLengthSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print internal forces on the zero length elements in the 
+set argument.</p>
+</dd></dl>
 
 </div>
 <div class="section" id="module-postprocess.reports.list_loads">
@@ -1063,14 +1067,14 @@ whose material is a steel shape.</p>
 <div class="section" id="module-postprocess.reports.list_N_V_beams">
 <span id="lists-of-axial-and-shear-internal-forces-in-beams-for-reports"></span><h2>Lists of axial and shear internal forces in beams for reports<a class="headerlink" href="#module-postprocess.reports.list_N_V_beams" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="postprocess.reports.list_N_V_beams.listaTNBarrasLatex">
-<code class="descclassname">postprocess.reports.list_N_V_beams.</code><code class="descname">listaTNBarrasLatex</code><span class="sig-paren">(</span><em>nmbDBase</em>, <em>nmbTabla</em>, <em>nmbArchivoListadoTex</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_N_V_beams.listaTNBarrasLatex" title="Permalink to this definition">¶</a></dt>
+<dt id="postprocess.reports.list_N_V_beams.listBarNormalStressesLaTeX">
+<code class="descclassname">postprocess.reports.list_N_V_beams.</code><code class="descname">listBarNormalStressesLaTeX</code><span class="sig-paren">(</span><em>nmbDBase</em>, <em>nmbTabla</em>, <em>nmbArchivoListadoTex</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_N_V_beams.listBarNormalStressesLaTeX" title="Permalink to this definition">¶</a></dt>
 <dd><p>Result of normal stresses in linear elements to include in a LaTeX file.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="postprocess.reports.list_N_V_beams.listaVBarrasLatex">
-<code class="descclassname">postprocess.reports.list_N_V_beams.</code><code class="descname">listaVBarrasLatex</code><span class="sig-paren">(</span><em>nmbDBase</em>, <em>nmbTabla</em>, <em>nmbArchivoListadoTex</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_N_V_beams.listaVBarrasLatex" title="Permalink to this definition">¶</a></dt>
+<dt id="postprocess.reports.list_N_V_beams.listaBarShearLaTeX">
+<code class="descclassname">postprocess.reports.list_N_V_beams.</code><code class="descname">listaBarShearLaTeX</code><span class="sig-paren">(</span><em>nmbDBase</em>, <em>nmbTabla</em>, <em>nmbArchivoListadoTex</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_N_V_beams.listaBarShearLaTeX" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shear check results in linear elements to include in a LaTeX file.</p>
 </dd></dl>
 
@@ -1243,7 +1247,7 @@ of tension stiffness.</li>
   <ul>
 <li><a class="reference internal" href="#">Reports</a><ul>
 <li><a class="reference internal" href="#module-postprocess.reports.common_formats">Common formats</a></li>
-<li><a class="reference internal" href="#module-postprocess.reports.export_displacements">Export displacements</a></li>
+<li><a class="reference internal" href="#export-displacements">Export displacements</a></li>
 <li><a class="reference internal" href="#module-postprocess.reports.export_internal_forces">Export internal forces</a></li>
 <li><a class="reference internal" href="#module-postprocess.reports.graphical_reports">Graphical reports</a></li>
 <li><a class="reference internal" href="#module-postprocess.reports.graph_material">Matplotlib grahics of_material diagrams</a></li>

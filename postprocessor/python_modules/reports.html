@@ -121,6 +121,142 @@
 <div class="section" id="module-postprocess.reports.graphical_reports">
 <span id="graphical-reports"></span><h2>Graphical reports<a class="headerlink" href="#module-postprocess.reports.graphical_reports" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
+<dt id="postprocess.reports.graphical_reports.LoadCaseDispParameters">
+<em class="property">class </em><code class="descclassname">postprocess.reports.graphical_reports.</code><code class="descname">LoadCaseDispParameters</code><span class="sig-paren">(</span><em>loadCaseName</em>, <em>loadCaseDescr</em>, <em>loadCaseExpr</em>, <em>setsToDispLoads</em>, <em>setsToDispDspRot</em>, <em>setsToDispIntForc</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.LoadCaseDispParameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.reports.graphical_reports.RecordDisp" title="postprocess.reports.graphical_reports.RecordDisp"><code class="xref py py-class docutils literal"><span class="pre">postprocess.reports.graphical_reports.RecordDisp</span></code></a></p>
+<dl class="docutils">
+<dt>Parameters for the generation of graphic files and adding to </dt>
+<dd>report-tex files for a load case</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>loadCaseName</strong> – name of the load case to be depicted</li>
+<li><strong>loadCaseDescr</strong> – description text of the load case</li>
+<li><strong>loadCaseExpr</strong> – mathematical expression to define the load case (ex:
+‘1.0*GselfWeight+1.0*DeadLoad’)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="postprocess.reports.graphical_reports.LoadCaseDispParameters.getCaptionText">
+<code class="descname">getCaptionText</code><span class="sig-paren">(</span><em>setDescr</em>, <em>unitsDescr</em>, <em>captTexts=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.LoadCaseDispParameters.getCaptionText" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the caption text.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>setDescr</strong> – set description.</li>
+<li><strong>unitsDescr</strong> – units description.</li>
+<li><strong>captTexts</strong> – text describing the internal force…</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.reports.graphical_reports.LoadCaseDispParameters.getDescription">
+<code class="descname">getDescription</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.LoadCaseDispParameters.getDescription" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.reports.graphical_reports.LoadCaseDispParameters.loadReports">
+<code class="descname">loadReports</code><span class="sig-paren">(</span><em>FEcase</em>, <em>texFile</em>, <em>cfg</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.LoadCaseDispParameters.loadReports" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the graphics files of loads for the load case and insert them in
+a LaTex file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>FEcase</strong> – finite element problem</li>
+<li><strong>texFile</strong> – laTex file where to include the graphics 
+(e.g.:’text/report_loads.tex’)</li>
+<li><strong>cfg</strong> – instance of EnvConfig class with config parameters</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.reports.graphical_reports.LoadCaseDispParameters.simplLCReports">
+<code class="descname">simplLCReports</code><span class="sig-paren">(</span><em>FEproblem</em>, <em>texFile</em>, <em>cfg</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.LoadCaseDispParameters.simplLCReports" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Creates the graphics files of displacements and internal forces </dt>
+<dd>calculated for a simple load case and insert them in a LaTex file</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>FEproblem</strong> – finite element problem</li>
+<li><strong>texFile</strong> – laTex file where to include the graphics 
+(e.g.:’text/report_loads.tex’)</li>
+<li><strong>cfg</strong> – instance of EnvConfig class with config parameters</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.reports.graphical_reports.LoadCaseDispParameters.writeLoadReport">
+<code class="descname">writeLoadReport</code><span class="sig-paren">(</span><em>modelSpace</em>, <em>texFile</em>, <em>cfg</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.LoadCaseDispParameters.writeLoadReport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates the graphics files of loads for the load case and insert them in
+a LaTex file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>modelSpace</strong> – model space object (see predefined_spaces.py).</li>
+<li><strong>texFile</strong> – laTex file where to include the graphics 
+(e.g.:’text/report_loads.tex’)</li>
+<li><strong>cfg</strong> – instance of EnvConfig class with config parameters</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.reports.graphical_reports.LoadCaseDispParameters.writeSimpleLoadCaseReport">
+<code class="descname">writeSimpleLoadCaseReport</code><span class="sig-paren">(</span><em>modelSpace</em>, <em>texFile</em>, <em>cfg</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.LoadCaseDispParameters.writeSimpleLoadCaseReport" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Creates the graphics files of displacements and internal forces </dt>
+<dd>calculated for a simple load case and insert them in a LaTex file</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>modelSpace</strong> – model space object (see predefined_spaces.py).</li>
+<li><strong>texFile</strong> – laTex file where to include the graphics 
+(e.g.:’text/report_loads.tex’)</li>
+<li><strong>cfg</strong> – instance of EnvConfig class with config parameters</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="postprocess.reports.graphical_reports.OuputUnits">
 <em class="property">class </em><code class="descclassname">postprocess.reports.graphical_reports.</code><code class="descname">OuputUnits</code><a class="headerlink" href="#postprocess.reports.graphical_reports.OuputUnits" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
@@ -178,7 +314,7 @@ represented (defaults to ‘[kN.m/m]’)</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>setsToDispLoads</strong> – ordered list of sets of shell elements to display loads</li>
+<li><strong>setsToDispLoads</strong> – ordered list of sets of elements to display loads</li>
 <li><strong>setsToDispBeamLoads</strong> – ordered list of sets of beam elements to display 
 loads (defaults to [])</li>
 <li><strong>compElLoad</strong> – component of load on beam elements to be represented
@@ -384,136 +520,17 @@ NOT a very elegant solution-&gt; to refactor.</p>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="postprocess.reports.graphical_reports.RecordLoadCaseDisp">
-<em class="property">class </em><code class="descclassname">postprocess.reports.graphical_reports.</code><code class="descname">RecordLoadCaseDisp</code><span class="sig-paren">(</span><em>loadCaseName</em>, <em>loadCaseDescr</em>, <em>loadCaseExpr</em>, <em>setsToDispLoads</em>, <em>setsToDispDspRot</em>, <em>setsToDispIntForc</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.RecordLoadCaseDisp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.reports.graphical_reports.RecordDisp" title="postprocess.reports.graphical_reports.RecordDisp"><code class="xref py py-class docutils literal"><span class="pre">postprocess.reports.graphical_reports.RecordDisp</span></code></a></p>
-<p>Generation of graphic files and adding to report-tex files for a load case</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>loadCaseName</strong> – name of the load case to be depicted</li>
-<li><strong>loadCaseDescr</strong> – description text of the load case</li>
-<li><strong>loadCaseExpr</strong> – mathematical expression to define the load case (ex:
-‘1.0*GselfWeight+1.0*DeadLoad’)</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="postprocess.reports.graphical_reports.RecordLoadCaseDisp.getDescription">
-<code class="descname">getDescription</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.RecordLoadCaseDisp.getDescription" title="Permalink to this definition">¶</a></dt>
+<dl class="function">
+<dt id="postprocess.reports.graphical_reports.getLabelText">
+<code class="descclassname">postprocess.reports.graphical_reports.</code><code class="descname">getLabelText</code><span class="sig-paren">(</span><em>caption</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.getLabelText" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the text to label the figures removing
+spaces and strange chars from the input.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="postprocess.reports.graphical_reports.getLoadCaseDispParametersFromLoadPattern">
+<code class="descclassname">postprocess.reports.graphical_reports.</code><code class="descname">getLoadCaseDispParametersFromLoadPattern</code><span class="sig-paren">(</span><em>loadPattern</em>, <em>modelSpace=None</em>, <em>unitsScaleLoads=0.001</em>, <em>unitsScaleDispl=0.001</em>, <em>setsToDispLoads=None</em>, <em>setsToDispDspRot=None</em>, <em>setsToDispIntForc=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.getLoadCaseDispParametersFromLoadPattern" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
-
-<dl class="method">
-<dt id="postprocess.reports.graphical_reports.RecordLoadCaseDisp.loadReports">
-<code class="descname">loadReports</code><span class="sig-paren">(</span><em>FEcase</em>, <em>texFile</em>, <em>cfg</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.RecordLoadCaseDisp.loadReports" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates the graphics files of loads for the load case and insert them in
-a LaTex file</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>FEcase</strong> – finite element case</li>
-<li><strong>texFile</strong> – laTex file where to include the graphics 
-(e.g.:’text/report_loads.tex’)</li>
-<li><strong>cfg</strong> – instance of EnvConfig class with config parameters</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="postprocess.reports.graphical_reports.RecordLoadCaseDisp.simplLCReports">
-<code class="descname">simplLCReports</code><span class="sig-paren">(</span><em>FEproblem</em>, <em>texFile</em>, <em>cfg</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.RecordLoadCaseDisp.simplLCReports" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Creates the graphics files of displacements and internal forces </dt>
-<dd>calculated for a simple load case and insert them in a LaTex file</dd>
-</dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>FEproblem</strong> – finite element problem</li>
-<li><strong>texFile</strong> – laTex file where to include the graphics 
-(e.g.:’text/report_loads.tex’)</li>
-<li><strong>cfg</strong> – instance of EnvConfig class with config parameters</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="function">
-<dt id="postprocess.reports.graphical_reports.checksReports">
-<code class="descclassname">postprocess.reports.graphical_reports.</code><code class="descname">checksReports</code><span class="sig-paren">(</span><em>limitStateLabel</em>, <em>setsShEl</em>, <em>argsShEl</em>, <em>cfg</em>, <em>setsBmElView=[]</em>, <em>argsBmElScale=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.checksReports" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Create a LaTeX report including the desired graphical results obtained</dt>
-<dd>in the verification of a limit state.</dd>
-</dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>limitStateLabel</strong> – limit state</li>
-<li><strong>setsShEl</strong> – Ordered list of sets of shell elements (defined in 
-model_data.py as instances of utils_display.setToDisplay)
-to be included in the report</li>
-<li><strong>argsShEl</strong> – Ordered list of arguments to be included in the report   
-for shell elements</li>
-<li><strong>cfg</strong> – instance of EnvConfig class with config parameters</li>
-<li><strong>setsBmView</strong> – Ordered list of lists [set of beam elements, view to 
-represent this set] to be included in the report. 
-The sets have been defined in model_data.py 
-as instances of utils_display.setToDisplay and the 
-possible views are: ‘XYZPos’,’XNeg’,’XPos’,’YNeg’,’YPos’,
-‘ZNeg’,’ZPos’  (defaults to ‘XYZPos’)</li>
-<li><strong>argsBmElScale</strong> – Ordered list of lists [arguments, scale to represent the 
-argument] to be included in the report for beam elements</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="postprocess.reports.graphical_reports.getRecordLoadCaseDispFromLoadPattern">
-<code class="descclassname">postprocess.reports.graphical_reports.</code><code class="descname">getRecordLoadCaseDispFromLoadPattern</code><span class="sig-paren">(</span><em>loadPattern</em>, <em>unitsScaleLoads=0.001</em>, <em>unitsScaleDispl=0.001</em>, <em>setsToDispLoads=None</em>, <em>setsToDispDspRot=None</em>, <em>setsToDispIntForc=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.getRecordLoadCaseDispFromLoadPattern" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="postprocess.reports.graphical_reports.insertGrInTex">
-<code class="descclassname">postprocess.reports.graphical_reports.</code><code class="descname">insertGrInTex</code><span class="sig-paren">(</span><em>texFile</em>, <em>grFileNm</em>, <em>grWdt</em>, <em>capText</em>, <em>labl=''</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.insertGrInTex" title="Permalink to this definition">¶</a></dt>
-<dd><p>Include a graphic in a LaTeX file.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>texFile</strong> – laTex file where to include the graphics 
-(e.g.:’text/report_loads.tex’)</li>
-<li><strong>grFileNm</strong> – name of the graphic file with path and without extension</li>
-<li><strong>grWdt</strong> – width to be applied to graphics</li>
-<li><strong>capText</strong> – text for the caption</li>
-<li><strong>labl</strong> – label</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
 
 </div>
 <div class="section" id="module-postprocess.reports.graph_material">

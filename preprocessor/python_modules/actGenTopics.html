@@ -551,7 +551,7 @@ the parameters to calculate wind pressure.</li>
 xc.Vector([Wx,Wy,Wz]).</li>
 <li><strong>surfExpossed</strong> – surface expossed to wind per unit length 
 of beam. If None surfExpossed is taken as the value of method h() 
-of property ‘sectionGeometry’ for each element.</li>
+of property ‘crossSection’ for each element.</li>
 <li><strong>Gf</strong> – gust factor (defaults to 1.0)</li>
 </ul>
 </td>
@@ -679,20 +679,15 @@ of property ‘sectionGeometry’ for each element.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="actions.combinations.CombContainer.getNames">
-<code class="descname">getNames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.CombContainer.getNames" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns a list of the combination names.</p>
+<dt id="actions.combinations.CombContainer.exportToLatex">
+<code class="descname">exportToLatex</code><span class="sig-paren">(</span><em>fileName</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.CombContainer.exportToLatex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates LaTeX tables and put the combinations in them.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="actions.combinations.CombContainer.getNeutralFormat">
-<code class="descname">getNeutralFormat</code><span class="sig-paren">(</span><em>mapLoadCases</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.CombContainer.getNeutralFormat" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="actions.combinations.CombContainer.getRecordLoadCaseDisp">
-<code class="descname">getRecordLoadCaseDisp</code><span class="sig-paren">(</span><em>combName</em>, <em>setsToDispLoads</em>, <em>setsToDispDspRot</em>, <em>setsToDispIntForc</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.CombContainer.getRecordLoadCaseDisp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a suitable RecordLoadCaseDisp for the combination.</p>
+<dt id="actions.combinations.CombContainer.getLoadCaseDispParameters">
+<code class="descname">getLoadCaseDispParameters</code><span class="sig-paren">(</span><em>combName</em>, <em>setsToDispLoads</em>, <em>setsToDispDspRot</em>, <em>setsToDispIntForc</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.CombContainer.getLoadCaseDispParameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a suitable LoadCaseDispParameters for the combination.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -711,6 +706,17 @@ internal forces.</li>
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="actions.combinations.CombContainer.getNames">
+<code class="descname">getNames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.CombContainer.getNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list of the combination names.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="actions.combinations.CombContainer.getNeutralFormat">
+<code class="descname">getNeutralFormat</code><span class="sig-paren">(</span><em>mapLoadCases</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.CombContainer.getNeutralFormat" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -725,15 +731,22 @@ internal forces.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="actions.combinations.CombinationRecord.getRecordLoadCaseDisp">
-<code class="descname">getRecordLoadCaseDisp</code><span class="sig-paren">(</span><em>setsToDispLoads</em>, <em>setsToDispDspRot</em>, <em>setsToDispIntForc</em>, <em>unitsScaleForc=0.001</em>, <em>unitsScaleMom=0.001</em>, <em>unitsScaleDisp=1000.0</em>, <em>unitsDispl='[mm]'</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.CombinationRecord.getRecordLoadCaseDisp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a suitable RecordLoadCaseDisp for the combination.</p>
+<dt id="actions.combinations.CombinationRecord.exportToLatex">
+<code class="descname">exportToLatex</code><span class="sig-paren">(</span><em>outputFile</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.CombinationRecord.exportToLatex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates LaTeX tables and put the combinations in them.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="actions.combinations.CombinationRecord.getLoadCaseDispParameters">
+<code class="descname">getLoadCaseDispParameters</code><span class="sig-paren">(</span><em>setsToDispLoads</em>, <em>setsToDispDspRot</em>, <em>setsToDispIntForc</em>, <em>unitsScaleForc=0.001</em>, <em>unitsScaleMom=0.001</em>, <em>unitsScaleDisp=1000.0</em>, <em>unitsDispl='[mm]'</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.CombinationRecord.getLoadCaseDispParameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a suitable LoadCaseDispParameters for the combination.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>setsToDispLoads</strong> – ordered list of sets of elements to display loads.</li>
+<li><strong>setsToDispLoads</strong> – ordered list of sets of elements to display 
+loads.</li>
 <li><strong>setsToDispDspRot</strong> – ordered list of sets of elements to display 
 displacements.</li>
 <li><strong>setsToDispIntForc</strong> – ordered list of sets of elements to display 
@@ -799,27 +812,23 @@ represented (defaults to ‘[mm]’</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="actions.combinations.SituationCombs.getNames">
-<code class="descname">getNames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.SituationCombs.getNames" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns a list of the combination names.</p>
+<dt id="actions.combinations.SituationCombs.exportToLatex">
+<code class="descname">exportToLatex</code><span class="sig-paren">(</span><em>outputFile</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.SituationCombs.exportToLatex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates LaTeX tables and put the combinations in them.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="actions.combinations.SituationCombs.getNeutralFormat">
-<code class="descname">getNeutralFormat</code><span class="sig-paren">(</span><em>counter</em>, <em>typ</em>, <em>mapLoadCases</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.SituationCombs.getNeutralFormat" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="actions.combinations.SituationCombs.getRecordLoadCaseDisp">
-<code class="descname">getRecordLoadCaseDisp</code><span class="sig-paren">(</span><em>combName</em>, <em>setsToDispLoads</em>, <em>setsToDispDspRot</em>, <em>setsToDispIntForc</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.SituationCombs.getRecordLoadCaseDisp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a suitable RecordLoadCaseDisp for the combination.</p>
+<dt id="actions.combinations.SituationCombs.getLoadCaseDispParameters">
+<code class="descname">getLoadCaseDispParameters</code><span class="sig-paren">(</span><em>combName</em>, <em>setsToDispLoads</em>, <em>setsToDispDspRot</em>, <em>setsToDispIntForc</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.SituationCombs.getLoadCaseDispParameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a suitable LoadCaseDispParameters for the combination.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>combName</strong> – name of the combination to create the record for.</li>
-<li><strong>setsToDispLoads</strong> – ordered list of sets of elements to display loads.</li>
+<li><strong>setsToDispLoads</strong> – ordered list of sets of elements to display
+loads.</li>
 <li><strong>setsToDispDspRot</strong> – ordered list of sets of elements to display 
 displacements.</li>
 <li><strong>setsToDispIntForc</strong> – ordered list of sets of elements to display 
@@ -830,6 +839,17 @@ internal forces.</li>
 </tbody>
 </table>
 </dd></dl>
+
+<dl class="method">
+<dt id="actions.combinations.SituationCombs.getNames">
+<code class="descname">getNames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.SituationCombs.getNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list of the combination names.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="actions.combinations.SituationCombs.getNeutralFormat">
+<code class="descname">getNeutralFormat</code><span class="sig-paren">(</span><em>counter</em>, <em>typ</em>, <em>mapLoadCases</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.SituationCombs.getNeutralFormat" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -857,15 +877,15 @@ internal forces.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="actions.combinations.SituationsSet.getNames">
-<code class="descname">getNames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.SituationsSet.getNames" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns a list of the combination names.</p>
+<dt id="actions.combinations.SituationsSet.exportToLatex">
+<code class="descname">exportToLatex</code><span class="sig-paren">(</span><em>outputFile</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.SituationsSet.exportToLatex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates LaTeX tables and put the combinations in them.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="actions.combinations.SituationsSet.getRecordLoadCaseDisp">
-<code class="descname">getRecordLoadCaseDisp</code><span class="sig-paren">(</span><em>combName</em>, <em>setsToDispLoads</em>, <em>setsToDispDspRot</em>, <em>setsToDispIntForc</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.SituationsSet.getRecordLoadCaseDisp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a suitable RecordLoadCaseDisp for the combination.</p>
+<dt id="actions.combinations.SituationsSet.getLoadCaseDispParameters">
+<code class="descname">getLoadCaseDispParameters</code><span class="sig-paren">(</span><em>combName</em>, <em>setsToDispLoads</em>, <em>setsToDispDspRot</em>, <em>setsToDispIntForc</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.SituationsSet.getLoadCaseDispParameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a suitable LoadCaseDispParameters for the combination.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -882,6 +902,12 @@ internal forces.</li>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="actions.combinations.SituationsSet.getNames">
+<code class="descname">getNames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.SituationsSet.getNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list of the combination names.</p>
 </dd></dl>
 
 </dd></dl>

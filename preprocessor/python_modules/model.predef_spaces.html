@@ -212,6 +212,18 @@ effects.</li>
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.getMaterialHandler">
+<code class="descname">getMaterialHandler</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getMaterialHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the preprocessor material handler.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.getMaterialNames">
+<code class="descname">getMaterialNames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getMaterialNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the names of the materials.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.predefined_spaces.PredefinedSpace.getNearestPoint">
 <code class="descname">getNearestPoint</code><span class="sig-paren">(</span><em>pos3d</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getNearestPoint" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the nearest point to the position
@@ -222,6 +234,12 @@ argument.</p>
 <dt id="model.predefined_spaces.PredefinedSpace.getNodeHandler">
 <code class="descname">getNodeHandler</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getNodeHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the preprocessor node handler.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.getProblem">
+<code class="descname">getProblem</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getProblem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the XC finite element problem object.</p>
 </dd></dl>
 
 <dl class="method">
@@ -308,6 +326,12 @@ combination) to the domain.</p>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.revertToStart">
+<code class="descname">revertToStart</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.revertToStart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Revert the domain to its initial state..</p>
 </dd></dl>
 
 <dl class="method">
@@ -806,7 +830,7 @@ stress name.</p>
 <p>Structural mechanics finite element problem.</p>
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics.createElasticBeams">
-<code class="descname">createElasticBeams</code><span class="sig-paren">(</span><em>xcSet</em>, <em>xcSection</em>, <em>trf</em>, <em>xzVector=None</em>, <em>sectionGeometry=None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics.createElasticBeams" title="Permalink to this definition">¶</a></dt>
+<code class="descname">createElasticBeams</code><span class="sig-paren">(</span><em>xcSet</em>, <em>crossSection</em>, <em>trf</em>, <em>xzVector=None</em>, <em>nDiv=4</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics.createElasticBeams" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Meshes the lines of the set argument with ElasticBeam3d</dt>
 <dd>elements.</dd>
@@ -817,10 +841,10 @@ stress name.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>xcSet</strong> – set with the lines to mesh.</li>
-<li><strong>xcSection</strong> – XC section to assign to the elements.</li>
 <li><strong>trf</strong> – coordinate transformation to assign to the elements.</li>
 <li><strong>xzVector</strong> – vector defining transformation XZ plane.</li>
-<li><strong>sectionGeometry</strong> – object that defines the geometry of the element section.</li>
+<li><strong>crossSection</strong> – object that defines the geometry of the element section.</li>
+<li><strong>nDiv</strong> – number of divisions on each line.</li>
 </ul>
 </td>
 </tr>
@@ -830,7 +854,7 @@ stress name.</p>
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics.createTrusses">
-<code class="descname">createTrusses</code><span class="sig-paren">(</span><em>xcSet</em>, <em>material</em>, <em>area</em>, <em>sectionGeometry=None</em>, <em>corotational=False</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics.createTrusses" title="Permalink to this definition">¶</a></dt>
+<code class="descname">createTrusses</code><span class="sig-paren">(</span><em>xcSet</em>, <em>material</em>, <em>area</em>, <em>crossSection=None</em>, <em>corotational=False</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics.createTrusses" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Meshes the lines of the set argument with Truss</dt>
 <dd>elements.</dd>
@@ -843,8 +867,30 @@ stress name.</p>
 <li><strong>xcSet</strong> – set with the lines to mesh.</li>
 <li><strong>material</strong> – material to assign to the elements.</li>
 <li><strong>area</strong> – area to assign to the elements.</li>
-<li><strong>sectionGeometry</strong> – object that defines the geometry of the element section.</li>
+<li><strong>crossSection</strong> – object that defines the geometry of the element section.</li>
 <li><strong>corotational</strong> – if true, use corotational formulation.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.StructuralMechanics.getSuitableXZVector">
+<code class="descname">getSuitableXZVector</code><span class="sig-paren">(</span><em>iNode</em>, <em>jNode</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics.getSuitableXZVector" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return a vector that can be used to define</dt>
+<dd>a coordinate transformation for an element
+between the node arguments.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>iNode</strong> – first node.</li>
+<li><strong>jNode</strong> – second node.</li>
 </ul>
 </td>
 </tr>

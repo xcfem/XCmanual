@@ -320,6 +320,40 @@ initial/undeformed shape)</li>
 </dd></dl>
 
 <dl class="method">
+<dt id="postprocess.output_handler.OutputHandler.displayField">
+<code class="descname">displayField</code><span class="sig-paren">(</span><em>limitStateLabel</em>, <em>section</em>, <em>argument</em>, <em>component</em>, <em>setToDisplay</em>, <em>fileName</em>, <em>defFScale=0.0</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayField" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Display a field defined over bi-dimensional elements in its two </dt>
+<dd>directions.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>limitStateLabel</strong> – label that identifies the limit state.</li>
+<li><strong>section</strong> – section to display (1 or 2)</li>
+<li><strong>argument</strong> – name of the control var to represent.</li>
+<li><strong>component</strong> – component of the control var to represent.</li>
+<li><strong>setToDisplay</strong> – represent the field over those elements.</li>
+<li><strong>fileName</strong> – file name to store the image. If none -&gt; window on screen.</li>
+<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</li>
+<li><strong>rgMinMax</strong> – range (vmin,vmax) with the maximum and minimum values  
+of the scalar field (if any) to be represented. All the values 
+less than vmin are displayed in blue and those greater than vmax 
+in red (defaults to None)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="postprocess.output_handler.OutputHandler.displayFieldDirs1and2">
 <code class="descname">displayFieldDirs1and2</code><span class="sig-paren">(</span><em>limitStateLabel</em>, <em>argument</em>, <em>component</em>, <em>setToDisplay</em>, <em>fileName</em>, <em>defFScale=0.0</em>, <em>rgMinMax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayFieldDirs1and2" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
@@ -683,6 +717,28 @@ already defined.</p>
 <dd><p>Return the default camera parameters.</p>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="function">
+<dt id="postprocess.output_handler.insertGrInTex">
+<code class="descclassname">postprocess.output_handler.</code><code class="descname">insertGrInTex</code><span class="sig-paren">(</span><em>texFile</em>, <em>grFileNm</em>, <em>grWdt</em>, <em>capText</em>, <em>labl=''</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.insertGrInTex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Include a graphic in a LaTeX file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>texFile</strong> – laTex file where to include the graphics 
+(e.g.:’text/report_loads.tex’)</li>
+<li><strong>grFileNm</strong> – name of the graphic file with path and without extension</li>
+<li><strong>grWdt</strong> – width to be applied to graphics</li>
+<li><strong>capText</strong> – text for the caption</li>
+<li><strong>labl</strong> – label</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -2484,10 +2540,11 @@ the Z shear reinforcement in section 2</li>
 <dl class="method">
 <dt id="postprocess.element_section_map.RCSlabBeamSection.createSections">
 <code class="descname">createSections</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCSlabBeamSection.createSections" title="Permalink to this definition">¶</a></dt>
-<dd><p>create the fiber sections of type ‘RCRectangularSection’ that represent
-the reinforced concrete fiber section to be used for the checking on each
-integration point and/or each direction. These sections are also added to
-the attribute ‘lstRCSects’ that contains the list of sections.</p>
+<dd><p>create the fiber sections of type ‘RCRectangularSection’ that 
+represent the reinforced concrete fiber section to be used for the
+checking on each integration point and/or each direction. These 
+sections are also added to the attribute ‘lstRCSects’ that contains 
+the list of sections.</p>
 </dd></dl>
 
 <dl class="method">
@@ -3140,6 +3197,22 @@ see actions/combinations module.</li>
 <dt id="postprocess.limit_state_data.LimitStateData">
 <em class="property">class </em><code class="descclassname">postprocess.limit_state_data.</code><code class="descname">LimitStateData</code><span class="sig-paren">(</span><em>limitStateLabel</em>, <em>outputDataBaseFileName</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.limit_state_data.LimitStateData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Data used when checking limit states.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>label</strong> – limit state check label; Something like “Fatigue” 
+or “CrackControl”.</li>
+<li><strong>outputDataBaseFileName</strong> – name (whithout extension) of the 
+file that contains the results to
+display.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="postprocess.limit_state_data.LimitStateData.createOutputFiles">
 <code class="descname">createOutputFiles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.limit_state_data.LimitStateData.createOutputFiles" title="Permalink to this definition">¶</a></dt>
@@ -3188,6 +3261,20 @@ forces file.</p>
 <dt id="postprocess.limit_state_data.LimitStateData.loadPickleObject">
 <code class="descname">loadPickleObject</code><span class="sig-paren">(</span><em>objName</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.limit_state_data.LimitStateData.loadPickleObject" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read a Python object from a pickle file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.limit_state_data.LimitStateData.readInternalForces">
+<code class="descname">readInternalForces</code><span class="sig-paren">(</span><em>setCalc</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.limit_state_data.LimitStateData.readInternalForces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the internal forces for the elements in the set argument.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>setCalc</strong> – elements to read internal forces for.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -3773,7 +3860,7 @@ the results to a file, generation or not of lists, …)</li>
 
 <dl class="function">
 <dt id="postprocess.prop_statistics.getItemWithMinProp">
-<code class="descclassname">postprocess.prop_statistics.</code><code class="descname">getItemWithMinProp</code><span class="sig-paren">(</span><em>iterable</em>, <em>attrName</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.prop_statistics.getItemWithMinProp" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">postprocess.prop_statistics.</code><code class="descname">getItemWithMinProp</code><span class="sig-paren">(</span><em>iterable</em>, <em>attrName</em>, <em>argv=''</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.prop_statistics.getItemWithMinProp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return item wich minimizes property named as indicated in attrName</p>
 </dd></dl>
 
@@ -3813,8 +3900,15 @@ the results to a file, generation or not of lists, …)</li>
 <dt id="postprocess.RC_material_distribution.RCMaterialDistribution">
 <em class="property">class </em><code class="descclassname">postprocess.RC_material_distribution.</code><code class="descname">RCMaterialDistribution</code><a class="headerlink" href="#postprocess.RC_material_distribution.RCMaterialDistribution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
-<p>Spatial distribution of reinforced concrete material (RC sections distribution over the elements).
-It refers to the reinforced concrete sections associated with the element (i.e. for shell elements we typically define two RC sections, one for each main direction; in the case of beam elements the most common way is to define RC sections in the front and back ends of the elements)</p>
+<dl class="docutils">
+<dt>Spatial distribution of reinforced concrete material (RC sections </dt>
+<dd>distribution over the elements).</dd>
+</dl>
+<p>It refers to the reinforced concrete sections associated with the 
+element (i.e. for shell elements we typically define two RC sections, 
+one for each main direction; in the case of beam elements the most 
+common way is to define RC sections in the front and back ends 
+of the elements)</p>
 <dl class="method">
 <dt id="postprocess.RC_material_distribution.RCMaterialDistribution.assign">
 <code class="descname">assign</code><span class="sig-paren">(</span><em>elemSet</em>, <em>setRCSects</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.RC_material_distribution.RCMaterialDistribution.assign" title="Permalink to this definition">¶</a></dt>

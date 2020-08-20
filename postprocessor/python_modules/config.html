@@ -57,7 +57,7 @@
 <span id="default-configuration"></span><h2>Default configuration<a class="headerlink" href="#module-postprocess.config.default_config" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="postprocess.config.default_config.EnvConfig">
-<em class="property">class </em><code class="descclassname">postprocess.config.default_config.</code><code class="descname">EnvConfig</code><span class="sig-paren">(</span><em>language</em>, <em>intForcPath</em>, <em>verifPath</em>, <em>annexPath</em>, <em>grWidth='120mm'</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.EnvConfig" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">postprocess.config.default_config.</code><code class="descname">EnvConfig</code><span class="sig-paren">(</span><em>language='english'</em>, <em>intForcPath='results/internalForces/'</em>, <em>verifPath='results/verifications/'</em>, <em>reportPath='./'</em>, <em>resultsPath='annex/'</em>, <em>grWidth='\linewidth'</em>, <em>fNameMark='env_config.py'</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.EnvConfig" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="postprGenTopics.html#postprocess.output_styles.OutputStyle" title="postprocess.output_styles.OutputStyle"><code class="xref py py-class docutils literal"><span class="pre">postprocess.output_styles.OutputStyle</span></code></a></p>
 <p>Generic configuration of XC environment variables.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -72,7 +72,7 @@
 
 <dl class="class">
 <dt id="postprocess.config.default_config.ProjectDirTree">
-<em class="property">class </em><code class="descclassname">postprocess.config.default_config.</code><code class="descname">ProjectDirTree</code><span class="sig-paren">(</span><em>intForcPath</em>, <em>verifPath</em>, <em>annexPath</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">postprocess.config.default_config.</code><code class="descname">ProjectDirTree</code><span class="sig-paren">(</span><em>intForcPath</em>, <em>verifPath</em>, <em>reportPath</em>, <em>resultsPath</em>, <em>fNameMark='env_config.py'</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Paths to project directories.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -80,17 +80,21 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>intForcPath</strong> – full path of the directory where results of 
-internal forces are placed.</li>
-<li><strong>verifPath</strong> – full path of the directory where results of 
+<li><strong>intForcPath</strong> – relative path from the model path of the directory where results 
+of internal forces are placed.</li>
+<li><strong>verifPath</strong> – relative path from the model path of the directory where results of 
 limit state  verifications are placed</li>
-<li><strong>annexPath</strong> – full path of the directory where to place graphic and 
-text files for the generation of the annex</li>
+<li><strong>reportPath</strong> – relative path of the directory where calculation report 
+files are placed</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<dl class="docutils">
+<dt>:ivar resultsPath <span class="classifier-delimiter">:</span> <span class="classifier">relative path from reportPath of the directory where to place  </span></dt>
+<dd>graphic and text files to be included in the report</dd>
+</dl>
 <dl class="method">
 <dt id="postprocess.config.default_config.ProjectDirTree.createTree">
 <code class="descname">createTree</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.createTree" title="Permalink to this definition">¶</a></dt>
@@ -128,32 +132,78 @@ the internal forces.</p>
 <dl class="method">
 <dt id="postprocess.config.default_config.ProjectDirTree.getReportCrackFreqFile">
 <code class="descname">getReportCrackFreqFile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getReportCrackFreqFile" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the path of the crack verification
+report file (frequent loads).</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="postprocess.config.default_config.ProjectDirTree.getReportCrackFreqGrPath">
 <code class="descname">getReportCrackFreqGrPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getReportCrackFreqGrPath" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the path for the crack verification
+graphics files (frequent loads).</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="postprocess.config.default_config.ProjectDirTree.getReportCrackQpermFile">
 <code class="descname">getReportCrackQpermFile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getReportCrackQpermFile" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the path of the crack verification
+report file (quasi-permanent loads).</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="postprocess.config.default_config.ProjectDirTree.getReportCrackQpermGrPath">
 <code class="descname">getReportCrackQpermGrPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getReportCrackQpermGrPath" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the path for the crack verification
+graphics files (quasi-permanent loads).</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="postprocess.config.default_config.ProjectDirTree.getReportFatigueFile">
 <code class="descname">getReportFatigueFile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getReportFatigueFile" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the path of the fatigue verification
+report file.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="postprocess.config.default_config.ProjectDirTree.getReportFatigueGrPath">
 <code class="descname">getReportFatigueGrPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getReportFatigueGrPath" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the path for the fatigue verification
+graphics files.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.config.default_config.ProjectDirTree.getReportFile">
+<code class="descname">getReportFile</code><span class="sig-paren">(</span><em>limitStateLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getReportFile" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the path of the verification report file</dt>
+<dd>for the limit state argument.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>limitStateLabel</strong> – label identifying the limit state.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.config.default_config.ProjectDirTree.getReportGrPath">
+<code class="descname">getReportGrPath</code><span class="sig-paren">(</span><em>limitStateLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getReportGrPath" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the full path for the verification graphics files</dt>
+<dd>for the limit state argument.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>limitStateLabel</strong> – label identifying the limit state.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="postprocess.config.default_config.ProjectDirTree.getReportLoadsFile">
@@ -168,12 +218,33 @@ the internal forces.</p>
 <dl class="method">
 <dt id="postprocess.config.default_config.ProjectDirTree.getReportNormStrFile">
 <code class="descname">getReportNormStrFile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getReportNormStrFile" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the path of the normal stresses verification
+report file.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="postprocess.config.default_config.ProjectDirTree.getReportNormStrGrPath">
 <code class="descname">getReportNormStrGrPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getReportNormStrGrPath" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the path for the normal stresses verification
+graphics files.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.config.default_config.ProjectDirTree.getReportRltvGrPath">
+<code class="descname">getReportRltvGrPath</code><span class="sig-paren">(</span><em>limitStateLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getReportRltvGrPath" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the relative path for the verification graphics files</dt>
+<dd>for the limit state argument.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>limitStateLabel</strong> – label identifying the limit state.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="postprocess.config.default_config.ProjectDirTree.getReportSectionsFile">
@@ -188,12 +259,16 @@ the internal forces.</p>
 <dl class="method">
 <dt id="postprocess.config.default_config.ProjectDirTree.getReportShearFile">
 <code class="descname">getReportShearFile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getReportShearFile" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the path of the shear verification
+report file.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="postprocess.config.default_config.ProjectDirTree.getReportShearGrPath">
 <code class="descname">getReportShearGrPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getReportShearGrPath" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the path for the shear verification
+graphics files.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="postprocess.config.default_config.ProjectDirTree.getReportSimplLCFile">
@@ -206,37 +281,133 @@ the internal forces.</p>
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="postprocess.config.default_config.ProjectDirTree.getRltvGraphicsPath">
+<code class="descname">getRltvGraphicsPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getRltvGraphicsPath" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.config.default_config.ProjectDirTree.getRltvReportCrackFreqGrPath">
+<code class="descname">getRltvReportCrackFreqGrPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getRltvReportCrackFreqGrPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the path for the crack verification
+graphics files (frequent loads).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.config.default_config.ProjectDirTree.getRltvReportCrackQpermGrPath">
+<code class="descname">getRltvReportCrackQpermGrPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getRltvReportCrackQpermGrPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the path for the crack verification
+graphics files (quasi-permanent loads).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.config.default_config.ProjectDirTree.getRltvReportFatigueGrPath">
+<code class="descname">getRltvReportFatigueGrPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getRltvReportFatigueGrPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the path for the fatigue verification
+graphics files.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.config.default_config.ProjectDirTree.getRltvReportLoadsGrPath">
+<code class="descname">getRltvReportLoadsGrPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getRltvReportLoadsGrPath" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.config.default_config.ProjectDirTree.getRltvReportNormStrGrPath">
+<code class="descname">getRltvReportNormStrGrPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getRltvReportNormStrGrPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the path for the normal stresses verification
+graphics files.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.config.default_config.ProjectDirTree.getRltvReportPath">
+<code class="descname">getRltvReportPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getRltvReportPath" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.config.default_config.ProjectDirTree.getRltvReportSectionsGrPath">
+<code class="descname">getRltvReportSectionsGrPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getRltvReportSectionsGrPath" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.config.default_config.ProjectDirTree.getRltvReportShearGrPath">
+<code class="descname">getRltvReportShearGrPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getRltvReportShearGrPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the path for the shear verification
+graphics files.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.config.default_config.ProjectDirTree.getRltvReportSimplLCGrPath">
+<code class="descname">getRltvReportSimplLCGrPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getRltvReportSimplLCGrPath" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="postprocess.config.default_config.ProjectDirTree.getVerifCrackFreqFile">
 <code class="descname">getVerifCrackFreqFile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getVerifCrackFreqFile" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the path of the crack verification
+results file (frequent loads).</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="postprocess.config.default_config.ProjectDirTree.getVerifCrackQpermFile">
 <code class="descname">getVerifCrackQpermFile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getVerifCrackQpermFile" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the path of the crack verification
+results file (quasi-permanent loads).</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="postprocess.config.default_config.ProjectDirTree.getVerifFatigueFile">
 <code class="descname">getVerifFatigueFile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getVerifFatigueFile" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the path of the fatigue verification
+results file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.config.default_config.ProjectDirTree.getVerifFile">
+<code class="descname">getVerifFile</code><span class="sig-paren">(</span><em>limitStateLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getVerifFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the path of the verification results file
+for the limit state argument.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>limitStateLabel</strong> – label identifying the limit state.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="postprocess.config.default_config.ProjectDirTree.getVerifNormStrFile">
 <code class="descname">getVerifNormStrFile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getVerifNormStrFile" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the path of the normal stresses verification
+results file.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="postprocess.config.default_config.ProjectDirTree.getVerifShearFile">
 <code class="descname">getVerifShearFile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getVerifShearFile" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the path of the shear verification
+results file.</p>
+</dd></dl>
 
 </dd></dl>
 
 <dl class="function">
 <dt id="postprocess.config.default_config.findWorkingDirectory">
-<code class="descclassname">postprocess.config.default_config.</code><code class="descname">findWorkingDirectory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.findWorkingDirectory" title="Permalink to this definition">¶</a></dt>
-<dd><p>Search upwards to find the directory where the file
-env_config.py is.</p>
+<code class="descclassname">postprocess.config.default_config.</code><code class="descname">findWorkingDirectory</code><span class="sig-paren">(</span><em>fNameMark='env_config.py'</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.findWorkingDirectory" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Search upwards to find the directory where the file</dt>
+<dd>argument is.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fNameMark</strong> – name of the file that marks the working directory
+of the project.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>

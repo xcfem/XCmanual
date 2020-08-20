@@ -112,8 +112,17 @@ change number of divisions).</li>
 </table>
 <dl class="method">
 <dt id="model.mesh.finit_el_model.RawLineSetToMesh.generateMesh">
-<code class="descname">generateMesh</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.RawLineSetToMesh.generateMesh" title="Permalink to this definition">¶</a></dt>
+<code class="descname">generateMesh</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>sectGeom='N'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.RawLineSetToMesh.generateMesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate the mesh for the line set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectGeom</strong> – =’Y’ if want to create the property  ‘crossSection’
+for each element (defaults to ‘N’)</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -169,8 +178,17 @@ change number of divisions).</li>
 </table>
 <dl class="method">
 <dt id="model.mesh.finit_el_model.SurfSetToMesh.generateMesh">
-<code class="descname">generateMesh</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.SurfSetToMesh.generateMesh" title="Permalink to this definition">¶</a></dt>
+<code class="descname">generateMesh</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>sectGeom='N'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.SurfSetToMesh.generateMesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate the mesh for the surface set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectGeom</strong> – =’Y’ if want to create the property  ‘crossSection’
+for each element (defaults to ‘N’)</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -190,19 +208,19 @@ in set linSet</p>
 
 <dl class="function">
 <dt id="model.mesh.finit_el_model.createBeam2Pnts">
-<code class="descclassname">model.mesh.finit_el_model.</code><code class="descname">createBeam2Pnts</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>startPnt</em>, <em>endPnt</em>, <em>setName</em>, <em>matSect</em>, <em>elemSize</em>, <em>vDirLAxZ</em>, <em>elemType='ElasticBeam3d'</em>, <em>dimElemSpace=3</em>, <em>coordTransfType='linear'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.createBeam2Pnts" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">model.mesh.finit_el_model.</code><code class="descname">createBeam2Pnts</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>startPnt</em>, <em>endPnt</em>, <em>setName</em>, <em>matSect</em>, <em>elemSize</em>, <em>vDirLAxZ</em>, <em>elemType='ElasticBeam3d'</em>, <em>dimElemSpace=3</em>, <em>coordTransfType='linear'</em>, <em>sectGeom='N'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.createBeam2Pnts" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a set of beam elements created from startPnt to endPnt.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>preprocessor</strong> – preprocessor</li>
 <li><strong>startPnt</strong> – coordinates of first beam extremity (defined as 
 geom.Pos3d(x,y,z)</li>
 <li><strong>startPnt</strong> – coordinates of end beam extremity (defined as 
 geom.Pos3d(x,y,z)</li>
-<li><a class="reference internal" href="../../miscellany/import_export.sciaXML.xml_basics.html#import_export.sciaXML.xml_basics.scxml_table_base.SCXMLTableBase.setName" title="import_export.sciaXML.xml_basics.scxml_table_base.SCXMLTableBase.setName"><strong>setName</strong></a> – name of the set of entities created</li>
+<li><strong>setName</strong> – name of the set of entities created</li>
 <li><strong>matSect</strong> – instance of the class BeamMaterialData that defines the 
 material-section to be applied to the set of lines.</li>
 <li><strong>elemSize</strong> – mean size of the elements</li>
@@ -216,6 +234,8 @@ defined as width of the rectangle)</li>
 <li><strong>coordTransfType</strong> – type of coordinate transformation. Available 
 types: ‘linear’, ‘PDelta’ and ‘corot’ (defaults to 
 ‘linear’)</li>
+<li><strong>sectGeom</strong> – =’Y’ if want to create the property ‘crossSection’
+for each element (defaults to ‘N’)</li>
 </ul>
 </td>
 </tr>
@@ -231,7 +251,7 @@ types: ‘linear’, ‘PDelta’ and ‘corot’ (defaults to
 
 <dl class="function">
 <dt id="model.mesh.finit_el_model.multi_mesh">
-<code class="descclassname">model.mesh.finit_el_model.</code><code class="descname">multi_mesh</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>lstMeshSets</em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.multi_mesh" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">model.mesh.finit_el_model.</code><code class="descname">multi_mesh</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>lstMeshSets</em>, <em>sectGeom='N'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.multi_mesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Mesh all the mesh-sets included in lstMeshSets</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -241,6 +261,8 @@ types: ‘linear’, ‘PDelta’ and ‘corot’ (defaults to
 <li><strong>preprocessor</strong> – preprocessor</li>
 <li><strong>lstMeshSets</strong> – list of instances of classes LinSetToMesh or 
 SurfSetToMesh to be meshed</li>
+<li><strong>sectGeom</strong> – =’Y’ if want to create the property  ‘crossSection’
+for each element (defaults to ‘N’)</li>
 </ul>
 </td>
 </tr>

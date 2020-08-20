@@ -86,14 +86,566 @@
 </dd></dl>
 
 </div>
-<div class="section" id="block-topology-entities">
-<h2>Block topology entities<a class="headerlink" href="#block-topology-entities" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-import_export.block_topology_entities">
+<span id="block-topology-entities"></span><h2>Block topology entities<a class="headerlink" href="#module-import_export.block_topology_entities" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="import_export.block_topology_entities.BlockData">
+<em class="property">class </em><code class="descclassname">import_export.block_topology_entities.</code><code class="descname">BlockData</code><a class="headerlink" href="#import_export.block_topology_entities.BlockData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Block topology entities container: points, lines, faces, solids,…</p>
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockData.appendBlock">
+<code class="descname">appendBlock</code><span class="sig-paren">(</span><em>block</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockData.appendBlock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockData.appendPoint">
+<code class="descname">appendPoint</code><span class="sig-paren">(</span><em>id</em>, <em>x</em>, <em>y</em>, <em>z</em>, <em>labels=None</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockData.appendPoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockData.getBlockTags">
+<code class="descname">getBlockTags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockData.getBlockTags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the identifiers of the blocks.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockData.getPointTags">
+<code class="descname">getPointTags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockData.getPointTags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the identifiers of the points.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockData.readFromDxfFile">
+<code class="descname">readFromDxfFile</code><span class="sig-paren">(</span><em>fName</em>, <em>preprocessor</em>, <em>dxfLayers</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockData.readFromDxfFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read block topology from a DXF file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fName</strong> – name of the DXF file to write.</li>
+<li><strong>preprocessor</strong> – XC preprocessor</li>
+<li><strong>dxfLayers</strong> – layers to import objects from.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockData.readFromXCSet">
+<code class="descname">readFromXCSet</code><span class="sig-paren">(</span><em>xcSet</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockData.readFromXCSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read points and surfaces from an XC set.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockData.writeDxf">
+<code class="descname">writeDxf</code><span class="sig-paren">(</span><em>drawing</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockData.writeDxf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the blocs (point, lines, surfaces, volumes,…) 
+in a DXF file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>drawing</strong> – ezdxf drawing object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockData.writeDxfFile">
+<code class="descname">writeDxfFile</code><span class="sig-paren">(</span><em>fileName</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockData.writeDxfFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write mesh in a DXF file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fileName</strong> – name of the DXF file to write.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockData.writeToXCFile">
+<code class="descname">writeToXCFile</code><span class="sig-paren">(</span><em>xcImportExportData</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockData.writeToXCFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a Python file with XC commands.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="import_export.block_topology_entities.BlockDict">
+<em class="property">class </em><code class="descclassname">import_export.block_topology_entities.</code><code class="descname">BlockDict</code><a class="headerlink" href="#import_export.block_topology_entities.BlockDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dict</span></code></p>
+<p>Block container.</p>
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockDict.append">
+<code class="descname">append</code><span class="sig-paren">(</span><em>cell</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockDict.append" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockDict.getTags">
+<code class="descname">getTags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockDict.getTags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the identifiers of the objects.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockDict.readFromXCSet">
+<code class="descname">readFromXCSet</code><span class="sig-paren">(</span><em>xcSet</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockDict.readFromXCSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read blocks from XC set.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockDict.writeDxf">
+<code class="descname">writeDxf</code><span class="sig-paren">(</span><em>name</em>, <em>pointDict</em>, <em>drawing</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockDict.writeDxf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the cells in dxf file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockDict.writeToXCFile">
+<code class="descname">writeToXCFile</code><span class="sig-paren">(</span><em>f</em>, <em>xcImportExportData</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockDict.writeToXCFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the XC commands that define the cells (elements).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="import_export.block_topology_entities.BlockRecord">
+<em class="property">class </em><code class="descclassname">import_export.block_topology_entities.</code><code class="descname">BlockRecord</code><span class="sig-paren">(</span><em>id</em>, <em>typ</em>, <em>kPoints</em>, <em>labels=None</em>, <em>thk=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockRecord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#import_export.mesh_entities.CellRecord" title="import_export.mesh_entities.CellRecord"><code class="xref py py-class docutils literal"><span class="pre">import_export.mesh_entities.CellRecord</span></code></a></p>
+<p>Block type entities: line, face, body,…</p>
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockRecord.getStrKeyPointsIds">
+<code class="descname">getStrKeyPointsIds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockRecord.getStrKeyPointsIds" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockRecord.getStrXCCommand">
+<code class="descname">getStrXCCommand</code><span class="sig-paren">(</span><em>xcImportExportData</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockRecord.getStrXCCommand" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockRecord.getType">
+<code class="descname">getType</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockRecord.getType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the type of the block.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="import_export.block_topology_entities.PointDict">
+<em class="property">class </em><code class="descclassname">import_export.block_topology_entities.</code><code class="descname">PointDict</code><a class="headerlink" href="#import_export.block_topology_entities.PointDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#import_export.mesh_entities.NodeDict" title="import_export.mesh_entities.NodeDict"><code class="xref py py-class docutils literal"><span class="pre">import_export.mesh_entities.NodeDict</span></code></a></p>
+<p>Node container.</p>
+<dl class="method">
+<dt id="import_export.block_topology_entities.PointDict.append">
+<code class="descname">append</code><span class="sig-paren">(</span><em>id</em>, <em>x</em>, <em>y</em>, <em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.PointDict.append" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.PointDict.getName">
+<code class="descname">getName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.PointDict.getName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.PointDict.readFromXCSet">
+<code class="descname">readFromXCSet</code><span class="sig-paren">(</span><em>xcSet</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.PointDict.readFromXCSet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.PointDict.writeToXCFile">
+<code class="descname">writeToXCFile</code><span class="sig-paren">(</span><em>f</em>, <em>xcImportExportData</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.PointDict.writeToXCFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the XC commands that define nodes.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="import_export.block_topology_entities.PointRecord">
+<em class="property">class </em><code class="descclassname">import_export.block_topology_entities.</code><code class="descname">PointRecord</code><span class="sig-paren">(</span><em>id</em>, <em>coords</em>, <em>labels=None</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.PointRecord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#import_export.mesh_entities.NodeRecord" title="import_export.mesh_entities.NodeRecord"><code class="xref py py-class docutils literal"><span class="pre">import_export.mesh_entities.NodeRecord</span></code></a></p>
+<p>kPoint type entity</p>
+<dl class="method">
+<dt id="import_export.block_topology_entities.PointRecord.getStrXCCommand">
+<code class="descname">getStrXCCommand</code><span class="sig-paren">(</span><em>pointHandlerName</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.PointRecord.getStrXCCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the XC command that creates the point.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="import_export.block_topology_entities.PointSupportDict">
+<em class="property">class </em><code class="descclassname">import_export.block_topology_entities.</code><code class="descname">PointSupportDict</code><a class="headerlink" href="#import_export.block_topology_entities.PointSupportDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dict</span></code></p>
+<p>Point to put constraints on.</p>
+<dl class="method">
+<dt id="import_export.block_topology_entities.PointSupportDict.append">
+<code class="descname">append</code><span class="sig-paren">(</span><em>ps</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.PointSupportDict.append" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.PointSupportDict.readFromXCSet">
+<code class="descname">readFromXCSet</code><span class="sig-paren">(</span><em>xcSet</em>, <em>points</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.PointSupportDict.readFromXCSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read supports from an XC set.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="import_export.block_topology_entities.PointSupportRecord">
+<em class="property">class </em><code class="descclassname">import_export.block_topology_entities.</code><code class="descname">PointSupportRecord</code><span class="sig-paren">(</span><em>id</em>, <em>pointId</em>, <em>nsr</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.PointSupportRecord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#import_export.basic_entities.SupportRecord" title="import_export.basic_entities.SupportRecord"><code class="xref py py-class docutils literal"><span class="pre">import_export.basic_entities.SupportRecord</span></code></a></p>
+<p>Constraints for node displacements.</p>
+</dd></dl>
+
 </div>
-<div class="section" id="neutral-mesh-description">
-<h2>Neutral mesh description<a class="headerlink" href="#neutral-mesh-description" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-import_export.neutral_mesh_description">
+<span id="neutral-mesh-description"></span><h2>Neutral mesh description<a class="headerlink" href="#module-import_export.neutral_mesh_description" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="import_export.neutral_mesh_description.GroupRecord">
+<em class="property">class </em><code class="descclassname">import_export.neutral_mesh_description.</code><code class="descname">GroupRecord</code><a class="headerlink" href="#import_export.neutral_mesh_description.GroupRecord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="import_export.neutral_mesh_description.GroupRecord.empty">
+<code class="descname">empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.neutral_mesh_description.GroupRecord.empty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.neutral_mesh_description.GroupRecord.readFromDATFile">
+<code class="descname">readFromDATFile</code><span class="sig-paren">(</span><em>fName</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.neutral_mesh_description.GroupRecord.readFromDATFile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.neutral_mesh_description.GroupRecord.setUp">
+<code class="descname">setUp</code><span class="sig-paren">(</span><em>name</em>, <em>points</em>, <em>lines</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.neutral_mesh_description.GroupRecord.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.neutral_mesh_description.GroupRecord.writeDxfFile">
+<code class="descname">writeDxfFile</code><span class="sig-paren">(</span><em>xcImportExportData</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.neutral_mesh_description.GroupRecord.writeDxfFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>groups have not representation in dxf files.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.neutral_mesh_description.GroupRecord.writeToXCFile">
+<code class="descname">writeToXCFile</code><span class="sig-paren">(</span><em>xcImportExportData</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.neutral_mesh_description.GroupRecord.writeToXCFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>writes the XC commands to define the group in a file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="import_export.neutral_mesh_description.MEDMeshData">
+<em class="property">class </em><code class="descclassname">import_export.neutral_mesh_description.</code><code class="descname">MEDMeshData</code><span class="sig-paren">(</span><em>umesh</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.neutral_mesh_description.MEDMeshData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#import_export.mesh_entities.MeshData" title="import_export.mesh_entities.MeshData"><code class="xref py py-class docutils literal"><span class="pre">import_export.mesh_entities.MeshData</span></code></a></p>
+<dl class="attribute">
+<dt id="import_export.neutral_mesh_description.MEDMeshData.meshDimension">
+<code class="descname">meshDimension</code><em class="property"> = None</em><a class="headerlink" href="#import_export.neutral_mesh_description.MEDMeshData.meshDimension" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="import_export.neutral_mesh_description.MEDMeshData.spaceDimension">
+<code class="descname">spaceDimension</code><em class="property"> = None</em><a class="headerlink" href="#import_export.neutral_mesh_description.MEDMeshData.spaceDimension" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="import_export.neutral_mesh_description.XCImportExportData">
+<em class="property">class </em><code class="descclassname">import_export.neutral_mesh_description.</code><code class="descname">XCImportExportData</code><a class="headerlink" href="#import_export.neutral_mesh_description.XCImportExportData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="import_export.neutral_mesh_description.XCImportExportData.convertCellType">
+<code class="descname">convertCellType</code><span class="sig-paren">(</span><em>tp</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.neutral_mesh_description.XCImportExportData.convertCellType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.neutral_mesh_description.XCImportExportData.getBlockHandlerName">
+<code class="descname">getBlockHandlerName</code><span class="sig-paren">(</span><em>blockType</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.neutral_mesh_description.XCImportExportData.getBlockHandlerName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.neutral_mesh_description.XCImportExportData.getDxfFileName">
+<code class="descname">getDxfFileName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.neutral_mesh_description.XCImportExportData.getDxfFileName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.neutral_mesh_description.XCImportExportData.getXCFileName">
+<code class="descname">getXCFileName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.neutral_mesh_description.XCImportExportData.getXCFileName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.neutral_mesh_description.XCImportExportData.readDATFiles">
+<code class="descname">readDATFiles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.neutral_mesh_description.XCImportExportData.readDATFiles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.neutral_mesh_description.XCImportExportData.readDxfFile">
+<code class="descname">readDxfFile</code><span class="sig-paren">(</span><em>fName</em>, <em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.neutral_mesh_description.XCImportExportData.readDxfFile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.neutral_mesh_description.XCImportExportData.writeDxfFile">
+<code class="descname">writeDxfFile</code><span class="sig-paren">(</span><em>fileName</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.neutral_mesh_description.XCImportExportData.writeDxfFile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.neutral_mesh_description.XCImportExportData.writeToXCFile">
+<code class="descname">writeToXCFile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.neutral_mesh_description.XCImportExportData.writeToXCFile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="import_export.neutral_mesh_description.dumpMeshes">
+<code class="descclassname">import_export.neutral_mesh_description.</code><code class="descname">dumpMeshes</code><span class="sig-paren">(</span><em>meshes</em>, <em>fName</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.neutral_mesh_description.dumpMeshes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="import_export.neutral_mesh_description.loadMeshes">
+<code class="descclassname">import_export.neutral_mesh_description.</code><code class="descname">loadMeshes</code><span class="sig-paren">(</span><em>fName</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.neutral_mesh_description.loadMeshes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
-<div class="section" id="mesh-entities">
-<h2>Mesh entities<a class="headerlink" href="#mesh-entities" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-import_export.mesh_entities">
+<span id="mesh-entities"></span><h2>Mesh entities<a class="headerlink" href="#module-import_export.mesh_entities" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="import_export.mesh_entities.CellDict">
+<em class="property">class </em><code class="descclassname">import_export.mesh_entities.</code><code class="descname">CellDict</code><a class="headerlink" href="#import_export.mesh_entities.CellDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dict</span></code></p>
+<p>Cell container.</p>
+<dl class="method">
+<dt id="import_export.mesh_entities.CellDict.append">
+<code class="descname">append</code><span class="sig-paren">(</span><em>cell</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.CellDict.append" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.mesh_entities.CellDict.getTags">
+<code class="descname">getTags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.CellDict.getTags" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.mesh_entities.CellDict.readFromDATFile">
+<code class="descname">readFromDATFile</code><span class="sig-paren">(</span><em>lines</em>, <em>begin</em>, <em>end</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.CellDict.readFromDATFile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.mesh_entities.CellDict.readFromUMesh">
+<code class="descname">readFromUMesh</code><span class="sig-paren">(</span><em>umesh</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.CellDict.readFromUMesh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.mesh_entities.CellDict.readFromXCSet">
+<code class="descname">readFromXCSet</code><span class="sig-paren">(</span><em>xcSet</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.CellDict.readFromXCSet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.mesh_entities.CellDict.writeDxf">
+<code class="descname">writeDxf</code><span class="sig-paren">(</span><em>nodeDict</em>, <em>drawing</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.CellDict.writeDxf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the cells in dxf file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.mesh_entities.CellDict.writeToXCFile">
+<code class="descname">writeToXCFile</code><span class="sig-paren">(</span><em>f</em>, <em>xcImportExportData</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.CellDict.writeToXCFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the XC commands that define the cells (elements).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="import_export.mesh_entities.CellRecord">
+<em class="property">class </em><code class="descclassname">import_export.mesh_entities.</code><code class="descname">CellRecord</code><span class="sig-paren">(</span><em>id</em>, <em>typ</em>, <em>nodes</em>, <em>thk=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.CellRecord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="import_export.mesh_entities.CellRecord.getStrXCCommand">
+<code class="descname">getStrXCCommand</code><span class="sig-paren">(</span><em>xcImportExportData</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.CellRecord.getStrXCCommand" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.mesh_entities.CellRecord.getStrXCNodes">
+<code class="descname">getStrXCNodes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.CellRecord.getStrXCNodes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.mesh_entities.CellRecord.writeDxf">
+<code class="descname">writeDxf</code><span class="sig-paren">(</span><em>nodeDict</em>, <em>drawing</em>, <em>layerName</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.CellRecord.writeDxf" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="import_export.mesh_entities.MaterialDict">
+<em class="property">class </em><code class="descclassname">import_export.mesh_entities.</code><code class="descname">MaterialDict</code><a class="headerlink" href="#import_export.mesh_entities.MaterialDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dict</span></code></p>
+<dl class="method">
+<dt id="import_export.mesh_entities.MaterialDict.append">
+<code class="descname">append</code><span class="sig-paren">(</span><em>mat</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.MaterialDict.append" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="import_export.mesh_entities.MaterialRecord">
+<em class="property">class </em><code class="descclassname">import_export.mesh_entities.</code><code class="descname">MaterialRecord</code><span class="sig-paren">(</span><em>name</em>, <em>typo</em>, <em>thermalExp</em>, <em>rho</em>, <em>E</em>, <em>nu</em>, <em>G</em>, <em>logDec</em>, <em>specHeat</em>, <em>thermalCond</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.MaterialRecord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="import_export.mesh_entities.MeshData">
+<em class="property">class </em><code class="descclassname">import_export.mesh_entities.</code><code class="descname">MeshData</code><a class="headerlink" href="#import_export.mesh_entities.MeshData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="import_export.mesh_entities.MeshData.readFromDATFile">
+<code class="descname">readFromDATFile</code><span class="sig-paren">(</span><em>fName</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.MeshData.readFromDATFile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.mesh_entities.MeshData.readFromXCSet">
+<code class="descname">readFromXCSet</code><span class="sig-paren">(</span><em>xcSet</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.MeshData.readFromXCSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read nodes and elements from an XC set.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.mesh_entities.MeshData.writeDxf">
+<code class="descname">writeDxf</code><span class="sig-paren">(</span><em>drawing</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.MeshData.writeDxf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write mesh in a DXF file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.mesh_entities.MeshData.writeDxfFile">
+<code class="descname">writeDxfFile</code><span class="sig-paren">(</span><em>fileName</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.MeshData.writeDxfFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write mesh in a DXF file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.mesh_entities.MeshData.writeToXCFile">
+<code class="descname">writeToXCFile</code><span class="sig-paren">(</span><em>xcImportExportData</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.MeshData.writeToXCFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the XC commands that define the mesh.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="import_export.mesh_entities.NodeDict">
+<em class="property">class </em><code class="descclassname">import_export.mesh_entities.</code><code class="descname">NodeDict</code><a class="headerlink" href="#import_export.mesh_entities.NodeDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dict</span></code></p>
+<p>Node container.</p>
+<dl class="method">
+<dt id="import_export.mesh_entities.NodeDict.append">
+<code class="descname">append</code><span class="sig-paren">(</span><em>id</em>, <em>x</em>, <em>y</em>, <em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.NodeDict.append" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.mesh_entities.NodeDict.getName">
+<code class="descname">getName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.NodeDict.getName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.mesh_entities.NodeDict.getTags">
+<code class="descname">getTags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.NodeDict.getTags" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.mesh_entities.NodeDict.readFromDATFile">
+<code class="descname">readFromDATFile</code><span class="sig-paren">(</span><em>lines</em>, <em>begin</em>, <em>end</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.NodeDict.readFromDATFile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.mesh_entities.NodeDict.readFromUMesh">
+<code class="descname">readFromUMesh</code><span class="sig-paren">(</span><em>umesh</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.NodeDict.readFromUMesh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.mesh_entities.NodeDict.readFromXCSet">
+<code class="descname">readFromXCSet</code><span class="sig-paren">(</span><em>xcSet</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.NodeDict.readFromXCSet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.mesh_entities.NodeDict.writeDxf">
+<code class="descname">writeDxf</code><span class="sig-paren">(</span><em>drawing</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.NodeDict.writeDxf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the node positions in dxf file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.mesh_entities.NodeDict.writeToXCFile">
+<code class="descname">writeToXCFile</code><span class="sig-paren">(</span><em>f</em>, <em>xcImportExportData</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.NodeDict.writeToXCFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the XC commands that define nodes.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="import_export.mesh_entities.NodeRecord">
+<em class="property">class </em><code class="descclassname">import_export.mesh_entities.</code><code class="descname">NodeRecord</code><span class="sig-paren">(</span><em>id</em>, <em>coords</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.NodeRecord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Node of a finite element mesh</p>
+<dl class="method">
+<dt id="import_export.mesh_entities.NodeRecord.getStrXCCommand">
+<code class="descname">getStrXCCommand</code><span class="sig-paren">(</span><em>nodeHandlerName</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.NodeRecord.getStrXCCommand" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.mesh_entities.NodeRecord.getX">
+<code class="descname">getX</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.NodeRecord.getX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.mesh_entities.NodeRecord.getY">
+<code class="descname">getY</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.NodeRecord.getY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.mesh_entities.NodeRecord.getZ">
+<code class="descname">getZ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.NodeRecord.getZ" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.mesh_entities.NodeRecord.writeDxf">
+<code class="descname">writeDxf</code><span class="sig-paren">(</span><em>drawing</em>, <em>layerName</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.NodeRecord.writeDxf" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="import_export.mesh_entities.NodeSupportDict">
+<em class="property">class </em><code class="descclassname">import_export.mesh_entities.</code><code class="descname">NodeSupportDict</code><a class="headerlink" href="#import_export.mesh_entities.NodeSupportDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dict</span></code></p>
+<dl class="method">
+<dt id="import_export.mesh_entities.NodeSupportDict.append">
+<code class="descname">append</code><span class="sig-paren">(</span><em>ns</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.NodeSupportDict.append" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.mesh_entities.NodeSupportDict.getNodeTags">
+<code class="descname">getNodeTags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.NodeSupportDict.getNodeTags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return dictionary keys in a list.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.mesh_entities.NodeSupportDict.readFromXCDomain">
+<code class="descname">readFromXCDomain</code><span class="sig-paren">(</span><em>domain</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.NodeSupportDict.readFromXCDomain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read SP constraints from an XC domain.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="import_export.mesh_entities.NodeSupportRecord">
+<em class="property">class </em><code class="descclassname">import_export.mesh_entities.</code><code class="descname">NodeSupportRecord</code><span class="sig-paren">(</span><em>id</em>, <em>nodeId</em>, <em>xComp=&lt;import_export.basic_entities.ComponentSupportRecord instance&gt;</em>, <em>yComp=&lt;import_export.basic_entities.ComponentSupportRecord instance&gt;</em>, <em>zComp=&lt;import_export.basic_entities.ComponentSupportRecord instance&gt;</em>, <em>rxComp=&lt;import_export.basic_entities.ComponentSupportRecord instance&gt;</em>, <em>ryComp=&lt;import_export.basic_entities.ComponentSupportRecord instance&gt;</em>, <em>rzComp=&lt;import_export.basic_entities.ComponentSupportRecord instance&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.NodeSupportRecord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#import_export.basic_entities.SupportRecord" title="import_export.basic_entities.SupportRecord"><code class="xref py py-class docutils literal"><span class="pre">import_export.basic_entities.SupportRecord</span></code></a></p>
+<p>Constraints for node displacements</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="import_export.mesh_entities.getConstraintsByNode">
+<code class="descclassname">import_export.mesh_entities.</code><code class="descname">getConstraintsByNode</code><span class="sig-paren">(</span><em>domain</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.getConstraintsByNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 <div class="section" id="module-import_export.neutral_load_description">
 <span id="neutral-load-description"></span><h2>Neutral load description<a class="headerlink" href="#module-import_export.neutral_load_description" title="Permalink to this headline">¶</a></h2>
@@ -222,8 +774,198 @@
 <dd></dd></dl>
 
 </div>
-<div class="section" id="dxf-reader">
-<h2>DXF reader<a class="headerlink" href="#dxf-reader" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-import_export.dxf_reader">
+<span id="dxf-reader"></span><h2>DXF reader<a class="headerlink" href="#module-import_export.dxf_reader" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="import_export.dxf_reader.DXFImport">
+<em class="property">class </em><code class="descclassname">import_export.dxf_reader.</code><code class="descname">DXFImport</code><span class="sig-paren">(</span><em>dxfFileName</em>, <em>layerNamesToImport</em>, <em>getRelativeCoo</em>, <em>threshold=0.01</em>, <em>importLines=True</em>, <em>importSurfaces=True</em>, <em>polylinesAsSurfaces=False</em>, <em>tolerance=0.01</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.DXFImport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Import DXF entities.</p>
+<dl class="method">
+<dt id="import_export.dxf_reader.DXFImport.exportBlockTopology">
+<code class="descname">exportBlockTopology</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.DXFImport.exportBlockTopology" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.dxf_reader.DXFImport.extractPoints">
+<code class="descname">extractPoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.DXFImport.extractPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the points from the entities argument.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.dxf_reader.DXFImport.getIndexNearestPoint">
+<code class="descname">getIndexNearestPoint</code><span class="sig-paren">(</span><em>pt</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.DXFImport.getIndexNearestPoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.dxf_reader.DXFImport.getLayersToImport">
+<code class="descname">getLayersToImport</code><span class="sig-paren">(</span><em>namesToImport</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.DXFImport.getLayersToImport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the layers names that will be imported according to the
+regular expressions contained in the second argument.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>namesToImport</strong> – list of regular expressions to be tested.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.dxf_reader.DXFImport.getNearestPoint">
+<code class="descname">getNearestPoint</code><span class="sig-paren">(</span><em>pt</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.DXFImport.getNearestPoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.dxf_reader.DXFImport.getOrientation">
+<code class="descname">getOrientation</code><span class="sig-paren">(</span><em>p0</em>, <em>p1</em>, <em>length</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.DXFImport.getOrientation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the points in the order that makes the resulting
+vector to point outwards the origin.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.dxf_reader.DXFImport.importFaces">
+<code class="descname">importFaces</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.DXFImport.importFaces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Import 3D faces from DXF.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.dxf_reader.DXFImport.importGroups">
+<code class="descname">importGroups</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.DXFImport.importGroups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Import the DXF groups on the file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.dxf_reader.DXFImport.importLines">
+<code class="descname">importLines</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.DXFImport.importLines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Import lines from DXF.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.dxf_reader.DXFImport.importPoints">
+<code class="descname">importPoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.DXFImport.importPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Import points from DXF.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.dxf_reader.DXFImport.selectKPoints">
+<code class="descname">selectKPoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.DXFImport.selectKPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Selects the k-points to be used in the model. All the points that
+are closer than the threshold distance are melted into one k-point.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="import_export.dxf_reader.FloatList">
+<em class="property">class </em><code class="descclassname">import_export.dxf_reader.</code><code class="descname">FloatList</code><span class="sig-paren">(</span><em>tol=0.01</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.FloatList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">list</span></code></p>
+<p>List of floats that are more than
+“tol” apart.</p>
+<dl class="method">
+<dt id="import_export.dxf_reader.FloatList.append">
+<code class="descname">append</code><span class="sig-paren">(</span><em>num</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.FloatList.append" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="import_export.dxf_reader.OldDxfReader">
+<em class="property">class </em><code class="descclassname">import_export.dxf_reader.</code><code class="descname">OldDxfReader</code><span class="sig-paren">(</span><em>tol=0.001</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.OldDxfReader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Reading of DXF entities for further processing.</p>
+<dl class="method">
+<dt id="import_export.dxf_reader.OldDxfReader.newKeyPoint">
+<code class="descname">newKeyPoint</code><span class="sig-paren">(</span><em>pt</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.OldDxfReader.newKeyPoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.dxf_reader.OldDxfReader.newLine">
+<code class="descname">newLine</code><span class="sig-paren">(</span><em>l</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.OldDxfReader.newLine" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.dxf_reader.OldDxfReader.read">
+<code class="descname">read</code><span class="sig-paren">(</span><em>dxf_file_name</em>, <em>xc_preprocessor</em>, <em>layers</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.OldDxfReader.read" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.dxf_reader.OldDxfReader.read_lines">
+<code class="descname">read_lines</code><span class="sig-paren">(</span><em>entities</em>, <em>layerName</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.OldDxfReader.read_lines" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="import_export.dxf_reader.OldDxfReader.read_points">
+<code class="descname">read_points</code><span class="sig-paren">(</span><em>entities</em>, <em>layerName</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.OldDxfReader.read_points" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="import_export.dxf_reader.decompose_polyface">
+<code class="descclassname">import_export.dxf_reader.</code><code class="descname">decompose_polyface</code><span class="sig-paren">(</span><em>polyface</em>, <em>tol=0.01</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.decompose_polyface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the quadrilateral surfaces that
+compose the polyface.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="import_export.dxf_reader.decompose_polyline">
+<code class="descclassname">import_export.dxf_reader.</code><code class="descname">decompose_polyline</code><span class="sig-paren">(</span><em>polyline</em>, <em>tol=0.01</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.decompose_polyline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the quadrilateral surfaces that
+compose the polyline.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="import_export.dxf_reader.get_candidate_2Dquads">
+<code class="descclassname">import_export.dxf_reader.</code><code class="descname">get_candidate_2Dquads</code><span class="sig-paren">(</span><em>sisRef</em>, <em>points</em>, <em>tol</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.get_candidate_2Dquads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return candidate quads in 2D.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="import_export.dxf_reader.get_extended_data">
+<code class="descclassname">import_export.dxf_reader.</code><code class="descname">get_extended_data</code><span class="sig-paren">(</span><em>obj</em>, <em>appName='XC'</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.get_extended_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract dxf object extended data.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="import_export.dxf_reader.get_polyface_points_axis">
+<code class="descclassname">import_export.dxf_reader.</code><code class="descname">get_polyface_points_axis</code><span class="sig-paren">(</span><em>polyface_points</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.get_polyface_points_axis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the axis for the polyface.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="import_export.dxf_reader.get_polygon_axis">
+<code class="descclassname">import_export.dxf_reader.</code><code class="descname">get_polygon_axis</code><span class="sig-paren">(</span><em>points</em>, <em>tol</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.get_polygon_axis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the polygon axis on the assumption that
+they all the sides are orthogonal.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="import_export.dxf_reader.layerToImport">
+<code class="descclassname">import_export.dxf_reader.</code><code class="descname">layerToImport</code><span class="sig-paren">(</span><em>layerName</em>, <em>namesToImport</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.layerToImport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return true if the layer name matches one of the regular expressions
+contained in the second argument.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>layerName</strong> – name of the layer.</li>
+<li><strong>namesToImport</strong> – list of regular expressions to be tested.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="import_export.dxf_reader.quads2d_to_global_coordinates">
+<code class="descclassname">import_export.dxf_reader.</code><code class="descname">quads2d_to_global_coordinates</code><span class="sig-paren">(</span><em>sisRef</em>, <em>selected_quads</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.quads2d_to_global_coordinates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the quads from 2D to 3D.</p>
+</dd></dl>
+
 </div>
 </div>
 
@@ -237,11 +979,11 @@
   <ul>
 <li><a class="reference internal" href="#">General topics</a><ul>
 <li><a class="reference internal" href="#module-import_export.basic_entities">Basic entities</a></li>
-<li><a class="reference internal" href="#block-topology-entities">Block topology entities</a></li>
-<li><a class="reference internal" href="#neutral-mesh-description">Neutral mesh description</a></li>
-<li><a class="reference internal" href="#mesh-entities">Mesh entities</a></li>
+<li><a class="reference internal" href="#module-import_export.block_topology_entities">Block topology entities</a></li>
+<li><a class="reference internal" href="#module-import_export.neutral_mesh_description">Neutral mesh description</a></li>
+<li><a class="reference internal" href="#module-import_export.mesh_entities">Mesh entities</a></li>
 <li><a class="reference internal" href="#module-import_export.neutral_load_description">Neutral load description</a></li>
-<li><a class="reference internal" href="#dxf-reader">DXF reader</a></li>
+<li><a class="reference internal" href="#module-import_export.dxf_reader">DXF reader</a></li>
 </ul>
 </li>
 </ul>

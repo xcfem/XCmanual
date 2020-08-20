@@ -78,7 +78,7 @@
 <dl class="method">
 <dt id="xc.Mesh.checkNodalReactions">
 <code class="descname">checkNodalReactions</code><span class="sig-paren">(</span><em>(Mesh)arg1</em>, <em>(float)arg2</em><span class="sig-paren">)</span> &#x2192; bool :<a class="headerlink" href="#xc.Mesh.checkNodalReactions" title="Permalink to this definition">¶</a></dt>
-<dd><p>checkNodalReactions(tolerande): check that reactions at nodes correspond to constrained degrees of freedom.</p>
+<dd><p>checkNodalReactions(tolerance): check that reactions at nodes correspond to constrained degrees of freedom.</p>
 <dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>bool checkNodalReactions(XC::Mesh {lvalue},double)</dd>
@@ -88,7 +88,7 @@
 <dl class="method">
 <dt id="xc.Mesh.freezeDeadNodes">
 <code class="descname">freezeDeadNodes</code><span class="sig-paren">(</span><em>(Mesh)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &#x2192; None :<a class="headerlink" href="#xc.Mesh.freezeDeadNodes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Restrain movement of dead nodes. Syntax: freezeDeadNodes(lockerName)</p>
+<dd><p>freezeDeadNodes(lockerName) restrain movement of dead nodes.</p>
 <dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>void freezeDeadNodes(XC::Mesh {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
@@ -224,7 +224,7 @@
 <dl class="method">
 <dt id="xc.Mesh.meltAliveNodes">
 <code class="descname">meltAliveNodes</code><span class="sig-paren">(</span><em>(Mesh)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &#x2192; None :<a class="headerlink" href="#xc.Mesh.meltAliveNodes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Allows movement of melted nodes.</p>
+<dd><p>freezeDeadNodes(lockerName) allows movement of melted nodes.</p>
 <dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>void meltAliveNodes(XC::Mesh {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
@@ -233,11 +233,11 @@
 
 <dl class="method">
 <dt id="xc.Mesh.normalizeEigenvectors">
-<code class="descname">normalizeEigenvectors</code><span class="sig-paren">(</span><em>(Mesh)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; None :<a class="headerlink" href="#xc.Mesh.normalizeEigenvectors" title="Permalink to this definition">¶</a></dt>
+<code class="descname">normalizeEigenvectors</code><span class="sig-paren">(</span><em>(Mesh)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; float :<a class="headerlink" href="#xc.Mesh.normalizeEigenvectors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Normalize node eigenvectors for the argument mode. Syntax: normalizeEigenvectors(mode)</p>
 <dl class="docutils">
 <dt>C++ signature :</dt>
-<dd>void normalizeEigenvectors(XC::Mesh {lvalue},int)</dd>
+<dd>double normalizeEigenvectors(XC::Mesh {lvalue},int)</dd>
 </dl>
 </dd></dl>
 

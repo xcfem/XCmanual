@@ -1174,7 +1174,7 @@ section)</li>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>s</strong> – cable length from start to section considered</li>
 <li><strong>sigma_p_0</strong> – initial stress in tendon</li>
-<li><strong>alpha_unit</strong> – mean angular deviation per unit lenght. 
+<li><strong>alpha_unit</strong> – mean angular deviation per unit length. 
 E.g.: Assimilating the parabolic profile of the cable to a 
 circular profile the angular deviation is constant in the beam length 
 and can be expressed as: 8*eccentricity_mid_span/Lbeam**2</li>
@@ -1595,6 +1595,20 @@ those that return a value &gt;0 lie in the other side (if =0 -&gt; in the line)<
 </dd></dl>
 
 <dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.FootingReinforcement.getRCSections">
+<code class="descname">getRCSections</code><span class="sig-paren">(</span><em>footingSet</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.FootingReinforcement.getRCSections" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create reinforced concrete sections for the footing.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>footingSet</strong> – set of the footing elements.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.FootingReinforcement.getSectionFootingBottom">
 <code class="descname">getSectionFootingBottom</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.FootingReinforcement.getSectionFootingBottom" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns RC section for reinforcement at footing bottom.</p>
@@ -1756,9 +1770,25 @@ the wall stem.</p>
 
 <dl class="class">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall">
-<em class="property">class </em><code class="descclassname">rough_calculations.ng_retaining_wall.</code><code class="descname">RetainingWall</code><span class="sig-paren">(</span><em>name='prb'</em>, <em>concreteCover=0.04</em>, <em>stemBottomWidth=0.25</em>, <em>stemTopWidth=0.25</em>, <em>footingThickness=0.25</em>, <em>concrete=None</em>, <em>steel=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">rough_calculations.ng_retaining_wall.</code><code class="descname">RetainingWall</code><span class="sig-paren">(</span><em>name='prb'</em>, <em>concreteCover=0.04</em>, <em>stemBottomWidth=0.25</em>, <em>stemTopWidth=0.25</em>, <em>stemBackSlope=0.0</em>, <em>footingThickness=0.25</em>, <em>concrete=None</em>, <em>steel=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="../preprocessor/python_modules/model.structelements.html#model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry" title="model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry"><code class="xref py py-class docutils literal"><span class="pre">model.geometry.retaining_wall_geometry.CantileverRetainingWallGeometry</span></code></a></p>
 <p>Cantilever retaining wall.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="#rough_calculations.ng_rc_section.RCSection.b" title="rough_calculations.ng_rc_section.RCSection.b"><strong>b</strong></a> – wall lenght (defaults to 1.0).</li>
+<li><a class="reference internal" href="#rough_calculations.ng_retaining_wall.RetainingWall.numberOfStemSets" title="rough_calculations.ng_retaining_wall.RetainingWall.numberOfStemSets"><strong>numberOfStemSets</strong></a> – number of element sets along the stem height.</li>
+<li><strong>stemBottomWidth</strong> – (float) Stem width at his contact with the footing.</li>
+<li><strong>stemTopWidth</strong> – (float) Stem width at his top.</li>
+<li><strong>stemBackSlope</strong> – (float) Stem back slope expressed as H/V ratio.</li>
+<li><strong>footingThickness</strong> – (float) Thickness of the footing.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="attribute">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.b">
 <code class="descname">b</code><em class="property"> = 1.0</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.b" title="Permalink to this definition">¶</a></dt>
@@ -1882,6 +1912,20 @@ a load acting on the backfill.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.createRCSections">
+<code class="descname">createRCSections</code><span class="sig-paren">(</span><em>stemSets</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.createRCSections" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create reinforced concrete sections.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>stemSets</strong> – sets of elements along the stem.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.createSelfWeightLoads">
 <code class="descname">createSelfWeightLoads</code><span class="sig-paren">(</span><em>rho=2500</em>, <em>grav=9.81</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.createSelfWeightLoads" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create the loads of the concrete weight.</p>
@@ -1925,6 +1969,26 @@ a load acting on the backfill.</p>
 <li><strong>R</strong> – force on the bearing plane.</li>
 <li><strong>toeFillDepth</strong> – (float) depht of the soil filling over the toe.</li>
 <li><strong>q_adm</strong> – (float) admissible bearing pressure.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.getBearingPressure">
+<code class="descname">getBearingPressure</code><span class="sig-paren">(</span><em>R</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getBearingPressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the bearing pressure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>R</strong> – force on the bearing plane.</li>
+<li><strong>foundationSoilModel</strong> – soil model for the Brinch-Hansen analysis.</li>
+<li><strong>toeFillDepth</strong> – (float) depht of the soil filling over the toe.</li>
+<li><strong>q</strong> – (float) uniform load over the filling.</li>
 </ul>
 </td>
 </tr>
@@ -2058,20 +2122,52 @@ a load acting on the backfill.</p>
 <code class="descname">getStemYCoordinates</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.getStemYCoordinates" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="attribute">
+<dt id="rough_calculations.ng_retaining_wall.RetainingWall.numberOfStemSets">
+<code class="descname">numberOfStemSets</code><em class="property"> = 4</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.numberOfStemSets" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.performSLSAnalysis">
 <code class="descname">performSLSAnalysis</code><span class="sig-paren">(</span><em>combinations</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.performSLSAnalysis" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Perform serviceability limit state analysis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>combinations</strong> – load combinations to use in the analysis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.performStabilityAnalysis">
 <code class="descname">performStabilityAnalysis</code><span class="sig-paren">(</span><em>combinations</em>, <em>foundationSoilModel</em>, <em>sg_adm=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.performStabilityAnalysis" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Perform stability limit state analysis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>combinations</strong> – load combinations to use in the analysis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.performULSAnalysis">
 <code class="descname">performULSAnalysis</code><span class="sig-paren">(</span><em>combinations</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.performULSAnalysis" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Perform ultimate limit state analysis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>combinations</strong> – load combinations to use in the analysis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.resultComb">
@@ -2125,6 +2221,20 @@ a load acting on the backfill.</p>
 <dt id="rough_calculations.ng_retaining_wall.StemReinforcement.extStemIndex">
 <code class="descname">extStemIndex</code><em class="property"> = 2</em><a class="headerlink" href="#rough_calculations.ng_retaining_wall.StemReinforcement.extStemIndex" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_retaining_wall.StemReinforcement.getRCSections">
+<code class="descname">getRCSections</code><span class="sig-paren">(</span><em>stemSets</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.StemReinforcement.getRCSections" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create reinforced concrete sections for the stem.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>stemSets</strong> – sets of elements along the stem.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.StemReinforcement.getSectionExtStem">
@@ -2847,27 +2957,47 @@ bridgeClass: COI, COII, COIII</p>
 <dd><p>Returns the minimal dimension of abutment support to avoid
 the risk of bridge deck falling during a quake. See “Évaluation
 parasismique des ponts-routes existants” Office féderal des routes
-page 48).
-dAbutFixedPoint: Distance between the abutment and the fixed point.
-soilClass: A, B, C, D or E.
-quakeZone: ZI, ZII, ZIIa, ZIIIb
-bridgeClass: COI, COII, COIII</p>
+page 48).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dAbutFixedPoint</strong> – Distance between the abutment and the fixed point.</li>
+<li><strong>soilClass</strong> – A, B, C, D or E.</li>
+<li><strong>quakeZone</strong> – ZI, ZII, ZIIa, ZIIIb</li>
+<li><strong>bridgeClass</strong> – COI, COII, COIII</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="rough_calculations.ng_min_dim_of_abutment_support.getLg">
 <code class="descclassname">rough_calculations.ng_min_dim_of_abutment_support.</code><code class="descname">getLg</code><span class="sig-paren">(</span><em>soilClass</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_min_dim_of_abutment_support.getLg" title="Permalink to this definition">¶</a></dt>
 <dd><p>From a length greater than de distance “lg” the soil mouvement
-can bi consideread as completely uncorrelated.</p>
+can be considered as completely uncorrelated.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="rough_calculations.ng_min_dim_of_abutment_support.getUgd">
 <code class="descclassname">rough_calculations.ng_min_dim_of_abutment_support.</code><code class="descname">getUgd</code><span class="sig-paren">(</span><em>soilClass</em>, <em>quakeZone</em>, <em>bridgeClass</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_min_dim_of_abutment_support.getUgd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the design value for soil displacement.
-soilClass: A, B, C, D or E.
-quakeZone: ZI, ZII, ZIIa, ZIIIb
-bridgeClass: COI, COII, COIII</p>
+<dd><p>Returns the design value for soil displacement.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>soilClass</strong> – A, B, C, D or E.</li>
+<li><strong>quakeZone</strong> – ZI, ZII, ZIIa, ZIIIb</li>
+<li><strong>bridgeClass</strong> – COI, COII, COIII</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -2940,7 +3070,7 @@ bridgeClass: COI, COII, COIII</p>
 <dl class="function">
 <dt id="rough_calculations.profile_mechanical_prop.Iprofile">
 <code class="descclassname">rough_calculations.profile_mechanical_prop.</code><code class="descname">Iprofile</code><span class="sig-paren">(</span><em>h</em>, <em>b</em>, <em>tw</em>, <em>tf</em>, <em>r</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.profile_mechanical_prop.Iprofile" title="Permalink to this definition">¶</a></dt>
-<dd><p>print mechanical properties of an I-shaped profile</p>
+<dd><p>print(mechanical properties of an I-shaped profile)</p>
 <ul class="simple">
 <li>Z: strong axis</li>
 <li>Y: weak axis</li>

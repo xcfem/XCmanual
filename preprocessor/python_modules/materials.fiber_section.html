@@ -414,32 +414,19 @@ from the median plane (h + towards the top face)</p>
 <div class="section" id="module-materials.sections.fiber_section.def_simple_RC_section">
 <span id="definition-of-reinforced-concrete-sections"></span><h1>Definition of reinforced concrete sections<a class="headerlink" href="#module-materials.sections.fiber_section.def_simple_RC_section" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.BasicRecordRCSection">
-<em class="property">class </em><code class="descclassname">materials.sections.fiber_section.def_simple_RC_section.</code><code class="descname">BasicRecordRCSection</code><span class="sig-paren">(</span><em>name='noName'</em>, <em>width=0.25</em>, <em>depth=0.25</em>, <em>concrType=None</em>, <em>reinfSteelType=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRecordRCSection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="materials.sections.html#materials.sections.section_properties.RectangularSection" title="materials.sections.section_properties.RectangularSection"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.section_properties.RectangularSection</span></code></a></p>
-<p>This class is used to define the basic variables that make up a reinforced 
-concrete section.</p>
+<dt id="materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection">
+<em class="property">class </em><code class="descclassname">materials.sections.fiber_section.def_simple_RC_section.</code><code class="descname">BasicRectangularRCSection</code><span class="sig-paren">(</span><em>name='noName'</em>, <em>sectionDescr=None</em>, <em>width=0.25</em>, <em>depth=0.25</em>, <em>concrType=None</em>, <em>reinfSteelType=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.sections.fiber_section.def_simple_RC_section.RCSectionBase" title="materials.sections.fiber_section.def_simple_RC_section.RCSectionBase"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.fiber_section.def_simple_RC_section.RCSectionBase</span></code></a>, <a class="reference internal" href="materials.sections.html#materials.sections.section_properties.RectangularSection" title="materials.sections.section_properties.RectangularSection"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.section_properties.RectangularSection</span></code></a></p>
+<p>Base class for rectangular reinforced concrete sections.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><strong>sectionName</strong> – name identifying the section</li>
-<li><strong>sectionDescr</strong> – section description</li>
-<li><strong>concrType</strong> – type of concrete (e.g. EHE_materials.HA25)</li>
-<li><strong>concrDiagName</strong> – name identifying the characteristic stress-strain 
-diagram of the concrete material</li>
-<li><strong>nDivIJ</strong> – number of cells in IJ (width) direction</li>
-<li><strong>nDivJK</strong> – number of cells in JK  (height) direction</li>
-<li><strong>fiberSectionRepr</strong> – fiber model of the section.</li>
-<li><strong>reinfSteelType</strong> – type of reinforcement steel</li>
-<li><strong>reinfDiagName</strong> – name identifying the characteristic stress-strain 
-diagram of the reinforcing steel material</li>
-<li><strong>shReinfZ</strong> – record of type 
-defRCSimpleSection.RecordShearReinforcement()
+<li><strong>shReinfZ</strong> – record of type ShearReinforcement
 defining the shear reinforcement in Z direction</li>
-<li><strong>shReinfY</strong> – record of type 
-defRCSimpleSection.RecordShearReinforcement()
+<li><strong>shReinfY</strong> – record of type ShearReinforcement
 defining the shear reinforcement in Y direction</li>
 </ul>
 </td>
@@ -447,13 +434,184 @@ defining the shear reinforcement in Y direction</li>
 </tbody>
 </table>
 <dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.BasicRecordRCSection.defConcreteRegion">
-<code class="descname">defConcreteRegion</code><span class="sig-paren">(</span><em>geomSection</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRecordRCSection.defConcreteRegion" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.defConcreteRegion">
+<code class="descname">defConcreteRegion</code><span class="sig-paren">(</span><em>geomSection</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.defConcreteRegion" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.BasicRecordRCSection.defDiagrams">
-<code class="descname">defDiagrams</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>matDiagType</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRecordRCSection.defDiagrams" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.getRespT">
+<code class="descname">getRespT</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.getRespT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Material for modeling torsional response of section</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.getRespVy">
+<code class="descname">getRespVy</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.getRespVy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Material for modeling Y shear response of section</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.getRespVz">
+<code class="descname">getRespVz</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.getRespVz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Material for modeling Z shear response of section</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.getShearReinfY">
+<code class="descname">getShearReinfY</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.getShearReinfY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the shear reinforcement for Vy.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.getShearReinfZ">
+<code class="descname">getShearReinfZ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.getShearReinfZ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the shear reinforcement for Vz.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers">
+<em class="property">class </em><code class="descclassname">materials.sections.fiber_section.def_simple_RC_section.</code><code class="descname">LongReinfLayers</code><span class="sig-paren">(</span><em>lst=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Layers of longitudinal reinforcement.</p>
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers.append">
+<code class="descname">append</code><span class="sig-paren">(</span><em>rebarRow</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers.append" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append a reinforcement row to the list.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers.centerRebars">
+<code class="descname">centerRebars</code><span class="sig-paren">(</span><em>b</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers.centerRebars" title="Permalink to this definition">¶</a></dt>
+<dd><p>centers in the width of the section the rebars.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers.defCircularLayers">
+<code class="descname">defCircularLayers</code><span class="sig-paren">(</span><em>reinforcement</em>, <em>code</em>, <em>diagramName</em>, <em>extRad</em>, <em>anglePairs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers.defCircularLayers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Definition of the reinforcement layers</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>reinforcement</strong> – XC section reinforcement.</li>
+<li><strong>code</strong> – identifier for the layer.</li>
+<li><strong>diagramName</strong> – name of the strain-stress diagram of the steel.</li>
+<li><strong>points</strong> – end points for each row.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers.defStraightLayers">
+<code class="descname">defStraightLayers</code><span class="sig-paren">(</span><em>reinforcement</em>, <em>code</em>, <em>diagramName</em>, <em>pointPairs</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers.defStraightLayers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Definition of the reinforcement layers</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>reinforcement</strong> – XC section reinforcement.</li>
+<li><strong>code</strong> – identifier for the layer.</li>
+<li><strong>diagramName</strong> – name of the strain-stress diagram of the steel.</li>
+<li><strong>pointPairs</strong> – end points for each row.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers.getAs">
+<code class="descname">getAs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers.getAs" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the cross-sectional area of the rebars.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers.getAsRows">
+<code class="descname">getAsRows</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers.getAsRows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list with the cross-sectional area of the rebars in each row.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers.getCover">
+<code class="descname">getCover</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers.getCover" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list with the cover of bars for each row of bars.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers.getDiameters">
+<code class="descname">getDiameters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers.getDiameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list with the bar diameter for each row of bars in local 
+positive face.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers.getLatCover">
+<code class="descname">getLatCover</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers.getLatCover" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list with the lateral cover of bars for each row of bars.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers.getMinCover">
+<code class="descname">getMinCover</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers.getMinCover" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the minimum value of the cover.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers.getNBar">
+<code class="descname">getNBar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers.getNBar" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list with the number of bars for each row.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers.getRowsCGcover">
+<code class="descname">getRowsCGcover</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers.getRowsCGcover" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the distance from the center of gravity of the rebars
+to the face of the section</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers.getSpacings">
+<code class="descname">getSpacings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.LongReinfLayers.getSpacings" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list with the distance between bars for each row of bars.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCFiberSectionParameters">
+<em class="property">class </em><code class="descclassname">materials.sections.fiber_section.def_simple_RC_section.</code><code class="descname">RCFiberSectionParameters</code><span class="sig-paren">(</span><em>concrType=None</em>, <em>reinfSteelType=None</em>, <em>nDivIJ=10</em>, <em>nDivJK=10</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCFiberSectionParameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Parameters needed to create a reinforced concrete fiber section.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>concrType</strong> – type of concrete (e.g. EHE_materials.HA25)</li>
+<li><strong>concrDiagName</strong> – name identifying the characteristic stress-strain 
+diagram of the concrete material</li>
+<li><strong>reinfSteelType</strong> – type of reinforcement steel</li>
+<li><strong>reinfDiagName</strong> – name identifying the characteristic stress-strain 
+diagram of the reinforcing steel material</li>
+<li><strong>nDivIJ</strong> – number of cells in IJ (width or radial) direction</li>
+<li><strong>nDivJK</strong> – number of cells in JK (height or tangential)
+direction</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCFiberSectionParameters.defDiagrams">
+<code class="descname">defDiagrams</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>matDiagType</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCFiberSectionParameters.defDiagrams" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stress-strain diagrams definition.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -467,49 +625,396 @@ defining the shear reinforcement in Y direction</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.BasicRecordRCSection.getConcreteDiagram">
-<code class="descname">getConcreteDiagram</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRecordRCSection.getConcreteDiagram" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.BasicRecordRCSection.getSteelDiagram">
-<code class="descname">getSteelDiagram</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRecordRCSection.getSteelDiagram" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.BasicRecordRCSection.getSteelEquivalenceCoefficient">
-<code class="descname">getSteelEquivalenceCoefficient</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRecordRCSection.getSteelEquivalenceCoefficient" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.BasicRecordRCSection.gmSectionName">
-<code class="descname">gmSectionName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRecordRCSection.gmSectionName" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns the name of the geometric section</p>
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCFiberSectionParameters.defInteractionDiagramParameters">
+<code class="descname">defInteractionDiagramParameters</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCFiberSectionParameters.defInteractionDiagramParameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the parameters for interaction diagrams.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.BasicRecordRCSection.respTName">
-<code class="descname">respTName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRecordRCSection.respTName" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns a name to identify the torsional response of the section</p>
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCFiberSectionParameters.getConcreteDiagram">
+<code class="descname">getConcreteDiagram</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCFiberSectionParameters.getConcreteDiagram" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCFiberSectionParameters.getSteelDiagram">
+<code class="descname">getSteelDiagram</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCFiberSectionParameters.getSteelDiagram" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCFiberSectionParameters.getSteelEquivalenceCoefficient">
+<code class="descname">getSteelEquivalenceCoefficient</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCFiberSectionParameters.getSteelEquivalenceCoefficient" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCFiberSectionParameters.nDivCirc">
+<code class="descname">nDivCirc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCFiberSectionParameters.nDivCirc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for nDivIJ when defining circular sections.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.BasicRecordRCSection.respVyName">
-<code class="descname">respVyName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRecordRCSection.respVyName" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns a name to identify the shear Y response of the section</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.BasicRecordRCSection.respVzName">
-<code class="descname">respVzName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRecordRCSection.respVzName" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns a name to identify the shear Z response of the section</p>
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCFiberSectionParameters.nDivRad">
+<code class="descname">nDivRad</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCFiberSectionParameters.nDivRad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for nDivJK when defining circular sections.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="class">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.MainReinfLayer">
-<em class="property">class </em><code class="descclassname">materials.sections.fiber_section.def_simple_RC_section.</code><code class="descname">MainReinfLayer</code><span class="sig-paren">(</span><em>rebarsDiam=None</em>, <em>areaRebar=None</em>, <em>rebarsSpacing=None</em>, <em>nRebars=None</em>, <em>width=1.0</em>, <em>nominalCover=0.03</em>, <em>nominalLatCover=0.03</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.MainReinfLayer" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection">
+<em class="property">class </em><code class="descclassname">materials.sections.fiber_section.def_simple_RC_section.</code><code class="descname">RCRectangularSection</code><span class="sig-paren">(</span><em>name='noName'</em>, <em>sectionDescr=None</em>, <em>width=0.25</em>, <em>depth=0.25</em>, <em>concrType=None</em>, <em>reinfSteelType=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection" title="materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection</span></code></a></p>
+<p>This class is used to define the variables that make up a reinforced 
+concrete section with top and bottom reinforcement layers.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sectionName</strong> – name identifying the section</li>
+<li><strong>sectionDescr</strong> – section description</li>
+<li><strong>minCover</strong> – minimum value of end or clear concrete cover of main 
+bars from both the positive and negative faces</li>
+<li><strong>negatvRebarRows</strong> – layers of main rebars in the local negative face of 
+the section</li>
+<li><strong>positvRebarRows</strong> – layers of main rebars in the local positive face of 
+the section</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.centerRebarsNeg">
+<code class="descname">centerRebarsNeg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.centerRebarsNeg" title="Permalink to this definition">¶</a></dt>
+<dd><p>centers in the width of the section the rebars placed in the negative 
+face</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.centerRebarsPos">
+<code class="descname">centerRebarsPos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.centerRebarsPos" title="Permalink to this definition">¶</a></dt>
+<dd><p>centers in the width of the section the rebars placed in the positive face</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.defSectionGeometry">
+<code class="descname">defSectionGeometry</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>matDiagType</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.defSectionGeometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the XC section geometry object for a reinforced concrete section</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>matDiagType</strong> – type of stress-strain diagram 
+(“k” for characteristic diagram, “d” for design diagram)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getAc">
+<code class="descname">getAc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getAc" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the cross-sectional area of the section</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getAsNeg">
+<code class="descname">getAsNeg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getAsNeg" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the cross-sectional area of the rebars in the negative face</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getAsPos">
+<code class="descname">getAsPos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getAsPos" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the cross-sectional area of the rebars in the positive face.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getCoverNeg">
+<code class="descname">getCoverNeg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getCoverNeg" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list with the cover of bars for each row of bars in local 
+negative face.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getCoverPos">
+<code class="descname">getCoverPos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getCoverPos" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list with the cover of bars for each row of bars in local 
+positive face.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getDiamNeg">
+<code class="descname">getDiamNeg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getDiamNeg" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list with the bar diameter for each row of bars in local 
+negative face.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getDiamPos">
+<code class="descname">getDiamPos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getDiamPos" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list with the bar diameter for each row of bars in local 
+positive face.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getI">
+<code class="descname">getI</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getI" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the second moment of area about the middle axis parallel to 
+the width</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getIy_RClocalYax">
+<code class="descname">getIy_RClocalYax</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getIy_RClocalYax" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the second moment of area about the middle axis parallel to 
+the depth (RClocalYaxis)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getIz_RClocalZax">
+<code class="descname">getIz_RClocalZax</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getIz_RClocalZax" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the second moment of area about the middle axis parallel to 
+the width (RClocalZaxis)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getLatCoverNeg">
+<code class="descname">getLatCoverNeg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getLatCoverNeg" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list with the lateral cover of bars for each row of bars in 
+local negative face.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getLatCoverPos">
+<code class="descname">getLatCoverPos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getLatCoverPos" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list with the lateral cover of bars for each row of bars in local positive face.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getMinCover">
+<code class="descname">getMinCover</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getMinCover" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the minimal cover of the reinforcement.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getNBarNeg">
+<code class="descname">getNBarNeg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getNBarNeg" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list with the number of bars for each row of bars in local 
+negative face.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getNBarPos">
+<code class="descname">getNBarPos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getNBarPos" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list with the number of bars for each row of bars in local 
+positive face.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getNegRowsCGcover">
+<code class="descname">getNegRowsCGcover</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getNegRowsCGcover" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the distance from the center of gravity of the negative rebars
+to the negative face of the section</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getPosRowsCGcover">
+<code class="descname">getPosRowsCGcover</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getPosRowsCGcover" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the distance from the center of gravity of the positive rebars
+to the positive face of the section.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getRoughVcuEstimation">
+<code class="descname">getRoughVcuEstimation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getRoughVcuEstimation" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a minimal value (normally shear strength will be greater)
+of the shear strength of the concrete section Vcu expressed
+in newtons.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getSNeg">
+<code class="descname">getSNeg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getSNeg" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list with the distance between bars for each row of bars in local negative face.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getSPos">
+<code class="descname">getSPos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getSPos" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a list with the distance between bars for each row of bars in 
+local positive face.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getStressCalculator">
+<code class="descname">getStressCalculator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getStressCalculator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getTorsionalThickness">
+<code class="descname">getTorsionalThickness</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getTorsionalThickness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the section thickness for torsion.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getYAsNeg">
+<code class="descname">getYAsNeg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getYAsNeg" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the local Y coordinate of the center of gravity of the rebars
+in the negative face</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getYAsPos">
+<code class="descname">getYAsPos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection.getYAsPos" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the local Y coordinate of the center of gravity of the rebars
+in the positive face.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCSectionBase">
+<em class="property">class </em><code class="descclassname">materials.sections.fiber_section.def_simple_RC_section.</code><code class="descname">RCSectionBase</code><span class="sig-paren">(</span><em>sectionDescr=None</em>, <em>concrType=None</em>, <em>reinfSteelType=None</em>, <em>nIJ=10</em>, <em>nJK=10</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCSectionBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Base class for reinforced concrete sections.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sectionDescr</strong> – section description.</li>
+<li><strong>fiberSectionParameters</strong> – Parameters needed to create a reinforced 
+concrete fiber section.</li>
+<li><strong>fiberSectionRepr</strong> – fiber model of the section.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defDiagrams">
+<code class="descname">defDiagrams</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>matDiagType</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defDiagrams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stress-strain diagrams definition.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>matDiagType</strong> – type of stress-strain diagram 
+(“k” for characteristic diagram, “d” for design diagram)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defFiberSection">
+<code class="descname">defFiberSection</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defFiberSection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define fiber section from geometry data.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defInteractionDiagram">
+<code class="descname">defInteractionDiagram</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defInteractionDiagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines 3D interaction diagram.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defInteractionDiagramNMy">
+<code class="descname">defInteractionDiagramNMy</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defInteractionDiagramNMy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines N-My interaction diagram.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defInteractionDiagramNMz">
+<code class="descname">defInteractionDiagramNMz</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defInteractionDiagramNMz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines N-Mz interaction diagram.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defInteractionDiagramParameters">
+<code class="descname">defInteractionDiagramParameters</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defInteractionDiagramParameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>parameters for interaction diagrams.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defRCSection">
+<code class="descname">defRCSection</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>matDiagType</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defRCSection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Definition of an XC reinforced concrete section.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>matDiagType</strong> – type of stress-strain diagram 
+(“k” for characteristic diagram, “d” for design diagram)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defShearResponse">
+<code class="descname">defShearResponse</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defShearResponse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the shear/torsional response of the section.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.getConcreteDiagram">
+<code class="descname">getConcreteDiagram</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.getConcreteDiagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the concrete stress-strain diagram.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.getSteelDiagram">
+<code class="descname">getSteelDiagram</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.getSteelDiagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the reinforcing steel stress-strain diagram.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.getSteelEquivalenceCoefficient">
+<code class="descname">getSteelEquivalenceCoefficient</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.getSteelEquivalenceCoefficient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the equivalence coefficient: Es/Ec.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.gmSectionName">
+<code class="descname">gmSectionName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.gmSectionName" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the name of the geometric section</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.isCircular">
+<code class="descname">isCircular</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.isCircular" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return true if it’s a circular section.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.RebarRow2ReinfRow">
+<code class="descclassname">materials.sections.fiber_section.def_simple_RC_section.</code><code class="descname">RebarRow2ReinfRow</code><span class="sig-paren">(</span><em>rebarRow</em>, <em>width=1.0</em>, <em>nominalLatCover=0.03</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RebarRow2ReinfRow" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Returns a RebarRow object from a ReinfRow object</dt>
+<dd>as defined in the rebar_family module.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>rebarRow</strong> – RebarRow object.</li>
+<li><strong>width</strong> – width of the cross-section (defautls to 1 m)</li>
+<li><strong>nominalLatCover</strong> – nominal lateral cover (only considered if nRebars is defined, defaults to 0.03)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.ReinfRow">
+<em class="property">class </em><code class="descclassname">materials.sections.fiber_section.def_simple_RC_section.</code><code class="descname">ReinfRow</code><span class="sig-paren">(</span><em>rebarsDiam=None</em>, <em>areaRebar=None</em>, <em>rebarsSpacing=None</em>, <em>nRebars=None</em>, <em>width=1.0</em>, <em>nominalCover=0.03</em>, <em>nominalLatCover=0.03</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.ReinfRow" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Definition of the variables that make up a family (row) of main 
 (longitudinal) reinforcing bars.</p>
@@ -531,518 +1036,67 @@ defining the shear reinforcement in Y direction</li>
 </tbody>
 </table>
 <dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.MainReinfLayer.centerRebars">
-<code class="descname">centerRebars</code><span class="sig-paren">(</span><em>width</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.MainReinfLayer.centerRebars" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.fiber_section.def_simple_RC_section.ReinfRow.centerRebars">
+<code class="descname">centerRebars</code><span class="sig-paren">(</span><em>width</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.ReinfRow.centerRebars" title="Permalink to this definition">¶</a></dt>
 <dd><p>center the row of rebars in the width of the section</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.MainReinfLayer.defReinfLayer">
-<code class="descname">defReinfLayer</code><span class="sig-paren">(</span><em>reinforcement</em>, <em>code</em>, <em>nmbDiagram</em>, <em>p1</em>, <em>p2</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.MainReinfLayer.defReinfLayer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Definition of a reinforcement layer in the fiber section model 
-between the 2d positions p1 and p2.</p>
+<dt id="materials.sections.fiber_section.def_simple_RC_section.ReinfRow.defCircularLayer">
+<code class="descname">defCircularLayer</code><span class="sig-paren">(</span><em>reinforcement</em>, <em>code</em>, <em>diagramName</em>, <em>extRad</em>, <em>initAngle=0.0</em>, <em>finalAngle=6.283185307179586</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.ReinfRow.defCircularLayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Definition of a circular reinforcement layer in the XC section geometry object 
+between the angle arguments.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>reinforcement</strong> – XC section geometry reinforcement.</li>
+<li><strong>code</strong> – identifier for the layer.</li>
+<li><strong>diagramName</strong> – name of the strain-stress diagram of the steel.</li>
+<li><strong>extRad</strong> – concrete external radius.</li>
+<li><strong>initAngle</strong> – initial angle.</li>
+<li><strong>finalAngle</strong> – final angle.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.MainReinfLayer.getAs">
-<code class="descname">getAs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.MainReinfLayer.getAs" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.fiber_section.def_simple_RC_section.ReinfRow.defStraightLayer">
+<code class="descname">defStraightLayer</code><span class="sig-paren">(</span><em>reinforcement</em>, <em>code</em>, <em>diagramName</em>, <em>p1</em>, <em>p2</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.ReinfRow.defStraightLayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Definition of a straight reinforcement layer in the XC section geometry object 
+between the 2d positions p1 and p2.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>reinforcement</strong> – XC section geometry reinforcement.</li>
+<li><strong>code</strong> – identifier for the layer.</li>
+<li><strong>diagramName</strong> – name of the strain-stress diagram of the steel.</li>
+<li><strong>p1</strong> – first point of the layer.</li>
+<li><strong>p2</strong> – last point of the layer.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_simple_RC_section.ReinfRow.getAs">
+<code class="descname">getAs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.ReinfRow.getAs" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns the total cross-sectional area of reinforcing steel in the family</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="class">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection">
-<em class="property">class </em><code class="descclassname">materials.sections.fiber_section.def_simple_RC_section.</code><code class="descname">RecordRCSimpleSection</code><span class="sig-paren">(</span><em>name='noName'</em>, <em>width=0.25</em>, <em>depth=0.25</em>, <em>concrType=None</em>, <em>reinfSteelType=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRecordRCSection" title="materials.sections.fiber_section.def_simple_RC_section.BasicRecordRCSection"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.fiber_section.def_simple_RC_section.BasicRecordRCSection</span></code></a></p>
-<p>This class is used to define the variables that make up a reinforced 
-concrete section with top and bottom reinforcement layers.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>sectionName</strong> – name identifying the section</li>
-<li><strong>sectionDescr</strong> – section description</li>
-<li><strong>concrType</strong> – type of concrete (e.g. EHE_materials.HA25)</li>
-<li><strong>concrDiagName</strong> – name identifying the characteristic stress-strain 
-diagram of the concrete material</li>
-<li><strong>fiberSectionRepr</strong> – fiber model of the section</li>
-<li><strong>reinfSteelType</strong> – type of reinforcement steel</li>
-<li><strong>reinfDiagName</strong> – name identifying the characteristic stress-strain 
-diagram of the reinforcing steel material</li>
-<li><strong>shReinfZ</strong> – record of type 
-defRCSimpleSection.RecordShearReinforcement()
-defining the shear reinforcement in Z direction</li>
-<li><strong>shReinfY</strong> – record of type 
-defRCSimpleSection.RecordShearReinforcement() 
-defining the shear reinforcement in Y direction</li>
-<li><strong>coverMin</strong> – minimum value of end or clear concrete cover of main 
-bars from both the positive and negative faces</li>
-<li><strong>negatvRebarRows</strong> – layers of main rebars in the local negative face of 
-the section</li>
-<li><strong>positvRebarRows</strong> – layers of main rebars in the local positive face of 
-the section</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.centerRebarsNeg">
-<code class="descname">centerRebarsNeg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.centerRebarsNeg" title="Permalink to this definition">¶</a></dt>
-<dd><p>centers in the width of the section the rebars placed in the negative 
-face</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.centerRebarsPos">
-<code class="descname">centerRebarsPos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.centerRebarsPos" title="Permalink to this definition">¶</a></dt>
-<dd><p>centers in the width of the section the rebars placed in the positive face</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.defFiberSection">
-<code class="descname">defFiberSection</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.defFiberSection" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.defInteractionDiagram">
-<code class="descname">defInteractionDiagram</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.defInteractionDiagram" title="Permalink to this definition">¶</a></dt>
-<dd><p>Defines 3D interaction diagram.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.defInteractionDiagramNMy">
-<code class="descname">defInteractionDiagramNMy</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.defInteractionDiagramNMy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Defines N-My interaction diagram.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.defInteractionDiagramNMz">
-<code class="descname">defInteractionDiagramNMz</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.defInteractionDiagramNMz" title="Permalink to this definition">¶</a></dt>
-<dd><p>Defines N-My interaction diagram.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.defInteractionDiagramParameters">
-<code class="descname">defInteractionDiagramParameters</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.defInteractionDiagramParameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>parameters for interaction diagrams.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.defRCSimpleSection">
-<code class="descname">defRCSimpleSection</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>matDiagType</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.defRCSimpleSection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Definition of a reinforced concrete section with several
-top and bottom reinforcement layers.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>matDiagType</strong> – type of stress-strain diagram 
-(“k” for characteristic diagram, “d” for design diagram)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.defSectionGeometry">
-<code class="descname">defSectionGeometry</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>matDiagType</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.defSectionGeometry" title="Permalink to this definition">¶</a></dt>
-<dd><p>Definition of a reinforced concrete geometric section 
-with one row of rebars in the top face and another one in the bottom face</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>matDiagType</strong> – type of stress-strain diagram 
-(“k” for characteristic diagram, “d” for design diagram)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getAc">
-<code class="descname">getAc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getAc" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns the cross-sectional area of the section</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getAsNeg">
-<code class="descname">getAsNeg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getAsNeg" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns the cross-sectional area of the rebars in the negative face</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getAsNegRows">
-<code class="descname">getAsNegRows</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getAsNegRows" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns a list with the cross-sectional area of the rebars in each row 
-of the negative face</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getAsPos">
-<code class="descname">getAsPos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getAsPos" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns the cross-sectional area of the rebars in the positive face</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getAsPosRows">
-<code class="descname">getAsPosRows</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getAsPosRows" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns a list with the cross-sectional area of the rebars in each row of the positive face</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getCoverNeg">
-<code class="descname">getCoverNeg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getCoverNeg" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns a list with the cover of bars for each row of bars in local 
-negative face.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getCoverPos">
-<code class="descname">getCoverPos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getCoverPos" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns a list with the cover of bars for each row of bars in local 
-positive face.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getDiamNeg">
-<code class="descname">getDiamNeg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getDiamNeg" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns a list with the bar diameter for each row of bars in local 
-negative face.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getDiamPos">
-<code class="descname">getDiamPos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getDiamPos" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns a list with the bar diameter for each row of bars in local 
-positive face.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getI">
-<code class="descname">getI</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getI" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns the second moment of area about the middle axis parallel to 
-the width</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getIy_RClocalYax">
-<code class="descname">getIy_RClocalYax</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getIy_RClocalYax" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns the second moment of area about the middle axis parallel to 
-the depth (RClocalYaxis)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getIz_RClocalZax">
-<code class="descname">getIz_RClocalZax</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getIz_RClocalZax" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns the second moment of area about the middle axis parallel to 
-the width (RClocalZaxis)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getLatCoverNeg">
-<code class="descname">getLatCoverNeg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getLatCoverNeg" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns a list with the lateral cover of bars for each row of bars in 
-local negative face.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getLatCoverPos">
-<code class="descname">getLatCoverPos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getLatCoverPos" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns a list with the lateral cover of bars for each row of bars in local positive face.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getNBarNeg">
-<code class="descname">getNBarNeg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getNBarNeg" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns a list with the number of bars for each row of bars in local 
-negative face.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getNBarPos">
-<code class="descname">getNBarPos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getNBarPos" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns a list with the number of bars for each row of bars in local 
-positive face.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getNegRowsCGcover">
-<code class="descname">getNegRowsCGcover</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getNegRowsCGcover" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns the distance from the center of gravity of the negative rebars
-to the negative face of the section</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getPosRowsCGcover">
-<code class="descname">getPosRowsCGcover</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getPosRowsCGcover" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns the distance from the center of gravity of the positive rebars
-to the positive face of the section</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getRespT">
-<code class="descname">getRespT</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>JTorsion</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getRespT" title="Permalink to this definition">¶</a></dt>
-<dd><p>Material for modeling torsional response of section</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getRespVy">
-<code class="descname">getRespVy</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getRespVy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Material for modeling Y shear response of section</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getRespVz">
-<code class="descname">getRespVz</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getRespVz" title="Permalink to this definition">¶</a></dt>
-<dd><p>Material for modeling z shear response of section</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getRoughVcuEstimation">
-<code class="descname">getRoughVcuEstimation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getRoughVcuEstimation" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns a minimal value (normally shear strength will be greater)
-of the shear strength of the concrete section Vcu expressed
-in newtons.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getSNeg">
-<code class="descname">getSNeg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getSNeg" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns a list with the distance between bars for each row of bars in local negative face.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getSPos">
-<code class="descname">getSPos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getSPos" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns a list with the distance between bars for each row of bars in 
-local positive face.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getStressCalculator">
-<code class="descname">getStressCalculator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getStressCalculator" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getYAsNeg">
-<code class="descname">getYAsNeg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getYAsNeg" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns the local Y coordinate of the center of gravity of the rebars
-in the negative face</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getYAsPos">
-<code class="descname">getYAsPos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSimpleSection.getYAsPos" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns the local Y coordinate of the center of gravity of the rebars
-in the positive face</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection">
-<em class="property">class </em><code class="descclassname">materials.sections.fiber_section.def_simple_RC_section.</code><code class="descname">RecordRCSlabBeamSection</code><span class="sig-paren">(</span><em>name</em>, <em>sectionDescr</em>, <em>concrType</em>, <em>reinfSteelType</em>, <em>depth</em>, <em>width=1.0</em>, <em>elemSetName='total'</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.sections.fiber_section.def_simple_RC_section.setRCSections2SetElVerif" title="materials.sections.fiber_section.def_simple_RC_section.setRCSections2SetElVerif"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.fiber_section.def_simple_RC_section.setRCSections2SetElVerif</span></code></a></p>
-<p>This class is used to define the variables that make up the two 
-reinforced concrete sections that define the two reinforcement directions
-of a slab or the front and back ending sections of a beam element</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – basic name to form the RC sections in direction 1 (name+‘1’) 
-and direction 2(name+‘1’)</li>
-<li><strong>sectionDescr</strong> – section description</li>
-<li><strong>concrType</strong> – type of concrete (e.g. EHE_materials.HA25)</li>
-<li><strong>reinfSteelType</strong> – type of reinforcement steel</li>
-<li><strong>depth</strong> – cross-section depth</li>
-<li><a class="reference internal" href="../geom_cpp_classes/d2/d2.html#geom.BND2d.width" title="geom.BND2d.width"><strong>width</strong></a> – cross-section width (defaults to 1.0)</li>
-<li><strong>dir1PositvRebarRows</strong> – layers of main rebars in direction 1 in the local 
-positive face of the section (list of MainReinfLayer)</li>
-<li><strong>dir1NegatvRebarRows</strong> – layers of main rebars in direction 1 in the local 
-negative face of the section (list of MainReinfLayer)</li>
-<li><strong>dir2PositvRebarRows</strong> – layers of main rebars in direction 2 in the local 
-positive face of the section (list of MainReinfLayer)</li>
-<li><strong>dir2NegatvRebarRows</strong> – layers of main rebars in direction 2 in the local 
-negative face of the section (list of MainReinfLayer)</li>
-<li><strong>dir1ShReinfY</strong> – instance of class RecordShearReinforcement that represents  
-the Y shear reinforcement in section 1</li>
-<li><strong>dir1ShReinfZ</strong> – instance of class RecordShearReinforcement that represents                      
-the Z shear reinforcement in section 1</li>
-<li><strong>dir2ShReinfY</strong> – instance of class RecordShearReinforcement that represents
-the Y shear reinforcement in section 2</li>
-<li><strong>dir2ShReinfZ</strong> – instance of class RecordShearReinforcement that represents
-the Z shear reinforcement in section 2</li>
-<li><strong>elemSetName</strong> – name of the set with the elements to which to assign the 
-section (defaults to ‘total’).</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.creaSingleSection">
-<code class="descname">creaSingleSection</code><span class="sig-paren">(</span><em>dirNmb</em>, <em>posReb</em>, <em>negReb</em>, <em>YShReinf</em>, <em>ZShReinf</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.creaSingleSection" title="Permalink to this definition">¶</a></dt>
-<dd><p>create the fiber section of type ‘RecordRCSimpleSection’ that represents     the reinforced concrete fiber section to be used for the checking in the 
-direction passed as parameter ‘dirNmb’ (1 or 2). This section is also
-added to the attribute ‘lstRCSects’ that contains the list of sections.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.creaTwoSections">
-<code class="descname">creaTwoSections</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.creaTwoSections" title="Permalink to this definition">¶</a></dt>
-<dd><p>create the fiber sections of type ‘RecordRCSimpleSection’ that represent     the reinforced concrete fiber section to be used for the checking in the 
-directions 1 and 2. These sections are also added to the attribute 
-‘lstRCSects’ that contains the list of sections.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getAs1neg">
-<code class="descname">getAs1neg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getAs1neg" title="Permalink to this definition">¶</a></dt>
-<dd><p>Steel area in local negative face direction 1.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getAs1pos">
-<code class="descname">getAs1pos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getAs1pos" title="Permalink to this definition">¶</a></dt>
-<dd><p>Steel area in local positive face direction 1.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getAs2neg">
-<code class="descname">getAs2neg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getAs2neg" title="Permalink to this definition">¶</a></dt>
-<dd><p>Steel area in local negative face direction 2.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getAs2pos">
-<code class="descname">getAs2pos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getAs2pos" title="Permalink to this definition">¶</a></dt>
-<dd><p>Steel area in local positive face direction 2.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getDiam">
-<code class="descname">getDiam</code><span class="sig-paren">(</span><em>code</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getDiam" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of bar diameter.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getDiam1neg">
-<code class="descname">getDiam1neg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getDiam1neg" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of bar diameter in rows of the local negative face direction 1.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getDiam1pos">
-<code class="descname">getDiam1pos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getDiam1pos" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of bar diameter in rows of the local positive face direction 1.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getDiam2neg">
-<code class="descname">getDiam2neg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getDiam2neg" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of bar diameter in rows of the local negative face direction 2.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getDiam2pos">
-<code class="descname">getDiam2pos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getDiam2pos" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of bar diameter in rows of the local positive face direction 2.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getMainReinfProperty">
-<code class="descname">getMainReinfProperty</code><span class="sig-paren">(</span><em>code</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getMainReinfProperty" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getNBar1neg">
-<code class="descname">getNBar1neg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getNBar1neg" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of number of bars in rows of the local negative face direction 1.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getNBar1pos">
-<code class="descname">getNBar1pos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getNBar1pos" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of number of bars in rows of the local positive face direction 1.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getNBar2neg">
-<code class="descname">getNBar2neg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getNBar2neg" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of number of bars in rows of the local negative face direction 2.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getNBar2pos">
-<code class="descname">getNBar2pos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getNBar2pos" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of number of bars in rows of the local positive face direction 2.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getReinfArea">
-<code class="descname">getReinfArea</code><span class="sig-paren">(</span><em>code</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getReinfArea" title="Permalink to this definition">¶</a></dt>
-<dd><p>get steel area.
-code=’As1+’ for direction 1, positive face
-code=’As1-‘ for direction 1, negative face
-code=’As2+’ for direction 2, positive face
-code=’As2-‘ for direction 2, negative face</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getS">
-<code class="descname">getS</code><span class="sig-paren">(</span><em>code</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getS" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of distances between bars
-code=’s1+’ for direction 1, positive face
-code=’s1-‘ for direction 1, negative face
-code=’s2+’ for direction 2, positive face
-code=’s2-‘ for direction 2, negative face</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getS1neg">
-<code class="descname">getS1neg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getS1neg" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of distances between bars of rows  in the local negative face direction 1.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getS1pos">
-<code class="descname">getS1pos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getS1pos" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of distances between bars of rows the in local positive face direction 1.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getS2neg">
-<code class="descname">getS2neg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getS2neg" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of distances between bars of rows  in the local negative face direction 2.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getS2pos">
-<code class="descname">getS2pos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.getS2pos" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of distances between bars of rows  in the local positive face direction 2.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.setShearReinfD1">
-<code class="descname">setShearReinfD1</code><span class="sig-paren">(</span><em>nShReinfBranches</em>, <em>areaShReinfBranch</em>, <em>spacing</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.setShearReinfD1" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.setShearReinfD2">
-<code class="descname">setShearReinfD2</code><span class="sig-paren">(</span><em>nShReinfBranches</em>, <em>areaShReinfBranch</em>, <em>spacing</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordRCSlabBeamSection.setShearReinfD2" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordShearReinforcement">
-<em class="property">class </em><code class="descclassname">materials.sections.fiber_section.def_simple_RC_section.</code><code class="descname">RecordShearReinforcement</code><span class="sig-paren">(</span><em>familyName='noName'</em>, <em>nShReinfBranches=0.0</em>, <em>areaShReinfBranch=0.0</em>, <em>shReinfSpacing=0.2</em>, <em>angAlphaShReinf=1.5707963267948966</em>, <em>angThetaConcrStruts=0.7853981633974483</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordShearReinforcement" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.fiber_section.def_simple_RC_section.ShearReinforcement">
+<em class="property">class </em><code class="descclassname">materials.sections.fiber_section.def_simple_RC_section.</code><code class="descname">ShearReinforcement</code><span class="sig-paren">(</span><em>familyName='noName'</em>, <em>nShReinfBranches=0.0</em>, <em>areaShReinfBranch=0.0</em>, <em>shReinfSpacing=0.2</em>, <em>angAlphaShReinf=1.5707963267948966</em>, <em>angThetaConcrStruts=0.7853981633974483</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.ShearReinforcement" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Definition of the variables that make up a family of shear 
 reinforcing bars</p>
@@ -1067,18 +1121,11 @@ and the axis of the member</li>
 </tbody>
 </table>
 <dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.RecordShearReinforcement.getAs">
-<code class="descname">getAs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RecordShearReinforcement.getAs" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.fiber_section.def_simple_RC_section.ShearReinforcement.getAs">
+<code class="descname">getAs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.ShearReinforcement.getAs" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns the area per unit length of the family of shear reinforcements</p>
 </dd></dl>
 
-</dd></dl>
-
-<dl class="function">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.loadMainRefPropertyIntoElements">
-<code class="descclassname">materials.sections.fiber_section.def_simple_RC_section.</code><code class="descname">loadMainRefPropertyIntoElements</code><span class="sig-paren">(</span><em>elemSet</em>, <em>sectionContainer</em>, <em>code</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.loadMainRefPropertyIntoElements" title="Permalink to this definition">¶</a></dt>
-<dd><p>add to each element of the set the
-desired property (As1+,As1-,…,d1+,d1-,…).</p>
 </dd></dl>
 
 <dl class="function">
@@ -1122,178 +1169,6 @@ so that the rebars (and two lateral covers) are inserted in the length L passed 
 </table>
 </dd></dl>
 
-<dl class="class">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.setRCSections2SetElVerif">
-<em class="property">class </em><code class="descclassname">materials.sections.fiber_section.def_simple_RC_section.</code><code class="descname">setRCSections2SetElVerif</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.setRCSections2SetElVerif" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
-<p>This class defines the set of reinforced concrete sections that are going 
-to be associated to a set of elements in order to carry out the verifications 
-of the limit states.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – name given to the list of reinforced concrete sections</li>
-<li><strong>lstRCSects</strong> – list of reinforced concrete fiber-sections that will be 
-associated to a set of elements in order to carry out their LS verifications.
-The items of the list are instances of the object <em>RecordRCSimpleSection</em>
-lstRCSects[0]=section in 1 direction
-lstRCSects[1]=section in 2 direction …</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.setRCSections2SetElVerif.append_section">
-<code class="descname">append_section</code><span class="sig-paren">(</span><em>RCSimplSect</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.setRCSections2SetElVerif.append_section" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.setRCSections2SetElVerif.getAsneg">
-<code class="descname">getAsneg</code><span class="sig-paren">(</span><em>sectNmb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.setRCSections2SetElVerif.getAsneg" title="Permalink to this definition">¶</a></dt>
-<dd><p>Steel area in local negative face of the simple section identified by the sectNmb</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectNmb</strong> – integer number identifying the section 
-(1 correponds to the section stored in  lstRCSects[0] …)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.setRCSections2SetElVerif.getAspos">
-<code class="descname">getAspos</code><span class="sig-paren">(</span><em>sectNmb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.setRCSections2SetElVerif.getAspos" title="Permalink to this definition">¶</a></dt>
-<dd><p>Steel area in local positive face of the simple section identified by the sectNmb</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectNmb</strong> – integer number identifying the section 
-(1 correponds to the section stored in  lstRCSects[0] …)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.setRCSections2SetElVerif.getDiamneg">
-<code class="descname">getDiamneg</code><span class="sig-paren">(</span><em>sectNmb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.setRCSections2SetElVerif.getDiamneg" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of bar diameter in rows of the local negative face  of the simple section identified by the sectNmb</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectNmb</strong> – integer number identifying the section 
-(1 correponds to the section stored in  lstRCSects[0] …)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.setRCSections2SetElVerif.getDiampos">
-<code class="descname">getDiampos</code><span class="sig-paren">(</span><em>sectNmb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.setRCSections2SetElVerif.getDiampos" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of bar diameter in rows of the local positive face of the simple section identified by the sectNmb</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectNmb</strong> – integer number identifying the section 
-(1 correponds to the section stored in  lstRCSects[0] …)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.setRCSections2SetElVerif.getNBarneg">
-<code class="descname">getNBarneg</code><span class="sig-paren">(</span><em>sectNmb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.setRCSections2SetElVerif.getNBarneg" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of number of bars in rows of the local negative face of the simple section identified by the sectNmb</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectNmb</strong> – integer number identifying the section 
-(1 correponds to the section stored in  lstRCSects[0] …)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.setRCSections2SetElVerif.getNBarpos">
-<code class="descname">getNBarpos</code><span class="sig-paren">(</span><em>sectNmb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.setRCSections2SetElVerif.getNBarpos" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of number of bars in rows of the local positive face of the simple section identified by the sectNmb</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectNmb</strong> – integer number identifying the section 
-(1 correponds to the section stored in  lstRCSects[0] …)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.setRCSections2SetElVerif.getSneg">
-<code class="descname">getSneg</code><span class="sig-paren">(</span><em>sectNmb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.setRCSections2SetElVerif.getSneg" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of distances between bars of rows  in the local negative face of the simple section identified by the sectNmb</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectNmb</strong> – integer number identifying the section 
-(1 correponds to the section stored in  lstRCSects[0] …)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.setRCSections2SetElVerif.getSpos">
-<code class="descname">getSpos</code><span class="sig-paren">(</span><em>sectNmb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.setRCSections2SetElVerif.getSpos" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of distances between bars of rows the in local positive face of the simple section identified by the sectNmb</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectNmb</strong> – integer number identifying the section 
-(1 correponds to the section stored in  lstRCSects[0] …)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.fiber_section.def_simple_RC_section.setRCSections2SetElVerif.setShearReinf">
-<code class="descname">setShearReinf</code><span class="sig-paren">(</span><em>sectNmb</em>, <em>nShReinfBranches</em>, <em>areaShReinfBranch</em>, <em>spacing</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.setRCSections2SetElVerif.setShearReinf" title="Permalink to this definition">¶</a></dt>
-<dd><p>sets parameters of the shear reinforcement of the simple section 
-identified by the sectNmb</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>sectNmb</strong> – integer number identifying the section 
-(1 correponds to the section stored in  lstRCSects[0] …)</li>
-<li><strong>nShReinfBranches</strong> – number of shear reinforcing branches</li>
-<li><strong>areaShReinfBranch</strong> – area of the cross-section of each stirrup</li>
-<li><strong>spacing</strong> – spacing of the stirrups</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
 </div>
 <div class="section" id="module-materials.sections.fiber_section.def_column_RC_section">
 <span id="definition-of-column-rc-sections"></span><h1>Definition of column RC sections<a class="headerlink" href="#module-materials.sections.fiber_section.def_column_RC_section" title="Permalink to this headline">¶</a></h1>
@@ -1322,58 +1197,119 @@ section (each face)</li>
 </dd></dl>
 
 <dl class="class">
-<dt id="materials.sections.fiber_section.def_column_RC_section.RecordRCColumnSection">
-<em class="property">class </em><code class="descclassname">materials.sections.fiber_section.def_column_RC_section.</code><code class="descname">RecordRCColumnSection</code><a class="headerlink" href="#materials.sections.fiber_section.def_column_RC_section.RecordRCColumnSection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRecordRCSection" title="materials.sections.fiber_section.def_simple_RC_section.BasicRecordRCSection"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.fiber_section.def_simple_RC_section.BasicRecordRCSection</span></code></a></p>
-<p>Definition of the variables that make up a reinforced concrete section 
-with reinforcement symmetric in both directions (as usual in columns)</p>
+<dt id="materials.sections.fiber_section.def_column_RC_section.RCCircularSection">
+<em class="property">class </em><code class="descclassname">materials.sections.fiber_section.def_column_RC_section.</code><code class="descname">RCCircularSection</code><span class="sig-paren">(</span><em>name='noName'</em>, <em>sectionDescr=None</em>, <em>Rext=0.25</em>, <em>Rint=0.0</em>, <em>concrType=None</em>, <em>reinfSteelType=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_column_RC_section.RCCircularSection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.sections.fiber_section.def_simple_RC_section.RCSectionBase" title="materials.sections.fiber_section.def_simple_RC_section.RCSectionBase"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.fiber_section.def_simple_RC_section.RCSectionBase</span></code></a>, <a class="reference internal" href="materials.sections.html#materials.sections.section_properties.CircularSection" title="materials.sections.section_properties.CircularSection"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.section_properties.CircularSection</span></code></a></p>
+<p>Base class for rectangular reinforced concrete sections.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><strong>sectionName</strong> – name identifying the section</li>
-<li><strong>sectionDescr</strong> – section description</li>
-<li><strong>concrType</strong> – type of concrete (e.g. EHE_materials.HA25)</li>
-<li><strong>concrDiagName</strong> – name identifying the characteristic stress-strain diagram of the concrete material</li>
-<li><strong>depth</strong> – cross-section depth</li>
-<li><a class="reference internal" href="../geom_cpp_classes/d2/d2.html#geom.BND2d.width" title="geom.BND2d.width"><strong>width</strong></a> – cross-section width</li>
-<li><strong>nDivIJ</strong> – number of cells in IJ (width) direction</li>
-<li><strong>nDivJK</strong> – number of cells in JK  (height) direction</li>
-<li><strong>fiberSectionRepr</strong> – </li>
-<li><strong>reinfSteelType</strong> – type of reinforcement steel</li>
-<li><strong>reinfDiagName</strong> – name identifying the characteristic stress-strain diagram
-of the reinforcing steel material</li>
-<li><strong>shReinfZ</strong> – record of type.defRCSimpleSection.RecordShearReinforcement()
-defining the shear reinforcement in Z direction</li>
-<li><strong>shReinfY</strong> – record of type.defRCSimpleSection.RecordShearReinforcement()
-defining the shear reinforcement in Y direction</li>
-<li><strong>cover</strong> – concrete clear cover of main reinforcement</li>
-<li><strong>nRebarsWidth</strong> – number of rebars in the width direction of the 
-section (each face)</li>
-<li><strong>areaRebarWidth</strong> – cross sectional area of each rebar in  width direction</li>
-<li><strong>nRebarsDepth</strong> – number of rebars in the depth direction of the 
-section (each face)</li>
-<li><strong>areaRebarDepth</strong> – cross sectional area of each rebar in the depth direction</li>
+<li><strong>mainReinf</strong> – layers of main reinforcement.</li>
+<li><strong>shReinf</strong> – record of type ShearReinforcement
+defining the shear reinforcement.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
-<dt id="materials.sections.fiber_section.def_column_RC_section.RecordRCColumnSection.defGeomRCColumnSection">
-<code class="descname">defGeomRCColumnSection</code><span class="sig-paren">(</span><em>matDiagType</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_column_RC_section.RecordRCColumnSection.defGeomRCColumnSection" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Returns a reinforced concrete section with reinforcement </dt>
-<dd>symmetric in both directions (as usual in columns)
-Parameters:</dd>
-</dl>
+<dt id="materials.sections.fiber_section.def_column_RC_section.RCCircularSection.defConcreteRegion">
+<code class="descname">defConcreteRegion</code><span class="sig-paren">(</span><em>geomSection</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_column_RC_section.RCCircularSection.defConcreteRegion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_column_RC_section.RCCircularSection.defSectionGeometry">
+<code class="descname">defSectionGeometry</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>matDiagType</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_column_RC_section.RCCircularSection.defSectionGeometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the XC section geometry object for this reinforced concrete section</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>matDiagType</strong> – type of stress-strain diagram (=”k” for characteristic diagram, 
-=”d” for design diagram)</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>matDiagType</strong> – type of stress-strain diagram 
+(“k” for characteristic diagram, “d” for design diagram)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_column_RC_section.RCCircularSection.getMinCover">
+<code class="descname">getMinCover</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_column_RC_section.RCCircularSection.getMinCover" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the minimal cover of the reinforcement.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_column_RC_section.RCCircularSection.getRespT">
+<code class="descname">getRespT</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_column_RC_section.RCCircularSection.getRespT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Material for modeling torsional response of section</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_column_RC_section.RCCircularSection.getRespVy">
+<code class="descname">getRespVy</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_column_RC_section.RCCircularSection.getRespVy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Material for modeling Y shear response of section</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_column_RC_section.RCCircularSection.getRespVz">
+<code class="descname">getRespVz</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_column_RC_section.RCCircularSection.getRespVz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Material for modeling Z shear response of section</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_column_RC_section.RCCircularSection.getShearReinfY">
+<code class="descname">getShearReinfY</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_column_RC_section.RCCircularSection.getShearReinfY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the shear reinforcement for Vy.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_column_RC_section.RCCircularSection.getShearReinfZ">
+<code class="descname">getShearReinfZ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_column_RC_section.RCCircularSection.getShearReinfZ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the shear reinforcement for Vz.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_column_RC_section.RCCircularSection.getTorsionalThickness">
+<code class="descname">getTorsionalThickness</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_column_RC_section.RCCircularSection.getTorsionalThickness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the section thickness for torsion.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_column_RC_section.RCCircularSection.isCircular">
+<code class="descname">isCircular</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_column_RC_section.RCCircularSection.isCircular" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return true if it’s a circular section.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.sections.fiber_section.def_column_RC_section.RCRectangularColumnSection">
+<em class="property">class </em><code class="descclassname">materials.sections.fiber_section.def_column_RC_section.</code><code class="descname">RCRectangularColumnSection</code><span class="sig-paren">(</span><em>sectionDescr=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_column_RC_section.RCRectangularColumnSection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection" title="materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection</span></code></a></p>
+<p>Definition of the variables that make up a reinforced concrete section 
+with reinforcement symmetric in both directions (as usual in columns)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>mainBars</strong> – object of type ColumnMainReinforcement defining
+longitudinal reinforcement.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.sections.fiber_section.def_column_RC_section.RCRectangularColumnSection.defSectionGeometry">
+<code class="descname">defSectionGeometry</code><span class="sig-paren">(</span><em>matDiagType</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_column_RC_section.RCRectangularColumnSection.defSectionGeometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a reinforced concrete section with reinforcement 
+symmetric in both directions (as usual in columns)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>matDiagType</strong> – type of stress-strain diagram (=”k” for characteristic diagram, =”d” for design diagram)</td>
 </tr>
 </tbody>
 </table>
@@ -1457,13 +1393,13 @@ a fiber section.</p>
 <span id="report-of-cross-section-mechanical-properties"></span><h1>Report of cross-section mechanical properties<a class="headerlink" href="#module-materials.sections.fiber_section.section_report" title="Permalink to this headline">¶</a></h1>
 <p>section_report.py: report describing RC cross sections mechanical properties.</p>
 <dl class="class">
-<dt id="materials.sections.fiber_section.section_report.RecordFamMainReinforcement">
-<em class="property">class </em><code class="descclassname">materials.sections.fiber_section.section_report.</code><code class="descname">RecordFamMainReinforcement</code><span class="sig-paren">(</span><em>reinfLayer</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.section_report.RecordFamMainReinforcement" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.fiber_section.section_report.MainReinforcementLayer">
+<em class="property">class </em><code class="descclassname">materials.sections.fiber_section.section_report.</code><code class="descname">MainReinforcementLayer</code><span class="sig-paren">(</span><em>reinfLayer</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.section_report.MainReinforcementLayer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Parameters for each layer of main reinforcement</p>
 <dl class="method">
-<dt id="materials.sections.fiber_section.section_report.RecordFamMainReinforcement.texWrite">
-<code class="descname">texWrite</code><span class="sig-paren">(</span><em>archTex</em>, <em>areaHorm</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.section_report.RecordFamMainReinforcement.texWrite" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.fiber_section.section_report.MainReinforcementLayer.texWrite">
+<code class="descname">texWrite</code><span class="sig-paren">(</span><em>archTex</em>, <em>areaHorm</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.section_report.MainReinforcementLayer.texWrite" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1490,7 +1426,7 @@ a fiber section.</p>
 (reported on the table and used to calculate the torsional inertia, also)</li>
 <li><strong>depth</strong> – depth of the rectangular section 
 (reported on the table and used to calculate the torsional inertia, also)</li>
-<li><a class="reference internal" href="../cpp_classes/material/section/repres/repres.html#xc.CrossSectionProperties2d.G" title="xc.CrossSectionProperties2d.G"><strong>G</strong></a><strong>,</strong><a class="reference internal" href="../cpp_classes/material/section/repres/repres.html#xc.CrossSectionProperties2d.A" title="xc.CrossSectionProperties2d.A"><strong>A</strong></a><strong>,</strong><a class="reference internal" href="../cpp_classes/material/section/repres/repres.html#xc.CrossSectionProperties2d.I" title="xc.CrossSectionProperties2d.I"><strong>I</strong></a> – match center of gravity, area and inertia tensor, respectively</li>
+<li><a class="reference internal" href="../cpp_classes/material/section/repres/repres.html#xc.CrossSectionProperties2d.G" title="xc.CrossSectionProperties2d.G"><strong>G</strong></a><strong>,</strong><a class="reference internal" href="materials.sections.html#materials.sections.section_properties.RectangularSection.A" title="materials.sections.section_properties.RectangularSection.A"><strong>A</strong></a><strong>,</strong><a class="reference internal" href="../cpp_classes/material/section/repres/repres.html#xc.CrossSectionProperties2d.I" title="xc.CrossSectionProperties2d.I"><strong>I</strong></a> – match center of gravity, area and inertia tensor, respectively</li>
 <li><strong>B</strong><strong>,</strong><strong>H</strong> – match gross and homogenized sections, respectively</li>
 <li><strong>cover</strong> – refers to effective cover</li>
 </ul>
@@ -1500,7 +1436,7 @@ a fiber section.</p>
 </table>
 <dl class="method">
 <dt id="materials.sections.fiber_section.section_report.SectionInfo.writeReport">
-<code class="descname">writeReport</code><span class="sig-paren">(</span><em>archTex</em>, <em>pathFigura</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.section_report.SectionInfo.writeReport" title="Permalink to this definition">¶</a></dt>
+<code class="descname">writeReport</code><span class="sig-paren">(</span><em>archTex</em>, <em>pathFigure</em>, <em>rltvPathFigure</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.section_report.SectionInfo.writeReport" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

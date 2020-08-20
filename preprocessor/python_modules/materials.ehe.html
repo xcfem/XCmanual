@@ -56,7 +56,6 @@
 <h1>Materials according to EHE code<a class="headerlink" href="#materials-according-to-ehe-code" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-materials.ehe.EHE_materials">
 <span id="ehe-materials"></span><h2>EHE materials<a class="headerlink" href="#module-materials.ehe.EHE_materials" title="Permalink to this headline">¶</a></h2>
-<p>Reinforced concrete materials according to EHE-08.</p>
 <dl class="class">
 <dt id="materials.ehe.EHE_materials.EHEConcrete">
 <em class="property">class </em><code class="descclassname">materials.ehe.EHE_materials.</code><code class="descname">EHEConcrete</code><span class="sig-paren">(</span><em>nmbConcrete</em>, <em>fck</em>, <em>gammaC</em>, <em>typeAggregate='cuarcita'</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_materials.EHEConcrete" title="Permalink to this definition">¶</a></dt>
@@ -199,6 +198,13 @@ in [Pa] [+] according to comments to clause 39.6 of EHE-08.</p>
 <code class="descname">getFctm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_materials.EHEConcrete.getFctm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fctm: mean tensile strength [Pa][+]
 (art. 39.1 EHE)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.ehe.EHE_materials.EHEConcrete.taucd">
+<code class="descname">taucd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_materials.EHEConcrete.taucd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Design value of shear strength according to artocle 39.1.3.2.2
+of code EHE-91 (f_cv=0.5*sqrt(f_cd)) with f_cd in kp/cm2</p>
 </dd></dl>
 
 </dd></dl>
@@ -629,7 +635,7 @@ the corbel fixed section (see figure 64.1.2 of EHE-08).</td>
 as in clause 49.2.4 of EHE-08.</p>
 <dl class="method">
 <dt id="materials.ehe.EHE_limit_state_checking.CrackControl.check">
-<code class="descname">check</code><span class="sig-paren">(</span><em>elements</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.CrackControl.check" title="Permalink to this definition">¶</a></dt>
+<code class="descname">check</code><span class="sig-paren">(</span><em>elements</em>, <em>combName</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.CrackControl.check" title="Permalink to this definition">¶</a></dt>
 <dd><p>Crack control of concrete sections.</p>
 </dd></dl>
 
@@ -644,7 +650,8 @@ as in clause 49.2.4 of EHE-08.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>scc</strong> – section.</li>
 <li><strong>reinfSteelMaterialTag</strong> – identifier of the concrete material.</li>
-<li><strong>reinfSteelMaterialTag</strong> – identifier of the reinforcing steel material.</li>
+<li><strong>reinfSteelMaterialTag</strong> – identifier of the reinforcing 
+steel material.</li>
 <li><strong>fctm</strong> – average tensile strength of the concrete.</li>
 </ul>
 </td>
@@ -683,20 +690,23 @@ as in clause 49.2.4 of EHE-08.</p>
 <em class="property">class </em><code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">CrackStraightController</code><span class="sig-paren">(</span><em>limitStateLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.CrackStraightController" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="matGenTopics.html#materials.limit_state_checking_base.LimitStateControllerBase" title="materials.limit_state_checking_base.LimitStateControllerBase"><code class="xref py py-class docutils literal"><span class="pre">materials.limit_state_checking_base.LimitStateControllerBase</span></code></a></p>
 <p>Definition of variables involved in the verification of the cracking
-serviceability limit state according to EHE-08 when considering a concrete
-stress-strain diagram that takes account of the effects of tension stiffening.</p>
+serviceability limit state according to EHE-08 when considering a 
+concrete stress-strain diagram that takes account of the effects of
+tension stiffening.</p>
 <dl class="method">
 <dt id="materials.ehe.EHE_limit_state_checking.CrackStraightController.EHE_hceff">
 <code class="descname">EHE_hceff</code><span class="sig-paren">(</span><em>width</em>, <em>h</em>, <em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.CrackStraightController.EHE_hceff" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the maximum height to be considered in the calculation of the 
-concrete effective area in tension.</p>
+<dd><dl class="docutils">
+<dt>Return the maximum height to be considered in the calculation of </dt>
+<dd>the concrete effective area in tension.</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>width</strong> – section width</li>
-<li><strong>h</strong> – lever arm</li>
+<li><strong>width</strong> – section width.</li>
+<li><strong>h</strong> – lever arm.</li>
 <li><strong>x</strong> – depth of the neutral fiber.</li>
 </ul>
 </td>
@@ -709,17 +719,17 @@ concrete effective area in tension.</p>
 <dt id="materials.ehe.EHE_limit_state_checking.CrackStraightController.EHE_k1">
 <code class="descname">EHE_k1</code><span class="sig-paren">(</span><em>eps1</em>, <em>eps2</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.CrackStraightController.EHE_k1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the coefficient k1 involved in the calculation of the mean 
-crack distance according to EHE. This coefficient represents the effect of 
-the tension diagram in the section.</p>
+crack distance according to EHE. This coefficient represents the 
+effect of the tension diagram in the section.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>eps1</strong> – maximum deformation calculated in the section at the limits 
-of the tension zone</li>
-<li><strong>eps2</strong> – minimum deformation calculated in the section at the limits 
-of the tension zone</li>
+<li><strong>eps1</strong> – maximum deformation calculated in the section at the 
+limits of the tension zone.</li>
+<li><strong>eps2</strong> – minimum deformation calculated in the section at the 
+limits of the tension zone.</li>
 </ul>
 </td>
 </tr>
@@ -729,18 +739,19 @@ of the tension zone</li>
 
 <dl class="method">
 <dt id="materials.ehe.EHE_limit_state_checking.CrackStraightController.check">
-<code class="descname">check</code><span class="sig-paren">(</span><em>elements</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.CrackStraightController.check" title="Permalink to this definition">¶</a></dt>
-<dd><p>For each element in the set ‘elememts’ passed as first parameter and 
-the resulting internal forces for the load combination ‘nmbComb’  
-passed as second parameter, this method calculates all the variables 
-involved in the crack-SLS checking and obtains the crack width.
-In the case that the calculated crack width is greater than the 
-biggest obtained for the element in previous load combinations, this value
-is saved in the element results record.</p>
-<p>Elements processed are those belonging to the phantom model, that is to 
-say, of type xc.ZeroLengthSection. As we have defined the variable 
-fakeSection as False, a reinfoced concrete fiber section is generated
-for each of these elements.</p>
+<code class="descname">check</code><span class="sig-paren">(</span><em>elements</em>, <em>combName</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.CrackStraightController.check" title="Permalink to this definition">¶</a></dt>
+<dd><p>For each element in the set ‘elememts’ passed as first parameter 
+and the resulting internal forces for the load combination 
+‘combName’ passed as second parameter, this method calculates 
+all the variables involved in the crack-SLS checking and obtains 
+the crack width. In the case that the calculated crack width is 
+greater than the biggest obtained for the element in previous
+load combinations, this value is saved in the element results 
+record.</p>
+<p>Elements processed are those belonging to the phantom model, that 
+is to say, of type xc.ZeroLengthSection. As we have defined the 
+variable fakeSection as False, a reinfoced concrete fiber section
+is generated for each of these elements.</p>
 </dd></dl>
 
 <dl class="method">
@@ -751,7 +762,7 @@ for each of these elements.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>elements</strong> – elements to define control variables in</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>elements</strong> – elements to define control variables in.</td>
 </tr>
 </tbody>
 </table>
@@ -760,11 +771,122 @@ for each of these elements.</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="materials.ehe.EHE_limit_state_checking.EHERebarFamily">
+<em class="property">class </em><code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">EHERebarFamily</code><span class="sig-paren">(</span><em>steel</em>, <em>diam</em>, <em>spacing</em>, <em>concreteCover</em>, <em>pos='II'</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.EHERebarFamily" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="materials.sections.html#materials.sections.rebar_family.RebarFamily" title="materials.sections.rebar_family.RebarFamily"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.rebar_family.RebarFamily</span></code></a></p>
+<p>Family or reinforcement bars with checking according to EHE-08.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><a class="reference internal" href="../cpp_classes/material/section/repres/geom_section/reinfBar/reinfBar.html#xc.ReinfBar.pos" title="xc.ReinfBar.pos"><strong>pos</strong></a> – reinforcement position according to clause 66.5.1
+of EHE-08.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.ehe.EHE_limit_state_checking.EHERebarFamily.getBasicAnchorageLength">
+<code class="descname">getBasicAnchorageLength</code><span class="sig-paren">(</span><em>concrete</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.EHERebarFamily.getBasicAnchorageLength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the basic anchorage length of the bars.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.ehe.EHE_limit_state_checking.EHERebarFamily.getCopy">
+<code class="descname">getCopy</code><span class="sig-paren">(</span><em>barController</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.EHERebarFamily.getCopy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.ehe.EHE_limit_state_checking.EHERebarFamily.getMinReinfAreaUnderFlexion">
+<code class="descname">getMinReinfAreaUnderFlexion</code><span class="sig-paren">(</span><em>thickness</em>, <em>b=1.0</em>, <em>type='slab'</em>, <em>concrete=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.EHERebarFamily.getMinReinfAreaUnderFlexion" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the minimun amount of bonded reinforcement to control cracking</dt>
+<dd>for reinforced concrete sections under flexion per unit length 
+according to clause 42.3.5.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>thickness</strong> – gross thickness of concrete section (doesn’t include 
+the area of the voids).</li>
+<li><strong>b</strong> – width of concrete section.</li>
+<li><strong>type</strong> – member type; slab, wall, beam or column.</li>
+<li><strong>concrete</strong> – concrete material.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.ehe.EHE_limit_state_checking.EHERebarFamily.getMinReinfAreaUnderTension">
+<code class="descname">getMinReinfAreaUnderTension</code><span class="sig-paren">(</span><em>thickness</em>, <em>b=1.0</em>, <em>concrete=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.EHERebarFamily.getMinReinfAreaUnderTension" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the minimun amount of bonded reinforcement to control cracking</dt>
+<dd>for reinforced concrete sections under tension.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>thickness</strong> – gross thickness of concrete section.</li>
+<li><strong>b</strong> – width of concrete section.</li>
+<li><strong>concrete</strong> – concrete material.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.ehe.EHE_limit_state_checking.EHERebarFamily.getRebarController">
+<code class="descname">getRebarController</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.EHERebarFamily.getRebarController" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.ehe.EHE_limit_state_checking.EHERebarFamily.getVR">
+<code class="descname">getVR</code><span class="sig-paren">(</span><em>concrete</em>, <em>Nd</em>, <em>Md</em>, <em>b</em>, <em>thickness</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.EHERebarFamily.getVR" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the approximated shear resistance carried by the concrete </dt>
+<dd>on a (b x thickness) rectangular section.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>concrete</strong> – concrete material.</li>
+<li><strong>Nd</strong> – design axial force (IGNORED).</li>
+<li><strong>Md</strong> – design bending moment (IGNORED).</li>
+<li><strong>b</strong> – width of the rectangular section.</li>
+<li><strong>thickness</strong> – height of the rectangular section.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.ehe.EHE_limit_state_checking.EHERebarFamily.writeRebars">
+<code class="descname">writeRebars</code><span class="sig-paren">(</span><em>outputFile</em>, <em>concrete</em>, <em>AsMin</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.EHERebarFamily.writeRebars" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write rebar family data.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="materials.ehe.EHE_limit_state_checking.LongShearJoints">
 <em class="property">class </em><code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">LongShearJoints</code><span class="sig-paren">(</span><em>concrete</em>, <em>reinfsteel</em>, <em>contactSurf</em>, <em>roughness='L'</em>, <em>dynamic='N'</em>, <em>sigma_cd=0</em>, <em>Ast=None</em>, <em>spacement=None</em>, <em>angRebars=90</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.LongShearJoints" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
-<p>Verification of ultimate limit state due to longitudinal shear stress 
-at joints between concretes according to art. 47 EHE.</p>
+<dl class="docutils">
+<dt>Verification of ultimate limit state due to longitudinal shear stress </dt>
+<dd>at joints between concretes according to clause 47 of EHE.</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -778,20 +900,20 @@ or the maximum diameter of the edge or with a cover of
 less than 30 mm</li>
 <li><strong>roughness</strong> – roughness of surface (‘L’ for low degree of roughness,
 ‘H’ for high degree of roughness). Defaults to ‘L’</li>
-<li><strong>dynamic</strong> – low fatigue or dynamic stresses consideration (‘Y’ if
-considered, ‘N’ for not considered). Defaults to ‘N’</li>
-<li><strong>sigma_cd</strong> – External design tensile stress perpendicular to the plane of the joint.
-(&lt;0 for compression tensions) (if sigma_cd &gt; 0, beta, fct_d=0). 
-Defaults to 0.</li>
+<li><strong>dynamic</strong> – low fatigue or dynamic stresses consideration
+(‘Y’ if considered, ‘N’ for not considered). Defaults to ‘N’</li>
+<li><strong>sigma_cd</strong> – External design tensile stress perpendicular to the plane 
+of the joint. (&lt;0 for compression tensions) 
+(if sigma_cd &gt; 0, beta, fct_d=0). Defaults to 0.</li>
 <li><strong>Ast</strong> – Cross-section of effectively anchored steel bars, closing 
 the joint (area of 1 those rebars, spacement is given also as a 
 parameter). Defaults to None = no reinforcement, in this case 
 all parameters attached to reinforcement are ignored .</li>
 <li><strong>spacement</strong> – distance between the closing bars along the joint plane.
 (defaults to None)</li>
-<li><strong>angRebars</strong> – Angle formed by the joining bars with the plane of the joint (degrees). 
-Reinforcements with α &gt; 135° or α &lt; 45° shall not be incorporated.
-Defaults to 90º</li>
+<li><strong>angRebars</strong> – Angle formed by the joining bars with the plane of the 
+joint (degrees). Reinforcements with α &gt; 135° or α &lt; 45° 
+shall not be incorporated. Defaults to 90º</li>
 </ul>
 </td>
 </tr>
@@ -815,14 +937,21 @@ concrete.</td>
 <dl class="method">
 <dt id="materials.ehe.EHE_limit_state_checking.LongShearJoints.getBetaCoef">
 <code class="descname">getBetaCoef</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.LongShearJoints.getBetaCoef" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return beta coefficient depending on the roughness of contact surfaces 
-(art. 47.2.1 EHE and table 47.2.2.2):</p>
+<dd><p>Return beta coefficient depending on the roughness of contact 
+surfaces (clause 47.2.1 EHE and table 47.2.2.2):</p>
 <blockquote>
 <div><ul class="simple">
-<li>0.80 in rough contact surfaces of composite sections that are interconnected so that one composite section may not overhang the other, for example, are dovetailed, and if the surface is open and rough, e.g. like joists as left by a floor laying machine.</li>
-<li>0.40 in intentionally rough surfaces with a high degree of roughness.</li>
-<li>0.20 in unintentionally rough surfaces with a low degree of roughness</li>
-<li>at low fatigue or dynamic stresses beta shall be reduced by 50%.</li>
+<li>0.80 in rough contact surfaces of composite sections that are
+interconnected so that one composite section may not overhang
+the other, for example, are dovetailed, and if the surface is 
+open and rough, e.g. like joists as left by a floor laying 
+machine.</li>
+<li>0.40 in intentionally rough surfaces with a high degree of 
+roughness.</li>
+<li>0.20 in unintentionally rough surfaces with a low degree of 
+roughness.</li>
+<li>at low fatigue or dynamic stresses beta shall be reduced 
+by 50%.</li>
 </ul>
 </div></blockquote>
 </dd></dl>
@@ -830,15 +959,17 @@ concrete.</td>
 <dl class="method">
 <dt id="materials.ehe.EHE_limit_state_checking.LongShearJoints.getMuCoefCase1">
 <code class="descname">getMuCoefCase1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.LongShearJoints.getMuCoefCase1" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return mu coefficient depending of roughness, for calculation of ultimate shear 
-stress at a joint in case 1 (art. 47.2.1 EHE, table 47.2.2.2):</p>
+<dd><p>Return mu coefficient depending of roughness, for calculation 
+of ultimate shear stress at a joint in case 1 (clause 47.2.1 EHE, 
+table 47.2.2.2).</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.ehe.EHE_limit_state_checking.LongShearJoints.getMuCoefCase2">
 <code class="descname">getMuCoefCase2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.LongShearJoints.getMuCoefCase2" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return mu coefficient depending of roughness, for calculation of ultimate shear 
-stress at a joint in case 2 (art. 47.2.1 EHE, table 47.2.2.2):</p>
+<dd><p>Return mu coefficient depending of roughness, for calculation 
+of ultimate shear  stress at a joint in case 2
+(clause 47.2.1 EHE, table 47.2.2.2):</p>
 </dd></dl>
 
 <dl class="method">
@@ -869,13 +1000,105 @@ without any transverse reinforcement</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="materials.ehe.EHE_limit_state_checking.RebarController">
+<em class="property">class </em><code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">RebarController</code><span class="sig-paren">(</span><em>concreteCover=0.035</em>, <em>spacing=0.15</em>, <em>pos='II'</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.RebarController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Control of some parameters as development length 
+minimum reinforcement and so on.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="../cpp_classes/material/section/repres/geom_section/reinfBar/reinfBar.html#xc.ReinfBar.pos" title="xc.ReinfBar.pos"><strong>pos</strong></a> – reinforcement position according to clause 66.5.1
+of EHE-08.</li>
+<li><strong>concreteCover</strong> – the distance from center of a bar or wire to 
+nearest concrete surface.</li>
+<li><strong>spacing</strong> – center-to-center spacing of bars or wires being 
+developed, in.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="materials.ehe.EHE_limit_state_checking.RebarController.f400">
+<code class="descname">f400</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.RebarController.f400" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.ehe.EHE_limit_state_checking.RebarController.f500">
+<code class="descname">f500</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.RebarController.f500" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.ehe.EHE_limit_state_checking.RebarController.getBasicAnchorageLength">
+<code class="descname">getBasicAnchorageLength</code><span class="sig-paren">(</span><em>concrete</em>, <em>phi</em>, <em>steel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.RebarController.getBasicAnchorageLength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Returns anchorage length in tension according to clause</dt>
+<dd>66.5.2 of EHE.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>concrete</strong> – concrete material.</li>
+<li><strong>phi</strong> – nominal diameter of bar, wire, or prestressing strand.</li>
+<li><strong>steel</strong> – reinforcement steel.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.ehe.EHE_limit_state_checking.RebarController.getM">
+<code class="descname">getM</code><span class="sig-paren">(</span><em>concrete</em>, <em>steel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.RebarController.getM" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the “m” coefficient according to table 66.5.2.a of</dt>
+<dd>EHE-08</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>concrete</strong> – concrete material.</li>
+<li><strong>steel</strong> – reinforcing steel.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="materials.ehe.EHE_limit_state_checking.RebarController.x">
+<code class="descname">x</code><em class="property"> = [25000000.0, 30000000.0, 35000000.0, 40000000.0, 45000000.0, 50000000.0]</em><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.RebarController.x" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.ehe.EHE_limit_state_checking.RebarController.y400">
+<code class="descname">y400</code><em class="property"> = [12.0, 10.0, 9.0, 8.0, 7.0, 7.0]</em><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.RebarController.y400" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.ehe.EHE_limit_state_checking.RebarController.y500">
+<code class="descname">y500</code><em class="property"> = [15.0, 13.0, 12.0, 11.0, 10.0, 10.0]</em><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.RebarController.y500" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="materials.ehe.EHE_limit_state_checking.ShearController">
 <em class="property">class </em><code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">ShearController</code><span class="sig-paren">(</span><em>limitStateLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearController" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="matGenTopics.html#materials.limit_state_checking_base.ShearControllerBase" title="materials.limit_state_checking_base.ShearControllerBase"><code class="xref py py-class docutils literal"><span class="pre">materials.limit_state_checking_base.ShearControllerBase</span></code></a></p>
 <p>Shear control according to EHE-08.</p>
 <dl class="method">
 <dt id="materials.ehe.EHE_limit_state_checking.ShearController.calcVuEHE08">
-<code class="descname">calcVuEHE08</code><span class="sig-paren">(</span><em>scc</em>, <em>torsionParameters</em>, <em>concrete</em>, <em>reinfSteel</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearController.calcVuEHE08" title="Permalink to this definition">¶</a></dt>
+<code class="descname">calcVuEHE08</code><span class="sig-paren">(</span><em>scc</em>, <em>torsionParameters</em>, <em>concrete</em>, <em>reinfSteel</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em>, <em>circular=False</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearController.calcVuEHE08" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the shear strength at failure.
 XXX Presstressing contribution not implemented yet.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -884,14 +1107,17 @@ XXX Presstressing contribution not implemented yet.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>scc</strong> – fiber model of the section.</li>
-<li><strong>torsionParameters</strong> – parameters that define torsional behaviour of
-the section as in clause 45.1 of EHE-08.</li>
+<li><strong>torsionParameters</strong> – parameters that define torsional behaviour 
+of the section as in clause 45.1 of EHE-08.</li>
 <li><strong>concrete</strong> – parameters to model concrete.</li>
 <li><strong>reinfSteel</strong> – parameters to model rebar’s steel.</li>
 <li><strong>Nd</strong> – Design value of axial force (positive if in tension)</li>
 <li><strong>Md</strong> – Absolute value of design value of bending moment.</li>
 <li><strong>Vd</strong> – Absolute value of effective design shear (clause 42.2.2).</li>
 <li><strong>Td</strong> – design value of torsional moment.</li>
+<li><strong>circular</strong> – if true we reduce the efectiveness of the shear 
+reinforcement due to the transverse inclination of
+its elements.</li>
 </ul>
 </td>
 </tr>
@@ -923,7 +1149,7 @@ XXX Presstressing contribution not implemented yet.</p>
 
 <dl class="method">
 <dt id="materials.ehe.EHE_limit_state_checking.ShearController.calcVuEHE08SiAt">
-<code class="descname">calcVuEHE08SiAt</code><span class="sig-paren">(</span><em>scc</em>, <em>torsionParameters</em>, <em>concrete</em>, <em>reinfSteel</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearController.calcVuEHE08SiAt" title="Permalink to this definition">¶</a></dt>
+<code class="descname">calcVuEHE08SiAt</code><span class="sig-paren">(</span><em>scc</em>, <em>torsionParameters</em>, <em>concrete</em>, <em>reinfSteel</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em>, <em>circular=False</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearController.calcVuEHE08SiAt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the shear strength at failure WITH shear reinforcement.
 XXX Presstressing contribution not implemented yet.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -932,8 +1158,8 @@ XXX Presstressing contribution not implemented yet.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>scc</strong> – fiber model of the section.</li>
-<li><strong>torsionParameters</strong> – parameters that define torsional behaviour of
-the section as in clause 45.1 of EHE-08.</li>
+<li><strong>torsionParameters</strong> – parameters that define torsional behaviour 
+of the section as in clause 45.1 of EHE-08.</li>
 <li><strong>reinfSteelMaterialTag</strong> – reinforcement steel material identifier.</li>
 <li><strong>concrete</strong> – concrete material.</li>
 <li><strong>reinfSteel</strong> – reinforcement steel.</li>
@@ -941,6 +1167,9 @@ the section as in clause 45.1 of EHE-08.</li>
 <li><strong>Md</strong> – Absolute value of design value of bending moment.</li>
 <li><strong>Vd</strong> – Absolute value of effective design shear (clause 42.2.2).</li>
 <li><strong>Td</strong> – design value of torsional moment.</li>
+<li><strong>circular</strong> – if true we reduce the efectiveness of the shear 
+reinforcement due to the transverse inclination of
+its elements.</li>
 </ul>
 </td>
 </tr>
@@ -950,19 +1179,25 @@ the section as in clause 45.1 of EHE-08.</li>
 
 <dl class="method">
 <dt id="materials.ehe.EHE_limit_state_checking.ShearController.check">
-<code class="descname">check</code><span class="sig-paren">(</span><em>elements</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearController.check" title="Permalink to this definition">¶</a></dt>
-<dd><p>For each element in the set ‘elements’ passed as first parameter and 
-the resulting internal forces for the load combination ‘nmbComb’  
+<code class="descname">check</code><span class="sig-paren">(</span><em>elements</em>, <em>combName</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearController.check" title="Permalink to this definition">¶</a></dt>
+<dd><p>For each element in the set ‘elements’ passed as first parameter
+and the resulting internal forces for the load combination ‘combName’  
 passed as second parameter, this method calculates all the variables 
 involved in the shear-ULS checking and obtains the capacity factor.
 In the case that the calculated capacity factor is smaller than the 
-smallest obtained for the element in previous load combinations, this value
-is saved in the element results record.</p>
+smallest obtained for the element in previous load combinations, this 
+value is saved in the element results record.</p>
 <p>Elements processed are those belonging to the phantom model, that is to 
 say, of type xc.ZeroLengthSection. As we have defined the variable 
 fakeSection as False, a reinfoced concrete fiber section is generated
 for each of these elements.</p>
 <p>XXX Rebar orientation not taken into account yet.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.ehe.EHE_limit_state_checking.ShearController.checkSection">
+<code class="descname">checkSection</code><span class="sig-paren">(</span><em>sct</em>, <em>secHAParamsTorsion=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearController.checkSection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check shear on the section argument.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1000,7 +1235,7 @@ for each of these elements.</p>
 <dl class="method">
 <dt id="materials.ehe.EHE_limit_state_checking.ShearDesignParameters.printParams">
 <code class="descname">printParams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.ShearDesignParameters.printParams" title="Permalink to this definition">¶</a></dt>
-<dd><p>Print shear checking values.</p>
+<dd><p>print(shear checking values.)</p>
 </dd></dl>
 
 </dd></dl>
@@ -1014,15 +1249,15 @@ clause 45.1 of EHE-08.</p>
 <dl class="method">
 <dt id="materials.ehe.EHE_limit_state_checking.TorsionParameters.A">
 <code class="descname">A</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.TorsionParameters.A" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the area of the transverse section inscribed in the external circumference
-including inner void areas</p>
+<dd><p>Return the area of the transverse section inscribed in the 
+external circumference including inner void areas</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.ehe.EHE_limit_state_checking.TorsionParameters.Ae">
 <code class="descname">Ae</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.TorsionParameters.Ae" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the area enclosed by the middle line of the design effective hollow 
-section</p>
+<dd><p>Return the area enclosed by the middle line of the design 
+effective hollow section</p>
 </dd></dl>
 
 <dl class="method">
@@ -1040,7 +1275,8 @@ section</p>
 <dl class="method">
 <dt id="materials.ehe.EHE_limit_state_checking.TorsionParameters.ue">
 <code class="descname">ue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.TorsionParameters.ue" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the perimeter of the middle line in the design effective hollow section Ae</p>
+<dd><p>Return the perimeter of the middle line in the design effective 
+hollow section Ae.</p>
 </dd></dl>
 
 </dd></dl>
@@ -1049,8 +1285,9 @@ section</p>
 <dt id="materials.ehe.EHE_limit_state_checking.computeEffectiveHollowSectionParameters">
 <code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">computeEffectiveHollowSectionParameters</code><span class="sig-paren">(</span><em>sectionGeometry</em>, <em>h0</em>, <em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.computeEffectiveHollowSectionParameters" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>Computes the parameter for torsion analysis of an</dt>
-<dd>effective hollow section. Not valid if for non-convex sections.</dd>
+<dt>Computes the parameters for torsion analysis of an</dt>
+<dd>effective hollow section according to clause 45.2.1
+of EHE-08. Not valid if for non-convex sections.</dd>
 </dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1058,10 +1295,28 @@ section</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>sectionGeometry</strong> – section geometry.</li>
-<li><strong>h0</strong> – real thickness of the section wall.</li>
-<li><strong>c</strong> – cover of the longitudinal reinforcement.</li>
+<li><strong>h0</strong> – actual thickness of the wall for hollow sections.</li>
+<li><strong>c</strong> – cover of longitudinal reinforcement.</li>
 </ul>
 </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.ehe.EHE_limit_state_checking.computeEffectiveHollowSectionParametersRCSection">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">computeEffectiveHollowSectionParametersRCSection</code><span class="sig-paren">(</span><em>rcSection</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.computeEffectiveHollowSectionParametersRCSection" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Computes the parameters for torsion analysis of an</dt>
+<dd>effective hollow section according to clause 45.2.1
+of EHE-08.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>rcSection</strong> – reinforced concrete section</td>
 </tr>
 </tbody>
 </table>
@@ -1071,7 +1326,7 @@ section</p>
 <dt id="materials.ehe.EHE_limit_state_checking.getBetaVcuEHE08">
 <code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getBetaVcuEHE08</code><span class="sig-paren">(</span><em>theta</em>, <em>thetaE</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getBetaVcuEHE08" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>getBetaVcuEHE08(theta,thetaE) [uds: N, m, rad]</dt>
+<dt>getBetaVcuEHE08(theta,thetaE) [units: N, m, rad]</dt>
 <dd>Return the value of «beta» for the expression
 of Vcu according to clause 44.2.3.2.2 of EHE-08.</dd>
 </dl>
@@ -1081,7 +1336,8 @@ of Vcu according to clause 44.2.3.2.2 of EHE-08.</dd>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>thetaE</strong> – Reference angle of inclination of cracks.</li>
-<li><strong>theta</strong> – angle between the concrete compressed struts and the member axis (figure 44.2.3.1.a EHE).</li>
+<li><strong>theta</strong> – angle between the concrete compressed struts and the 
+member axis (figure 44.2.3.1.a EHE).</li>
 </ul>
 </td>
 </tr>
@@ -1093,7 +1349,7 @@ of Vcu according to clause 44.2.3.2.2 of EHE-08.</dd>
 <dt id="materials.ehe.EHE_limit_state_checking.getCrackAngleEHE08">
 <code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getCrackAngleEHE08</code><span class="sig-paren">(</span><em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em>, <em>z</em>, <em>AsPas</em>, <em>AsAct</em>, <em>Es</em>, <em>Ep</em>, <em>Fp</em>, <em>Ae</em>, <em>ue</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getCrackAngleEHE08" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>getCrackAngleEHE08(Nd,Md,Vd,Td,z,AsPas,AsAct,Es,Ep,Fp,Ae,ue) [uds: N, m, rad]</dt>
+<dt>getCrackAngleEHE08(Nd,Md,Vd,Td,z,AsPas,AsAct,Es,Ep,Fp,Ae,ue) [units: N, m, rad]</dt>
 <dd>Return the reference angle of inclination of cracks (in radians) from
 the longitudinal strain in the web. See general method in clause 
 44.2.3.2.2 of EHE-08.</dd>
@@ -1127,7 +1383,7 @@ at a distance greater than the effective depth of the section.</li>
 <dl class="function">
 <dt id="materials.ehe.EHE_limit_state_checking.getEpsilonXEHE08">
 <code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getEpsilonXEHE08</code><span class="sig-paren">(</span><em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em>, <em>z</em>, <em>AsPas</em>, <em>AsAct</em>, <em>Es</em>, <em>Ep</em>, <em>Fp</em>, <em>Ae</em>, <em>ue</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getEpsilonXEHE08" title="Permalink to this definition">¶</a></dt>
-<dd><p>getEpsilonXEHE08(Nd,Md,Vd,Td,z,AsPas,AsAct,Es,Ep,Fp,Ae,ue) [uds: N, m, rad]
+<dd><p>getEpsilonXEHE08(Nd,Md,Vd,Td,z,AsPas,AsAct,Es,Ep,Fp,Ae,ue) [units: N, m, rad]
 Return the longitudinal strain in the web according to
 expression in commments to the clause 44.2.3.2.2 of EHE-08.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1159,7 +1415,8 @@ at a distance greater than the effective depth of the section.</li>
 <dl class="function">
 <dt id="materials.ehe.EHE_limit_state_checking.getF1cdEHE08">
 <code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getF1cdEHE08</code><span class="sig-paren">(</span><em>fck</em>, <em>fcd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getF1cdEHE08" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>getF1cdEHE08(fck,fcd). Returns the value of f1cd (design value of the concrete strut strength) according to clause 44.2.3.1 of EHE-08.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1171,15 +1428,13 @@ at a distance greater than the effective depth of the section.</li>
 </tr>
 </tbody>
 </table>
-<p>Returns the value of f1cd (design value of the concrete strut strength)
-according to clause 44.2.3.1 of EHE-08.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="materials.ehe.EHE_limit_state_checking.getFcv">
 <code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getFcv</code><span class="sig-paren">(</span><em>fact</em>, <em>fck</em>, <em>Nd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>AsPas</em>, <em>fyd</em>, <em>AsAct</em>, <em>fpd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getFcv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the value of fcv (concrete virtual shear strength)
-for parts WITH or WITHOUT shear reinforcement, according to clauses 
+for members WITH or WITHOUT shear reinforcement, according to clauses 
 44.2.3.2.1 y  44.2.3.2.2 of EHE.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1187,10 +1442,10 @@ for parts WITH or WITHOUT shear reinforcement, according to clauses
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>fact</strong> – <dl class="docutils">
-<dt>factor equal to 0.12 for parts WITHOUT shear reinforcement </dt>
+<dt>factor equal to 0.12 for members WITHOUT shear reinforcement </dt>
 <dd>(0.18/gammac)</dd>
 </dl>
-<p>and 0.10 for parts WITH shear reinforcement  (0.15/gammac).</p>
+<p>and 0.10 for members WITH shear reinforcement  (0.15/gammac).</p>
 </li>
 <li><strong>fck</strong> – concrete characteristic compressive strength.</li>
 <li><strong>Nd</strong> – axial force design value (positive if in tension).</li>
@@ -1221,12 +1476,7 @@ at a distance greater than the effective depth of the section.</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>fcd</strong> – design compressive strength of concrete.</li>
-<li><strong>b</strong> – net width of the element according to clause 40.3.5.</li>
-<li><strong>d</strong> – effective depth (meters).</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fcd</strong> – design compressive strength of concrete.</td>
 </tr>
 </tbody>
 </table>
@@ -1236,9 +1486,9 @@ at a distance greater than the effective depth of the section.</li>
 <dt id="materials.ehe.EHE_limit_state_checking.getFcvEHE08">
 <code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getFcvEHE08</code><span class="sig-paren">(</span><em>fact</em>, <em>fcv</em>, <em>gammaC</em>, <em>b0</em>, <em>d</em>, <em>chi</em>, <em>sgpcd</em>, <em>AsPas</em>, <em>AsAct</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getFcvEHE08" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>getFcvEHE08(fact,fcv,gammaC,b0,d,chi,sgpcd,AsPas,AsAct) [uds: N, m, rad]</dt>
+<dt>getFcvEHE08(fact,fcv,gammaC,b0,d,chi,sgpcd,AsPas,AsAct) [units: N, m, rad]</dt>
 <dd>Return the value of fcv (concrete virtual shear strength)
-for parts WITH or WITHOUT shear reinforcement in cracked regions, according
+for members WITH or WITHOUT shear reinforcement in cracked regions, according
 to clauses 44.2.3.2.1.2 and 44.2.3.2.2 of EHE-08.</dd>
 </dl>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1246,11 +1496,18 @@ to clauses 44.2.3.2.1.2 and 44.2.3.2.2 of EHE-08.</dd>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>fact</strong> – Factor que toma el valor 0.18 for parts WITHOUT shear 
-reinforcement y 0.15 for parts WITH shear reinforcement.</li>
-<li><strong>fcv</strong> – effective concrete shear strength. For members without shear reinforcement
-fcv= min(fck,60MPa). For members with shear reinforcement fcv= min(fck,100MPa).
-In both cases, if concrete quality control is not direct fcv= 15 MPa.</li>
+<li><strong>fact</strong> – Factor with a value of 0.18 for members WITHOUT shear 
+reinforcement and 0.15 for members WITH shear reinforcement.</li>
+<li><strong>fcv</strong> – <dl class="docutils">
+<dt>effective concrete shear strength. For members without </dt>
+<dd><dl class="first last docutils">
+<dt>shear reinforcement fcv= min(fck,60MPa). For members </dt>
+<dd>with shear reinforcement fcv= min(fck,100MPa).</dd>
+</dl>
+</dd>
+</dl>
+<p>In both cases, if concrete quality control is not direct fcv= 15 MPa.</p>
+</li>
 <li><strong>gammaC</strong> – Partial safety factor for concrete.</li>
 <li><strong>b0</strong> – net width of the element according to clause 40.3.5.</li>
 <li><strong>d</strong> – effective depth (meters).</li>
@@ -1281,9 +1538,13 @@ clause 44.2.3.2.1.2 of EHE-08.</dd>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>fcv</strong> – effective concrete shear strength. For members without shear reinforcement
-fcv= min(fck,60MPa). For members with shear reinforcement fcv= min(fck,100MPa).
-In both cases, if concrete quality control is not direct fcv= 15 MPa.</li>
+<li><strong>fcv</strong> – <dl class="docutils">
+<dt>effective concrete shear strength. For members without </dt>
+<dd>shear reinforcement fcv= min(fck,60MPa). For members 
+with shear reinforcement fcv= min(fck,100MPa).</dd>
+</dl>
+<p>In both cases, if concrete quality control is not direct fcv= 15 MPa.</p>
+</li>
 <li><strong>gammaC</strong> – Partial safety factor for concrete.</li>
 <li><strong>d</strong> – effective depth (meters).</li>
 <li><strong>chi</strong> – coefficient that takes into account the aggregate effect
@@ -1299,7 +1560,8 @@ inside the effective depth.</li>
 <dl class="function">
 <dt id="materials.ehe.EHE_limit_state_checking.getKEHE08">
 <code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getKEHE08</code><span class="sig-paren">(</span><em>sgpcd</em>, <em>fcd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getKEHE08" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dd><p>getKEHE08(sgpcd,fcd). Return the value of K (coefficent that depends of the axial force) according to clause 44.2.3.1 de la EHE-08</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1311,15 +1573,13 @@ inside the effective depth.</li>
 </tr>
 </tbody>
 </table>
-<p>Return the value of K (coeficiente que depende del esfuerzo axil)
-according to clause 44.2.3.1 de la EHE-08</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="materials.ehe.EHE_limit_state_checking.getVcu">
 <code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVcu</code><span class="sig-paren">(</span><em>fck</em>, <em>Nd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>theta</em>, <em>AsPas</em>, <em>fyd</em>, <em>AsAct</em>, <em>fpd</em>, <em>sgxd</em>, <em>sgyd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVcu" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the value of Vcu (contribution of the concrete to shear strength) 
-for parts WITH shear reinforcement, according to clause 44.2.3.2.2 of 
+for members WITH shear reinforcement, according to clause 44.2.3.2.2 of 
 EHE (1998).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1340,11 +1600,11 @@ at a distance greater than the effective depth of the section.</li>
 at a distance greater than the effective depth of the section.</li>
 <li><strong>fpd</strong> – design value of prestressing steel strength (clause 38.6 EHE).</li>
 <li><strong>sgxd</strong> – design value of normal stress at the centre of gravity of the
-section parallel to the main axis of the member. Calculated assuming NON 
-CRACKED concrete (clause 44.2.3.2).</li>
+section parallel to the main axis of the member. Calculated 
+assuming NON CRACKED concrete (clause 44.2.3.2).</li>
 <li><strong>sgyd</strong> – design value of normal stress at the centre of gravity of the
-section parallel to shear force Vd. Calculated assuming NON CRACKED 
-concrete (clause 44.2.3.2).</li>
+section parallel to shear force Vd. Calculated 
+assuming NON CRACKED concrete (clause 44.2.3.2).</li>
 </ul>
 </td>
 </tr>
@@ -1357,21 +1617,24 @@ concrete (clause 44.2.3.2).</li>
 <code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVcuEHE08</code><span class="sig-paren">(</span><em>fcv</em>, <em>fcd</em>, <em>gammaC</em>, <em>Ncd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>z</em>, <em>AsPas</em>, <em>AsAct</em>, <em>theta</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em>, <em>Es</em>, <em>Ep</em>, <em>Fp</em>, <em>Ae</em>, <em>ue</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVcuEHE08" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>getVcuEHE08(fcv,fcd,gammaC,Ncd,Ac,b0,d,z,AsPas,AsAct,theta,Nd,Md,Vd,Td,Es,Ep,Fp,Ae,ue) </dt>
-<dd>[uds: N, m, rad]
+<dd>[units: N, m, rad]
 Return the value of Vcu (contribution of the concrete to shear strength)
-for parts WITH shear reinforcement, according to clause 44.2.3.2.2 of EHE-08.</dd>
+for members WITH shear reinforcement, according to clause 
+44.2.3.2.2 of EHE-08.</dd>
 </dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>fcv</strong> – effective concrete shear strength. For members without shear reinforcement
-fcv= min(fck,60MPa). For members with shear reinforcement fcv= min(fck,100MPa).
-In both cases, if concrete quality control is not direct fcv= 15 MPa.</li>
+<li><strong>fcv</strong> – effective concrete shear strength. For members without shear 
+reinforcement fcv= min(fck,60MPa). For members with shear 
+reinforcement fcv= min(fck,100MPa). In both cases, if 
+concrete quality control is not direct fcv= 15 MPa.</li>
 <li><strong>fcd</strong> – design value of concrete compressive strength).</li>
 <li><strong>gammaC</strong> – Partial safety factor for concrete.</li>
-<li><strong>Ncd</strong> – design value of axial force in concrete (positive if in tension).</li>
+<li><strong>Ncd</strong> – design value of axial force in concrete
+(positive if in tension).</li>
 <li><strong>Ac</strong> – concrete section total area.</li>
 <li><strong>b0</strong> – net width of the element according to clause 40.3.5.</li>
 <li><strong>d</strong> – effective depth (meters).</li>
@@ -1402,7 +1665,7 @@ axis (figure 44.2.3.1.a EHE)</li>
 <dt id="materials.ehe.EHE_limit_state_checking.getVsu">
 <code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVsu</code><span class="sig-paren">(</span><em>z</em>, <em>alpha</em>, <em>theta</em>, <em>AsTrsv</em>, <em>fyd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVsu" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the value of Vsu (contribution of the web’s transverse reinforcement 
-to shear strength) for parts WITH shear reinforcement, according to 
+to shear strength) for members WITH shear reinforcement, according to 
 clause 44.2.3.2.2 of EHE.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1410,8 +1673,10 @@ clause 44.2.3.2.2 of EHE.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>z</strong> – Mechanic lever arm.</li>
-<li><strong>alpha</strong> – angle of the shear reinforcement with the member axis (see figure 44.2.3.1.a EHE).</li>
-<li><strong>theta</strong> – angle between the concrete compressed struts and the member axis (figure 44.2.3.1.a EHE).</li>
+<li><strong>alpha</strong> – angle of the shear reinforcement with the member axis
+(see figure 44.2.3.1.a EHE).</li>
+<li><strong>theta</strong> – angle between the concrete compressed struts and the member 
+axis (figure 44.2.3.1.a EHE).</li>
 <li><strong>AsTrsv</strong> – transverse reinforcement area.</li>
 <li><strong>fyd</strong> – design yield strength of the transverse reinforcement.</li>
 </ul>
@@ -1423,10 +1688,10 @@ clause 44.2.3.2.2 of EHE.</p>
 
 <dl class="function">
 <dt id="materials.ehe.EHE_limit_state_checking.getVsuEHE08">
-<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVsuEHE08</code><span class="sig-paren">(</span><em>z</em>, <em>alpha</em>, <em>theta</em>, <em>AsTrsv</em>, <em>fyd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVsuEHE08" title="Permalink to this definition">¶</a></dt>
-<dd><p>getVsuEHE08(z,alpha,theta,AsTrsv,fyd)  [uds: N, m, rad]
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVsuEHE08</code><span class="sig-paren">(</span><em>z</em>, <em>alpha</em>, <em>theta</em>, <em>AsTrsv</em>, <em>fyd</em>, <em>circular</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVsuEHE08" title="Permalink to this definition">¶</a></dt>
+<dd><p>getVsuEHE08(z,alpha,theta,AsTrsv,fyd)  [units: N, m, rad]
 Return the value of Vsu (contribution of the web’s transverse 
-reinforcement to shear strength) for parts WITH shear reinforcement,
+reinforcement to shear strength) for members WITH shear reinforcement,
 according to clause 44.2.3.2.2 of EHE-08.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1437,8 +1702,12 @@ according to clause 44.2.3.2.2 of EHE-08.</p>
 <li><strong>alpha</strong> – angle of the transverse reinforcement with the member axis.</li>
 <li><strong>theta</strong> – angle between the concrete compressed struts and the 
 member axis (figure 44.2.3.1.a EHE).</li>
-<li><strong>AsTrsv</strong> – transverse reinforcement area which contribution will be computed.</li>
+<li><strong>AsTrsv</strong> – transverse reinforcement area which contribution will 
+be computed.</li>
 <li><strong>fyd</strong> – design yield strength of the transverse reinforcement.</li>
+<li><strong>circular</strong> – if true we reduce the efectiveness of the shear 
+reinforcement due to the transverse inclination of its
+elements.</li>
 </ul>
 </td>
 </tr>
@@ -1450,7 +1719,7 @@ member axis (figure 44.2.3.1.a EHE).</li>
 <dt id="materials.ehe.EHE_limit_state_checking.getVu">
 <code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVu</code><span class="sig-paren">(</span><em>fck</em>, <em>fcd</em>, <em>Nd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>z</em>, <em>alpha</em>, <em>theta</em>, <em>AsPas</em>, <em>fyd</em>, <em>AsAct</em>, <em>fpd</em>, <em>sgxd</em>, <em>sgyd</em>, <em>AsTrsv</em>, <em>fydTrsv</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVu" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>Return the value of Vu= max(Vu1,Vu2) for parts WITH or WITHOUT shear </dt>
+<dt>Return the value of Vu= max(Vu1,Vu2) for members WITH or WITHOUT shear </dt>
 <dd>reinforcement, according to clause 44.2.3.2.2 of EHE (1998).</dd>
 </dl>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1464,7 +1733,8 @@ member axis (figure 44.2.3.1.a EHE).</li>
 <li><strong>b0</strong> – net width of the element according to clause 40.3.5.</li>
 <li><strong>d</strong> – effective depth (meters).</li>
 <li><strong>z</strong> – mechanic lever arm.</li>
-<li><strong>alpha</strong> – angle of the shear reinforcement with the part axis (figure 44.2.3.1.a EHE).</li>
+<li><strong>alpha</strong> – angle of the shear reinforcement with the member 
+axis (figure 44.2.3.1.a EHE).</li>
 <li><strong>theta</strong> – angle between the concrete compressed struts and the 
 member axis (figure 44.2.3.1.a EHE).</li>
 <li><strong>AsPas</strong> – Area of tensioned longitudinal steel rebars anchored
@@ -1503,8 +1773,10 @@ in the web) according to clause 44.2.3.1 of EHE.</p>
 <li><strong>Ac</strong> – concrete section total area.</li>
 <li><strong>b0</strong> – net width of the element according to clause 40.3.5.</li>
 <li><strong>d</strong> – effective depth.</li>
-<li><strong>alpha</strong> – angle between the shear rebars and the member axis (figure 44.2.3.1.a EHE).</li>
-<li><strong>theta</strong> – angle between the concrete compressed struts and the member axis (figure 44.2.3.1.a EHE).</li>
+<li><strong>alpha</strong> – angle between the shear rebars and the member 
+axis (figure 44.2.3.1.a EHE).</li>
+<li><strong>theta</strong> – angle between the concrete compressed struts and the member 
+axis (figure 44.2.3.1.a EHE).</li>
 </ul>
 </td>
 </tr>
@@ -1515,7 +1787,11 @@ in the web) according to clause 44.2.3.1 of EHE.</p>
 <dl class="function">
 <dt id="materials.ehe.EHE_limit_state_checking.getVu1EHE08">
 <code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVu1EHE08</code><span class="sig-paren">(</span><em>fck</em>, <em>fcd</em>, <em>Ncd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>alpha</em>, <em>theta</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVu1EHE08" title="Permalink to this definition">¶</a></dt>
-<dd><p>getVu1EHE08(fck,fcd,Ncd,Ac,b0,d,alpha,theta) [uds: N, m, rad]</p>
+<dd><dl class="docutils">
+<dt>getVu1EHE08(fck,fcd,Ncd,Ac,b0,d,alpha,theta) [units: N, m, rad]. Return</dt>
+<dd>the value of Vu1 (shear strength at failure due to diagonal compression in the web) 
+according to clause 44.2.3.1 of EHE-08.</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1523,26 +1799,27 @@ in the web) according to clause 44.2.3.1 of EHE.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>fck</strong> – concrete characteristic compressive strength.</li>
 <li><strong>fcd</strong> – design value of concrete compressive strength (N/m2).</li>
-<li><strong>Ncd</strong> – design value of axial force in concrete (positive if in tension).</li>
+<li><strong>Ncd</strong> – design value of axial force in concrete
+(positive if in tension).</li>
 <li><strong>Ac</strong> – concrete section total area.</li>
 <li><strong>b0</strong> – net width of the element according to clause 40.3.5.</li>
 <li><strong>d</strong> – effective depth.</li>
-<li><strong>alpha</strong> – angle of the shear reinforcement with the part axis (figure 44.2.3.1 EHE-08).</li>
-<li><strong>theta</strong> – angle between the concrete compressed struts and the member axis (figure 44.2.3.1.a EHE).</li>
+<li><strong>alpha</strong> – angle of the shear reinforcement with the member axis
+(figure 44.2.3.1 EHE-08).</li>
+<li><strong>theta</strong> – angle between the concrete compressed struts and the 
+member axis (figure 44.2.3.1.a EHE).</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Return the value of Vu1 (shear strength at failure due to diagonal 
-compression in the web) according to clause 44.2.3.1 of EHE-08.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="materials.ehe.EHE_limit_state_checking.getVu2">
 <code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVu2</code><span class="sig-paren">(</span><em>fck</em>, <em>Nd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>z</em>, <em>alpha</em>, <em>theta</em>, <em>AsPas</em>, <em>fyd</em>, <em>AsAct</em>, <em>fpd</em>, <em>sgxd</em>, <em>sgyd</em>, <em>AsTrsv</em>, <em>fydTrsv</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVu2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the value of Vu2 (ultimate shear force failure due to tensile force 
-in the web) for parts WITH or WITHOUT shear reinforcement, according to 
+in the web) for members WITH or WITHOUT shear reinforcement, according to 
 clause 44.2.3.2.2 of EHE (1998).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1564,7 +1841,8 @@ at a distance greater than the effective depth of the section.</li>
 <li><strong>fyd</strong> – reinforcing steel design yield strength (clause 38.3 of EHE).</li>
 <li><strong>AsAct</strong> – Area of tensioned longitudinal prestressed steel anchored
 at a distance greater than the effective depth of the section.</li>
-<li><strong>fpd</strong> – design value of prestressing steel strength (clause 38.6 of EHE).</li>
+<li><strong>fpd</strong> – design value of prestressing steel strength
+(clause 38.6 of EHE).</li>
 <li><strong>sgxd</strong> – design value of normal stress at the centre of gravity of the
 section parallel to the main axis of the member. Calculated assuming NON 
 CRACKED concrete (clause 44.2.3.2).</li>
@@ -1584,8 +1862,8 @@ concrete (clause 44.2.3.2).</li>
 <dt id="materials.ehe.EHE_limit_state_checking.getVu2EHE08NoAt">
 <code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVu2EHE08NoAt</code><span class="sig-paren">(</span><em>M</em>, <em>Mfis</em>, <em>fcv</em>, <em>fck</em>, <em>gammaC</em>, <em>I</em>, <em>S</em>, <em>alphaL</em>, <em>Ncd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>AsPas</em>, <em>AsAct</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVu2EHE08NoAt" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>getVu2EHE08NoAt(M,Mfis,fcv,fck,gammaC,I,S,alphaL,Ncd,Ac,b0,d,AsPas,AsAct)   [uds: N, m, rad]</dt>
-<dd>Return the value of Vu2 (shear strength at failure due to tensile force in the web)
+<dt>getVu2EHE08NoAt(M,Mfis,fcv,fck,gammaC,I,S,alphaL,Ncd,Ac,b0,d,AsPas,AsAct)       [units: N, m, rad]. Return the value of Vu2</dt>
+<dd>(shear strength at failure due to tensile force in the web)
 for members WITHOUT shear reinforcement, according to clauses 
 44.2.3.2.1.1 y 44.2.3.2.1.2 of EHE-08.</dd>
 </dl>
@@ -1595,14 +1873,16 @@ for members WITHOUT shear reinforcement, according to clauses
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>M</strong> – Bending moment in the section.</li>
-<li><strong>Mfis</strong> – Cracking moment of the section calculated using fct,d = fct,k/gammaC in
-the same plane that M.</li>
-<li><strong>fcv</strong> – effective concrete shear strength. For members without shear reinforcement
-fcv= min(fck,60MPa). For members with shear reinforcement fcv= min(fck,100MPa).
-In both cases, if concrete quality control is not direct fcv= 15 MPa.</li>
+<li><strong>Mfis</strong> – Cracking moment of the section calculated using 
+fct,d= fct,k/gammaC in the same plane that M.</li>
+<li><strong>fcv</strong> – effective concrete shear strength. For members without 
+shear reinforcement fcv= min(fck,60MPa). For members 
+with shear reinforcement fcv= min(fck,100MPa). In both cases,
+if concrete quality control is not direct fcv= 15 MPa.</li>
 <li><strong>fck</strong> – concrete characteristic compressive strength.</li>
 <li><strong>gammaC</strong> – Partial safety factor for concrete.</li>
-<li><strong>Ncd</strong> – design value of axial force in concrete (positive if in tension).</li>
+<li><strong>Ncd</strong> – design value of axial force in concrete
+(positive if in tension).</li>
 <li><strong>Ac</strong> – concrete section total area.</li>
 <li><strong>b0</strong> – net width of the element according to clause 40.3.5.</li>
 <li><strong>d</strong> – effective depth (meters).</li>
@@ -1620,7 +1900,11 @@ at a distance greater than the effective depth of the section.</li>
 <dl class="function">
 <dt id="materials.ehe.EHE_limit_state_checking.getVu2EHE08NoAtNoFis">
 <code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVu2EHE08NoAtNoFis</code><span class="sig-paren">(</span><em>fctd</em>, <em>I</em>, <em>S</em>, <em>b0</em>, <em>alphal</em>, <em>Ncd</em>, <em>Ac</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVu2EHE08NoAtNoFis" title="Permalink to this definition">¶</a></dt>
-<dd><p>getVu2EHE08NoAtNoFis(fctd,I,S,b0,alphal,Ncd,Ac) [uds: N, m, rad]</p>
+<dd><dl class="docutils">
+<dt>getVu2EHE08NoAtNoFis(fctd,I,S,b0,alphal,Ncd,Ac) [units: N, m, rad].</dt>
+<dd>Return the value of Vu2 (shear strength at failure due to tensile force in the web) 
+according to clause 44.2.3.2.1.1 of EHE-08.</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1630,25 +1914,25 @@ at a distance greater than the effective depth of the section.</li>
 <li><strong>I</strong> – Moment of inertia of the section with respect of its centroid.</li>
 <li><strong>S</strong> – First moment of the section above the center of gravity.</li>
 <li><strong>b0</strong> – net width of the element according to clause 40.3.5.</li>
-<li><strong>alphal</strong> – coeficiente que, en su caso, introduce el efecto de la transferencia.</li>
-<li><strong>Ncd</strong> – design value of axial force in concrete (positive if in tension).</li>
+<li><strong>alphal</strong> – coeficiente que, en su caso, introduce el efecto de 
+la transferencia.</li>
+<li><strong>Ncd</strong> – design value of axial force in concrete 
+(positive if in tension).</li>
 <li><strong>Ac</strong> – concrete section total area.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>Return the value of Vu2 (shear strength at failure due to tensile force in the web)
-according to clause 44.2.3.2.1.1 of EHE-08.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="materials.ehe.EHE_limit_state_checking.getVu2EHE08NoAtSiFis">
 <code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVu2EHE08NoAtSiFis</code><span class="sig-paren">(</span><em>fcv</em>, <em>fcd</em>, <em>gammaC</em>, <em>Ncd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>AsPas</em>, <em>AsAct</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVu2EHE08NoAtSiFis" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>getVu2EHE08NoAtSiFis(fcv,fcd,gammaC,Ncd,Ac,b0,d,AsPas,AsAct) [uds: N, m]</dt>
+<dt>getVu2EHE08NoAtSiFis(fcv,fcd,gammaC,Ncd,Ac,b0,d,AsPas,AsAct) [units: N, m]</dt>
 <dd>Return the value of Vu2 (shear strength at failure due to tensile force in the web)
-for parts WITHOUT shear reinforcement in cracked regions, according to 
+for members WITHOUT shear reinforcement in cracked regions, according to 
 clause 44.2.3.2.1.2 of EHE-08.</dd>
 </dl>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1656,12 +1940,14 @@ clause 44.2.3.2.1.2 of EHE-08.</dd>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>fcv</strong> – effective concrete shear strength. For members without shear reinforcement
-fcv= min(fck,60MPa). For members with shear reinforcement fcv= min(fck,100MPa).
-In both cases, if concrete quality control is not direct fcv= 15 MPa.</li>
+<li><strong>fcv</strong> – effective concrete shear strength. For members without 
+shear reinforcement fcv= min(fck,60MPa). For members with
+shear reinforcement fcv= min(fck,100MPa). In both cases, if 
+concrete quality control is not direct fcv= 15 MPa.</li>
 <li><strong>fcd</strong> – design value of concrete compressive strength).</li>
 <li><strong>gammaC</strong> – Partial safety factor for concrete.</li>
-<li><strong>Ncd</strong> – design value of axial force in concrete (positive if in tension).</li>
+<li><strong>Ncd</strong> – design value of axial force in concrete
+(positive if in tension).</li>
 <li><strong>Ac</strong> – concrete section total area.</li>
 <li><strong>b0</strong> – net width of the element according to clause 40.3.5.</li>
 <li><strong>d</strong> – effective depth (meters).</li>
@@ -1678,24 +1964,27 @@ at a distance greater than the effective depth of the section.</li>
 
 <dl class="function">
 <dt id="materials.ehe.EHE_limit_state_checking.getVu2EHE08SiAt">
-<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVu2EHE08SiAt</code><span class="sig-paren">(</span><em>fcv</em>, <em>fcd</em>, <em>fyd</em>, <em>gammaC</em>, <em>Ncd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>z</em>, <em>AsPas</em>, <em>AsAct</em>, <em>AsTrsv</em>, <em>alpha</em>, <em>theta</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em>, <em>Es</em>, <em>Ep</em>, <em>Fp</em>, <em>Ae</em>, <em>ue</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVu2EHE08SiAt" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVu2EHE08SiAt</code><span class="sig-paren">(</span><em>fcv</em>, <em>fcd</em>, <em>fyd</em>, <em>gammaC</em>, <em>Ncd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>z</em>, <em>AsPas</em>, <em>AsAct</em>, <em>AsTrsv</em>, <em>alpha</em>, <em>theta</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em>, <em>Es</em>, <em>Ep</em>, <em>Fp</em>, <em>Ae</em>, <em>ue</em>, <em>circular=False</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVu2EHE08SiAt" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>getVu2EHE08SiAt(fcv,fcd,fyd,gammaC,Ncd,Ac,b0,d,z,AsPas,AsAct,AsTrsv, alpha, theta,Nd,Md,Vd,Td,Es,Ep,Fp,Ae,ue) [uds: N, m, rad]. </dt>
+<dt>getVu2EHE08SiAt(fcv,fcd,fyd,gammaC,Ncd,Ac,b0,d,z,AsPas,AsAct,AsTrsv, alpha, theta,Nd,Md,Vd,Td,Es,Ep,Fp,Ae,ue) [units: N, m, rad]. </dt>
 <dd>Return the value of Vu2 (shear strength at failure due to tensile force in the web)
-for parts WITH shear reinforcement, according to clause 44.2.3.2.2 of EHE-08.</dd>
+for members WITH shear reinforcement, according to clause 
+44.2.3.2.2 of EHE-08.</dd>
 </dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>fcv</strong> – effective concrete shear strength. For members without shear reinforcement
-fcv= min(fck,60MPa). For members with shear reinforcement fcv= min(fck,100MPa).
-In both cases, if concrete quality control is not direct fcv= 15 MPa.</li>
-<li><strong>fcd</strong> – design value of concrete compressive strength).</li>
+<li><strong>fcv</strong> – effective concrete shear strength. For members without shear 
+reinforcement fcv= min(fck,60MPa). For members with shear 
+reinforcement fcv= min(fck,100MPa). In both cases, if 
+concrete quality control is not direct fcv= 15 MPa.</li>
+<li><strong>fcd</strong> – design value of concrete compressive strength.</li>
 <li><strong>fyd</strong> – design yield strength of the transverse reinforcement.</li>
 <li><strong>gammaC</strong> – Partial safety factor for concrete.</li>
-<li><strong>Ncd</strong> – design value of axial force in concrete (positive if in tension).</li>
+<li><strong>Ncd</strong> – design value of axial force in concrete
+(positive if in tension).</li>
 <li><strong>Ac</strong> – concrete section total area.</li>
 <li><strong>b0</strong> – net width of the element according to clause 40.3.5.</li>
 <li><strong>d</strong> – effective depth (meters).</li>
@@ -1716,6 +2005,9 @@ at a distance greater than the effective depth of the section.</li>
 <li><strong>Fp</strong> – Prestressing force on the section (positive if in tension).</li>
 <li><strong>Ae</strong> – Area enclosed by the middle line of the effective hollow section.</li>
 <li><strong>ue</strong> – Perimeter of the middle line of the effective hollow section.</li>
+<li><strong>circular</strong> – if true we reduce the efectiveness of the shear 
+reinforcement due to the transverse inclination of its
+elements.</li>
 </ul>
 </td>
 </tr>
@@ -1728,7 +2020,7 @@ at a distance greater than the effective depth of the section.</li>
 <code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVu2SIN</code><span class="sig-paren">(</span><em>fck</em>, <em>Nd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>AsPas</em>, <em>fyd</em>, <em>AsAct</em>, <em>fpd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVu2SIN" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Return the value of Vu2 (shear strength at failure due to tensile force in the web)</dt>
-<dd>for parts WITHOUT shear reinforcement, according to 
+<dd>for members WITHOUT shear reinforcement, according to 
 clause 44.2.3.2.1 of EHE (1998).</dd>
 </dl>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1757,22 +2049,28 @@ at a distance greater than the effective depth of the section.</li>
 <dl class="function">
 <dt id="materials.ehe.EHE_limit_state_checking.getVuEHE08SiAt">
 <code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">getVuEHE08SiAt</code><span class="sig-paren">(</span><em>fck</em>, <em>fcv</em>, <em>fcd</em>, <em>fyd</em>, <em>gammaC</em>, <em>Ncd</em>, <em>Ac</em>, <em>b0</em>, <em>d</em>, <em>z</em>, <em>AsPas</em>, <em>AsAct</em>, <em>AsTrsv</em>, <em>alpha</em>, <em>theta</em>, <em>Nd</em>, <em>Md</em>, <em>Vd</em>, <em>Td</em>, <em>Es</em>, <em>Ep</em>, <em>Fp</em>, <em>Ae</em>, <em>ue</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.getVuEHE08SiAt" title="Permalink to this definition">¶</a></dt>
-<dd><p>def getVuEHE08SiAt(fck,fcv,fcd,fyd,gammaC,Ncd,Ac,b0,d,z,AsPas,AsAct,AsTrsv, alpha, theta,Nd,Md,Vd,Td,Es,Ep,Fp,Ae,ue) [uds: N, m, rad]
+<dd><p>def getVuEHE08SiAt(fck,fcv,fcd,fyd,gammaC,Ncd,Ac,b0,d,z,AsPas,AsAct,AsTrsv, alpha, theta,Nd,Md,Vd,Td,Es,Ep,Fp,Ae,ue) [units: N, m, rad]
 Return the value of Vu (section shear strength)
-for parts WITH shear reinforcement, according to clause 44.2.3.2.2 of EHE-08.</p>
+for members WITH shear reinforcement, according to clause 44.2.3.2.2 
+of EHE-08.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>fck</strong> – characteristic value of concrete compressive strength.</li>
-<li><strong>fcv</strong> – effective concrete shear strength. For members without shear reinforcement
-fcv= min(fck,60MPa). For members with shear reinforcement fcv= min(fck,100MPa).
-In both cases, if concrete quality control is not direct fcv= 15 MPa.</li>
+<li><strong>fcv</strong> – <dl class="docutils">
+<dt>effective concrete shear strength. For members without </dt>
+<dd>shear reinforcement fcv= min(fck,60MPa). For members with 
+shear reinforcement fcv= min(fck,100MPa).</dd>
+</dl>
+<p>In both cases, if concrete quality control is not direct fcv= 15 MPa.</p>
+</li>
 <li><strong>fcd</strong> – design value of concrete compressive strength.</li>
 <li><strong>fyd</strong> – design yield strength of the transverse reinforcement.</li>
 <li><strong>gammaC</strong> – Partial safety factor for concrete.</li>
-<li><strong>Ncd</strong> – design value of axial force in concrete (positive if in tension).</li>
+<li><strong>Ncd</strong> – design value of axial force in 
+concrete (positive if in tension).</li>
 <li><strong>Ac</strong> – concrete section total area.</li>
 <li><strong>b0</strong> – net width of the element according to clause 40.3.5.</li>
 <li><strong>d</strong> – effective depth (meters).</li>
@@ -1782,8 +2080,10 @@ at a distance greater than the effective depth of the section.</li>
 <li><strong>AsAct</strong> – Area of tensioned longitudinal prestressed steel anchored
 at a distance greater than the effective depth of the section.</li>
 <li><strong>AsTrsv</strong> – transverse reinforcement area.</li>
-<li><strong>alpha</strong> – angle of the transverse reinforcement with the axis of the part.</li>
-<li><strong>theta</strong> – angle between the concrete compressed struts and the member axis (figure 44.2.3.1.a EHE).</li>
+<li><strong>alpha</strong> – angle of the transverse reinforcement with the axis of the 
+part.</li>
+<li><strong>theta</strong> – angle between the concrete compressed struts and the member 
+axis (figure 44.2.3.1.a EHE).</li>
 <li><strong>Nd</strong> – Design value of axial force (positive if in tension)</li>
 <li><strong>Md</strong> – Absolute value of design value of bending moment.</li>
 <li><strong>Vd</strong> – Absolute value of effective design shear (clause 42.2.2).</li>
@@ -1801,8 +2101,8 @@ at a distance greater than the effective depth of the section.</li>
 </dd></dl>
 
 <dl class="function">
-<dt id="materials.ehe.EHE_limit_state_checking.printParamFisBarra">
-<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">printParamFisBarra</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.printParamFisBarra" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.ehe.EHE_limit_state_checking.printRebarCrackControlParameters">
+<code class="descclassname">materials.ehe.EHE_limit_state_checking.</code><code class="descname">printRebarCrackControlParameters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.printRebarCrackControlParameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prints crack control parameters of a bar.</p>
 </dd></dl>
 

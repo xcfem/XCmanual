@@ -527,6 +527,16 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="xc.SetMeshComp.getInitialStiffness">
+<code class="descname">getInitialStiffness</code><span class="sig-paren">(</span><em>(Node)arg1</em>, <em>(object)arg2</em><span class="sig-paren">)</span> &#x2192; Matrix :<a class="headerlink" href="#xc.SetMeshComp.getInitialStiffness" title="Permalink to this definition">¶</a></dt>
+<dd><p>getInitialStiffness(elementSet) return the contribution of the elements to the initial stiffness of the node argument.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Matrix getInitialStiffness(XC::Node {lvalue},std::set&lt;XC::Element const*, std::less&lt;XC::Element const*&gt;, std::allocator&lt;XC::Element const*&gt; &gt;)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="xc.SetMeshComp.getNearestElement">
 <code class="descname">getNearestElement</code><span class="sig-paren">(</span><em>(SetMeshComp)arg1</em>, <em>(Pos3d)arg2</em><span class="sig-paren">)</span> &#x2192; Element :<a class="headerlink" href="#xc.SetMeshComp.getNearestElement" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns nearest element.</p>
@@ -595,9 +605,20 @@
 <dl class="method">
 <dt id="xc.SetMeshComp.getResistingSlidingVectorsSystem3d">
 <code class="descname">getResistingSlidingVectorsSystem3d</code><span class="sig-paren">(</span><em>(SetMeshComp)arg1</em>, <em>(Plane3d)arg2</em>, <em>(Pos3d)arg3</em>, <em>(float)arg4</em>, <em>(bool)arg5</em><span class="sig-paren">)</span> &#x2192; SlidingVectorsSystem3d :<a class="headerlink" href="#xc.SetMeshComp.getResistingSlidingVectorsSystem3d" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>Return the resultant of the forces over the nodes near to the plane, of the elements behind the plane.</p>
+<dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>SlidingVectorsSystem3d getResistingSlidingVectorsSystem3d(XC::SetMeshComp {lvalue},Plane,Pos3d,double,bool)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.SetMeshComp.getTangentStiffness">
+<code class="descname">getTangentStiffness</code><span class="sig-paren">(</span><em>(SetMeshComp)arg1</em>, <em>(Node)arg2</em><span class="sig-paren">)</span> &#x2192; Matrix :<a class="headerlink" href="#xc.SetMeshComp.getTangentStiffness" title="Permalink to this definition">¶</a></dt>
+<dd><p>getTangentStiffness(node) return the contribution of the elements to the tangent stiffness of the node argument.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Matrix getTangentStiffness(XC::SetMeshComp {lvalue},XC::Node)</dd>
 </dl>
 </dd></dl>
 
@@ -609,6 +630,12 @@
 <dt>C++ signature :</dt>
 <dd>void killElements(XC::SetMeshComp {lvalue})</dd>
 </dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.SetMeshComp.name">
+<code class="descname">name</code><a class="headerlink" href="#xc.SetMeshComp.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>get object name.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -658,6 +685,16 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="xc.SetMeshComp.rename">
+<code class="descname">rename</code><span class="sig-paren">(</span><em>(SetMeshComp)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &#x2192; None :<a class="headerlink" href="#xc.SetMeshComp.rename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the name of the set.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void rename(XC::SetMeshComp {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="xc.SetMeshComp.transforms">
 <code class="descname">transforms</code><span class="sig-paren">(</span><em>(SetMeshComp)arg1</em>, <em>(TrfGeom)arg2</em><span class="sig-paren">)</span> &#x2192; None :<a class="headerlink" href="#xc.SetMeshComp.transforms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply transformation to set members.</p>
@@ -693,6 +730,16 @@
 </dl>
 </dd></dl>
 
+<dl class="method">
+<dt id="xc.dq_ptrs_pnt.findTag">
+<code class="descname">findTag</code><span class="sig-paren">(</span><em>(dq_ptrs_pnt)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; Pnt :<a class="headerlink" href="#xc.dq_ptrs_pnt.findTag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the point identified by the tag argument.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Pnt* findTag(XC::DqPtrs&lt;XC::Pnt&gt; {lvalue},unsigned long)</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -702,7 +749,7 @@
 <dl class="method">
 <dt id="xc.lstPnts.append">
 <code class="descname">append</code><span class="sig-paren">(</span><em>(lstPnts)arg1</em>, <em>(Pnt)arg2</em><span class="sig-paren">)</span> &#x2192; bool :<a class="headerlink" href="#xc.lstPnts.append" title="Permalink to this definition">¶</a></dt>
-<dd><p>Appends a point at the end of the list.</p>
+<dd><p>Append a point at the end of the list.</p>
 <dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>bool append(XC::DqPtrsEntities&lt;XC::Pnt&gt; {lvalue},XC::Pnt*)</dd>
@@ -710,12 +757,32 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="xc.lstPnts.findTag">
+<code class="descname">findTag</code><span class="sig-paren">(</span><em>(lstPnts)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; Pnt :<a class="headerlink" href="#xc.lstPnts.findTag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the point identified by the tag argument.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Pnt* findTag(XC::DqPtrsEntities&lt;XC::Pnt&gt; {lvalue},unsigned long)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="xc.lstPnts.getBnd">
 <code class="descname">getBnd</code><span class="sig-paren">(</span><em>(lstPnts)arg1</em><span class="sig-paren">)</span> &#x2192; BND3d :<a class="headerlink" href="#xc.lstPnts.getBnd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns points boundary.</p>
+<dd><p>Return points boundary.</p>
 <dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>BND3d getBnd(XC::DqPtrsEntities&lt;XC::Pnt&gt; {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.lstPnts.getNearest">
+<code class="descname">getNearest</code><span class="sig-paren">(</span><em>(lstPnts)arg1</em>, <em>(Pos3d)arg2</em><span class="sig-paren">)</span> &#x2192; Pnt :<a class="headerlink" href="#xc.lstPnts.getNearest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the nearest point to the position argument.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Pnt* getNearest(XC::DqPtrsEntities&lt;XC::Pnt&gt; {lvalue},Pos3d)</dd>
 </dl>
 </dd></dl>
 
@@ -742,7 +809,7 @@
 <dl class="attribute">
 <dt id="xc.lstPnts.size">
 <code class="descname">size</code><a class="headerlink" href="#xc.lstPnts.size" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns list size.</p>
+<dd><p>Return list size.</p>
 </dd></dl>
 
 </dd></dl>
@@ -771,6 +838,16 @@
 </dl>
 </dd></dl>
 
+<dl class="method">
+<dt id="xc.dq_line_ptrs.findTag">
+<code class="descname">findTag</code><span class="sig-paren">(</span><em>(dq_line_ptrs)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; Edge :<a class="headerlink" href="#xc.dq_line_ptrs.findTag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the edge identified by the tag argument.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Edge* findTag(XC::DqPtrs&lt;XC::Edge&gt; {lvalue},unsigned long)</dd>
+</dl>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="xc.dq_line_ptrs.size">
 <code class="descname">size</code><a class="headerlink" href="#xc.dq_line_ptrs.size" title="Permalink to this definition">¶</a></dt>
@@ -790,6 +867,16 @@
 <dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>bool append(XC::DqPtrsEntities&lt;XC::Edge&gt; {lvalue},XC::Edge*)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.lstLines.findTag">
+<code class="descname">findTag</code><span class="sig-paren">(</span><em>(lstLines)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; Edge :<a class="headerlink" href="#xc.lstLines.findTag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the line identified by the tag argument.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Edge* findTag(XC::DqPtrsEntities&lt;XC::Edge&gt; {lvalue},unsigned long)</dd>
 </dl>
 </dd></dl>
 
@@ -849,6 +936,16 @@
 </dl>
 </dd></dl>
 
+<dl class="method">
+<dt id="xc.dq_ptrs_surfaces.findTag">
+<code class="descname">findTag</code><span class="sig-paren">(</span><em>(dq_ptrs_surfaces)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; Face :<a class="headerlink" href="#xc.dq_ptrs_surfaces.findTag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the surface identified by the tag argument.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Face* findTag(XC::DqPtrs&lt;XC::Face&gt; {lvalue},unsigned long)</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -862,6 +959,16 @@
 <dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>bool append(XC::DqPtrsEntities&lt;XC::Face&gt; {lvalue},XC::Face*)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.lstSurfaces.findTag">
+<code class="descname">findTag</code><span class="sig-paren">(</span><em>(lstSurfaces)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; Face :<a class="headerlink" href="#xc.lstSurfaces.findTag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the surface identified by the tag argument.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Face* findTag(XC::DqPtrsEntities&lt;XC::Face&gt; {lvalue},unsigned long)</dd>
 </dl>
 </dd></dl>
 
@@ -904,35 +1011,9 @@
 </dd></dl>
 
 <dl class="class">
-<dt id="xc.dq_ptrs_cuerpos">
-<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">dq_ptrs_cuerpos</code><a class="headerlink" href="#xc.dq_ptrs_cuerpos" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">xc_base.CommandEntity</span></code></p>
-<dl class="method">
-<dt id="xc.dq_ptrs_cuerpos.at">
-<code class="descname">at</code><span class="sig-paren">(</span><em>(dq_ptrs_cuerpos)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; Body :<a class="headerlink" href="#xc.dq_ptrs_cuerpos.at" title="Permalink to this definition">¶</a></dt>
-<dd><p>Access specified body with bounds checking.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::Body at(XC::DqPtrs&lt;XC::Body&gt; {lvalue},unsigned long)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.dq_ptrs_cuerpos.clear">
-<code class="descname">clear</code><span class="sig-paren">(</span><em>(dq_ptrs_cuerpos)arg1</em><span class="sig-paren">)</span> &#x2192; None :<a class="headerlink" href="#xc.dq_ptrs_cuerpos.clear" title="Permalink to this definition">¶</a></dt>
-<dd><p>Removes all items.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>void clear(XC::DqPtrs&lt;XC::Body&gt; {lvalue})</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
 <dt id="xc.lstBodies">
 <em class="property">class </em><code class="descclassname">xc.</code><code class="descname">lstBodies</code><a class="headerlink" href="#xc.lstBodies" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#xc.dq_ptrs_cuerpos" title="xc.dq_ptrs_cuerpos"><code class="xref py py-class docutils literal"><span class="pre">xc.dq_ptrs_cuerpos</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">xc.dq_body_ptrs</span></code></p>
 <dl class="method">
 <dt id="xc.lstBodies.append">
 <code class="descname">append</code><span class="sig-paren">(</span><em>(lstBodies)arg1</em>, <em>(Body)arg2</em><span class="sig-paren">)</span> &#x2192; bool :<a class="headerlink" href="#xc.lstBodies.append" title="Permalink to this definition">¶</a></dt>
@@ -940,6 +1021,16 @@
 <dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>bool append(XC::DqPtrsEntities&lt;XC::Body&gt; {lvalue},XC::Body*)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.lstBodies.findTag">
+<code class="descname">findTag</code><span class="sig-paren">(</span><em>(lstBodies)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; Body :<a class="headerlink" href="#xc.lstBodies.findTag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the body identified by the tag argument.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Body* findTag(XC::DqPtrsEntities&lt;XC::Body&gt; {lvalue},unsigned long)</dd>
 </dl>
 </dd></dl>
 

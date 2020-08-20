@@ -55,7 +55,7 @@
 <span id="predefined-solutions"></span><h1>Predefined solutions<a class="headerlink" href="#module-solution.predefined_solutions" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="solution.predefined_solutions.SolutionProcedure">
-<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">SolutionProcedure</code><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">SolutionProcedure</code><span class="sig-paren">(</span><em>maxNumIter=10</em>, <em>convergenceTestTol=1e-09</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -111,57 +111,105 @@ profile SPD, sparse general, umfPack, sparse SPD</li>
 <dl class="method">
 <dt id="solution.predefined_solutions.SolutionProcedure.clear">
 <code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.clear" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Wipe out the solution procedure.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="solution.predefined_solutions.SolutionProcedure.frequencyAnalysis">
 <code class="descname">frequencyAnalysis</code><span class="sig-paren">(</span><em>prb</em>, <em>systemPrefix='sym_band'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.frequencyAnalysis" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return a natural frequency computation procedure.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="solution.predefined_solutions.SolutionProcedure.getConstraintHandler">
+<code class="descname">getConstraintHandler</code><span class="sig-paren">(</span><em>cHType=None</em>, <em>alphaSP=1000000000000000.0</em>, <em>alphaMP=1000000000000000.0</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.getConstraintHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the constraint handler.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="solution.predefined_solutions.SolutionProcedure.illConditioningAnalysis">
+<code class="descname">illConditioningAnalysis</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.illConditioningAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepares the components to obtain the modes
+associated with very small eigenvalues of the
+stiffness matrix.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="solution.predefined_solutions.SolutionProcedure.illConditioningAnalysisBase">
+<code class="descname">illConditioningAnalysisBase</code><span class="sig-paren">(</span><em>prb</em>, <em>soePrefix='sym_band_eigen'</em>, <em>shift=None</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.illConditioningAnalysisBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepares the components of an ill-conditioning
+analysis.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="solution.predefined_solutions.SolutionProcedure.penaltyNewmarkNewtonRapshon">
 <code class="descname">penaltyNewmarkNewtonRapshon</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.penaltyNewmarkNewtonRapshon" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return a Newmark solution procedure with a Newton Raphson algorithm
+and a penalty constraint handler.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="solution.predefined_solutions.SolutionProcedure.penaltyNewtonRaphson">
 <code class="descname">penaltyNewtonRaphson</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.penaltyNewtonRaphson" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return a static solution procedure with a Newton Raphson algorithm
+and a penalty constraint handler.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="solution.predefined_solutions.SolutionProcedure.plainLinearNewmark">
 <code class="descname">plainLinearNewmark</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.plainLinearNewmark" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return a linear Newmark solution algorithm
+with a plain constraint handler.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="solution.predefined_solutions.SolutionProcedure.plainNewtonRaphson">
+<code class="descname">plainNewtonRaphson</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.plainNewtonRaphson" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a Newton-Raphson solution algorithm with a 
+plain constraint handler.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="solution.predefined_solutions.SolutionProcedure.plainNewtonRaphsonBandGen">
+<code class="descname">plainNewtonRaphsonBandGen</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.plainNewtonRaphsonBandGen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a Newton-Raphson solution algorithm with a 
+plain constraint handler and a band general
+SOE solver.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="solution.predefined_solutions.SolutionProcedure.plainStaticModifiedNewton">
+<code class="descname">plainStaticModifiedNewton</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.plainStaticModifiedNewton" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a static solution procedure with a modified Newton
+solution algorithm with a plain constraint handler.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="solution.predefined_solutions.SolutionProcedure.simpleLagrangeStaticLinear">
 <code class="descname">simpleLagrangeStaticLinear</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.simpleLagrangeStaticLinear" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="solution.predefined_solutions.SolutionProcedure.simpleNewtonRaphson">
-<code class="descname">simpleNewtonRaphson</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.simpleNewtonRaphson" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="solution.predefined_solutions.SolutionProcedure.simpleNewtonRaphsonBandGen">
-<code class="descname">simpleNewtonRaphsonBandGen</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.simpleNewtonRaphsonBandGen" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return a linear static solution algorithm
+with a Lagrange constraint handler.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="solution.predefined_solutions.SolutionProcedure.simpleStaticLinear">
 <code class="descname">simpleStaticLinear</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.simpleStaticLinear" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="solution.predefined_solutions.SolutionProcedure.simpleStaticModifiedNewton">
-<code class="descname">simpleStaticModifiedNewton</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.simpleStaticModifiedNewton" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return a linear static solution algorithm
+with a penalty constraint handler.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="solution.predefined_solutions.SolutionProcedure.simpleTransformationStaticLinear">
 <code class="descname">simpleTransformationStaticLinear</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.simpleTransformationStaticLinear" title="Permalink to this definition">¶</a></dt>
-<dd><p>Simple solution algorithm with a transformation constraint handler.</p>
+<dd><p>Return a linear static solution algorithm with a 
+transformation constraint handler.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="solution.predefined_solutions.SolutionProcedure.zeroEnergyModes">
+<code class="descname">zeroEnergyModes</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.zeroEnergyModes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepares the components to obtain the zero energy modes
+of the finite element model.</p>
 </dd></dl>
 
 </dd></dl>
@@ -169,52 +217,95 @@ profile SPD, sparse general, umfPack, sparse SPD</li>
 <dl class="function">
 <dt id="solution.predefined_solutions.frequency_analysis">
 <code class="descclassname">solution.predefined_solutions.</code><code class="descname">frequency_analysis</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.frequency_analysis" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return a solution procedure that computes the natural
+frequencies of the model.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="solution.predefined_solutions.ill_conditioning_analysis">
+<code class="descclassname">solution.predefined_solutions.</code><code class="descname">ill_conditioning_analysis</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.ill_conditioning_analysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a solution procedure that computes the modes
+that correspond to ill-conditioned degrees of freedom.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="solution.predefined_solutions.penalty_newton_raphson">
-<code class="descclassname">solution.predefined_solutions.</code><code class="descname">penalty_newton_raphson</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.penalty_newton_raphson" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">solution.predefined_solutions.</code><code class="descname">penalty_newton_raphson</code><span class="sig-paren">(</span><em>prb</em>, <em>mxNumIter=10</em>, <em>convergenceTestTol=0.0001</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.penalty_newton_raphson" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a penalty Newton-Raphson solution procedure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>maxNumIter</strong> – maximum number of iterations (defauts to 10)</li>
+<li><strong>convergenceTestTol</strong> – convergence tolerance (defaults to 1e-9)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="solution.predefined_solutions.plain_newton_raphson">
+<code class="descclassname">solution.predefined_solutions.</code><code class="descname">plain_newton_raphson</code><span class="sig-paren">(</span><em>prb</em>, <em>mxNumIter=10</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.plain_newton_raphson" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="solution.predefined_solutions.resuelveCasoEstatNoLin">
-<code class="descclassname">solution.predefined_solutions.</code><code class="descname">resuelveCasoEstatNoLin</code><span class="sig-paren">(</span><em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.resuelveCasoEstatNoLin" title="Permalink to this definition">¶</a></dt>
+<dt id="solution.predefined_solutions.plain_newton_raphson_band_gen">
+<code class="descclassname">solution.predefined_solutions.</code><code class="descname">plain_newton_raphson_band_gen</code><span class="sig-paren">(</span><em>prb</em>, <em>mxNumIter=10</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.plain_newton_raphson_band_gen" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="solution.predefined_solutions.resuelveComb">
-<code class="descclassname">solution.predefined_solutions.</code><code class="descname">resuelveComb</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>nmbComb</em>, <em>analysis</em>, <em>numSteps</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.resuelveComb" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="solution.predefined_solutions.resuelveCombEstat2ndOrderLin">
-<code class="descclassname">solution.predefined_solutions.</code><code class="descname">resuelveCombEstat2ndOrderLin</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>nmbComb</em>, <em>analysis</em>, <em>numSteps</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.resuelveCombEstat2ndOrderLin" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="solution.predefined_solutions.resuelveCombEstatLin">
-<code class="descclassname">solution.predefined_solutions.</code><code class="descname">resuelveCombEstatLin</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>nmbComb</em>, <em>analysis</em>, <em>numSteps</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.resuelveCombEstatLin" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="solution.predefined_solutions.simple_newton_raphson">
-<code class="descclassname">solution.predefined_solutions.</code><code class="descname">simple_newton_raphson</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.simple_newton_raphson" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="solution.predefined_solutions.simple_newton_raphson_band_gen">
-<code class="descclassname">solution.predefined_solutions.</code><code class="descname">simple_newton_raphson_band_gen</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.simple_newton_raphson_band_gen" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="solution.predefined_solutions.plain_static_modified_newton">
+<code class="descclassname">solution.predefined_solutions.</code><code class="descname">plain_static_modified_newton</code><span class="sig-paren">(</span><em>prb</em>, <em>mxNumIter=10</em>, <em>convergenceTestTol=0.01</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.plain_static_modified_newton" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a simple static modified Newton solution procedure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>maxNumIter</strong> – maximum number of iterations (defauts to 10)</li>
+<li><strong>convergenceTestTol</strong> – convergence tolerance (defaults to 1e-9)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="solution.predefined_solutions.simple_static_linear">
 <code class="descclassname">solution.predefined_solutions.</code><code class="descname">simple_static_linear</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.simple_static_linear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a simple static linear solution procedure.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="solution.predefined_solutions.solveComb">
+<code class="descclassname">solution.predefined_solutions.</code><code class="descname">solveComb</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>nmbComb</em>, <em>analysis</em>, <em>numSteps</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.solveComb" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="solution.predefined_solutions.simple_static_modified_newton">
-<code class="descclassname">solution.predefined_solutions.</code><code class="descname">simple_static_modified_newton</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.simple_static_modified_newton" title="Permalink to this definition">¶</a></dt>
+<dt id="solution.predefined_solutions.solveCombEstat2ndOrderLin">
+<code class="descclassname">solution.predefined_solutions.</code><code class="descname">solveCombEstat2ndOrderLin</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>nmbComb</em>, <em>analysis</em>, <em>numSteps</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.solveCombEstat2ndOrderLin" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="function">
+<dt id="solution.predefined_solutions.solveStaticLinearComb">
+<code class="descclassname">solution.predefined_solutions.</code><code class="descname">solveStaticLinearComb</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>nmbComb</em>, <em>analysis</em>, <em>numSteps</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.solveStaticLinearComb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="solution.predefined_solutions.solveStaticNoLinCase">
+<code class="descclassname">solution.predefined_solutions.</code><code class="descname">solveStaticNoLinCase</code><span class="sig-paren">(</span><em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.solveStaticNoLinCase" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="solution.predefined_solutions.zero_energy_modes">
+<code class="descclassname">solution.predefined_solutions.</code><code class="descname">zero_energy_modes</code><span class="sig-paren">(</span><em>prb</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.zero_energy_modes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a solution procedure that computes the zero
+energy modes of the model.</p>
+</dd></dl>
 
 </div>
 

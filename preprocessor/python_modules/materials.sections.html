@@ -210,7 +210,31 @@
 <dl class="method">
 <dt id="materials.sections.section_properties.CircularSection.alphaZ">
 <code class="descname">alphaZ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.CircularSection.alphaZ" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return distorsion coefficient with respect to local Z axis</p>
+<dd><p>Return distorsion coefficient with respect to local Z axis.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.section_properties.CircularSection.getShearStiffnessY">
+<code class="descname">getShearStiffnessY</code><span class="sig-paren">(</span><em>G</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.CircularSection.getShearStiffnessY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the shear stiffness of the section.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.section_properties.CircularSection.getShearStiffnessZ">
+<code class="descname">getShearStiffnessZ</code><span class="sig-paren">(</span><em>G</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.CircularSection.getShearStiffnessZ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the shear stiffness of the section.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.section_properties.CircularSection.getThickness">
+<code class="descname">getThickness</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.CircularSection.getThickness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the section thickness.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.section_properties.CircularSection.getTorsionalStiffness">
+<code class="descname">getTorsionalStiffness</code><span class="sig-paren">(</span><em>G</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.CircularSection.getTorsionalStiffness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the torsional stiffness of the section.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -676,6 +700,24 @@ made of the specified material</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="materials.sections.section_properties.RectangularSection.getShearStiffnessY">
+<code class="descname">getShearStiffnessY</code><span class="sig-paren">(</span><em>G</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.RectangularSection.getShearStiffnessY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the shear stiffness of the section.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.section_properties.RectangularSection.getShearStiffnessZ">
+<code class="descname">getShearStiffnessZ</code><span class="sig-paren">(</span><em>G</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.RectangularSection.getShearStiffnessZ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the shear stiffness of the section.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.section_properties.RectangularSection.getTorsionalStiffness">
+<code class="descname">getTorsionalStiffness</code><span class="sig-paren">(</span><em>G</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.RectangularSection.getTorsionalStiffness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the torsional stiffness of the section.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.sections.section_properties.RectangularSection.getYieldMomentY">
 <code class="descname">getYieldMomentY</code><span class="sig-paren">(</span><em>fy</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.RectangularSection.getYieldMomentY" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return section yield moment.</p>
@@ -851,12 +893,28 @@ or Steiner’s theorem.</dd>
 </dd></dl>
 
 <dl class="method">
+<dt id="materials.sections.section_properties.SectionProperties.defElasticSection1d">
+<code class="descname">defElasticSection1d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.defElasticSection1d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an elastic section appropiate for truss analysis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – preprocessor object.</li>
+<li><strong>material</strong> – material constitutive model 
+(for which E is the Young’s modulus)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.sections.section_properties.SectionProperties.defElasticSection2d">
-<code class="descname">defElasticSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.defElasticSection2d" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Return an elastic section appropiate for 2D beam analysis, </dt>
-<dd>including shear deformations</dd>
-</dl>
+<code class="descname">defElasticSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.defElasticSection2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an elastic section appropiate for 2D beam analysis</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -892,7 +950,7 @@ or Steiner’s theorem.</dd>
 
 <dl class="method">
 <dt id="materials.sections.section_properties.SectionProperties.defElasticShearSection2d">
-<code class="descname">defElasticShearSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.defElasticShearSection2d" title="Permalink to this definition">¶</a></dt>
+<code class="descname">defElasticShearSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.defElasticShearSection2d" title="Permalink to this definition">¶</a></dt>
 <dd><p>elastic section appropiate for 2D beam analysis, including shear deformations</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -974,6 +1032,24 @@ rectangular section is homogeneous).</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="materials.sections.section_properties.SectionProperties.getRespT">
+<code class="descname">getRespT</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>G</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.getRespT" title="Permalink to this definition">¶</a></dt>
+<dd><p>return an elastic material for modeling torsional response of section</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.section_properties.SectionProperties.getRespVy">
+<code class="descname">getRespVy</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>G</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.getRespVy" title="Permalink to this definition">¶</a></dt>
+<dd><p>return an elastic material for modeling Y shear response of section</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.section_properties.SectionProperties.getRespVz">
+<code class="descname">getRespVz</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>G</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.getRespVz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Material for modeling Z shear response of section</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.sections.section_properties.SectionProperties.iy">
 <code class="descname">iy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.iy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the radius of gyration of the section around
@@ -985,6 +1061,24 @@ the axis parallel to Z that passes through section centroid.</p>
 <code class="descname">iz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.iz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the radius of gyration of the section around
 the axis parallel to Z that passes through section centroid.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.section_properties.SectionProperties.respTName">
+<code class="descname">respTName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.respTName" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a name to identify the torsional response of the section</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.section_properties.SectionProperties.respVyName">
+<code class="descname">respVyName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.respVyName" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a name to identify the shear Y response of the section</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.section_properties.SectionProperties.respVzName">
+<code class="descname">respVzName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.respVzName" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a name to identify the shear Z response of the section</p>
 </dd></dl>
 
 </dd></dl>
@@ -1284,6 +1378,26 @@ the axis parallel to Z that passes through section centroid.</p>
 <div class="section" id="module-materials.sections.structural_steel">
 <span id="structural-steel"></span><h1>Structural steel<a class="headerlink" href="#module-materials.sections.structural_steel" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
+<dt id="materials.sections.structural_steel.CHShape">
+<em class="property">class </em><code class="descclassname">materials.sections.structural_steel.</code><code class="descname">CHShape</code><span class="sig-paren">(</span><em>steel</em>, <em>name</em>, <em>table</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.CHShape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.sections.structural_steel.SteelShape" title="materials.sections.structural_steel.SteelShape"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.structural_steel.SteelShape</span></code></a></p>
+<p>Circular hollow shape</p>
+<dl class="method">
+<dt id="materials.sections.structural_steel.CHShape.getRho">
+<code class="descname">getRho</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.CHShape.getRho" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns mass per unit length.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_steel.CHShape.getSymmetry">
+<code class="descname">getSymmetry</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.CHShape.getSymmetry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the symmetry of the shape: 
+‘double’, ‘simple’ or ‘none’.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="materials.sections.structural_steel.IShape">
 <em class="property">class </em><code class="descclassname">materials.sections.structural_steel.</code><code class="descname">IShape</code><span class="sig-paren">(</span><em>steel</em>, <em>name</em>, <em>table</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.IShape" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#materials.sections.structural_steel.SteelShape" title="materials.sections.structural_steel.SteelShape"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.structural_steel.SteelShape</span></code></a></p>
@@ -1311,13 +1425,20 @@ the axis parallel to Z that passes through section centroid.</p>
 <dl class="method">
 <dt id="materials.sections.structural_steel.IShape.getRho">
 <code class="descname">getRho</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.IShape.getRho" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns mass per unit lenght.</p>
+<dd><p>Returns mass per unit length.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.structural_steel.IShape.getShapeRegions">
 <code class="descname">getShapeRegions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.IShape.getShapeRegions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns regions valid for fiber section model creation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_steel.IShape.getSymmetry">
+<code class="descname">getSymmetry</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.IShape.getSymmetry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the symmetry of the shape: 
+‘double’, ‘simple’ or ‘none’.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1379,7 +1500,14 @@ in web (table 5.2 EC3-1-1)</p>
 <dl class="method">
 <dt id="materials.sections.structural_steel.QHShape.getRho">
 <code class="descname">getRho</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.QHShape.getRho" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns mass per unit lenght.</p>
+<dd><p>Returns mass per unit length.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_steel.QHShape.getSymmetry">
+<code class="descname">getSymmetry</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.QHShape.getSymmetry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the symmetry of the shape: 
+‘double’, ‘simple’ or ‘none’.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1512,6 +1640,85 @@ of a series of shapes
 <dt id="materials.sections.structural_steel.SteelShape.checkYShearForElement">
 <code class="descname">checkYShearForElement</code><span class="sig-paren">(</span><em>elem</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.checkYShearForElement" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called in every commit to y shear criterion.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_steel.SteelShape.checkZShearForElement">
+<code class="descname">checkZShearForElement</code><span class="sig-paren">(</span><em>elem</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.checkZShearForElement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called in every commit to z shear criterion.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_steel.SteelShape.defElasticSection1d">
+<code class="descname">defElasticSection1d</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.defElasticSection1d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an elastic section appropiate for truss analysis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_steel.SteelShape.defElasticSection2d">
+<code class="descname">defElasticSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.defElasticSection2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an elastic section appropiate for 2D beam analysis</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_steel.SteelShape.defElasticSection3d">
+<code class="descname">defElasticSection3d</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.defElasticSection3d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an elastic section appropiate for 3D beam analysis</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_steel.SteelShape.defElasticShearSection2d">
+<code class="descname">defElasticShearSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.defElasticShearSection2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>elastic section appropiate for 2D beam analysis, including shear deformations</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_steel.SteelShape.defElasticShearSection3d">
+<code class="descname">defElasticShearSection3d</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.defElasticShearSection3d" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>elastic section appropiate for 3D beam analysis, including shear </dt>
+<dd>deformations</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor object.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -1703,6 +1910,13 @@ implemented) (defaults to 1).</li>
 </dd></dl>
 
 <dl class="method">
+<dt id="materials.sections.structural_steel.SteelShape.getCrossSectionProperties2D">
+<code class="descname">getCrossSectionProperties2D</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getCrossSectionProperties2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a CrossSectionProperties object with the
+2D properties of the section.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.getGyrationRadiusY">
 <code class="descname">getGyrationRadiusY</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getGyrationRadiusY" title="Permalink to this definition">¶</a></dt>
 <dd><p>return radius of gyration about y-axis (weak axis)</p>
@@ -1789,6 +2003,13 @@ implemented) (defaults to 1).</li>
 </dd></dl>
 
 <dl class="method">
+<dt id="materials.sections.structural_steel.SteelShape.getSymmetry">
+<code class="descname">getSymmetry</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getSymmetry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the symmetry of the shape: 
+‘double’, ‘simple’ or ‘none’.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.getWy">
 <code class="descname">getWy</code><span class="sig-paren">(</span><em>sectionClass=1</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getWy" title="Permalink to this definition">¶</a></dt>
 <dd><p>return section modulus with respect to y-axis (weak axis)</p>
@@ -1844,7 +2065,14 @@ needed to check ultimate limit state criterion to satisfy.</p>
 <dl class="method">
 <dt id="materials.sections.structural_steel.UShape.getRho">
 <code class="descname">getRho</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.UShape.getRho" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns mass per unit lenght.</p>
+<dd><p>Returns mass per unit length.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_steel.UShape.getSymmetry">
+<code class="descname">getSymmetry</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.UShape.getSymmetry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the symmetry of the shape: 
+‘double’, ‘simple’ or ‘none’.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1921,7 +2149,7 @@ XC axes: Y-&gt;weak axis, Z-&gt;strong axis.</td>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <dl class="method">
 <dt id="materials.sections.RC_sections_container.SectionContainer.append">
-<code class="descname">append</code><span class="sig-paren">(</span><em>RCSections</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.RC_sections_container.SectionContainer.append" title="Permalink to this definition">¶</a></dt>
+<code class="descname">append</code><span class="sig-paren">(</span><em>rcSections</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.RC_sections_container.SectionContainer.append" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -2123,19 +2351,13 @@ centroid of the rebars family.</p>
 <dl class="class">
 <dt id="materials.sections.rebar_family.RebarFamily">
 <em class="property">class </em><code class="descclassname">materials.sections.rebar_family.</code><code class="descname">RebarFamily</code><span class="sig-paren">(</span><em>steel</em>, <em>diam</em>, <em>spacing</em>, <em>concreteCover</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.rebar_family.RebarFamily" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="#materials.sections.rebar_family.RebarRow" title="materials.sections.rebar_family.RebarRow"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.rebar_family.RebarRow</span></code></a></p>
 <p>Family or reinforcement bars.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>steel</strong> – reinforcing steel material.</li>
-<li><strong>diam</strong> – diameter of the bars.</li>
-<li><strong>spacing</strong> – spacing of the bars.</li>
-<li><strong>concreteCover</strong> – concrete cover of the bars.</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>steel</strong> – reinforcing steel material.</td>
 </tr>
 </tbody>
 </table>
@@ -2143,18 +2365,6 @@ centroid of the rebars family.</p>
 <dt id="materials.sections.rebar_family.RebarFamily.d">
 <code class="descname">d</code><span class="sig-paren">(</span><em>thickness</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.rebar_family.RebarFamily.d" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.rebar_family.RebarFamily.getAs">
-<code class="descname">getAs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.rebar_family.RebarFamily.getAs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the total area of the bars.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.rebar_family.RebarFamily.getBarArea">
-<code class="descname">getBarArea</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.rebar_family.RebarFamily.getBarArea" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the area of each bar.</p>
-</dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.rebar_family.RebarFamily.getCopy">
@@ -2171,20 +2381,6 @@ centroid of the rebars family.</p>
 <dt id="materials.sections.rebar_family.RebarFamily.getDefStrings">
 <code class="descname">getDefStrings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.rebar_family.RebarFamily.getDefStrings" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return definition strings for drawSchema.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.rebar_family.RebarFamily.getDiam">
-<code class="descname">getDiam</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.rebar_family.RebarFamily.getDiam" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the diameter of the bars.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.rebar_family.RebarFamily.getEffectiveCover">
-<code class="descname">getEffectiveCover</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.rebar_family.RebarFamily.getEffectiveCover" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns the effective cover of the rebar family.</p>
-<p>Returns the distance between the surface of the concrete and the 
-centroid of the rebars family.</p>
 </dd></dl>
 
 <dl class="method">
@@ -2207,12 +2403,6 @@ centroid of the rebars family.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.rebar_family.RebarFamily.getNumBarsPerMeter">
-<code class="descname">getNumBarsPerMeter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.rebar_family.RebarFamily.getNumBarsPerMeter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the number of bars per unit length.</p>
-</dd></dl>
-
-<dl class="method">
 <dt id="materials.sections.rebar_family.RebarFamily.getT">
 <code class="descname">getT</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.rebar_family.RebarFamily.getT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the tension force in the reinforcement.</p>
@@ -2230,6 +2420,66 @@ centroid of the rebars family.</p>
 
 </dd></dl>
 
+<dl class="class">
+<dt id="materials.sections.rebar_family.RebarRow">
+<em class="property">class </em><code class="descclassname">materials.sections.rebar_family.</code><code class="descname">RebarRow</code><span class="sig-paren">(</span><em>diam</em>, <em>spacing</em>, <em>concreteCover</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.rebar_family.RebarRow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Row of reinforcement bars.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>diam</strong> – diameter of the bars.</li>
+<li><strong>spacing</strong> – spacing of the bars.</li>
+<li><strong>concreteCover</strong> – concrete cover of the bars.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.sections.rebar_family.RebarRow.getAs">
+<code class="descname">getAs</code><span class="sig-paren">(</span><em>width=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.rebar_family.RebarRow.getAs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the total area of the bars.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>width</strong> – width of the reinforcement.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.rebar_family.RebarRow.getBarArea">
+<code class="descname">getBarArea</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.rebar_family.RebarRow.getBarArea" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the area of each bar.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.rebar_family.RebarRow.getDiam">
+<code class="descname">getDiam</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.rebar_family.RebarRow.getDiam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the diameter of the bars.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.rebar_family.RebarRow.getEffectiveCover">
+<code class="descname">getEffectiveCover</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.rebar_family.RebarRow.getEffectiveCover" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the effective cover of the rebar family.</p>
+<p>Returns the distance between the surface of the concrete and the 
+centroid of the rebars family.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.rebar_family.RebarRow.getNumBarsPerMeter">
+<code class="descname">getNumBarsPerMeter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.rebar_family.RebarRow.getNumBarsPerMeter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of bars per unit length.</p>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="function">
 <dt id="materials.sections.rebar_family.writeF">
 <code class="descclassname">materials.sections.rebar_family.</code><code class="descname">writeF</code><span class="sig-paren">(</span><em>outputFile</em>, <em>text</em>, <em>F</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.rebar_family.writeF" title="Permalink to this definition">¶</a></dt>
@@ -2238,10 +2488,28 @@ centroid of the rebars family.</p>
 </div>
 <div class="section" id="module-materials.sections.internal_forces">
 <span id="internal-forces"></span><h1>Internal forces<a class="headerlink" href="#module-materials.sections.internal_forces" title="Permalink to this headline">¶</a></h1>
+<p>Material internal forces (generalized stresses).</p>
 <dl class="class">
 <dt id="materials.sections.internal_forces.CrossSectionInternalForces">
 <em class="property">class </em><code class="descclassname">materials.sections.internal_forces.</code><code class="descname">CrossSectionInternalForces</code><span class="sig-paren">(</span><em>N=0.0</em>, <em>Vy=0.0</em>, <em>Vz=0.0</em>, <em>T=0.0</em>, <em>My=0.0</em>, <em>Mz=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.internal_forces.CrossSectionInternalForces" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
+<dd><p>Internal forces on a 3D section (6 degrees of freedom).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="#materials.sections.stress_calc.StressCalc.N" title="materials.sections.stress_calc.StressCalc.N"><strong>N</strong></a> – axial force.</li>
+<li><strong>Vy</strong> – shear force parallel to axis y.</li>
+<li><strong>Vz</strong> – shear force parallel to axis z.</li>
+<li><strong>T</strong> – Torque.</li>
+<li><strong>My</strong> – bending moment parallel to axis y.</li>
+<li><strong>Mz</strong> – bending moment parallel to axis z.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
 <dt id="materials.sections.internal_forces.CrossSectionInternalForces.getCSVString">
 <code class="descname">getCSVString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.internal_forces.CrossSectionInternalForces.getCSVString" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a comma separated values string that represents the
@@ -2252,6 +2520,12 @@ internal forces.</p>
 <dt id="materials.sections.internal_forces.CrossSectionInternalForces.getComponents">
 <code class="descname">getComponents</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.internal_forces.CrossSectionInternalForces.getComponents" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the internal forces in a list.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.internal_forces.CrossSectionInternalForces.getDict">
+<code class="descname">getDict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.internal_forces.CrossSectionInternalForces.getDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a dictionary whith the values of the internal forces.</p>
 </dd></dl>
 
 <dl class="method">
@@ -2266,16 +2540,47 @@ internal forces.</p>
 <dd><p>Sets the internal forces from a CSV string.</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="materials.sections.internal_forces.CrossSectionInternalForces.setFromDict">
+<code class="descname">setFromDict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.internal_forces.CrossSectionInternalForces.setFromDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the internal forces from the dictionary argument.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="materials.sections.internal_forces.ShellMaterialInternalForces">
 <em class="property">class </em><code class="descclassname">materials.sections.internal_forces.</code><code class="descname">ShellMaterialInternalForces</code><span class="sig-paren">(</span><em>n1=0.0</em>, <em>n2=0.0</em>, <em>n12=0.0</em>, <em>m1=0.0</em>, <em>m2=0.0</em>, <em>m12=0.0</em>, <em>q13=0.0</em>, <em>q23=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.internal_forces.ShellMaterialInternalForces" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
+<dd><p>Internal forces on a material point of a shell element</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>n1</strong> – axial force parallel to axis 1.</li>
+<li><strong>n2</strong> – axial force parallel to axis 2.</li>
+<li><strong>n12</strong> – in plane shear force.</li>
+<li><strong>m1</strong> – bending moment parallel to axis 1.</li>
+<li><strong>m2</strong> – bending moment parallel to axis 2.</li>
+<li><strong>m12</strong> – twisting stress resultant.</li>
+<li><strong>q13</strong> – out of plane shear force normal to axis 1 and parallel to axis 3.</li>
+<li><strong>q23</strong> – out of plane shear force normal to axis 1 and parallel to axis 3.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
 <dt id="materials.sections.internal_forces.ShellMaterialInternalForces.getCSVString">
 <code class="descname">getCSVString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.internal_forces.ShellMaterialInternalForces.getCSVString" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a comma separated values string that represents the
 internal forces.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.internal_forces.ShellMaterialInternalForces.getDict">
+<code class="descname">getDict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.internal_forces.ShellMaterialInternalForces.getDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns a dictionary whith the values of the internal forces.</p>
 </dd></dl>
 
 <dl class="method">
@@ -2306,6 +2611,12 @@ internal forces.</p>
 <dt id="materials.sections.internal_forces.ShellMaterialInternalForces.setFromCSVString">
 <code class="descname">setFromCSVString</code><span class="sig-paren">(</span><em>csvStr</em>, <em>offset</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.internal_forces.ShellMaterialInternalForces.setFromCSVString" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the internal forces from a CSV string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.internal_forces.ShellMaterialInternalForces.setFromDict">
+<code class="descname">setFromDict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.internal_forces.ShellMaterialInternalForces.setFromDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the internal forces from the dictionary argument.</p>
 </dd></dl>
 
 <dl class="method">

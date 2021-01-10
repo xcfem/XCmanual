@@ -779,6 +779,8 @@ made of the specified material</p>
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><strong>sectionName</strong> – name identifying the section</li>
 <li><strong>xc_material</strong> – pointer to XC material.</li>
+<li><strong>torsionalStiffnessFactor</strong> – factor to apply to the sectional
+stiffness (defaults to 1.0).</li>
 </ul>
 </td>
 </tr>
@@ -996,6 +998,12 @@ E is the Young’s modulus and G() the shear modulus).</li>
 </dd></dl>
 
 <dl class="method">
+<dt id="materials.sections.section_properties.SectionProperties.getDict">
+<code class="descname">getDict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.getDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Put member values in a dictionary.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.sections.section_properties.SectionProperties.getPlasticMomentY">
 <code class="descname">getPlasticMomentY</code><span class="sig-paren">(</span><em>fy</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.getPlasticMomentY" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return section plastic moment around Y axis.</p>
@@ -1079,6 +1087,12 @@ the axis parallel to Z that passes through section centroid.</p>
 <dt id="materials.sections.section_properties.SectionProperties.respVzName">
 <code class="descname">respVzName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.respVzName" title="Permalink to this definition">¶</a></dt>
 <dd><p>returns a name to identify the shear Z response of the section</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.section_properties.SectionProperties.setFromDict">
+<code class="descname">setFromDict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.setFromDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read member values from a dictionary.</p>
 </dd></dl>
 
 </dd></dl>
@@ -1377,6 +1391,7 @@ the axis parallel to Z that passes through section centroid.</p>
 </div>
 <div class="section" id="module-materials.sections.structural_steel">
 <span id="structural-steel"></span><h1>Structural steel<a class="headerlink" href="#module-materials.sections.structural_steel" title="Permalink to this headline">¶</a></h1>
+<p>Base classes and functions for structural steel.</p>
 <dl class="class">
 <dt id="materials.sections.structural_steel.CHShape">
 <em class="property">class </em><code class="descclassname">materials.sections.structural_steel.</code><code class="descname">CHShape</code><span class="sig-paren">(</span><em>steel</em>, <em>name</em>, <em>table</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.CHShape" title="Permalink to this definition">¶</a></dt>
@@ -1416,6 +1431,12 @@ the axis parallel to Z that passes through section centroid.</p>
 <dt id="materials.sections.structural_steel.IShape.discretization">
 <code class="descname">discretization</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>matModelName</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.IShape.discretization" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_steel.IShape.getDict">
+<code class="descname">getDict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.IShape.getDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Put member values in a dictionary.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.structural_steel.IShape.getFiberSection3d">
@@ -1460,6 +1481,12 @@ the axis parallel to Z that passes through section centroid.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="materials.sections.structural_steel.IShape.setFromDict">
+<code class="descname">setFromDict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.IShape.setFromDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read member values from a dictionary.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.sections.structural_steel.IShape.tf">
 <code class="descname">tf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.IShape.tf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return flange thickess</p>
@@ -1469,6 +1496,12 @@ the axis parallel to Z that passes through section centroid.</p>
 <dt id="materials.sections.structural_steel.IShape.tw">
 <code class="descname">tw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.IShape.tw" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return web thickess</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_steel.IShape.updateQuantities">
+<code class="descname">updateQuantities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.IShape.updateQuantities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update some derived values.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1627,25 +1660,76 @@ of a series of shapes
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.checkBiaxialBendingForElement">
 <code class="descname">checkBiaxialBendingForElement</code><span class="sig-paren">(</span><em>elem</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.checkBiaxialBendingForElement" title="Permalink to this definition">¶</a></dt>
-<dd><p>Called in every commit to check biaxial bending criterion (bars in 3D problems).</p>
+<dd><dl class="docutils">
+<dt>Called in every commit to check biaxial bending criterion </dt>
+<dd>(bars in 3D problems).</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>elem</strong> – finite element to check.</li>
+<li><strong>nmbComb</strong> – name of the load combination.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.checkUniaxialBendingForElement">
 <code class="descname">checkUniaxialBendingForElement</code><span class="sig-paren">(</span><em>elem</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.checkUniaxialBendingForElement" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called in every commit to check uniaxial bending criterion (bars in 2D problems).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>elem</strong> – finite element to check.</li>
+<li><strong>nmbComb</strong> – name of the load combination.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.checkYShearForElement">
 <code class="descname">checkYShearForElement</code><span class="sig-paren">(</span><em>elem</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.checkYShearForElement" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called in every commit to y shear criterion.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>elem</strong> – finite element to check.</li>
+<li><strong>nmbComb</strong> – name of the load combination.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.checkZShearForElement">
 <code class="descname">checkZShearForElement</code><span class="sig-paren">(</span><em>elem</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.checkZShearForElement" title="Permalink to this definition">¶</a></dt>
 <dd><p>Called in every commit to z shear criterion.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>elem</strong> – finite element to check.</li>
+<li><strong>nmbComb</strong> – name of the load combination.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -1917,6 +2001,12 @@ implemented) (defaults to 1).</li>
 </dd></dl>
 
 <dl class="method">
+<dt id="materials.sections.structural_steel.SteelShape.getDict">
+<code class="descname">getDict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Put member values in a dictionary.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.getGyrationRadiusY">
 <code class="descname">getGyrationRadiusY</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.getGyrationRadiusY" title="Permalink to this definition">¶</a></dt>
 <dd><p>return radius of gyration about y-axis (weak axis)</p>
@@ -2035,6 +2125,12 @@ implemented) (defaults to 1).</li>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_steel.SteelShape.setFromDict">
+<code class="descname">setFromDict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.setFromDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read member values from a dictionary.</p>
 </dd></dl>
 
 <dl class="method">
@@ -2237,6 +2333,14 @@ check the cracking limit state (tension stiffening models).</p>
 <dt id="materials.sections.rebar_family.DoubleRebarFamily.getBasicAnchorageLength">
 <code class="descname">getBasicAnchorageLength</code><span class="sig-paren">(</span><em>concrete</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.rebar_family.DoubleRebarFamily.getBasicAnchorageLength" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the basic anchorage length of the bars.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>concrete</strong> – concrete material.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">

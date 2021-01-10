@@ -1542,10 +1542,12 @@ those that return a value &gt;0 lie in the other side (if =0 -&gt; in the line)<
 </div>
 <div class="section" id="module-rough_calculations.ng_retaining_wall">
 <span id="basement-wall"></span><h1>Basement wall<a class="headerlink" href="#module-rough_calculations.ng_retaining_wall" title="Permalink to this headline">¶</a></h1>
+<p>Routines for cantilever retaining walls design.</p>
 <dl class="class">
 <dt id="rough_calculations.ng_retaining_wall.Envelope">
 <em class="property">class </em><code class="descclassname">rough_calculations.ng_retaining_wall.</code><code class="descname">Envelope</code><span class="sig-paren">(</span><em>yValues</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.Envelope" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Store internal forces envelope.</p>
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.Envelope.filterRepeatedValues">
 <code class="descname">filterRepeatedValues</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.Envelope.filterRepeatedValues" title="Permalink to this definition">¶</a></dt>
@@ -1658,7 +1660,21 @@ those that return a value &gt;0 lie in the other side (if =0 -&gt; in the line)<
 <dt id="rough_calculations.ng_retaining_wall.InternalForces">
 <em class="property">class </em><code class="descclassname">rough_calculations.ng_retaining_wall.</code><code class="descname">InternalForces</code><span class="sig-paren">(</span><em>y</em>, <em>mdEnvelope</em>, <em>vdEnvelope</em>, <em>MdFooting</em>, <em>VdFooting</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.InternalForces" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
-<p>Internal forces for a retaining wall obtained.</p>
+<p>Internal forces for a retaining wall.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mdEnvelope</strong> – stem bending moment design values.</li>
+<li><strong>vdEnvelope</strong> – stem shear force design values.</li>
+<li><strong>MdFooting</strong> – footing bending moment design value.</li>
+<li><strong>VdFooting</strong> – footing shear force design value.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.InternalForces.MdMax">
 <code class="descname">MdMax</code><span class="sig-paren">(</span><em>yCoupe</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.InternalForces.MdMax" title="Permalink to this definition">¶</a></dt>
@@ -1722,7 +1738,8 @@ those that return a value &gt;0 lie in the other side (if =0 -&gt; in the line)<
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.InternalForces.clone">
 <code class="descname">clone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.InternalForces.clone" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return a copy of this object.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.InternalForces.getYStem">
@@ -1752,6 +1769,18 @@ the wall stem.</p>
 <dt id="rough_calculations.ng_retaining_wall.ReinforcementMap.getBasicAnchorageLength">
 <code class="descname">getBasicAnchorageLength</code><span class="sig-paren">(</span><em>index</em>, <em>concrete</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.ReinforcementMap.getBasicAnchorageLength" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns basic anchorage length for the reinforcement at “index”.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>index</strong> – key of the reinforcement bar in this map.</li>
+<li><strong>concrete</strong> – concrete material.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -1885,7 +1914,7 @@ at the end of the toe.</p>
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.createLoadOnTopOfStem">
 <code class="descname">createLoadOnTopOfStem</code><span class="sig-paren">(</span><em>loadVector</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.createLoadOnTopOfStem" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a loac acting on the node at the top of the stem.</p>
+<dd><p>Create a load acting on the node at the top of the stem.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2189,7 +2218,7 @@ a load acting on the backfill.</p>
 
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.RetainingWall.writeDef">
-<code class="descname">writeDef</code><span class="sig-paren">(</span><em>pth</em>, <em>outputFile</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.writeDef" title="Permalink to this definition">¶</a></dt>
+<code class="descname">writeDef</code><span class="sig-paren">(</span><em>pth</em>, <em>outputFile</em>, <em>convertToEPS=False</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.RetainingWall.writeDef" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write wall definition in LaTeX format.</p>
 </dd></dl>
 
@@ -2314,6 +2343,7 @@ a load acting on the backfill.</p>
 <dt id="rough_calculations.ng_retaining_wall.WallSLSResults">
 <em class="property">class </em><code class="descclassname">rough_calculations.ng_retaining_wall.</code><code class="descname">WallSLSResults</code><span class="sig-paren">(</span><em>internalForces</em>, <em>rotation</em>, <em>rotationComb</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.WallSLSResults" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#rough_calculations.ng_retaining_wall.WallULSResults" title="rough_calculations.ng_retaining_wall.WallULSResults"><code class="xref py py-class docutils literal"><span class="pre">rough_calculations.ng_retaining_wall.WallULSResults</span></code></a></p>
+<p>Results for the serviceability limit state checking.</p>
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.WallSLSResults.writeOutput">
 <code class="descname">writeOutput</code><span class="sig-paren">(</span><em>outputFile</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.WallSLSResults.writeOutput" title="Permalink to this definition">¶</a></dt>
@@ -2326,10 +2356,23 @@ a load acting on the backfill.</p>
 <dt id="rough_calculations.ng_retaining_wall.WallStabilityResults">
 <em class="property">class </em><code class="descclassname">rough_calculations.ng_retaining_wall.</code><code class="descname">WallStabilityResults</code><span class="sig-paren">(</span><em>wall</em>, <em>combinations</em>, <em>foundationSoilModel</em>, <em>sg_adm=None</em>, <em>gammaR=1</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.WallStabilityResults" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Results of the wall stability analysis.</p>
 <dl class="method">
 <dt id="rough_calculations.ng_retaining_wall.WallStabilityResults.writeOutput">
 <code class="descname">writeOutput</code><span class="sig-paren">(</span><em>outputFile</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.WallStabilityResults.writeOutput" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write results in LaTeX format.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>outputFile</strong> – output file.</li>
+<li><strong>name</strong> – wall name.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -2338,12 +2381,15 @@ a load acting on the backfill.</p>
 <dt id="rough_calculations.ng_retaining_wall.WallULSResults">
 <em class="property">class </em><code class="descclassname">rough_calculations.ng_retaining_wall.</code><code class="descname">WallULSResults</code><span class="sig-paren">(</span><em>internalForces</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.WallULSResults" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Results for the ultimate limit state checking.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="rough_calculations.ng_retaining_wall.filterRepeatedValues">
 <code class="descclassname">rough_calculations.ng_retaining_wall.</code><code class="descname">filterRepeatedValues</code><span class="sig-paren">(</span><em>yList</em>, <em>mList</em>, <em>vList</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_retaining_wall.filterRepeatedValues" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Filter values that are repeated 
+in the list.</p>
+</dd></dl>
 
 </div>
 <div class="section" id="module-rough_calculations.ng_simple_beam">

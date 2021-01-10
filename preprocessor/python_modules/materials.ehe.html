@@ -56,6 +56,7 @@
 <h1>Materials according to EHE code<a class="headerlink" href="#materials-according-to-ehe-code" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-materials.ehe.EHE_materials">
 <span id="ehe-materials"></span><h2>EHE materials<a class="headerlink" href="#module-materials.ehe.EHE_materials" title="Permalink to this headline">¶</a></h2>
+<p>Reinforced concrete materials according to EHE-08.</p>
 <dl class="class">
 <dt id="materials.ehe.EHE_materials.EHEConcrete">
 <em class="property">class </em><code class="descclassname">materials.ehe.EHE_materials.</code><code class="descname">EHEConcrete</code><span class="sig-paren">(</span><em>nmbConcrete</em>, <em>fck</em>, <em>gammaC</em>, <em>typeAggregate='cuarcita'</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_materials.EHEConcrete" title="Permalink to this definition">¶</a></dt>
@@ -211,7 +212,7 @@ of code EHE-91 (f_cv=0.5*sqrt(f_cd)) with f_cd in kp/cm2</p>
 
 <dl class="class">
 <dt id="materials.ehe.EHE_materials.EHEPrestressingSteel">
-<em class="property">class </em><code class="descclassname">materials.ehe.EHE_materials.</code><code class="descname">EHEPrestressingSteel</code><span class="sig-paren">(</span><em>steelName</em>, <em>fpk</em>, <em>fmax=1860000000.0</em>, <em>alpha=0.75</em>, <em>steelRelaxationClass=1</em>, <em>tendonClass='strand'</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_materials.EHEPrestressingSteel" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">materials.ehe.EHE_materials.</code><code class="descname">EHEPrestressingSteel</code><span class="sig-paren">(</span><em>steelName</em>, <em>fpk</em>, <em>fmax=1860000000.0</em>, <em>alpha=0.75</em>, <em>steelRelaxationClass=1</em>, <em>tendonClass='strand'</em>, <em>Es=190000000000.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_materials.EHEPrestressingSteel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="matGenTopics.html#materials.concrete_base.PrestressingSteel" title="materials.concrete_base.PrestressingSteel"><code class="xref py py-class docutils literal"><span class="pre">materials.concrete_base.PrestressingSteel</span></code></a></p>
 <p>Prestressing steel model according to EHE-08.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -296,6 +297,51 @@ and 3: relaxation for bars.</li>
 
 </dd></dl>
 
+<dl class="class">
+<dt id="materials.ehe.EHE_materials.Y1860S7Strand">
+<em class="property">class </em><code class="descclassname">materials.ehe.EHE_materials.</code><code class="descname">Y1860S7Strand</code><span class="sig-paren">(</span><em>diameter</em>, <em>area</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_materials.Y1860S7Strand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.ehe.EHE_materials.EHEPrestressingSteel" title="materials.ehe.EHE_materials.EHEPrestressingSteel"><code class="xref py py-class docutils literal"><span class="pre">materials.ehe.EHE_materials.EHEPrestressingSteel</span></code></a></p>
+<dl class="docutils">
+<dt>Uncoated strand 7-Steel wire for prestressed concrete</dt>
+<dd>according to EN 0138 - 3: March 2011.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="../cpp_classes/material/section/repres/geom_section/reinfBar/reinfBar.html#xc.ReinfBar.diameter" title="xc.ReinfBar.diameter"><strong>diameter</strong></a> – strand diameter.</li>
+<li><a class="reference internal" href="../geom_cpp_classes/d2/d2.html#geom.BND2d.area" title="geom.BND2d.area"><strong>area</strong></a> – cross sectional area.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.ehe.EHE_materials.Y1860S7Strand.Fm">
+<code class="descname">Fm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_materials.Y1860S7Strand.Fm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the characteristic valu of maximum force.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.ehe.EHE_materials.Y1860S7Strand.Fm_max">
+<code class="descname">Fm_max</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_materials.Y1860S7Strand.Fm_max" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the maximum valu of maximum force.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.ehe.EHE_materials.Y1860S7Strand.Fp">
+<code class="descname">Fp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_materials.Y1860S7Strand.Fp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.ehe.EHE_materials.Y1860S7Strand.massPerMeter">
+<code class="descname">massPerMeter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_materials.Y1860S7Strand.massPerMeter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the mass per meter of the strand.</p>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="data">
 <dt id="materials.ehe.EHE_materials.concrOfName">
 <code class="descclassname">materials.ehe.EHE_materials.</code><code class="descname">concrOfName</code><em class="property"> = {'HA100': HA100, 'HA20': HA20, 'HA25': HA25, 'HA30': HA30, 'HA35': HA35, 'HA40': HA40, 'HA45': HA45, 'HA50': HA50, 'HA55': HA55, 'HA60': HA60, 'HA70': HA70, 'HA80': HA80, 'HA90': HA90, 'HP25': HP25, 'HP30': HP30, 'HP35': HP35, 'HP40': HP40, 'HP45': HP45, 'HP50': HP50}</em><a class="headerlink" href="#materials.ehe.EHE_materials.concrOfName" title="Permalink to this definition">¶</a></dt>
@@ -327,9 +373,8 @@ and 3: relaxation for bars.</li>
 center of gravity of the active reinforcement, due to 
 prestressing after deducting the losses due to wedge 
 penetration</li>
-<li><strong>Ep</strong> – modulus of longitudinal elasticity of the active reinforcements
-(190e9).</li>
-<li><strong>Ecj</strong> – modulus of longitudinal elasticity of the concrete for the age
+<li><strong>Ep</strong> – elastic modulus of the active reinforcements (defaults to 190e9).</li>
+<li><strong>Ecj</strong> – elastic modulus of the concrete for the age
 j corresponding to the moment of applying the load to the 
 active reinforcements.</li>
 </ul>
@@ -1022,6 +1067,21 @@ developed, in.</li>
 </tbody>
 </table>
 <dl class="attribute">
+<dt id="materials.ehe.EHE_limit_state_checking.RebarController.alpha_gt_10phi">
+<code class="descname">alpha_gt_10phi</code><em class="property"> = [1.0, 1.0, 1.1, 1.2, 1.3, 1.4, 1.4]</em><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.RebarController.alpha_gt_10phi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.ehe.EHE_limit_state_checking.RebarController.alpha_leq_10phi">
+<code class="descname">alpha_leq_10phi</code><em class="property"> = [1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 2.0]</em><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.RebarController.alpha_leq_10phi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.ehe.EHE_limit_state_checking.RebarController.alpha_ratios">
+<code class="descname">alpha_ratios</code><em class="property"> = [0.0, 0.2, 0.25, 0.33, 0.5, 0.51, 1.0]</em><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.RebarController.alpha_ratios" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
 <dt id="materials.ehe.EHE_limit_state_checking.RebarController.f400">
 <code class="descname">f400</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.RebarController.f400" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -1031,12 +1091,22 @@ developed, in.</li>
 <code class="descname">f500</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.RebarController.f500" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="attribute">
+<dt id="materials.ehe.EHE_limit_state_checking.RebarController.f_alpha_gt_10phi">
+<code class="descname">f_alpha_gt_10phi</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.RebarController.f_alpha_gt_10phi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.ehe.EHE_limit_state_checking.RebarController.f_alpha_leq_10phi">
+<code class="descname">f_alpha_leq_10phi</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.RebarController.f_alpha_leq_10phi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="materials.ehe.EHE_limit_state_checking.RebarController.getBasicAnchorageLength">
-<code class="descname">getBasicAnchorageLength</code><span class="sig-paren">(</span><em>concrete</em>, <em>phi</em>, <em>steel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.RebarController.getBasicAnchorageLength" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getBasicAnchorageLength</code><span class="sig-paren">(</span><em>concrete</em>, <em>phi</em>, <em>steel</em>, <em>dynamicEffects=False</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.RebarController.getBasicAnchorageLength" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>Returns anchorage length in tension according to clause</dt>
-<dd>66.5.2 of EHE.</dd>
+<dt>Returns basic anchorage length in tension according to clause</dt>
+<dd>66.5.1.2 of EHE.</dd>
 </dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1046,6 +1116,8 @@ developed, in.</li>
 <li><strong>concrete</strong> – concrete material.</li>
 <li><strong>phi</strong> – nominal diameter of bar, wire, or prestressing strand.</li>
 <li><strong>steel</strong> – reinforcement steel.</li>
+<li><strong>dynamicEffects</strong> – true if the anchorage is subjected to
+dynamic effects.</li>
 </ul>
 </td>
 </tr>
@@ -1057,7 +1129,7 @@ developed, in.</li>
 <dt id="materials.ehe.EHE_limit_state_checking.RebarController.getM">
 <code class="descname">getM</code><span class="sig-paren">(</span><em>concrete</em>, <em>steel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.RebarController.getM" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>Return the “m” coefficient according to table 66.5.2.a of</dt>
+<dt>Return the “m” coefficient according to table 66.5.1.2.a of</dt>
 <dd>EHE-08</dd>
 </dl>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1074,6 +1146,73 @@ developed, in.</li>
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="materials.ehe.EHE_limit_state_checking.RebarController.getNetAnchorageLength">
+<code class="descname">getNetAnchorageLength</code><span class="sig-paren">(</span><em>concrete</em>, <em>phi</em>, <em>steel</em>, <em>beta=1.0</em>, <em>efficiency=1.0</em>, <em>tensionedBars=True</em>, <em>dynamicEffects=False</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.RebarController.getNetAnchorageLength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Returns net anchorage length in tension according to clause</dt>
+<dd>6.5.1.2 of EHE.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>concrete</strong> – concrete material.</li>
+<li><strong>phi</strong> – nominal diameter of bar, wire, or prestressing strand.</li>
+<li><strong>steel</strong> – reinforcement steel.</li>
+<li><strong>beta</strong> – reduction factor defined in Table 69.5.1.2.b.</li>
+<li><strong>efficiency</strong> – working stress of the reinforcement that it is 
+intended to anchor, on the most unfavourable 
+load hypothesis, in the section from which 
+the anchorage length will be determined divided
+by the steel design yield strength.</li>
+<li><strong>tensionedBars</strong> – true if the bars are in tension.</li>
+<li><strong>dynamicEffects</strong> – true if the anchorage is subjected to
+dynamic effects.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.ehe.EHE_limit_state_checking.RebarController.getOverlapLength">
+<code class="descname">getOverlapLength</code><span class="sig-paren">(</span><em>concrete</em>, <em>phi</em>, <em>steel</em>, <em>distBetweenNearestSplices</em>, <em>beta=1.0</em>, <em>efficiency=1.0</em>, <em>ratioOfOverlapedTensionBars=1.0</em>, <em>tensionedBars=True</em>, <em>dynamicEffects=False</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.RebarController.getOverlapLength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Returns net anchorage length in tension according to clause</dt>
+<dd>6.5.1.2 of EHE.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>concrete</strong> – concrete material.</li>
+<li><strong>phi</strong> – nominal diameter of bar, wire, or prestressing strand.</li>
+<li><strong>steel</strong> – reinforcement steel.</li>
+<li><strong>distBetweenNearestSplices</strong> – distance between the nearest splices
+according to figure 69.5.2.2.a.</li>
+<li><strong>beta</strong> – reduction factor defined in Table 69.5.1.2.b.</li>
+<li><strong>efficiency</strong> – working stress of the reinforcement that it is 
+intended to anchor, on the most unfavourable 
+load hypothesis, in the section from which 
+the anchorage length will be determined divided
+by the steel design yield strength.</li>
+<li><strong>ratioOfOverlapedTensionBars</strong> – ratio of overlapped tension bars 
+in relation to the total steel
+section.</li>
+<li><strong>tensionedBars</strong> – true if the bars are in tension.</li>
+<li><strong>dynamicEffects</strong> – true if the anchorage is subjected to
+dynamic effects.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="materials.ehe.EHE_limit_state_checking.RebarController.x">
 <code class="descname">x</code><em class="property"> = [25000000.0, 30000000.0, 35000000.0, 40000000.0, 45000000.0, 50000000.0]</em><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.RebarController.x" title="Permalink to this definition">¶</a></dt>
@@ -1081,12 +1220,12 @@ developed, in.</li>
 
 <dl class="attribute">
 <dt id="materials.ehe.EHE_limit_state_checking.RebarController.y400">
-<code class="descname">y400</code><em class="property"> = [12.0, 10.0, 9.0, 8.0, 7.0, 7.0]</em><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.RebarController.y400" title="Permalink to this definition">¶</a></dt>
+<code class="descname">y400</code><em class="property"> = [1.2, 1.0, 0.9, 0.8, 0.7, 0.7]</em><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.RebarController.y400" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="materials.ehe.EHE_limit_state_checking.RebarController.y500">
-<code class="descname">y500</code><em class="property"> = [15.0, 13.0, 12.0, 11.0, 10.0, 10.0]</em><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.RebarController.y500" title="Permalink to this definition">¶</a></dt>
+<code class="descname">y500</code><em class="property"> = [1.5, 1.3, 1.2, 1.1, 1.0, 1.0]</em><a class="headerlink" href="#materials.ehe.EHE_limit_state_checking.RebarController.y500" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>

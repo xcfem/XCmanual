@@ -148,9 +148,15 @@ Return true if this object lies outside the geometric object.</p>
 <em class="property">class </em><code class="descclassname">xc.</code><code class="descname">Pnt</code><a class="headerlink" href="#xc.Pnt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#xc.EntMdlr" title="xc.EntMdlr"><code class="xref py py-class docutils literal"><span class="pre">xc.EntMdlr</span></code></a></p>
 <dl class="attribute">
+<dt id="xc.Pnt.getConnectedEdges">
+<code class="descname">getConnectedEdges</code><a class="headerlink" href="#xc.Pnt.getConnectedEdges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the lines connected to the point.</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="xc.Pnt.getConnectedEdgesTags">
 <code class="descname">getConnectedEdgesTags</code><a class="headerlink" href="#xc.Pnt.getConnectedEdgesTags" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the lines connected to the point.</p>
+<dd><p>Returns the tags of the lines connected to the point.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -198,12 +204,104 @@ Return true if this object lies outside the geometric object.</p>
 <em class="property">class </em><code class="descclassname">xc.</code><code class="descname">Face</code><a class="headerlink" href="#xc.Face" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">xc.CmbEdge</span></code></p>
 <dl class="method">
+<dt id="xc.Face.getArea">
+<code class="descname">getArea</code><span class="sig-paren">(</span><em>(Face)arg1</em><span class="sig-paren">)</span> &#x2192; float :<a class="headerlink" href="#xc.Face.getArea" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the face area.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>double getArea(XC::Face {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="xc.Face.getContour">
 <code class="descname">getContour</code><span class="sig-paren">(</span><em>(Face)arg1</em><span class="sig-paren">)</span> &#x2192; Polyline3d :<a class="headerlink" href="#xc.Face.getContour" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the face contour as a 3D polyline.</p>
 <dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>Polyline3d getContour(XC::Face {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.Face.getPlane">
+<code class="descname">getPlane</code><span class="sig-paren">(</span><em>(Face)arg1</em><span class="sig-paren">)</span> &#x2192; Plane3d :<a class="headerlink" href="#xc.Face.getPlane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the plane containing the face.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>Plane getPlane(XC::Face {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.Face.getPolygon">
+<code class="descname">getPolygon</code><span class="sig-paren">(</span><em>(Face)arg1</em><span class="sig-paren">)</span> &#x2192; Polygon3d :<a class="headerlink" href="#xc.Face.getPolygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the contour as a 3D polygon.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>Polygon3d getPolygon(XC::Face {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.Face.nDivI">
+<code class="descname">nDivI</code><a class="headerlink" href="#xc.Face.nDivI" title="Permalink to this definition">¶</a></dt>
+<dd><p>get/set the number of divisions of the even sides of the surface.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.Face.nDivJ">
+<code class="descname">nDivJ</code><a class="headerlink" href="#xc.Face.nDivJ" title="Permalink to this definition">¶</a></dt>
+<dd><p>get/set the number of divisions of the odd sides of the surface.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.Face.orientation">
+<code class="descname">orientation</code><span class="sig-paren">(</span><em>(Face)arg1</em>, <em>(Pos3d)arg2</em><span class="sig-paren">)</span> &#x2192; str :<a class="headerlink" href="#xc.Face.orientation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the orientation of the face.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; orientation(XC::Face {lvalue},Pos3d)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.Face.setElemSize">
+<code class="descname">setElemSize</code><span class="sig-paren">(</span><em>(Face)arg1</em>, <em>(float)arg2</em>, <em>(bool)arg3</em><span class="sig-paren">)</span> &#x2192; None :<a class="headerlink" href="#xc.Face.setElemSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>setElementSizeJ(sz, mustBeEven) set the element size on the sides of the surface; if mustBeEven is true the number of divisions in each side is forced to the next even number.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void setElemSize(XC::Face {lvalue},double,bool)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.Face.setElemSizeI">
+<code class="descname">setElemSizeI</code><span class="sig-paren">(</span><em>(Face)arg1</em>, <em>(float)arg2</em><span class="sig-paren">)</span> &#x2192; None :<a class="headerlink" href="#xc.Face.setElemSizeI" title="Permalink to this definition">¶</a></dt>
+<dd><p>setElementSizeI(sz) set the element size on the even sides of the surface.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void setElemSizeI(XC::Face {lvalue},double)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.Face.setElemSizeIJ">
+<code class="descname">setElemSizeIJ</code><span class="sig-paren">(</span><em>(Face)arg1</em>, <em>(float)arg2</em>, <em>(float)arg3</em><span class="sig-paren">)</span> &#x2192; None :<a class="headerlink" href="#xc.Face.setElemSizeIJ" title="Permalink to this definition">¶</a></dt>
+<dd><p>setElementSizeIJ(szI, szJ) set the element size on the even and odd sides of the surface.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void setElemSizeIJ(XC::Face {lvalue},double,double)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.Face.setElemSizeJ">
+<code class="descname">setElemSizeJ</code><span class="sig-paren">(</span><em>(Face)arg1</em>, <em>(float)arg2</em><span class="sig-paren">)</span> &#x2192; None :<a class="headerlink" href="#xc.Face.setElemSizeJ" title="Permalink to this definition">¶</a></dt>
+<dd><p>setElementSizeJ(sz) set the element size on the odd sides of the surface.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void setElemSizeJ(XC::Face {lvalue},double)</dd>
 </dl>
 </dd></dl>
 
@@ -247,43 +345,6 @@ Return true if this object lies outside the geometric object.</p>
 <dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>XC::Matrix getLocalAxes(XC::QuadSurface {lvalue})</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.QuadSurface.getPolygon">
-<code class="descname">getPolygon</code><span class="sig-paren">(</span><em>(QuadSurface)arg1</em><span class="sig-paren">)</span> &#x2192; Polygon3d :<a class="headerlink" href="#xc.QuadSurface.getPolygon" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the contour as a 3D polygon.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>Polygon3d getPolygon(XC::QuadSurface {lvalue})</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.QuadSurface.setElemSizeI">
-<code class="descname">setElemSizeI</code><span class="sig-paren">(</span><em>(QuadSurface)arg1</em>, <em>(float)arg2</em><span class="sig-paren">)</span> &#x2192; None :<a class="headerlink" href="#xc.QuadSurface.setElemSizeI" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>void setElemSizeI(XC::QuadSurface {lvalue},double)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.QuadSurface.setElemSizeIJ">
-<code class="descname">setElemSizeIJ</code><span class="sig-paren">(</span><em>(QuadSurface)arg1</em>, <em>(float)arg2</em>, <em>(float)arg3</em><span class="sig-paren">)</span> &#x2192; None :<a class="headerlink" href="#xc.QuadSurface.setElemSizeIJ" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>void setElemSizeIJ(XC::QuadSurface {lvalue},double,double)</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.QuadSurface.setElemSizeJ">
-<code class="descname">setElemSizeJ</code><span class="sig-paren">(</span><em>(QuadSurface)arg1</em>, <em>(float)arg2</em><span class="sig-paren">)</span> &#x2192; None :<a class="headerlink" href="#xc.QuadSurface.setElemSizeJ" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>void setElemSizeJ(XC::QuadSurface {lvalue},double)</dd>
 </dl>
 </dd></dl>
 
@@ -453,6 +514,16 @@ Return true if this object lies outside the geometric object.</p>
 <dt id="xc.map_faces">
 <em class="property">class </em><code class="descclassname">xc.</code><code class="descname">map_faces</code><a class="headerlink" href="#xc.map_faces" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#xc.MapCMFaces" title="xc.MapCMFaces"><code class="xref py py-class docutils literal"><span class="pre">xc.MapCMFaces</span></code></a></p>
+<dl class="method">
+<dt id="xc.map_faces.genMesh">
+<code class="descname">genMesh</code><span class="sig-paren">(</span><em>(map_faces)arg1</em>, <em>(meshDir)arg2</em><span class="sig-paren">)</span> &#x2192; None :<a class="headerlink" href="#xc.map_faces.genMesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate mesh.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void genMesh(XC::EntityMap&lt;XC::Face&gt; {lvalue},XC::meshing_dir)</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">

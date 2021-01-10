@@ -56,7 +56,7 @@
 <span id="grid-model"></span><h1>Grid model<a class="headerlink" href="#module-model.geometry.grid_model" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="model.geometry.grid_model.GridModel">
-<em class="property">class </em><code class="descclassname">model.geometry.grid_model.</code><code class="descname">GridModel</code><span class="sig-paren">(</span><em>prep</em>, <em>xList</em>, <em>yList</em>, <em>zList</em>, <em>xCentCyl=0</em>, <em>yCentCyl=0</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">model.geometry.grid_model.</code><code class="descname">GridModel</code><span class="sig-paren">(</span><em>prep</em>, <em>xList</em>, <em>yList</em>, <em>zList</em>, <em>xCentCoo=0</em>, <em>yCentCoo=0</em>, <em>semiYellipList=None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Particular geometry organization, linked to a framework of spaced points, 
 usually referenced by their indices (i,j,k) that point to the global 
@@ -72,18 +72,30 @@ facilitate and accelerate their creation, search, grouping in sets, …</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><strong>prep</strong> – preprocessor</li>
-<li><strong>xList</strong> – ordered list of x-coordinates for the grid 
-(radius in cylindrical coordinate system)</li>
-<li><strong>yList</strong> – ordered list of y-coordinates for the grid 
-(angle in degrees counterclockwise from the X-axis directio for cylindrical coordinate system)</li>
-<li><strong>xList</strong> – ordered list of z-coordinates for the grid.</li>
-<li><strong>yCentCy</strong> (<em>xCentCyl</em><em>,</em>) – x and y coordinates of the points of the
-Z axis for the cylindrical coordinate system 
+<li><strong>xList</strong> – <ul>
+<li>cartesian coord: ordered list of x-coordinates for the grid</li>
+<li>cylindrical coord: ordered list of radius</li>
+<li>elliptical coord: ordered list of semi-axes X</li>
+</ul>
+</li>
+<li><strong>yList</strong> – <ul>
+<li>cartesian coord: ordered list of y-coordinates for the grid</li>
+<li>cylindrical and elliptical coord: ordered list of angles 
+expressed in degrees counterclockwise from the X-axis direction</li>
+<li>elliptical coord: ordered list of semi-axes Y</li>
+</ul>
+</li>
+<li><strong>zList</strong> – ordered list of z-coordinates for the grid.</li>
+<li><strong>yCentCoo</strong> (<em>xCentCoo</em><em>,</em>) – x and y coordinates of the center point
+in cylindrical or elliptical coordinates
 (both coordinates default to 0)</li>
-<li><strong>dicLin</strong> – dictionary with all the lines linked to the grid. 
+<li><strong>semiYellipList</strong> – (only used for elliptical coordinates) ordered list of 
+semi-axes Y that correspond with each semi-axis X
+in xList</li>
+<li><strong>dicLin</strong> – generated dictionary with all the lines linked to the grid. 
 Each key is the name of a line, the value associated is the line 
 itself.</li>
-<li><strong>dicQuadSurf</strong> – dictionary with all the surfaces linked to the grid. 
+<li><strong>dicQuadSurf</strong> – generated dictionary with all the surfaces linked to the grid. 
 Each key is the name of a surface, the value associated is the surface 
 itself.</li>
 </ul>
@@ -350,7 +362,7 @@ Add those surfaces to the dictionary dicQuadSurf.</p>
 <code class="descname">generateCylZPoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.generateCylZPoints" title="Permalink to this definition">¶</a></dt>
 <dd><p>Point generation in the following cylindrical coordinate system:</p>
 <ul class="simple">
-<li>Origin: point of coordinates (xCentCyl,yCentCyl,0)</li>
+<li>Origin: point of coordinates (xCentCoo,yCentCoo,0)</li>
 <li>Longitudinal axis: Z</li>
 <li>Azimuth expressed in degrees counterclockwise from the X-axis direction</li>
 </ul>
@@ -363,6 +375,25 @@ Add those surfaces to the dictionary dicQuadSurf.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.geometry.grid_model.GridModel.generateEllipZPoints">
+<code class="descname">generateEllipZPoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.generateEllipZPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Point generation in the following elliptical coordinate system:</p>
+<ul class="simple">
+<li>Origin: point of coordinates (xCentCoo,yCentCoo,0)</li>
+<li>Longitudinal axis: Z</li>
+<li>Azimuth expressed in degrees counterclockwise from the X-axis direction</li>
+</ul>
+<p>Coordinates are defined:</p>
+<ul class="simple">
+<li>x: semi-axis X of the ellipse</li>
+<li>y: angular coordinate (degrees counterclockwise from X-axis)</li>
+<li>z: height coordinate (Z axis)</li>
+<li>semiYellipList contains a list of semi-axis Y of the ellipse
+that correspond element to element with the semi-axis X in xList</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.geometry.grid_model.GridModel.generatePoints">
 <code class="descname">generatePoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.generatePoints" title="Permalink to this definition">¶</a></dt>
 <dd><p>Point generation in a cartesian coordinate system.</p>
@@ -371,15 +402,15 @@ Add those surfaces to the dictionary dicQuadSurf.</p>
 <dl class="method">
 <dt id="model.geometry.grid_model.GridModel.getIJKfromXYZ">
 <code class="descname">getIJKfromXYZ</code><span class="sig-paren">(</span><em>xyz</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getIJKfromXYZ" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return (i,j,k) indexes that match with (x,y,z) coordinates</p>
+<dd><p>Return (i,j,k) indexes that match the closest with (x,y,z) coordinates</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="model.geometry.grid_model.GridModel.getIJKrangeFromXYZrange">
 <code class="descname">getIJKrangeFromXYZrange</code><span class="sig-paren">(</span><em>xyzRange</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getIJKrangeFromXYZrange" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return an ijkRange that matches with coordinates in xyzRange defined as:
-xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))
-Coordinates must be previously defined in the grid.</p>
+<dd><p>Return an ijkRange that matches with closest coordinates in 
+xyzRange defined as:
+xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))</p>
 </dd></dl>
 
 <dl class="method">
@@ -505,7 +536,7 @@ coordinates</td>
 <dl class="method">
 <dt id="model.geometry.grid_model.GridModel.getPntXYZ">
 <code class="descname">getPntXYZ</code><span class="sig-paren">(</span><em>xyz</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.getPntXYZ" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the point of the grid with coordinates (x,y,z)</p>
+<dd><p>Return the point of the grid closest to coordinates (x,y,z)</p>
 </dd></dl>
 
 <dl class="method">
@@ -885,6 +916,14 @@ that define the surface</td>
 <dd><p>Move points in a 3D grid-region limited by the ijkRange 
 in the cylindrical coordinate system to radius coordinate 
 given as parameter</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.movePointsEllipse">
+<code class="descname">movePointsEllipse</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>semiAxX</em>, <em>semiAXY</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.movePointsEllipse" title="Permalink to this definition">¶</a></dt>
+<dd><p>‘Move points in a 3D grid-region limited by the ijkRange 
+in the elliptical coordinate system to an ellipse of
+semi-axes semiAxX and semiAXY given as parameters</p>
 </dd></dl>
 
 <dl class="method">

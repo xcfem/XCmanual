@@ -68,7 +68,7 @@
 
 <dl class="class">
 <dt id="model.predefined_spaces.PredefinedSpace">
-<em class="property">class </em><code class="descclassname">model.predefined_spaces.</code><code class="descname">PredefinedSpace</code><span class="sig-paren">(</span><em>nodes</em>, <em>dimSpace</em>, <em>numDOFs</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">model.predefined_spaces.</code><code class="descname">PredefinedSpace</code><span class="sig-paren">(</span><em>nodes</em>, <em>dimSpace</em>, <em>numDOFs</em>, <em>solProcType=&lt;class 'solution.predefined_solutions.SimpleStaticLinear'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <dl class="method">
 <dt id="model.predefined_spaces.PredefinedSpace.activateElements">
@@ -135,7 +135,7 @@ e.g. ‘1.0*GselfWeight+1.0*GearthPress’</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>numSteps</strong> – number of analysis steps.</li>
+<li><strong>numSteps</strong> – number of analysis steps (only useful for loads that vary with time).</li>
 <li><strong>calculateNodalReactions</strong> – if true calculate reactions at
 nodes.</li>
 <li><strong>includeInertia</strong> – if true calculate reactions including inertia
@@ -169,6 +169,12 @@ effects.</li>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.conciliaNDivs">
+<code class="descname">conciliaNDivs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.conciliaNDivs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Conciliate the number of divisions of the lines.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.predefined_spaces.PredefinedSpace.createSelfWeightLoad">
 <code class="descname">createSelfWeightLoad</code><span class="sig-paren">(</span><em>xcSet</em>, <em>gravityVector</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.createSelfWeightLoad" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates the self-weight load on the elements.</p>
@@ -176,7 +182,7 @@ effects.</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>xcSet</strong> – set with the lines to load.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>xcSet</strong> – set with the elements to load.</td>
 </tr>
 </tbody>
 </table>
@@ -201,15 +207,88 @@ effects.</li>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.defSet">
+<code class="descname">defSet</code><span class="sig-paren">(</span><em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.defSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a set with the name argument.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.getCurrentLoadPattern">
+<code class="descname">getCurrentLoadPattern</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current load pattern.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.getCurrentLoadPatternName">
+<code class="descname">getCurrentLoadPatternName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getCurrentLoadPatternName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current load pattern.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.predefined_spaces.PredefinedSpace.getDisplacementFileHeader">
 <code class="descname">getDisplacementFileHeader</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getDisplacementFileHeader" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the string header for the file with the displacements.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.getElementHandler">
+<code class="descname">getElementHandler</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getElementHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the element handler for this model.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.getElements">
+<code class="descname">getElements</code><span class="sig-paren">(</span><em>tags</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getElements" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the elements that correspond to the argument</dt>
+<dd>tags.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tags</strong> – element tags.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.predefined_spaces.PredefinedSpace.getIntForceComponentFromName">
 <code class="descname">getIntForceComponentFromName</code><span class="sig-paren">(</span><em>componentName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getIntForceComponentFromName" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.getLineHandler">
+<code class="descname">getLineHandler</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getLineHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the line handler for this model.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.getLineWithEndPoints">
+<code class="descname">getLineWithEndPoints</code><span class="sig-paren">(</span><em>pA</em>, <em>pB</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getLineWithEndPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the line from its endpoints.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.getLoadHandler">
+<code class="descname">getLoadHandler</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getLoadHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the preprocessor material handler.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.getLoadPattern">
+<code class="descname">getLoadPattern</code><span class="sig-paren">(</span><em>lpName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getLoadPattern" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the load pattern with the argument name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lpName</strong> – load pattern name.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="model.predefined_spaces.PredefinedSpace.getMaterialHandler">
@@ -237,15 +316,82 @@ argument.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.getNodes">
+<code class="descname">getNodes</code><span class="sig-paren">(</span><em>tags</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getNodes" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the nodes that correspond to the argument</dt>
+<dd>tags.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tags</strong> – node tags.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.getPointHandler">
+<code class="descname">getPointHandler</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getPointHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the point handler for this model.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.predefined_spaces.PredefinedSpace.getProblem">
 <code class="descname">getProblem</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getProblem" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the XC finite element problem object.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.getReactions">
+<code class="descname">getReactions</code><span class="sig-paren">(</span><em>xcSet=None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getReactions" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return a Reactions object containing the reactions</dt>
+<dd>obtained during the analysis.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>xcSet</strong> – compute only the reactions of the nodes
+in the set.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.getSeedElementHandler">
+<code class="descname">getSeedElementHandler</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getSeedElementHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the seed element handler for this model.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.getSet">
+<code class="descname">getSet</code><span class="sig-paren">(</span><em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the set with the name argument.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>setName</strong> – name of the set to retrieve.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.predefined_spaces.PredefinedSpace.getSpaceDimension">
 <code class="descname">getSpaceDimension</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getSpaceDimension" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the dimensions of the problem space.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.getSurfaceHandler">
+<code class="descname">getSurfaceHandler</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getSurfaceHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the surface handler for this model.</p>
 </dd></dl>
 
 <dl class="method">
@@ -257,7 +403,7 @@ entities.</p>
 
 <dl class="method">
 <dt id="model.predefined_spaces.PredefinedSpace.getValuesAtNodes">
-<code class="descname">getValuesAtNodes</code><span class="sig-paren">(</span><em>element</em>, <em>code</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getValuesAtNodes" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getValuesAtNodes</code><span class="sig-paren">(</span><em>element</em>, <em>code</em>, <em>silent=False</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getValuesAtNodes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the values corresponding to code at each of the element nodes.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -266,6 +412,7 @@ entities.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>element</strong> – element which the stresses at its nodes will be calculated.</li>
 <li><strong>code</strong> – magnitude to return (stress, strain,…).</li>
+<li><strong>silent</strong> – if true don’t complain about non-existent properties.</li>
 </ul>
 </td>
 </tr>
@@ -308,6 +455,121 @@ entities.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.newKPoint">
+<code class="descname">newKPoint</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>z=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.newKPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a key point.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> – x coordinate for the new point.</li>
+<li><strong>y</strong> – y coordinate for the new point.</li>
+<li><strong>z</strong> – z coordinate for the new point (defaults to 0.0).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.newLine">
+<code class="descname">newLine</code><span class="sig-paren">(</span><em>p1</em>, <em>p2</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.newLine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a line between the argument points.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>p1</strong> – from point.</li>
+<li><strong>p2</strong> – to point.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.newLoadPattern">
+<code class="descname">newLoadPattern</code><span class="sig-paren">(</span><em>name</em>, <em>lpType='default'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.newLoadPattern" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Creates a times series -modulation of the load</dt>
+<dd>in time-.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> – name of the new time load pattern.</li>
+<li><strong>lpType</strong> – type of the load pattern -default, uniform_excitation,
+multi_support_pattern, pbowl_loading-.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.newSPConstraint">
+<code class="descname">newSPConstraint</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>dof</em>, <em>prescribedDisp=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.newSPConstraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prescribe displacement for node DOFs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – tag of the node.</li>
+<li><strong>dof</strong> – index of the degree of freedom.</li>
+<li><strong>prescribedDisp</strong> – values of the displacement.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.newSurface">
+<code class="descname">newSurface</code><span class="sig-paren">(</span><em>pointList</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.newSurface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a surface whose vertices are the argument points.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pointList</strong> – list of vertices.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.newTimeSeries">
+<code class="descname">newTimeSeries</code><span class="sig-paren">(</span><em>name='ts'</em>, <em>tsType='constant_ts'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.newTimeSeries" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Creates a times series -modulation of the load</dt>
+<dd>in time-.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> – name of the new time series.</li>
+<li><strong>tsType</strong> – type of the time series -constant_ts, linear_ts,
+path-ts, pulse_ts, rectangular_ts, triangular_ts
+or trig_ts-. Defaults to constant_ts.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.predefined_spaces.PredefinedSpace.removeAllLoadPatternsFromDomain">
 <code class="descname">removeAllLoadPatternsFromDomain</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.removeAllLoadPatternsFromDomain" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove all load patterns from domain.</p>
@@ -326,6 +588,18 @@ combination) to the domain.</p>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.removeSet">
+<code class="descname">removeSet</code><span class="sig-paren">(</span><em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.removeSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a set with the name argument.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.renewSet">
+<code class="descname">renewSet</code><span class="sig-paren">(</span><em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.renewSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Redefines the set with the name argument.</p>
 </dd></dl>
 
 <dl class="method">
@@ -403,7 +677,7 @@ x: are the vector components in global coordinates defining<blockquote>
 <div>local x-axis (optional)</div></blockquote>
 <dl class="last docutils">
 <dt>yp: vector components in global coordinates defining a  vector</dt>
-<dd>that lies in the local x-y plane of the element(optional).</dd>
+<dd>that lies in the local x-y plane of the element (optional).</dd>
 </dl>
 </dd>
 </dl>
@@ -458,6 +732,20 @@ element.</li>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.setCurrentLoadPattern">
+<code class="descname">setCurrentLoadPattern</code><span class="sig-paren">(</span><em>lpName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.setCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the current load pattern.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lpName</strong> – load pattern name.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.predefined_spaces.PredefinedSpace.setFulcrumBetweenNodes">
 <code class="descname">setFulcrumBetweenNodes</code><span class="sig-paren">(</span><em>nodeTagA</em>, <em>pivotNode</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.setFulcrumBetweenNodes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a fulcrum between the nodes passed as parameters.</p>
@@ -468,8 +756,8 @@ It’s called fulcrum because it’s pinned on pivotNode.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>nodeTagA</strong> – tag of the master node.</li>
-<li><strong>nodeTagB</strong> – tag of the pivot (slave node).</li>
+<li><strong>nodeTagA</strong> – tag of the primary node.</li>
+<li><strong>pivotNode</strong> – tag of the pivot (secondary node).</li>
 <li><strong>dofs</strong> – degrees of freedom to be glued 
 (e.g.: dofs=xc.ID([0,3,6]) means to equal ux,uz,rotz)</li>
 </ul>
@@ -494,6 +782,26 @@ It’s called fulcrum because it’s pinned on pivotNode.</p>
 <li><strong>setName</strong> – name of the set to create. If ‘auto’
 then assign a random (unique) name.</li>
 <li><strong>setsToSum</strong> – sets to sum in a list.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.setNodePropertyFromElements">
+<code class="descname">setNodePropertyFromElements</code><span class="sig-paren">(</span><em>compName</em>, <em>xcSet</em>, <em>function</em>, <em>propToDefine</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.setNodePropertyFromElements" title="Permalink to this definition">¶</a></dt>
+<dd><p>display the stresses on the elements.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>compName</strong> – name of the component of the magnitude (‘sigma_11’, ‘strain_xx’, …)</li>
+<li><strong>xcSet</strong> – set of nodes to define the propery at.</li>
+<li><strong>function</strong> – function to call to retrieve the component value.</li>
+<li><strong>propToDefine</strong> – name of the property to define at the nodes.</li>
 </ul>
 </td>
 </tr>
@@ -565,6 +873,23 @@ and the number of DOFs for each node obtained from the argument.</p>
 <li><strong>nodeTagB</strong> – tag of the slave node.</li>
 </ul>
 </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.setSolutionProcedureType">
+<code class="descname">setSolutionProcedureType</code><span class="sig-paren">(</span><em>solutionProcedureType</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.setSolutionProcedureType" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Set the solution procedure that will be used</dt>
+<dd>to solve the finite element problem.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>solutionProcedureType</strong> – type of the solution procedure.</td>
 </tr>
 </tbody>
 </table>
@@ -645,7 +970,7 @@ then assign a random (unique) name.</li>
 <dl class="method">
 <dt id="model.predefined_spaces.SolidMechanics2D.fixNode00">
 <code class="descname">fixNode00</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.SolidMechanics2D.fixNode00" title="Permalink to this definition">¶</a></dt>
-<dd><p>Restrain all three node DOFs (i. e. make them zero).</p>
+<dd><p>Restrain both node DOFs (i. e. make them zero).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1021,6 +1346,12 @@ displacement components.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.predefined_spaces.StructuralMechanics2D.getRotationVector">
+<code class="descname">getRotationVector</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics2D.getRotationVector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a vector with the rotation components of the node motion.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics2D.getRotationalDOFs">
 <code class="descname">getRotationalDOFs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics2D.getRotationalDOFs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the indices of the rotational DOFs.</p>
@@ -1049,6 +1380,24 @@ stress name.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>trfName</strong> – name for the new transformation.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.StructuralMechanics2D.newCrdTransf">
+<code class="descname">newCrdTransf</code><span class="sig-paren">(</span><em>trfName</em>, <em>trfType='linear'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics2D.newCrdTransf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new 3D transformation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>trfName</strong> – name for the new transformation.</li>
+<li><strong>trfType</strong> – type of the transformation (‘linear’, ‘p_delta’ or ‘corotational’)</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1110,6 +1459,30 @@ constraints</li>
 <li>’free’: means no constraint values</li>
 </ul>
 </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.StructuralMechanics3D.distributeLoadOnNodes">
+<code class="descname">distributeLoadOnNodes</code><span class="sig-paren">(</span><em>loadSVS</em>, <em>nodeSet</em>, <em>loadPattern=None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.distributeLoadOnNodes" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Distribute the load (represented by a sliding vector system</dt>
+<dd>between the nodes of the set.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>loadSVS</strong> – sliding vector system representing the load to be
+distributed.</li>
+<li><strong>nodeSet</strong> – the nodes receiving the loads.</li>
+<li><strong>loadPattern</strong> – load pattern to create the loads into. If None
+use the current load pattern.</li>
 </ul>
 </td>
 </tr>
@@ -1464,7 +1837,27 @@ displacement components.</p>
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics3D.getDisplacementVector">
 <code class="descname">getDisplacementVector</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.getDisplacementVector" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a vector with the displacement components of the node motion.</p>
+<dd><dl class="docutils">
+<dt>Return a vector with the displacement components of the node </dt>
+<dd>motion.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.StructuralMechanics3D.getRotationVector">
+<code class="descname">getRotationVector</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.getRotationVector" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return a vector with the rotational components of the node </dt>
+<dd>motion.</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1514,6 +1907,25 @@ stress name.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.predefined_spaces.StructuralMechanics3D.newCrdTransf">
+<code class="descname">newCrdTransf</code><span class="sig-paren">(</span><em>trfName</em>, <em>xzVector</em>, <em>trfType='linear'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.newCrdTransf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new 3D transformation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>trfName</strong> – name for the new transformation.</li>
+<li><strong>xzVector</strong> – vector defining transformation XZ plane.</li>
+<li><strong>trfType</strong> – type of the transformation (‘linear’, ‘p_delta’ or ‘corotational’)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics3D.newLinearCrdTransf">
 <code class="descname">newLinearCrdTransf</code><span class="sig-paren">(</span><em>trfName</em>, <em>xzVector</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.newLinearCrdTransf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new 3D linear transformation.</p>
@@ -1550,8 +1962,55 @@ stress name.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.predefined_spaces.StructuralMechanics3D.releaseBeamEnd">
+<code class="descname">releaseBeamEnd</code><span class="sig-paren">(</span><em>beamElement</em>, <em>stiffnessFactors</em>, <em>nodesToRelease</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.releaseBeamEnd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Releases some degrees of fredom at the extremities of the beam element.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>beamElement</strong> – element that will be released.</li>
+<li><strong>nodesToRelease</strong> – indexesof the element nodes to release.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">StiffnessFactors:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first last">factors that multiply the element stiffnesses on 
+each DOF: [KX, KY, KZ, KrotX, KrotY, KrotZ]
+the axis correspond to the local axis of the element.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.StructuralMechanics3D.setBeamBetweenNodes">
+<code class="descname">setBeamBetweenNodes</code><span class="sig-paren">(</span><em>nodeA</em>, <em>nodeB</em>, <em>sectionName</em>, <em>nmbTransf=None</em>, <em>trfType='linear'</em>, <em>beamElementType='ElasticBeam3d'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.setBeamBetweenNodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a beam/column element between the two nodes being passed as parameters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeA</strong> – bar’s from node.</li>
+<li><strong>nodeB</strong> – bar’s to node.</li>
+<li><strong>sectionName</strong> – name of the section material to assign to the element.</li>
+<li><strong>nmbTransf</strong> – name of the coordinate transformation to use for the new bar.</li>
+<li><strong>trfType</strong> – type of the transformation (‘linear’, ‘p_delta’ or ‘corotational’)
+used only if nmbTransf==None.</li>
+<li><strong>stiffnessFactor</strong> – factor to apply to the beam stiffness.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics3D.setHugeBeamBetweenNodes">
-<code class="descname">setHugeBeamBetweenNodes</code><span class="sig-paren">(</span><em>nodeTagA</em>, <em>nodeTagB</em>, <em>nmbTransf</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.setHugeBeamBetweenNodes" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setHugeBeamBetweenNodes</code><span class="sig-paren">(</span><em>nodeA</em>, <em>nodeB</em>, <em>nmbTransf=None</em>, <em>trfType='linear'</em>, <em>stiffnessFactor=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.setHugeBeamBetweenNodes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a very stiff bar between the two nodes being passed as parameters.
 (it was a workaround to the problem with the reactions values in nodes when
 using multipoint constraints. This problem has been be solved with the
@@ -1561,9 +2020,12 @@ implementation of MFreedom_ConstraintBase::addResistingForceToNodalReaction).</p
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>nodeTagA</strong> – tag of bar’s from node.</li>
-<li><strong>nodeTagB</strong> – tag of bar’s to node.</li>
+<li><strong>nodeA</strong> – bar’s from node.</li>
+<li><strong>nodeB</strong> – bar’s to node.</li>
 <li><strong>nmbTransf</strong> – name of the coordinate transformation to use for the new bar.</li>
+<li><strong>trfType</strong> – type of the transformation (‘linear’, ‘p_delta’ or ‘corotational’)
+used only if nmbTransf==None.</li>
+<li><strong>stiffnessFactor</strong> – factor to apply to the beam stiffness.</li>
 </ul>
 </td>
 </tr>
@@ -1573,15 +2035,16 @@ implementation of MFreedom_ConstraintBase::addResistingForceToNodalReaction).</p
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics3D.setHugeTrussBetweenNodes">
-<code class="descname">setHugeTrussBetweenNodes</code><span class="sig-paren">(</span><em>nodeTagA</em>, <em>nodeTagB</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.setHugeTrussBetweenNodes" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setHugeTrussBetweenNodes</code><span class="sig-paren">(</span><em>nodeA</em>, <em>nodeB</em>, <em>stiffnessFactor=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.setHugeTrussBetweenNodes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a very stiff bar between the two nodes being passed as parameters.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>nodeTagA</strong> – tag of bar’s from node.</li>
-<li><strong>nodeTagB</strong> – tag of bar’s to node.</li>
+<li><strong>nodeA</strong> – tag of bar’s from node.</li>
+<li><strong>nodeB</strong> – bar’s to node.</li>
+<li><strong>stiffnessFactor</strong> – factor to apply to the beam stiffness.</li>
 </ul>
 </td>
 </tr>

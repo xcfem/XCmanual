@@ -56,7 +56,7 @@
 <span id="generation-of-boundary-conditions-based-on-springs"></span><h1>Generation of boundary conditions based on springs<a class="headerlink" href="#module-model.boundary_cond.spring_bound_cond" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="model.boundary_cond.spring_bound_cond.ElasticFoundation">
-<em class="property">class </em><code class="descclassname">model.boundary_cond.spring_bound_cond.</code><code class="descname">ElasticFoundation</code><span class="sig-paren">(</span><em>wModulus</em>, <em>cRoz</em><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.ElasticFoundation" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">model.boundary_cond.spring_bound_cond.</code><code class="descname">ElasticFoundation</code><span class="sig-paren">(</span><em>wModulus</em>, <em>cRoz</em>, <em>noTensionZ=False</em><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.ElasticFoundation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Region resting on springs (Winkler elastic foundation)</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -67,6 +67,8 @@
 <li><strong>wModulus</strong> – Winkler modulus of the foundation (springs in Z direction)</li>
 <li><strong>cRoz</strong> – fraction of the Winkler modulus to apply for friction in
 the contact plane (springs in X, Y directions)</li>
+<li><strong>noTensionZ</strong> – if True springs in Z direction are made of 
+no-tension material (defaults to None)</li>
 </ul>
 </td>
 </tr>
@@ -138,7 +140,7 @@ in red (defaults to None)</div></blockquote>
 <dl class="method">
 <dt id="model.boundary_cond.spring_bound_cond.ElasticFoundation.generateSprings">
 <code class="descname">generateSprings</code><span class="sig-paren">(</span><em>xcSet</em><span class="sig-paren">)</span><a class="headerlink" href="#model.boundary_cond.spring_bound_cond.ElasticFoundation.generateSprings" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates the springs at the nodes.</p>
+<dd><p>Creates the springs at the nodes of the xcSet given as parameter.</p>
 </dd></dl>
 
 <dl class="method">

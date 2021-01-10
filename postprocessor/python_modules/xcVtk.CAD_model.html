@@ -54,11 +54,26 @@
             
   <div class="section" id="module-postprocess.xcVtk.CAD_model.vtk_CAD_graphic">
 <span id="vtk-cad-graphic"></span><h1>vtk CAD graphic<a class="headerlink" href="#module-postprocess.xcVtk.CAD_model.vtk_CAD_graphic" title="Permalink to this headline">¶</a></h1>
+<p>Display block topology entities (k-points,lines,surfaces,bodies,…)</p>
 <dl class="class">
 <dt id="postprocess.xcVtk.CAD_model.vtk_CAD_graphic.DisplaySettingsBlockTopo">
 <em class="property">class </em><code class="descclassname">postprocess.xcVtk.CAD_model.vtk_CAD_graphic.</code><code class="descname">DisplaySettingsBlockTopo</code><a class="headerlink" href="#postprocess.xcVtk.CAD_model.vtk_CAD_graphic.DisplaySettingsBlockTopo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="xcVtkGenTopics.html#postprocess.xcVtk.vtk_graphic_base.DisplaySettings" title="postprocess.xcVtk.vtk_graphic_base.DisplaySettings"><code class="xref py py-class docutils literal"><span class="pre">postprocess.xcVtk.vtk_graphic_base.DisplaySettings</span></code></a></p>
 <p>Define graphic output.</p>
+<dl class="method">
+<dt id="postprocess.xcVtk.CAD_model.vtk_CAD_graphic.DisplaySettingsBlockTopo.defineLocalAxes">
+<code class="descname">defineLocalAxes</code><span class="sig-paren">(</span><em>setToDisplay</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.CAD_model.vtk_CAD_graphic.DisplaySettingsBlockTopo.defineLocalAxes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the local axes of the blocks.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>setToDisplay</strong> – set of elements to be displayed.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="method">
 <dt id="postprocess.xcVtk.CAD_model.vtk_CAD_graphic.DisplaySettingsBlockTopo.defineMeshScene">
 <code class="descname">defineMeshScene</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.CAD_model.vtk_CAD_graphic.DisplaySettingsBlockTopo.defineMeshScene" title="Permalink to this definition">¶</a></dt>
@@ -66,8 +81,8 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="postprocess.xcVtk.CAD_model.vtk_CAD_graphic.DisplaySettingsBlockTopo.displayBlocks">
-<code class="descname">displayBlocks</code><span class="sig-paren">(</span><em>setToDisplay</em>, <em>caption=''</em>, <em>fileName=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.CAD_model.vtk_CAD_graphic.DisplaySettingsBlockTopo.displayBlocks" title="Permalink to this definition">¶</a></dt>
+<dt id="postprocess.xcVtk.CAD_model.vtk_CAD_graphic.DisplaySettingsBlockTopo.displayBlockEntities">
+<code class="descname">displayBlockEntities</code><span class="sig-paren">(</span><em>setToDisplay</em>, <em>caption</em>, <em>fileName=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.CAD_model.vtk_CAD_graphic.DisplaySettingsBlockTopo.displayBlockEntities" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display geometric entities (points, lines, surfaces and volumes)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -77,6 +92,45 @@
 <li><strong>setToDisplay</strong> – set to be represented</li>
 <li><strong>caption</strong> – text to display in the graphic.</li>
 <li><strong>fileName</strong> – name of the graphic file to create (if None then -&gt; screen window).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.CAD_model.vtk_CAD_graphic.DisplaySettingsBlockTopo.displayBlocks">
+<code class="descname">displayBlocks</code><span class="sig-paren">(</span><em>setToDisplay</em>, <em>displayLocalAxes=True</em>, <em>caption=''</em>, <em>fileName=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.CAD_model.vtk_CAD_graphic.DisplaySettingsBlockTopo.displayBlocks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the element local axes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>setToDisplay</strong> – set of elements to be displayed (defaults to total set)</li>
+<li><strong>displayLocalAxes</strong> – if true, show also local axes of entities.</li>
+<li><strong>caption</strong> – text to display in the graphic</li>
+<li><strong>fileName</strong> – file name to store the image. If none -&gt; window on screen.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.CAD_model.vtk_CAD_graphic.DisplaySettingsBlockTopo.displayLocalAxes">
+<code class="descname">displayLocalAxes</code><span class="sig-paren">(</span><em>setToDisplay</em>, <em>caption</em>, <em>fileName=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.CAD_model.vtk_CAD_graphic.DisplaySettingsBlockTopo.displayLocalAxes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the element local axes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>setToDisplay</strong> – set of elements to be displayed (defaults to total set)</li>
+<li><strong>caption</strong> – text to display in the graphic</li>
+<li><strong>fileName</strong> – file name to store the image. If none -&gt; window on screen.</li>
 </ul>
 </td>
 </tr>
@@ -118,11 +172,6 @@
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="postprocess.xcVtk.CAD_model.cad_mesh.VtkCargaMalla">
-<code class="descclassname">postprocess.xcVtk.CAD_model.cad_mesh.</code><code class="descname">VtkCargaMalla</code><span class="sig-paren">(</span><em>recordGrid</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.CAD_model.cad_mesh.VtkCargaMalla" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
 <dt id="postprocess.xcVtk.CAD_model.cad_mesh.VtkDefineActorCells">
 <code class="descclassname">postprocess.xcVtk.CAD_model.cad_mesh.</code><code class="descname">VtkDefineActorCells</code><span class="sig-paren">(</span><em>recordGrid</em>, <em>renderer</em>, <em>tipoRepr</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.CAD_model.cad_mesh.VtkDefineActorCells" title="Permalink to this definition">¶</a></dt>
 <dd><p>Actor for the surfaces.</p>
@@ -161,6 +210,11 @@ representation</li>
 <code class="descclassname">postprocess.xcVtk.CAD_model.cad_mesh.</code><code class="descname">VtkDibujaIdsKPts</code><span class="sig-paren">(</span><em>uGrid</em>, <em>setToDraw</em>, <em>renderer</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.CAD_model.cad_mesh.VtkDibujaIdsKPts" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw the point labels.</p>
 </dd></dl>
+
+<dl class="function">
+<dt id="postprocess.xcVtk.CAD_model.cad_mesh.vtk_load_mesh_data">
+<code class="descclassname">postprocess.xcVtk.CAD_model.cad_mesh.</code><code class="descname">vtk_load_mesh_data</code><span class="sig-paren">(</span><em>recordGrid</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.CAD_model.cad_mesh.vtk_load_mesh_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </div>
 <div class="section" id="module-postprocess.xcVtk.CAD_model.create_array_set_data">

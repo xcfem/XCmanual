@@ -1,0 +1,2167 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ASTM-AISC materials &#8212; XC 3.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Materials according to Eurocode-3" href="materials.ec3.html" />
+    <link rel="prev" title="Prestressed materials" href="materials.prestressing.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="materials.ec3.html" title="Materials according to Eurocode-3"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="materials.prestressing.html" title="Prestressed materials"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../material.html" accesskey="U">Material</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="astm-aisc-materials">
+<h1>ASTM-AISC materials<a class="headerlink" href="#astm-aisc-materials" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>ASTM-AISC materials<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-materials.astm_aisc.ASTM_materials"></span><p>Structural steel as specified in ASTM standard.</p>
+<dl class="docutils">
+<dt>Predefined ASTM steel types: A36, A529, A572, A53, A992, A500, A307,</dt>
+<dd>A325 (bolts M12 to M36)</dd>
+</dl>
+<dl class="class">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMShape">
+<em class="property">class </em><code class="descclassname">materials.astm_aisc.ASTM_materials.</code><code class="descname">ASTMShape</code><span class="sig-paren">(</span><em>name=''</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMShape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Steel shape with ASTM/AISC verification routines.</p>
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMShape.getBiaxialBendingEfficiency">
+<code class="descname">getBiaxialBendingEfficiency</code><span class="sig-paren">(</span><em>sectionClassif</em>, <em>Nd</em>, <em>Myd</em>, <em>Mzd</em>, <em>Vyd=0.0</em>, <em>chiN=1.0</em>, <em>chiLT=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMShape.getBiaxialBendingEfficiency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return biaxial bending efficiency according to section H1
+of AISC-360-16.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sectionClassif</strong> – section classification compact, noncompact, slender or too slender.</li>
+<li><strong>chiN</strong> – axial load reduction reduction factor (default= 1.0).</li>
+<li><strong>chiLT</strong> – lateral buckling reduction factor (default= 1.0).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMShape.getCriticalStressE">
+<code class="descname">getCriticalStressE</code><span class="sig-paren">(</span><em>effectiveLengthY</em>, <em>effectiveLengthZ</em>, <em>sectionClassif</em>, <em>Fe</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMShape.getCriticalStressE" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the critical stress of the member according</dt>
+<dd>to equations E3-2 and E3-3 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>effectiveLengthY</strong> – effective length of member (minor axis).</li>
+<li><strong>effectiveLengthZ</strong> – effective length of member (major axis).</li>
+<li><strong>sectionClassif</strong> – section classification compact, noncompact, slender or too slender.</li>
+<li><strong>Fe</strong> – flexural or torsional elastic buckling stress.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMShape.getDesignCompressiveStrength">
+<code class="descname">getDesignCompressiveStrength</code><span class="sig-paren">(</span><em>effectiveLengthX</em>, <em>effectiveLengthY</em>, <em>effectiveLengthZ</em>, <em>sectionClassif</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMShape.getDesignCompressiveStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design compressive strength of the member</dt>
+<dd>according to section E1 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>effectiveLengthX</strong> – effective length of member (torsion).</li>
+<li><strong>effectiveLengthY</strong> – effective length of member (minor axis).</li>
+<li><strong>effectiveLengthZ</strong> – effective length of member (major axis).</li>
+<li><strong>sectionClassif</strong> – section classification compact, noncompact, slender or too slender.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMShape.getDesignTensileStrength">
+<code class="descname">getDesignTensileStrength</code><span class="sig-paren">(</span><em>Ae=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMShape.getDesignTensileStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the tensile strength of the section according</dt>
+<dd>to section D2 fo AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Ae</strong> – effective net area according to section D3.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMShape.getDict">
+<code class="descname">getDict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMShape.getDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Put member values in a dictionary.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMShape.getFlangeGrossArea">
+<code class="descname">getFlangeGrossArea</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMShape.getFlangeGrossArea" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the gross area of the flange.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMShape.getFlangeMaximumBolt">
+<code class="descname">getFlangeMaximumBolt</code><span class="sig-paren">(</span><em>steelType=&lt;materials.astm_aisc.ASTM_materials.ASTMSteel object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMShape.getFlangeMaximumBolt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the maximum bolt to prevent beam flange 
+tensile rupture according to equation 7.6-2M
+of AISC 358-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMShape.getFlangeMaximumBoltDiameter">
+<code class="descname">getFlangeMaximumBoltDiameter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMShape.getFlangeMaximumBoltDiameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the maximum bolt diameter to prevent beam flange 
+tensile rupture according to equation 7.6-2M
+of AISC 358-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMShape.getFlangeMaximumHoleDiameter">
+<code class="descname">getFlangeMaximumHoleDiameter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMShape.getFlangeMaximumHoleDiameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the maximum hole diameter to prevent beam flange 
+tensile rupture according to equation 7.6-2M
+of AISC 358-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMShape.getFlangeYieldStrength">
+<code class="descname">getFlangeYieldStrength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMShape.getFlangeYieldStrength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the yield strength of the flange.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMShape.getFlexuralCriticalSlendernessRatio">
+<code class="descname">getFlexuralCriticalSlendernessRatio</code><span class="sig-paren">(</span><em>effectiveLengthY</em>, <em>effectiveLengthZ</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMShape.getFlexuralCriticalSlendernessRatio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the critical value of the flexural buckling </dt>
+<dd>slenderness ratio of the member.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>effectiveLengthY</strong> – effective length of member (minor axis).</li>
+<li><strong>effectiveLengthZ</strong> – effective length of member (major axis).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMShape.getFlexuralCriticalStress">
+<code class="descname">getFlexuralCriticalStress</code><span class="sig-paren">(</span><em>effectiveLengthY</em>, <em>effectiveLengthZ</em>, <em>sectionClassif</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMShape.getFlexuralCriticalStress" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the flexural critical stress of the member according</dt>
+<dd>to equations E3-2 and E3-3 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>effectiveLengthY</strong> – effective length of member (minor axis).</li>
+<li><strong>effectiveLengthZ</strong> – effective length of member (major axis).</li>
+<li><strong>sectionClassif</strong> – section classification compact, noncompact, slender or too slender.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMShape.getFlexuralElasticBucklingStress">
+<code class="descname">getFlexuralElasticBucklingStress</code><span class="sig-paren">(</span><em>effectiveLengthY</em>, <em>effectiveLengthZ</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMShape.getFlexuralElasticBucklingStress" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the flexural elastic buckling stress of the member according</dt>
+<dd>to equation E3-4 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>effectiveLengthY</strong> – effective length of member (minor axis).</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Parem effectiveLengthZ:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">effective length of member (major axis).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMShape.getFlexuralElasticBucklingStressOnAxis">
+<code class="descname">getFlexuralElasticBucklingStressOnAxis</code><span class="sig-paren">(</span><em>effectiveLengthY</em>, <em>effectiveLengthZ</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMShape.getFlexuralElasticBucklingStressOnAxis" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the flexural elastic buckling stress of the member according</dt>
+<dd>to equations E4-5 or E4-6 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>effectiveLengthY</strong> – effective length of member (minor axis).</li>
+<li><strong>effectiveLengthZ</strong> – effective length of member (major axis).</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMShape.getFlexuralSlendernessRatio">
+<code class="descname">getFlexuralSlendernessRatio</code><span class="sig-paren">(</span><em>effectiveLengthY</em>, <em>effectiveLengthZ</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMShape.getFlexuralSlendernessRatio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the flexural buckling slenderness ratio of the member.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>effectiveLengthY</strong> – effective length of member (minor axis).</li>
+<li><strong>effectiveLengthZ</strong> – effective length of member (major axis).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMShape.getNominalCompressiveStrength">
+<code class="descname">getNominalCompressiveStrength</code><span class="sig-paren">(</span><em>effectiveLengthX</em>, <em>effectiveLengthY</em>, <em>effectiveLengthZ</em>, <em>sectionClassif</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMShape.getNominalCompressiveStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the nominal compressive strength of the member</dt>
+<dd>according to equation E3-1 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>effectiveLengthX</strong> – effective length of member (torsion).</li>
+<li><strong>effectiveLengthY</strong> – effective length of member (minor axis).</li>
+<li><strong>effectiveLengthZ</strong> – effective length of member (major axis).</li>
+<li><strong>sectionClassif</strong> – section classification compact, noncompact, slender or too slender.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMShape.getProbableMaxMomentAtPlasticHinge">
+<code class="descname">getProbableMaxMomentAtPlasticHinge</code><span class="sig-paren">(</span><em>majorAxis</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMShape.getProbableMaxMomentAtPlasticHinge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the probable maximum moment at plastic hinge according
+to clause 2.4.3 of AISC-358.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMShape.getReferenceCompressiveStrength">
+<code class="descname">getReferenceCompressiveStrength</code><span class="sig-paren">(</span><em>sectionClassif</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMShape.getReferenceCompressiveStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the flexural strength of the section without</dt>
+<dd>take in to account the lateral buckling effect.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectionClassif</strong> – section classification compact, noncompact, slender or too slender.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMShape.getReferenceFlexuralStrength">
+<code class="descname">getReferenceFlexuralStrength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMShape.getReferenceFlexuralStrength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the flexural strength of the section without
+take in to account the lateral buckling effect.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMShape.getTorsionalCriticalStress">
+<code class="descname">getTorsionalCriticalStress</code><span class="sig-paren">(</span><em>effectiveLengthX</em>, <em>effectiveLengthY</em>, <em>effectiveLengthZ</em>, <em>sectionClassif</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMShape.getTorsionalCriticalStress" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the torsional critical stress of the member according</dt>
+<dd>to equations E4-2, E4-3 and E4-4 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>effectiveLengthX</strong> – effective length of member (torsion).</li>
+<li><strong>effectiveLengthY</strong> – effective length of member (minor axis).</li>
+<li><strong>effectiveLengthZ</strong> – effective length of member (major axis).</li>
+<li><strong>sectionClassif</strong> – section classification compact, noncompact, slender or too slender.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMShape.getTorsionalElasticBucklingStress">
+<code class="descname">getTorsionalElasticBucklingStress</code><span class="sig-paren">(</span><em>effectiveLengthX</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMShape.getTorsionalElasticBucklingStress" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the torsional or flexural-torsional elastic buckling stress</dt>
+<dd>of the member according to equations E4-2, E4-3 and E4-4 of 
+AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>effectiveLengthX</strong> – effective length of member (torsion).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMShape.getYShearEfficiency">
+<code class="descname">getYShearEfficiency</code><span class="sig-paren">(</span><em>sectionClass</em>, <em>Vy</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMShape.getYShearEfficiency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return major axis shear efficiency according to AISC-360-16.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectionClass</strong> – dummy argument used for compatibility.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMShape.getZShearEfficiency">
+<code class="descname">getZShearEfficiency</code><span class="sig-paren">(</span><em>sectionClass</em>, <em>Vz</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMShape.getZShearEfficiency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return major axis shear efficiency according to AISC-360-16.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectionClass</strong> – dummy argument used for compatibility.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMShape.setFromDict">
+<code class="descname">setFromDict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMShape.setFromDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read member values from a dictionary.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMShape.setupULSControlVars">
+<code class="descname">setupULSControlVars</code><span class="sig-paren">(</span><em>elems</em>, <em>sectionClass=1</em>, <em>chiN=1.0</em>, <em>chiLT=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMShape.setupULSControlVars" title="Permalink to this definition">¶</a></dt>
+<dd><p>For each element creates the variables
+needed to check ultimate limit state criterion to be satisfied.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sectionClass</strong> – section classification compact, noncompact, slender or too slender.</li>
+<li><strong>chiN</strong> – axial load reduction reduction factor (default= 1.0).</li>
+<li><strong>chiLT</strong> – lateral buckling reduction factor (default= 1.0).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMSteel">
+<em class="property">class </em><code class="descclassname">materials.astm_aisc.ASTM_materials.</code><code class="descname">ASTMSteel</code><span class="sig-paren">(</span><em>name=None</em>, <em>fy=250000000.0</em>, <em>fu=400000000.0</em>, <em>gammaM=1.0</em>, <em>Rt=None</em>, <em>Ry=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMSteel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="matGenTopics.html#materials.steel_base.BasicSteel" title="materials.steel_base.BasicSteel"><code class="xref py py-class docutils literal"><span class="pre">materials.steel_base.BasicSteel</span></code></a></p>
+<p>ASTM structural steel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – steel identifier.</li>
+<li><a class="reference internal" href="../cpp_classes/material/uniaxial/steel/steel.html#xc.SteelBaseMaterial.fy" title="xc.SteelBaseMaterial.fy"><strong>fy</strong></a> – yield stress (defaults to 250e6 Pa)</li>
+<li><strong>fu</strong> – ultimate tensile strength (defaults to 400e6 Pa)</li>
+<li><strong>gammaM</strong> – partial factor (defaults to 1.0)</li>
+<li><strong>Rt</strong> – Ratio of the expected tensile strength to the 
+specified minimum tensile strength, Fu.
+See table A3.1 of AISC 341 seismic provisions.</li>
+<li><strong>Ry</strong> – Ratio of the expected yield stress to the specified
+minimum yield stress, Fy.
+See table A3.1 of AISC 341 seismic provisions.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMSteel.getDict">
+<code class="descname">getDict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMSteel.getDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Put member values in a dictionary.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMSteel.getPeakConnectionStrengthFactor">
+<code class="descname">getPeakConnectionStrengthFactor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMSteel.getPeakConnectionStrengthFactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the factor to account for peak connection strength, 
+including strain hardening, local restraint, additional 
+reinforcement and other connection conditions according
+to clause 2.4.3 (equation 2.4-2) of AISC 358-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMSteel.getYt">
+<code class="descname">getYt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMSteel.getYt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the Yt factor to use in clause F13.1 of AISC 360-16
+to obtain the strength reduction for members with holes
+in the tension flange.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ASTMSteel.setFromDict">
+<code class="descname">setFromDict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ASTMSteel.setFromDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read member values from a dictionary.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt">
+<em class="property">class </em><code class="descclassname">materials.astm_aisc.ASTM_materials.</code><code class="descname">AnchorBolt</code><span class="sig-paren">(</span><em>name</em>, <em>steel</em>, <em>diameter</em>, <em>pos3d=None</em>, <em>plateWasher=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">connections.bolts.AnchorBase</span></code></p>
+<p>ASTM anchor bolt according to table 2.2 from the document
+Base Plate and Anchor Rod Design Second Edition
+American Institute of Steel Construction, Inc.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – bolt identifier</li>
+<li><strong>steel</strong> – steel material.</li>
+<li><a class="reference internal" href="../cpp_classes/material/section/repres/geom_section/reinfBar/reinfBar.html#xc.ReinfBar.diameter" title="xc.ReinfBar.diameter"><strong>diameter</strong></a> – bolt diameter.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.ab_diams">
+<code class="descname">ab_diams</code><em class="property"> = [0.015875, 0.01905, 0.022225, 0.0254, 0.028575, 0.03175, 0.0381, 0.04445, 0.0508, 0.05715, 0.0635, 0.06985, 0.0762, 0.08255, 0.0889, 0.09525, 0.1016]</em><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.ab_diams" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.bearingArea">
+<code class="descname">bearingArea</code><em class="property"> = [0.00044451524, 0.00058451496, 0.0007870952, 0.00096774, 0.0011677396, 0.0014451584, 0.0020193508, 0.0026903172, 0.003451606, 0.0043161204, 0.0052709572, 0.006322568, 0.007354824, 0.008580628, 0.009870948, 0.0112903, 0.012838684]</em><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.bearingArea" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.checkDuctility">
+<code class="descname">checkDuctility</code><span class="sig-paren">(</span><em>h_ef</em>, <em>fc</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.checkDuctility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check the ductility of the anchor. If returned value
+is less or equal than 1.0 then ductility OK.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>h_ef</strong> – depth of embedment.</li>
+<li><strong>fc</strong> – concrete strength.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.diam_threads_per_inch">
+<code class="descname">diam_threads_per_inch</code><em class="property"> = [0.0127, 0.0142875, 0.015875, 0.01905, 0.022225, 0.0254, 0.028575, 0.03175, 0.0254, 0.0381, 0.04445, 0.0508, 0.05715, 0.0635, 0.06985, 0.0762, 0.08255, 0.0889, 0.09525, 0.1016]</em><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.diam_threads_per_inch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.fBearingArea">
+<code class="descname">fBearingArea</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.fBearingArea" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.fHoleDiameter">
+<code class="descname">fHoleDiameter</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.fHoleDiameter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.fThreadsPerInch">
+<code class="descname">fThreadsPerInch</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.fThreadsPerInch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.getBearingArea">
+<code class="descname">getBearingArea</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.getBearingArea" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the bearing area of the anchor according
+to the table 3.2 of the design guide.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.getConcreteBreakoutConePolygon">
+<code class="descname">getConcreteBreakoutConePolygon</code><span class="sig-paren">(</span><em>h_ef</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.getConcreteBreakoutConePolygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the full breakout cone in tension as per ACI 318-02.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>h_ef</strong> – depth of embedment.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.getDesignConcreteBreakoutStrength">
+<code class="descname">getDesignConcreteBreakoutStrength</code><span class="sig-paren">(</span><em>h_ef</em>, <em>fc</em>, <em>psi3=1.0</em>, <em>phi=0.7</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.getDesignConcreteBreakoutStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design value of the concrete breakout strength </dt>
+<dd>for the anchor group as per ACI 318-02, Appendix D.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>h_ef</strong> – depth of embedment.</li>
+<li><strong>fc</strong> – concrete strength.</li>
+<li><strong>psi3</strong> – 1.25 if the anchor is located in a region of a
+concrete member where analysis indicates no
+cracking at service levels, otherwise 1.0</li>
+<li><strong>phi</strong> – resistance factor for concrete breakout  
+(defaults to 0.70).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.getDesignPulloutStrength">
+<code class="descname">getDesignPulloutStrength</code><span class="sig-paren">(</span><em>fc</em>, <em>psi4=1.0</em>, <em>phi=0.7</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.getDesignPulloutStrength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the design pullout strength of the anchor 
+rod based on the ACI Appendix D provisions (Section D5.3)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fc</strong> – concrete strength.</li>
+<li><strong>psi4</strong> – 1.4 if the anchor is located in a region of a
+concrete member where analysis indicates no
+cracking (f t – f r ) at service levels, 
+otherwise 1.0</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.getDesignShearStrength">
+<code class="descname">getDesignShearStrength</code><span class="sig-paren">(</span><em>typ='N'</em>, <em>phi=0.55</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.getDesignShearStrength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the shear strength of the anchor rod.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>phi</strong> – resistance factor for anchor steel  
+in tension (defaults to 0.55).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.getDesignTensileStrength">
+<code class="descname">getDesignTensileStrength</code><span class="sig-paren">(</span><em>phi=0.75</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.getDesignTensileStrength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the tensile strength of the anchor rod.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>phi</strong> – resistance factor for anchor steel  
+in tension (defaults to 0.75).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.getDict">
+<code class="descname">getDict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.getDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Put member values in a dictionary.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.getNominalConcreteBreakoutStrength">
+<code class="descname">getNominalConcreteBreakoutStrength</code><span class="sig-paren">(</span><em>h_ef</em>, <em>fc</em>, <em>psi3=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.getNominalConcreteBreakoutStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the nominal value of the concrete breakout strength</dt>
+<dd>for the anchor group as per ACI 318-02, Appendix D.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>h_ef</strong> – depth of embedment.</li>
+<li><strong>fc</strong> – concrete strength.</li>
+<li><strong>psi3</strong> – 1.25 if the anchor is located in a region of a
+concrete member where analysis indicates no
+cracking at service levels, otherwise 1.0</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.getNominalHoleDiameter">
+<code class="descname">getNominalHoleDiameter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.getNominalHoleDiameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the hole diameter for the anchor according
+to the table 2.3 of the design guide.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.getNominalPulloutStrength">
+<code class="descname">getNominalPulloutStrength</code><span class="sig-paren">(</span><em>fc</em>, <em>psi4=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.getNominalPulloutStrength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the nominal pullout strength of the anchor 
+rod based on the ACI Appendix D provisions (Section D5.3)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fc</strong> – concrete strength.</li>
+<li><strong>psi4</strong> – 1.4 if the anchor is located in a region of a
+concrete member where analysis indicates no
+cracking at service levels, otherwise 1.0</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.getNominalShearStrength">
+<code class="descname">getNominalShearStrength</code><span class="sig-paren">(</span><em>typ='N'</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.getNominalShearStrength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the shear strength of the anchor rod.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.getNominalTensileStrength">
+<code class="descname">getNominalTensileStrength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.getNominalTensileStrength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the tensile strength of the anchor rod.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.getNumOfThreadsPerInch">
+<code class="descname">getNumOfThreadsPerInch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.getNumOfThreadsPerInch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of threads per inch.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.getPulloutEfficiency">
+<code class="descname">getPulloutEfficiency</code><span class="sig-paren">(</span><em>Pu</em>, <em>fc</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.getPulloutEfficiency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the pullout efficiency of the bolt.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Pu</strong> – axial load (LRFD).</li>
+<li><strong>fc</strong> – concrete strength.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.getShearEffectiveCrossSectionalArea">
+<code class="descname">getShearEffectiveCrossSectionalArea</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.getShearEffectiveCrossSectionalArea" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the effective cross-sectional area of the
+anchor according to clause R17.5.1.2
+of ACI 318R-14.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.getTensileStrength">
+<code class="descname">getTensileStrength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.getTensileStrength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the tensile strength of the anchor rod.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.getTensionEffectiveCrossSectionalArea">
+<code class="descname">getTensionEffectiveCrossSectionalArea</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.getTensionEffectiveCrossSectionalArea" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the effective cross-sectional area of the
+anchor according to clause R17.4.1.2
+of ACI 318R-14.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.hDiams">
+<code class="descname">hDiams</code><em class="property"> = [0.0333375, 0.0396875, 0.0460375, 0.0523875, 0.0587375, 0.06985, 0.08255, 0.08255]</em><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.hDiams" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.rDiams">
+<code class="descname">rDiams</code><em class="property"> = [0.01905, 0.022225, 0.0254, 0.03175, 0.0381, 0.04445, 0.0508, 0.0635]</em><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.rDiams" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.report">
+<code class="descname">report</code><span class="sig-paren">(</span><em>outputFile</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.report" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the anchor specification.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.setFromDict">
+<code class="descname">setFromDict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.setFromDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read member values from a dictionary.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorBolt.threads_per_inch">
+<code class="descname">threads_per_inch</code><em class="property"> = [13, 12, 11, 10, 9, 8, 7, 7, 6, 6, 5, 4.5, 4.5, 4, 4, 4, 4, 4, 4, 4]</em><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorBolt.threads_per_inch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorGroup">
+<em class="property">class </em><code class="descclassname">materials.astm_aisc.ASTM_materials.</code><code class="descname">AnchorGroup</code><span class="sig-paren">(</span><em>steel</em>, <em>diameter</em>, <em>positions</em>, <em>plateWasher=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Anchor group.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>anchors</strong> – anchor list.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorGroup.getConcreteBreakoutConePolygon">
+<code class="descname">getConcreteBreakoutConePolygon</code><span class="sig-paren">(</span><em>h_ef</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorGroup.getConcreteBreakoutConePolygon" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return breakout cone in tension for the group</dt>
+<dd>as the union of individual cones.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>h_ef</strong> – depth of embedment.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorGroup.getDesignConcreteBreakoutStrength">
+<code class="descname">getDesignConcreteBreakoutStrength</code><span class="sig-paren">(</span><em>h_ef</em>, <em>fc</em>, <em>psi3=1.25</em>, <em>phi=0.7</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorGroup.getDesignConcreteBreakoutStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design value of the concrete breakout strength</dt>
+<dd>for the anchor group as per ACI 318-02, Appendix D.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>h_ef</strong> – depth of embedment.</li>
+<li><strong>fc</strong> – concrete strength.</li>
+<li><strong>psi3</strong> – 1.25 if the anchor is located in a region of a
+concrete member where analysis indicates no
+cracking at service levels, otherwise 1.0</li>
+<li><strong>phi</strong> – resistance factor for concrete breakout  
+(defaults to 0.70).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorGroup.getDict">
+<code class="descname">getDict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorGroup.getDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Put member values in a dictionary.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorGroup.getHoleBlocks">
+<code class="descname">getHoleBlocks</code><span class="sig-paren">(</span><em>refSys</em>, <em>blockProperties</em>, <em>ownerId</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorGroup.getHoleBlocks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return octagons inscribed in the holes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>refSys</strong> – coordinate reference system.</li>
+<li><strong>blockProperties</strong> – labels and attributes to assign to the newly created blocks.</li>
+<li><strong>ownerId</strong> – identifier of the holed surface.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorGroup.getNominalConcreteBreakoutStrength">
+<code class="descname">getNominalConcreteBreakoutStrength</code><span class="sig-paren">(</span><em>h_ef</em>, <em>fc</em>, <em>psi3=1.25</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorGroup.getNominalConcreteBreakoutStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the concrete breakout strength for the anchor</dt>
+<dd>group as per ACI 318-02, Appendix D.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>h_ef</strong> – depth of embedment.</li>
+<li><strong>fc</strong> – concrete strength.</li>
+<li><strong>psi3</strong> – 1.25 if the anchor is located in a region of a
+concrete member where analysis indicates no
+cracking at service levels, otherwise 1.0</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorGroup.getNumberOfBolts">
+<code class="descname">getNumberOfBolts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorGroup.getNumberOfBolts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of anchors in the group.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorGroup.report">
+<code class="descname">report</code><span class="sig-paren">(</span><em>outputFile</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorGroup.report" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes anchor group specification.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorGroup.setFromDict">
+<code class="descname">setFromDict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorGroup.setFromDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read member values from a dictionary.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorGroup.setPositions">
+<code class="descname">setPositions</code><span class="sig-paren">(</span><em>positions</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorGroup.setPositions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the anchors positions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>positions</strong> – list of positions.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.astm_aisc.ASTM_materials.BendingState">
+<em class="property">class </em><code class="descclassname">materials.astm_aisc.ASTM_materials.</code><code class="descname">BendingState</code><span class="sig-paren">(</span><em>Mmax</em>, <em>Ma</em>, <em>Mb</em>, <em>Mc</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BendingState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Bending moments along the member.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Mmax</strong> – absolute value of maximum moment in the unbraced 
+segment.</li>
+<li><strong>Ma</strong> – absolute value of moment at quarter point of the 
+unbraced segment.</li>
+<li><strong>Mb</strong> – absolute value of moment at centerline of the 
+unbraced segment.</li>
+<li><strong>Mc</strong> – absolute value of moment at three-quarter point of 
+the unbraced segment.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BendingState.getLateralTorsionalBucklingModificationFactor">
+<code class="descname">getLateralTorsionalBucklingModificationFactor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BendingState.getLateralTorsionalBucklingModificationFactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the lateral-torsional buckling modification factor Cb
+for non uniform moment diagrams when both ends of the segment
+are braced according to expression F1-1 of AISC 360-16.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.astm_aisc.ASTM_materials.BoltArray">
+<em class="property">class </em><code class="descclassname">materials.astm_aisc.ASTM_materials.</code><code class="descname">BoltArray</code><span class="sig-paren">(</span><em>bolt=&lt;materials.astm_aisc.ASTM_materials.BoltFastener object&gt;</em>, <em>nRows=1</em>, <em>nCols=1</em>, <em>dist=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">connections.bolted_plate.BoltArrayBase</span></code></p>
+<p>Bolt array the AISC/ASTM way.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener">
+<em class="property">class </em><code class="descclassname">materials.astm_aisc.ASTM_materials.</code><code class="descname">BoltFastener</code><span class="sig-paren">(</span><em>diameter</em>, <em>steelType=&lt;materials.astm_aisc.ASTM_materials.ASTMSteel object&gt;</em>, <em>pos3d=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">connections.bolts.BoltBase</span></code></p>
+<p>ASTM bolt according to chapter J of AISC 360-16.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>group</strong> – </td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener.bf_diams">
+<code class="descname">bf_diams</code><em class="property"> = [0.016, 0.02, 0.022, 0.024, 0.027, 0.03, 0.036]</em><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener.bf_diams" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener.diameterIncrement">
+<code class="descname">diameterIncrement</code><em class="property"> = 0.002</em><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener.diameterIncrement" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener.fOversizeHoleDia">
+<code class="descname">fOversizeHoleDia</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener.fOversizeHoleDia" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener.fStandardHoleDia">
+<code class="descname">fStandardHoleDia</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener.fStandardHoleDia" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener.fTabJ3_4M">
+<code class="descname">fTabJ3_4M</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener.fTabJ3_4M" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener.getDesignCombinedStrength">
+<code class="descname">getDesignCombinedStrength</code><span class="sig-paren">(</span><em>V</em>, <em>threadsExcluded=False</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener.getDesignCombinedStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design tensile stress modified to include the </dt>
+<dd>effects of shear stress according to equations J3-3a 
+of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>V</strong> – shear force on the bolt.</li>
+<li><strong>threadsExcluded</strong> – true if threads and transition area of 
+shank are excluded from the shear plane.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener.getDesignHoleDiameter">
+<code class="descname">getDesignHoleDiameter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener.getDesignHoleDiameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the hole diameter to use in net area calculations.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener.getDesignShearStrength">
+<code class="descname">getDesignShearStrength</code><span class="sig-paren">(</span><em>threadsExcluded=False</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener.getDesignShearStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design shear strength of the bolt according</dt>
+<dd>to section J3.6 of of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>threadsExcluded</strong> – true if threads and transition area of 
+shank are excluded from the shear plane.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener.getDesignTensileStrength">
+<code class="descname">getDesignTensileStrength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener.getDesignTensileStrength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the design tensile strength of the bolt according
+to section J3.6 of of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener.getDict">
+<code class="descname">getDict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener.getDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Put member values in a dictionary.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener.getGroup">
+<code class="descname">getGroup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener.getGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the bolt material strength group according to section
+J3.1 of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener.getMinDistanceBetweenCenters">
+<code class="descname">getMinDistanceBetweenCenters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener.getMinDistanceBetweenCenters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the minimum distance between centers of standard, 
+oversized or slotted holes according to section J3.3 of
+AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener.getMinimumEdgeDistance">
+<code class="descname">getMinimumEdgeDistance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener.getMinimumEdgeDistance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the minimum edge distance from center of standard 
+hole to edge of connected part according to toble
+J3.4M of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener.getNominalCombinedStrength">
+<code class="descname">getNominalCombinedStrength</code><span class="sig-paren">(</span><em>V</em>, <em>threadsExcluded=False</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener.getNominalCombinedStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the nominal tensile stress modified to include the </dt>
+<dd>effects of shear stress according to equations J3-3a 
+of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>V</strong> – shear force on the bolt.</li>
+<li><strong>threadsExcluded</strong> – true if threads and transition area of 
+shank are excluded from the shear plane.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener.getNominalHoleDiameter">
+<code class="descname">getNominalHoleDiameter</code><span class="sig-paren">(</span><em>oversized=False</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener.getNominalHoleDiameter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the minimum distance between centers of standard, </dt>
+<dd>oversized or slotted holes according to table J3.3M of
+AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>oversized</strong> – true if hole is oversized.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener.getNominalShearStrength">
+<code class="descname">getNominalShearStrength</code><span class="sig-paren">(</span><em>threadsExcluded=False</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener.getNominalShearStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the nominal strength of the fastener according</dt>
+<dd>to table J3.2 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>threadsExcluded</strong> – true if threads and transition area of 
+shank are excluded from the shear plane.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener.getNominalTensileStrength">
+<code class="descname">getNominalTensileStrength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener.getNominalTensileStrength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the nominal strength of the fastener according
+to table J3.2 of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener.getNumberOfBoltsForShear">
+<code class="descname">getNumberOfBoltsForShear</code><span class="sig-paren">(</span><em>shearForce</em>, <em>numberOfRows=1</em>, <em>threadsExcluded=False</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener.getNumberOfBoltsForShear" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Estimate the number of bolts required for resisting the</dt>
+<dd>shear force.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>shearForce</strong> – shear force to be resisted by the bolts.</li>
+<li><strong>numberOfRows</strong> – number of rows of the bolt array.</li>
+<li><strong>threadsExcluded</strong> – true if threads and transition area of 
+shank are excluded from the shear plane.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener.getRecommendedDistanceBetweenCenters">
+<code class="descname">getRecommendedDistanceBetweenCenters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener.getRecommendedDistanceBetweenCenters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the minimum distance between centers of standard, 
+oversized or slotted holes according to section J3.3 of
+AISC 360-16.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener.groupA">
+<code class="descname">groupA</code><em class="property"> = ['A325', 'A325M', 'A354BC']</em><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener.groupA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener.groupB">
+<code class="descname">groupB</code><em class="property"> = ['A490', 'A490M', 'A354BD']</em><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener.groupB" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener.groupC">
+<code class="descname">groupC</code><em class="property"> = ['F3043', 'F3111']</em><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener.groupC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener.oversizeHoleDia">
+<code class="descname">oversizeHoleDia</code><em class="property"> = [0.02, 0.024, 0.028, 0.03, 0.035, 0.038]</em><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener.oversizeHoleDia" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener.report">
+<code class="descname">report</code><span class="sig-paren">(</span><em>outputFile</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener.report" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reports bolt design values.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener.setFromDict">
+<code class="descname">setFromDict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener.setFromDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read member values from a dictionary.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener.standardHoleDia">
+<code class="descname">standardHoleDia</code><em class="property"> = [0.018, 0.022, 0.024, 0.027, 0.03, 0.033]</em><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener.standardHoleDia" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.astm_aisc.ASTM_materials.BoltFastener.tabJ3_4M">
+<code class="descname">tabJ3_4M</code><em class="property"> = [0.022, 0.026, 0.028, 0.03, 0.034, 0.038, 0.046]</em><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltFastener.tabJ3_4M" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.astm_aisc.ASTM_materials.BoltedPlate">
+<em class="property">class </em><code class="descclassname">materials.astm_aisc.ASTM_materials.</code><code class="descname">BoltedPlate</code><span class="sig-paren">(</span><em>boltArray=&lt;materials.astm_aisc.ASTM_materials.BoltArray object&gt;, width=None, length=None, thickness=0.01, steelType=&lt;materials.astm_aisc.ASTM_materials.ASTMSteel object&gt;, eccentricity=[[0][0]], doublePlate=False</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltedPlate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">connections.bolted_plate.BoltedPlateBase</span></code></p>
+<p>Bolted plate the AISC/ASTM way.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Cbearing</strong> – 2.4 when deformation at the bolt hole at service load is 
+a design consideration (J3-6a) 3.0 when is not
+(see J3-6a and J3-6b).</li>
+<li><strong>longSlottedHoles</strong> – true if the holes are of the log slotted type.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltedPlate.getDesignBearingEfficiency">
+<code class="descname">getDesignBearingEfficiency</code><span class="sig-paren">(</span><em>load</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltedPlate.getDesignBearingEfficiency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the efficiency of the plate with respect to the 
+bolt bearing under the load argument.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltedPlate.getDesignBearingStrength">
+<code class="descname">getDesignBearingStrength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltedPlate.getDesignBearingStrength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the design bearing strength at bolt holes according to
+clause J3.10.1 of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltedPlate.getDesignTearoutEfficiency">
+<code class="descname">getDesignTearoutEfficiency</code><span class="sig-paren">(</span><em>loadVector</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltedPlate.getDesignTearoutEfficiency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the efficiency of the plate with respect to the 
+bolt tearout under the load argument.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltedPlate.getDesignTearoutStrength">
+<code class="descname">getDesignTearoutStrength</code><span class="sig-paren">(</span><em>loadDir</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltedPlate.getDesignTearoutStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design tearout strength at bolt holes according to</dt>
+<dd>clause J3.10.2 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>loadDir</strong> – direction of the load.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltedPlate.getFilletMaximumLeg">
+<code class="descname">getFilletMaximumLeg</code><span class="sig-paren">(</span><em>otherThickness</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltedPlate.getFilletMaximumLeg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the minimum leg size for a fillet bead 
+according to table J2.4 of AISC 360.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>otherThickness</strong> – thickness of the other part to weld.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltedPlate.getFilletMinimumLeg">
+<code class="descname">getFilletMinimumLeg</code><span class="sig-paren">(</span><em>otherThickness</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltedPlate.getFilletMinimumLeg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the minimum leg size for a fillet bead 
+according to table J2.4 of AISC 360.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>otherThickness</strong> – thickness of the other part to weld.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltedPlate.getGrossSectionYieldingLoad">
+<code class="descname">getGrossSectionYieldingLoad</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltedPlate.getGrossSectionYieldingLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the load that determines the yielding of the gross
+section.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltedPlate.getMinThickness">
+<code class="descname">getMinThickness</code><span class="sig-paren">(</span><em>Pd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltedPlate.getMinThickness" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the minimum thickness of the plate</dt>
+<dd>to resist the force argument.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Pd</strong> – design value of the force to resist.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltedPlate.getNetArea">
+<code class="descname">getNetArea</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltedPlate.getNetArea" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the net area of the base plate according to clause
+B.4.3b of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltedPlate.getNetSectionFractureLoad">
+<code class="descname">getNetSectionFractureLoad</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltedPlate.getNetSectionFractureLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the load that determines the fracture of the net
+section.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltedPlate.getNetWidth">
+<code class="descname">getNetWidth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltedPlate.getNetWidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the net width of the base plate according to clause
+B.4.3b of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltedPlate.getNominalBearingStrength">
+<code class="descname">getNominalBearingStrength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltedPlate.getNominalBearingStrength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the nominal bearing strength at bolt holes according to
+clause J3.10.1 of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.BoltedPlate.getNominalTearoutStrength">
+<code class="descname">getNominalTearoutStrength</code><span class="sig-paren">(</span><em>loadDir</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.BoltedPlate.getNominalTearoutStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the nominal tearout strength at bolt holes according to</dt>
+<dd>clause J3.10.2 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>loadDir</strong> – direction of the load.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.astm_aisc.ASTM_materials.CHSSShape">
+<em class="property">class </em><code class="descclassname">materials.astm_aisc.ASTM_materials.</code><code class="descname">CHSSShape</code><span class="sig-paren">(</span><em>steel</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.CHSSShape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.astm_aisc.ASTM_materials.ASTMShape" title="materials.astm_aisc.ASTM_materials.ASTMShape"><code class="xref py py-class docutils literal"><span class="pre">materials.astm_aisc.ASTM_materials.ASTMShape</span></code></a>, <a class="reference internal" href="materials.structural_shapes.html#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape" title="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape</span></code></a></p>
+<p>Circular HSS shape with ASTM/AISC verification routines.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>steel</strong> – steel material (i.e. A36).</li>
+<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – shape name (i.e. HSS16.000X0.375).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.astm_aisc.ASTM_materials.CShape">
+<em class="property">class </em><code class="descclassname">materials.astm_aisc.ASTM_materials.</code><code class="descname">CShape</code><span class="sig-paren">(</span><em>steel</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.CShape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.astm_aisc.ASTM_materials.ASTMShape" title="materials.astm_aisc.ASTM_materials.ASTMShape"><code class="xref py py-class docutils literal"><span class="pre">materials.astm_aisc.ASTM_materials.ASTMShape</span></code></a>, <a class="reference internal" href="materials.structural_shapes.html#materials.sections.structural_shapes.aisc_metric_shapes.CShape" title="materials.sections.structural_shapes.aisc_metric_shapes.CShape"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.structural_shapes.aisc_metric_shapes.CShape</span></code></a></p>
+<p>C shape with ASTM 3 verification routines.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>steel</strong> – steel material (i.e. A36).</li>
+<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – shape name  (i.e. C380X74).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.CShape.getFlangeYieldStrength">
+<code class="descname">getFlangeYieldStrength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.CShape.getFlangeYieldStrength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the yield strength of the flange.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.astm_aisc.ASTM_materials.ConnectedMember">
+<em class="property">class </em><code class="descclassname">materials.astm_aisc.ASTM_materials.</code><code class="descname">ConnectedMember</code><span class="sig-paren">(</span><em>shape</em>, <em>connection</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ConnectedMember" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Steel member with end connections with ASTM 3 verification routines.</p>
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ConnectedMember.getCapacityFactor">
+<code class="descname">getCapacityFactor</code><span class="sig-paren">(</span><em>Nd</em>, <em>Myd</em>, <em>Mzd</em>, <em>gammaC</em>, <em>bendingStateY</em>, <em>bendingStateZ</em>, <em>AfgAfnRatio=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ConnectedMember.getCapacityFactor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the capacity factor according to section</dt>
+<dd>H1 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Lb</strong> – Length between points that are either braced 
+against lateral displacement of compression 
+flange or braced against twist of the cross section.</li>
+<li><strong>Nd</strong> – design value for the axial load (negative for compression).</li>
+<li><strong>Mzd</strong> – design value for the bending moment around z axis.</li>
+<li><strong>Myd</strong> – design value for the bending moment around z axis.</li>
+<li><strong>bendingStateY</strong> – y bending moments along the member.</li>
+<li><strong>bendingStateZ</strong> – z bending moments along the member.</li>
+<li><strong>AfgAfnRatio</strong> – value of gross area of tension flange calculated
+in accordance with the provisions of Section
+B4.3a of AISC 360-16 divided by the net area
+of tension flange calculated in accordance with
+the provisions of Section B4.3b.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ConnectedMember.getCriticalStress">
+<code class="descname">getCriticalStress</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ConnectedMember.getCriticalStress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the critical stress as definded in
+section E7 of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ConnectedMember.getEffectiveLength">
+<code class="descname">getEffectiveLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ConnectedMember.getEffectiveLength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the member effective length according to
+section E2 of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ConnectedMember.getElasticBucklingStress">
+<code class="descname">getElasticBucklingStress</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ConnectedMember.getElasticBucklingStress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the elastic buckling stress of the member.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ConnectedMember.getNominalCompressiveStrength">
+<code class="descname">getNominalCompressiveStrength</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ConnectedMember.getNominalCompressiveStrength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the nominal compressive strength according to
+section E7 of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ConnectedMember.getSlendernessRatio">
+<code class="descname">getSlendernessRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ConnectedMember.getSlendernessRatio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the slenderness ratio of the member.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ConnectedMember.getYLateralTorsionalBucklingFlexuralStrength">
+<code class="descname">getYLateralTorsionalBucklingFlexuralStrength</code><span class="sig-paren">(</span><em>bendingState</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ConnectedMember.getYLateralTorsionalBucklingFlexuralStrength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the maximum flexural strength
+due to web local buckling according to
+expressions F7-10 to F7-11 of AISC 360-16</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bendingState</strong> – bending moments along the member.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ConnectedMember.getYNominalFlexuralStrength">
+<code class="descname">getYNominalFlexuralStrength</code><span class="sig-paren">(</span><em>bendingState</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ConnectedMember.getYNominalFlexuralStrength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the nominal flexural strength
+around z axis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bendingState</strong> – bending moments along the member.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ConnectedMember.getZLateralTorsionalBucklingFlexuralStrength">
+<code class="descname">getZLateralTorsionalBucklingFlexuralStrength</code><span class="sig-paren">(</span><em>bendingState</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ConnectedMember.getZLateralTorsionalBucklingFlexuralStrength" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the maximum flexural strength
+due to web local buckling according to
+expressions F7-10 to F7-11 of AISC 360-16</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bendingState</strong> – bending moments along the member.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.ConnectedMember.getZNominalFlexuralStrength">
+<code class="descname">getZNominalFlexuralStrength</code><span class="sig-paren">(</span><em>bendingState</em>, <em>AfgAfnRatio=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.ConnectedMember.getZNominalFlexuralStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the nominal flexural strength</dt>
+<dd>around z axis.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>bendingState</strong> – bending moments along the member.</li>
+<li><strong>AfgAfnRatio</strong> – value of gross area of tension flange calculated
+in accordance with the provisions of Section
+B4.3a of AISC 360-16 divided by the net area
+of tension flange calculated in accordance with
+the provisions of Section B4.3b.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.astm_aisc.ASTM_materials.FinPlate">
+<em class="property">class </em><code class="descclassname">materials.astm_aisc.ASTM_materials.</code><code class="descname">FinPlate</code><span class="sig-paren">(</span><em>boltArray, width=None, length=None, thickness=0.01, steelType=None, eccentricity=[[0][0]]</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.FinPlate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.astm_aisc.ASTM_materials.BoltedPlate" title="materials.astm_aisc.ASTM_materials.BoltedPlate"><code class="xref py py-class docutils literal"><span class="pre">materials.astm_aisc.ASTM_materials.BoltedPlate</span></code></a></p>
+<p>Fin plate the AISC/ASTM way.</p>
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.FinPlate.getDesignBlockShearEfficiency">
+<code class="descname">getDesignBlockShearEfficiency</code><span class="sig-paren">(</span><em>shearVector</em>, <em>Ubs=0.5</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.FinPlate.getDesignBlockShearEfficiency" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design shear strength of the plate according to</dt>
+<dd>clause J.4.2 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>shearVector</strong> – 2D shear load vector.</li>
+<li><strong>Ubs</strong> – Reduction coefficient, used in calculating 
+block shear rupture strength.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.FinPlate.getDesignBlockShearStrength">
+<code class="descname">getDesignBlockShearStrength</code><span class="sig-paren">(</span><em>shearVector</em>, <em>Ubs=0.5</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.FinPlate.getDesignBlockShearStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design shear strength of the plate according to</dt>
+<dd>clause J.4.3 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>shearVector</strong> – 2D shear load vector.</li>
+<li><strong>Ubs</strong> – Reduction coefficient, used in calculating 
+block shear rupture strength.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.FinPlate.getDesignEfficiency">
+<code class="descname">getDesignEfficiency</code><span class="sig-paren">(</span><em>loadVector</em>, <em>Ubs=0.5</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.FinPlate.getDesignEfficiency" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the efficiency of the fin plate under the load</dt>
+<dd>argument. Checks bolt shear, bolt bearing and tearout.
+Don’t checks weld shear, shear rupture an block shear
+rupture (those will be checked using the CBFEM model).</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>loadVector</strong> – 2D load vector.</li>
+<li><strong>Ubs</strong> – Reduction coefficient, used in calculating 
+block shear rupture strength.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.FinPlate.getDesignShearEfficiency">
+<code class="descname">getDesignShearEfficiency</code><span class="sig-paren">(</span><em>shearVector</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.FinPlate.getDesignShearEfficiency" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design shear strength of the plate according to</dt>
+<dd>clause J.4.2 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>shearVector</strong> – 2D shear load vector.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.FinPlate.getDesignShearRuptureStrength">
+<code class="descname">getDesignShearRuptureStrength</code><span class="sig-paren">(</span><em>shearVector</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.FinPlate.getDesignShearRuptureStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design shear strength of the plate according to</dt>
+<dd>clause J.4.2 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>shearVector</strong> – 2D shear load vector.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.FinPlate.getDesignShearStrength">
+<code class="descname">getDesignShearStrength</code><span class="sig-paren">(</span><em>shearVector</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.FinPlate.getDesignShearStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design shear strength of the plate according to</dt>
+<dd>clause J.4.2 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>shearVector</strong> – 2D shear load vector.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.FinPlate.getDesignShearYieldingStrength">
+<code class="descname">getDesignShearYieldingStrength</code><span class="sig-paren">(</span><em>shearVector</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.FinPlate.getDesignShearYieldingStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design shear strength of the plate according to</dt>
+<dd>clause J.4.2 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>shearVector</strong> – 2D shear load vector.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.FinPlate.getFilletWeldLegSize">
+<code class="descname">getFilletWeldLegSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.FinPlate.getFilletWeldLegSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the conventional leg size for two fillet
+welds attaching the plate to the main member.</p>
+<p>Based on the document: Single-Plate Shear Connection Design 
+to Meet Structural Integrity Requirements. LOUIS F. GESCHWINDNER 
+and KURT D. GUSTAFSON. 2010</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.FinPlate.getGrossAreaSubjectedToBlockShear">
+<code class="descname">getGrossAreaSubjectedToBlockShear</code><span class="sig-paren">(</span><em>loadDir</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.FinPlate.getGrossAreaSubjectedToBlockShear" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the net area the gross area subjected to tension used</dt>
+<dd>in the calculation of the block shear strength.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>loadDir</strong> – direction of the load.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.FinPlate.getGrossAreaSubjectedToShear">
+<code class="descname">getGrossAreaSubjectedToShear</code><span class="sig-paren">(</span><em>shearVector</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.FinPlate.getGrossAreaSubjectedToShear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the gross area of the plate subjected to shear.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>shearVector</strong> – 2D shear load vector.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.FinPlate.getNetAreaSubjectedToBlockShear">
+<code class="descname">getNetAreaSubjectedToBlockShear</code><span class="sig-paren">(</span><em>loadDir</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.FinPlate.getNetAreaSubjectedToBlockShear" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the net area the net area subjected to tension used</dt>
+<dd>in the calculation of the block shear strength.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>loadDir</strong> – direction of the load.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.FinPlate.getNetAreaSubjectedToBlockTension">
+<code class="descname">getNetAreaSubjectedToBlockTension</code><span class="sig-paren">(</span><em>shearVector</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.FinPlate.getNetAreaSubjectedToBlockTension" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the net area the net area subjected to tension used</dt>
+<dd>in the calculation of the block shear strength.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>shearVector</strong> – 2D shear load vector.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.FinPlate.getNetAreaSubjectedToShear">
+<code class="descname">getNetAreaSubjectedToShear</code><span class="sig-paren">(</span><em>Agv</em>, <em>shearVector</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.FinPlate.getNetAreaSubjectedToShear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the net area of the plate subjected to shear.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Agv</strong> – gross area of the plate subjected to shear.</li>
+<li><strong>shearVector</strong> – 2D shear load vector.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.FinPlate.getNominalBlockShearStrength">
+<code class="descname">getNominalBlockShearStrength</code><span class="sig-paren">(</span><em>shearVector</em>, <em>Ubs=0.5</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.FinPlate.getNominalBlockShearStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the nominal shear strength of the plate according to</dt>
+<dd>clause J.4.3 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>shearVector</strong> – 2D shear load vector.</li>
+<li><strong>Ubs</strong> – Reduction coefficient, used in calculating 
+block shear rupture strength.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.FinPlate.getNominalShearRuptureStrength">
+<code class="descname">getNominalShearRuptureStrength</code><span class="sig-paren">(</span><em>shearVector</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.FinPlate.getNominalShearRuptureStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design shear strength of the plate according to</dt>
+<dd>clause J.4.2 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>shearVector</strong> – 2D shear load vector.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.FinPlate.getNominalShearYieldingStrength">
+<code class="descname">getNominalShearYieldingStrength</code><span class="sig-paren">(</span><em>shearVector</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.FinPlate.getNominalShearYieldingStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design shear strength of the plate according to</dt>
+<dd>clause J.4.2 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>shearVector</strong> – 2D shear load vector.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.astm_aisc.ASTM_materials.HSSShape">
+<em class="property">class </em><code class="descclassname">materials.astm_aisc.ASTM_materials.</code><code class="descname">HSSShape</code><span class="sig-paren">(</span><em>steel</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.HSSShape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.astm_aisc.ASTM_materials.ASTMShape" title="materials.astm_aisc.ASTM_materials.ASTMShape"><code class="xref py py-class docutils literal"><span class="pre">materials.astm_aisc.ASTM_materials.ASTMShape</span></code></a>, <a class="reference internal" href="materials.structural_shapes.html#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape" title="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.structural_shapes.aisc_metric_shapes.HSSShape</span></code></a></p>
+<p>Rectangular HSS shape with ASTM/AISC verification routines.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>steel</strong> – steel material (i.e. A36).</li>
+<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – shape name (i.e. HSS2X2X_250).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.astm_aisc.ASTM_materials.MemberConnection">
+<em class="property">class </em><code class="descclassname">materials.astm_aisc.ASTM_materials.</code><code class="descname">MemberConnection</code><span class="sig-paren">(</span><em>L</em>, <em>rotI='free'</em>, <em>transI='fixed'</em>, <em>rotJ='free'</em>, <em>transJ='fixed'</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.MemberConnection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="matGenTopics.html#materials.buckling_base.MemberConnection" title="materials.buckling_base.MemberConnection"><code class="xref py py-class docutils literal"><span class="pre">materials.buckling_base.MemberConnection</span></code></a></p>
+<p>Member length and connections</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>L</strong> – member length.</li>
+<li><strong>Lb</strong> – Length between points that are either braced 
+against lateral displacement of compression 
+flange or braced against twist of the cross section.</li>
+<li><strong>rotI</strong> – fixity of the rotation at member start.</li>
+<li><strong>transI</strong> – fixity of the translation at member start.</li>
+<li><strong>rotJ</strong> – fixity of the rotation at member end.</li>
+<li><strong>transJ</strong> – fixity of the translation at member end.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.MemberConnection.getLateralTorsionalBucklingModificationFactor">
+<code class="descname">getLateralTorsionalBucklingModificationFactor</code><span class="sig-paren">(</span><em>bendingState</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.MemberConnection.getLateralTorsionalBucklingModificationFactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the lateral-torsional buckling modification factor Cb
+for non uniform moment diagrams when both ends of the segment
+are braced according to expression F1-1 of AISC 360-16.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Mmax</strong> – absolute value of maximum moment in the unbraced 
+segment.</li>
+<li><strong>Ma</strong> – absolute value of moment at quarter point of the 
+unbraced segment.</li>
+<li><strong>Mb</strong> – absolute value of moment at centerline of the 
+unbraced segment.</li>
+<li><strong>Mc</strong> – absolute value of moment at three-quarter point of 
+the unbraced segment.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.astm_aisc.ASTM_materials.SquarePlateWasher">
+<em class="property">class </em><code class="descclassname">materials.astm_aisc.ASTM_materials.</code><code class="descname">SquarePlateWasher</code><span class="sig-paren">(</span><em>bolt</em>, <em>side=None</em>, <em>thickness=None</em>, <em>steelType=&lt;materials.astm_aisc.ASTM_materials.ASTMSteel object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.SquarePlateWasher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">connections.square_plate_washer.SquarePlateWasher</span></code></p>
+<p>Class for AISC plate washers.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.astm_aisc.ASTM_materials.WShape">
+<em class="property">class </em><code class="descclassname">materials.astm_aisc.ASTM_materials.</code><code class="descname">WShape</code><span class="sig-paren">(</span><em>steel=None</em>, <em>name=''</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.WShape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.astm_aisc.ASTM_materials.ASTMShape" title="materials.astm_aisc.ASTM_materials.ASTMShape"><code class="xref py py-class docutils literal"><span class="pre">materials.astm_aisc.ASTM_materials.ASTMShape</span></code></a>, <a class="reference internal" href="materials.structural_shapes.html#materials.sections.structural_shapes.aisc_metric_shapes.WShape" title="materials.sections.structural_shapes.aisc_metric_shapes.WShape"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.structural_shapes.aisc_metric_shapes.WShape</span></code></a></p>
+<p>W shape with ASTM/AISC verification routines.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>steel</strong> – steel material (i.e. A36).</li>
+<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – shape name (i.e. W40X431)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.WShape.getDict">
+<code class="descname">getDict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.WShape.getDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Put member values in a dictionary.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.WShape.setFromDict">
+<code class="descname">setFromDict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.WShape.setFromDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read member values from a dictionary.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.astm_aisc.ASTM_materials.getBoltForHole">
+<code class="descclassname">materials.astm_aisc.ASTM_materials.</code><code class="descname">getBoltForHole</code><span class="sig-paren">(</span><em>holeDiameter</em>, <em>steelType=&lt;materials.astm_aisc.ASTM_materials.ASTMSteel object&gt;</em>, <em>tol=0.0005</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.getBoltForHole" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the bolt that fits in the hole diameter</dt>
+<dd>argument.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>holeDiamter</strong> – diameter of the hole.</li>
+<li><strong>tol</strong> – tolerance (defaults to 0.5 mm).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.astm_aisc.ASTM_materials.getFilletWeldMaximumLeg">
+<code class="descclassname">materials.astm_aisc.ASTM_materials.</code><code class="descname">getFilletWeldMaximumLeg</code><span class="sig-paren">(</span><em>t</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.getFilletWeldMaximumLeg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the maximum leg size for a fillet bead that welds a sheet 
+of thickness t according to section J2.2b of AISC 360.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>t</strong> – Sheet thickness.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.astm_aisc.ASTM_materials.getFilletWeldMaximumLegSheets">
+<code class="descclassname">materials.astm_aisc.ASTM_materials.</code><code class="descname">getFilletWeldMaximumLegSheets</code><span class="sig-paren">(</span><em>t1</em>, <em>t2</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.getFilletWeldMaximumLegSheets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the maximum leg size which can be used to weld two sheets
+according to ection J2.2b of AISC 360.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>t1</strong> – Thickness of sheet 1.</li>
+<li><strong>t2</strong> – Thickness of sheet 2.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.astm_aisc.ASTM_materials.getFilletWeldMinimumLeg">
+<code class="descclassname">materials.astm_aisc.ASTM_materials.</code><code class="descname">getFilletWeldMinimumLeg</code><span class="sig-paren">(</span><em>t</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.getFilletWeldMinimumLeg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the minimum leg size for a fillet bead that welds a sheet 
+of thickness t according to table J2.4 of AISC 360.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>t</strong> – Sheet thickness.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.astm_aisc.ASTM_materials.getFilletWeldMinimumLegSheets">
+<code class="descclassname">materials.astm_aisc.ASTM_materials.</code><code class="descname">getFilletWeldMinimumLegSheets</code><span class="sig-paren">(</span><em>t1</em>, <em>t2</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.getFilletWeldMinimumLegSheets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the minimum leg size which can be used to weld two sheets
+according to table J2.4 of AISC 360.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>t1</strong> – Thickness of sheet 1.</li>
+<li><strong>t2</strong> – Thickness of sheet 2.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.astm_aisc.ASTM_materials.readBoltedPlateFromJSONFile">
+<code class="descclassname">materials.astm_aisc.ASTM_materials.</code><code class="descname">readBoltedPlateFromJSONFile</code><span class="sig-paren">(</span><em>inputFileName</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.readBoltedPlateFromJSONFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read bolted plate object from a JSON file.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">ASTM-AISC materials</a><ul>
+<li><a class="reference internal" href="#id1">ASTM-AISC materials</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="materials.prestressing.html"
+                        title="previous chapter">Prestressed materials</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="materials.ec3.html"
+                        title="next chapter">Materials according to Eurocode-3</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/preprocessor/python_modules/materials.astm_aisc.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="materials.ec3.html" title="Materials according to Eurocode-3"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="materials.prestressing.html" title="Prestressed materials"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../material.html" >Material</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+    </div>
+  </body>
+</html>

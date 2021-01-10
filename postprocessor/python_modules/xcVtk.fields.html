@@ -122,7 +122,7 @@ pushing: true: arrow ends in the point.</p>
 
 <dl class="method">
 <dt id="postprocess.xcVtk.fields.vector_field_data.VectorFieldData.setupGlyph">
-<code class="descname">setupGlyph</code><span class="sig-paren">(</span><em>fUnitConv=1.0</em>, <em>symType=(vtkArrowSource)0x7fa815a3b2f0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vector_field_data.VectorFieldData.setupGlyph" title="Permalink to this definition">¶</a></dt>
+<code class="descname">setupGlyph</code><span class="sig-paren">(</span><em>fUnitConv=1.0</em>, <em>symType=(vtkArrowSource)0x7f36e37fbb30</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vector_field_data.VectorFieldData.setupGlyph" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -132,7 +132,7 @@ pushing: true: arrow ends in the point.</p>
 <span id="vector-field"></span><h1>Vector field<a class="headerlink" href="#module-postprocess.xcVtk.fields.vector_field" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="postprocess.xcVtk.fields.vector_field.VectorField">
-<em class="property">class </em><code class="descclassname">postprocess.xcVtk.fields.vector_field.</code><code class="descname">VectorField</code><span class="sig-paren">(</span><em>name</em>, <em>fUnitConv</em>, <em>scaleFactor</em>, <em>showPushing=True</em>, <em>symType=(vtkArrowSource)0x7fa7eece8350</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vector_field.VectorField" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">postprocess.xcVtk.fields.vector_field.</code><code class="descname">VectorField</code><span class="sig-paren">(</span><em>name</em>, <em>fUnitConv</em>, <em>scaleFactor</em>, <em>showPushing=True</em>, <em>symType=(vtkArrowSource)0x7f36f0d28470</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.vector_field.VectorField" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#postprocess.xcVtk.fields.field_base.FieldBase" title="postprocess.xcVtk.fields.field_base.FieldBase"><code class="xref py py-class docutils literal"><span class="pre">postprocess.xcVtk.fields.field_base.FieldBase</span></code></a></p>
 <p>Vector field defined at points.</p>
 <dl class="method">
@@ -162,6 +162,7 @@ argument.</p>
 </div>
 <div class="section" id="module-postprocess.xcVtk.fields.load_vector_field">
 <span id="load-vector-field"></span><h1>Load vector field<a class="headerlink" href="#module-postprocess.xcVtk.fields.load_vector_field" title="Permalink to this headline">¶</a></h1>
+<p>Loads represented as vectors.</p>
 <dl class="class">
 <dt id="postprocess.xcVtk.fields.load_vector_field.LoadOnPoints">
 <em class="property">class </em><code class="descclassname">postprocess.xcVtk.fields.load_vector_field.</code><code class="descname">LoadOnPoints</code><span class="sig-paren">(</span><em>loadPatternName, fUnitConv=0.001, scaleFactor=1.0, showPushing=True, components=[0, 1, 2]</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.load_vector_field.LoadOnPoints" title="Permalink to this definition">¶</a></dt>
@@ -183,8 +184,16 @@ vector container.</p>
 <p>Draws a load over a point on nodes and on elements.</p>
 <dl class="method">
 <dt id="postprocess.xcVtk.fields.load_vector_field.LoadVectorField.dumpElementalPositions">
-<code class="descname">dumpElementalPositions</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>lp</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.load_vector_field.LoadVectorField.dumpElementalPositions" title="Permalink to this definition">¶</a></dt>
+<code class="descname">dumpElementalPositions</code><span class="sig-paren">(</span><em>lp</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.load_vector_field.LoadVectorField.dumpElementalPositions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterate over cumulated loads dumping them into the graphic.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lp</strong> – load pattern.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -196,7 +205,7 @@ vector container.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>lp</strong> – load pattern</li>
+<li><strong>preprocessor</strong> – preprocessor of the FE problem.</li>
 <li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
 so that the display position of each node equals to
 the initial position plus its displacement multiplied
@@ -210,7 +219,7 @@ by this factor.</li>
 
 <dl class="method">
 <dt id="postprocess.xcVtk.fields.load_vector_field.LoadVectorField.dumpNodalPositions">
-<code class="descname">dumpNodalPositions</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>lp</em>, <em>defFScale</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.load_vector_field.LoadVectorField.dumpNodalPositions" title="Permalink to this definition">¶</a></dt>
+<code class="descname">dumpNodalPositions</code><span class="sig-paren">(</span><em>lp</em>, <em>defFScale</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.load_vector_field.LoadVectorField.dumpNodalPositions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterate over loaded nodes dumping its loads into the graphic.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -238,7 +247,7 @@ by this factor.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>lp</strong> – load pattern</li>
+<li><strong>preprocessor</strong> – preprocessor of the FE problem.</li>
 <li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
 so that the display position of each node equals to
 the initial position plus its displacement multiplied
@@ -254,34 +263,62 @@ by this factor.</li>
 
 <dl class="method">
 <dt id="postprocess.xcVtk.fields.load_vector_field.LoadVectorField.populateLoads">
-<code class="descname">populateLoads</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>lp</em>, <em>showElementalLoads=True</em>, <em>showNodalLoads=True</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.load_vector_field.LoadVectorField.populateLoads" title="Permalink to this definition">¶</a></dt>
+<code class="descname">populateLoads</code><span class="sig-paren">(</span><em>lp</em>, <em>showElementalLoads=True</em>, <em>showNodalLoads=True</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.load_vector_field.LoadVectorField.populateLoads" title="Permalink to this definition">¶</a></dt>
 <dd><p>Populate the vector container with loads 
 from the load pattern argument.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="postprocess.xcVtk.fields.load_vector_field.LoadVectorField.populateWithElementalLoads">
-<code class="descname">populateWithElementalLoads</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>lp</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.load_vector_field.LoadVectorField.populateWithElementalLoads" title="Permalink to this definition">¶</a></dt>
-<dd><p>Populate the vector container with elemental loads 
-from the load pattern argument.</p>
+<code class="descname">populateWithElementalLoads</code><span class="sig-paren">(</span><em>lp</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.load_vector_field.LoadVectorField.populateWithElementalLoads" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Populate the vector container with elemental loads </dt>
+<dd>from the load pattern argument.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lp</strong> – load pattern.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="postprocess.xcVtk.fields.load_vector_field.LoadVectorField.populateWithNodalLoads">
-<code class="descname">populateWithNodalLoads</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>lp</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.load_vector_field.LoadVectorField.populateWithNodalLoads" title="Permalink to this definition">¶</a></dt>
-<dd><p>Populate the vector container with nodal loads 
-from the load pattern argument.</p>
+<code class="descname">populateWithNodalLoads</code><span class="sig-paren">(</span><em>lp</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.load_vector_field.LoadVectorField.populateWithNodalLoads" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Populate the vector container with nodal loads </dt>
+<dd>from the load pattern argument.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lp</strong> – load pattern</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="postprocess.xcVtk.fields.load_vector_field.LoadVectorField.sumElementalLoads">
-<code class="descname">sumElementalLoads</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>lp</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.load_vector_field.LoadVectorField.sumElementalLoads" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sumElementalLoads</code><span class="sig-paren">(</span><em>lp</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.load_vector_field.LoadVectorField.sumElementalLoads" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterate over loaded elements and cumulate their loads.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lp</strong> – load pattern.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="postprocess.xcVtk.fields.load_vector_field.LoadVectorField.sumNodalLoads">
-<code class="descname">sumNodalLoads</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>lp</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.load_vector_field.LoadVectorField.sumNodalLoads" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sumNodalLoads</code><span class="sig-paren">(</span><em>lp</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.load_vector_field.LoadVectorField.sumNodalLoads" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterate over loaded nodes to cumulate their loads.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -298,6 +335,7 @@ from the load pattern argument.</p>
 </div>
 <div class="section" id="module-postprocess.xcVtk.fields.local_axes_vector_field">
 <span id="local-axes-vector-field"></span><h1>Local axes vector field<a class="headerlink" href="#module-postprocess.xcVtk.fields.local_axes_vector_field" title="Permalink to this headline">¶</a></h1>
+<p>Represent local axes as vectors.</p>
 <dl class="class">
 <dt id="postprocess.xcVtk.fields.local_axes_vector_field.LinesLocalAxesVectorField">
 <em class="property">class </em><code class="descclassname">postprocess.xcVtk.fields.local_axes_vector_field.</code><code class="descname">LinesLocalAxesVectorField</code><span class="sig-paren">(</span><em>name</em>, <em>scaleFactor=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.local_axes_vector_field.LinesLocalAxesVectorField" title="Permalink to this definition">¶</a></dt>
@@ -389,28 +427,6 @@ model .</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="postprocess.xcVtk.fields.local_axes_vector_field.QuadSurfacesLocalAxesVectorField">
-<em class="property">class </em><code class="descclassname">postprocess.xcVtk.fields.local_axes_vector_field.</code><code class="descname">QuadSurfacesLocalAxesVectorField</code><span class="sig-paren">(</span><em>name</em>, <em>scaleFactor=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.local_axes_vector_field.QuadSurfacesLocalAxesVectorField" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.xcVtk.fields.local_axes_vector_field.LocalAxesVectorField" title="postprocess.xcVtk.fields.local_axes_vector_field.LocalAxesVectorField"><code class="xref py py-class docutils literal"><span class="pre">postprocess.xcVtk.fields.local_axes_vector_field.LocalAxesVectorField</span></code></a></p>
-<p>Draws the local axes on quadrilateral surfaces
-of the multi-block model.</p>
-<dl class="method">
-<dt id="postprocess.xcVtk.fields.local_axes_vector_field.QuadSurfacesLocalAxesVectorField.dumpVectors">
-<code class="descname">dumpVectors</code><span class="sig-paren">(</span><em>xcSet</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.local_axes_vector_field.QuadSurfacesLocalAxesVectorField.dumpVectors" title="Permalink to this definition">¶</a></dt>
-<dd><p>Iterate over the surfaces and collect it axes.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>xcSet</strong> – set which elements will draw its axes.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
 <dt id="postprocess.xcVtk.fields.local_axes_vector_field.StrongWeakAxisVectorField">
 <em class="property">class </em><code class="descclassname">postprocess.xcVtk.fields.local_axes_vector_field.</code><code class="descname">StrongWeakAxisVectorField</code><span class="sig-paren">(</span><em>name</em>, <em>scaleFactor=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.local_axes_vector_field.StrongWeakAxisVectorField" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
@@ -469,6 +485,28 @@ of the multi-block model.</p>
 
 </dd></dl>
 
+<dl class="class">
+<dt id="postprocess.xcVtk.fields.local_axes_vector_field.SurfacesLocalAxesVectorField">
+<em class="property">class </em><code class="descclassname">postprocess.xcVtk.fields.local_axes_vector_field.</code><code class="descname">SurfacesLocalAxesVectorField</code><span class="sig-paren">(</span><em>name</em>, <em>scaleFactor=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.local_axes_vector_field.SurfacesLocalAxesVectorField" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.xcVtk.fields.local_axes_vector_field.LocalAxesVectorField" title="postprocess.xcVtk.fields.local_axes_vector_field.LocalAxesVectorField"><code class="xref py py-class docutils literal"><span class="pre">postprocess.xcVtk.fields.local_axes_vector_field.LocalAxesVectorField</span></code></a></p>
+<p>Draws the local axes of the surfaces
+of the multi-block model.</p>
+<dl class="method">
+<dt id="postprocess.xcVtk.fields.local_axes_vector_field.SurfacesLocalAxesVectorField.dumpVectors">
+<code class="descname">dumpVectors</code><span class="sig-paren">(</span><em>xcSet</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.fields.local_axes_vector_field.SurfacesLocalAxesVectorField.dumpVectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over the surfaces and collect it axes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>xcSet</strong> – set which elements will draw its axes.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-postprocess.xcVtk.fields.vtk_lut_field">
 <span id="linear-element-field"></span><h1>Linear element field<a class="headerlink" href="#module-postprocess.xcVtk.fields.vtk_lut_field" title="Permalink to this headline">¶</a></h1>
@@ -522,7 +560,8 @@ between color values and data values</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>orientation</strong> – ‘H’ for horizontal bar, ‘V’ for vertical bar (defaults to ‘H’)</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>orientation</strong> – ‘H’ for horizontal bar, ‘LV’ for left-vertical bar 
+‘RV’ for right-vertical bar(defaults to ‘H’)</td>
 </tr>
 </tbody>
 </table>

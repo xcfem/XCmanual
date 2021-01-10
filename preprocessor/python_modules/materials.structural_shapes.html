@@ -75,12 +75,27 @@
 </tbody>
 </table>
 <dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.compactRatio">
-<code class="descname">compactRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.compactRatio" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.bendingCompactRatio">
+<code class="descname">bendingCompactRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.bendingCompactRatio" title="Permalink to this definition">¶</a></dt>
 <dd><p>If section is compact according to case
 20 (round HSS sections subject to flexure) of
 table B4.1b of AISC-360-16 return a value 
 less than one.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.bendingSlenderRatio">
+<code class="descname">bendingSlenderRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.bendingSlenderRatio" title="Permalink to this definition">¶</a></dt>
+<dd><p>If section is noncompact according to table B4.1b of 
+AISC-360-16 return a value less than one otherwise
+they are slender.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.compressionSlendernessCheck">
+<code class="descname">compressionSlendernessCheck</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.compressionSlendernessCheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify that the section doesn’t contains slender elements
+according to case 9 of table B4.1a of AISC-360-16.</p>
 </dd></dl>
 
 <dl class="method">
@@ -133,24 +148,47 @@ the other shapes.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLambdaP">
-<code class="descname">getLambdaP</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLambdaP" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the limiting Width-to-Thickness Ratio (compact/noncompact)
-according to table B4.1b of AISC 360-16.</p>
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLambdaHD">
+<code class="descname">getLambdaHD</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLambdaHD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting width-to-thickness ratio for the wall 
+of a highly ductile member according to table D1.1 
+of AISC 341-16.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLambdaR">
-<code class="descname">getLambdaR</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLambdaR" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the limiting Width-to-Thickness Ratio (compact/noncompact)
-according to table B4.1b of AISC 360-16.</p>
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLambdaMD">
+<code class="descname">getLambdaMD</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLambdaMD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting width-to-thickness ratio for the wall 
+of a moderate ductile member according to table D1.1 
+of AISC 341-16.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLimitingWidthToThicknessRatio">
-<code class="descname">getLimitingWidthToThicknessRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLimitingWidthToThicknessRatio" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the Limiting Width-to-Thickness Ratio 
-according to table B4.1A of AISC-360-16.</p>
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLambdaPBending">
+<code class="descname">getLambdaPBending</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLambdaPBending" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting Width-to-Thickness Ratio (compact/noncompact)
+according to case 20 in table B4.1b of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLambdaRBending">
+<code class="descname">getLambdaRBending</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLambdaRBending" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting Width-to-Thickness Ratio (noncompact/slender)
+according to case 20 in table B4.1b of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLambdaRCompression">
+<code class="descname">getLambdaRCompression</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLambdaRCompression" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the Limiting Width-to-Thickness Ratio
+between nonslender and slender elements 
+according to case 9 in table B4.1a of AISC-360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getMetricName">
+<code class="descname">getMetricName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getMetricName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the metric label from the US customary one.</p>
 </dd></dl>
 
 <dl class="method">
@@ -230,21 +268,6 @@ about longitudinal axis.</td>
 </table>
 </dd></dl>
 
-<dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.slenderRatio">
-<code class="descname">slenderRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.slenderRatio" title="Permalink to this definition">¶</a></dt>
-<dd><p>If section is noncompact according to table B4.1b of 
-AISC-360-16 return a value less than one otherwise
-they are slender.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.slendernessCheck">
-<code class="descname">slendernessCheck</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.slendernessCheck" title="Permalink to this definition">¶</a></dt>
-<dd><p>Verify that the section doesn’t contains slender elements
-according to case 9 of table B4.1a of AISC-360-16.</p>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="class">
@@ -265,8 +288,8 @@ according to case 9 of table B4.1a of AISC-360-16.</p>
 </tbody>
 </table>
 <dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.compactFlangeRatio">
-<code class="descname">compactFlangeRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.compactFlangeRatio" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.bendingCompactFlangeRatio">
+<code class="descname">bendingCompactFlangeRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.bendingCompactFlangeRatio" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>If flanges are compact according to table 4.1b of </dt>
 <dd>AISC-360-16 return a value less than one.</dd>
@@ -282,8 +305,8 @@ according to case 9 of table B4.1a of AISC-360-16.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.compactWebAndFlangeRatio">
-<code class="descname">compactWebAndFlangeRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.compactWebAndFlangeRatio" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.bendingCompactWebAndFlangeRatio">
+<code class="descname">bendingCompactWebAndFlangeRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.bendingCompactWebAndFlangeRatio" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>If web and flanges are compact according to table 4.1b of </dt>
 <dd>AISC-360-16 return a value less than one.</dd>
@@ -299,8 +322,8 @@ according to case 9 of table B4.1a of AISC-360-16.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.compactWebRatio">
-<code class="descname">compactWebRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.compactWebRatio" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.bendingCompactWebRatio">
+<code class="descname">bendingCompactWebRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.bendingCompactWebRatio" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>If web is compact according to case 15 of table 4.1b of </dt>
 <dd>AISC-360-16 return a value less than one.</dd>
@@ -313,6 +336,49 @@ according to case 9 of table B4.1a of AISC-360-16.</p>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.bendingSlenderFlangeRatio">
+<code class="descname">bendingSlenderFlangeRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.bendingSlenderFlangeRatio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>If flanges are noncompact according to table 4.1b of </dt>
+<dd>AISC-360-16 return a value less than one otherwise
+they are slender.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.bendingSlenderWebRatio">
+<code class="descname">bendingSlenderWebRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.bendingSlenderWebRatio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>If web is noncompact according to case 15 of table 4.1b of </dt>
+<dd>AISC-360-16 return a value less than one, otherwise the web
+is slender.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.compressionSlendernessCheck">
+<code class="descname">compressionSlendernessCheck</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.compressionSlendernessCheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify that the section doesn’t contains slender elements
+according to table B4.1a of AISC-360-16.</p>
 </dd></dl>
 
 <dl class="method">
@@ -425,17 +491,64 @@ to equation E4-8 of AISC-360-16..</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLambdaPFlange">
-<code class="descname">getLambdaPFlange</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLambdaPFlange" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLambdaHDFlange">
+<code class="descname">getLambdaHDFlange</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLambdaHDFlange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting width-to-thickness ratio for the unstiffened 
+flange of a highly ductile member according to table D1.1 
+of AISC 341-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLambdaHDWeb">
+<code class="descname">getLambdaHDWeb</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLambdaHDWeb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting width-to-thickness ratio for the unstiffened 
+web of a highly ductile member according to table D1.1 
+of AISC 341-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLambdaMDFlange">
+<code class="descname">getLambdaMDFlange</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLambdaMDFlange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting width-to-thickness ratio for the unstiffened 
+flange of a moderate ductile member according to table D1.1 
+of AISC 341-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLambdaMDWeb">
+<code class="descname">getLambdaMDWeb</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLambdaMDWeb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting width-to-thickness ratio for the unstiffened 
+web of a moderate ductile member according to table D1.1 
+of AISC 341-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLambdaPFlangeBending">
+<code class="descname">getLambdaPFlangeBending</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLambdaPFlangeBending" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return he limiting slenderness for a compact flange, 
 defined in Table B4.1b of AISC-360-16.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLambdaRFlange">
-<code class="descname">getLambdaRFlange</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLambdaRFlange" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLambdaPWebBending">
+<code class="descname">getLambdaPWebBending</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLambdaPWebBending" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return he limiting slenderness for a compact flange, 
+defined in Table B4.1b of AISC-360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLambdaRFlangeBending">
+<code class="descname">getLambdaRFlangeBending</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLambdaRFlangeBending" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return he limiting slenderness for a noncompact flange, 
 defined in Table B4.1b of AISC-360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLambdaRFlangeCompression">
+<code class="descname">getLambdaRFlangeCompression</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getLambdaRFlangeCompression" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting Width-to-Thickness Ratio 
+between nonslender and slender flanges according to 
+table B4.1a of AISC-360-16 case 1.</p>
 </dd></dl>
 
 <dl class="method">
@@ -472,6 +585,12 @@ equation F2-6 of  AISC-360-16.</dd>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getMetricName">
+<code class="descname">getMetricName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getMetricName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the metric label from the US customary one.</p>
 </dd></dl>
 
 <dl class="method">
@@ -630,49 +749,6 @@ about longitudinal axis.</td>
 </table>
 </dd></dl>
 
-<dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.slenderFlangeRatio">
-<code class="descname">slenderFlangeRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.slenderFlangeRatio" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>If flanges are noncompact according to table 4.1b of </dt>
-<dd>AISC-360-16 return a value less than one otherwise
-they are slender.</dd>
-</dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.slenderWebRatio">
-<code class="descname">slenderWebRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.slenderWebRatio" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>If web is noncompact according to case 15 of table 4.1b of </dt>
-<dd>AISC-360-16 return a value less than one, otherwise the web
-is slender.</dd>
-</dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.slendernessCheck">
-<code class="descname">slendernessCheck</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.slendernessCheck" title="Permalink to this definition">¶</a></dt>
-<dd><p>Verify that the section doesn’t contains slender elements
-according to table B4.1 a of AISC-360-16.</p>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="class">
@@ -693,8 +769,8 @@ according to table B4.1 a of AISC-360-16.</p>
 </tbody>
 </table>
 <dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.compactFlangeRatio">
-<code class="descname">compactFlangeRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.compactFlangeRatio" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.bendingCompactFlangeRatio">
+<code class="descname">bendingCompactFlangeRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.bendingCompactFlangeRatio" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>If flanges are compact according to case</dt>
 <dd>17 (HSS sections subject to flexure) of
@@ -712,8 +788,8 @@ less than one.</dd>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.compactWebAndFlangeRatio">
-<code class="descname">compactWebAndFlangeRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.compactWebAndFlangeRatio" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.bendingCompactWebAndFlangeRatio">
+<code class="descname">bendingCompactWebAndFlangeRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.bendingCompactWebAndFlangeRatio" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>If web and flanges are compact according to table 4.1b of </dt>
 <dd>AISC-360-16 return a value less than one.</dd>
@@ -729,8 +805,8 @@ less than one.</dd>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.compactWebRatio">
-<code class="descname">compactWebRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.compactWebRatio" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.bendingCompactWebRatio">
+<code class="descname">bendingCompactWebRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.bendingCompactWebRatio" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>If webs are compact according to table 4.1b of </dt>
 <dd>AISC-360-16 return a value less than one.</dd>
@@ -743,6 +819,49 @@ less than one.</dd>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.bendingSlenderFlangeRatio">
+<code class="descname">bendingSlenderFlangeRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.bendingSlenderFlangeRatio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>If flanges are noncompact according to table 4.1b of </dt>
+<dd>AISC-360-16 return a value less than one otherwise
+they are slender.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.bendingSlenderWebRatio">
+<code class="descname">bendingSlenderWebRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.bendingSlenderWebRatio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>If web is noncompact according to table 4.1b of </dt>
+<dd>AISC-360-16 return a value less than one otherwise
+it’s slender.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.compressionSlendernessCheck">
+<code class="descname">compressionSlendernessCheck</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.compressionSlendernessCheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify that the section doesn’t contains slender elements
+according to table B4.1a of AISC-360-16.</p>
 </dd></dl>
 
 <dl class="method">
@@ -911,15 +1030,53 @@ of AISC 360-16.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLambdaP">
-<code class="descname">getLambdaP</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLambdaP" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLambdaHD">
+<code class="descname">getLambdaHD</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLambdaHD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting width-to-thickness ratio for the walls 
+of a highly ductile member according to table D1.1 
+of AISC 341-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLambdaMD">
+<code class="descname">getLambdaMD</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLambdaMD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting width-to-thickness ratio for the walls 
+of a moderate ductile member according to table D1.1 
+of AISC 341-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLambdaPFlangeBending">
+<code class="descname">getLambdaPFlangeBending</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLambdaPFlangeBending" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the limiting Width-to-Thickness Ratio (compact/noncompact)
 according to table B4.1b of AISC 360-16.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLambdaR">
-<code class="descname">getLambdaR</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLambdaR" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLambdaPWebBending">
+<code class="descname">getLambdaPWebBending</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLambdaPWebBending" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting Width-to-Thickness Ratio (compact/noncompact)
+according to table B4.1b of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLambdaRCompression">
+<code class="descname">getLambdaRCompression</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLambdaRCompression" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the Limiting Width-to-Thickness Ratio
+between nonslender and slender elements
+according to case 6 of table B4.1a of AISC-360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLambdaRFlangeBending">
+<code class="descname">getLambdaRFlangeBending</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLambdaRFlangeBending" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting Width-to-Thickness Ratio (compact/noncompact)
+according to table B4.1b of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLambdaRWebBending">
+<code class="descname">getLambdaRWebBending</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLambdaRWebBending" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the limiting Width-to-Thickness Ratio (compact/noncompact)
 according to table B4.1b of AISC 360-16.</p>
 </dd></dl>
@@ -986,10 +1143,9 @@ to expression F7-12 of AISC 360-16.</dd>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLimitingWidthToThicknessRatio">
-<code class="descname">getLimitingWidthToThicknessRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLimitingWidthToThicknessRatio" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the Limiting Width-to-Thickness Ratio 
-according to table B4.1a of AISC-360-16.</p>
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getMetricName">
+<code class="descname">getMetricName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getMetricName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the metric label from the US customary one.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1129,9 +1285,79 @@ to section F7.3 of AISC-360-16.</dd>
 </table>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape">
+<em class="property">class </em><code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">WShape</code><span class="sig-paren">(</span><em>steel=None</em>, <em>name=''</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="materials.sections.html#materials.sections.structural_steel.IShape" title="materials.sections.structural_steel.IShape"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.structural_steel.IShape</span></code></a></p>
+<p>W shape</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>steel</strong> – steel material.</li>
+<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – shape name (i.e. W40X431).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.slenderFlangeRatio">
-<code class="descname">slenderFlangeRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.slenderFlangeRatio" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.bendingCompactFlangeRatio">
+<code class="descname">bendingCompactFlangeRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.bendingCompactFlangeRatio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>If flanges are compact according to table 4.1b of </dt>
+<dd>AISC-360-16 return a value less than one.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.bendingCompactWebAndFlangeRatio">
+<code class="descname">bendingCompactWebAndFlangeRatio</code><span class="sig-paren">(</span><em>shape</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.bendingCompactWebAndFlangeRatio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>If web and flanges are compact according to table 4.1b of </dt>
+<dd>AISC-360-16 return a value less than one.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.bendingCompactWebRatio">
+<code class="descname">bendingCompactWebRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.bendingCompactWebRatio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>If web is compact according to case 15 of table 4.1b of </dt>
+<dd>AISC-360-16 return a value less than one.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.bendingSlenderFlangeRatio">
+<code class="descname">bendingSlenderFlangeRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.bendingSlenderFlangeRatio" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>If flanges are noncompact according to table 4.1b of </dt>
 <dd>AISC-360-16 return a value less than one otherwise
@@ -1148,12 +1374,12 @@ they are slender.</dd>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.slenderWebRatio">
-<code class="descname">slenderWebRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.slenderWebRatio" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.bendingSlenderWebRatio">
+<code class="descname">bendingSlenderWebRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.bendingSlenderWebRatio" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>If web is noncompact according to table 4.1b of </dt>
-<dd>AISC-360-16 return a value less than one otherwise
-it’s slender.</dd>
+<dt>If web is noncompact according to case 15 of table 4.1b of </dt>
+<dd>AISC-360-16 return a value less than one, otherwise the web
+is slender.</dd>
 </dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1166,80 +1392,10 @@ it’s slender.</dd>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.slendernessCheck">
-<code class="descname">slendernessCheck</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.slendernessCheck" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.compressionSlendernessCheck">
+<code class="descname">compressionSlendernessCheck</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.compressionSlendernessCheck" title="Permalink to this definition">¶</a></dt>
 <dd><p>Verify that the section doesn’t contains slender elements
-according to table B4.1 a of AISC-360-16.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape">
-<em class="property">class </em><code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">WShape</code><span class="sig-paren">(</span><em>steel</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="materials.sections.html#materials.sections.structural_steel.IShape" title="materials.sections.structural_steel.IShape"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.structural_steel.IShape</span></code></a></p>
-<p>W shape</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>steel</strong> – steel material.</li>
-<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – shape name (i.e. W40X431).</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.compactFlangeRatio">
-<code class="descname">compactFlangeRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.compactFlangeRatio" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>If flanges are compact according to table 4.1b of </dt>
-<dd>AISC-360-16 return a value less than one.</dd>
-</dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.compactWebAndFlangeRatio">
-<code class="descname">compactWebAndFlangeRatio</code><span class="sig-paren">(</span><em>shape</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.compactWebAndFlangeRatio" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>If web and flanges are compact according to table 4.1b of </dt>
-<dd>AISC-360-16 return a value less than one.</dd>
-</dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.compactWebRatio">
-<code class="descname">compactWebRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.compactWebRatio" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>If web is compact according to case 15 of table 4.1b of </dt>
-<dd>AISC-360-16 return a value less than one.</dd>
-</dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
-</tr>
-</tbody>
-</table>
+according to table B4.1a of AISC-360-16.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1250,9 +1406,66 @@ less the fillet at each flange (h in AISC tables).</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.flangeLocalBucklingCheck">
+<code class="descname">flangeLocalBucklingCheck</code><span class="sig-paren">(</span><em>highlyDuctile=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.flangeLocalBucklingCheck" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Checks local buckling according to width-to-thickness ratios</dt>
+<dd>of members according to table D1.1 of AISC 341-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>higlyDuctile</strong> – if true the member is considered as highly
+ductile.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getAw">
 <code class="descname">getAw</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getAw" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return area for shear strength calculation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getBlockData">
+<code class="descname">getBlockData</code><span class="sig-paren">(</span><em>org</em>, <em>extrusionVDir</em>, <em>weakAxisVDir</em>, <em>blockProperties=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getBlockData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the kpoints and faces.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>org</strong> – origin point.</li>
+<li><strong>extrusionVDir</strong> – extrusion direction vector.</li>
+<li><strong>weakAxisVDir</strong> – direction of the weak axis.</li>
+<li><strong>blockProperties</strong> – labels and attributes for the created blocks.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getBottomFlangeMidPlane">
+<code class="descname">getBottomFlangeMidPlane</code><span class="sig-paren">(</span><em>org</em>, <em>extrusionVDir</em>, <em>weakAxisVDir</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getBottomFlangeMidPlane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the mid plane of the bottom flange.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>org</strong> – origin point.</li>
+<li><strong>extrusionVDir</strong> – extrusion direction vector.</li>
+<li><strong>weakAxisVDir</strong> – direction of the weak axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -1265,7 +1478,7 @@ F2-8a of AISC-360-16.</p>
 <dl class="method">
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getContour">
 <code class="descname">getContour</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getContour" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the section countour.</p>
+<dd><p>Return the section contour.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1354,17 +1567,115 @@ twist of the cross section.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLambdaPFlange">
-<code class="descname">getLambdaPFlange</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLambdaPFlange" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getFlangeThickness">
+<code class="descname">getFlangeThickness</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getFlangeThickness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the thickness of the flange.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getFlangeWidth">
+<code class="descname">getFlangeWidth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getFlangeWidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the width of the flange.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLambdaHDFlange">
+<code class="descname">getLambdaHDFlange</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLambdaHDFlange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting width-to-thickness ratio for the unstiffened 
+flange of a highly ductile member according to table D1.1 
+of AISC 341-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLambdaHDWeb">
+<code class="descname">getLambdaHDWeb</code><span class="sig-paren">(</span><em>N</em>, <em>M</em>, <em>momentFrameType=0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLambdaHDWeb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the limiting width-to-thickness ratio for the unstiffened </dt>
+<dd>web of a highly ductile member according to table D1.1 
+of AISC 341-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>N</strong> – axial load.</li>
+<li><strong>M</strong> – bending moment.</li>
+<li><strong>momentFrameType</strong> – type of the moment frame (0: ordinary moment frame (OMF), 1: intermediate moment frame (IMF) 2: special moment frame).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLambdaMDFlange">
+<code class="descname">getLambdaMDFlange</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLambdaMDFlange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting width-to-thickness ratio for the unstiffened 
+flange of a moderate ductile member according to table D1.1 
+of AISC 341-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLambdaMDWeb">
+<code class="descname">getLambdaMDWeb</code><span class="sig-paren">(</span><em>N</em>, <em>M</em>, <em>momentFrameType=0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLambdaMDWeb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the limiting width-to-thickness ratio for the unstiffened </dt>
+<dd>web of a moderately ductile member according to table D1.1 
+of AISC 341-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>N</strong> – axial load.</li>
+<li><strong>M</strong> – bending moment.</li>
+<li><strong>momentFrameType</strong> – type of the moment frame (0: ordinary moment frame (OMF), 1: intermediate moment frame (IMF) 3: special moment frame).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLambdaPFlangeBending">
+<code class="descname">getLambdaPFlangeBending</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLambdaPFlangeBending" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return he limiting slenderness for a compact flange, 
 defined in Table B4.1b of AISC-360-16.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLambdaRFlange">
-<code class="descname">getLambdaRFlange</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLambdaRFlange" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLambdaPWebBending">
+<code class="descname">getLambdaPWebBending</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLambdaPWebBending" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting Width-to-Thickness Ratio 
+between compact and noncompact webs according to 
+table B4.1b of AISC-360-16 case 15.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLambdaRFlangeBending">
+<code class="descname">getLambdaRFlangeBending</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLambdaRFlangeBending" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return he limiting slenderness for a noncompact flange, 
 defined in Table B4.1b of AISC-360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLambdaRFlangeCompression">
+<code class="descname">getLambdaRFlangeCompression</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLambdaRFlangeCompression" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting Width-to-Thickness Ratio 
+between nonslender and slender flanges according to 
+table B4.1a of AISC-360-16 case 1.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLambdaRWebBending">
+<code class="descname">getLambdaRWebBending</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getLambdaRWebBending" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting Width-to-Thickness Ratio 
+between noncompact and slender webs according to 
+table B4.1b of AISC-360-16 case 15.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1398,6 +1709,64 @@ equation F2-6 of  AISC-360-16.</dd>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getMetricName">
+<code class="descname">getMetricName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getMetricName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the metric label from the US customary one.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getMidLines">
+<code class="descname">getMidLines</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getMidLines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the section mid-lines.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getMidPlanesPoints">
+<code class="descname">getMidPlanesPoints</code><span class="sig-paren">(</span><em>org</em>, <em>extrusionVDir</em>, <em>weakAxisVDir</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getMidPlanesPoints" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the points at the middle of the</dt>
+<dd>plates.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>org</strong> – origin point.</li>
+<li><strong>extrusionVDir</strong> – extrusion direction vector.</li>
+<li><strong>weakAxisVDir</strong> – direction of the weak axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getMidPoints">
+<code class="descname">getMidPoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getMidPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the point at the middle of the web
+and the flange in local coordinates.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getMidPointsGlobalPos">
+<code class="descname">getMidPointsGlobalPos</code><span class="sig-paren">(</span><em>refSys</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getMidPointsGlobalPos" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the position expressed in global coordinates</dt>
+<dd>of the pointsat the middle of the shape.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>refSys</strong> – reference systems which computes the global coordinates.</td>
 </tr>
 </tbody>
 </table>
@@ -1490,6 +1859,25 @@ sections G1 and G2.1(a) of AISC-360-16.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getTopFlangeMidPlane">
+<code class="descname">getTopFlangeMidPlane</code><span class="sig-paren">(</span><em>org</em>, <em>extrusionVDir</em>, <em>weakAxisVDir</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getTopFlangeMidPlane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the mid plane of the bottom flange.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>org</strong> – origin point.</li>
+<li><strong>extrusionVDir</strong> – extrusion direction vector.</li>
+<li><strong>weakAxisVDir</strong> – direction of the weak axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getTorsionalElasticBucklingStress">
 <code class="descname">getTorsionalElasticBucklingStress</code><span class="sig-paren">(</span><em>Lc</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getTorsionalElasticBucklingStress" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
@@ -1502,6 +1890,25 @@ sections G1 and G2.1(a) of AISC-360-16.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Lc</strong> – effective length of member for torsional buckling 
 about longitudinal axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getWebMidPlane">
+<code class="descname">getWebMidPlane</code><span class="sig-paren">(</span><em>org</em>, <em>extrusionVDir</em>, <em>weakAxisVDir</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getWebMidPlane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the mid plane of the web.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>org</strong> – origin point.</li>
+<li><strong>extrusionVDir</strong> – extrusion direction vector.</li>
+<li><strong>weakAxisVDir</strong> – direction of the weak axis.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1563,52 +1970,58 @@ about longitudinal axis.</td>
 </dd></dl>
 
 <dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getWebThickness">
+<code class="descname">getWebThickness</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getWebThickness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the thickness of the web.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getWeldBlockData">
+<code class="descname">getWeldBlockData</code><span class="sig-paren">(</span><em>flangeWeldLegSize</em>, <em>webWeldLegSize</em>, <em>blockProperties=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getWeldBlockData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the lines corresponding to weld beads.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>flangeWeldLegSize</strong> – leg size for the weld to the flange.</li>
+<li><strong>webWeldLegSize</strong> – leg size for the weld to the web.</li>
+<li><strong>blockProperties</strong> – labels and attributes for the created blocks.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.h">
 <code class="descname">h</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.h" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return overall depth of member (d in AISC tables).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.slenderFlangeRatio">
-<code class="descname">slenderFlangeRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.slenderFlangeRatio" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.webLocalBucklingCheck">
+<code class="descname">webLocalBucklingCheck</code><span class="sig-paren">(</span><em>N</em>, <em>M</em>, <em>momentFrameType=0</em>, <em>highlyDuctile=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.webLocalBucklingCheck" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>If flanges are noncompact according to table 4.1b of </dt>
-<dd>AISC-360-16 return a value less than one otherwise
-they are slender.</dd>
+<dt>Checks local buckling according to width-to-thickness ratios</dt>
+<dd>of members according to table D1.1 of AISC 341-16.</dd>
 </dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>N</strong> – axial load.</li>
+<li><strong>M</strong> – bending moment.</li>
+<li><strong>momentFrameType</strong> – type of the moment frame (0: ordinary moment frame (OMF), 1: intermediate moment frame (IMF) 2: special moment frame).</li>
+<li><strong>higlyDuctile</strong> – if true the member is considered as highly
+ductile.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.slenderWebRatio">
-<code class="descname">slenderWebRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.slenderWebRatio" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>If web is noncompact according to case 15 of table 4.1b of </dt>
-<dd>AISC-360-16 return a value less than one, otherwise the web
-is slender.</dd>
-</dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.slendernessCheck">
-<code class="descname">slendernessCheck</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.slendernessCheck" title="Permalink to this definition">¶</a></dt>
-<dd><p>Verify that the section doesn’t contains slender elements
-according to table B4.1a of AISC-360-16.</p>
 </dd></dl>
 
 </dd></dl>
@@ -1641,8 +2054,8 @@ according to table B4.1a of AISC-360-16.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getShapeCompactWebAndFlangeRatio">
-<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getShapeCompactWebAndFlangeRatio</code><span class="sig-paren">(</span><em>shape</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getShapeCompactWebAndFlangeRatio" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getShapeBendingCompactWebAndFlangeRatio">
+<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getShapeBendingCompactWebAndFlangeRatio</code><span class="sig-paren">(</span><em>shape</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getShapeBendingCompactWebAndFlangeRatio" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>If web and flanges are compact according to table 4.1b of </dt>
 <dd>AISC-360-16 return a value less than one.</dd>
@@ -1760,17 +2173,59 @@ twist of the cross section.</li>
 </dd></dl>
 
 <dl class="function">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLambdaPFlange">
-<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getUIShapeLambdaPFlange</code><span class="sig-paren">(</span><em>shape</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLambdaPFlange" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLambdaHDFlange">
+<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getUIShapeLambdaHDFlange</code><span class="sig-paren">(</span><em>shape</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLambdaHDFlange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting width-to-thickness ratio for the unstiffened flange
+of a highly ductile member according to table D1.1 of AISC 341-16.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLambdaHDWeb">
+<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getUIShapeLambdaHDWeb</code><span class="sig-paren">(</span><em>shape</em>, <em>factor=1.57</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLambdaHDWeb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting width-to-thickness ratio for the web
+of a higly ductile member according to table D1.1 of AISC 341-16.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLambdaMDFlange">
+<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getUIShapeLambdaMDFlange</code><span class="sig-paren">(</span><em>shape</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLambdaMDFlange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting width-to-thickness ratio for the unstiffened flange
+of a moderate ductile member according to table D1.1 of AISC 341-16.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLambdaMDWeb">
+<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getUIShapeLambdaMDWeb</code><span class="sig-paren">(</span><em>shape</em>, <em>factor=1.57</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLambdaMDWeb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting width-to-thickness ratio for the web
+of a moderate ductile member according to table D1.1 of AISC 341-16.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLambdaPFlangeBending">
+<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getUIShapeLambdaPFlangeBending</code><span class="sig-paren">(</span><em>shape</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLambdaPFlangeBending" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return he limiting slenderness for a compact flange, 
 defined in Table B4.1b of AISC-360-16.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLambdaRFlange">
-<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getUIShapeLambdaRFlange</code><span class="sig-paren">(</span><em>shape</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLambdaRFlange" title="Permalink to this definition">¶</a></dt>
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLambdaPWebBending">
+<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getUIShapeLambdaPWebBending</code><span class="sig-paren">(</span><em>shape</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLambdaPWebBending" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return he limiting slenderness for a compact web, 
+defined in Table B4.1b of AISC-360-16.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLambdaRFlangeBending">
+<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getUIShapeLambdaRFlangeBending</code><span class="sig-paren">(</span><em>shape</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLambdaRFlangeBending" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return he limiting slenderness for a noncompact flange, 
 defined in Table B4.1b of AISC-360-16.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLambdaRFlangeCompression">
+<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getUIShapeLambdaRFlangeCompression</code><span class="sig-paren">(</span><em>shape</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getUIShapeLambdaRFlangeCompression" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return he limiting slenderness for a nonslender flange, 
+defined in Table B4.1a of AISC-360-16.</p>
 </dd></dl>
 
 <dl class="function">

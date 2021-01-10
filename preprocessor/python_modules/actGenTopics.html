@@ -138,7 +138,7 @@ acting in horizontal direction on the backfill (defaults to
 
 <dl class="class">
 <dt id="actions.loads.InertialLoad">
-<em class="property">class </em><code class="descclassname">actions.loads.</code><code class="descname">InertialLoad</code><span class="sig-paren">(</span><em>name</em>, <em>lstMeshSets</em>, <em>vAccel</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.loads.InertialLoad" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">actions.loads.</code><code class="descname">InertialLoad</code><span class="sig-paren">(</span><em>name</em>, <em>lstSets</em>, <em>vAccel</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.loads.InertialLoad" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#actions.loads.BaseVectorLoad" title="actions.loads.BaseVectorLoad"><code class="xref py py-class docutils literal"><span class="pre">actions.loads.BaseVectorLoad</span></code></a></p>
 <p>Inertial load (density*acceleration) applied to the elements in the list
 of mesh-sets</p>
@@ -148,7 +148,7 @@ of mesh-sets</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – name identifying the load</li>
-<li><strong>lstMeshSets</strong> – list of mesh-sets (of type LinSetToMesh or SurfSetToMesh)</li>
+<li><strong>lstSets</strong> – list of sets of elements</li>
 <li><strong>vAccel</strong> – acceleration vector xc.Vector([ax,ay,az])</li>
 </ul>
 </td>
@@ -159,12 +159,6 @@ of mesh-sets</p>
 <dt id="actions.loads.InertialLoad.appendLoadToCurrentLoadPattern">
 <code class="descname">appendLoadToCurrentLoadPattern</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.loads.InertialLoad.appendLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
-
-<dl class="method">
-<dt id="actions.loads.InertialLoad.getMaxMagnitude">
-<code class="descname">getMaxMagnitude</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.loads.InertialLoad.getMaxMagnitude" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the maximum magnitude of the vector loads</p>
-</dd></dl>
 
 </dd></dl>
 
@@ -259,6 +253,33 @@ coefficient that must be applied to it</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="actions.loads.SlindingVectorLoad">
+<em class="property">class </em><code class="descclassname">actions.loads.</code><code class="descname">SlindingVectorLoad</code><span class="sig-paren">(</span><em>name</em>, <em>xcSet</em>, <em>pntCoord</em>, <em>loadVector</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.loads.SlindingVectorLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#actions.loads.BaseVectorLoad" title="actions.loads.BaseVectorLoad"><code class="xref py py-class docutils literal"><span class="pre">actions.loads.BaseVectorLoad</span></code></a></p>
+<p>Distribute load expressed as a sliding vector over the nodes in 
+a set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – name identifying the load</li>
+<li><strong>xcSet</strong> – set that contains the nodes</li>
+<li><strong>pntCoord</strong> – (x,y,z) coordinates of a point of the sliding vector</li>
+<li><strong>loadVector</strong> – xc.Vector(Fx,Fy,Fz,Mx,My,Mz) components of the force sliding vector</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="actions.loads.SlindingVectorLoad.appendLoadToCurrentLoadPattern">
+<code class="descname">appendLoadToCurrentLoadPattern</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.loads.SlindingVectorLoad.appendLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="actions.loads.StrainGradientThermalLoadOnShells">
 <em class="property">class </em><code class="descclassname">actions.loads.</code><code class="descname">StrainGradientThermalLoadOnShells</code><span class="sig-paren">(</span><em>name</em>, <em>elemSet</em>, <em>elThick</em>, <em>DOF</em>, <em>alpha</em>, <em>Ttop</em>, <em>Tbottom</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.loads.StrainGradientThermalLoadOnShells" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="actions.imposed_strain.html#actions.imposed_strain.imp_strain.gradThermalStrain" title="actions.imposed_strain.imp_strain.gradThermalStrain"><code class="xref py py-class docutils literal"><span class="pre">actions.imposed_strain.imp_strain.gradThermalStrain</span></code></a></p>
@@ -344,6 +365,41 @@ elements in xcSet.</p>
 <dt id="actions.loads.StrainLoadOnTrusses.appendLoadToCurrentLoadPattern">
 <code class="descname">appendLoadToCurrentLoadPattern</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.loads.StrainLoadOnTrusses.appendLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
 <dd><p>Append load to the load pattern passed as parameter.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="actions.loads.UnifLoadSurfNodesDistributed">
+<em class="property">class </em><code class="descclassname">actions.loads.</code><code class="descname">UnifLoadSurfNodesDistributed</code><span class="sig-paren">(</span><em>name</em>, <em>surfSet</em>, <em>loadVector</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.loads.UnifLoadSurfNodesDistributed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#actions.loads.BaseVectorLoad" title="actions.loads.BaseVectorLoad"><code class="xref py py-class docutils literal"><span class="pre">actions.loads.BaseVectorLoad</span></code></a></p>
+<p>Distribute uniform load defined on surfaces in surfSet 
+(not necessarily meshed) among the nodes that touch each 
+surface.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – name identifying the load</li>
+<li><strong>surfSet</strong> – set that contains the surfaces (not necesarily meshed)</li>
+<li><strong>loadVector</strong> – xc.Vector with the six components of the load: 
+xc.Vector([Fx,Fy,Fz,Mx,My,Mz]).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="actions.loads.UnifLoadSurfNodesDistributed.appendLoadToCurrentLoadPattern">
+<code class="descname">appendLoadToCurrentLoadPattern</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.loads.UnifLoadSurfNodesDistributed.appendLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append load to the current load pattern.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="actions.loads.UnifLoadSurfNodesDistributed.getMaxMagnitude">
+<code class="descname">getMaxMagnitude</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.loads.UnifLoadSurfNodesDistributed.getMaxMagnitude" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the maximum magnitude of the vector loads</p>
 </dd></dl>
 
 </dd></dl>
@@ -528,6 +584,37 @@ xc.Vector([Wx,Wy,Wz]).</li>
 <code class="descname">getMaxMagnitude</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.loads.WindLoadOnBeams.getMaxMagnitude" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the maximum magnitude of the vector loads</p>
 </dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="actions.loads.WindLoadOnShells">
+<em class="property">class </em><code class="descclassname">actions.loads.</code><code class="descname">WindLoadOnShells</code><span class="sig-paren">(</span><em>name</em>, <em>xcSet</em>, <em>windParams</em>, <em>Cp</em>, <em>positFace=True</em>, <em>Gf=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.loads.WindLoadOnShells" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#actions.loads.BaseVectorLoad" title="actions.loads.BaseVectorLoad"><code class="xref py py-class docutils literal"><span class="pre">actions.loads.BaseVectorLoad</span></code></a></p>
+<p>Wind load applied on the beam elements in the set passed as 
+parameter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – name identifying the load</li>
+<li><strong>xcSet</strong> – set that contains the elements</li>
+<li><a class="reference internal" href="actions.wind.html#actions.wind.base_wind.windParams" title="actions.wind.base_wind.windParams"><strong>windParams</strong></a> – instance of class base_wind.windParams defining 
+the parameters to calculate wind pressure.</li>
+<li><a class="reference internal" href="actions.wind.html#actions.wind.base_wind.cylindrWind.Cp" title="actions.wind.base_wind.cylindrWind.Cp"><strong>Cp</strong></a> – pressure coefficient</li>
+<li><strong>positFace</strong> – if True wind acts against the positive face 
+of the shell (defaults to True)</li>
+<li><strong>Gf</strong> – gust factor (defaults to 1.0)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="actions.loads.WindLoadOnShells.appendLoadToCurrentLoadPattern">
+<code class="descname">appendLoadToCurrentLoadPattern</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.loads.WindLoadOnShells.appendLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 

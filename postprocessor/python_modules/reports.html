@@ -65,6 +65,18 @@
 <dt id="postprocess.reports.export_internal_forces.exportBeamInternalForces">
 <code class="descclassname">postprocess.reports.export_internal_forces.</code><code class="descname">exportBeamInternalForces</code><span class="sig-paren">(</span><em>nmbComb</em>, <em>elems</em>, <em>fName</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.export_internal_forces.exportBeamInternalForces" title="Permalink to this definition">¶</a></dt>
 <dd><p>Writes a comma separated values file with the element’s internal forces.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nmbComb</strong> – name of the load combination.</li>
+<li><strong>elems</strong> – finite elements to export internal forces from.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -100,7 +112,7 @@
 
 <dl class="function">
 <dt id="postprocess.reports.export_internal_forces.getInternalForcesDict">
-<code class="descclassname">postprocess.reports.export_internal_forces.</code><code class="descname">getInternalForcesDict</code><span class="sig-paren">(</span><em>nmbComb</em>, <em>elems</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.export_internal_forces.getInternalForcesDict" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">postprocess.reports.export_internal_forces.</code><code class="descname">getInternalForcesDict</code><span class="sig-paren">(</span><em>nmbComb</em>, <em>elems</em>, <em>vonMisesStressId='max_von_mises_stress'</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.export_internal_forces.getInternalForcesDict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a dictionary with the element’s internal forces.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -109,7 +121,8 @@
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>nmbComb</strong> – combination name.</li>
 <li><strong>elems</strong> – element set.</li>
-<li><strong>fDesc</strong> – file descriptor to write internal forces on.</li>
+<li><strong>vonMisesStressId</strong> – identifier of the Von Mises stress to read
+(see NDMaterial and MembranePlateFiberSection).</li>
 </ul>
 </td>
 </tr>
@@ -208,6 +221,12 @@ a LaTex file</p>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.reports.graphical_reports.LoadCaseDispParameters.solveLC">
+<code class="descname">solveLC</code><span class="sig-paren">(</span><em>modelSpace</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.graphical_reports.LoadCaseDispParameters.solveLC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Solve load case</p>
 </dd></dl>
 
 <dl class="method">
@@ -1142,21 +1161,47 @@ whose material is a steel shape.</p>
 
 <dl class="function">
 <dt id="postprocess.reports.list_reactions.listNodeReactions">
-<code class="descclassname">postprocess.reports.list_reactions.</code><code class="descname">listNodeReactions</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>nmbComb</em>, <em>nodeListArranque</em>, <em>fmt</em>, <em>fName</em>, <em>encab</em>, <em>tit</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_reactions.listNodeReactions" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">postprocess.reports.list_reactions.</code><code class="descname">listNodeReactions</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>nmbComb</em>, <em>nodeListArranque</em>, <em>fmt</em>, <em>fName</em>, <em>encab</em>, <em>tit</em>, <em>inclInertia=False</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_reactions.listNodeReactions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prints reactions for each of the nodes from the list.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>inclInertia</strong> – include inertia effects (defaults to false).</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="postprocess.reports.list_reactions.listPointReactions">
-<code class="descclassname">postprocess.reports.list_reactions.</code><code class="descname">listPointReactions</code><span class="sig-paren">(</span><em>nmbComb</em>, <em>pointList</em>, <em>fmt</em>, <em>fName</em>, <em>encab</em>, <em>tit</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_reactions.listPointReactions" title="Permalink to this definition">¶</a></dt>
-<dd><p>Print the reactions associated with the nodes associated to the
-points from the list.</p>
+<code class="descclassname">postprocess.reports.list_reactions.</code><code class="descname">listPointReactions</code><span class="sig-paren">(</span><em>nmbComb</em>, <em>pointList</em>, <em>fmt</em>, <em>fName</em>, <em>encab</em>, <em>tit</em>, <em>inclInertia=False</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_reactions.listPointReactions" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Print the reactions associated with the nodes associated to the
+points from the list.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>inclInertia</strong> – include inertia effects (defaults to false).</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
 <dt id="postprocess.reports.list_reactions.listPointReactionsCSV">
-<code class="descclassname">postprocess.reports.list_reactions.</code><code class="descname">listPointReactionsCSV</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>nmbComb</em>, <em>pointList</em>, <em>fmt</em>, <em>fName</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_reactions.listPointReactionsCSV" title="Permalink to this definition">¶</a></dt>
-<dd><p>Prints the reactions in CSV (comma separated values) format.</p>
+<code class="descclassname">postprocess.reports.list_reactions.</code><code class="descname">listPointReactionsCSV</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>nmbComb</em>, <em>pointList</em>, <em>fmt</em>, <em>fName</em>, <em>inclInertia=False</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.reports.list_reactions.listPointReactionsCSV" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Prints the reactions in CSV (comma separated values) format.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>inclInertia</strong> – include inertia effects (defaults to false).</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>

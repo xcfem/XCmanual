@@ -90,18 +90,99 @@
 <span id="block-topology-entities"></span><h2>Block topology entities<a class="headerlink" href="#module-import_export.block_topology_entities" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="import_export.block_topology_entities.BlockData">
-<em class="property">class </em><code class="descclassname">import_export.block_topology_entities.</code><code class="descname">BlockData</code><a class="headerlink" href="#import_export.block_topology_entities.BlockData" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">import_export.block_topology_entities.</code><code class="descname">BlockData</code><span class="sig-paren">(</span><em>verbosity=1</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Block topology entities container: points, lines, faces, solids,…</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – container name.</li>
+<li><strong>materials</strong> – materials dictionary.</li>
+<li><a class="reference internal" href="../preprocessor/cpp_classes/preprocessor/set_mgmt/set_mgmt.html#xc.Set.points" title="xc.Set.points"><strong>points</strong></a> – point container.</li>
+<li><strong>blocks</strong> – block (line, surface, volumen) container.</li>
+<li><strong>pointSupports</strong> – constrained points.</li>
+<li><strong>verbosity</strong> – verbosity level.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="import_export.block_topology_entities.BlockData.appendBlock">
 <code class="descname">appendBlock</code><span class="sig-paren">(</span><em>block</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockData.appendBlock" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><dl class="docutils">
+<dt>Append a block (line, surface, volume) to the </dt>
+<dd>block data.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>block</strong> – block to append.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="import_export.block_topology_entities.BlockData.appendPoint">
-<code class="descname">appendPoint</code><span class="sig-paren">(</span><em>id</em>, <em>x</em>, <em>y</em>, <em>z</em>, <em>labels=None</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockData.appendPoint" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">appendPoint</code><span class="sig-paren">(</span><em>id</em>, <em>x</em>, <em>y</em>, <em>z</em>, <em>pointProperties=None</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockData.appendPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append a point to the block data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>id</strong> – point identifier (-1 == auto).</li>
+<li><strong>x</strong> – x coordinate of the point.</li>
+<li><strong>y</strong> – y coordinate of the point.</li>
+<li><strong>z</strong> – z coordinate of the point.</li>
+<li><strong>pointProperties</strong> – labels and attributes for the point.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockData.blockFromPoints">
+<code class="descname">blockFromPoints</code><span class="sig-paren">(</span><em>points</em>, <em>blockProperties</em>, <em>thickness=0.0</em>, <em>matId=None</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockData.blockFromPoints" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Create a block with the points and append it</dt>
+<dd>to the container.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>points</strong> – points to build the new block.</li>
+<li><strong>blockProperties</strong> – labels and attributes for the new block.</li>
+<li><strong>thickness</strong> – thickness of the new block.</li>
+<li><strong>matId</strong> – material of the new block.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockData.extend">
+<code class="descname">extend</code><span class="sig-paren">(</span><em>other</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockData.extend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append a the data from the argument to this container.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>other</strong> – container to append here.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="import_export.block_topology_entities.BlockData.getBlockTags">
@@ -110,9 +191,36 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="import_export.block_topology_entities.BlockData.getHoles">
+<code class="descname">getHoles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockData.getHoles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the holes defined in this container.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockData.getNearest">
+<code class="descname">getNearest</code><span class="sig-paren">(</span><em>pos3d</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockData.getNearest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the block nearest to the point argument.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pos3d</strong> – position of the point.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="import_export.block_topology_entities.BlockData.getPointTags">
 <code class="descname">getPointTags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockData.getPointTags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the identifiers of the points.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockData.hasHoles">
+<code class="descname">hasHoles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockData.hasHoles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return true if one or more of the surfaces has
+holes in it.</p>
 </dd></dl>
 
 <dl class="method">
@@ -143,7 +251,7 @@
 <dl class="method">
 <dt id="import_export.block_topology_entities.BlockData.writeDxf">
 <code class="descname">writeDxf</code><span class="sig-paren">(</span><em>drawing</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockData.writeDxf" title="Permalink to this definition">¶</a></dt>
-<dd><p>Write the blocs (point, lines, surfaces, volumes,…) 
+<dd><p>Write the blocks (point, lines, surfaces, volumes,…) 
 in a DXF file.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -214,10 +322,148 @@ in a DXF file.</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="import_export.block_topology_entities.BlockProperties">
+<em class="property">class </em><code class="descclassname">import_export.block_topology_entities.</code><code class="descname">BlockProperties</code><span class="sig-paren">(</span><em>labels=None</em>, <em>attributes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Labels and attributes of the block.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>labels</strong> – string list that helps to identify the role of the block in the model.</li>
+<li><strong>attributes</strong> – block attributes stored in a dictionary.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockProperties.appendAttribute">
+<code class="descname">appendAttribute</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockProperties.appendAttribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append the label argument to the container.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockProperties.appendLabel">
+<code class="descname">appendLabel</code><span class="sig-paren">(</span><em>label</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockProperties.appendLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append the label argument to the container.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="import_export.block_topology_entities.BlockProperties.copyFrom">
+<em class="property">static </em><code class="descname">copyFrom</code><span class="sig-paren">(</span><em>blockProperties</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockProperties.copyFrom" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>If the argument is not None creates a new BlockProperties</dt>
+<dd>object with the arguments contents, otherwise return an
+empty BlockProperties object.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>blockProperties</strong> – object to copy contents from.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockProperties.extend">
+<code class="descname">extend</code><span class="sig-paren">(</span><em>blockProperties</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockProperties.extend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append the argument labels and attributes to
+the container.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockProperties.extendAttributes">
+<code class="descname">extendAttributes</code><span class="sig-paren">(</span><em>attributes</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockProperties.extendAttributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append the labels argument to the container.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockProperties.extendLabels">
+<code class="descname">extendLabels</code><span class="sig-paren">(</span><em>labels</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockProperties.extendLabels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append the labels argument to the container.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockProperties.getAttribute">
+<code class="descname">getAttribute</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockProperties.getAttribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the attribute corresponding to the 
+key argument in the dictionary.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockProperties.getStrXCCommand">
+<code class="descname">getStrXCCommand</code><span class="sig-paren">(</span><em>strId</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockProperties.getStrXCCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the XC command that stores the properties.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>strId</strong> – identifier of the object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockProperties.hasAttribute">
+<code class="descname">hasAttribute</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockProperties.hasAttribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return true if the key argument is the attribute
+dictionary.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockProperties.hasLabel">
+<code class="descname">hasLabel</code><span class="sig-paren">(</span><em>label</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockProperties.hasLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return true if the label argument is the label
+container.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="import_export.block_topology_entities.BlockRecord">
-<em class="property">class </em><code class="descclassname">import_export.block_topology_entities.</code><code class="descname">BlockRecord</code><span class="sig-paren">(</span><em>id</em>, <em>typ</em>, <em>kPoints</em>, <em>labels=None</em>, <em>thk=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockRecord" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">import_export.block_topology_entities.</code><code class="descname">BlockRecord</code><span class="sig-paren">(</span><em>id</em>, <em>typ</em>, <em>kPoints</em>, <em>blockProperties=None</em>, <em>thk=0.0</em>, <em>matId=None</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockRecord" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#import_export.mesh_entities.CellRecord" title="import_export.mesh_entities.CellRecord"><code class="xref py py-class docutils literal"><span class="pre">import_export.mesh_entities.CellRecord</span></code></a></p>
 <p>Block type entities: line, face, body,…</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>blockProperties</strong> – labels and attributes of the block.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockRecord.getAttribute">
+<code class="descname">getAttribute</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockRecord.getAttribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the attribute corresponding to the 
+key argument in the dictionary.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockRecord.getGeomObject">
+<code class="descname">getGeomObject</code><span class="sig-paren">(</span><em>pointDict</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockRecord.getGeomObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the geometric object that represents this
+line, surface or volume.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockRecord.getHoles">
+<code class="descname">getHoles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockRecord.getHoles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the blocks defining the holes of the
+block.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockRecord.getKPointIds">
+<code class="descname">getKPointIds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockRecord.getKPointIds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the key points identifiers of the block.</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="import_export.block_topology_entities.BlockRecord.getStrKeyPointsIds">
 <code class="descname">getStrKeyPointsIds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockRecord.getStrKeyPointsIds" title="Permalink to this definition">¶</a></dt>
@@ -226,12 +472,40 @@ in a DXF file.</p>
 <dl class="method">
 <dt id="import_export.block_topology_entities.BlockRecord.getStrXCCommand">
 <code class="descname">getStrXCCommand</code><span class="sig-paren">(</span><em>xcImportExportData</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockRecord.getStrXCCommand" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the XC Python string defining the object.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="import_export.block_topology_entities.BlockRecord.getType">
 <code class="descname">getType</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockRecord.getType" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the type of the block.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockRecord.getVertices">
+<code class="descname">getVertices</code><span class="sig-paren">(</span><em>pointDict</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockRecord.getVertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the positions of the k-points defining
+this block.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockRecord.hasAttribute">
+<code class="descname">hasAttribute</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockRecord.hasAttribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return true if the key argument is the attribute
+dictionary.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockRecord.hasHoles">
+<code class="descname">hasHoles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockRecord.hasHoles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return true if the block has holes in it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.BlockRecord.hasLabel">
+<code class="descname">hasLabel</code><span class="sig-paren">(</span><em>label</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.BlockRecord.hasLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return true if the label argument is the label
+container.</p>
 </dd></dl>
 
 </dd></dl>
@@ -240,7 +514,7 @@ in a DXF file.</p>
 <dt id="import_export.block_topology_entities.PointDict">
 <em class="property">class </em><code class="descclassname">import_export.block_topology_entities.</code><code class="descname">PointDict</code><a class="headerlink" href="#import_export.block_topology_entities.PointDict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#import_export.mesh_entities.NodeDict" title="import_export.mesh_entities.NodeDict"><code class="xref py py-class docutils literal"><span class="pre">import_export.mesh_entities.NodeDict</span></code></a></p>
-<p>Node container.</p>
+<p>Point container.</p>
 <dl class="method">
 <dt id="import_export.block_topology_entities.PointDict.append">
 <code class="descname">append</code><span class="sig-paren">(</span><em>id</em>, <em>x</em>, <em>y</em>, <em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.PointDict.append" title="Permalink to this definition">¶</a></dt>
@@ -266,13 +540,34 @@ in a DXF file.</p>
 
 <dl class="class">
 <dt id="import_export.block_topology_entities.PointRecord">
-<em class="property">class </em><code class="descclassname">import_export.block_topology_entities.</code><code class="descname">PointRecord</code><span class="sig-paren">(</span><em>id</em>, <em>coords</em>, <em>labels=None</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.PointRecord" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">import_export.block_topology_entities.</code><code class="descname">PointRecord</code><span class="sig-paren">(</span><em>id</em>, <em>coords</em>, <em>blockProperties=None</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.PointRecord" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#import_export.mesh_entities.NodeRecord" title="import_export.mesh_entities.NodeRecord"><code class="xref py py-class docutils literal"><span class="pre">import_export.mesh_entities.NodeRecord</span></code></a></p>
 <p>kPoint type entity</p>
+<dl class="method">
+<dt id="import_export.block_topology_entities.PointRecord.getAttribute">
+<code class="descname">getAttribute</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.PointRecord.getAttribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the attribute corresponding to the 
+key argument in the dictionary.</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="import_export.block_topology_entities.PointRecord.getStrXCCommand">
 <code class="descname">getStrXCCommand</code><span class="sig-paren">(</span><em>pointHandlerName</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.PointRecord.getStrXCCommand" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the XC command that creates the point.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.PointRecord.hasAttribute">
+<code class="descname">hasAttribute</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.PointRecord.hasAttribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return true if the key argument is the attribute
+dictionary.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="import_export.block_topology_entities.PointRecord.hasLabel">
+<code class="descname">hasLabel</code><span class="sig-paren">(</span><em>label</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.block_topology_entities.PointRecord.hasLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return true if the label argument is the label
+container.</p>
 </dd></dl>
 
 </dd></dl>
@@ -326,8 +621,16 @@ in a DXF file.</p>
 
 <dl class="method">
 <dt id="import_export.neutral_mesh_description.GroupRecord.writeDxfFile">
-<code class="descname">writeDxfFile</code><span class="sig-paren">(</span><em>xcImportExportData</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.neutral_mesh_description.GroupRecord.writeDxfFile" title="Permalink to this definition">¶</a></dt>
+<code class="descname">writeDxfFile</code><span class="sig-paren">(</span><em>dummy</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.neutral_mesh_description.GroupRecord.writeDxfFile" title="Permalink to this definition">¶</a></dt>
 <dd><p>groups have not representation in dxf files.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dummy</strong> – dummy argument (not used).</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -358,6 +661,32 @@ in a DXF file.</p>
 <dt id="import_export.neutral_mesh_description.XCImportExportData">
 <em class="property">class </em><code class="descclassname">import_export.neutral_mesh_description.</code><code class="descname">XCImportExportData</code><a class="headerlink" href="#import_export.neutral_mesh_description.XCImportExportData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="docutils">
+<dt>Data used when importing and/or exporting XC</dt>
+<dd>models.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>outputFileName</strong> – name to use for the output file.</li>
+<li><strong>problemName</strong> – name for the XC problem object.</li>
+<li><strong>nodeHandlerName</strong> – name for the XC node handler.</li>
+<li><strong>cellHandlerName</strong> – name for the XC element handler.</li>
+<li><strong>setHandlerName</strong> – name for the XC group handler.</li>
+<li><strong>pointHandlerName</strong> – name for the XC point handler.</li>
+<li><strong>lineHandlerName</strong> – name for the XC line handler.</li>
+<li><strong>surfaceHandlerName</strong> – name for the XC surface handler.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>:ivar cellConversion= dictionary for cell conversion.
+:ivar outputFile= Python file object used for output.
+:ivar meshDesc= string describing the mesh
+:ivar blockData= block data (points, lines, surfaces, bodies).</p>
 <dl class="method">
 <dt id="import_export.neutral_mesh_description.XCImportExportData.convertCellType">
 <code class="descname">convertCellType</code><span class="sig-paren">(</span><em>tp</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.neutral_mesh_description.XCImportExportData.convertCellType" title="Permalink to this definition">¶</a></dt>
@@ -461,6 +790,38 @@ in a DXF file.</p>
 <dt id="import_export.mesh_entities.CellRecord">
 <em class="property">class </em><code class="descclassname">import_export.mesh_entities.</code><code class="descname">CellRecord</code><span class="sig-paren">(</span><em>id</em>, <em>typ</em>, <em>nodes</em>, <em>thk=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.CellRecord" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>Cell object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="import_export.sciaXML.xml_basics.html#import_export.sciaXML.xml_basics.scxml_base.SCXMLBase.id" title="import_export.sciaXML.xml_basics.scxml_base.SCXMLBase.id"><strong>id</strong></a> – identifier for the cell.</li>
+<li><strong>typ</strong> – cell type.</li>
+<li><a class="reference internal" href="../preprocessor/cpp_classes/preprocessor/set_mgmt/set_mgmt.html#xc.SetMeshComp.nodes" title="xc.SetMeshComp.nodes"><strong>nodes</strong></a> – nodes that define block geometry and topology.</li>
+<li><strong>thk</strong> – cell thickness.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="import_export.mesh_entities.CellRecord.getStrThicknessCommand">
+<code class="descname">getStrThicknessCommand</code><span class="sig-paren">(</span><em>strId</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.CellRecord.getStrThicknessCommand" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return a string defining the thickness</dt>
+<dd>property of the cell.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>strId</strong> – object identifier.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="method">
 <dt id="import_export.mesh_entities.CellRecord.getStrXCCommand">
 <code class="descname">getStrXCCommand</code><span class="sig-paren">(</span><em>xcImportExportData</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.CellRecord.getStrXCCommand" title="Permalink to this definition">¶</a></dt>
@@ -638,7 +999,7 @@ in a DXF file.</p>
 <dt id="import_export.mesh_entities.NodeSupportRecord">
 <em class="property">class </em><code class="descclassname">import_export.mesh_entities.</code><code class="descname">NodeSupportRecord</code><span class="sig-paren">(</span><em>id</em>, <em>nodeId</em>, <em>xComp=&lt;import_export.basic_entities.ComponentSupportRecord instance&gt;</em>, <em>yComp=&lt;import_export.basic_entities.ComponentSupportRecord instance&gt;</em>, <em>zComp=&lt;import_export.basic_entities.ComponentSupportRecord instance&gt;</em>, <em>rxComp=&lt;import_export.basic_entities.ComponentSupportRecord instance&gt;</em>, <em>ryComp=&lt;import_export.basic_entities.ComponentSupportRecord instance&gt;</em>, <em>rzComp=&lt;import_export.basic_entities.ComponentSupportRecord instance&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.mesh_entities.NodeSupportRecord" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#import_export.basic_entities.SupportRecord" title="import_export.basic_entities.SupportRecord"><code class="xref py py-class docutils literal"><span class="pre">import_export.basic_entities.SupportRecord</span></code></a></p>
-<p>Constraints for node displacements</p>
+<p>Constraints for node displacements.</p>
 </dd></dl>
 
 <dl class="function">
@@ -776,26 +1137,30 @@ in a DXF file.</p>
 </div>
 <div class="section" id="module-import_export.dxf_reader">
 <span id="dxf-reader"></span><h2>DXF reader<a class="headerlink" href="#module-import_export.dxf_reader" title="Permalink to this headline">¶</a></h2>
+<p>Read block topology data from DXF files.</p>
 <dl class="class">
 <dt id="import_export.dxf_reader.DXFImport">
 <em class="property">class </em><code class="descclassname">import_export.dxf_reader.</code><code class="descname">DXFImport</code><span class="sig-paren">(</span><em>dxfFileName</em>, <em>layerNamesToImport</em>, <em>getRelativeCoo</em>, <em>threshold=0.01</em>, <em>importLines=True</em>, <em>importSurfaces=True</em>, <em>polylinesAsSurfaces=False</em>, <em>tolerance=0.01</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.DXFImport" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">import_export.reader_base.ReaderBase</span></code></p>
 <p>Import DXF entities.</p>
-<dl class="method">
-<dt id="import_export.dxf_reader.DXFImport.exportBlockTopology">
-<code class="descname">exportBlockTopology</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.DXFImport.exportBlockTopology" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>layerNamesToImport</strong> – list of regular expressions to be tested.</li>
+<li><strong>polylinesAsSurfaces</strong> – if true import polylines as surfaces.</li>
+<li><strong>tolerance</strong> – tolerance for polyface and polyline decomposition</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="import_export.dxf_reader.DXFImport.extractPoints">
 <code class="descname">extractPoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.DXFImport.extractPoints" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract the points from the entities argument.</p>
 </dd></dl>
-
-<dl class="method">
-<dt id="import_export.dxf_reader.DXFImport.getIndexNearestPoint">
-<code class="descname">getIndexNearestPoint</code><span class="sig-paren">(</span><em>pt</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.DXFImport.getIndexNearestPoint" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 <dl class="method">
 <dt id="import_export.dxf_reader.DXFImport.getLayersToImport">
@@ -813,15 +1178,9 @@ regular expressions contained in the second argument.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="import_export.dxf_reader.DXFImport.getNearestPoint">
-<code class="descname">getNearestPoint</code><span class="sig-paren">(</span><em>pt</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.DXFImport.getNearestPoint" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="import_export.dxf_reader.DXFImport.getOrientation">
-<code class="descname">getOrientation</code><span class="sig-paren">(</span><em>p0</em>, <em>p1</em>, <em>length</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.DXFImport.getOrientation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the points in the order that makes the resulting
-vector to point outwards the origin.</p>
+<dt id="import_export.dxf_reader.DXFImport.getNamesToImport">
+<code class="descname">getNamesToImport</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.DXFImport.getNamesToImport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the layer names to import.</p>
 </dd></dl>
 
 <dl class="method">
@@ -846,13 +1205,6 @@ vector to point outwards the origin.</p>
 <dt id="import_export.dxf_reader.DXFImport.importPoints">
 <code class="descname">importPoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.DXFImport.importPoints" title="Permalink to this definition">¶</a></dt>
 <dd><p>Import points from DXF.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="import_export.dxf_reader.DXFImport.selectKPoints">
-<code class="descname">selectKPoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.DXFImport.selectKPoints" title="Permalink to this definition">¶</a></dt>
-<dd><p>Selects the k-points to be used in the model. All the points that
-are closer than the threshold distance are melted into one k-point.</p>
 </dd></dl>
 
 </dd></dl>
@@ -939,25 +1291,6 @@ compose the polyline.</p>
 <code class="descclassname">import_export.dxf_reader.</code><code class="descname">get_polygon_axis</code><span class="sig-paren">(</span><em>points</em>, <em>tol</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.get_polygon_axis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the polygon axis on the assumption that
 they all the sides are orthogonal.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="import_export.dxf_reader.layerToImport">
-<code class="descclassname">import_export.dxf_reader.</code><code class="descname">layerToImport</code><span class="sig-paren">(</span><em>layerName</em>, <em>namesToImport</em><span class="sig-paren">)</span><a class="headerlink" href="#import_export.dxf_reader.layerToImport" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return true if the layer name matches one of the regular expressions
-contained in the second argument.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>layerName</strong> – name of the layer.</li>
-<li><strong>namesToImport</strong> – list of regular expressions to be tested.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
 <dl class="function">

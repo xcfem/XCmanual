@@ -66,7 +66,7 @@
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><a class="reference internal" href="materials.awcnds.html#materials.awc_nds.AWCNDS_materials.LSL_155E.E" title="materials.awc_nds.AWCNDS_materials.LSL_155E.E"><strong>E</strong></a> – Young’s modulus of the material</li>
 <li><a class="reference internal" href="materials.awcnds.html#materials.awc_nds.dimensional_lumber.SprucePineFirWood.nu" title="materials.awc_nds.dimensional_lumber.SprucePineFirWood.nu"><strong>nu</strong></a> – Poisson’s ratio</li>
-<li><a class="reference internal" href="materials.awcnds.html#materials.awc_nds.AWCNDS_materials.OSBPanelSection.rho" title="materials.awc_nds.AWCNDS_materials.OSBPanelSection.rho"><strong>rho</strong></a> – mass density</li>
+<li><a class="reference internal" href="materials.awcnds.html#materials.awc_nds.AWCNDS_materials.PlywoodPanelSection.rho" title="materials.awc_nds.AWCNDS_materials.PlywoodPanelSection.rho"><strong>rho</strong></a> – mass density</li>
 </ul>
 </td>
 </tr>
@@ -95,6 +95,19 @@
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="materials.typical_materials.BasicElasticMaterial.getDict">
+<code class="descname">getDict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.BasicElasticMaterial.getDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary whith the values of the internal forces.
+Makes easier export it to json.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.typical_materials.BasicElasticMaterial.setFromDict">
+<code class="descname">setFromDict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.BasicElasticMaterial.setFromDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the internal forces from the dictionary argument.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -107,7 +120,7 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – name identifying the section</li>
+<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – name identifying the section.</li>
 <li><strong>section</strong> – instance of a class that defines the geometric and
 mechanical characteristiscs of a section
 e.g: RectangularSection, CircularSection, ISection, …</li>
@@ -127,7 +140,7 @@ shear modulus and mass density of the material</li>
 <dl class="method">
 <dt id="materials.typical_materials.BeamMaterialData.setupElasticShear3DSection">
 <code class="descname">setupElasticShear3DSection</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.BeamMaterialData.setupElasticShear3DSection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return an elastic section appropiate for 3D beam analysis</p>
+<dd><p>Return an elastic section appropiate for 3D beam linear elastic analysis</p>
 </dd></dl>
 
 </dd></dl>
@@ -603,6 +616,56 @@ including shear deformations.</p>
 <li><strong>Iy</strong> – second moment of area about the local y-axis</li>
 <li><strong>J</strong> – torsional moment of inertia of the section</li>
 <li><strong>alpha</strong> – shear shape factor</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.typical_materials.defJ2PlateFibre">
+<code class="descclassname">materials.typical_materials.</code><code class="descname">defJ2PlateFibre</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>E</em>, <em>nu</em>, <em>fy</em>, <em>alpha=0.01</em>, <em>rho=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defJ2PlateFibre" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Constructs a J2 (Von Mises) material with a linear-strain</dt>
+<dd>hardening rule appropiate for plate analysis.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – preprocessor</li>
+<li><strong>name</strong> – name identifying the material.</li>
+<li><strong>E</strong> – Young’s modulus of the material.</li>
+<li><strong>nu</strong> – Poisson’s ratio.</li>
+<li><strong>fy</strong> – material yield stress.</li>
+<li><strong>alpha</strong> – strain hardening ratio (default: (0.01), 
+range: 0 to 1).</li>
+<li><strong>rho</strong> – mass density</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.typical_materials.defMembranePlateFiberSection">
+<code class="descclassname">materials.typical_materials.</code><code class="descname">defMembranePlateFiberSection</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>nDMaterial</em>, <em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defMembranePlateFiberSection" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Constructs a membrane plate fiber section appropiate </dt>
+<dd>for plate and shell analysis.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – preprocessor</li>
+<li><strong>name</strong> – name identifying the section</li>
+<li><strong>nDMaterial</strong> – material to put in the section fibers.</li>
+<li><strong>h</strong> – overall depth of the section</li>
 </ul>
 </td>
 </tr>
@@ -1503,7 +1566,7 @@ for the calculation of the drying shrinkage strain
 
 <dl class="class">
 <dt id="materials.concrete_base.PrestressingSteel">
-<em class="property">class </em><code class="descclassname">materials.concrete_base.</code><code class="descname">PrestressingSteel</code><span class="sig-paren">(</span><em>steelName</em>, <em>fpk</em>, <em>fmax=1860000000.0</em>, <em>alpha=0.75</em>, <em>steelRelaxationClass=1</em>, <em>tendonClass='strand'</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.PrestressingSteel" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">materials.concrete_base.</code><code class="descname">PrestressingSteel</code><span class="sig-paren">(</span><em>steelName</em>, <em>fpk</em>, <em>fmax=1860000000.0</em>, <em>alpha=0.75</em>, <em>steelRelaxationClass=1</em>, <em>tendonClass='strand'</em>, <em>Es=190000000000.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.PrestressingSteel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="materials.sections.html#materials.sections.material_with_DK_diagrams.MaterialWithDKDiagrams" title="materials.sections.material_with_DK_diagrams.MaterialWithDKDiagrams"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.material_with_DK_diagrams.MaterialWithDKDiagrams</span></code></a></p>
 <p>Prestressing steel parameters</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -2129,10 +2192,9 @@ tension stiffening properties of concrete and the cracking distance.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="materials.awcnds.html#materials.awc_nds.AWCNDS_materials.OSBPanelSection.rho" title="materials.awc_nds.AWCNDS_materials.OSBPanelSection.rho"><strong>rho</strong></a> – material density</li>
 <li><a class="reference internal" href="../cpp_classes/material/uniaxial/steel/steel.html#xc.SteelBaseMaterial.fy" title="xc.SteelBaseMaterial.fy"><strong>fy</strong></a> – yield stress.</li>
 <li><strong>fu</strong> – ultimate stress.</li>
-<li><strong>gammaM</strong> – partial factor.</li>
+<li><strong>gammaM</strong> – material partial safety factor.</li>
 </ul>
 </td>
 </tr>
@@ -2147,6 +2209,19 @@ tension stiffening properties of concrete and the cracking distance.</p>
 <dt id="materials.steel_base.BasicSteel.fyd">
 <code class="descname">fyd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.steel_base.BasicSteel.fyd" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.steel_base.BasicSteel.getDict">
+<code class="descname">getDict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.steel_base.BasicSteel.getDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary whith the values of the internal forces.
+Makes easier export it to json.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.steel_base.BasicSteel.setFromDict">
+<code class="descname">setFromDict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.steel_base.BasicSteel.setFromDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the internal forces from the dictionary argument.</p>
+</dd></dl>
 
 </dd></dl>
 

@@ -24,7 +24,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Materials according to EAE code" href="materials.eae.html" />
-    <link rel="prev" title="ASTM materials" href="materials.astm.html" /> 
+    <link rel="prev" title="ASTM-AISC materials" href="materials.astm_aisc.html" /> 
   </head>
   <body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -40,7 +40,7 @@
           <a href="materials.eae.html" title="Materials according to EAE code"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="materials.astm.html" title="ASTM materials"
+          <a href="materials.astm_aisc.html" title="ASTM-AISC materials"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../material.html" accesskey="U">Material</a> &#187;</li> 
@@ -100,8 +100,18 @@ clause 6.2.8 of EC31-1</p>
 <code class="descname">getBiaxialBendingEfficiency</code><span class="sig-paren">(</span><em>sectionClass</em>, <em>Nd</em>, <em>Myd</em>, <em>Mzd</em>, <em>Vyd=0.0</em>, <em>chiLT=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec3.EC3_materials.EC3Shape.getBiaxialBendingEfficiency" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return biaxial bending efficiency (clause 6.2.9 of EC3.1.1)
 (only class 1 and 2 cross-sections are considered currently)</p>
-<blockquote>
-<div>chiLT: lateral buckling reduction factor (default= 1.0).</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sectionClass</strong> – section classification (1,2,3 or 4)</li>
+<li><strong>chiLT</strong> – lateral buckling reduction factor (default= 1.0).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -124,7 +134,7 @@ classify the cross-section. Table 5.2 EC3-1-1</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>steel</strong> – steel type (e.g. S275JR)</li>
 <li><strong>ratioCT</strong> – ratio c/t width-to-thickness of the internal
-compressed part (defaults to widthToThicknessWeb)</li>
+compressed part (defaults to widthToThicknessWeb).</li>
 </ul>
 </td>
 </tr>
@@ -276,12 +286,28 @@ the moment gradient factor.
 <dt id="materials.ec3.EC3_materials.EC3Shape.getMcRdy">
 <code class="descname">getMcRdy</code><span class="sig-paren">(</span><em>sectionClass</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec3.EC3_materials.EC3Shape.getMcRdy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the minor bending resistance of the cross-section.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectionClass</strong> – section classification (1,2,3 or 4)</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.ec3.EC3_materials.EC3Shape.getMcRdz">
 <code class="descname">getMcRdz</code><span class="sig-paren">(</span><em>sectionClass</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec3.EC3_materials.EC3Shape.getMcRdz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the major bending resistance of the cross-section.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectionClass</strong> – section classification (1,2,3 or 4)</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -331,6 +357,14 @@ the moment gradient factor.
 <dt id="materials.ec3.EC3_materials.EC3Shape.getNcRd">
 <code class="descname">getNcRd</code><span class="sig-paren">(</span><em>sectionClass</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec3.EC3_materials.EC3Shape.getNcRd" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the axial compression resistance of the cross-section.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectionClass</strong> – section classification (1,2,3 or 4)</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -349,27 +383,72 @@ the moment gradient factor.
 <dl class="method">
 <dt id="materials.ec3.EC3_materials.EC3Shape.getYShearEfficiency">
 <code class="descname">getYShearEfficiency</code><span class="sig-paren">(</span><em>sectionClass</em>, <em>Vyd</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec3.EC3_materials.EC3Shape.getYShearEfficiency" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return major axis shear efficiency</p>
+<dd><p>Return major axis shear efficiency.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectionClass</strong> – section classification (1,2,3 or 4)</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.ec3.EC3_materials.EC3Shape.getZBendingEfficiency">
 <code class="descname">getZBendingEfficiency</code><span class="sig-paren">(</span><em>sectionClass</em>, <em>Mzd</em>, <em>Vyd=0.0</em>, <em>chiLT=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec3.EC3_materials.EC3Shape.getZBendingEfficiency" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return major axis bending efficiency
-chiLT: lateral buckling reduction factor (default= 1.0).</p>
+<dd><p>Return major axis bending efficiency</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sectionClass</strong> – section classification (1,2,3 or 4)</li>
+<li><strong>chiLT</strong> – lateral buckling reduction factor (default= 1.0).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.ec3.EC3_materials.EC3Shape.installULSControlRecorder">
 <code class="descname">installULSControlRecorder</code><span class="sig-paren">(</span><em>recorderType</em>, <em>elems</em>, <em>sectionClass=1</em>, <em>chiLT=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec3.EC3_materials.EC3Shape.installULSControlRecorder" title="Permalink to this definition">¶</a></dt>
 <dd><p>Installs recorder for verification of ULS criterion. Preprocessor obtained from the set of elements.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sectionClass</strong> – section classification (1,2,3 or 4)</li>
+<li><strong>chiLT</strong> – lateral buckling reduction factor (default= 1.0).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.ec3.EC3_materials.EC3Shape.setupULSControlVars">
 <code class="descname">setupULSControlVars</code><span class="sig-paren">(</span><em>elems</em>, <em>sectionClass=1</em>, <em>chiLT=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec3.EC3_materials.EC3Shape.setupULSControlVars" title="Permalink to this definition">¶</a></dt>
-<dd><p>For each element creates the variables
-needed to check ultimate limit state criterion to be satisfied.</p>
+<dd><dl class="docutils">
+<dt>For each element creates the variables</dt>
+<dd>needed to check ultimate limit state criterion to be satisfied.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sectionClass</strong> – section classification (1,2,3 or 4)</li>
+<li><strong>chiLT</strong> – lateral buckling reduction factor (default= 1.0).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -919,8 +998,8 @@ shear force of Vd.</p>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="materials.astm.html"
-                        title="previous chapter">ASTM materials</a></p>
+  <p class="topless"><a href="materials.astm_aisc.html"
+                        title="previous chapter">ASTM-AISC materials</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="materials.eae.html"
                         title="next chapter">Materials according to EAE code</a></p>
@@ -958,7 +1037,7 @@ shear force of Vd.</p>
           <a href="materials.eae.html" title="Materials according to EAE code"
              >next</a> |</li>
         <li class="right" >
-          <a href="materials.astm.html" title="ASTM materials"
+          <a href="materials.astm_aisc.html" title="ASTM-AISC materials"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../material.html" >Material</a> &#187;</li> 

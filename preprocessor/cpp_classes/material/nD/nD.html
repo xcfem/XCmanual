@@ -59,10 +59,56 @@
 <dt id="xc.NDMaterial">
 <em class="property">class </em><code class="descclassname">xc.</code><code class="descname">NDMaterial</code><a class="headerlink" href="#xc.NDMaterial" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">xc.Material</span></code></p>
+<dl class="method">
+<dt id="xc.NDMaterial.getInitialTangent">
+<code class="descname">getInitialTangent</code><span class="sig-paren">(</span><em>(NDMaterial)arg1</em><span class="sig-paren">)</span> &#x2192; Matrix :<a class="headerlink" href="#xc.NDMaterial.getInitialTangent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return material initial stiffness matrix.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Matrix getInitialTangent(XC::NDMaterial {lvalue})</dd>
+</dl>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="xc.NDMaterial.getRho">
 <code class="descname">getRho</code><a class="headerlink" href="#xc.NDMaterial.getRho" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the material density.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.NDMaterial.getStress">
+<code class="descname">getStress</code><span class="sig-paren">(</span><em>(NDMaterial)arg1</em><span class="sig-paren">)</span> &#x2192; Vector :<a class="headerlink" href="#xc.NDMaterial.getStress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the material stresses (the order of the components depends on the subclass) [sigma_11, sigma_22, sigma_33, sigma_12, sigma_23, sigma_31].</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Vector getStress(XC::NDMaterial {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.NDMaterial.getTangent">
+<code class="descname">getTangent</code><span class="sig-paren">(</span><em>(NDMaterial)arg1</em><span class="sig-paren">)</span> &#x2192; Matrix :<a class="headerlink" href="#xc.NDMaterial.getTangent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return material stiffness matrix.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Matrix getTangent(XC::NDMaterial {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.NDMaterial.rho">
+<code class="descname">rho</code><a class="headerlink" href="#xc.NDMaterial.rho" title="Permalink to this definition">¶</a></dt>
+<dd><p>Material density.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.NDMaterial.setTrialStrain">
+<code class="descname">setTrialStrain</code><span class="sig-paren">(</span><em>(NDMaterial)arg1</em>, <em>(Vector)arg2</em><span class="sig-paren">)</span> &#x2192; int :<a class="headerlink" href="#xc.NDMaterial.setTrialStrain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the trial strains for the material (the order of the components depends on the subclass) [eps_11, eps_22, eps_33, eps_12, eps_23, eps_31].</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>int setTrialStrain(XC::NDMaterial {lvalue},XC::Vector)</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -77,6 +123,16 @@
 <dt id="xc.J2Plasticity">
 <em class="property">class </em><code class="descclassname">xc.</code><code class="descname">J2Plasticity</code><a class="headerlink" href="#xc.J2Plasticity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#xc.NDMaterial" title="xc.NDMaterial"><code class="xref py py-class docutils literal"><span class="pre">xc.NDMaterial</span></code></a></p>
+<dl class="method">
+<dt id="xc.J2Plasticity.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><em>(J2Plasticity)arg1</em>, <em>(float)arg2</em>, <em>(float)arg3</em>, <em>(float)arg4</em>, <em>(float)arg5</em>, <em>(float)arg6</em>, <em>(float)arg7</em>, <em>(float)arg8</em><span class="sig-paren">)</span> &#x2192; None :<a class="headerlink" href="#xc.J2Plasticity.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>setup(K, G, initYield, finalYield, delta, linearHardening, viscosity) set paramater values</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void setup(XC::J2Plasticity {lvalue},double,double,double,double,double,double,double)</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">

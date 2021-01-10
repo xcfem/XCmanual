@@ -59,8 +59,18 @@
 <dt id="postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram">
 <em class="property">class </em><code class="descclassname">postprocess.xcVtk.diagrams.colored_diagram.</code><code class="descname">ColoredDiagram</code><span class="sig-paren">(</span><em>scaleFactor</em>, <em>fUnitConv</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="xcVtk.fields.html#postprocess.xcVtk.fields.vtk_lut_field.LUTField" title="postprocess.xcVtk.fields.vtk_lut_field.LUTField"><code class="xref py py-class docutils literal"><span class="pre">postprocess.xcVtk.fields.vtk_lut_field.LUTField</span></code></a></p>
-<p>Colored diagram of a function over a linear domain (set of 1D 
-elements for example).</p>
+<dl class="docutils">
+<dt>Colored diagram of a function over a linear domain (set of 1D </dt>
+<dd>elements for example).</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>scaleFactor</strong> – scale factor.</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram.addDiagramToScene">
 <code class="descname">addDiagramToScene</code><span class="sig-paren">(</span><em>recordDisplay</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram.addDiagramToScene" title="Permalink to this definition">¶</a></dt>
@@ -315,6 +325,18 @@ we compare only values of the component in first node of the elements</p>
 <em class="property">class </em><code class="descclassname">postprocess.xcVtk.diagrams.linear_load_diagram.</code><code class="descname">LinearLoadDiagram</code><span class="sig-paren">(</span><em>setToDisp</em>, <em>scale</em>, <em>fUnitConv</em>, <em>component</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.linear_load_diagram.LinearLoadDiagram" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram" title="postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram"><code class="xref py py-class docutils literal"><span class="pre">postprocess.xcVtk.diagrams.colored_diagram.ColoredDiagram</span></code></a></p>
 <p>Draw a load over a set of linear element (qx,qy,qz,…)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>setToDisp</strong> – set to display.</li>
+<li><strong>component</strong> – component to display.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="postprocess.xcVtk.diagrams.linear_load_diagram.LinearLoadDiagram.addDiagram">
 <code class="descname">addDiagram</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.linear_load_diagram.LinearLoadDiagram.addDiagram" title="Permalink to this definition">¶</a></dt>
@@ -425,7 +447,7 @@ initial/undeformed shape)</div></blockquote>
 
 <dl class="method">
 <dt id="postprocess.xcVtk.diagrams.vtk_internal_force_diagram.InternalForceDiagram.getElementComponentData">
-<code class="descname">getElementComponentData</code><span class="sig-paren">(</span><em>elem</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.vtk_internal_force_diagram.InternalForceDiagram.getElementComponentData" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getElementComponentData</code><span class="sig-paren">(</span><em>elem</em>, <em>silent=False</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.vtk_internal_force_diagram.InternalForceDiagram.getElementComponentData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the data to use to represent the diagram over the element</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -434,6 +456,7 @@ initial/undeformed shape)</div></blockquote>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>elem</strong> – element to deal with.</li>
 <li><strong>component</strong> – component to represent:</li>
+<li><strong>silent</strong> – if true don’t complain about non-existent properties.</li>
 </ul>
 </td>
 </tr>

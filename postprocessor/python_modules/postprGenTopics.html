@@ -4,29 +4,23 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>General topics &#8212; XC 3.0 documentation</title>
     <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '3.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Load combination utils package" href="../../xc_utils/load_combination_utils.html" />
     <link rel="prev" title="Utils" href="../../solution/python_modules/utils.html" /> 
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -58,7 +52,7 @@
 <dl class="class">
 <dt id="postprocess.output_handler.OutputHandler">
 <em class="property">class </em><code class="descclassname">postprocess.output_handler.</code><code class="descname">OutputHandler</code><span class="sig-paren">(</span><em>modelSpace=None</em>, <em>outputStyle=&lt;postprocess.output_styles.OutputStyle object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Object that handles the ouput (graphics, etc.)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -126,7 +120,7 @@ None, in that case an screen display is generated</li>
 
 <dl class="method">
 <dt id="postprocess.output_handler.OutputHandler.displayDiagram">
-<code class="descname">displayDiagram</code><span class="sig-paren">(</span><em>attributeName</em>, <em>component</em>, <em>setToDispRes</em>, <em>setDisp</em>, <em>caption</em>, <em>scaleFactor=1.0</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayDiagram" title="Permalink to this definition">¶</a></dt>
+<code class="descname">displayDiagram</code><span class="sig-paren">(</span><em>component</em>, <em>setToDispRes</em>, <em>setDisp</em>, <em>caption</em>, <em>scaleFactor=1.0</em>, <em>fileName=None</em>, <em>defFScale=0.0</em>, <em>orientScbar=1</em>, <em>titleScbar=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayDiagram" title="Permalink to this definition">¶</a></dt>
 <dd><p>Auxiliary function to display results on linear elements.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -146,6 +140,8 @@ so that the display position of each node equals to
 the initial position plus its displacement multiplied
 by this factor. (Defaults to 0.0, i.e. display of 
 initial/undeformed shape)</li>
+<li><strong>orientScbar</strong> – orientation of the scalar bar (defaults to 1-horiz)</li>
+<li><strong>titleScbar</strong> – title for the scalar bar (defaults to None)</li>
 </ul>
 </td>
 </tr>
@@ -421,7 +417,7 @@ displayed in blue and those greater than vmax in red
 
 <dl class="method">
 <dt id="postprocess.output_handler.OutputHandler.displayIntForcDiag">
-<code class="descname">displayIntForcDiag</code><span class="sig-paren">(</span><em>itemToDisp</em>, <em>setToDisplay=None</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayIntForcDiag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">displayIntForcDiag</code><span class="sig-paren">(</span><em>itemToDisp</em>, <em>setToDisplay=None</em>, <em>fileName=None</em>, <em>defFScale=0.0</em>, <em>orientScbar=1</em>, <em>titleScbar=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.displayIntForcDiag" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>displays the component of internal forces in the set of entities as a </dt>
 <dd>diagram over lines (i.e. appropiated for beam elements).</dd>
@@ -442,6 +438,8 @@ so that the display position of each node equals to
 the initial position plus its displacement multiplied
 by this factor. (Defaults to 0.0, i.e. display of 
 initial/undeformed shape)</li>
+<li><strong>orientScbar</strong> – orientation of the scalar bar (defaults to 1-horiz)</li>
+<li><strong>titleScbar</strong> – title for the scalar bar (defaults to None)</li>
 </ul>
 </td>
 </tr>
@@ -751,6 +749,16 @@ already defined.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="postprocess.output_handler.OutputHandler.getOutputForceUnitSym">
+<code class="descname">getOutputForceUnitSym</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.getOutputForceUnitSym" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="postprocess.output_handler.OutputHandler.getOutputLengthUnitSym">
+<code class="descname">getOutputLengthUnitSym</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.getOutputLengthUnitSym" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="postprocess.output_handler.OutputHandler.setCameraParameters">
 <code class="descname">setCameraParameters</code><span class="sig-paren">(</span><em>cameraParameters</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_handler.OutputHandler.setCameraParameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the camera parameters from the arguments.</p>
@@ -795,7 +803,7 @@ parameters that define the camera.</td>
 <dl class="class">
 <dt id="postprocess.output_styles.OutputStyle">
 <em class="property">class </em><code class="descclassname">postprocess.output_styles.</code><code class="descname">OutputStyle</code><span class="sig-paren">(</span><em>cameraParameters=None</em>, <em>outputUnits=&lt;postprocess.output_units.OutputUnits object&gt;</em>, <em>constraintsScaleFactor=0.4</em>, <em>localAxesVectorScaleFactor=0.5</em>, <em>language=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_styles.OutputStyle" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Pararameters used in the output routines (graphics, etc.)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -917,7 +925,7 @@ in graphic output.</p>
 <dl class="class">
 <dt id="postprocess.output_units.DisplacementUnits">
 <em class="property">class </em><code class="descclassname">postprocess.output_units.</code><code class="descname">DisplacementUnits</code><span class="sig-paren">(</span><em>lengthUnit=&lt;postprocess.output_units.UnitDefinitionPair object&gt;</em>, <em>planeAngleUnit=&lt;postprocess.output_units.UnitDefinitionPair object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_units.DisplacementUnits" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Units to use for the output of displacement magnitudes</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -946,7 +954,7 @@ in graphic output.</p>
 <dl class="class">
 <dt id="postprocess.output_units.DynamicsUnits">
 <em class="property">class </em><code class="descclassname">postprocess.output_units.</code><code class="descname">DynamicsUnits</code><span class="sig-paren">(</span><em>forceUnit=&lt;postprocess.output_units.UnitDefinitionPair object&gt;</em>, <em>lengthUnit=&lt;postprocess.output_units.UnitDefinitionPair object&gt;</em>, <em>pressureUnit=&lt;postprocess.output_units.UnitDefinitionPair object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_units.DynamicsUnits" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Units to use for the output of forces</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -975,7 +983,7 @@ in graphic output.</p>
 <dl class="class">
 <dt id="postprocess.output_units.OutputUnits">
 <em class="property">class </em><code class="descclassname">postprocess.output_units.</code><code class="descname">OutputUnits</code><span class="sig-paren">(</span><em>displacementUnits=&lt;postprocess.output_units.DisplacementUnits object&gt;</em>, <em>dynamicUnits=&lt;postprocess.output_units.DynamicsUnits object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_units.OutputUnits" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Units to use in output stuff (graphics, etc.)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1042,7 +1050,7 @@ in graphic output.</p>
 <dl class="class">
 <dt id="postprocess.output_units.UnitDefinitionPair">
 <em class="property">class </em><code class="descclassname">postprocess.output_units.</code><code class="descname">UnitDefinitionPair</code><span class="sig-paren">(</span><em>symbol</em>, <em>scaleFactor</em>, <em>quantity</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.output_units.UnitDefinitionPair" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Text symbol describing the unit (kN,lb,N,m,mm,in, etc) and
 scale factor to apply to the results in order to obtain 
 the desired output units (i.e.: N-&gt;kN scaleUnitsForce: 1e-3).</p>
@@ -1144,7 +1152,7 @@ in order to obtain the desired output units
 <dl class="class">
 <dt id="postprocess.control_vars.AxialForceControlVars">
 <em class="property">class </em><code class="descclassname">postprocess.control_vars.</code><code class="descname">AxialForceControlVars</code><span class="sig-paren">(</span><em>idSection='nil'</em>, <em>combName='nil'</em>, <em>N=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.AxialForceControlVars" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.ControlVarsBase" title="postprocess.control_vars.ControlVarsBase"><code class="xref py py-class docutils literal"><span class="pre">postprocess.control_vars.ControlVarsBase</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.ControlVarsBase" title="postprocess.control_vars.ControlVarsBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.control_vars.ControlVarsBase</span></code></a></p>
 <p>Axial force. Internal forces [N] for a combination.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1202,7 +1210,7 @@ in order to obtain the desired output units
 <dl class="class">
 <dt id="postprocess.control_vars.BiaxialBendingControlVars">
 <em class="property">class </em><code class="descclassname">postprocess.control_vars.</code><code class="descname">BiaxialBendingControlVars</code><span class="sig-paren">(</span><em>idSection='nil'</em>, <em>combName='nil'</em>, <em>CF=-1.0</em>, <em>N=0.0</em>, <em>My=0.0</em>, <em>Mz=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.BiaxialBendingControlVars" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.UniaxialBendingControlVars" title="postprocess.control_vars.UniaxialBendingControlVars"><code class="xref py py-class docutils literal"><span class="pre">postprocess.control_vars.UniaxialBendingControlVars</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.UniaxialBendingControlVars" title="postprocess.control_vars.UniaxialBendingControlVars"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.control_vars.UniaxialBendingControlVars</span></code></a></p>
 <p>Biaxial bending. Normal stresses limit state variables. [CF,N,My,Mz].</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1256,7 +1264,7 @@ in order to obtain the desired output units
 <dl class="class">
 <dt id="postprocess.control_vars.CFNMy">
 <em class="property">class </em><code class="descclassname">postprocess.control_vars.</code><code class="descname">CFNMy</code><span class="sig-paren">(</span><em>combName='nil'</em>, <em>CF=-1.0</em>, <em>N=0.0</em>, <em>My=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.CFNMy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.NMy" title="postprocess.control_vars.NMy"><code class="xref py py-class docutils literal"><span class="pre">postprocess.control_vars.NMy</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.NMy" title="postprocess.control_vars.NMy"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.control_vars.NMy</span></code></a></p>
 <p>Uniaxial bending. Normal stresses limit state variables.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1277,7 +1285,7 @@ in order to obtain the desired output units
 <dl class="class">
 <dt id="postprocess.control_vars.CFNMyMz">
 <em class="property">class </em><code class="descclassname">postprocess.control_vars.</code><code class="descname">CFNMyMz</code><span class="sig-paren">(</span><em>combName='nil'</em>, <em>CF=-1.0</em>, <em>N=0.0</em>, <em>My=0.0</em>, <em>Mz=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.CFNMyMz" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.CFNMy" title="postprocess.control_vars.CFNMy"><code class="xref py py-class docutils literal"><span class="pre">postprocess.control_vars.CFNMy</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.CFNMy" title="postprocess.control_vars.CFNMy"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.control_vars.CFNMy</span></code></a></p>
 <p>Biaxial bending. Normal stresses limit state variables. [CF,N,My,Mz].</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1331,7 +1339,7 @@ in order to obtain the desired output units
 <dl class="class">
 <dt id="postprocess.control_vars.CFVy">
 <em class="property">class </em><code class="descclassname">postprocess.control_vars.</code><code class="descname">CFVy</code><span class="sig-paren">(</span><em>combName='nil'</em>, <em>CF=-1.0</em>, <em>Vy=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.CFVy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.ShVy" title="postprocess.control_vars.ShVy"><code class="xref py py-class docutils literal"><span class="pre">postprocess.control_vars.ShVy</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.ShVy" title="postprocess.control_vars.ShVy"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.control_vars.ShVy</span></code></a></p>
 <p>Uniaxial bending. Shear stresses limit state variables.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1352,7 +1360,7 @@ in order to obtain the desired output units
 <dl class="class">
 <dt id="postprocess.control_vars.ControlVarsBase">
 <em class="property">class </em><code class="descclassname">postprocess.control_vars.</code><code class="descname">ControlVarsBase</code><span class="sig-paren">(</span><em>combName='nil'</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.ControlVarsBase" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="docutils">
 <dt>Base class for the control of variables (internal forces, </dt>
 <dd>strains, stresses,…) calculated in the analysis.</dd>
@@ -1479,7 +1487,7 @@ of this object: kin of naïve serialization.</p>
 <dl class="class">
 <dt id="postprocess.control_vars.CrackControlBaseVars">
 <em class="property">class </em><code class="descclassname">postprocess.control_vars.</code><code class="descname">CrackControlBaseVars</code><span class="sig-paren">(</span><em>combName='nil'</em>, <em>CF=-1.0</em>, <em>N=0.0</em>, <em>My=0.0</em>, <em>Mz=0.0</em>, <em>steelStress=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.CrackControlBaseVars" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.CFNMyMz" title="postprocess.control_vars.CFNMyMz"><code class="xref py py-class docutils literal"><span class="pre">postprocess.control_vars.CFNMyMz</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.CFNMyMz" title="postprocess.control_vars.CFNMyMz"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.control_vars.CFNMyMz</span></code></a></p>
 <p>Biaxial bending. Cracking serviceability limit state variables.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1533,7 +1541,7 @@ of this object: kin of naïve serialization.</p>
 <dl class="class">
 <dt id="postprocess.control_vars.CrackControlVars">
 <em class="property">class </em><code class="descclassname">postprocess.control_vars.</code><code class="descname">CrackControlVars</code><span class="sig-paren">(</span><em>idSection='nil'</em>, <em>crackControlBaseVarsPos=None</em>, <em>crackControlBaseVarsNeg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.CrackControlVars" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.ControlVarsBase" title="postprocess.control_vars.ControlVarsBase"><code class="xref py py-class docutils literal"><span class="pre">postprocess.control_vars.ControlVarsBase</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.ControlVarsBase" title="postprocess.control_vars.ControlVarsBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.control_vars.ControlVarsBase</span></code></a></p>
 <p>Cracking serviceability limit state control variables.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1584,7 +1592,7 @@ factor: factor for units (default 1e-3 -&gt; kN)</p>
 <dl class="class">
 <dt id="postprocess.control_vars.FatigueControlBaseVars">
 <em class="property">class </em><code class="descclassname">postprocess.control_vars.</code><code class="descname">FatigueControlBaseVars</code><span class="sig-paren">(</span><em>combName='nil'</em>, <em>CF=-1.0</em>, <em>N=0.0</em>, <em>My=0.0</em>, <em>Mz=0.0</em>, <em>Vy=0.0</em>, <em>posSteelStress=0.0</em>, <em>negSteelStress=0.0</em>, <em>concreteStress=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.FatigueControlBaseVars" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.NMyMz" title="postprocess.control_vars.NMyMz"><code class="xref py py-class docutils literal"><span class="pre">postprocess.control_vars.NMyMz</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.NMyMz" title="postprocess.control_vars.NMyMz"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.control_vars.NMyMz</span></code></a></p>
 <p>Biaxial bending. Fatigue limit state variables.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1644,7 +1652,7 @@ factor: factor for units (default 1e-3 -&gt; kN)</p>
 <dl class="class">
 <dt id="postprocess.control_vars.FatigueControlVars">
 <em class="property">class </em><code class="descclassname">postprocess.control_vars.</code><code class="descname">FatigueControlVars</code><span class="sig-paren">(</span><em>idSection='nil'</em>, <em>controlBaseVars0=None</em>, <em>controlBaseVars1=None</em>, <em>concreteLimitStress=0.0</em>, <em>concreteBendingCF=-1.0</em>, <em>shearLimit=0.0</em>, <em>concreteShearCF=-1.0</em>, <em>Mu=0.0</em>, <em>Vu=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.FatigueControlVars" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.ControlVarsBase" title="postprocess.control_vars.ControlVarsBase"><code class="xref py py-class docutils literal"><span class="pre">postprocess.control_vars.ControlVarsBase</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.ControlVarsBase" title="postprocess.control_vars.ControlVarsBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.control_vars.ControlVarsBase</span></code></a></p>
 <p>Fatigue limit state control variables.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1727,7 +1735,7 @@ factor: factor for units (default 1e-3 -&gt; kN)</p>
 <dl class="class">
 <dt id="postprocess.control_vars.NMy">
 <em class="property">class </em><code class="descclassname">postprocess.control_vars.</code><code class="descname">NMy</code><span class="sig-paren">(</span><em>combName='nil'</em>, <em>N=0.0</em>, <em>My=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.NMy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.ControlVarsBase" title="postprocess.control_vars.ControlVarsBase"><code class="xref py py-class docutils literal"><span class="pre">postprocess.control_vars.ControlVarsBase</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.ControlVarsBase" title="postprocess.control_vars.ControlVarsBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.control_vars.ControlVarsBase</span></code></a></p>
 <p>Uniaxial bending. Internal forces [N,My] for a combination.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1785,7 +1793,7 @@ factor: factor for units (default 1e-3 -&gt; kN)</p>
 <dl class="class">
 <dt id="postprocess.control_vars.NMyMz">
 <em class="property">class </em><code class="descclassname">postprocess.control_vars.</code><code class="descname">NMyMz</code><span class="sig-paren">(</span><em>combName='nil'</em>, <em>N=0.0</em>, <em>My=0.0</em>, <em>Mz=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.NMyMz" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.NMy" title="postprocess.control_vars.NMy"><code class="xref py py-class docutils literal"><span class="pre">postprocess.control_vars.NMy</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.NMy" title="postprocess.control_vars.NMy"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.control_vars.NMy</span></code></a></p>
 <p>Biaxial bending. Internal forces [N,My,Mz] for a combination.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1839,7 +1847,7 @@ factor: factor for units (default 1e-3 -&gt; kN)</p>
 <dl class="class">
 <dt id="postprocess.control_vars.RCCrackStraightControlVars">
 <em class="property">class </em><code class="descclassname">postprocess.control_vars.</code><code class="descname">RCCrackStraightControlVars</code><span class="sig-paren">(</span><em>idSection=-1</em>, <em>combName='nil'</em>, <em>CF=-1</em>, <em>N=0.0</em>, <em>My=0.0</em>, <em>Mz=0.0</em>, <em>s_rmax=0.0</em>, <em>eps_sm=0.0</em>, <em>wk=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.RCCrackStraightControlVars" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.NMyMz" title="postprocess.control_vars.NMyMz"><code class="xref py py-class docutils literal"><span class="pre">postprocess.control_vars.NMyMz</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.NMyMz" title="postprocess.control_vars.NMyMz"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.control_vars.NMyMz</span></code></a></p>
 <p>Control variables for cracking serviacebility limit state verification
 when when considering a concrete stress-strain diagram that takes account of 
 the effects of tension stiffening.</p>
@@ -1882,7 +1890,7 @@ the effects of tension stiffening.</p>
 <dl class="class">
 <dt id="postprocess.control_vars.RCShearControlVars">
 <em class="property">class </em><code class="descclassname">postprocess.control_vars.</code><code class="descname">RCShearControlVars</code><span class="sig-paren">(</span><em>idSection=-1</em>, <em>combName='nil'</em>, <em>CF=-1.0</em>, <em>N=0.0</em>, <em>My=0.0</em>, <em>Mz=0.0</em>, <em>Mu=0.0</em>, <em>Vy=0.0</em>, <em>Vz=0.0</em>, <em>theta=0.0</em>, <em>Vcu=0.0</em>, <em>Vsu=0.0</em>, <em>Vu=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.RCShearControlVars" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.BiaxialBendingControlVars" title="postprocess.control_vars.BiaxialBendingControlVars"><code class="xref py py-class docutils literal"><span class="pre">postprocess.control_vars.BiaxialBendingControlVars</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.BiaxialBendingControlVars" title="postprocess.control_vars.BiaxialBendingControlVars"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.control_vars.BiaxialBendingControlVars</span></code></a></p>
 <p>Control variables for shear limit state verification in reinforced concrete elements.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1945,7 +1953,7 @@ the effects of tension stiffening.</p>
 <dl class="class">
 <dt id="postprocess.control_vars.SSBiaxialBendingControlVars">
 <em class="property">class </em><code class="descclassname">postprocess.control_vars.</code><code class="descname">SSBiaxialBendingControlVars</code><span class="sig-paren">(</span><em>idSection='nil'</em>, <em>combName='nil'</em>, <em>CF=-1.0</em>, <em>N=0.0</em>, <em>My=0.0</em>, <em>Mz=0.0</em>, <em>Ncrd=0.0</em>, <em>McRdy=0.0</em>, <em>McRdz=0.0</em>, <em>MvRdz=0.0</em>, <em>MbRdz=0.0</em>, <em>chiLT=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.SSBiaxialBendingControlVars" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.BiaxialBendingControlVars" title="postprocess.control_vars.BiaxialBendingControlVars"><code class="xref py py-class docutils literal"><span class="pre">postprocess.control_vars.BiaxialBendingControlVars</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.BiaxialBendingControlVars" title="postprocess.control_vars.BiaxialBendingControlVars"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.control_vars.BiaxialBendingControlVars</span></code></a></p>
 <p>Control variables for biaxial bending normal stresses LS 
 verification en steel-shape elements.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1989,7 +1997,7 @@ verification en steel-shape elements.</p>
 <dl class="class">
 <dt id="postprocess.control_vars.ShVy">
 <em class="property">class </em><code class="descclassname">postprocess.control_vars.</code><code class="descname">ShVy</code><span class="sig-paren">(</span><em>combName='nil'</em>, <em>Vy=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.ShVy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.ControlVarsBase" title="postprocess.control_vars.ControlVarsBase"><code class="xref py py-class docutils literal"><span class="pre">postprocess.control_vars.ControlVarsBase</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.ControlVarsBase" title="postprocess.control_vars.ControlVarsBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.control_vars.ControlVarsBase</span></code></a></p>
 <p>Shear along Y axis. Internal forces [Vy] for a combination.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2047,7 +2055,7 @@ verification en steel-shape elements.</p>
 <dl class="class">
 <dt id="postprocess.control_vars.ShearYControlVars">
 <em class="property">class </em><code class="descclassname">postprocess.control_vars.</code><code class="descname">ShearYControlVars</code><span class="sig-paren">(</span><em>idSection='nil'</em>, <em>combName='nil'</em>, <em>CF=-1.0</em>, <em>Vy=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.ShearYControlVars" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.CFVy" title="postprocess.control_vars.CFVy"><code class="xref py py-class docutils literal"><span class="pre">postprocess.control_vars.CFVy</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.CFVy" title="postprocess.control_vars.CFVy"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.control_vars.CFVy</span></code></a></p>
 <p>Shear along Y axis. Limit state variables [CF,Vy].</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2082,7 +2090,7 @@ verification en steel-shape elements.</p>
 <dl class="class">
 <dt id="postprocess.control_vars.UniaxialBendingControlVars">
 <em class="property">class </em><code class="descclassname">postprocess.control_vars.</code><code class="descname">UniaxialBendingControlVars</code><span class="sig-paren">(</span><em>idSection='nil'</em>, <em>combName='nil'</em>, <em>CF=-1.0</em>, <em>N=0.0</em>, <em>My=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.UniaxialBendingControlVars" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.CFNMy" title="postprocess.control_vars.CFNMy"><code class="xref py py-class docutils literal"><span class="pre">postprocess.control_vars.CFNMy</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.CFNMy" title="postprocess.control_vars.CFNMy"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.control_vars.CFNMy</span></code></a></p>
 <p>Uniaxial bending. Normal stresses limit state variables [CF,N,My].</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2117,7 +2125,7 @@ verification en steel-shape elements.</p>
 <dl class="class">
 <dt id="postprocess.control_vars.VonMisesControlVars">
 <em class="property">class </em><code class="descclassname">postprocess.control_vars.</code><code class="descname">VonMisesControlVars</code><span class="sig-paren">(</span><em>combName='nil'</em>, <em>CF=-1.0</em>, <em>vm_stress=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.control_vars.VonMisesControlVars" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.ControlVarsBase" title="postprocess.control_vars.ControlVarsBase"><code class="xref py py-class docutils literal"><span class="pre">postprocess.control_vars.ControlVarsBase</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.control_vars.ControlVarsBase" title="postprocess.control_vars.ControlVarsBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.control_vars.ControlVarsBase</span></code></a></p>
 <p>Von Mises stresses control vars.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2354,7 +2362,7 @@ THIS FILE MUST DISSAPEAR.</p>
 <div><span class="target" id="module-postprocess.displayable_results"></span><dl class="class">
 <dt id="postprocess.displayable_results.ResultDescription">
 <em class="property">class </em><code class="descclassname">postprocess.displayable_results.</code><code class="descname">ResultDescription</code><span class="sig-paren">(</span><em>attributeName</em>, <em>argument</em>, <em>description</em>, <em>units=''</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.displayable_results.ResultDescription" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="method">
 <dt id="postprocess.displayable_results.ResultDescription.getCaption">
 <code class="descname">getCaption</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.displayable_results.ResultDescription.getCaption" title="Permalink to this definition">¶</a></dt>
@@ -2370,7 +2378,7 @@ THIS FILE MUST DISSAPEAR.</p>
 <dl class="class">
 <dt id="postprocess.displayable_results.ResultsDescriptionContainer">
 <em class="property">class </em><code class="descclassname">postprocess.displayable_results.</code><code class="descname">ResultsDescriptionContainer</code><span class="sig-paren">(</span><em>limitStateData</em>, <em>lst</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.displayable_results.ResultsDescriptionContainer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dict</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
 <p>Results to display as figures.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2434,7 +2442,7 @@ THIS FILE MUST DISSAPEAR.</p>
 <dl class="class">
 <dt id="postprocess.element_section_map.ElementSectionMap">
 <em class="property">class </em><code class="descclassname">postprocess.element_section_map.</code><code class="descname">ElementSectionMap</code><a class="headerlink" href="#postprocess.element_section_map.ElementSectionMap" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dict</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
 <p>dictionary that stores a section name(s)
 for each element number. This way it defines
 a spatial distribution of the sections over
@@ -2442,7 +2450,7 @@ the structure.</p>
 <dl class="method">
 <dt id="postprocess.element_section_map.ElementSectionMap.assign">
 <code class="descname">assign</code><span class="sig-paren">(</span><em>elemSet</em>, <em>setRCSects</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.ElementSectionMap.assign" title="Permalink to this definition">¶</a></dt>
-<dd><p>Assigns the sections names: setRCSectsName+‘1’, setRCSectsName+‘2’, …
+<dd><p>Assigns the sections names: setRCSectsName+’1’, setRCSectsName+’2’, …
 to the elements of the set.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2469,7 +2477,7 @@ rebar positions,…</li>
 <dl class="class">
 <dt id="postprocess.element_section_map.ElementSections">
 <em class="property">class </em><code class="descclassname">postprocess.element_section_map.</code><code class="descname">ElementSections</code><span class="sig-paren">(</span><em>name, directions=[1, 2], gaussPoints=[1], elemSet=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.ElementSections" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class defines the list of reinforced concrete sections that are going 
 to be associated to a set of elements in order to carry out the verifications 
 of the limit states.</p>
@@ -2478,7 +2486,7 @@ of the limit states.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – name given to the list of reinforced concrete sections</li>
+<li><a class="reference internal" href="../../preprocessor/cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – name given to the list of reinforced concrete sections</li>
 <li><strong>directions</strong> – list of the directions to consider for each integration
 point.</li>
 <li><strong>gaussPoints</strong> – list of the integration points to consider for each
@@ -2530,7 +2538,7 @@ the list of sections.</p>
 <dl class="class">
 <dt id="postprocess.element_section_map.RCMemberSection">
 <em class="property">class </em><code class="descclassname">postprocess.element_section_map.</code><code class="descname">RCMemberSection</code><span class="sig-paren">(</span><em>name, templateSections, directions=[1], gaussPoints=[1, 2], elemSet=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCMemberSection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.element_section_map.ElementSections" title="postprocess.element_section_map.ElementSections"><code class="xref py py-class docutils literal"><span class="pre">postprocess.element_section_map.ElementSections</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.element_section_map.ElementSections" title="postprocess.element_section_map.ElementSections"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.element_section_map.ElementSections</span></code></a></p>
 <p>This class is an specialization of ElemenSections for rectangular
 sections. The items of the list are instances of the object <em>RCRectangularSection</em></p>
 <dl class="method">
@@ -2547,7 +2555,7 @@ that contains the list of sections.</p>
 <dl class="class">
 <dt id="postprocess.element_section_map.RCSlabBeamSection">
 <em class="property">class </em><code class="descclassname">postprocess.element_section_map.</code><code class="descname">RCSlabBeamSection</code><span class="sig-paren">(</span><em>name</em>, <em>sectionDescr</em>, <em>concrType</em>, <em>reinfSteelType</em>, <em>depth</em>, <em>width=1.0</em>, <em>elemSet=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCSlabBeamSection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.element_section_map.setRCSections2SetElVerif" title="postprocess.element_section_map.setRCSections2SetElVerif"><code class="xref py py-class docutils literal"><span class="pre">postprocess.element_section_map.setRCSections2SetElVerif</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.element_section_map.setRCSections2SetElVerif" title="postprocess.element_section_map.setRCSections2SetElVerif"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.element_section_map.setRCSections2SetElVerif</span></code></a></p>
 <p>This class is used to define the variables that make up the two 
 reinforced concrete sections that define the two reinforcement directions
 of a slab or the front and back ending sections of a beam element</p>
@@ -2768,7 +2776,7 @@ desired property (As1+,As1-,…,d1+,d1-,…).</p>
 <dl class="class">
 <dt id="postprocess.element_section_map.setRCSections2SetElVerif">
 <em class="property">class </em><code class="descclassname">postprocess.element_section_map.</code><code class="descname">setRCSections2SetElVerif</code><span class="sig-paren">(</span><em>name</em>, <em>directions</em>, <em>gaussPoints</em>, <em>elemSet</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.setRCSections2SetElVerif" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.element_section_map.ElementSections" title="postprocess.element_section_map.ElementSections"><code class="xref py py-class docutils literal"><span class="pre">postprocess.element_section_map.ElementSections</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.element_section_map.ElementSections" title="postprocess.element_section_map.ElementSections"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.element_section_map.ElementSections</span></code></a></p>
 <p>This class is an specialization of ElemenSections for rectangular
 sections. The items of the list are instances of the object <em>RCRectangularSection</em></p>
 <dl class="method">
@@ -3014,7 +3022,7 @@ at the nodes.</li>
 <dl class="class">
 <dt id="postprocess.figure_collection.FigsCollectionPlotter">
 <em class="property">class </em><code class="descclassname">postprocess.figure_collection.</code><code class="descname">FigsCollectionPlotter</code><a class="headerlink" href="#postprocess.figure_collection.FigsCollectionPlotter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="attribute">
 <dt id="postprocess.figure_collection.FigsCollectionPlotter.fUnits">
 <code class="descname">fUnits</code><em class="property"> = '[kN/m]'</em><a class="headerlink" href="#postprocess.figure_collection.FigsCollectionPlotter.fUnits" title="Permalink to this definition">¶</a></dt>
@@ -3089,7 +3097,7 @@ at the nodes.</li>
 <dl class="class">
 <dt id="postprocess.get_reactions.Reactions">
 <em class="property">class </em><code class="descclassname">postprocess.get_reactions.</code><code class="descname">Reactions</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>supportNodes</em>, <em>inclInertia=False</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.get_reactions.Reactions" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="method">
 <dt id="postprocess.get_reactions.Reactions.getReactionForces">
 <code class="descname">getReactionForces</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.get_reactions.Reactions.getReactionForces" title="Permalink to this definition">¶</a></dt>
@@ -3118,7 +3126,7 @@ The key of the map is the node tag.</p>
 <dl class="class">
 <dt id="postprocess.limit_state_data.FatigueResistanceRCLimitStateData">
 <em class="property">class </em><code class="descclassname">postprocess.limit_state_data.</code><code class="descname">FatigueResistanceRCLimitStateData</code><a class="headerlink" href="#postprocess.limit_state_data.FatigueResistanceRCLimitStateData" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.limit_state_data.LimitStateData" title="postprocess.limit_state_data.LimitStateData"><code class="xref py py-class docutils literal"><span class="pre">postprocess.limit_state_data.LimitStateData</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.limit_state_data.LimitStateData" title="postprocess.limit_state_data.LimitStateData"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.limit_state_data.LimitStateData</span></code></a></p>
 <p>Reinforced concrete shear resistance limit state data.</p>
 <dl class="method">
 <dt id="postprocess.limit_state_data.FatigueResistanceRCLimitStateData.check">
@@ -3168,7 +3176,7 @@ see actions/combinations module.</li>
 <dl class="class">
 <dt id="postprocess.limit_state_data.FreqLoadsCrackControlRCLimitStateData">
 <em class="property">class </em><code class="descclassname">postprocess.limit_state_data.</code><code class="descname">FreqLoadsCrackControlRCLimitStateData</code><a class="headerlink" href="#postprocess.limit_state_data.FreqLoadsCrackControlRCLimitStateData" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.limit_state_data.LimitStateData" title="postprocess.limit_state_data.LimitStateData"><code class="xref py py-class docutils literal"><span class="pre">postprocess.limit_state_data.LimitStateData</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.limit_state_data.LimitStateData" title="postprocess.limit_state_data.LimitStateData"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.limit_state_data.LimitStateData</span></code></a></p>
 <p>Reinforced concrete crack control under frequent loads limit state data.</p>
 <dl class="method">
 <dt id="postprocess.limit_state_data.FreqLoadsCrackControlRCLimitStateData.check">
@@ -3220,7 +3228,7 @@ see actions/combinations module.</li>
 <dl class="class">
 <dt id="postprocess.limit_state_data.FreqLoadsDisplacementControlLimitStateData">
 <em class="property">class </em><code class="descclassname">postprocess.limit_state_data.</code><code class="descname">FreqLoadsDisplacementControlLimitStateData</code><a class="headerlink" href="#postprocess.limit_state_data.FreqLoadsDisplacementControlLimitStateData" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.limit_state_data.LimitStateData" title="postprocess.limit_state_data.LimitStateData"><code class="xref py py-class docutils literal"><span class="pre">postprocess.limit_state_data.LimitStateData</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.limit_state_data.LimitStateData" title="postprocess.limit_state_data.LimitStateData"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.limit_state_data.LimitStateData</span></code></a></p>
 <p>Displacement control under frequent loads limit state data.</p>
 <dl class="method">
 <dt id="postprocess.limit_state_data.FreqLoadsDisplacementControlLimitStateData.check">
@@ -3262,7 +3270,7 @@ see actions/combinations module.</li>
 <dl class="class">
 <dt id="postprocess.limit_state_data.LimitStateData">
 <em class="property">class </em><code class="descclassname">postprocess.limit_state_data.</code><code class="descname">LimitStateData</code><span class="sig-paren">(</span><em>limitStateLabel</em>, <em>outputDataBaseFileName</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.limit_state_data.LimitStateData" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Data used when checking limit states.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -3343,7 +3351,7 @@ forces file.</p>
 
 <dl class="method">
 <dt id="postprocess.limit_state_data.LimitStateData.loadPickleObject">
-<code class="descname">loadPickleObject</code><span class="sig-paren">(</span><em>objName</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.limit_state_data.LimitStateData.loadPickleObject" title="Permalink to this definition">¶</a></dt>
+<code class="descname">loadPickleObject</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.limit_state_data.LimitStateData.loadPickleObject" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read a Python object from a pickle file.</p>
 </dd></dl>
 
@@ -3441,7 +3449,7 @@ the finite element problem.</li>
 <dl class="class">
 <dt id="postprocess.limit_state_data.NormalStressesRCLimitStateData">
 <em class="property">class </em><code class="descclassname">postprocess.limit_state_data.</code><code class="descname">NormalStressesRCLimitStateData</code><a class="headerlink" href="#postprocess.limit_state_data.NormalStressesRCLimitStateData" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.limit_state_data.LimitStateData" title="postprocess.limit_state_data.LimitStateData"><code class="xref py py-class docutils literal"><span class="pre">postprocess.limit_state_data.LimitStateData</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.limit_state_data.LimitStateData" title="postprocess.limit_state_data.LimitStateData"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.limit_state_data.LimitStateData</span></code></a></p>
 <p>Reinforced concrete normal stresses data for limit state checking.</p>
 <dl class="method">
 <dt id="postprocess.limit_state_data.NormalStressesRCLimitStateData.check">
@@ -3491,7 +3499,7 @@ see actions/combinations module.</li>
 <dl class="class">
 <dt id="postprocess.limit_state_data.QPLoadsCrackControlRCLimitStateData">
 <em class="property">class </em><code class="descclassname">postprocess.limit_state_data.</code><code class="descname">QPLoadsCrackControlRCLimitStateData</code><a class="headerlink" href="#postprocess.limit_state_data.QPLoadsCrackControlRCLimitStateData" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.limit_state_data.LimitStateData" title="postprocess.limit_state_data.LimitStateData"><code class="xref py py-class docutils literal"><span class="pre">postprocess.limit_state_data.LimitStateData</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.limit_state_data.LimitStateData" title="postprocess.limit_state_data.LimitStateData"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.limit_state_data.LimitStateData</span></code></a></p>
 <p>Reinforced concrete crack control under quasi-permanent loads limit state data.</p>
 <dl class="method">
 <dt id="postprocess.limit_state_data.QPLoadsCrackControlRCLimitStateData.check">
@@ -3541,7 +3549,7 @@ see actions/combinations module.</li>
 <dl class="class">
 <dt id="postprocess.limit_state_data.ShearResistanceRCLimitStateData">
 <em class="property">class </em><code class="descclassname">postprocess.limit_state_data.</code><code class="descname">ShearResistanceRCLimitStateData</code><a class="headerlink" href="#postprocess.limit_state_data.ShearResistanceRCLimitStateData" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.limit_state_data.LimitStateData" title="postprocess.limit_state_data.LimitStateData"><code class="xref py py-class docutils literal"><span class="pre">postprocess.limit_state_data.LimitStateData</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.limit_state_data.LimitStateData" title="postprocess.limit_state_data.LimitStateData"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.limit_state_data.LimitStateData</span></code></a></p>
 <p>Reinforced concrete shear resistance limit state data.</p>
 <dl class="method">
 <dt id="postprocess.limit_state_data.ShearResistanceRCLimitStateData.check">
@@ -3591,7 +3599,7 @@ see actions/combinations module.</li>
 <dl class="class">
 <dt id="postprocess.limit_state_data.VerifOutVars">
 <em class="property">class </em><code class="descclassname">postprocess.limit_state_data.</code><code class="descname">VerifOutVars</code><span class="sig-paren">(</span><em>setCalc=None</em>, <em>appendToResFile='N'</em>, <em>listFile='N'</em>, <em>calcMeanCF='N'</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.limit_state_data.VerifOutVars" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Variables that control the output of limit state verifications.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -3631,7 +3639,7 @@ meant to be calculated (defaults to ‘N’)</li>
 <dl class="class">
 <dt id="postprocess.limit_state_data.VonMisesStressLimitStateData">
 <em class="property">class </em><code class="descclassname">postprocess.limit_state_data.</code><code class="descname">VonMisesStressLimitStateData</code><span class="sig-paren">(</span><em>vonMisesStressId='max_von_mises_stress'</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.limit_state_data.VonMisesStressLimitStateData" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.limit_state_data.LimitStateData" title="postprocess.limit_state_data.LimitStateData"><code class="xref py py-class docutils literal"><span class="pre">postprocess.limit_state_data.LimitStateData</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.limit_state_data.LimitStateData" title="postprocess.limit_state_data.LimitStateData"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.limit_state_data.LimitStateData</span></code></a></p>
 <p>Steel Von Mises stress limit state data.</p>
 <dl class="method">
 <dt id="postprocess.limit_state_data.VonMisesStressLimitStateData.check">
@@ -3856,7 +3864,7 @@ results are analyzed)</li>
 <dl class="class">
 <dt id="postprocess.phantom_model.PhantomModel">
 <em class="property">class </em><code class="descclassname">postprocess.phantom_model.</code><code class="descname">PhantomModel</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>sectionDistribution</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.phantom_model.PhantomModel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Model made of ZeroLengthSection elements that is used only
 for checking limit states i.e. for reinforced concrete sections.</p>
 <p>This kind of phantom model is needed when the model that we use
@@ -4077,7 +4085,7 @@ the results to a file, generation or not of lists, …)</li>
 <dt id="postprocess.prop_statistics.rec_getattr">
 <code class="descclassname">postprocess.prop_statistics.</code><code class="descname">rec_getattr</code><span class="sig-paren">(</span><em>obj</em>, <em>attr</em>, <em>argv=''</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.prop_statistics.rec_getattr" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get object’s attribute. May use dot notation.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span> <span class="k">pass</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span> <span class="k">pass</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">b</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="mi">4</span>
@@ -4091,7 +4099,7 @@ the results to a file, generation or not of lists, …)</li>
 <dt id="postprocess.prop_statistics.rec_setattr">
 <code class="descclassname">postprocess.prop_statistics.</code><code class="descname">rec_setattr</code><span class="sig-paren">(</span><em>obj</em>, <em>attr</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.prop_statistics.rec_setattr" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set object’s attribute. May use dot notation.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span> <span class="k">pass</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span> <span class="k">pass</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">b</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="mi">4</span>
@@ -4108,7 +4116,7 @@ the results to a file, generation or not of lists, …)</li>
 <dl class="class">
 <dt id="postprocess.RC_material_distribution.RCMaterialDistribution">
 <em class="property">class </em><code class="descclassname">postprocess.RC_material_distribution.</code><code class="descname">RCMaterialDistribution</code><a class="headerlink" href="#postprocess.RC_material_distribution.RCMaterialDistribution" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="docutils">
 <dt>Spatial distribution of reinforced concrete material (RC sections </dt>
 <dd>distribution over the elements).</dd>
@@ -4121,7 +4129,7 @@ of the elements)</p>
 <dl class="method">
 <dt id="postprocess.RC_material_distribution.RCMaterialDistribution.assign">
 <code class="descname">assign</code><span class="sig-paren">(</span><em>elemSet</em>, <em>setRCSects</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.RC_material_distribution.RCMaterialDistribution.assign" title="Permalink to this definition">¶</a></dt>
-<dd><p>Assigns the sections names: setRCSectsName+‘1’, setRCSectsName+‘2’, …
+<dd><p>Assigns the sections names: setRCSectsName+’1’, setRCSectsName+’2’, …
 to the elements of the set.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -4286,7 +4294,7 @@ generation or not of lists, …)</li>
 <dl class="class">
 <dt id="postprocess.utils_display.FigureBase">
 <em class="property">class </em><code class="descclassname">postprocess.utils_display.</code><code class="descname">FigureBase</code><span class="sig-paren">(</span><em>pLabel</em>, <em>limitStateLabel</em>, <em>figDescr</em>, <em>reinfDescr=None</em>, <em>units=None</em>, <em>sz='90mm'</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.utils_display.FigureBase" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="method">
 <dt id="postprocess.utils_display.FigureBase.getCaption">
 <code class="descname">getCaption</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.utils_display.FigureBase.getCaption" title="Permalink to this definition">¶</a></dt>
@@ -4320,7 +4328,7 @@ generation or not of lists, …)</li>
 <dl class="class">
 <dt id="postprocess.utils_display.FigureDefinition">
 <em class="property">class </em><code class="descclassname">postprocess.utils_display.</code><code class="descname">FigureDefinition</code><span class="sig-paren">(</span><em>pLabel</em>, <em>limitStateLabel</em>, <em>attrName</em>, <em>argument</em>, <em>figDescr</em>, <em>reinfDescr=None</em>, <em>units=None</em>, <em>sz='90mm'</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.utils_display.FigureDefinition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.utils_display.SlideDefinition" title="postprocess.utils_display.SlideDefinition"><code class="xref py py-class docutils literal"><span class="pre">postprocess.utils_display.SlideDefinition</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.utils_display.SlideDefinition" title="postprocess.utils_display.SlideDefinition"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.utils_display.SlideDefinition</span></code></a></p>
 <dl class="method">
 <dt id="postprocess.utils_display.FigureDefinition.defField">
 <code class="descname">defField</code><span class="sig-paren">(</span><em>xcSet</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.utils_display.FigureDefinition.defField" title="Permalink to this definition">¶</a></dt>
@@ -4352,7 +4360,7 @@ generation or not of lists, …)</li>
 <dl class="class">
 <dt id="postprocess.utils_display.PartToDisplay">
 <em class="property">class </em><code class="descclassname">postprocess.utils_display.</code><code class="descname">PartToDisplay</code><span class="sig-paren">(</span><em>partName</em>, <em>surfaceList</em>, <em>reinforcementLabels</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.utils_display.PartToDisplay" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="method">
 <dt id="postprocess.utils_display.PartToDisplay.display">
 <code class="descname">display</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>tp</em>, <em>resultsToDisplay</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.utils_display.PartToDisplay.display" title="Permalink to this definition">¶</a></dt>
@@ -4388,7 +4396,7 @@ generation or not of lists, …)</li>
 <dl class="class">
 <dt id="postprocess.utils_display.PartToDisplayContainer">
 <em class="property">class </em><code class="descclassname">postprocess.utils_display.</code><code class="descname">PartToDisplayContainer</code><span class="sig-paren">(</span><em>lst</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.utils_display.PartToDisplayContainer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">dict</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
 <p>Parts to display in figures…</p>
 <dl class="method">
 <dt id="postprocess.utils_display.PartToDisplayContainer.add">
@@ -4414,7 +4422,7 @@ generation or not of lists, …)</li>
 <dl class="class">
 <dt id="postprocess.utils_display.SlideDefinition">
 <em class="property">class </em><code class="descclassname">postprocess.utils_display.</code><code class="descname">SlideDefinition</code><span class="sig-paren">(</span><em>pLabel</em>, <em>limitStateLabel</em>, <em>figDescr</em>, <em>reinfDescr=None</em>, <em>units=None</em>, <em>sz='90mm'</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.utils_display.SlideDefinition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#postprocess.utils_display.FigureBase" title="postprocess.utils_display.FigureBase"><code class="xref py py-class docutils literal"><span class="pre">postprocess.utils_display.FigureBase</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#postprocess.utils_display.FigureBase" title="postprocess.utils_display.FigureBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.utils_display.FigureBase</span></code></a></p>
 <p>Slide definition.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -4459,7 +4467,7 @@ generation or not of lists, …)</li>
 <dl class="class">
 <dt id="postprocess.utils_display.TakePhotos">
 <em class="property">class </em><code class="descclassname">postprocess.utils_display.</code><code class="descname">TakePhotos</code><span class="sig-paren">(</span><em>xcSet</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.utils_display.TakePhotos" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Generation of bitmaps with analysis and design results.</p>
 <dl class="method">
 <dt id="postprocess.utils_display.TakePhotos.displayFigures">
@@ -4554,7 +4562,7 @@ to circle)</li>
 <dl class="class">
 <dt id="postprocess.utils_display.setToDisplay">
 <em class="property">class </em><code class="descclassname">postprocess.utils_display.</code><code class="descname">setToDisplay</code><span class="sig-paren">(</span><em>elSet</em>, <em>genDescr=''</em>, <em>sectDescr=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.utils_display.setToDisplay" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Defines the description of a set of elements to be used in the graphics
 and reports associated with the calculation</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -4581,7 +4589,7 @@ and reports associated with the calculation</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <h3><a href="../../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">General topics</a><ul>
 <li><a class="reference internal" href="#module-postprocess.output_handler">Output handler</a></li>
@@ -4621,12 +4629,14 @@ and reports associated with the calculation</p>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -4653,7 +4663,7 @@ and reports associated with the calculation</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
     </div>
   </body>
 </html>

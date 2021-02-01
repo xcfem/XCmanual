@@ -4,29 +4,23 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Typical materials &#8212; XC 3.0 documentation</title>
     <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../',
-        VERSION:     '3.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Uniaxial material" href="../cpp_classes/material/material_index.html" />
     <link rel="prev" title="Material" href="../material.html" /> 
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -57,16 +51,16 @@
 <dl class="class">
 <dt id="materials.typical_materials.BasicElasticMaterial">
 <em class="property">class </em><code class="descclassname">materials.typical_materials.</code><code class="descname">BasicElasticMaterial</code><span class="sig-paren">(</span><em>E</em>, <em>nu</em>, <em>rho=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.BasicElasticMaterial" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Basic elastic material</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="materials.awcnds.html#materials.awc_nds.AWCNDS_materials.LSL_155E.E" title="materials.awc_nds.AWCNDS_materials.LSL_155E.E"><strong>E</strong></a> – Young’s modulus of the material</li>
-<li><a class="reference internal" href="materials.awcnds.html#materials.awc_nds.dimensional_lumber.SprucePineFirWood.nu" title="materials.awc_nds.dimensional_lumber.SprucePineFirWood.nu"><strong>nu</strong></a> – Poisson’s ratio</li>
-<li><a class="reference internal" href="materials.awcnds.html#materials.awc_nds.AWCNDS_materials.PlywoodPanelSection.rho" title="materials.awc_nds.AWCNDS_materials.PlywoodPanelSection.rho"><strong>rho</strong></a> – mass density</li>
+<li><a class="reference internal" href="../cpp_classes/material/section/plate_section/plate_section.html#xc.ElasticPlateBase.E" title="xc.ElasticPlateBase.E"><strong>E</strong></a> – Young’s modulus of the material</li>
+<li><a class="reference internal" href="../cpp_classes/material/section/plate_section/plate_section.html#xc.ElasticPlateBase.nu" title="xc.ElasticPlateBase.nu"><strong>nu</strong></a> – Poisson’s ratio</li>
+<li><a class="reference internal" href="../cpp_classes/domain/mesh/element/truss_beam_column/elasticBeamColumn/elasticBeamColumn.html#xc.ElasticBeam2d.rho" title="xc.ElasticBeam2d.rho"><strong>rho</strong></a> – mass density</li>
 </ul>
 </td>
 </tr>
@@ -113,14 +107,14 @@ Makes easier export it to json.</p>
 <dl class="class">
 <dt id="materials.typical_materials.BeamMaterialData">
 <em class="property">class </em><code class="descclassname">materials.typical_materials.</code><code class="descname">BeamMaterialData</code><span class="sig-paren">(</span><em>name</em>, <em>section</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.BeamMaterialData" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.typical_materials.MaterialData" title="materials.typical_materials.MaterialData"><code class="xref py py-class docutils literal"><span class="pre">materials.typical_materials.MaterialData</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#materials.typical_materials.MaterialData" title="materials.typical_materials.MaterialData"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.typical_materials.MaterialData</span></code></a></p>
 <p>Elastic section appropiate for 3D beam analysis, including shear deformations.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – name identifying the section.</li>
+<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – name identifying the section.</li>
 <li><strong>section</strong> – instance of a class that defines the geometric and
 mechanical characteristiscs of a section
 e.g: RectangularSection, CircularSection, ISection, …</li>
@@ -148,14 +142,14 @@ shear modulus and mass density of the material</li>
 <dl class="class">
 <dt id="materials.typical_materials.DeckMaterialData">
 <em class="property">class </em><code class="descclassname">materials.typical_materials.</code><code class="descname">DeckMaterialData</code><span class="sig-paren">(</span><em>name</em>, <em>thickness</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.DeckMaterialData" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.typical_materials.MaterialData" title="materials.typical_materials.MaterialData"><code class="xref py py-class docutils literal"><span class="pre">materials.typical_materials.MaterialData</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#materials.typical_materials.MaterialData" title="materials.typical_materials.MaterialData"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.typical_materials.MaterialData</span></code></a></p>
 <p>Material for Isotropic elastic sections</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – name identifying the section</li>
+<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – name identifying the section</li>
 <li><strong>thickness</strong> – overall depth of the section</li>
 <li><strong>material</strong> – instance of a class that defines the elastic modulus, 
 shear modulus and mass density of the material</li>
@@ -181,14 +175,14 @@ shear modulus and mass density of the material</li>
 <dl class="class">
 <dt id="materials.typical_materials.MaterialData">
 <em class="property">class </em><code class="descclassname">materials.typical_materials.</code><code class="descname">MaterialData</code><span class="sig-paren">(</span><em>name</em>, <em>E</em>, <em>nu</em>, <em>rho</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.MaterialData" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.typical_materials.BasicElasticMaterial" title="materials.typical_materials.BasicElasticMaterial"><code class="xref py py-class docutils literal"><span class="pre">materials.typical_materials.BasicElasticMaterial</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#materials.typical_materials.BasicElasticMaterial" title="materials.typical_materials.BasicElasticMaterial"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.typical_materials.BasicElasticMaterial</span></code></a></p>
 <p>Base class to construct some material definition classes</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – name identifying the material</li>
+<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – name identifying the material</li>
 <li><strong>xc_material</strong> – pointer to XC material.</li>
 </ul>
 </td>
@@ -725,7 +719,7 @@ and initial elastic tangent</li>
 <dl class="class">
 <dt id="materials.concrete_base.Concrete">
 <em class="property">class </em><code class="descclassname">materials.concrete_base.</code><code class="descname">Concrete</code><span class="sig-paren">(</span><em>nmbConcrete</em>, <em>fck</em>, <em>gammaC</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="materials.sections.html#materials.sections.material_with_DK_diagrams.MaterialWithDKDiagrams" title="materials.sections.material_with_DK_diagrams.MaterialWithDKDiagrams"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.material_with_DK_diagrams.MaterialWithDKDiagrams</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="materials.sections.html#materials.sections.material_with_DK_diagrams.MaterialWithDKDiagrams" title="materials.sections.material_with_DK_diagrams.MaterialWithDKDiagrams"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.sections.material_with_DK_diagrams.MaterialWithDKDiagrams</span></code></a></p>
 <p>Concrete model according to Eurocode 2 - Base class.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -738,9 +732,9 @@ and initial elastic tangent</li>
 <li><a class="reference internal" href="#materials.concrete_base.Concrete.nuc" title="materials.concrete_base.Concrete.nuc"><strong>nuc</strong></a> – Poisson coefficient</li>
 <li><a class="reference internal" href="#materials.concrete_base.Concrete.cemType" title="materials.concrete_base.Concrete.cemType"><strong>cemType</strong></a> – <p>type of cement</p>
 <ul>
-<li><code class="docutils literal"><span class="pre">R</span></code>  for cement of strength Classes CEM 42,5 R, CEM 52,5 Nand CEM 52,5 R (Class R) [cementos de alta resistencia en EHE]</li>
-<li><code class="docutils literal"><span class="pre">N</span></code>  for cement of strength Classes CEM 32,5 R, CEM 42,5 N (Class N) [cementos normales en EHE]</li>
-<li><code class="docutils literal"><span class="pre">S</span></code>  for cement of strength Classes CEM 32,5 N (Class S) [cementos de endurecimiento lento en EHE]</li>
+<li><code class="docutils literal notranslate"><span class="pre">R</span></code>  for cement of strength Classes CEM 42,5 R, CEM 52,5 Nand CEM 52,5 R (Class R) [cementos de alta resistencia en EHE]</li>
+<li><code class="docutils literal notranslate"><span class="pre">N</span></code>  for cement of strength Classes CEM 32,5 R, CEM 42,5 N (Class N) [cementos normales en EHE]</li>
+<li><code class="docutils literal notranslate"><span class="pre">S</span></code>  for cement of strength Classes CEM 32,5 N (Class S) [cementos de endurecimiento lento en EHE]</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#materials.concrete_base.Concrete.alfacc" title="materials.concrete_base.Concrete.alfacc"><strong>alfacc</strong></a> – factor which takes account of the fatigue in the concrete when it is subjected to high levels of compression stress due to long duration loads. Normally alfacc=1 (default value)</li>
@@ -1072,7 +1066,7 @@ deformations.</p>
 
 <dl class="method">
 <dt id="materials.concrete_base.Concrete.getCreepBetactt0">
-<code class="descname">getCreepBetactt0</code><span class="sig-paren">(</span><em>t</em>, <em>t0</em>, <em>RH</em>, <em>h0mm</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getCreepBetactt0" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getCreepBetactt0</code><span class="sig-paren">(</span><em>t</em>, <em>t0</em>, <em>RH</em>, <em>h0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getCreepBetactt0" title="Permalink to this definition">¶</a></dt>
 <dd><p>coefficient to describe the development of creep with time after loading, used to calculate the creep coefficient
 (Annex B Eurocode 2 part 1-1)</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1083,17 +1077,11 @@ deformations.</p>
 <li><strong>t</strong> – age of concrete in days at the moment considered</li>
 <li><strong>t0</strong> – age of concrete in days at loading</li>
 <li><strong>RH</strong> – ambient relative humidity(%)</li>
-<li><strong>h0mm</strong> – <p>notional size of the member in mm</p>
+<li><strong>h0</strong> – <p>notional size of the member.</p>
 <ul>
-<li><dl class="first docutils">
-<dt>h0mm=2*Ac/u, where:</dt>
-<dd><ul class="first last">
+<li>h0=2*Ac/u, where:</li>
 <li>Ac= cross sectional area</li>
 <li>u = perimeter of the member in contact with the atmosphere</li>
-</ul>
-</dd>
-</dl>
-</li>
 </ul>
 </li>
 </ul>
@@ -1127,7 +1115,7 @@ deformations.</p>
 
 <dl class="method">
 <dt id="materials.concrete_base.Concrete.getCreepFi0">
-<code class="descname">getCreepFi0</code><span class="sig-paren">(</span><em>t0</em>, <em>RH</em>, <em>h0mm</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getCreepFi0" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getCreepFi0</code><span class="sig-paren">(</span><em>t0</em>, <em>RH</em>, <em>h0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getCreepFi0" title="Permalink to this definition">¶</a></dt>
 <dd><p>notational creep coefficient for the calculation of the creep coefficient
 (Annex B Eurocode 2 part 1-1)</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1137,17 +1125,11 @@ deformations.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>t0</strong> – age of concrete in days at loading</li>
 <li><strong>RH</strong> – ambient relative humidity(%)</li>
-<li><strong>h0mm</strong> – <p>notional size of the member in mm</p>
+<li><strong>h0</strong> – <p>notional size of the member.</p>
 <ul>
-<li><dl class="first docutils">
-<dt>h0mm=2*Ac/u, where:</dt>
-<dd><ul class="first last">
+<li>h0= 2*Ac/u, where:</li>
 <li>Ac= cross sectional area</li>
-<li>u = perimeter of the member in contact with the atmosphere</li>
-</ul>
-</dd>
-</dl>
-</li>
+<li>u= perimeter of the member in contact with the atmosphere</li>
 </ul>
 </li>
 </ul>
@@ -1159,7 +1141,7 @@ deformations.</p>
 
 <dl class="method">
 <dt id="materials.concrete_base.Concrete.getCreepFiRH">
-<code class="descname">getCreepFiRH</code><span class="sig-paren">(</span><em>RH</em>, <em>h0mm</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getCreepFiRH" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getCreepFiRH</code><span class="sig-paren">(</span><em>RH</em>, <em>h0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getCreepFiRH" title="Permalink to this definition">¶</a></dt>
 <dd><p>factor to allow for the effect of relative humidity 
 on the notional creep coefficient
 (Annex B Eurocode 2 part 1-1)</p>
@@ -1169,17 +1151,11 @@ on the notional creep coefficient
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>RH</strong> – ambient relative humidity(%)</li>
-<li><strong>h0mm</strong> – <p>notional size of the member in mm</p>
+<li><strong>h0</strong> – <p>notional size of the member.</p>
 <ul>
-<li><dl class="first docutils">
-<dt>h0mm=2*Ac/u, where:</dt>
-<dd><ul class="first last">
+<li>h0= 2*Ac/u, where:</li>
 <li>Ac= cross sectional area</li>
 <li>u = perimeter of the member in contact with the atmosphere</li>
-</ul>
-</dd>
-</dl>
-</li>
 </ul>
 </li>
 </ul>
@@ -1191,7 +1167,7 @@ on the notional creep coefficient
 
 <dl class="method">
 <dt id="materials.concrete_base.Concrete.getCreepFitt0">
-<code class="descname">getCreepFitt0</code><span class="sig-paren">(</span><em>t</em>, <em>t0</em>, <em>RH</em>, <em>h0mm</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getCreepFitt0" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getCreepFitt0</code><span class="sig-paren">(</span><em>t</em>, <em>t0</em>, <em>RH</em>, <em>h0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getCreepFitt0" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creep coefficient  
 (Annex B Eurocode 2 part 1-1)</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1202,17 +1178,11 @@ on the notional creep coefficient
 <li><strong>t</strong> – age of concrete in days at the moment considered</li>
 <li><strong>t0</strong> – age of concrete in days at loading</li>
 <li><strong>RH</strong> – ambient relative humidity(%)</li>
-<li><strong>h0mm</strong> – <p>notional size of the member in mm</p>
+<li><strong>h0</strong> – <p>notional size of the member in mm</p>
 <ul>
-<li><dl class="first docutils">
-<dt>h0mm=2*Ac/u, where:</dt>
-<dd><ul class="first last">
+<li>h0= 2*Ac/u, where:</li>
 <li>Ac= cross sectional area</li>
 <li>u = perimeter of the member in contact with the atmosphere</li>
-</ul>
-</dd>
-</dl>
-</li>
 </ul>
 </li>
 </ul>
@@ -1342,7 +1312,7 @@ basic drying shrinkage strain
 
 <dl class="method">
 <dt id="materials.concrete_base.Concrete.getShrBetadstts">
-<code class="descname">getShrBetadstts</code><span class="sig-paren">(</span><em>t</em>, <em>ts</em>, <em>h0mm</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getShrBetadstts" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getShrBetadstts</code><span class="sig-paren">(</span><em>t</em>, <em>ts</em>, <em>h0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getShrBetadstts" title="Permalink to this definition">¶</a></dt>
 <dd><p>coefficient for the calculation of the drying shrinkage strain
 (table 3.3 Eurocode 2 part 1-1)</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1353,17 +1323,11 @@ basic drying shrinkage strain
 <li><strong>t</strong> – age of concrete in days at the moment considered</li>
 <li><strong>ts</strong> – age of concrete in days at the beginning of drying shrinkage (or swelling)
 Normally this is at the end of curing</li>
-<li><strong>h0mm</strong> – <p>notional size of the member in mm</p>
+<li><strong>h0</strong> – <p>notional size of the member.</p>
 <ul>
-<li><dl class="first docutils">
-<dt>h0mm=2*Ac/u, where:</dt>
-<dd><ul class="first last">
+<li>h0= 2*Ac/u, where:</li>
 <li>Ac= cross sectional area</li>
-<li>u = perimeter of the member in contact with the atmosphere</li>
-</ul>
-</dd>
-</dl>
-</li>
+<li>u= perimeter of the member in contact with the atmosphere</li>
 </ul>
 </li>
 </ul>
@@ -1405,7 +1369,7 @@ Normally this is at the end of curing</li>
 
 <dl class="method">
 <dt id="materials.concrete_base.Concrete.getShrEpscd">
-<code class="descname">getShrEpscd</code><span class="sig-paren">(</span><em>t</em>, <em>ts</em>, <em>RH</em>, <em>h0mm</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getShrEpscd" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getShrEpscd</code><span class="sig-paren">(</span><em>t</em>, <em>ts</em>, <em>RH</em>, <em>h0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getShrEpscd" title="Permalink to this definition">¶</a></dt>
 <dd><p>Drying shrinkage strain[-] (art. 3.1.4 Eurocode 2 part 1-1)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1415,17 +1379,11 @@ Normally this is at the end of curing</li>
 <li><strong>t</strong> – age of concrete in days at the moment considered</li>
 <li><strong>ts</strong> – age of concrete in days at the beginning of drying shrinkage (or swelling).  Normally this is at the end of curing</li>
 <li><strong>RH</strong> – ambient relative humidity(%)</li>
-<li><strong>h0mm</strong> – <p>notional size of the member in mm</p>
+<li><strong>h0</strong> – <p>notional size of the member.</p>
 <ul>
-<li><dl class="first docutils">
-<dt>h0mm=``2*Ac/u``, where:</dt>
-<dd><ul class="first last">
+<li>h0=``2*Ac/u``, where:</li>
 <li>Ac= cross sectional area</li>
 <li>u = perimeter of the member in contact with the atmosphere</li>
-</ul>
-</dd>
-</dl>
-</li>
 </ul>
 </li>
 </ul>
@@ -1453,7 +1411,7 @@ for the calculation of the drying shrinkage strain
 
 <dl class="method">
 <dt id="materials.concrete_base.Concrete.getShrEpscs">
-<code class="descname">getShrEpscs</code><span class="sig-paren">(</span><em>t</em>, <em>ts</em>, <em>RH</em>, <em>h0mm</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getShrEpscs" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getShrEpscs</code><span class="sig-paren">(</span><em>t</em>, <em>ts</em>, <em>RH</em>, <em>h0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getShrEpscs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Total shrinkage strain = 
 autogenous + drying shrinkages</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1465,17 +1423,11 @@ autogenous + drying shrinkages</p>
 <li><strong>ts</strong> – age of concrete in days at the beginning of drying shrinkage (or swelling)
 Normally this is at the end of curing</li>
 <li><strong>RH</strong> – ambient relative humidity(%)</li>
-<li><strong>h0mm</strong> – <p>notional size of the member in mm</p>
+<li><strong>h0</strong> – <p>notional size of the member.</p>
 <ul>
-<li><dl class="first docutils">
-<dt>h0mm=2*Ac/u, where:</dt>
-<dd><ul class="first last">
+<li>h0= 2*Ac/u, where:</li>
 <li>Ac= cross sectional area</li>
 <li>u = perimeter of the member in contact with the atmosphere</li>
-</ul>
-</dd>
-</dl>
-</li>
 </ul>
 </li>
 </ul>
@@ -1487,18 +1439,18 @@ Normally this is at the end of curing</li>
 
 <dl class="method">
 <dt id="materials.concrete_base.Concrete.getShrKh">
-<code class="descname">getShrKh</code><span class="sig-paren">(</span><em>h0mm</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getShrKh" title="Permalink to this definition">¶</a></dt>
-<dd><p>coefficient depending on the notional size h0mm
+<code class="descname">getShrKh</code><span class="sig-paren">(</span><em>h0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getShrKh" title="Permalink to this definition">¶</a></dt>
+<dd><p>coefficient depending on the notional size h0
 for the calculation of the drying shrinkage strain
 (table 3.3 Eurocode 2 part 1-1)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>h0mm</strong> – <p>notional size of the member in mm</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>h0</strong> – <p>notional size of the member.</p>
 <ul class="simple">
 <li><dl class="first docutils">
-<dt>h0mm=``2*Ac/u``, where:</dt>
+<dt>h0=``2*Ac/u``, where:</dt>
 <dd><ul class="first last">
 <li>Ac= cross sectional area</li>
 <li>u = perimeter of the member in contact with the atmosphere</li>
@@ -1567,7 +1519,7 @@ for the calculation of the drying shrinkage strain
 <dl class="class">
 <dt id="materials.concrete_base.PrestressingSteel">
 <em class="property">class </em><code class="descclassname">materials.concrete_base.</code><code class="descname">PrestressingSteel</code><span class="sig-paren">(</span><em>steelName</em>, <em>fpk</em>, <em>fmax=1860000000.0</em>, <em>alpha=0.75</em>, <em>steelRelaxationClass=1</em>, <em>tendonClass='strand'</em>, <em>Es=190000000000.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.PrestressingSteel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="materials.sections.html#materials.sections.material_with_DK_diagrams.MaterialWithDKDiagrams" title="materials.sections.material_with_DK_diagrams.MaterialWithDKDiagrams"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.material_with_DK_diagrams.MaterialWithDKDiagrams</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="materials.sections.html#materials.sections.material_with_DK_diagrams.MaterialWithDKDiagrams" title="materials.sections.material_with_DK_diagrams.MaterialWithDKDiagrams"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.sections.material_with_DK_diagrams.MaterialWithDKDiagrams</span></code></a></p>
 <p>Prestressing steel parameters</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1576,7 +1528,7 @@ for the calculation of the drying shrinkage strain
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><strong>fpk</strong> – Elastic limit.</li>
 <li><strong>fmax</strong> – Steel strength.</li>
-<li><a class="reference internal" href="../../miscellany/roughCalcGenTopics.html#rough_calculations.ng_prestressed_concrete.prestressingWire.alpha" title="rough_calculations.ng_prestressed_concrete.prestressingWire.alpha"><strong>alpha</strong></a> – stress-to-strength ratio.</li>
+<li><a class="reference internal" href="../../miscellany/roughCalcGenTopics.html#rough_calculations.masonry_vault.FillingCharacteristics.alpha" title="rough_calculations.masonry_vault.FillingCharacteristics.alpha"><strong>alpha</strong></a> – stress-to-strength ratio.</li>
 <li><strong>steelRelaxationClass</strong> – Relaxation class 1: normal, 2: improved, 
 and 3: relaxation for bars.</li>
 <li><strong>tendonClass</strong> – Tendon class wire, strand or bar.</li>
@@ -1603,10 +1555,22 @@ and 3: relaxation for bars.</li>
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="materials.concrete_base.PrestressingSteel.getDesignUltimateStress">
+<code class="descname">getDesignUltimateStress</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.PrestressingSteel.getDesignUltimateStress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return steel design ultimate stress.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.concrete_base.PrestressingSteel.getKRelaxation">
 <code class="descname">getKRelaxation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.PrestressingSteel.getKRelaxation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the value of k factor for the relaxation expression
 from the relaxation class. See Model Code 1990 paragraph 2.3.4.5.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.concrete_base.PrestressingSteel.getUltimateStress">
+<code class="descname">getUltimateStress</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.PrestressingSteel.getUltimateStress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return steel ultimate stress.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1624,7 +1588,7 @@ from the relaxation class. See Model Code 1990 paragraph 2.3.4.5.</p>
 <dl class="class">
 <dt id="materials.concrete_base.ReinforcedConcreteLimitStrains">
 <em class="property">class </em><code class="descclassname">materials.concrete_base.</code><code class="descname">ReinforcedConcreteLimitStrains</code><span class="sig-paren">(</span><em>EpsCU=-0.0035</em>, <em>EpsC0=-0.002</em>, <em>SMaxStrain=0.01</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.ReinforcedConcreteLimitStrains" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="method">
 <dt id="materials.concrete_base.ReinforcedConcreteLimitStrains.bendingOK">
 <code class="descname">bendingOK</code><span class="sig-paren">(</span><em>epsCMin</em>, <em>epsSMax</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.ReinforcedConcreteLimitStrains.bendingOK" title="Permalink to this definition">¶</a></dt>
@@ -1736,7 +1700,7 @@ from the relaxation class. See Model Code 1990 paragraph 2.3.4.5.</p>
 <dl class="class">
 <dt id="materials.concrete_base.ReinforcingSteel">
 <em class="property">class </em><code class="descclassname">materials.concrete_base.</code><code class="descname">ReinforcingSteel</code><span class="sig-paren">(</span><em>steelName</em>, <em>fyk</em>, <em>emax</em>, <em>gammaS</em>, <em>k=1.05</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.ReinforcingSteel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="materials.sections.html#materials.sections.material_with_DK_diagrams.MaterialWithDKDiagrams" title="materials.sections.material_with_DK_diagrams.MaterialWithDKDiagrams"><code class="xref py py-class docutils literal"><span class="pre">materials.sections.material_with_DK_diagrams.MaterialWithDKDiagrams</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="materials.sections.html#materials.sections.material_with_DK_diagrams.MaterialWithDKDiagrams" title="materials.sections.material_with_DK_diagrams.MaterialWithDKDiagrams"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.sections.material_with_DK_diagrams.MaterialWithDKDiagrams</span></code></a></p>
 <p>Reinforcing steel parameters</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1860,7 +1824,7 @@ theoretical law defined in Python (see tangc()).</p>
 <dl class="class">
 <dt id="materials.concrete_base.paramTensStiffness">
 <em class="property">class </em><code class="descclassname">materials.concrete_base.</code><code class="descname">paramTensStiffness</code><span class="sig-paren">(</span><em>concrMat</em>, <em>reinfMat</em>, <em>reinfRatio</em>, <em>diagType</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.paramTensStiffness" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="docutils">
 <dt>Parameters to generate a concrete02 material based on the tension-stiffening constitutive </dt>
 <dd>model of concrete proposed by Stramandinoli &amp; La Rovere 
@@ -1984,7 +1948,7 @@ post-cracking range, passings through the point (eps_ct,f_ct) [point of concrete
 <dl class="class">
 <dt id="materials.limit_state_checking_base.BiaxialBendingNormalStressControllerBase">
 <em class="property">class </em><code class="descclassname">materials.limit_state_checking_base.</code><code class="descname">BiaxialBendingNormalStressControllerBase</code><span class="sig-paren">(</span><em>limitStateLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.limit_state_checking_base.BiaxialBendingNormalStressControllerBase" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.limit_state_checking_base.LimitStateControllerBase" title="materials.limit_state_checking_base.LimitStateControllerBase"><code class="xref py py-class docutils literal"><span class="pre">materials.limit_state_checking_base.LimitStateControllerBase</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#materials.limit_state_checking_base.LimitStateControllerBase" title="materials.limit_state_checking_base.LimitStateControllerBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.limit_state_checking_base.LimitStateControllerBase</span></code></a></p>
 <p>Base class for object that controls normal stresses
 limit state.</p>
 <dl class="method">
@@ -2024,7 +1988,7 @@ limit state.</p>
 <dl class="class">
 <dt id="materials.limit_state_checking_base.CrackControlBaseParameters">
 <em class="property">class </em><code class="descclassname">materials.limit_state_checking_base.</code><code class="descname">CrackControlBaseParameters</code><span class="sig-paren">(</span><em>limitStateLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.limit_state_checking_base.CrackControlBaseParameters" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.limit_state_checking_base.LimitStateControllerBase" title="materials.limit_state_checking_base.LimitStateControllerBase"><code class="xref py py-class docutils literal"><span class="pre">materials.limit_state_checking_base.LimitStateControllerBase</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#materials.limit_state_checking_base.LimitStateControllerBase" title="materials.limit_state_checking_base.LimitStateControllerBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.limit_state_checking_base.LimitStateControllerBase</span></code></a></p>
 <p>Basic parameters for crack control.</p>
 <dl class="method">
 <dt id="materials.limit_state_checking_base.CrackControlBaseParameters.printParams">
@@ -2036,7 +2000,7 @@ limit state.</p>
 <dl class="class">
 <dt id="materials.limit_state_checking_base.LimitStateControllerBase">
 <em class="property">class </em><code class="descclassname">materials.limit_state_checking_base.</code><code class="descname">LimitStateControllerBase</code><span class="sig-paren">(</span><em>limitStateLabel</em>, <em>fakeSection=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.limit_state_checking_base.LimitStateControllerBase" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Basic parameters for limit state control (normal stresses, shear, crack,…)    .</p>
 <dl class="method">
 <dt id="materials.limit_state_checking_base.LimitStateControllerBase.check">
@@ -2054,7 +2018,7 @@ limit state.</p>
 <dl class="class">
 <dt id="materials.limit_state_checking_base.ShearControllerBase">
 <em class="property">class </em><code class="descclassname">materials.limit_state_checking_base.</code><code class="descname">ShearControllerBase</code><span class="sig-paren">(</span><em>limitStateLabel</em>, <em>fakeSection=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.limit_state_checking_base.ShearControllerBase" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.limit_state_checking_base.LimitStateControllerBase" title="materials.limit_state_checking_base.LimitStateControllerBase"><code class="xref py py-class docutils literal"><span class="pre">materials.limit_state_checking_base.LimitStateControllerBase</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#materials.limit_state_checking_base.LimitStateControllerBase" title="materials.limit_state_checking_base.LimitStateControllerBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.limit_state_checking_base.LimitStateControllerBase</span></code></a></p>
 <p>Base class for shear controller classes.</p>
 <dl class="method">
 <dt id="materials.limit_state_checking_base.ShearControllerBase.check">
@@ -2081,14 +2045,14 @@ limit state.</p>
 <dl class="class">
 <dt id="materials.limit_state_checking_base.TensionedRebarsBasicProperties">
 <em class="property">class </em><code class="descclassname">materials.limit_state_checking_base.</code><code class="descname">TensionedRebarsBasicProperties</code><a class="headerlink" href="#materials.limit_state_checking_base.TensionedRebarsBasicProperties" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Basic properties of tensioned rebars (used in shear checking).</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="materials.limit_state_checking_base.TensionedRebarsProperties">
 <em class="property">class </em><code class="descclassname">materials.limit_state_checking_base.</code><code class="descname">TensionedRebarsProperties</code><a class="headerlink" href="#materials.limit_state_checking_base.TensionedRebarsProperties" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.limit_state_checking_base.TensionedRebarsBasicProperties" title="materials.limit_state_checking_base.TensionedRebarsBasicProperties"><code class="xref py py-class docutils literal"><span class="pre">materials.limit_state_checking_base.TensionedRebarsBasicProperties</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#materials.limit_state_checking_base.TensionedRebarsBasicProperties" title="materials.limit_state_checking_base.TensionedRebarsBasicProperties"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.limit_state_checking_base.TensionedRebarsBasicProperties</span></code></a></p>
 <p>Properties of tensioned rebars that are useful for crack control 
 analysis.</p>
 <dl class="method">
@@ -2115,7 +2079,7 @@ analysis.</p>
 <dl class="class">
 <dt id="materials.limit_state_checking_base.UniaxialBendingNormalStressControllerBase">
 <em class="property">class </em><code class="descclassname">materials.limit_state_checking_base.</code><code class="descname">UniaxialBendingNormalStressControllerBase</code><span class="sig-paren">(</span><em>limitStateLabel</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.limit_state_checking_base.UniaxialBendingNormalStressControllerBase" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.limit_state_checking_base.LimitStateControllerBase" title="materials.limit_state_checking_base.LimitStateControllerBase"><code class="xref py py-class docutils literal"><span class="pre">materials.limit_state_checking_base.LimitStateControllerBase</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#materials.limit_state_checking_base.LimitStateControllerBase" title="materials.limit_state_checking_base.LimitStateControllerBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.limit_state_checking_base.LimitStateControllerBase</span></code></a></p>
 <p>Base class for object that controls normal stresses 
 limit state (uniaxial bending).</p>
 <dl class="method">
@@ -2155,7 +2119,7 @@ limit state (uniaxial bending).</p>
 <dl class="class">
 <dt id="materials.limit_state_checking_base.fibSectLSProperties">
 <em class="property">class </em><code class="descclassname">materials.limit_state_checking_base.</code><code class="descname">fibSectLSProperties</code><span class="sig-paren">(</span><em>sct</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.limit_state_checking_base.fibSectLSProperties" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class that sets up basic properties associatted to a fiber section
 in order to be used in the checking of different limit states.</p>
 <dl class="method">
@@ -2185,7 +2149,7 @@ tension stiffening properties of concrete and the cracking distance.</p>
 <dl class="class">
 <dt id="materials.steel_base.BasicSteel">
 <em class="property">class </em><code class="descclassname">materials.steel_base.</code><code class="descname">BasicSteel</code><span class="sig-paren">(</span><em>E</em>, <em>nu</em>, <em>fy</em>, <em>fu</em>, <em>gammaM</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.steel_base.BasicSteel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.typical_materials.BasicElasticMaterial" title="materials.typical_materials.BasicElasticMaterial"><code class="xref py py-class docutils literal"><span class="pre">materials.typical_materials.BasicElasticMaterial</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#materials.typical_materials.BasicElasticMaterial" title="materials.typical_materials.BasicElasticMaterial"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.typical_materials.BasicElasticMaterial</span></code></a></p>
 <p>Base class for structural steels.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2231,14 +2195,14 @@ Makes easier export it to json.</p>
 <dl class="class">
 <dt id="materials.buckling_base.MemberBase">
 <em class="property">class </em><code class="descclassname">materials.buckling_base.</code><code class="descname">MemberBase</code><span class="sig-paren">(</span><em>name</em>, <em>shape</em>, <em>lstLines=None</em>, <em>lstPoints=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.buckling_base.MemberBase" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Base class for steel members.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../../xc_utils/geom_utils.html#geom_utils.section_by_plane.SectionByPlane.name" title="geom_utils.section_by_plane.SectionByPlane.name"><strong>name</strong></a> – object name.</li>
+<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – object name.</li>
 <li><strong>shape</strong> – cross-section shape (e.g. IPNShape, IPEShape, …)</li>
 <li><a class="reference internal" href="../cpp_classes/preprocessor/set_mgmt/set_mgmt.html#xc.lstLines" title="xc.lstLines"><strong>lstLines</strong></a> – ordered list of lines that make up the beam 
 (defaults to None).</li>
@@ -2290,7 +2254,7 @@ represent the length of the beam and the set of elements included in it.</p>
 <dl class="class">
 <dt id="materials.buckling_base.MemberConnection">
 <em class="property">class </em><code class="descclassname">materials.buckling_base.</code><code class="descname">MemberConnection</code><span class="sig-paren">(</span><em>rotI='free'</em>, <em>transI='fixed'</em>, <em>rotJ='free'</em>, <em>transJ='fixed'</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.buckling_base.MemberConnection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Member connection</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2359,7 +2323,7 @@ that are approximately equal to those of the real bearing.</p>
 <dl class="class">
 <dt id="materials.bridge_bearings.Bearing">
 <em class="property">class </em><code class="descclassname">materials.bridge_bearings.</code><code class="descname">Bearing</code><a class="headerlink" href="#materials.bridge_bearings.Bearing" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Bearings base class.</p>
 <dl class="method">
 <dt id="materials.bridge_bearings.Bearing.getMaterial">
@@ -2420,7 +2384,7 @@ length element that represents the bearing.</p>
 <dl class="class">
 <dt id="materials.bridge_bearings.ElastomericBearing">
 <em class="property">class </em><code class="descclassname">materials.bridge_bearings.</code><code class="descname">ElastomericBearing</code><span class="sig-paren">(</span><em>G</em>, <em>a</em>, <em>b</em>, <em>e</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.bridge_bearings.Bearing" title="materials.bridge_bearings.Bearing"><code class="xref py py-class docutils literal"><span class="pre">materials.bridge_bearings.Bearing</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#materials.bridge_bearings.Bearing" title="materials.bridge_bearings.Bearing"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.bridge_bearings.Bearing</span></code></a></p>
 <p>Rectangular elastomeric bearing.</p>
 <dl class="docutils">
 <dt>Reference:</dt>
@@ -2532,9 +2496,19 @@ parallel to the lintel by the center of the bearing.</p>
 <dt id="materials.bridge_bearings.ElastomericBearing.putBetweenNodes">
 <code class="descname">putBetweenNodes</code><span class="sig-paren">(</span><em>modelSpace</em>, <em>iNodA</em>, <em>iNodB</em>, <em>orientation=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.putBetweenNodes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Puts the bearing between the nodes.</p>
-<p>:param modelSpace (:obj:’PredefinedSpace’): space dimension and number of DOFs.
-:param iNodA (int): first node identifier (tag).
-:param iNodB (int): second node identifier (tag).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>(</strong><strong>:obj:'PredefinedSpace'</strong><strong>)</strong> (<em>modelSpace</em>) – space dimension and number of DOFs.</li>
+<li><strong>(</strong><strong>int</strong><strong>)</strong> (<em>iNodB</em>) – first node identifier (tag).</li>
+<li><strong>(</strong><strong>int</strong><strong>)</strong> – second node identifier (tag).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
@@ -2597,7 +2571,7 @@ parallel to the lintel by the center of the bearing.</p>
 <dl class="class">
 <dt id="materials.bridge_bearings.PTFEPotBearing">
 <em class="property">class </em><code class="descclassname">materials.bridge_bearings.</code><code class="descname">PTFEPotBearing</code><span class="sig-paren">(</span><em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.PTFEPotBearing" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#materials.bridge_bearings.Bearing" title="materials.bridge_bearings.Bearing"><code class="xref py py-class docutils literal"><span class="pre">materials.bridge_bearings.Bearing</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#materials.bridge_bearings.Bearing" title="materials.bridge_bearings.Bearing"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.bridge_bearings.Bearing</span></code></a></p>
 <p>PTFE slide bearing.</p>
 <dl class="docutils">
 <dt>Attibutes:</dt>
@@ -2731,7 +2705,7 @@ mov= 20e-3 Displacement when the friction force is reached.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <h3><a href="../../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Typical materials</a></li>
 <li><a class="reference internal" href="#module-materials.concrete_base">Concrete base</a></li>
@@ -2756,12 +2730,14 @@ mov= 20e-3 Displacement when the friction force is reached.</p>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -2789,7 +2765,7 @@ mov= 20e-3 Displacement when the friction force is reached.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
     </div>
   </body>
 </html>

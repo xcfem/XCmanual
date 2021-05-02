@@ -49,9 +49,16 @@
 <span id="predefined-solutions"></span><h1>Predefined solutions<a class="headerlink" href="#module-solution.predefined_solutions" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="solution.predefined_solutions.FrequencyAnalysis">
-<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">FrequencyAnalysis</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>printFlag=0</em>, <em>systemPrefix='sym_band'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.FrequencyAnalysis" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">FrequencyAnalysis</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>printFlag=0</em>, <em>systemPrefix='sym_band'</em>, <em>numberingMethod='rcm'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.FrequencyAnalysis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure" title="solution.predefined_solutions.SolutionProcedure"><code class="xref py py-class docutils literal notranslate"><span class="pre">solution.predefined_solutions.SolutionProcedure</span></code></a></p>
 <p>Return a natural frequency computation procedure.</p>
+<dl class="method">
+<dt id="solution.predefined_solutions.FrequencyAnalysis.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.FrequencyAnalysis.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the solution procedure in the finite element 
+problem object.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -65,55 +72,194 @@ stiffness matrix.</p>
 
 <dl class="class">
 <dt id="solution.predefined_solutions.IllConditioningAnalysisBase">
-<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">IllConditioningAnalysisBase</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>printFlag=0</em>, <em>systemPrefix='sym_band_eigen'</em>, <em>shift=None</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.IllConditioningAnalysisBase" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">IllConditioningAnalysisBase</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>printFlag=0</em>, <em>systemPrefix='sym_band_eigen'</em>, <em>shift=None</em>, <em>numberingMethod='rcm'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.IllConditioningAnalysisBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure" title="solution.predefined_solutions.SolutionProcedure"><code class="xref py py-class docutils literal notranslate"><span class="pre">solution.predefined_solutions.SolutionProcedure</span></code></a></p>
 <p>Base class for ill-conditioning
 solution procedures.</p>
+<dl class="method">
+<dt id="solution.predefined_solutions.IllConditioningAnalysisBase.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.IllConditioningAnalysisBase.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the solution procedure in the finite element 
+problem object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="solution.predefined_solutions.LineSearchBase">
+<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">LineSearchBase</code><span class="sig-paren">(</span><em>prb</em>, <em>name</em>, <em>constraintHandlerType</em>, <em>maxNumIter</em>, <em>convergenceTestTol</em>, <em>printFlag</em>, <em>numSteps</em>, <em>numberingMethod</em>, <em>convTestType</em>, <em>lineSearchMethod</em>, <em>soeType</em>, <em>solverType</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.LineSearchBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure" title="solution.predefined_solutions.SolutionProcedure"><code class="xref py py-class docutils literal notranslate"><span class="pre">solution.predefined_solutions.SolutionProcedure</span></code></a></p>
+<p>Base class for line search solution aggregations.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="solution.predefined_solutions.PenaltyModifiedNewton">
-<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">PenaltyModifiedNewton</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>maxNumIter=150</em>, <em>convergenceTestTol=1e-09</em>, <em>printFlag=0</em>, <em>numSteps=1</em>, <em>numberingMethod='rcm'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PenaltyModifiedNewton" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">PenaltyModifiedNewton</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>maxNumIter=150</em>, <em>convergenceTestTol=1e-09</em>, <em>printFlag=0</em>, <em>numSteps=1</em>, <em>numberingMethod='rcm'</em>, <em>convTestType='relative_total_norm_disp_incr_conv_test'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PenaltyModifiedNewton" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#solution.predefined_solutions.PenaltyModifiedNewtonBase" title="solution.predefined_solutions.PenaltyModifiedNewtonBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">solution.predefined_solutions.PenaltyModifiedNewtonBase</span></code></a></p>
 <p>Static solution procedure with a modified Newton algorithm
 and a penalty constraint handler.</p>
+<dl class="method">
+<dt id="solution.predefined_solutions.PenaltyModifiedNewton.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PenaltyModifiedNewton.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the solution procedure in the finite element 
+problem object.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="solution.predefined_solutions.PenaltyModifiedNewtonBase">
-<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">PenaltyModifiedNewtonBase</code><span class="sig-paren">(</span><em>prb</em>, <em>name</em>, <em>maxNumIter</em>, <em>convergenceTestTol</em>, <em>printFlag</em>, <em>numSteps</em>, <em>numberingMethod</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PenaltyModifiedNewtonBase" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">PenaltyModifiedNewtonBase</code><span class="sig-paren">(</span><em>prb</em>, <em>name</em>, <em>maxNumIter</em>, <em>convergenceTestTol</em>, <em>printFlag</em>, <em>numSteps</em>, <em>numberingMethod</em>, <em>convTestType='relative_total_norm_disp_incr_conv_test'</em>, <em>soeType='sparse_gen_col_lin_soe'</em>, <em>solverType='super_lu_solver'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PenaltyModifiedNewtonBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure" title="solution.predefined_solutions.SolutionProcedure"><code class="xref py py-class docutils literal notranslate"><span class="pre">solution.predefined_solutions.SolutionProcedure</span></code></a></p>
 <p>Base class for penalty modified Newton solution aggregation.</p>
+<dl class="method">
+<dt id="solution.predefined_solutions.PenaltyModifiedNewtonBase.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PenaltyModifiedNewtonBase.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the solution procedure in the finite element 
+problem object.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="solution.predefined_solutions.PenaltyModifiedNewtonUMF">
-<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">PenaltyModifiedNewtonUMF</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>maxNumIter=150</em>, <em>convergenceTestTol=1e-09</em>, <em>printFlag=0</em>, <em>numSteps=1</em>, <em>numberingMethod='rcm'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PenaltyModifiedNewtonUMF" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">PenaltyModifiedNewtonUMF</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>maxNumIter=150</em>, <em>convergenceTestTol=1e-09</em>, <em>printFlag=0</em>, <em>numSteps=1</em>, <em>numberingMethod='rcm'</em>, <em>convTestType='relative_total_norm_disp_incr_conv_test'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PenaltyModifiedNewtonUMF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#solution.predefined_solutions.PenaltyModifiedNewtonBase" title="solution.predefined_solutions.PenaltyModifiedNewtonBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">solution.predefined_solutions.PenaltyModifiedNewtonBase</span></code></a></p>
 <p>Static solution procedure with a modified Newton algorithm,
 a penalty constraint handler and a UMF
 (Unsimmetric multi-frontal method) solver.</p>
+<dl class="method">
+<dt id="solution.predefined_solutions.PenaltyModifiedNewtonUMF.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PenaltyModifiedNewtonUMF.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the solution procedure in the finite element 
+problem object.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="solution.predefined_solutions.PenaltyNewmarkNewtonRapshon">
-<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">PenaltyNewmarkNewtonRapshon</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>maxNumIter=10</em>, <em>convergenceTestTol=1e-09</em>, <em>printFlag=0</em>, <em>numSteps=1</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PenaltyNewmarkNewtonRapshon" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">PenaltyNewmarkNewtonRapshon</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>maxNumIter=10</em>, <em>convergenceTestTol=1e-09</em>, <em>printFlag=0</em>, <em>numSteps=1</em>, <em>numberingMethod='rcm'</em>, <em>convTestType='norm_disp_incr_conv_test'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PenaltyNewmarkNewtonRapshon" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure" title="solution.predefined_solutions.SolutionProcedure"><code class="xref py py-class docutils literal notranslate"><span class="pre">solution.predefined_solutions.SolutionProcedure</span></code></a></p>
 <p>Newmark solution procedure with a Newton Raphson algorithm
 and a penalty constraint handler.</p>
+<dl class="method">
+<dt id="solution.predefined_solutions.PenaltyNewmarkNewtonRapshon.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PenaltyNewmarkNewtonRapshon.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the solution procedure in the finite element 
+problem object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="solution.predefined_solutions.PenaltyNewtonLineSearch">
+<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">PenaltyNewtonLineSearch</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>maxNumIter=150</em>, <em>convergenceTestTol=1e-09</em>, <em>printFlag=0</em>, <em>numSteps=1</em>, <em>numberingMethod='rcm'</em>, <em>convTestType='relative_total_norm_disp_incr_conv_test'</em>, <em>lineSearchMethod='regula_falsi_line_search'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PenaltyNewtonLineSearch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#solution.predefined_solutions.PenaltyNewtonLineSearchBase" title="solution.predefined_solutions.PenaltyNewtonLineSearchBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">solution.predefined_solutions.PenaltyNewtonLineSearchBase</span></code></a></p>
+<p>Static solution procedure with a Newton line search algorithm
+and a penalty constraint handler.</p>
+<dl class="method">
+<dt id="solution.predefined_solutions.PenaltyNewtonLineSearch.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PenaltyNewtonLineSearch.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the solution procedure in the finite element 
+problem object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="solution.predefined_solutions.PenaltyNewtonLineSearchBase">
+<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">PenaltyNewtonLineSearchBase</code><span class="sig-paren">(</span><em>prb</em>, <em>name</em>, <em>maxNumIter</em>, <em>convergenceTestTol</em>, <em>printFlag</em>, <em>numSteps</em>, <em>numberingMethod</em>, <em>convTestType</em>, <em>lineSearchMethod</em>, <em>soeType</em>, <em>solverType</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PenaltyNewtonLineSearchBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#solution.predefined_solutions.LineSearchBase" title="solution.predefined_solutions.LineSearchBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">solution.predefined_solutions.LineSearchBase</span></code></a></p>
+<p>Base class for penalty Newton line search solution aggregation.</p>
+<dl class="method">
+<dt id="solution.predefined_solutions.PenaltyNewtonLineSearchBase.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PenaltyNewtonLineSearchBase.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the solution procedure in the finite element 
+problem object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="solution.predefined_solutions.PenaltyNewtonLineSearchUMF">
+<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">PenaltyNewtonLineSearchUMF</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>maxNumIter=150</em>, <em>convergenceTestTol=1e-09</em>, <em>printFlag=0</em>, <em>numSteps=1</em>, <em>numberingMethod='rcm'</em>, <em>convTestType='relative_total_norm_disp_incr_conv_test'</em>, <em>lineSearchMethod='regula_falsi_line_search'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PenaltyNewtonLineSearchUMF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#solution.predefined_solutions.PenaltyNewtonLineSearchBase" title="solution.predefined_solutions.PenaltyNewtonLineSearchBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">solution.predefined_solutions.PenaltyNewtonLineSearchBase</span></code></a></p>
+<p>Static solution procedure with a Newton line search algorithm,
+a penalty constraint handler and a UMF
+(Unsimmetric multi-frontal method) solver.</p>
+<dl class="method">
+<dt id="solution.predefined_solutions.PenaltyNewtonLineSearchUMF.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PenaltyNewtonLineSearchUMF.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the solution procedure in the finite element 
+problem object.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="solution.predefined_solutions.PenaltyNewtonRaphson">
-<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">PenaltyNewtonRaphson</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>maxNumIter=10</em>, <em>convergenceTestTol=1e-09</em>, <em>printFlag=0</em>, <em>numSteps=1</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PenaltyNewtonRaphson" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure" title="solution.predefined_solutions.SolutionProcedure"><code class="xref py py-class docutils literal notranslate"><span class="pre">solution.predefined_solutions.SolutionProcedure</span></code></a></p>
+<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">PenaltyNewtonRaphson</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>maxNumIter=10</em>, <em>convergenceTestTol=1e-09</em>, <em>printFlag=0</em>, <em>numSteps=1</em>, <em>numberingMethod='rcm'</em>, <em>convTestType='norm_unbalance_conv_test'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PenaltyNewtonRaphson" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#solution.predefined_solutions.PenaltyNewtonRaphsonBase" title="solution.predefined_solutions.PenaltyNewtonRaphsonBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">solution.predefined_solutions.PenaltyNewtonRaphsonBase</span></code></a></p>
 <p>Return a static solution procedure with a Newton Raphson algorithm
 and a penalty constraint handler.</p>
+<dl class="method">
+<dt id="solution.predefined_solutions.PenaltyNewtonRaphson.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PenaltyNewtonRaphson.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the solution procedure in the finite element 
+problem object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="solution.predefined_solutions.PenaltyNewtonRaphsonBase">
+<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">PenaltyNewtonRaphsonBase</code><span class="sig-paren">(</span><em>prb</em>, <em>name</em>, <em>maxNumIter</em>, <em>convergenceTestTol</em>, <em>printFlag</em>, <em>numSteps</em>, <em>numberingMethod</em>, <em>convTestType</em>, <em>soeType</em>, <em>solverType</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PenaltyNewtonRaphsonBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure" title="solution.predefined_solutions.SolutionProcedure"><code class="xref py py-class docutils literal notranslate"><span class="pre">solution.predefined_solutions.SolutionProcedure</span></code></a></p>
+<p>Base class for penalty modified Newton solution aggregation.</p>
+<dl class="method">
+<dt id="solution.predefined_solutions.PenaltyNewtonRaphsonBase.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PenaltyNewtonRaphsonBase.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the solution procedure in the finite element 
+problem object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="solution.predefined_solutions.PenaltyNewtonRaphsonUMF">
+<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">PenaltyNewtonRaphsonUMF</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>maxNumIter=150</em>, <em>convergenceTestTol=1e-09</em>, <em>printFlag=0</em>, <em>numSteps=1</em>, <em>numberingMethod='rcm'</em>, <em>convTestType='norm_unbalance_conv_test'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PenaltyNewtonRaphsonUMF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#solution.predefined_solutions.PenaltyNewtonRaphsonBase" title="solution.predefined_solutions.PenaltyNewtonRaphsonBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">solution.predefined_solutions.PenaltyNewtonRaphsonBase</span></code></a></p>
+<p>Static solution procedure with a Newton algorithm,
+a penalty constraint handler and a UMF
+(Unsimmetric multi-frontal method) solver.</p>
+<dl class="method">
+<dt id="solution.predefined_solutions.PenaltyNewtonRaphsonUMF.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PenaltyNewtonRaphsonUMF.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the solution procedure in the finite element 
+problem object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="solution.predefined_solutions.PenaltyStaticLinearBase">
+<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">PenaltyStaticLinearBase</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>printFlag=0</em>, <em>numSteps=1</em>, <em>numberingMethod='rcm'</em>, <em>soeType='band_spd_lin_soe'</em>, <em>solverType='band_spd_lin_lapack_solver'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PenaltyStaticLinearBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure" title="solution.predefined_solutions.SolutionProcedure"><code class="xref py py-class docutils literal notranslate"><span class="pre">solution.predefined_solutions.SolutionProcedure</span></code></a></p>
+<p>Base class for linear static solution algorithm
+with a penalty constraint handler.</p>
+<dl class="method">
+<dt id="solution.predefined_solutions.PenaltyStaticLinearBase.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PenaltyStaticLinearBase.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the solution procedure in the finite element 
+problem object.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="solution.predefined_solutions.PlainKrylovNewton">
-<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">PlainKrylovNewton</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>maxNumIter=150</em>, <em>convergenceTestTol=1e-09</em>, <em>printFlag=0</em>, <em>numSteps=1</em>, <em>maxDim=6</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PlainKrylovNewton" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">PlainKrylovNewton</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>maxNumIter=150</em>, <em>convergenceTestTol=1e-09</em>, <em>printFlag=0</em>, <em>numSteps=1</em>, <em>numberingMethod='simple'</em>, <em>convTestType='energy_incr_conv_test'</em>, <em>maxDim=6</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PlainKrylovNewton" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure" title="solution.predefined_solutions.SolutionProcedure"><code class="xref py py-class docutils literal notranslate"><span class="pre">solution.predefined_solutions.SolutionProcedure</span></code></a></p>
 <dl class="docutils">
 <dt>KrylovNewton algorithm object which uses a Krylov subspace </dt>
@@ -123,53 +269,124 @@ newton method.</dd>
 <p>See appendix C. Analysis model script of the document
 “Finite Element Modeling of Gusset Plate Failure Using Opensees”
 Andrew J. Walker. Oregon State University</p>
+<dl class="method">
+<dt id="solution.predefined_solutions.PlainKrylovNewton.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PlainKrylovNewton.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the solution procedure in the finite element 
+problem object.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="solution.predefined_solutions.PlainLinearNewmark">
-<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">PlainLinearNewmark</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>maxNumIter=10</em>, <em>convergenceTestTol=1e-09</em>, <em>printFlag=0</em>, <em>numSteps=1</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PlainLinearNewmark" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">PlainLinearNewmark</code><span class="sig-paren">(</span><em>prb</em>, <em>timeStep</em>, <em>name=None</em>, <em>maxNumIter=10</em>, <em>convergenceTestTol=1e-09</em>, <em>printFlag=0</em>, <em>numSteps=1</em>, <em>numberingMethod='simple'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PlainLinearNewmark" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure" title="solution.predefined_solutions.SolutionProcedure"><code class="xref py py-class docutils literal notranslate"><span class="pre">solution.predefined_solutions.SolutionProcedure</span></code></a></p>
 <p>Return a linear Newmark solution algorithm
 with a plain constraint handler.</p>
+<dl class="method">
+<dt id="solution.predefined_solutions.PlainLinearNewmark.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PlainLinearNewmark.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the solution procedure in the finite element 
+problem object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="solution.predefined_solutions.PlainLinearNewmark.solve">
+<code class="descname">solve</code><span class="sig-paren">(</span><em>calculateNodalReactions=False</em>, <em>includeInertia=False</em>, <em>reactionCheckTolerance=1e-12</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PlainLinearNewmark.solve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the solution (run the analysis).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>calculateNodalReactions</strong> – if true calculate reactions at
+nodes.</li>
+<li><strong>includeInertia</strong> – if true calculate reactions including inertia
+effects.</li>
+<li><strong>reactionCheckTolerance</strong> – tolerance when checking reaction values.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="solution.predefined_solutions.PlainNewtonRaphson">
-<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">PlainNewtonRaphson</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>maxNumIter=10</em>, <em>convergenceTestTol=1e-09</em>, <em>printFlag=0</em>, <em>numSteps=1</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PlainNewtonRaphson" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">PlainNewtonRaphson</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>maxNumIter=10</em>, <em>convergenceTestTol=1e-09</em>, <em>printFlag=0</em>, <em>numSteps=1</em>, <em>numberingMethod='rcm'</em>, <em>convTestType='norm_unbalance_conv_test'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PlainNewtonRaphson" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure" title="solution.predefined_solutions.SolutionProcedure"><code class="xref py py-class docutils literal notranslate"><span class="pre">solution.predefined_solutions.SolutionProcedure</span></code></a></p>
 <p>Newton-Raphson solution algorithm with a 
 plain constraint handler.</p>
+<dl class="method">
+<dt id="solution.predefined_solutions.PlainNewtonRaphson.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PlainNewtonRaphson.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the solution procedure in the finite element 
+problem object.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="solution.predefined_solutions.PlainNewtonRaphsonBandGen">
-<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">PlainNewtonRaphsonBandGen</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>maxNumIter=10</em>, <em>convergenceTestTol=1e-09</em>, <em>printFlag=0</em>, <em>numSteps=1</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PlainNewtonRaphsonBandGen" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">PlainNewtonRaphsonBandGen</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>maxNumIter=10</em>, <em>convergenceTestTol=1e-09</em>, <em>printFlag=0</em>, <em>numSteps=1</em>, <em>numberingMethod='rcm'</em>, <em>convTestType='norm_unbalance_conv_test'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PlainNewtonRaphsonBandGen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure" title="solution.predefined_solutions.SolutionProcedure"><code class="xref py py-class docutils literal notranslate"><span class="pre">solution.predefined_solutions.SolutionProcedure</span></code></a></p>
-<p>Newton-Raphson solution algorithm with a 
+<p>Newton-Raphson solution algorithm with a s
 plain constraint handler and a band general
 SOE solver.</p>
+<dl class="method">
+<dt id="solution.predefined_solutions.PlainNewtonRaphsonBandGen.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PlainNewtonRaphsonBandGen.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the solution procedure in the finite element 
+problem object.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="solution.predefined_solutions.PlainStaticModifiedNewton">
-<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">PlainStaticModifiedNewton</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>maxNumIter=10</em>, <em>convergenceTestTol=1e-09</em>, <em>printFlag=0</em>, <em>numSteps=1</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PlainStaticModifiedNewton" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">PlainStaticModifiedNewton</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>maxNumIter=10</em>, <em>convergenceTestTol=1e-09</em>, <em>printFlag=0</em>, <em>numSteps=1</em>, <em>numberingMethod='rcm'</em>, <em>convTestType='relative_total_norm_disp_incr_conv_test'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PlainStaticModifiedNewton" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure" title="solution.predefined_solutions.SolutionProcedure"><code class="xref py py-class docutils literal notranslate"><span class="pre">solution.predefined_solutions.SolutionProcedure</span></code></a></p>
 <p>Static solution procedure with a modified Newton
 solution algorithm with a plain constraint handler.</p>
+<dl class="method">
+<dt id="solution.predefined_solutions.PlainStaticModifiedNewton.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.PlainStaticModifiedNewton.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the solution procedure in the finite element 
+problem object.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="solution.predefined_solutions.SimpleLagrangeStaticLinear">
-<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">SimpleLagrangeStaticLinear</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>maxNumIter=10</em>, <em>convergenceTestTol=1e-09</em>, <em>printFlag=0</em>, <em>numSteps=1</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SimpleLagrangeStaticLinear" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">SimpleLagrangeStaticLinear</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>maxNumIter=10</em>, <em>convergenceTestTol=1e-09</em>, <em>printFlag=0</em>, <em>numSteps=1</em>, <em>numberingMethod='rcm'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SimpleLagrangeStaticLinear" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure" title="solution.predefined_solutions.SolutionProcedure"><code class="xref py py-class docutils literal notranslate"><span class="pre">solution.predefined_solutions.SolutionProcedure</span></code></a></p>
 <p>Linear static solution algorithm
 with a Lagrange constraint handler.</p>
+<dl class="method">
+<dt id="solution.predefined_solutions.SimpleLagrangeStaticLinear.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SimpleLagrangeStaticLinear.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the solution procedure in the finite element 
+problem object.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="solution.predefined_solutions.SimpleStaticLinear">
-<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">SimpleStaticLinear</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>maxNumIter=10</em>, <em>convergenceTestTol=1e-09</em>, <em>printFlag=0</em>, <em>numSteps=1</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SimpleStaticLinear" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure" title="solution.predefined_solutions.SolutionProcedure"><code class="xref py py-class docutils literal notranslate"><span class="pre">solution.predefined_solutions.SolutionProcedure</span></code></a></p>
+<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">SimpleStaticLinear</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>printFlag=0</em>, <em>numSteps=1</em>, <em>numberingMethod='rcm'</em>, <em>soeType='band_spd_lin_soe'</em>, <em>solverType='band_spd_lin_lapack_solver'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SimpleStaticLinear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#solution.predefined_solutions.PenaltyStaticLinearBase" title="solution.predefined_solutions.PenaltyStaticLinearBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">solution.predefined_solutions.PenaltyStaticLinearBase</span></code></a></p>
+<p>Return a linear static solution algorithm
+with a penalty constraint handler.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="solution.predefined_solutions.SimpleStaticLinearUMF">
+<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">SimpleStaticLinearUMF</code><span class="sig-paren">(</span><em>prb</em>, <em>name=None</em>, <em>printFlag=0</em>, <em>numSteps=1</em>, <em>numberingMethod='rcm'</em>, <em>soeType='umfpack_gen_lin_soe'</em>, <em>solverType='umfpack_gen_lin_solver'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SimpleStaticLinearUMF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#solution.predefined_solutions.PenaltyStaticLinearBase" title="solution.predefined_solutions.PenaltyStaticLinearBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">solution.predefined_solutions.PenaltyStaticLinearBase</span></code></a></p>
 <p>Return a linear static solution algorithm
 with a penalty constraint handler.</p>
 </dd></dl>
@@ -180,11 +397,18 @@ with a penalty constraint handler.</p>
 <dd><p>Bases: <a class="reference internal" href="#solution.predefined_solutions.SolutionProcedure" title="solution.predefined_solutions.SolutionProcedure"><code class="xref py py-class docutils literal notranslate"><span class="pre">solution.predefined_solutions.SolutionProcedure</span></code></a></p>
 <p>Linear static solution algorithm with a 
 transformation constraint handler.</p>
+<dl class="method">
+<dt id="solution.predefined_solutions.SimpleTransformationStaticLinear.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SimpleTransformationStaticLinear.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the solution procedure in the finite element 
+problem object.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="solution.predefined_solutions.SolutionProcedure">
-<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">SolutionProcedure</code><span class="sig-paren">(</span><em>name=None</em>, <em>maxNumIter=10</em>, <em>convergenceTestTol=1e-09</em>, <em>printFlag=0</em>, <em>numSteps=1</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">solution.predefined_solutions.</code><code class="descname">SolutionProcedure</code><span class="sig-paren">(</span><em>name=None</em>, <em>constraintHandlerType='plain'</em>, <em>maxNumIter=10</em>, <em>convergenceTestTol=1e-09</em>, <em>printFlag=0</em>, <em>numSteps=1</em>, <em>numberingMethod='rcm'</em>, <em>convTestType=None</em>, <em>soeType: str = None</em>, <em>solverType: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -228,6 +452,12 @@ profile SPD, sparse general, umfPack, sparse SPD</li>
 <li><strong>solver</strong> – solver for the system of equations.</li>
 <li><strong>analysis</strong> – determines what type of analysis is to be performed</li>
 <li><strong>convergenceTestTol</strong> – convergence tolerance (defaults to 1e-9)</li>
+<li><strong>printFlag</strong> – if not zero print convergence results on each step.</li>
+<li><strong>numSteps</strong> – number of steps to use in the analysis (useful only when loads are variable in time).</li>
+<li><strong>numberingMethod</strong> – numbering method (plain or reverse Cuthill-McKee or alterntive minimum degree).</li>
+<li><strong>convTestType</strong> – convergence test type for non linear analysis (norm unbalance,…).</li>
+<li><strong>soeType</strong> – type of the system of equations object.</li>
+<li><strong>solverType</strong> – type of the solver.</li>
 <li><strong>maxNumIter</strong> – maximum number of iterations (defauts to 10)</li>
 <li><strong>numSteps</strong> – number of steps to use in the analysis (useful only when loads are variable in time).</li>
 <li><strong>solu</strong> – </li>
@@ -239,14 +469,8 @@ profile SPD, sparse general, umfPack, sparse SPD</li>
 </tbody>
 </table>
 <dl class="method">
-<dt id="solution.predefined_solutions.SolutionProcedure.clear">
-<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.clear" title="Permalink to this definition">¶</a></dt>
-<dd><p>Wipe out the solution procedure.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="solution.predefined_solutions.SolutionProcedure.defineAnalysis">
-<code class="descname">defineAnalysis</code><span class="sig-paren">(</span><em>analysisType='static_analysis'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.defineAnalysis" title="Permalink to this definition">¶</a></dt>
+<dt id="solution.predefined_solutions.SolutionProcedure.analysisSetup">
+<code class="descname">analysisSetup</code><span class="sig-paren">(</span><em>analysisType='static_analysis'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.analysisSetup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Define the analysis object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -259,94 +483,21 @@ profile SPD, sparse general, umfPack, sparse SPD</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="solution.predefined_solutions.SolutionProcedure.defineConstraintHandler">
-<code class="descname">defineConstraintHandler</code><span class="sig-paren">(</span><em>cHType=None</em>, <em>alphaSP=1000000000000000.0</em>, <em>alphaMP=1000000000000000.0</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.defineConstraintHandler" title="Permalink to this definition">¶</a></dt>
+<dt id="solution.predefined_solutions.SolutionProcedure.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wipe out the solution procedure.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="solution.predefined_solutions.SolutionProcedure.constraintHandlerSetup">
+<code class="descname">constraintHandlerSetup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.constraintHandlerSetup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Define the constraint handler and return a reference to it.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>cHType</strong> – type of the constraint handler (plain, penalty, transformation or langrange).</li>
-<li><strong>alphaSP</strong> – penalty factor on single points constraints (defaults to 1e15).</li>
-<li><strong>alphaMP</strong> – penalty factor on multi-poing constraints (defaults to 1e15).</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
 <dl class="method">
-<dt id="solution.predefined_solutions.SolutionProcedure.defineIntegrator">
-<code class="descname">defineIntegrator</code><span class="sig-paren">(</span><em>integratorType='load_control_integrator'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.defineIntegrator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Define the type of integrator to use in the analysis.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>integratorType</strong> – type of integrator to use.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="solution.predefined_solutions.SolutionProcedure.defineModelWrapper">
-<code class="descname">defineModelWrapper</code><span class="sig-paren">(</span><em>prb</em>, <em>numberingMethod='rcm'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.defineModelWrapper" title="Permalink to this definition">¶</a></dt>
-<dd><p>Defines the model wrapper.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>prb</strong> – XC finite element problem.</li>
-<li><strong>numberingMethod</strong> – numbering method (plain or reverse Cuthill-McKee algorithm).</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="solution.predefined_solutions.SolutionProcedure.defineSolutionAlgorithm">
-<code class="descname">defineSolutionAlgorithm</code><span class="sig-paren">(</span><em>solAlgType='linear_soln_algo'</em>, <em>integratorType='load_control_integrator'</em>, <em>convTestType=None</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.defineSolutionAlgorithm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Define the solution strategy.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>solAlgType</strong> – type of the solution algorithm (linear, Newton, modified Newton, …)</li>
-<li><strong>integratorType</strong> – type of integrator to use.</li>
-<li><strong>convTestType</strong> – convergence test for non linear analysis (norm unbalance,…).</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="solution.predefined_solutions.SolutionProcedure.defineSysOfEq">
-<code class="descname">defineSysOfEq</code><span class="sig-paren">(</span><em>soeType</em>, <em>solverType</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.defineSysOfEq" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Defines the solver to use for the resulting system of</dt>
-<dd>equations.</dd>
-</dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>soeType</strong> – type of the system of equations object.</li>
-<li><strong>solverType</strong> – type of the solver.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
+<dt id="solution.predefined_solutions.SolutionProcedure.getConvergenceTest">
+<code class="descname">getConvergenceTest</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.getConvergenceTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the convergence test.</p>
 </dd></dl>
 
 <dl class="method">
@@ -362,14 +513,77 @@ profile SPD, sparse general, umfPack, sparse SPD</li>
 </dd></dl>
 
 <dl class="method">
+<dt id="solution.predefined_solutions.SolutionProcedure.integratorSetup">
+<code class="descname">integratorSetup</code><span class="sig-paren">(</span><em>integratorType='load_control_integrator'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.integratorSetup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the type of integrator to use in the analysis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>integratorType</strong> – type of integrator to use.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="solution.predefined_solutions.SolutionProcedure.modelWrapperSetup">
+<code class="descname">modelWrapperSetup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.modelWrapperSetup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the model wrapper.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="solution.predefined_solutions.SolutionProcedure.resetLoadCase">
 <code class="descname">resetLoadCase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.resetLoadCase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove previous load from the domain.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="solution.predefined_solutions.SolutionProcedure.setPenaltyFactors">
+<code class="descname">setPenaltyFactors</code><span class="sig-paren">(</span><em>alphaSP=1000000000000000.0</em>, <em>alphaMP=1000000000000000.0</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.setPenaltyFactors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the penalty factors to use with the penalty constraint handler.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>alphaSP</strong> – penalty factor on single points constraints (defaults to 1e15).</li>
+<li><strong>alphaMP</strong> – penalty factor on multi-poing constraints (defaults to 1e15).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="solution.predefined_solutions.SolutionProcedure.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the solution procedure in the finite element 
+problem object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="solution.predefined_solutions.SolutionProcedure.solutionAlgorithmSetup">
+<code class="descname">solutionAlgorithmSetup</code><span class="sig-paren">(</span><em>solAlgType='linear_soln_algo'</em>, <em>integratorType='load_control_integrator'</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.solutionAlgorithmSetup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the solution strategy.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>solAlgType</strong> – type of the solution algorithm (linear, Newton, modified Newton, …)</li>
+<li><strong>integratorType</strong> – type of integrator to use.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="solution.predefined_solutions.SolutionProcedure.solve">
-<code class="descname">solve</code><span class="sig-paren">(</span><em>calculateNodalReactions=False</em>, <em>includeInertia=False</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.solve" title="Permalink to this definition">¶</a></dt>
+<code class="descname">solve</code><span class="sig-paren">(</span><em>calculateNodalReactions=False</em>, <em>includeInertia=False</em>, <em>reactionCheckTolerance=1e-12</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.solve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the solution (run the analysis).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -380,6 +594,7 @@ profile SPD, sparse general, umfPack, sparse SPD</li>
 nodes.</li>
 <li><strong>includeInertia</strong> – if true calculate reactions including inertia
 effects.</li>
+<li><strong>reactionCheckTolerance</strong> – tolerance when checking reaction values.</li>
 </ul>
 </td>
 </tr>
@@ -389,7 +604,7 @@ effects.</li>
 
 <dl class="method">
 <dt id="solution.predefined_solutions.SolutionProcedure.solveComb">
-<code class="descname">solveComb</code><span class="sig-paren">(</span><em>combName</em>, <em>calculateNodalReactions=False</em>, <em>includeInertia=False</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.solveComb" title="Permalink to this definition">¶</a></dt>
+<code class="descname">solveComb</code><span class="sig-paren">(</span><em>combName</em>, <em>calculateNodalReactions=False</em>, <em>includeInertia=False</em>, <em>reactionCheckTolerance=1e-12</em><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.solveComb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Obtains the solution for the combination argument.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -401,11 +616,19 @@ effects.</li>
 nodes.</li>
 <li><strong>includeInertia</strong> – if true calculate reactions including inertia
 effects.</li>
+<li><strong>reactionCheckTolerance</strong> – tolerance when checking reaction values.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="solution.predefined_solutions.SolutionProcedure.sysOfEqnSetup">
+<code class="descname">sysOfEqnSetup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#solution.predefined_solutions.SolutionProcedure.sysOfEqnSetup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the solver to use for the resulting system of
+equations.</p>
 </dd></dl>
 
 </dd></dl>

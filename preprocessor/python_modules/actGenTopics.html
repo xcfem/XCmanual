@@ -247,8 +247,8 @@ coefficient that must be applied to it</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="actions.loads.SlindingVectorLoad">
-<em class="property">class </em><code class="descclassname">actions.loads.</code><code class="descname">SlindingVectorLoad</code><span class="sig-paren">(</span><em>name</em>, <em>xcSet</em>, <em>pntCoord</em>, <em>loadVector</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.loads.SlindingVectorLoad" title="Permalink to this definition">¶</a></dt>
+<dt id="actions.loads.SlidingVectorLoad">
+<em class="property">class </em><code class="descclassname">actions.loads.</code><code class="descname">SlidingVectorLoad</code><span class="sig-paren">(</span><em>name</em>, <em>xcSet</em>, <em>pntCoord</em>, <em>loadVector</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.loads.SlidingVectorLoad" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#actions.loads.BaseVectorLoad" title="actions.loads.BaseVectorLoad"><code class="xref py py-class docutils literal notranslate"><span class="pre">actions.loads.BaseVectorLoad</span></code></a></p>
 <p>Distribute load expressed as a sliding vector over the nodes in 
 a set.</p>
@@ -258,8 +258,8 @@ a set.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – name identifying the load</li>
-<li><strong>xcSet</strong> – set that contains the nodes</li>
-<li><strong>pntCoord</strong> – (x,y,z) coordinates of a point of the sliding vector</li>
+<li><strong>xcSet</strong> – set that contains the nodes to distribute the load on.</li>
+<li><strong>pntCoord</strong> – (x,y,z) coordinates of a point of the sliding vector.</li>
 <li><strong>loadVector</strong> – xc.Vector(Fx,Fy,Fz,Mx,My,Mz) components of the force sliding vector</li>
 </ul>
 </td>
@@ -267,9 +267,10 @@ a set.</p>
 </tbody>
 </table>
 <dl class="method">
-<dt id="actions.loads.SlindingVectorLoad.appendLoadToCurrentLoadPattern">
-<code class="descname">appendLoadToCurrentLoadPattern</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.loads.SlindingVectorLoad.appendLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="actions.loads.SlidingVectorLoad.appendLoadToCurrentLoadPattern">
+<code class="descname">appendLoadToCurrentLoadPattern</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.loads.SlidingVectorLoad.appendLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append the loads to the current load pattern.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -287,7 +288,7 @@ elements in xcSet.</p>
 <li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – name identifying the load</li>
 <li><strong>xcSet</strong> – set that contains the elements</li>
 <li><strong>elThick</strong> – thickness of elements</li>
-<li><a class="reference internal" href="../../miscellany/roughCalcGenTopics.html#rough_calculations.masonry_vault.FillingCharacteristics.alpha" title="rough_calculations.masonry_vault.FillingCharacteristics.alpha"><strong>alpha</strong></a> – Thermal expansion coefficient of material (1/ºC)</li>
+<li><a class="reference internal" href="actions.quake.html#actions.quake.seismeSIA.alpha" title="actions.quake.seismeSIA.alpha"><strong>alpha</strong></a> – Thermal expansion coefficient of material (1/ºC)</li>
 <li><strong>Ttop</strong> – Temperature (ºC) at the top face of elements</li>
 <li><strong>Tbottom</strong> – Temperature (ºC) at the bottom face of elements</li>
 <li><strong>DOFstrain</strong> – degree of freedom to which apply the strain 
@@ -750,9 +751,19 @@ of property ‘crossSection’ for each element.</li>
 <dt id="actions.combinations.CombContainer">
 <em class="property">class </em><code class="descclassname">actions.combinations.</code><code class="descname">CombContainer</code><a class="headerlink" href="#actions.combinations.CombContainer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Container of load combinations
-:ivar SLS: serviceability limit state combination
-:ivar ULS: ultimate limit state combination</p>
+<p>Container of load combinations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>SLS</strong> – serviceability limit state combination</li>
+<li><strong>ULS</strong> – ultimate limit state combination</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="actions.combinations.CombContainer.dumpCombinations">
 <code class="descname">dumpCombinations</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.CombContainer.dumpCombinations" title="Permalink to this definition">¶</a></dt>
@@ -805,6 +816,18 @@ internal forces.</li>
 <em class="property">class </em><code class="descclassname">actions.combinations.</code><code class="descname">CombinationRecord</code><span class="sig-paren">(</span><em>name</em>, <em>expr</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.CombinationRecord" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Combination name and expression (i.e. ELS01= 1.0*G+1.0*Q)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – combination name (i.e. “ELS01”).</li>
+<li><strong>expr</strong> – expresion of the load combination (i.e. 1.0*G+1.0*Q).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="actions.combinations.CombinationRecord.createCombination">
 <code class="descname">createCombination</code><span class="sig-paren">(</span><em>xcCombHandler</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.CombinationRecord.createCombination" title="Permalink to this definition">¶</a></dt>
@@ -815,6 +838,14 @@ internal forces.</li>
 <dt id="actions.combinations.CombinationRecord.exportToLatex">
 <code class="descname">exportToLatex</code><span class="sig-paren">(</span><em>outputFile</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.CombinationRecord.exportToLatex" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates LaTeX tables and put the combinations in them.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>outputFile</strong> – file to write into.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -878,13 +909,37 @@ represented (defaults to ‘[mm]’</li>
 
 <dl class="class">
 <dt id="actions.combinations.SituationCombs">
-<em class="property">class </em><code class="descclassname">actions.combinations.</code><code class="descname">SituationCombs</code><span class="sig-paren">(</span><em>desc</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.SituationCombs" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">actions.combinations.</code><code class="descname">SituationCombs</code><span class="sig-paren">(</span><em>desc: str</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.SituationCombs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
-<p>Combinations for a situation (frequent, rare, persistent,…).</p>
+<dl class="docutils">
+<dt>Dictionary of combinations for a situation (frequent, rare, </dt>
+<dd>persistent,…).</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.description" title="xc.LoadPattern.description"><strong>description</strong></a> – short description of the situation.</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="actions.combinations.SituationCombs.add">
 <code class="descname">add</code><span class="sig-paren">(</span><em>name</em>, <em>expr</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.SituationCombs.add" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Add a combination to the dictionary.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> – combination name (i.e. “ELS01”).</li>
+<li><strong>expr</strong> – expresion of the load combination (i.e. 1.0*G+1.0*Q).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="actions.combinations.SituationCombs.dumpCombinations">
@@ -896,6 +951,14 @@ represented (defaults to ‘[mm]’</li>
 <dt id="actions.combinations.SituationCombs.exportToLatex">
 <code class="descname">exportToLatex</code><span class="sig-paren">(</span><em>outputFile</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.SituationCombs.exportToLatex" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates LaTeX tables and put the combinations in them.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>outputFile</strong> – file to write into.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -936,7 +999,7 @@ internal forces.</li>
 
 <dl class="class">
 <dt id="actions.combinations.SituationsSet">
-<em class="property">class </em><code class="descclassname">actions.combinations.</code><code class="descname">SituationsSet</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.SituationsSet" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">actions.combinations.</code><code class="descname">SituationsSet</code><span class="sig-paren">(</span><em>name: str</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.combinations.SituationsSet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Set of situations as used in limit states</p>
 <table class="docutils field-list" frame="void" rules="none">

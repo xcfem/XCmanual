@@ -509,7 +509,6 @@ American Institute of Steel Construction, Inc.</p>
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – bolt identifier</li>
 <li><strong>steel</strong> – steel material.</li>
-<li><a class="reference internal" href="../cpp_classes/material/section/repres/geom_section/reinfBar/reinfBar.html#xc.ReinfBar.diameter" title="xc.ReinfBar.diameter"><strong>diameter</strong></a> – bolt diameter.</li>
 </ul>
 </td>
 </tr>
@@ -810,7 +809,7 @@ of ACI 318R-14.</p>
 
 <dl class="class">
 <dt id="materials.astm_aisc.ASTM_materials.AnchorGroup">
-<em class="property">class </em><code class="descclassname">materials.astm_aisc.ASTM_materials.</code><code class="descname">AnchorGroup</code><span class="sig-paren">(</span><em>steel</em>, <em>diameter</em>, <em>positions</em>, <em>plateWasher=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorGroup" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">materials.astm_aisc.ASTM_materials.</code><code class="descname">AnchorGroup</code><span class="sig-paren">(</span><em>steel</em>, <em>diameter</em>, <em>positions</em>, <em>plateWasher=None</em>, <em>postInstalled=False</em>, <em>torqued=False</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorGroup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Anchor group.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -890,6 +889,13 @@ cracking at service levels, otherwise 1.0</li>
 </dd></dl>
 
 <dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorGroup.getMinimumSpacing">
+<code class="descname">getMinimumSpacing</code><span class="sig-paren">(</span><em>rodEfficiency=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorGroup.getMinimumSpacing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the minimum spacing according to clause 17.7.1
+and 17.7.4 of ACI 318-14.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.astm_aisc.ASTM_materials.AnchorGroup.getNominalConcreteBreakoutStrength">
 <code class="descname">getNominalConcreteBreakoutStrength</code><span class="sig-paren">(</span><em>h_ef</em>, <em>fc</em>, <em>psi3=1.25</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorGroup.getNominalConcreteBreakoutStrength" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
@@ -917,6 +923,12 @@ cracking at service levels, otherwise 1.0</li>
 <dt id="materials.astm_aisc.ASTM_materials.AnchorGroup.getNumberOfBolts">
 <code class="descname">getNumberOfBolts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorGroup.getNumberOfBolts" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the number of anchors in the group.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.AnchorGroup.getSpacing">
+<code class="descname">getSpacing</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.AnchorGroup.getSpacing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the spacing between anchors.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1907,6 +1919,37 @@ block shear rupture strength.</li>
 </dd></dl>
 
 <dl class="class">
+<dt id="materials.astm_aisc.ASTM_materials.IShape">
+<em class="property">class </em><code class="descclassname">materials.astm_aisc.ASTM_materials.</code><code class="descname">IShape</code><span class="sig-paren">(</span><em>bf</em>, <em>tf</em>, <em>tw</em>, <em>hw</em>, <em>steel=None</em>, <em>name=''</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.IShape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.astm_aisc.ASTM_materials.ASTMShape" title="materials.astm_aisc.ASTM_materials.ASTMShape"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.astm_aisc.ASTM_materials.ASTMShape</span></code></a>, <a class="reference internal" href="materials.structural_shapes.html#materials.sections.structural_shapes.aisc_metric_shapes.IShape" title="materials.sections.structural_shapes.aisc_metric_shapes.IShape"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.sections.structural_shapes.aisc_metric_shapes.IShape</span></code></a></p>
+<p>I shape with ASTM/AISC verification routines.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>steel</strong> – steel material (i.e. A36).</li>
+<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – shape name</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.IShape.getDict">
+<code class="descname">getDict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.IShape.getDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Put member values in a dictionary.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.astm_aisc.ASTM_materials.IShape.setFromDict">
+<code class="descname">setFromDict</code><span class="sig-paren">(</span><em>dct</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.IShape.setFromDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read member values from a dictionary.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="materials.astm_aisc.ASTM_materials.MemberConnection">
 <em class="property">class </em><code class="descclassname">materials.astm_aisc.ASTM_materials.</code><code class="descname">MemberConnection</code><span class="sig-paren">(</span><em>L</em>, <em>rotI='free'</em>, <em>transI='fixed'</em>, <em>rotJ='free'</em>, <em>transJ='fixed'</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.MemberConnection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="matGenTopics.html#materials.buckling_base.MemberConnection" title="materials.buckling_base.MemberConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.buckling_base.MemberConnection</span></code></a></p>
@@ -2077,6 +2120,27 @@ according to table J2.4 of AISC 360.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>t1</strong> – Thickness of sheet 1.</li>
 <li><strong>t2</strong> – Thickness of sheet 2.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.astm_aisc.ASTM_materials.getSquareAnchorGroup">
+<code class="descclassname">materials.astm_aisc.ASTM_materials.</code><code class="descname">getSquareAnchorGroup</code><span class="sig-paren">(</span><em>steel</em>, <em>diameter</em>, <em>squareSide</em>, <em>xCenter=0.0</em>, <em>yCenter=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.astm_aisc.ASTM_materials.getSquareAnchorGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return four anchors in the corners of the square.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>steel</strong> – steel material.</li>
+<li><strong>diameter</strong> – bolt diameter.</li>
+<li><strong>squareSide</strong> – side of the square.</li>
+<li><strong>xCenter</strong> – x coordinate of the square center.</li>
+<li><strong>yCenter</strong> – y coordinate of the square center.</li>
 </ul>
 </td>
 </tr>

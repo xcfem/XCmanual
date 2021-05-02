@@ -691,7 +691,7 @@ as an approximation for the compressive force in the arch at any location</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><strong>sphRadius</strong> – radius of curvature (spherical radius)</li>
-<li><a class="reference internal" href="#rough_calculations.masonry_vault.FillingCharacteristics.alpha" title="rough_calculations.masonry_vault.FillingCharacteristics.alpha"><strong>alpha</strong></a> – angle from the top of the dome to the bottom of the dome
+<li><a class="reference internal" href="../preprocessor/python_modules/actions.quake.html#actions.quake.seismeSIA.alpha" title="actions.quake.seismeSIA.alpha"><strong>alpha</strong></a> – angle from the top of the dome to the bottom of the dome
 measured along the meridian [radians]</li>
 </ul>
 </td>
@@ -1013,10 +1013,25 @@ uniform load.</p>
 <dt id="rough_calculations.ng_beam.Beam">
 <em class="property">class </em><code class="descclassname">rough_calculations.ng_beam.</code><code class="descname">Beam</code><span class="sig-paren">(</span><em>E=1.0</em>, <em>I=1.0</em>, <em>l=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_beam.Beam" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for beam formulas.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="../preprocessor/cpp_classes/material/section/plate_section/plate_section.html#xc.ElasticPlateBase.E" title="xc.ElasticPlateBase.E"><strong>E</strong></a> – elastic modulus.</li>
+<li><a class="reference internal" href="../preprocessor/cpp_classes/material/section/repres/repres.html#xc.CrossSectionProperties2d.I" title="xc.CrossSectionProperties2d.I"><strong>I</strong></a> – moment of inertia of the beam section.</li>
+<li><strong>l</strong> – beam length.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="rough_calculations.ng_beam.Beam.EI">
 <code class="descname">EI</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_beam.Beam.EI" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the tangent stiffness.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -1027,40 +1042,145 @@ uniform load.</p>
 <dt id="rough_calculations.ng_cantilever.Cantilever">
 <em class="property">class </em><code class="descclassname">rough_calculations.ng_cantilever.</code><code class="descname">Cantilever</code><span class="sig-paren">(</span><em>E=1.0</em>, <em>I=1.0</em>, <em>l=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_cantilever.Cantilever" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#rough_calculations.ng_beam.Beam" title="rough_calculations.ng_beam.Beam"><code class="xref py py-class docutils literal notranslate"><span class="pre">rough_calculations.ng_beam.Beam</span></code></a></p>
+<p>Cantilever formulas.</p>
 <dl class="method">
 <dt id="rough_calculations.ng_cantilever.Cantilever.getBendingMomentUnderConcentratedLoad">
 <code class="descname">getBendingMomentUnderConcentratedLoad</code><span class="sig-paren">(</span><em>P</em>, <em>a</em>, <em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_cantilever.Cantilever.getBendingMomentUnderConcentratedLoad" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the bending moment under concentrated load.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>P</strong> – value of the concentrated load.</li>
+<li><strong>a</strong> – position of the load.</li>
+<li><strong>x</strong> – position of the section.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_cantilever.Cantilever.getBendingMomentUnderUniformLoad">
 <code class="descname">getBendingMomentUnderUniformLoad</code><span class="sig-paren">(</span><em>q</em>, <em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_cantilever.Cantilever.getBendingMomentUnderUniformLoad" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the bending moment under uniform load.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>q</strong> – value of the uniform load.</li>
+<li><strong>x</strong> – position of the section.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_cantilever.Cantilever.getDeflectionUnderConcentratedLoad">
 <code class="descname">getDeflectionUnderConcentratedLoad</code><span class="sig-paren">(</span><em>P</em>, <em>a</em>, <em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_cantilever.Cantilever.getDeflectionUnderConcentratedLoad" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the deflection under concentrated load.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>P</strong> – value of the concentrated load.</li>
+<li><strong>a</strong> – position of the load.</li>
+<li><strong>x</strong> – position of the section.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_cantilever.Cantilever.getDeflectionUnderUniformLoad">
+<code class="descname">getDeflectionUnderUniformLoad</code><span class="sig-paren">(</span><em>q</em>, <em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_cantilever.Cantilever.getDeflectionUnderUniformLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the deflection under uniform load.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>q</strong> – value of the uniform load.</li>
+<li><strong>x</strong> – position of the section.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_cantilever.Cantilever.getReactionUnderConcentratedLoad">
-<code class="descname">getReactionUnderConcentratedLoad</code><span class="sig-paren">(</span><em>P</em>, <em>a</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_cantilever.Cantilever.getReactionUnderConcentratedLoad" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">getReactionUnderConcentratedLoad</code><span class="sig-paren">(</span><em>P</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_cantilever.Cantilever.getReactionUnderConcentratedLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the reaction under concentrated load.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>P</strong> – value of the concentrated load.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_cantilever.Cantilever.getReactionUnderUniformLoad">
 <code class="descname">getReactionUnderUniformLoad</code><span class="sig-paren">(</span><em>q</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_cantilever.Cantilever.getReactionUnderUniformLoad" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the reaction under uniform load.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>q</strong> – value of the uniform load.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_cantilever.Cantilever.getShearUnderConcentratedLoad">
 <code class="descname">getShearUnderConcentratedLoad</code><span class="sig-paren">(</span><em>P</em>, <em>a</em>, <em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_cantilever.Cantilever.getShearUnderConcentratedLoad" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the shear under concentrated load.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>P</strong> – value of the concentrated load.</li>
+<li><strong>a</strong> – position of the load.</li>
+<li><strong>x</strong> – position of the section.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_cantilever.Cantilever.getShearUnderUniformLoad">
 <code class="descname">getShearUnderUniformLoad</code><span class="sig-paren">(</span><em>q</em>, <em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_cantilever.Cantilever.getShearUnderUniformLoad" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the shear value at x.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>q</strong> – value of the uniform load.</li>
+<li><strong>x</strong> – position of the section.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
@@ -2398,12 +2518,39 @@ in the list.</p>
 <dl class="method">
 <dt id="rough_calculations.ng_simple_beam.SimpleBeam.getBendingMomentUnderConcentratedLoad">
 <code class="descname">getBendingMomentUnderConcentratedLoad</code><span class="sig-paren">(</span><em>P</em>, <em>a</em>, <em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_simple_beam.SimpleBeam.getBendingMomentUnderConcentratedLoad" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the bending moment under concentrated load.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>P</strong> – value of the concentrated load.</li>
+<li><strong>a</strong> – position of the load.</li>
+<li><strong>x</strong> – position of the section.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_simple_beam.SimpleBeam.getBendingMomentUnderUniformLoad">
 <code class="descname">getBendingMomentUnderUniformLoad</code><span class="sig-paren">(</span><em>q</em>, <em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_simple_beam.SimpleBeam.getBendingMomentUnderUniformLoad" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the bending moment under uniform load.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>q</strong> – value of the uniform load.</li>
+<li><strong>x</strong> – position of the section.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_simple_beam.SimpleBeam.getBendingMomentUnderUniformLoadPartiallyDistributed">
@@ -2413,17 +2560,57 @@ in the list.</p>
 <dl class="method">
 <dt id="rough_calculations.ng_simple_beam.SimpleBeam.getDeflectionUnderConcentratedLoad">
 <code class="descname">getDeflectionUnderConcentratedLoad</code><span class="sig-paren">(</span><em>P</em>, <em>a</em>, <em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_simple_beam.SimpleBeam.getDeflectionUnderConcentratedLoad" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the deflection under concentrated load.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>P</strong> – value of the concentrated load.</li>
+<li><strong>a</strong> – position of the load.</li>
+<li><strong>x</strong> – position of the section.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_simple_beam.SimpleBeam.getDeflectionUnderUniformLoad">
 <code class="descname">getDeflectionUnderUniformLoad</code><span class="sig-paren">(</span><em>q</em>, <em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_simple_beam.SimpleBeam.getDeflectionUnderUniformLoad" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the deflection under uniform load.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>q</strong> – value of the uniform load.</li>
+<li><strong>x</strong> – position of the section.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_simple_beam.SimpleBeam.getReaction1UnderConcentratedLoad">
 <code class="descname">getReaction1UnderConcentratedLoad</code><span class="sig-paren">(</span><em>P</em>, <em>a</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_simple_beam.SimpleBeam.getReaction1UnderConcentratedLoad" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the reaction at left support under concentrated load.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>P</strong> – value of the concentrated load.</li>
+<li><strong>a</strong> – position of the load.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_simple_beam.SimpleBeam.getReaction1UnderUniformLoadPartiallyDistributed">
@@ -2433,7 +2620,20 @@ in the list.</p>
 <dl class="method">
 <dt id="rough_calculations.ng_simple_beam.SimpleBeam.getReaction2UnderConcentratedLoad">
 <code class="descname">getReaction2UnderConcentratedLoad</code><span class="sig-paren">(</span><em>P</em>, <em>a</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_simple_beam.SimpleBeam.getReaction2UnderConcentratedLoad" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the reaction at right support under concentrated load.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>P</strong> – value of the concentrated load.</li>
+<li><strong>a</strong> – position of the load.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_simple_beam.SimpleBeam.getReaction2UnderUniformLoadPartiallyDistributed">
@@ -2443,17 +2643,53 @@ in the list.</p>
 <dl class="method">
 <dt id="rough_calculations.ng_simple_beam.SimpleBeam.getReactionUnderUniformLoad">
 <code class="descname">getReactionUnderUniformLoad</code><span class="sig-paren">(</span><em>q</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_simple_beam.SimpleBeam.getReactionUnderUniformLoad" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the reaction under uniform load.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>q</strong> – value of the uniform load.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_simple_beam.SimpleBeam.getShearUnderConcentratedLoad">
 <code class="descname">getShearUnderConcentratedLoad</code><span class="sig-paren">(</span><em>P</em>, <em>a</em>, <em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_simple_beam.SimpleBeam.getShearUnderConcentratedLoad" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the shear under concentrated load.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>P</strong> – value of the concentrated load.</li>
+<li><strong>a</strong> – position of the load.</li>
+<li><strong>x</strong> – position of the section.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_simple_beam.SimpleBeam.getShearUnderUniformLoad">
 <code class="descname">getShearUnderUniformLoad</code><span class="sig-paren">(</span><em>q</em>, <em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_simple_beam.SimpleBeam.getShearUnderUniformLoad" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the shear value at x.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>q</strong> – value of the uniform load.</li>
+<li><strong>x</strong> – position of the section.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="rough_calculations.ng_simple_beam.SimpleBeam.getShearUnderUniformLoadPartiallyDistributed">

@@ -173,8 +173,6 @@ Add those lines to the dictionary dicLin.</p>
 <code class="descname">genLinOneXYZRegion</code><span class="sig-paren">(</span><em>xyzRange</em>, <em>setName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.genLinOneXYZRegion" title="Permalink to this definition">¶</a></dt>
 <dd><p>generate the lines limited by a region defined by the coordinates
 defined in range xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))
-ijkRange.ijkMin=(indXmin,indYmin,indZmin) and
-ijkRange.ijkMax=(indXmax,indYmax,indZmax). 
 Return a set with the lines generated.
 Add those lines to the dictionary dicLin.</p>
 </dd></dl>
@@ -1105,6 +1103,32 @@ of points is modified.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>ijkRange</strong> – range for the search.</li>
+<li><strong>slopeX</strong> – slope in X direction, expressed as deltaZ/deltaX 
+(defaults to 0 = no slope applied)</li>
+<li><strong>xZeroSlope</strong> – coordinate X of the “rotation axis”.</li>
+<li><strong>slopeY</strong> – slope in Y direction, expressed as deltaZ/deltaY)
+(defaults to 0 = no slope applied)</li>
+<li><strong>yZeroSlope</strong> – coordinate Y of the “rotation axis”.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.slopePointsXYZrange">
+<code class="descname">slopePointsXYZrange</code><span class="sig-paren">(</span><em>XYZrange</em>, <em>slopeX=0</em>, <em>xZeroSlope=0</em>, <em>slopeY=0</em>, <em>yZeroSlope=0</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.slopePointsXYZrange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies one or two slopes (in X and Y directions) 
+to points in a 3D grid-region limited by an
+xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))
+Only Z coordinate of points is modified.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>XYZrange</strong> – range for the search.</li>
 <li><strong>slopeX</strong> – slope in X direction, expressed as deltaZ/deltaX 
 (defaults to 0 = no slope applied)</li>
 <li><strong>xZeroSlope</strong> – coordinate X of the “rotation axis”.</li>

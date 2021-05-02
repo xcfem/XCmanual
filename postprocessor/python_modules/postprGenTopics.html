@@ -482,13 +482,21 @@ initial/undeformed shape)</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>setToDisplay</strong> – set of beam elements to be represented (defaults to TotalSet)</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>:param elLoadComp:component of the linear loads on elements to be </dt>
+<dd>depicted [available components: ‘xyzComponents’ (default),
+‘axialComponent’, ‘transComponent’, ‘transYComponent’, 
+‘transZComponent’]</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>setToDisplay</strong> – set of beam elements to be represented (defaults to TotalSet)</li>
-<li><strong>elLoadComp</strong> – <p>component of the loads on elements to be depicted
-[possible components: ‘axialComponent’, ‘transComponent’,</p>
-<blockquote>
-<div>’transYComponent’, ‘transZComponent’,’xyzComponents’]</div></blockquote>
-</li>
 <li><strong>fUnitConv</strong> – factor of conversion to be applied to the results
 (defaults to 1)</li>
 <li><strong>caption</strong> – caption for the graphic</li>
@@ -2450,14 +2458,14 @@ the structure.</p>
 <dl class="method">
 <dt id="postprocess.element_section_map.ElementSectionMap.assign">
 <code class="descname">assign</code><span class="sig-paren">(</span><em>elemSet</em>, <em>setRCSects</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.ElementSectionMap.assign" title="Permalink to this definition">¶</a></dt>
-<dd><p>Assigns the sections names: setRCSectsName+’1’, setRCSectsName+’2’, …
-to the elements of the set.</p>
+<dd><p>Assigns the sections names to the elements of the set.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>elemSet</strong> – set of elements that receive the section name property.</li>
+<li><strong>elemSet</strong> – set of elements that receive the section names 
+property.</li>
 <li><strong>setRCSects</strong> – RC section definition, name, concrete type,
 rebar positions,…</li>
 </ul>
@@ -2478,9 +2486,11 @@ rebar positions,…</li>
 <dt id="postprocess.element_section_map.ElementSections">
 <em class="property">class </em><code class="descclassname">postprocess.element_section_map.</code><code class="descname">ElementSections</code><span class="sig-paren">(</span><em>name, directions=[1, 2], gaussPoints=[1], elemSet=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.ElementSections" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>This class defines the list of reinforced concrete sections that are going 
-to be associated to a set of elements in order to carry out the verifications 
-of the limit states.</p>
+<dl class="docutils">
+<dt>This class defines the list of reinforced concrete sections that are </dt>
+<dd>going to be associated to a set of elements in order to carry out the 
+verifications of the limit states.</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2514,8 +2524,17 @@ lstRCSects[5]= integration point 3, direction 2</p>
 </table>
 <dl class="method">
 <dt id="postprocess.element_section_map.ElementSections.append_section">
-<code class="descname">append_section</code><span class="sig-paren">(</span><em>RCSimplSect</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.ElementSections.append_section" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="descname">append_section</code><span class="sig-paren">(</span><em>RCSect</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.ElementSections.append_section" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append the section argument to the container.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>RCSect</strong> – reinforced concrete section to append.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="postprocess.element_section_map.ElementSections.creaSingleSection">
@@ -2540,7 +2559,8 @@ the list of sections.</p>
 <em class="property">class </em><code class="descclassname">postprocess.element_section_map.</code><code class="descname">RCMemberSection</code><span class="sig-paren">(</span><em>name, templateSections, directions=[1], gaussPoints=[1, 2], elemSet=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCMemberSection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#postprocess.element_section_map.ElementSections" title="postprocess.element_section_map.ElementSections"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.element_section_map.ElementSections</span></code></a></p>
 <p>This class is an specialization of ElemenSections for rectangular
-sections. The items of the list are instances of the object <em>RCRectangularSection</em></p>
+sections. The items of the list are instances of the object 
+<em>RCRectangularSection</em></p>
 <dl class="method">
 <dt id="postprocess.element_section_map.RCMemberSection.createSections">
 <code class="descname">createSections</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.RCMemberSection.createSections" title="Permalink to this definition">¶</a></dt>
@@ -2778,7 +2798,8 @@ desired property (As1+,As1-,…,d1+,d1-,…).</p>
 <em class="property">class </em><code class="descclassname">postprocess.element_section_map.</code><code class="descname">setRCSections2SetElVerif</code><span class="sig-paren">(</span><em>name</em>, <em>directions</em>, <em>gaussPoints</em>, <em>elemSet</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.setRCSections2SetElVerif" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#postprocess.element_section_map.ElementSections" title="postprocess.element_section_map.ElementSections"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.element_section_map.ElementSections</span></code></a></p>
 <p>This class is an specialization of ElemenSections for rectangular
-sections. The items of the list are instances of the object <em>RCRectangularSection</em></p>
+sections. The items of the list are instances of the 
+object <em>RCRectangularSection</em></p>
 <dl class="method">
 <dt id="postprocess.element_section_map.setRCSections2SetElVerif.getAsneg">
 <code class="descname">getAsneg</code><span class="sig-paren">(</span><em>sectNmb</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.element_section_map.setRCSections2SetElVerif.getAsneg" title="Permalink to this definition">¶</a></dt>
@@ -4126,11 +4147,27 @@ element (i.e. for shell elements we typically define two RC sections,
 one for each main direction; in the case of beam elements the most 
 common way is to define RC sections in the front and back ends 
 of the elements)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sectionDefinition</strong> – Container with the section definitions
+(see RC_sections_container module).</li>
+<li><strong>sectionDistribution</strong> – dictionary that stores a section name(s)
+for each element number. This way it defines
+a spatial distribution of the sections over
+the elements.</li>
+<li><strong>elementSetNames</strong> – list of element sets with an assigned section.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="postprocess.RC_material_distribution.RCMaterialDistribution.assign">
 <code class="descname">assign</code><span class="sig-paren">(</span><em>elemSet</em>, <em>setRCSects</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.RC_material_distribution.RCMaterialDistribution.assign" title="Permalink to this definition">¶</a></dt>
-<dd><p>Assigns the sections names: setRCSectsName+’1’, setRCSectsName+’2’, …
-to the elements of the set.</p>
+<dd><p>Assigns the sections names to the elements of the set.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />

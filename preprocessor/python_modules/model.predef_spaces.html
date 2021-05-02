@@ -78,6 +78,7 @@ problem.</dd>
 <li><strong>numDOFs</strong> – number of degrees of freedom for each node (1, 2, 3 or 6).</li>
 <li><strong>solProcType</strong> – type of the solution procedure.</li>
 <li><strong>fixedNodesTags</strong> – tags of the constrained nodes.</li>
+<li><strong>dBase</strong> – current database.</li>
 </ul>
 </td>
 </tr>
@@ -134,7 +135,7 @@ e.g. ‘1.0*GselfWeight+1.0*GearthPress’</li>
 
 <dl class="method">
 <dt id="model.predefined_spaces.PredefinedSpace.analyze">
-<code class="descname">analyze</code><span class="sig-paren">(</span><em>numSteps=1</em>, <em>calculateNodalReactions=False</em>, <em>includeInertia=False</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.analyze" title="Permalink to this definition">¶</a></dt>
+<code class="descname">analyze</code><span class="sig-paren">(</span><em>numSteps=1</em>, <em>calculateNodalReactions=False</em>, <em>includeInertia=False</em>, <em>reactionCheckTolerance=1e-07</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.analyze" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Triggers the analysis of the model with a simple static linear</dt>
 <dd>solution.</dd>
@@ -149,8 +150,26 @@ e.g. ‘1.0*GselfWeight+1.0*GearthPress’</li>
 nodes.</li>
 <li><strong>includeInertia</strong> – if true calculate reactions including inertia
 effects.</li>
+<li><strong>reactionCheckTolerance</strong> – tolerance when checking reaction values.</li>
 </ul>
 </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.calculateNodalReactions">
+<code class="descname">calculateNodalReactions</code><span class="sig-paren">(</span><em>includeInertia=False</em>, <em>reactionCheckTolerance=1e-07</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.calculateNodalReactions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute reactions at nodes.
+:param includeInertia: if true calculate reactions including inertia</p>
+<blockquote>
+<div>effects.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reactionCheckTolerance</strong> – tolerance when checking reaction values.</td>
 </tr>
 </tbody>
 </table>
@@ -231,6 +250,32 @@ effects.</li>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.dumpCombinations">
+<code class="descname">dumpCombinations</code><span class="sig-paren">(</span><em>combContainer</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.dumpCombinations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dump combination definitions into XC.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>combContainer</strong> – combination container (see combinations module).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.getActiveLoadPatternNames">
+<code class="descname">getActiveLoadPatternNames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getActiveLoadPatternNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of the active load patterns.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.getActiveLoadPatterns">
+<code class="descname">getActiveLoadPatterns</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getActiveLoadPatterns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of the active load patterns.</p>
 </dd></dl>
 
 <dl class="method">
@@ -349,6 +394,24 @@ effects.</li>
 <code class="descname">getNearestPoint</code><span class="sig-paren">(</span><em>pos3d</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getNearestPoint" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the nearest point to the position
 argument.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.getNewDatabase">
+<code class="descname">getNewDatabase</code><span class="sig-paren">(</span><em>fName</em>, <em>dbType='BerkeleyDB'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getNewDatabase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a new database.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fName</strong> – file name.</li>
+<li><strong>dbType</strong> – database type (defaults as BerkeleyDB).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -471,6 +534,27 @@ entities.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>numModes</strong> – number of ill-conditioned modes to obtain.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.meshIFCStructuralSurfaces">
+<code class="descname">meshIFCStructuralSurfaces</code><span class="sig-paren">(</span><em>elementType: str</em>, <em>elemSize: float</em>, <em>materialDict</em>, <em>xcSet=None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.meshIFCStructuralSurfaces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate the finite element mesh for the surfaces of the set.
+The surfaces are imported from an IFC file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>elementType</strong> – element type (ShellMIC4,…).</li>
+<li><strong>elemSize</strong> – element size.</li>
+<li><strong>materialDict</strong> – material dictionary.</li>
+<li><strong>xcSet</strong> – set containing the surfaces to mesh.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -698,9 +782,39 @@ combination) to the domain.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.restore">
+<code class="descname">restore</code><span class="sig-paren">(</span><em>flag: int</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.restore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restore the current state from the current database.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flag</strong> – integer indentifier for the state to restore
+in the database.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.predefined_spaces.PredefinedSpace.revertToStart">
 <code class="descname">revertToStart</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.revertToStart" title="Permalink to this definition">¶</a></dt>
 <dd><p>Revert the domain to its initial state..</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.save">
+<code class="descname">save</code><span class="sig-paren">(</span><em>flag: int</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the current state on the current database.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flag</strong> – integer indentifier for the current state
+in the database.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -847,7 +961,7 @@ length element.</li>
 <code class="descname">setFulcrumBetweenNodes</code><span class="sig-paren">(</span><em>nodeTagA: int</em>, <em>pivotNodeTag: int</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.setFulcrumBetweenNodes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a fulcrum between the nodes passed as parameters.</p>
 <p>Creates a rigid link between the nodes.
-It’s called fulcrum because it’s pinned on pivotNode.</p>
+It’s called fulcrum because it’s pinned on pivotNodeTag.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />

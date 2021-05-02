@@ -326,6 +326,9 @@ we compare only values of the component in first node of the elements</p>
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><strong>setToDisp</strong> – set to display.</li>
 <li><strong>component</strong> – component to display.</li>
+<li><strong>dictActLoadVectors</strong> – dictionary that stores for each 
+linear loaded element the sum of active loads on it
+(defaults to None)</li>
 </ul>
 </td>
 </tr>
@@ -338,8 +341,16 @@ we compare only values of the component in first node of the elements</p>
 
 <dl class="method">
 <dt id="postprocess.xcVtk.diagrams.linear_load_diagram.LinearLoadDiagram.dumpElementalLoads">
-<code class="descname">dumpElementalLoads</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>lp</em>, <em>indxDiagram</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.linear_load_diagram.LinearLoadDiagram.dumpElementalLoads" title="Permalink to this definition">¶</a></dt>
+<code class="descname">dumpElementalLoads</code><span class="sig-paren">(</span><em>actLP</em>, <em>indxDiagram</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.linear_load_diagram.LinearLoadDiagram.dumpElementalLoads" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterate over loaded elements dumping its loads into the graphic.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>actLP</strong> – list of active load patterns.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -353,6 +364,22 @@ we compare only values of the component in first node of the elements</p>
 <code class="descname">getMaxAbsComp</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.linear_load_diagram.LinearLoadDiagram.getMaxAbsComp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the maximum absolute value of the component.
 It is used for calculating auto-scale parameter</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.xcVtk.diagrams.linear_load_diagram.LinearLoadDiagram.sumElementalLoads">
+<code class="descname">sumElementalLoads</code><span class="sig-paren">(</span><em>actLP</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.diagrams.linear_load_diagram.LinearLoadDiagram.sumElementalLoads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over active load patterns and cumulate on elements their elemental loads.
+Returns a dictionary that stores for each linear loaded element the sum of active 
+loads on it</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>actLP</strong> – list of active load patterns.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

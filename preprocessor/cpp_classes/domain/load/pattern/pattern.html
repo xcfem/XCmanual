@@ -15,6 +15,7 @@
     <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
@@ -157,6 +158,12 @@ Create a single-point boundary constraint by assigning a value to the degree of 
 <dd><p>load case description.</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="xc.LoadPattern.gammaF">
+<code class="descname">gammaF</code><a class="headerlink" href="#xc.LoadPattern.gammaF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/set the partial safety factor for this load pattern.</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="xc.LoadPattern.getName">
 <code class="descname">getName</code><span class="sig-paren">(</span><em>(LoadPattern)arg1</em><span class="sig-paren">)</span> &#x2192; str :<a class="headerlink" href="#xc.LoadPattern.getName" title="Permalink to this definition">¶</a></dt>
@@ -193,6 +200,12 @@ Create a single-point boundary constraint by assigning a value to the degree of 
 <dt>C++ signature :</dt>
 <dd>bool isActive(XC::LoadPattern {lvalue})</dd>
 </dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.LoadPattern.loadFactor">
+<code class="descname">loadFactor</code><a class="headerlink" href="#xc.LoadPattern.loadFactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current load factor.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -426,12 +439,32 @@ Possible load types:  beam2d_uniform_load ,  beam2d_point_load , beam_strain_loa
 <em class="property">class </em><code class="descclassname">xc.</code><code class="descname">TimeSeries</code><a class="headerlink" href="#xc.TimeSeries" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">xc_base.CommandEntity</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">xc.MovableObject</span></code></p>
 <dl class="method">
+<dt id="xc.TimeSeries.getDuration">
+<code class="descname">getDuration</code><span class="sig-paren">(</span><em>(TimeSeries)arg1</em><span class="sig-paren">)</span> &#x2192; float :<a class="headerlink" href="#xc.TimeSeries.getDuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns time series duration.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>double getDuration(XC::TimeSeries {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="xc.TimeSeries.getFactor">
 <code class="descname">getFactor</code><span class="sig-paren">(</span><em>(TimeSeries)arg1</em>, <em>(float)arg2</em><span class="sig-paren">)</span> &#x2192; float :<a class="headerlink" href="#xc.TimeSeries.getFactor" title="Permalink to this definition">¶</a></dt>
 <dd><p>getFactor(pseudoTime): get load factor.</p>
 <dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>double getFactor(XC::TimeSeries {lvalue},double)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.TimeSeries.getPeakFactor">
+<code class="descname">getPeakFactor</code><span class="sig-paren">(</span><em>(TimeSeries)arg1</em><span class="sig-paren">)</span> &#x2192; float :<a class="headerlink" href="#xc.TimeSeries.getPeakFactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns time series peak factor</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>double getPeakFactor(XC::TimeSeries {lvalue})</dd>
 </dl>
 </dd></dl>
 

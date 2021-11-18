@@ -15,6 +15,7 @@
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -69,12 +70,12 @@
 <dl class="method">
 <dt id="materials.typical_materials.BasicElasticMaterial.G">
 <code class="descname">G</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.BasicElasticMaterial.G" title="Permalink to this definition">¶</a></dt>
-<dd><p>shear modulus</p>
+<dd><p>shear modulus.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.typical_materials.BasicElasticMaterial.defElasticMaterial">
-<code class="descname">defElasticMaterial</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.BasicElasticMaterial.defElasticMaterial" title="Permalink to this definition">¶</a></dt>
+<code class="descname">defElasticMaterial</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name=None</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.BasicElasticMaterial.defElasticMaterial" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Return an elastic material appropiate for example for</dt>
 <dd>truss elements</dd>
@@ -83,7 +84,12 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor of the finite element problem.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – preprocessor of the finite element problem.</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -133,8 +139,20 @@ shear modulus and mass density of the material</li>
 
 <dl class="method">
 <dt id="materials.typical_materials.BeamMaterialData.setupElasticShear3DSection">
-<code class="descname">setupElasticShear3DSection</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.BeamMaterialData.setupElasticShear3DSection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return an elastic section appropiate for 3D beam linear elastic analysis</p>
+<code class="descname">setupElasticShear3DSection</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.BeamMaterialData.setupElasticShear3DSection" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return an elastic section appropiate for 3D beam linear </dt>
+<dd>elastic analysis.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -166,8 +184,24 @@ shear modulus and mass density of the material</li>
 
 <dl class="method">
 <dt id="materials.typical_materials.DeckMaterialData.setupElasticSection">
-<code class="descname">setupElasticSection</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.DeckMaterialData.setupElasticSection" title="Permalink to this definition">¶</a></dt>
-<dd><p>create an elastic isotropic section appropiate for plate and shell analysis</p>
+<code class="descname">setupElasticSection</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.DeckMaterialData.setupElasticSection" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>create an elastic isotropic section appropiate for plate </dt>
+<dd>and shell analysis.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – preprocessor of the finite element problem.</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -206,8 +240,7 @@ to taught (linear with modulus E).</p>
 <li><strong>name</strong> – name identifying the material</li>
 <li><strong>E</strong> – elastic modulus</li>
 <li><strong>prestress</strong> – prestress</li>
-<li><strong>rho</strong> – effective self weight (gravity component of weight per 
-volume transverse to the cable)</li>
+<li><strong>rho</strong> – mass density</li>
 </ul>
 </td>
 </tr>
@@ -241,7 +274,7 @@ the work of Karsan-Jirsa and no tensile strength</p>
 
 <dl class="function">
 <dt id="materials.typical_materials.defConcrete02">
-<code class="descclassname">materials.typical_materials.</code><code class="descname">defConcrete02</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>epsc0</em>, <em>fpc</em>, <em>fpcu</em>, <em>epscu</em>, <em>ratioSlope</em>, <em>ft</em>, <em>Ets</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defConcrete02" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">materials.typical_materials.</code><code class="descname">defConcrete02</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>epsc0</em>, <em>fpc</em>, <em>fpcu</em>, <em>epscu</em>, <em>ratioSlope=0.1</em>, <em>ft=None</em>, <em>Ets=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defConcrete02" title="Permalink to this definition">¶</a></dt>
 <dd><p>‘Constructs an uniaxial concrete material with linear tension
 softening. Compressive concrete parameters should be input as negative values.
 The initial slope for this model is (2*fpc/epsc0)</p>
@@ -256,9 +289,9 @@ The initial slope for this model is (2*fpc/epsc0)</p>
 <li><strong>fpc</strong> – concrete compressive strength at 28 days (compression is negative)</li>
 <li><strong>fpcu</strong> – concrete crushing strength</li>
 <li><strong>epscu</strong> – concrete strain at crushing strength</li>
-<li><strong>ratioSlope</strong> – ratio between unloading slope at epscu and initial slope</li>
-<li><strong>ft</strong> – tensile strength</li>
-<li><strong>Ets</strong> – tension softening stiffness (absolute value) (slope of the linear tension softening branch)</li>
+<li><strong>ratioSlope</strong> – ratio between unloading slope at epscu and initial slope (defaults to 0.1).</li>
+<li><strong>ft</strong> – tensile strength (defaults to None in which case the value is set to -0.1*fpc)</li>
+<li><strong>Ets</strong> – tension softening stiffness (absolute value) (slope of the linear tension softening branch) (defaults to None in which case the value is set to 0.1*fpc/epsc0)</li>
 </ul>
 </td>
 </tr>
@@ -287,7 +320,7 @@ The initial slope for this model is (2*fpc/epsc0)</p>
 
 <dl class="function">
 <dt id="materials.typical_materials.defElasticIsotropic3d">
-<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticIsotropic3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>E</em>, <em>nu</em>, <em>rho</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticIsotropic3d" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticIsotropic3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>E</em>, <em>nu</em>, <em>rho=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticIsotropic3d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs an linear elastic isotropic 3D material.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -308,7 +341,7 @@ The initial slope for this model is (2*fpc/epsc0)</p>
 
 <dl class="function">
 <dt id="materials.typical_materials.defElasticIsotropicPlaneStrain">
-<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticIsotropicPlaneStrain</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>E</em>, <em>nu</em>, <em>rho</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticIsotropicPlaneStrain" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticIsotropicPlaneStrain</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>E</em>, <em>nu</em>, <em>rho=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticIsotropicPlaneStrain" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs an linear elastic isotropic plane-strain material.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -329,7 +362,7 @@ The initial slope for this model is (2*fpc/epsc0)</p>
 
 <dl class="function">
 <dt id="materials.typical_materials.defElasticIsotropicPlaneStress">
-<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticIsotropicPlaneStress</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>E</em>, <em>nu</em>, <em>rho</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticIsotropicPlaneStress" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticIsotropicPlaneStress</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>E</em>, <em>nu</em>, <em>rho=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticIsotropicPlaneStress" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs an linear elastic isotropic plane-stress material.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -350,7 +383,7 @@ The initial slope for this model is (2*fpc/epsc0)</p>
 
 <dl class="function">
 <dt id="materials.typical_materials.defElasticMaterial">
-<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticMaterial</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>E</em>, <em>rho=0.0</em>, <em>nu=0.3</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticMaterial" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticMaterial</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name: str</em>, <em>E: float</em>, <em>rho=0.0</em>, <em>nu=0.3</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticMaterial" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs an elastic uniaxial material.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -360,6 +393,9 @@ The initial slope for this model is (2*fpc/epsc0)</p>
 <li><strong>preprocessor</strong> – preprocessor of the finite element problem.</li>
 <li><strong>name</strong> – name identifying the material</li>
 <li><strong>E</strong> – tangent in the stress-strain diagram</li>
+<li><strong>rho</strong> – mass density</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
 </ul>
 </td>
 </tr>
@@ -369,7 +405,7 @@ The initial slope for this model is (2*fpc/epsc0)</p>
 
 <dl class="function">
 <dt id="materials.typical_materials.defElasticMembranePlateSection">
-<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticMembranePlateSection</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>E</em>, <em>nu</em>, <em>rho</em>, <em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticMembranePlateSection" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticMembranePlateSection</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name: str</em>, <em>E: float</em>, <em>nu: float</em>, <em>rho: float</em>, <em>h: float</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticMembranePlateSection" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Constructs an elastic isotropic section material appropiate </dt>
 <dd>for plate and shell analysis.</dd>
@@ -451,7 +487,7 @@ The initial slope for this model is (2*fpc/epsc0)</p>
 <li><strong>name</strong> – name identifying the section</li>
 <li><strong>A</strong> – cross-sectional area of the section</li>
 <li><strong>E</strong> – Young’s modulus of material</li>
-<li><strong>I</strong> – second moment of area about the local z-axis</li>
+<li><strong>linearRho</strong> – mass per unit length.</li>
 </ul>
 </td>
 </tr>
@@ -473,6 +509,7 @@ The initial slope for this model is (2*fpc/epsc0)</p>
 <li><strong>A</strong> – cross-sectional area of the section</li>
 <li><strong>E</strong> – Young’s modulus of material</li>
 <li><strong>I</strong> – second moment of area about the local z-axis</li>
+<li><strong>linearRho</strong> – mass per unit length.</li>
 </ul>
 </td>
 </tr>
@@ -497,6 +534,7 @@ The initial slope for this model is (2*fpc/epsc0)</p>
 <li><strong>Iz</strong> – second moment of area about the local z-axis</li>
 <li><strong>Iy</strong> – second moment of area about the local y-axis</li>
 <li><strong>J</strong> – torsional moment of inertia of the section</li>
+<li><strong>linearRho</strong> – mass per unit length.</li>
 </ul>
 </td>
 </tr>
@@ -506,7 +544,7 @@ The initial slope for this model is (2*fpc/epsc0)</p>
 
 <dl class="function">
 <dt id="materials.typical_materials.defElasticSectionFromMechProp1d">
-<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticSectionFromMechProp1d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>mechProp1d</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticSectionFromMechProp1d" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticSectionFromMechProp1d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>mechProp1d</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticSectionFromMechProp1d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs an elastic section appropiate for 1D beam analysis, 
 taking mechanical properties of the section form a MechProp1d object.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -518,6 +556,8 @@ taking mechanical properties of the section form a MechProp1d object.</p>
 <li><strong>name</strong> – name identifying the section</li>
 <li><strong>mechProp1d</strong> – object of type MechProp1d that contains the mechanical 
 properties of the section</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
 </ul>
 </td>
 </tr>
@@ -527,7 +567,7 @@ properties of the section</li>
 
 <dl class="function">
 <dt id="materials.typical_materials.defElasticSectionFromMechProp2d">
-<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticSectionFromMechProp2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>mechProp2d</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticSectionFromMechProp2d" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticSectionFromMechProp2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>mechProp2d</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticSectionFromMechProp2d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs an elastic section appropiate for 2D beam analysis, 
 taking mechanical properties of the section form a MechProp2d object.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -539,6 +579,8 @@ taking mechanical properties of the section form a MechProp2d object.</p>
 <li><strong>name</strong> – name identifying the section</li>
 <li><strong>mechProp2d</strong> – object of type MechProp2d that contains the mechanical 
 properties of the section</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
 </ul>
 </td>
 </tr>
@@ -548,7 +590,7 @@ properties of the section</li>
 
 <dl class="function">
 <dt id="materials.typical_materials.defElasticSectionFromMechProp3d">
-<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticSectionFromMechProp3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>mechProp3d</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticSectionFromMechProp3d" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticSectionFromMechProp3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>mechProp3d</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticSectionFromMechProp3d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs an elastic section appropiate for 3D beam analysis, 
 taking mechanical properties of the section form a MechProp3d object.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -560,6 +602,8 @@ taking mechanical properties of the section form a MechProp3d object.</p>
 <li><strong>name</strong> – name identifying the section</li>
 <li><strong>mechProp2d</strong> – instance of the class MechProp3d that contains the 
 mechanical properties of the section</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
 </ul>
 </td>
 </tr>
@@ -582,8 +626,9 @@ including shear deformations.</p>
 <li><strong>A</strong> – cross-sectional area of the section</li>
 <li><strong>E</strong> – Young’s modulus of the material</li>
 <li><strong>G</strong> – Shear modulus of the material</li>
-<li><strong>I</strong> – second moment of area about the local z-axis
-:param alpha:        shear shape factor</li>
+<li><strong>I</strong> – second moment of area about the local z-axis</li>
+<li><strong>alpha</strong> – shear shape factor</li>
+<li><strong>linearRho</strong> – mass per unit length.</li>
 </ul>
 </td>
 </tr>
@@ -593,7 +638,7 @@ including shear deformations.</p>
 
 <dl class="function">
 <dt id="materials.typical_materials.defElasticShearSection3d">
-<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticShearSection3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>A</em>, <em>E</em>, <em>G</em>, <em>Iz</em>, <em>Iy</em>, <em>J</em>, <em>alpha</em>, <em>linearRho=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticShearSection3d" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticShearSection3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>A</em>, <em>E</em>, <em>G</em>, <em>Iz</em>, <em>Iy</em>, <em>J</em>, <em>alpha_y</em>, <em>alpha_z</em>, <em>linearRho=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticShearSection3d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs an elastic section appropiate for 3D beam analysis, 
 including shear deformations.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -609,7 +654,55 @@ including shear deformations.</p>
 <li><strong>Iz</strong> – second moment of area about the local z-axis</li>
 <li><strong>Iy</strong> – second moment of area about the local y-axis</li>
 <li><strong>J</strong> – torsional moment of inertia of the section</li>
-<li><strong>alpha</strong> – shear shape factor</li>
+<li><strong>alpha_y</strong> – shear shape factor on y axis.</li>
+<li><strong>alpha_z</strong> – shear shape factor on z axis.</li>
+<li><strong>linearRho</strong> – mass per unit length.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.typical_materials.defElasticShearSectionFromMechProp2d">
+<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticShearSectionFromMechProp2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>mechProp2d</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticShearSectionFromMechProp2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs an elastic section appropiate for 2D beam analysis, 
+taking mechanical properties of the section form a MechProp2d object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – preprocessor of the finite element problem.</li>
+<li><strong>name</strong> – name identifying the section</li>
+<li><strong>mechProp2d</strong> – object of type MechProp2d that contains the mechanical 
+properties of the section</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.typical_materials.defElasticShearSectionFromMechProp3d">
+<code class="descclassname">materials.typical_materials.</code><code class="descname">defElasticShearSectionFromMechProp3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>mechProp3d</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defElasticShearSectionFromMechProp3d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs an elastic section appropiate for 3D beam analysis, 
+taking mechanical properties of the section form a MechProp3d object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – preprocessor of the finite element problem.</li>
+<li><strong>name</strong> – name identifying the section</li>
+<li><strong>mechProp2d</strong> – instance of the class MechProp3d that contains the 
+mechanical properties of the section</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
 </ul>
 </td>
 </tr>
@@ -636,7 +729,7 @@ including shear deformations.</p>
 <li><strong>fy</strong> – material yield stress.</li>
 <li><strong>alpha</strong> – strain hardening ratio (default: (0.01), 
 range: 0 to 1).</li>
-<li><strong>rho</strong> – mass density</li>
+<li><strong>rho</strong> – mass density (defaults to 0.0).</li>
 </ul>
 </td>
 </tr>
@@ -646,7 +739,7 @@ range: 0 to 1).</li>
 
 <dl class="function">
 <dt id="materials.typical_materials.defMembranePlateFiberSection">
-<code class="descclassname">materials.typical_materials.</code><code class="descname">defMembranePlateFiberSection</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>nDMaterial</em>, <em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defMembranePlateFiberSection" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">materials.typical_materials.</code><code class="descname">defMembranePlateFiberSection</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name: str</em>, <em>nDMaterial</em>, <em>h: float</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.typical_materials.defMembranePlateFiberSection" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Constructs a membrane plate fiber section appropiate </dt>
 <dd>for plate and shell analysis.</dd>
@@ -844,14 +937,22 @@ corresponds to a concrete01 material (zero tensile strength).</p>
 
 <dl class="method">
 <dt id="materials.concrete_base.Concrete.defElasticMaterial">
-<code class="descname">defElasticMaterial</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.defElasticMaterial" title="Permalink to this definition">¶</a></dt>
-<dd><p>Constructs an elastic uniaxial material appropiate 
-for analysis of trusses.</p>
+<code class="descname">defElasticMaterial</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name: str = None</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.defElasticMaterial" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Constructs an elastic uniaxial material appropiate </dt>
+<dd>for analysis of trusses.</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor object.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – preprocessor of the finite element problem.</li>
+<li><strong>name</strong> – name for the new material.</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -859,7 +960,7 @@ for analysis of trusses.</p>
 
 <dl class="method">
 <dt id="materials.concrete_base.Concrete.defElasticMembranePlateSection">
-<code class="descname">defElasticMembranePlateSection</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>thickness</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.defElasticMembranePlateSection" title="Permalink to this definition">¶</a></dt>
+<code class="descname">defElasticMembranePlateSection</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>thickness</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.defElasticMembranePlateSection" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Constructs an elastic isotropic section material appropiate </dt>
 <dd>for elastic analysis of plate and shell elements</dd>
@@ -869,9 +970,11 @@ for analysis of trusses.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>preprocessor</strong> – preprocessor object.</li>
+<li><strong>preprocessor</strong> – preprocessor of the finite element problem.</li>
 <li><strong>name</strong> – name identifying the section</li>
 <li><strong>thickness</strong> – section thickness.</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
 </ul>
 </td>
 </tr>
@@ -881,7 +984,7 @@ for analysis of trusses.</p>
 
 <dl class="method">
 <dt id="materials.concrete_base.Concrete.defElasticPlateSection">
-<code class="descname">defElasticPlateSection</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>thickness</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.defElasticPlateSection" title="Permalink to this definition">¶</a></dt>
+<code class="descname">defElasticPlateSection</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>name</em>, <em>thickness</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.defElasticPlateSection" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Constructs an elastic isotropic section material appropiate </dt>
 <dd>for elastic analysis of plate elements.</dd>
@@ -891,9 +994,11 @@ for analysis of trusses.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>preprocessor</strong> – preprocessor object.</li>
-<li><strong>name</strong> – name identifying the section</li>
+<li><strong>preprocessor</strong> – preprocessor of the finite element problem.</li>
+<li><strong>name</strong> – name identifying the new section.</li>
 <li><strong>thickness</strong> – section thickness.</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
 </ul>
 </td>
 </tr>
@@ -903,7 +1008,7 @@ for analysis of trusses.</p>
 
 <dl class="method">
 <dt id="materials.concrete_base.Concrete.defElasticSection2d">
-<code class="descname">defElasticSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>sectionProperties</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.defElasticSection2d" title="Permalink to this definition">¶</a></dt>
+<code class="descname">defElasticSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>sectionProperties</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.defElasticSection2d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs an elastic section material appropiate 
 for elastic analysis of 2D beam elements.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -911,8 +1016,10 @@ for elastic analysis of 2D beam elements.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>preprocessor</strong> – preprocessor object.</li>
+<li><strong>preprocessor</strong> – preprocessor of the finite element problem.</li>
 <li><strong>sectionProperties</strong> – mass properties of the section.</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
 </ul>
 </td>
 </tr>
@@ -922,7 +1029,7 @@ for elastic analysis of 2D beam elements.</p>
 
 <dl class="method">
 <dt id="materials.concrete_base.Concrete.defElasticSection3d">
-<code class="descname">defElasticSection3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>sectionProperties</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.defElasticSection3d" title="Permalink to this definition">¶</a></dt>
+<code class="descname">defElasticSection3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>sectionProperties</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.defElasticSection3d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs an elastic section material appropiate 
 for elastic analysis of 3D beam elements.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -930,8 +1037,10 @@ for elastic analysis of 3D beam elements.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>preprocessor</strong> – preprocessor object.</li>
+<li><strong>preprocessor</strong> – preprocessor of the finite element problem.</li>
 <li><strong>sectionProperties</strong> – mass properties of the section.</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
 </ul>
 </td>
 </tr>
@@ -941,7 +1050,7 @@ for elastic analysis of 3D beam elements.</p>
 
 <dl class="method">
 <dt id="materials.concrete_base.Concrete.defElasticShearSection2d">
-<code class="descname">defElasticShearSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>sectionProperties</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.defElasticShearSection2d" title="Permalink to this definition">¶</a></dt>
+<code class="descname">defElasticShearSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>sectionProperties</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.defElasticShearSection2d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs an elastic section material appropiate 
 for elastic analysis of 2D beam elements including shear
 deformations.</p>
@@ -950,8 +1059,10 @@ deformations.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>preprocessor</strong> – preprocessor object.</li>
+<li><strong>preprocessor</strong> – preprocessor of the finite element problem.</li>
 <li><strong>sectionProperties</strong> – mass properties of the section.</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
 </ul>
 </td>
 </tr>
@@ -961,7 +1072,7 @@ deformations.</p>
 
 <dl class="method">
 <dt id="materials.concrete_base.Concrete.defElasticShearSection3d">
-<code class="descname">defElasticShearSection3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>sectionProperties</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.defElasticShearSection3d" title="Permalink to this definition">¶</a></dt>
+<code class="descname">defElasticShearSection3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>sectionProperties</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.defElasticShearSection3d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs an elastic section material appropiate 
 for elastic analysis of 3D beam elements including shear
 deformations.</p>
@@ -970,8 +1081,10 @@ deformations.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>preprocessor</strong> – preprocessor object.</li>
+<li><strong>preprocessor</strong> – preprocessor of the finite element problem.</li>
 <li><strong>sectionProperties</strong> – mass properties of the section.</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
 </ul>
 </td>
 </tr>
@@ -1209,8 +1322,17 @@ on the notional creep coefficient
 
 <dl class="method">
 <dt id="materials.concrete_base.Concrete.getElasticMaterialData">
-<code class="descname">getElasticMaterialData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getElasticMaterialData" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getElasticMaterialData</code><span class="sig-paren">(</span><em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.Concrete.getElasticMaterialData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the elastic material constitutive model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -1543,7 +1665,7 @@ for the calculation of the drying shrinkage strain
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><strong>fpk</strong> – Elastic limit.</li>
 <li><strong>fmax</strong> – Steel strength.</li>
-<li><a class="reference internal" href="actions.quake.html#actions.quake.seismeSIA.alpha" title="actions.quake.seismeSIA.alpha"><strong>alpha</strong></a> – stress-to-strength ratio.</li>
+<li><a class="reference internal" href="../../miscellany/roughCalcGenTopics.html#rough_calculations.masonry_vault.FillingCharacteristics.alpha" title="rough_calculations.masonry_vault.FillingCharacteristics.alpha"><strong>alpha</strong></a> – stress-to-strength ratio.</li>
 <li><strong>steelRelaxationClass</strong> – Relaxation class 1: normal, 2: improved, 
 and 3: relaxation for bars.</li>
 <li><strong>tendonClass</strong> – Tendon class wire, strand or bar.</li>
@@ -1815,6 +1937,30 @@ theoretical law defined in Python (see tangc()).</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="materials.concrete_base.createInteractionDiagram">
+<code class="descclassname">materials.concrete_base.</code><code class="descname">createInteractionDiagram</code><span class="sig-paren">(</span><em>materialHandler</em>, <em>concreteDiagram</em>, <em>steelDiagram</em>, <em>concreteSection</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.createInteractionDiagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the three-dimensional interaction Diagram for the section.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>materiaHandler</strong> – material handler.</li>
+<li><strong>concreteDiagram</strong> – diagram for concrete material.</li>
+<li><strong>concreteSection</strong> – concrete section to compute the interaction
+diagram for.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Parma steelDiagram:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first last">diagram for steel material.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
 <dt id="materials.concrete_base.defDiagDConcrete">
 <code class="descclassname">materials.concrete_base.</code><code class="descname">defDiagDConcrete</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>concreteRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.defDiagDConcrete" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -1928,13 +2074,15 @@ post-cracking range, passings through the point (eps_ct,f_ct) [point of concrete
 <dl class="function">
 <dt id="materials.concrete_base.sigmaDReinfSteel">
 <code class="descclassname">materials.concrete_base.</code><code class="descname">sigmaDReinfSteel</code><span class="sig-paren">(</span><em>eps</em>, <em>matRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.sigmaDReinfSteel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Design stress-strain diagram for reinforcing steel, according to EC2.</p>
+<dd><p>Design stress-strain diagram for reinforcing steel, 
+according to EC2.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="materials.concrete_base.sigmaKReinfSteel">
 <code class="descclassname">materials.concrete_base.</code><code class="descname">sigmaKReinfSteel</code><span class="sig-paren">(</span><em>eps</em>, <em>matRecord</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.concrete_base.sigmaKReinfSteel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Characteristic stress-strain diagram for reinforcing steel, according to EC2.</p>
+<dd><p>Characteristic stress-strain diagram for reinforcing steel, 
+according to EC2.</p>
 </dd></dl>
 
 <dl class="function">
@@ -2213,96 +2361,8 @@ Makes easier export it to json.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-materials.buckling_base">
-<span id="buckling-base"></span><h1>Buckling base<a class="headerlink" href="#module-materials.buckling_base" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="materials.buckling_base.MemberBase">
-<em class="property">class </em><code class="descclassname">materials.buckling_base.</code><code class="descname">MemberBase</code><span class="sig-paren">(</span><em>name</em>, <em>shape</em>, <em>lstLines=None</em>, <em>lstPoints=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.buckling_base.MemberBase" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Base class for steel members.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – object name.</li>
-<li><strong>shape</strong> – cross-section shape (e.g. IPNShape, IPEShape, …)</li>
-<li><a class="reference internal" href="../cpp_classes/preprocessor/set_mgmt/set_mgmt.html#xc.lstLines" title="xc.lstLines"><strong>lstLines</strong></a> – ordered list of lines that make up the beam 
-(defaults to None).</li>
-<li><strong>lstPoints</strong> – ordered list of points that make up the beam. Ignored if 
-lstLines is given (defaults to None)</li>
-<li><strong>contrPnt</strong> – control points along the beam.</li>
-<li><strong>elemSet</strong> – elements along the beam.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="materials.buckling_base.MemberBase.createElementSet">
-<code class="descname">createElementSet</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.buckling_base.MemberBase.createElementSet" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create the attributes ‘length’ and ‘elemSet’ that 
-represent the length of the beam and the set of elements included in it.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.buckling_base.MemberBase.getBendingMomentsAtControlPoints">
-<code class="descname">getBendingMomentsAtControlPoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.buckling_base.MemberBase.getBendingMomentsAtControlPoints" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the bending moments at control points.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.buckling_base.MemberBase.getPreprocessor">
-<code class="descname">getPreprocessor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.buckling_base.MemberBase.getPreprocessor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the XC preprocessor.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.buckling_base.MemberBase.setControlPoints">
-<code class="descname">setControlPoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.buckling_base.MemberBase.setControlPoints" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the five equally spaced points in the beam where the moment Mz 
-will be evaluated in order to obtain the moment gradient factor 
-involved in the calculation of the lateral-torsional buckling reduction 
-factor.</p>
-<p>An attribute of member is created, named ‘contrPnt’ that contains 
-a list of five tuples (elem,relativDist), each of which contains the
-element of the beam nearest to one control-point and the relative 
-distance from this control point to the first node of the element.
-The method also creates the attributes ‘length’ and ‘elemSet’ that 
-represent the length of the beam and the set of elements included in it.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="materials.buckling_base.MemberConnection">
-<em class="property">class </em><code class="descclassname">materials.buckling_base.</code><code class="descname">MemberConnection</code><span class="sig-paren">(</span><em>rotI='free'</em>, <em>transI='fixed'</em>, <em>rotJ='free'</em>, <em>transJ='fixed'</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.buckling_base.MemberConnection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Member connection</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>rotI</strong> – fixity of the rotation at member start.</li>
-<li><strong>transI</strong> – fixity of the translation at member start.</li>
-<li><strong>rotJ</strong> – fixity of the rotation at member end.</li>
-<li><strong>transJ</strong> – fixity of the translation at member end.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="materials.buckling_base.MemberConnection.getEffectiveBucklingLengthCoefficientRecommended">
-<code class="descname">getEffectiveBucklingLengthCoefficientRecommended</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.buckling_base.MemberConnection.getEffectiveBucklingLengthCoefficientRecommended" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the effective length factor
-according to table C-A-7.1 or AISC specification
-and NDS 2018 appendix G</p>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="buckling-base">
+<h1>Buckling base<a class="headerlink" href="#buckling-base" title="Permalink to this headline">¶</a></h1>
 </div>
 <div class="section" id="module-materials.bridge_bearings">
 <span id="bridge-bearings"></span><h1>Bridge bearings<a class="headerlink" href="#module-materials.bridge_bearings" title="Permalink to this headline">¶</a></h1>
@@ -2538,8 +2598,26 @@ parallel to the lintel by the center of the bearing.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="materials.bridge_bearings.ElastomericBearing.putAsSupport">
+<code class="descname">putAsSupport</code><span class="sig-paren">(</span><em>modelSpace</em>, <em>iNod: int</em>, <em>orientation=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.putAsSupport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Puts the bearing between the nodes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>(</strong><strong>:obj:'PredefinedSpace'</strong><strong>)</strong> (<em>modelSpace</em>) – space dimension and number of DOFs.</li>
+<li><strong>(</strong><strong>int</strong><strong>)</strong> (<em>iNod</em>) – node to support.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.bridge_bearings.ElastomericBearing.putBetweenNodes">
-<code class="descname">putBetweenNodes</code><span class="sig-paren">(</span><em>modelSpace</em>, <em>iNodA</em>, <em>iNodB</em>, <em>orientation=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.putBetweenNodes" title="Permalink to this definition">¶</a></dt>
+<code class="descname">putBetweenNodes</code><span class="sig-paren">(</span><em>modelSpace</em>, <em>iNodA: int</em>, <em>iNodB: int</em>, <em>orientation=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.bridge_bearings.ElastomericBearing.putBetweenNodes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Puts the bearing between the nodes.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2751,7 +2829,7 @@ mov= 20e-3 Displacement when the friction force is reached.</p>
 <li><a class="reference internal" href="#module-materials.concrete_base">Concrete base</a></li>
 <li><a class="reference internal" href="#module-materials.limit_state_checking_base">Limit state checking base</a></li>
 <li><a class="reference internal" href="#module-materials.steel_base">Steel base</a></li>
-<li><a class="reference internal" href="#module-materials.buckling_base">Buckling base</a></li>
+<li><a class="reference internal" href="#buckling-base">Buckling base</a></li>
 <li><a class="reference internal" href="#module-materials.bridge_bearings">Bridge bearings</a></li>
 </ul>
 

@@ -15,6 +15,7 @@
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -51,7 +52,7 @@
 <span id="default-configuration"></span><h2>Default configuration<a class="headerlink" href="#module-postprocess.config.default_config" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="postprocess.config.default_config.EnvConfig">
-<em class="property">class </em><code class="descclassname">postprocess.config.default_config.</code><code class="descname">EnvConfig</code><span class="sig-paren">(</span><em>language='english'</em>, <em>intForcPath='results/internalForces/'</em>, <em>verifPath='results/verifications/'</em>, <em>reportPath='./'</em>, <em>resultsPath='annex/'</em>, <em>grWidth='\linewidth'</em>, <em>fNameMark='env_config.py'</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.EnvConfig" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">postprocess.config.default_config.</code><code class="descname">EnvConfig</code><span class="sig-paren">(</span><em>language='english'</em>, <em>resultsPath='tmp_results/'</em>, <em>intForcPath='internalForces/'</em>, <em>verifPath='verifications/'</em>, <em>reportPath='./'</em>, <em>reportResultsPath='annex/'</em>, <em>grWidth='\linewidth'</em>, <em>fNameMark='env_config.py'</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.EnvConfig" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="postprGenTopics.html#postprocess.output_styles.OutputStyle" title="postprocess.output_styles.OutputStyle"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.output_styles.OutputStyle</span></code></a></p>
 <p>Generic configuration of XC environment variables.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -62,11 +63,55 @@
 </tr>
 </tbody>
 </table>
+<dl class="method">
+<dt id="postprocess.config.default_config.EnvConfig.makedirs">
+<code class="descname">makedirs</code><span class="sig-paren">(</span><em>pth</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.EnvConfig.makedirs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Recursive directory creation function. Like mkdir(), but </dt>
+<dd><blockquote class="first">
+<div>makes all intermediate-level directories needed to contain</div></blockquote>
+<p class="last">the leaf directory.</p>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – the path to create.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.config.default_config.EnvConfig.open">
+<code class="descname">open</code><span class="sig-paren">(</span><em>fileName</em>, <em>mode='r'</em>, <em>buffering=-1</em>, <em>encoding=None</em>, <em>errors=None</em>, <em>newline=None</em>, <em>closefd=True</em>, <em>opener=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.EnvConfig.open" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open file and return a corresponding file object..</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fileName</strong> – the path and name of the file.</li>
+<li><strong>mode</strong> – see Python documentation for open built-in function.</li>
+<li><strong>bufferting</strong> – see Python documentation for open built-in function.</li>
+<li><strong>encoding</strong> – see Python documentation for open built-in function.</li>
+<li><strong>errors</strong> – see Python documentation for open built-in function.</li>
+<li><strong>newline</strong> – see Python documentation for open built-in function.</li>
+<li><strong>closefd</strong> – see Python documentation for open built-in function.</li>
+<li><strong>opener</strong> – see Python documentation for open built-in function.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="postprocess.config.default_config.ProjectDirTree">
-<em class="property">class </em><code class="descclassname">postprocess.config.default_config.</code><code class="descname">ProjectDirTree</code><span class="sig-paren">(</span><em>intForcPath</em>, <em>verifPath</em>, <em>reportPath</em>, <em>resultsPath</em>, <em>fNameMark='env_config.py'</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">postprocess.config.default_config.</code><code class="descname">ProjectDirTree</code><span class="sig-paren">(</span><em>resultsPath</em>, <em>intForcPath</em>, <em>verifPath</em>, <em>reportPath</em>, <em>reportResultsPath</em>, <em>fNameMark='env_config.py'</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Paths to project directories.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -86,7 +131,7 @@ files are placed</li>
 </tbody>
 </table>
 <dl class="docutils">
-<dt>:ivar resultsPath <span class="classifier-delimiter">:</span> <span class="classifier">relative path from reportPath of the directory where to place  </span></dt>
+<dt>:ivar reportResultsPath <span class="classifier-delimiter">:</span> <span class="classifier">relative path from reportPath of the directory where to place  </span></dt>
 <dd>graphic and text files to be included in the report</dd>
 </dl>
 <dl class="method">
@@ -96,9 +141,23 @@ files are placed</li>
 </dd></dl>
 
 <dl class="method">
+<dt id="postprocess.config.default_config.ProjectDirTree.getFullConnectionsResultsPath">
+<code class="descname">getFullConnectionsResultsPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getFullConnectionsResultsPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the relative path for the fatigue verification
+graphics files.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="postprocess.config.default_config.ProjectDirTree.getFullGraphicsPath">
 <code class="descname">getFullGraphicsPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getFullGraphicsPath" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the full path for the graphic files.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.config.default_config.ProjectDirTree.getFullReactionsResultsPath">
+<code class="descname">getFullReactionsResultsPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getFullReactionsResultsPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the relative path for the fatigue verification
+graphics files.</p>
 </dd></dl>
 
 <dl class="method">
@@ -108,9 +167,16 @@ files are placed</li>
 </dd></dl>
 
 <dl class="method">
+<dt id="postprocess.config.default_config.ProjectDirTree.getFullResultsPath">
+<code class="descname">getFullResultsPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getFullResultsPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the full path for the files that contains
+results.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="postprocess.config.default_config.ProjectDirTree.getFullVerifPath">
 <code class="descname">getFullVerifPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getFullVerifPath" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the path for the limit state checking files.</p>
+<dd><p>Return the full path for the limit state checking files.</p>
 </dd></dl>
 
 <dl class="method">
@@ -124,6 +190,13 @@ the internal forces.</p>
 <dt id="postprocess.config.default_config.ProjectDirTree.getPathList">
 <code class="descname">getPathList</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getPathList" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create the project directory tree.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.config.default_config.ProjectDirTree.getReactionsResultsPath">
+<code class="descname">getReactionsResultsPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getReactionsResultsPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the path for the files that contains
+the reactions.</p>
 </dd></dl>
 
 <dl class="method">
@@ -296,9 +369,23 @@ graphics files.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="postprocess.config.default_config.ProjectDirTree.getRltvConnectionsResultsPath">
+<code class="descname">getRltvConnectionsResultsPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getRltvConnectionsResultsPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the relative path for the fatigue verification
+graphics files.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="postprocess.config.default_config.ProjectDirTree.getRltvGraphicsPath">
 <code class="descname">getRltvGraphicsPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getRltvGraphicsPath" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the relative path for the graphic files.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.config.default_config.ProjectDirTree.getRltvReactionsResultsPath">
+<code class="descname">getRltvReactionsResultsPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getRltvReactionsResultsPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the relative path for the fatigue verification
+graphics files.</p>
 </dd></dl>
 
 <dl class="method">
@@ -367,6 +454,13 @@ graphics files.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="postprocess.config.default_config.ProjectDirTree.getRltvResultsPath">
+<code class="descname">getRltvResultsPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getRltvResultsPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the relative path for the files that contains
+results.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="postprocess.config.default_config.ProjectDirTree.getVerifCrackFreqFile">
 <code class="descname">getVerifCrackFreqFile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.getVerifCrackFreqFile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the path of the crack verification
@@ -423,6 +517,85 @@ results file.</p>
 results file.</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="postprocess.config.default_config.ProjectDirTree.makedirs">
+<code class="descname">makedirs</code><span class="sig-paren">(</span><em>pth</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.makedirs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Recursive directory creation function. Like mkdir(), but </dt>
+<dd><blockquote class="first">
+<div>makes all intermediate-level directories needed to contain</div></blockquote>
+<p class="last">the leaf directory.</p>
+</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – the path to create.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="postprocess.config.default_config.ProjectDirTree.open">
+<code class="descname">open</code><span class="sig-paren">(</span><em>fileName</em>, <em>mode='r'</em>, <em>buffering=-1</em>, <em>encoding=None</em>, <em>errors=None</em>, <em>newline=None</em>, <em>closefd=True</em>, <em>opener=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.ProjectDirTree.open" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open file and return a corresponding file object..</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fileName</strong> – the path and name of the file.</li>
+<li><strong>mode</strong> – see Python documentation for open built-in function.</li>
+<li><strong>bufferting</strong> – see Python documentation for open built-in function.</li>
+<li><strong>encoding</strong> – see Python documentation for open built-in function.</li>
+<li><strong>errors</strong> – see Python documentation for open built-in function.</li>
+<li><strong>newline</strong> – see Python documentation for open built-in function.</li>
+<li><strong>closefd</strong> – see Python documentation for open built-in function.</li>
+<li><strong>opener</strong> – see Python documentation for open built-in function.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="postprocess.config.default_config.findDirectoryUpwards">
+<code class="descclassname">postprocess.config.default_config.</code><code class="descname">findDirectoryUpwards</code><span class="sig-paren">(</span><em>fNameMark: str</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.findDirectoryUpwards" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Search upwards to find the directory where the file</dt>
+<dd>argument is.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fNameMark</strong> – name of the file that marks the directory
+we are searching for.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="postprocess.config.default_config.findProjectDirectory">
+<code class="descclassname">postprocess.config.default_config.</code><code class="descname">findProjectDirectory</code><span class="sig-paren">(</span><em>fNameMark='.git'</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.config.default_config.findProjectDirectory" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Search upwards to find the directory where the file</dt>
+<dd>argument is.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fNameMark</strong> – name of the file that marks the working directory.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -436,8 +609,7 @@ results file.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fNameMark</strong> – name of the file that marks the working directory
-of the project.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fNameMark</strong> – name of the file that marks the working directory.</td>
 </tr>
 </tbody>
 </table>

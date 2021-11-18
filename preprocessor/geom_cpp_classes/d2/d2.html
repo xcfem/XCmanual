@@ -15,6 +15,7 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -296,6 +297,16 @@
 </dl>
 </dd></dl>
 
+<dl class="method">
+<dt id="geom.Surface3d.dist2">
+<code class="descname">dist2</code><span class="sig-paren">(</span><em>(Surface3d)arg1</em>, <em>(Pos3d)arg2</em><span class="sig-paren">)</span> &#x2192; float :<a class="headerlink" href="#geom.Surface3d.dist2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the squared distance from point to this surface.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>double dist2(Surface3d {lvalue},Pos3d)</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -341,6 +352,62 @@
 </dl>
 </dd></dl>
 
+<dl class="method">
+<dt id="geom.D2to3d.to_2d">
+<code class="descname">to_2d</code><span class="sig-paren">(</span><em>(D2to3d)arg1</em>, <em>(Pos3d)arg2</em><span class="sig-paren">)</span> &#x2192; Pos2d :<a class="headerlink" href="#geom.D2to3d.to_2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the corresponding 2D point.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>Pos2d to_2d(D2to3d {lvalue},Pos3d)</dd>
+</dl>
+</div></blockquote>
+<dl class="docutils">
+<dt>to_2d( (D2to3d)arg1, (Line3d)arg2) -&gt; Line2d :</dt>
+<dd><p class="first">Return the corresponding 2D line.</p>
+<dl class="last docutils">
+<dt>C++ signature :</dt>
+<dd>Line2d to_2d(D2to3d {lvalue},Line3d)</dd>
+</dl>
+</dd>
+<dt>to_2d( (D2to3d)arg1, (Segment3d)arg2) -&gt; Segment2d :</dt>
+<dd><p class="first">Return the corresponding 2D segment.</p>
+<dl class="last docutils">
+<dt>C++ signature :</dt>
+<dd>Segment2d to_2d(D2to3d {lvalue},Segment3d)</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="geom.D2to3d.to_3d">
+<code class="descname">to_3d</code><span class="sig-paren">(</span><em>(D2to3d)arg1</em>, <em>(Pos2d)arg2</em><span class="sig-paren">)</span> &#x2192; Pos3d :<a class="headerlink" href="#geom.D2to3d.to_3d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the corresponding 3D point.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>Pos3d to_3d(D2to3d {lvalue},Pos2d)</dd>
+</dl>
+</div></blockquote>
+<dl class="docutils">
+<dt>to_3d( (D2to3d)arg1, (Line2d)arg2) -&gt; Line3d :</dt>
+<dd><p class="first">Return the corresponding 3D line.</p>
+<dl class="last docutils">
+<dt>C++ signature :</dt>
+<dd>Line3d to_3d(D2to3d {lvalue},Line2d)</dd>
+</dl>
+</dd>
+<dt>to_3d( (D2to3d)arg1, (Segment2d)arg2) -&gt; Segment3d :</dt>
+<dd><p class="first">Return the corresponding 3D segment.</p>
+<dl class="last docutils">
+<dt>C++ signature :</dt>
+<dd>Segment3d to_3d(D2to3d {lvalue},Segment2d)</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -354,11 +421,44 @@
 <em class="property">class </em><code class="descclassname">geom.</code><code class="descname">Plane3d</code><a class="headerlink" href="#geom.Plane3d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#geom.Surface3d" title="geom.Surface3d"><code class="xref py py-class docutils literal notranslate"><span class="pre">geom.Surface3d</span></code></a></p>
 <dl class="method">
-<dt id="geom.Plane3d.getAngleWithVector3d">
-<code class="descname">getAngleWithVector3d</code><span class="sig-paren">(</span><em>(Plane3d)arg1</em>, <em>(Vector3d)arg2</em><span class="sig-paren">)</span> &#x2192; float :<a class="headerlink" href="#geom.Plane3d.getAngleWithVector3d" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dt id="geom.Plane3d.getAngle">
+<code class="descname">getAngle</code><span class="sig-paren">(</span><em>(Plane3d)arg1</em>, <em>(Plane3d)arg2</em><span class="sig-paren">)</span> &#x2192; float :<a class="headerlink" href="#geom.Plane3d.getAngle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the angle between the planes.</p>
+<blockquote>
+<div><dl class="docutils">
 <dt>C++ signature :</dt>
-<dd>double getAngleWithVector3d(Plane {lvalue},Vector3d)</dd>
+<dd>double getAngle(Plane {lvalue},Plane)</dd>
+</dl>
+</div></blockquote>
+<dl class="docutils">
+<dt>getAngle( (Plane3d)arg1, (Vector3d)arg2) -&gt; float :</dt>
+<dd><p class="first">Return the angle with the vector.</p>
+<dl class="last docutils">
+<dt>C++ signature :</dt>
+<dd>double getAngle(Plane {lvalue},Vector3d)</dd>
+</dl>
+</dd>
+<dt>getAngle( (Plane3d)arg1, (Line3d)arg2) -&gt; float :</dt>
+<dd><p class="first">Return the angle with the line.</p>
+<dl class="last docutils">
+<dt>C++ signature :</dt>
+<dd>double getAngle(Plane {lvalue},Line3d)</dd>
+</dl>
+</dd>
+<dt>getAngle( (Plane3d)arg1, (Ray3d)arg2) -&gt; float :</dt>
+<dd><p class="first">Return the angle with the ray.</p>
+<dl class="last docutils">
+<dt>C++ signature :</dt>
+<dd>double getAngle(Plane {lvalue},Ray3d)</dd>
+</dl>
+</dd>
+<dt>getAngle( (Plane3d)arg1, (Segment3d)arg2) -&gt; float :</dt>
+<dd><p class="first">Return the angle with the segment.</p>
+<dl class="last docutils">
+<dt>C++ signature :</dt>
+<dd>double getAngle(Plane {lvalue},Segment3d)</dd>
+</dl>
+</dd>
 </dl>
 </dd></dl>
 
@@ -452,6 +552,13 @@
 <dd>Pos3d getIntersection(Plane {lvalue},Segment3d)</dd>
 </dl>
 </dd>
+<dt>getIntersection( (Plane3d)arg1, (Polygon3d)arg2) -&gt; Segment3d :</dt>
+<dd><p class="first">return the intersection with the polygon argument.</p>
+<dl class="last docutils">
+<dt>C++ signature :</dt>
+<dd>Segment3d getIntersection(Plane {lvalue},Polygon3d)</dd>
+</dl>
+</dd>
 </dl>
 </dd></dl>
 
@@ -462,15 +569,6 @@
 <dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>Vector3d getNormal(Plane {lvalue})</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="geom.Plane3d.getPlaneAngle">
-<code class="descname">getPlaneAngle</code><span class="sig-paren">(</span><em>(Plane3d)arg1</em>, <em>(Plane3d)arg2</em><span class="sig-paren">)</span> &#x2192; float :<a class="headerlink" href="#geom.Plane3d.getPlaneAngle" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>double getPlaneAngle(Plane {lvalue},Plane)</dd>
 </dl>
 </dd></dl>
 
@@ -497,6 +595,20 @@
 <dl class="last docutils">
 <dt>C++ signature :</dt>
 <dd>Line3d getProjection(Plane {lvalue},Line3d)</dd>
+</dl>
+</dd>
+<dt>getProjection( (Plane3d)arg1, (Ray3d)arg2) -&gt; Ray3d :</dt>
+<dd><p class="first">Return the projection of the ray.</p>
+<dl class="last docutils">
+<dt>C++ signature :</dt>
+<dd>Ray3d getProjection(Plane {lvalue},Ray3d)</dd>
+</dl>
+</dd>
+<dt>getProjection( (Plane3d)arg1, (Segment3d)arg2) -&gt; Segment3d :</dt>
+<dd><p class="first">Return the projection of the segment.</p>
+<dl class="last docutils">
+<dt>C++ signature :</dt>
+<dd>Segment3d getProjection(Plane {lvalue},Segment3d)</dd>
 </dl>
 </dd>
 </dl>
@@ -579,6 +691,34 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="geom.Polygon3d.clip">
+<code class="descname">clip</code><span class="sig-paren">(</span><em>(Polygon3d)arg1</em>, <em>(Line3d)arg2</em><span class="sig-paren">)</span> &#x2192; Segment3d :<a class="headerlink" href="#geom.Polygon3d.clip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clips the line by the polygonal surface.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>Segment3d clip(Polygon3d {lvalue},Line3d)</dd>
+</dl>
+</div></blockquote>
+<dl class="docutils">
+<dt>clip( (Polygon3d)arg1, (Ray3d)arg2) -&gt; Segment3d :</dt>
+<dd><p class="first">Clips the ray by the polygonal surface.</p>
+<dl class="last docutils">
+<dt>C++ signature :</dt>
+<dd>Segment3d clip(Polygon3d {lvalue},Ray3d)</dd>
+</dl>
+</dd>
+<dt>clip( (Polygon3d)arg1, (Segment3d)arg2) -&gt; Segment3d :</dt>
+<dd><p class="first">Clips the segment by the polygonal surface.</p>
+<dl class="last docutils">
+<dt>C++ signature :</dt>
+<dd>Segment3d clip(Polygon3d {lvalue},Segment3d)</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="geom.Polygon3d.clockwise">
 <code class="descname">clockwise</code><span class="sig-paren">(</span><em>(Polygon3d)arg1</em>, <em>(Pos3d)arg2</em><span class="sig-paren">)</span> &#x2192; bool :<a class="headerlink" href="#geom.Polygon3d.clockwise" title="Permalink to this definition">¶</a></dt>
 <dd><p>clockwise(vPoint) return true if polygon is clockwise oriented with respect to the point of view argument.</p>
@@ -629,12 +769,82 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="geom.Polygon3d.getEdge">
+<code class="descname">getEdge</code><span class="sig-paren">(</span><em>(Polygon3d)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; Segment3d :<a class="headerlink" href="#geom.Polygon3d.getEdge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the i-th edge.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>Segment3d getEdge(Polygon3d {lvalue},unsigned int)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="geom.Polygon3d.getIndexOfDistalEdge">
+<code class="descname">getIndexOfDistalEdge</code><span class="sig-paren">(</span><em>(Polygon3d)arg1</em>, <em>(Pos3d)arg2</em><span class="sig-paren">)</span> &#x2192; int :<a class="headerlink" href="#geom.Polygon3d.getIndexOfDistalEdge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the index of the distal edge with respect to the point argument.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>int getIndexOfDistalEdge(Polygon3d {lvalue},Pos3d)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="geom.Polygon3d.getIndexOfDistalVertex">
+<code class="descname">getIndexOfDistalVertex</code><span class="sig-paren">(</span><em>(Polygon3d)arg1</em>, <em>(Pos3d)arg2</em><span class="sig-paren">)</span> &#x2192; int :<a class="headerlink" href="#geom.Polygon3d.getIndexOfDistalVertex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the index of the distal vertex with respect to the point argument.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>int getIndexOfDistalVertex(Polygon3d {lvalue},Pos3d)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="geom.Polygon3d.getIndexOfProximalEdge">
+<code class="descname">getIndexOfProximalEdge</code><span class="sig-paren">(</span><em>(Polygon3d)arg1</em>, <em>(Pos3d)arg2</em><span class="sig-paren">)</span> &#x2192; int :<a class="headerlink" href="#geom.Polygon3d.getIndexOfProximalEdge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the index of the proximal edge with respect to the point argument.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>int getIndexOfProximalEdge(Polygon3d {lvalue},Pos3d)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="geom.Polygon3d.getIndexOfProximalVertex">
+<code class="descname">getIndexOfProximalVertex</code><span class="sig-paren">(</span><em>(Polygon3d)arg1</em>, <em>(Pos3d)arg2</em><span class="sig-paren">)</span> &#x2192; int :<a class="headerlink" href="#geom.Polygon3d.getIndexOfProximalVertex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the index of the proximal vertex with respect to the point argument.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>int getIndexOfProximalVertex(Polygon3d {lvalue},Pos3d)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="geom.Polygon3d.getIntersection">
+<code class="descname">getIntersection</code><span class="sig-paren">(</span><em>(Polygon3d)arg1</em>, <em>(Plane3d)arg2</em><span class="sig-paren">)</span> &#x2192; Segment3d :<a class="headerlink" href="#geom.Polygon3d.getIntersection" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the intersection with the plane argument.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>Segment3d getIntersection(Polygon3d {lvalue},Plane)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="geom.Polygon3d.getPerimeter">
 <code class="descname">getPerimeter</code><span class="sig-paren">(</span><em>(Polygon3d)arg1</em><span class="sig-paren">)</span> &#x2192; float :<a class="headerlink" href="#geom.Polygon3d.getPerimeter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the object perimeter.</p>
 <dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>double getPerimeter(Polygon3d {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="geom.Polygon3d.getVertex">
+<code class="descname">getVertex</code><span class="sig-paren">(</span><em>(Polygon3d)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; Pos3d :<a class="headerlink" href="#geom.Polygon3d.getVertex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the i-th vertex.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>Pos3d getVertex(Polygon3d {lvalue},unsigned int)</dd>
 </dl>
 </dd></dl>
 

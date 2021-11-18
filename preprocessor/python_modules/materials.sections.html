@@ -15,6 +15,7 @@
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -206,14 +207,44 @@
 <dl class="method">
 <dt id="materials.sections.section_properties.CircularSection.alphaY">
 <code class="descname">alphaY</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.CircularSection.alphaY" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return distorsion coefficient with respect to local Y axis
+<dd><p>Return distortion coefficient with respect to local Y axis
 (see Oñate, Cálculo de estructuras por el MEF page 122)</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.section_properties.CircularSection.alphaZ">
 <code class="descname">alphaZ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.CircularSection.alphaZ" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return distorsion coefficient with respect to local Z axis.</p>
+<dd><p>Return distortion coefficient with respect to local Z axis.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.section_properties.CircularSection.getAverageDiameter">
+<code class="descname">getAverageDiameter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.CircularSection.getAverageDiameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the average radius.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.section_properties.CircularSection.getAverageRadius">
+<code class="descname">getAverageRadius</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.CircularSection.getAverageRadius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the average radius.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.section_properties.CircularSection.getDiameter">
+<code class="descname">getDiameter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.CircularSection.getDiameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the external diameter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.section_properties.CircularSection.getExternalDiameter">
+<code class="descname">getExternalDiameter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.CircularSection.getExternalDiameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the external diameter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.section_properties.CircularSection.getInternalDiameter">
+<code class="descname">getInternalDiameter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.CircularSection.getInternalDiameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the internal diameter.</p>
 </dd></dl>
 
 <dl class="method">
@@ -920,7 +951,7 @@ centre of gravity of the section.</p>
 
 <dl class="method">
 <dt id="materials.sections.section_properties.SectionProperties.defElasticSection1d">
-<code class="descname">defElasticSection1d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.defElasticSection1d" title="Permalink to this definition">¶</a></dt>
+<code class="descname">defElasticSection1d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.defElasticSection1d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an elastic section appropiate for truss analysis.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -930,6 +961,8 @@ centre of gravity of the section.</p>
 <li><strong>preprocessor</strong> – preprocessor object.</li>
 <li><strong>material</strong> – material constitutive model 
 (for which E is the Young’s modulus)</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
 </ul>
 </td>
 </tr>
@@ -939,7 +972,7 @@ centre of gravity of the section.</p>
 
 <dl class="method">
 <dt id="materials.sections.section_properties.SectionProperties.defElasticSection2d">
-<code class="descname">defElasticSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.defElasticSection2d" title="Permalink to this definition">¶</a></dt>
+<code class="descname">defElasticSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em>, <em>majorAxis=True</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.defElasticSection2d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an elastic section appropiate for 2D beam analysis</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -950,6 +983,8 @@ centre of gravity of the section.</p>
 <li><strong>material</strong> – material constitutive model 
 (for which E is the Young’s modulus)</li>
 <li><strong>majorAxis</strong> – true if bending occurs in the section major axis.</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
 </ul>
 </td>
 </tr>
@@ -959,15 +994,18 @@ centre of gravity of the section.</p>
 
 <dl class="method">
 <dt id="materials.sections.section_properties.SectionProperties.defElasticSection3d">
-<code class="descname">defElasticSection3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.defElasticSection3d" title="Permalink to this definition">¶</a></dt>
+<code class="descname">defElasticSection3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.defElasticSection3d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an elastic section appropiate for 3D beam analysis</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>preprocessor</strong> – preprocessor object.</li>
-<li><strong>material</strong> – material (for which E is the Young’s modulus and G() the shear modulus)</li>
+<li><strong>preprocessor</strong> – preprocessor of the finite element problem.</li>
+<li><strong>material</strong> – material (for which E is the Young’s modulus 
+and G() the shear modulus).</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
 </ul>
 </td>
 </tr>
@@ -977,7 +1015,7 @@ centre of gravity of the section.</p>
 
 <dl class="method">
 <dt id="materials.sections.section_properties.SectionProperties.defElasticShearSection2d">
-<code class="descname">defElasticShearSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.defElasticShearSection2d" title="Permalink to this definition">¶</a></dt>
+<code class="descname">defElasticShearSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em>, <em>majorAxis=True</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.defElasticShearSection2d" title="Permalink to this definition">¶</a></dt>
 <dd><p>elastic section appropiate for 2D beam analysis, including shear deformations</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -988,6 +1026,8 @@ centre of gravity of the section.</p>
 <li><strong>material</strong> – material constitutive model (for which 
 E is the Young’s modulus and G() the shear modulus).</li>
 <li><strong>majorAxis</strong> – true if bending occurs in the section major axis.</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
 </ul>
 </td>
 </tr>
@@ -997,7 +1037,7 @@ E is the Young’s modulus and G() the shear modulus).</li>
 
 <dl class="method">
 <dt id="materials.sections.section_properties.SectionProperties.defElasticShearSection3d">
-<code class="descname">defElasticShearSection3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.defElasticShearSection3d" title="Permalink to this definition">¶</a></dt>
+<code class="descname">defElasticShearSection3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.defElasticShearSection3d" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>elastic section appropiate for 3D beam analysis, including shear </dt>
 <dd>deformations</dd>
@@ -1008,7 +1048,10 @@ E is the Young’s modulus and G() the shear modulus).</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>preprocessor</strong> – preprocessor object.</li>
-<li><strong>material</strong> – material (for which E is the Young’s modulus and G() the shear modulus)</li>
+<li><strong>material</strong> – material (for which E is the Young’s modulus 
+and G() the shear modulus)</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
 </ul>
 </td>
 </tr>
@@ -1068,19 +1111,64 @@ rectangular section is homogeneous).</p>
 <dl class="method">
 <dt id="materials.sections.section_properties.SectionProperties.getRespT">
 <code class="descname">getRespT</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>G</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.getRespT" title="Permalink to this definition">¶</a></dt>
-<dd><p>return an elastic material for modeling torsional response of section</p>
+<dd><dl class="docutils">
+<dt>Return an elastic material for modeling torsional response of </dt>
+<dd>section.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – preprocessor of the finite element problem.</li>
+<li><strong>G</strong> – shear modulus.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.section_properties.SectionProperties.getRespVy">
 <code class="descname">getRespVy</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>G</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.getRespVy" title="Permalink to this definition">¶</a></dt>
-<dd><p>return an elastic material for modeling Y shear response of section</p>
+<dd><dl class="docutils">
+<dt>Return an elastic material for modeling the resoponse of the</dt>
+<dd>section along the Y axis.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – preprocessor of the finite element problem.</li>
+<li><strong>G</strong> – shear modulus.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.section_properties.SectionProperties.getRespVz">
 <code class="descname">getRespVz</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>G</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.section_properties.SectionProperties.getRespVz" title="Permalink to this definition">¶</a></dt>
-<dd><p>Material for modeling Z shear response of section</p>
+<dd><dl class="docutils">
+<dt>Return an elastic material for modeling the resoponse of the</dt>
+<dd>section along the Z axis.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – preprocessor of the finite element problem.</li>
+<li><strong>G</strong> – shear modulus.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -1431,6 +1519,12 @@ the axis parallel to Z that passes through section centroid.</p>
 <dd><p>Bases: <a class="reference internal" href="#materials.sections.structural_steel.SteelShape" title="materials.sections.structural_steel.SteelShape"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.sections.structural_steel.SteelShape</span></code></a></p>
 <p>Circular hollow shape</p>
 <dl class="method">
+<dt id="materials.sections.structural_steel.CHShape.getOutsideDiameter">
+<code class="descname">getOutsideDiameter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.CHShape.getOutsideDiameter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the outside diameter.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.sections.structural_steel.CHShape.getRho">
 <code class="descname">getRho</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.CHShape.getRho" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns mass per unit length.</p>
@@ -1554,6 +1648,20 @@ in web (table 5.2 EC3-1-1)</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="materials.sections.structural_steel.LShape">
+<em class="property">class </em><code class="descclassname">materials.sections.structural_steel.</code><code class="descname">LShape</code><span class="sig-paren">(</span><em>steel</em>, <em>name</em>, <em>table</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.LShape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.sections.structural_steel.SteelShape" title="materials.sections.structural_steel.SteelShape"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.sections.structural_steel.SteelShape</span></code></a></p>
+<p>Single angle steel shape.</p>
+<dl class="method">
+<dt id="materials.sections.structural_steel.LShape.getSymmetry">
+<code class="descname">getSymmetry</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.LShape.getSymmetry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the symmetry of the shape: 
+‘double’, ‘simple’ or ‘none’.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="materials.sections.structural_steel.QHShape">
 <em class="property">class </em><code class="descclassname">materials.sections.structural_steel.</code><code class="descname">QHShape</code><span class="sig-paren">(</span><em>steel</em>, <em>name</em>, <em>table</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.QHShape" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#materials.sections.structural_steel.SteelShape" title="materials.sections.structural_steel.SteelShape"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.sections.structural_steel.SteelShape</span></code></a></p>
@@ -1564,9 +1672,19 @@ in web (table 5.2 EC3-1-1)</p>
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="materials.sections.structural_steel.QHShape.getOutsideRadius">
+<code class="descname">getOutsideRadius</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.QHShape.getOutsideRadius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the outside radius as two times the wall thickness of 
+HS shape. (AISC Steel Construction Manual (1989 ASD) Tubing Dimensions 
+and Properties on pages 1-94 - 1-103 says: Properties are based upon a 
+nominal OUTISIDE corner radius equal to two times the wall thickness.)
+(This value is also used in example K.1 of AISC Design Examples V14.1)</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.sections.structural_steel.QHShape.getRho">
 <code class="descname">getRho</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.QHShape.getRho" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns mass per unit length.</p>
+<dd><p>Return mass per unit length.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1586,12 +1704,6 @@ in web (table 5.2 EC3-1-1)</p>
 <dt id="materials.sections.structural_steel.QHShape.hw">
 <code class="descname">hw</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.QHShape.hw" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return web height</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.structural_steel.QHShape.t">
-<code class="descname">t</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.QHShape.t" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return thickess</p>
 </dd></dl>
 
 <dl class="method">
@@ -1691,6 +1803,12 @@ of a series of shapes
 </dd></dl>
 
 <dl class="method">
+<dt id="materials.sections.structural_steel.SteelShape.alphaZ">
+<code class="descname">alphaZ</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.alphaZ" title="Permalink to this definition">¶</a></dt>
+<dd><p>return shear shape factor with respect to z-axis (strong axis)</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.checkBiaxialBendingForElement">
 <code class="descname">checkBiaxialBendingForElement</code><span class="sig-paren">(</span><em>elem</em>, <em>nmbComb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.checkBiaxialBendingForElement" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
@@ -1767,13 +1885,18 @@ of a series of shapes
 
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.defElasticSection1d">
-<code class="descname">defElasticSection1d</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.defElasticSection1d" title="Permalink to this definition">¶</a></dt>
+<code class="descname">defElasticSection1d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.defElasticSection1d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an elastic section appropiate for truss analysis.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor object.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – preprocessor object.</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1781,13 +1904,18 @@ of a series of shapes
 
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.defElasticSection2d">
-<code class="descname">defElasticSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.defElasticSection2d" title="Permalink to this definition">¶</a></dt>
+<code class="descname">defElasticSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>majorAxis=True</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.defElasticSection2d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an elastic section appropiate for 2D beam analysis</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor object.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – preprocessor object.</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1795,13 +1923,18 @@ of a series of shapes
 
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.defElasticSection3d">
-<code class="descname">defElasticSection3d</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.defElasticSection3d" title="Permalink to this definition">¶</a></dt>
+<code class="descname">defElasticSection3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.defElasticSection3d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an elastic section appropiate for 3D beam analysis</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor object.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – preprocessor object.</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1809,13 +1942,18 @@ of a series of shapes
 
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.defElasticShearSection2d">
-<code class="descname">defElasticShearSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.defElasticShearSection2d" title="Permalink to this definition">¶</a></dt>
+<code class="descname">defElasticShearSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>majorAxis=True</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.defElasticShearSection2d" title="Permalink to this definition">¶</a></dt>
 <dd><p>elastic section appropiate for 2D beam analysis, including shear deformations</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor object.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – preprocessor object.</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1823,7 +1961,7 @@ of a series of shapes
 
 <dl class="method">
 <dt id="materials.sections.structural_steel.SteelShape.defElasticShearSection3d">
-<code class="descname">defElasticShearSection3d</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.defElasticShearSection3d" title="Permalink to this definition">¶</a></dt>
+<code class="descname">defElasticShearSection3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_steel.SteelShape.defElasticShearSection3d" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>elastic section appropiate for 3D beam analysis, including shear </dt>
 <dd>deformations</dd>
@@ -1832,7 +1970,12 @@ of a series of shapes
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor object.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – preprocessor object.</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2658,7 +2801,7 @@ centroid of the rebars family.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="#materials.sections.stress_calc.StressCalc.N" title="materials.sections.stress_calc.StressCalc.N"><strong>N</strong></a> – axial force.</li>
+<li><a class="reference internal" href="../../postprocessor/python_modules/postprGenTopics.html#postprocess.control_vars.N" title="postprocess.control_vars.N"><strong>N</strong></a> – axial force.</li>
 <li><strong>Vy</strong> – shear force parallel to axis y.</li>
 <li><strong>Vz</strong> – shear force parallel to axis z.</li>
 <li><strong>T</strong> – Torque.</li>

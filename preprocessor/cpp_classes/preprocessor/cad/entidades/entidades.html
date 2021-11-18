@@ -15,6 +15,7 @@
     <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
@@ -141,6 +142,16 @@ Return true if this object lies outside the geometric object.</p>
 <dt id="xc.Pnt">
 <em class="property">class </em><code class="descclassname">xc.</code><code class="descname">Pnt</code><a class="headerlink" href="#xc.Pnt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#xc.EntMdlr" title="xc.EntMdlr"><code class="xref py py-class docutils literal notranslate"><span class="pre">xc.EntMdlr</span></code></a></p>
+<dl class="method">
+<dt id="xc.Pnt.getAverageElementSize">
+<code class="descname">getAverageElementSize</code><span class="sig-paren">(</span><em>(Pnt)arg1</em><span class="sig-paren">)</span> &#x2192; float :<a class="headerlink" href="#xc.Pnt.getAverageElementSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the centroid of the object.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>double getAverageElementSize(XC::Pnt {lvalue})</dd>
+</dl>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="xc.Pnt.getConnectedEdges">
 <code class="descname">getConnectedEdges</code><a class="headerlink" href="#xc.Pnt.getConnectedEdges" title="Permalink to this definition">¶</a></dt>
@@ -210,6 +221,16 @@ Return true if this object lies outside the geometric object.</p>
 <em class="property">class </em><code class="descclassname">xc.</code><code class="descname">Face</code><a class="headerlink" href="#xc.Face" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">xc.CmbEdge</span></code></p>
 <dl class="method">
+<dt id="xc.Face.addHole">
+<code class="descname">addHole</code><span class="sig-paren">(</span><em>(Face)arg1</em>, <em>(PolygonalFace)arg2</em><span class="sig-paren">)</span> &#x2192; None :<a class="headerlink" href="#xc.Face.addHole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a hole to the face.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void addHole(XC::Face {lvalue},XC::PolygonalFace*)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="xc.Face.getArea">
 <code class="descname">getArea</code><span class="sig-paren">(</span><em>(Face)arg1</em><span class="sig-paren">)</span> &#x2192; float :<a class="headerlink" href="#xc.Face.getArea" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the face area.</p>
@@ -226,6 +247,26 @@ Return true if this object lies outside the geometric object.</p>
 <dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>Polyline3d getContour(XC::Face {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.Face.getHoles">
+<code class="descname">getHoles</code><span class="sig-paren">(</span><em>(Face)arg1</em><span class="sig-paren">)</span> &#x2192; list :<a class="headerlink" href="#xc.Face.getHoles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list with the face holes in it.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>boost::python::list getHoles(XC::Face {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.Face.getOppositeEdge">
+<code class="descname">getOppositeEdge</code><span class="sig-paren">(</span><em>(Face)arg1</em>, <em>(Edge)arg2</em><span class="sig-paren">)</span> &#x2192; Edge :<a class="headerlink" href="#xc.Face.getOppositeEdge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the opposite side with respect to the one being passed as parameter.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Edge* getOppositeEdge(XC::Face {lvalue},XC::Edge)</dd>
 </dl>
 </dd></dl>
 

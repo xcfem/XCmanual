@@ -15,6 +15,7 @@
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
@@ -69,6 +70,16 @@
 <dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>void clear(XC::DqPtrs&lt;XC::Node&gt; {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.dq_ptrs_node.findTag">
+<code class="descname">findTag</code><span class="sig-paren">(</span><em>(dq_ptrs_node)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; Node :<a class="headerlink" href="#xc.dq_ptrs_node.findTag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the node identified by the tag argument.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Node* findTag(XC::DqPtrs&lt;XC::Node&gt; {lvalue},unsigned long)</dd>
 </dl>
 </dd></dl>
 
@@ -145,6 +156,16 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="xc.DqPtrsNode.getTotalMassComponent">
+<code class="descname">getTotalMassComponent</code><span class="sig-paren">(</span><em>(DqPtrsNode)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; float :<a class="headerlink" href="#xc.DqPtrsNode.getTotalMassComponent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the total mass matrix component for the DOF argument.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>double getTotalMassComponent(XC::DqPtrsNode {lvalue},int)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="xc.DqPtrsNode.pickNodesInside">
 <code class="descname">pickNodesInside</code><span class="sig-paren">(</span><em>(DqPtrsNode)arg1</em>, <em>(GeomObj3d)arg2</em>, <em>(float)arg3</em><span class="sig-paren">)</span> &#x2192; DqPtrsNode :<a class="headerlink" href="#xc.DqPtrsNode.pickNodesInside" title="Permalink to this definition">¶</a></dt>
 <dd><p>pickNodesInside(geomObj,tol) return the nodes inside the geometric object.</p>
@@ -162,6 +183,12 @@
 <dt>C++ signature :</dt>
 <dd>bool pushFront(XC::DqPtrsNode {lvalue},XC::Node*)</dd>
 </dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.DqPtrsNode.totalMass">
+<code class="descname">totalMass</code><a class="headerlink" href="#xc.DqPtrsNode.totalMass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the total mass matrix.</p>
 </dd></dl>
 
 </dd></dl>
@@ -187,6 +214,16 @@
 <dl class="docutils">
 <dt>C++ signature :</dt>
 <dd>void clear(XC::DqPtrs&lt;XC::Element&gt; {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.dq_ptrs_element.findTag">
+<code class="descname">findTag</code><span class="sig-paren">(</span><em>(dq_ptrs_element)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; Element :<a class="headerlink" href="#xc.dq_ptrs_element.findTag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the element identified by the tag argument.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>XC::Element* findTag(XC::DqPtrs&lt;XC::Element&gt; {lvalue},unsigned long)</dd>
 </dl>
 </dd></dl>
 
@@ -283,6 +320,16 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="xc.DqPtrsElem.getTotalMassComponent">
+<code class="descname">getTotalMassComponent</code><span class="sig-paren">(</span><em>(DqPtrsElem)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; float :<a class="headerlink" href="#xc.DqPtrsElem.getTotalMassComponent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the total mass matrix component for the DOF argument.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>double getTotalMassComponent(XC::DqPtrsElem {lvalue},int)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="xc.DqPtrsElem.getTypes">
 <code class="descname">getTypes</code><span class="sig-paren">(</span><em>(DqPtrsElem)arg1</em><span class="sig-paren">)</span> &#x2192; list :<a class="headerlink" href="#xc.DqPtrsElem.getTypes" title="Permalink to this definition">¶</a></dt>
 <dd><p>getElementTypes() return a list with the element types in the container.</p>
@@ -340,6 +387,12 @@
 <dt>C++ signature :</dt>
 <dd>bool pushFront(XC::DqPtrsElem {lvalue},XC::Element*)</dd>
 </dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.DqPtrsElem.totalMass">
+<code class="descname">totalMass</code><a class="headerlink" href="#xc.DqPtrsElem.totalMass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the total mass matrix.</p>
 </dd></dl>
 
 </dd></dl>
@@ -452,10 +505,65 @@
 <dd><p>constraints of the set.</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="xc.SetMeshComp.createInertiaLoads">
+<code class="descname">createInertiaLoads</code><span class="sig-paren">(</span><em>(SetMeshComp)arg1</em>, <em>(Vector)arg2</em><span class="sig-paren">)</span> &#x2192; None :<a class="headerlink" href="#xc.SetMeshComp.createInertiaLoads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the inertia load for the given acceleration vector.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void createInertiaLoads(XC::SetMeshComp {lvalue},XC::Vector)</dd>
+</dl>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="xc.SetMeshComp.elements">
 <code class="descname">elements</code><a class="headerlink" href="#xc.SetMeshComp.elements" title="Permalink to this definition">¶</a></dt>
 <dd><p>elements of the set.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.SetMeshComp.empty">
+<code class="descname">empty</code><span class="sig-paren">(</span><em>(SetMeshComp)arg1</em><span class="sig-paren">)</span> &#x2192; bool :<a class="headerlink" href="#xc.SetMeshComp.empty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return true if the set is empty.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>bool empty(XC::SetMeshComp {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.SetMeshComp.extend">
+<code class="descname">extend</code><span class="sig-paren">(</span><em>(SetMeshComp)arg1</em>, <em>(DqPtrsNode)arg2</em><span class="sig-paren">)</span> &#x2192; None :<a class="headerlink" href="#xc.SetMeshComp.extend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Appends the nodes in the argument to the set.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void extend(XC::SetMeshComp {lvalue},XC::DqPtrsNode)</dd>
+</dl>
+</div></blockquote>
+<dl class="docutils">
+<dt>extend( (SetMeshComp)arg1, (DqPtrsElem)arg2) -&gt; None :</dt>
+<dd><p class="first">Appends the elements in the argument to the set.</p>
+<dl class="last docutils">
+<dt>C++ signature :</dt>
+<dd>void extend(XC::SetMeshComp {lvalue},XC::DqPtrsElem)</dd>
+</dl>
+</dd>
+<dt>extend( (SetMeshComp)arg1, (DqPtrsConstraint)arg2) -&gt; None :</dt>
+<dd><p class="first">Appends the constraints in the argument to the set.</p>
+<dl class="last docutils">
+<dt>C++ signature :</dt>
+<dd>void extend(XC::SetMeshComp {lvalue},XC::DqPtrsConstraint)</dd>
+</dl>
+</dd>
+<dt>extend( (SetMeshComp)arg1, (SetMeshComp)arg2) -&gt; None :</dt>
+<dd><p class="first">Appends the argument components to the set.</p>
+<dl class="last docutils">
+<dt>C++ signature :</dt>
+<dd>void extend(XC::SetMeshComp {lvalue},XC::SetMeshComp)</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -617,6 +725,16 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="xc.SetMeshComp.getTotalMassComponent">
+<code class="descname">getTotalMassComponent</code><span class="sig-paren">(</span><em>(SetMeshComp)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; float :<a class="headerlink" href="#xc.SetMeshComp.getTotalMassComponent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the total mass matrix component for the DOF argument.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>double getTotalMassComponent(XC::SetMeshComp {lvalue},int)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="xc.SetMeshComp.killElements">
 <code class="descname">killElements</code><span class="sig-paren">(</span><em>(SetMeshComp)arg1</em><span class="sig-paren">)</span> &#x2192; None :<a class="headerlink" href="#xc.SetMeshComp.killElements" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deactivates set’s elements.</p>
@@ -686,6 +804,12 @@
 <dt>C++ signature :</dt>
 <dd>void rename(XC::SetMeshComp {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
 </dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.SetMeshComp.totalMass">
+<code class="descname">totalMass</code><a class="headerlink" href="#xc.SetMeshComp.totalMass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the total mass matrix.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1121,6 +1245,86 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="xc.Set.empty">
+<code class="descname">empty</code><span class="sig-paren">(</span><em>(Set)arg1</em><span class="sig-paren">)</span> &#x2192; bool :<a class="headerlink" href="#xc.Set.empty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return true if the set is empty.</p>
+<dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>bool empty(XC::Set {lvalue})</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="xc.Set.extend">
+<code class="descname">extend</code><span class="sig-paren">(</span><em>(Set)arg1</em>, <em>(DqPtrsNode)arg2</em><span class="sig-paren">)</span> &#x2192; None :<a class="headerlink" href="#xc.Set.extend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Appends the nodes in the argument to the set.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>C++ signature :</dt>
+<dd>void extend(XC::Set {lvalue},XC::DqPtrsNode)</dd>
+</dl>
+</div></blockquote>
+<dl class="docutils">
+<dt>extend( (Set)arg1, (DqPtrsElem)arg2) -&gt; None :</dt>
+<dd><p class="first">Appends the elements in the argument to the set.</p>
+<dl class="last docutils">
+<dt>C++ signature :</dt>
+<dd>void extend(XC::Set {lvalue},XC::DqPtrsElem)</dd>
+</dl>
+</dd>
+<dt>extend( (Set)arg1, (DqPtrsConstraint)arg2) -&gt; None :</dt>
+<dd><p class="first">Appends the constraints in the argument to the set.</p>
+<dl class="last docutils">
+<dt>C++ signature :</dt>
+<dd>void extend(XC::Set {lvalue},XC::DqPtrsConstraint)</dd>
+</dl>
+</dd>
+<dt>extend( (Set)arg1, (lstPnts)arg2) -&gt; None :</dt>
+<dd><p class="first">Appends the points in the argument to the set.</p>
+<dl class="last docutils">
+<dt>C++ signature :</dt>
+<dd>void extend(XC::Set {lvalue},XC::DqPtrsEntities&lt;XC::Pnt&gt;)</dd>
+</dl>
+</dd>
+<dt>extend( (Set)arg1, (lstLines)arg2) -&gt; None :</dt>
+<dd><p class="first">Appends the lines in the argument to the set.</p>
+<dl class="last docutils">
+<dt>C++ signature :</dt>
+<dd>void extend(XC::Set {lvalue},XC::DqPtrsEntities&lt;XC::Edge&gt;)</dd>
+</dl>
+</dd>
+<dt>extend( (Set)arg1, (lstSurfaces)arg2) -&gt; None :</dt>
+<dd><p class="first">Appends the surfaces in the argument to the set.</p>
+<dl class="last docutils">
+<dt>C++ signature :</dt>
+<dd>void extend(XC::Set {lvalue},XC::DqPtrsEntities&lt;XC::Face&gt;)</dd>
+</dl>
+</dd>
+<dt>extend( (Set)arg1, (lstBodies)arg2) -&gt; None :</dt>
+<dd><p class="first">Appends the bodies in the argument to the set.</p>
+<dl class="last docutils">
+<dt>C++ signature :</dt>
+<dd>void extend(XC::Set {lvalue},XC::DqPtrsEntities&lt;XC::Body&gt;)</dd>
+</dl>
+</dd>
+<dt>extend( (Set)arg1, (object)arg2) -&gt; None :</dt>
+<dd><p class="first">Appends the uniform grids in the argument to the set.</p>
+<dl class="last docutils">
+<dt>C++ signature :</dt>
+<dd>void extend(XC::Set {lvalue},XC::DqPtrsEntities&lt;XC::UniformGrid&gt;)</dd>
+</dl>
+</dd>
+<dt>extend( (Set)arg1, (Set)arg2) -&gt; None :</dt>
+<dd><p class="first">Appends the argument components to the set.</p>
+<dl class="last docutils">
+<dt>C++ signature :</dt>
+<dd>void extend(XC::Set {lvalue},XC::Set)</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="xc.Set.fillDownwards">
 <code class="descname">fillDownwards</code><span class="sig-paren">(</span><em>(Set)arg1</em><span class="sig-paren">)</span> &#x2192; None :<a class="headerlink" href="#xc.Set.fillDownwards" title="Permalink to this definition">¶</a></dt>
 <dd><p>add entities downwards.</p>
@@ -1232,6 +1436,12 @@
 <dt id="xc.Set.surfaces">
 <code class="descname">surfaces</code><a class="headerlink" href="#xc.Set.surfaces" title="Permalink to this definition">¶</a></dt>
 <dd><p>surfaces of the set.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xc.Set.useGmsh">
+<code class="descname">useGmsh</code><a class="headerlink" href="#xc.Set.useGmsh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get/set the useGmsh member value.</p>
 </dd></dl>
 
 </dd></dl>

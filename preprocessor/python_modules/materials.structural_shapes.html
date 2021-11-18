@@ -15,6 +15,7 @@
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -78,11 +79,46 @@ less than one.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.bendingCompactWallRatio">
+<code class="descname">bendingCompactWallRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.bendingCompactWallRatio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>If wall is compact according to table B4.1b of </dt>
+<dd>AISC-360-16 return a value less than one.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.bendingSlenderRatio">
 <code class="descname">bendingSlenderRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.bendingSlenderRatio" title="Permalink to this definition">¶</a></dt>
 <dd><p>If section is noncompact according to table B4.1b of 
 AISC-360-16 return a value less than one otherwise
 they are slender.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.bendingSlenderWallRatio">
+<code class="descname">bendingSlenderWallRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.bendingSlenderWallRatio" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>If wall is noncompact according to table 4.1b of </dt>
+<dd>AISC-360-16 return a value less than one otherwise
+they are slender.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -99,6 +135,14 @@ according to case 9 of table B4.1a of AISC-360-16.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getCriticalStressF">
+<code class="descname">getCriticalStressF</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getCriticalStressF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the critical stress for the limit state 
+of lateral-torsional buckling according to
+equation F8-4 of  AISC-360-16.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getDesignFlexuralStrength">
 <code class="descname">getDesignFlexuralStrength</code><span class="sig-paren">(</span><em>lateralUnbracedLength</em>, <em>Cb</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getDesignFlexuralStrength" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
@@ -112,7 +156,7 @@ according to case 9 of table B4.1a of AISC-360-16.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>lateralUnbracedLength</strong> – length between points that are either 
 braced against lateral displacement of
-the compression flange or braced against 
+the compression wall or braced against 
 twist of the cross section.</li>
 <li><strong>Cb</strong> – lateral-torsional buckling modification factor.</li>
 <li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
@@ -127,8 +171,8 @@ twist of the cross section.</li>
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getDesignShearStrength">
 <code class="descname">getDesignShearStrength</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getDesignShearStrength" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>Return the design shear strength according to equation</dt>
-<dd>section G1 of AISC-360-16.</dd>
+<dt>Return the design shear strength according to section G1 </dt>
+<dd>of AISC-360-16.</dd>
 </dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -165,6 +209,13 @@ according to case 20 in table B4.1b of AISC 360-16.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLambdaPWallBending">
+<code class="descname">getLambdaPWallBending</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLambdaPWallBending" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return he limiting slenderness for a compact wall, 
+defined in Table B4.1b of AISC-360-16.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLambdaRBending">
 <code class="descname">getLambdaRBending</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLambdaRBending" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the limiting Width-to-Thickness Ratio (noncompact/slender)
@@ -177,6 +228,13 @@ according to case 20 in table B4.1b of AISC 360-16.</p>
 <dd><p>Return the Limiting Width-to-Thickness Ratio
 between nonslender and slender elements 
 according to case 9 in table B4.1a of AISC-360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLambdaRWallBending">
+<code class="descname">getLambdaRWallBending</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.getLambdaRWallBending" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return he limiting slenderness for a noncompact wall, 
+defined in Table B4.1b of AISC-360-16.</p>
 </dd></dl>
 
 <dl class="method">
@@ -200,7 +258,7 @@ of AISC-360-16.</dd>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>lateralUnbracedLength</strong> – length between points that are either 
 braced against lateral displacement of
-the compression flange or braced against 
+the compression wall or braced against 
 twist of the cross section.</li>
 <li><strong>Cb</strong> – lateral-torsional buckling modification factor.</li>
 <li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
@@ -260,6 +318,12 @@ about longitudinal axis.</td>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.t">
+<code class="descname">t</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CHSSShape.t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return HSS nominal wall thickess</p>
 </dd></dl>
 
 </dd></dl>
@@ -443,25 +507,8 @@ twist of the cross section.</li>
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getDesignShearStrength">
 <code class="descname">getDesignShearStrength</code><span class="sig-paren">(</span><em>a=1000000.0</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getDesignShearStrength" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>Return the design shear strength according to equation</dt>
-<dd>section G1 of AISC-360-16.</dd>
-</dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>a</strong> – clear distance between transverse stiffeners.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getDesignShearStrengthWithoutTensionFieldAction">
-<code class="descname">getDesignShearStrengthWithoutTensionFieldAction</code><span class="sig-paren">(</span><em>a=1000000.0</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getDesignShearStrengthWithoutTensionFieldAction" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Return the design shear strength according to equation</dt>
-<dd>section G1 of AISC-360-16.</dd>
+<dt>Return the design shear strength according to section G1 </dt>
+<dd>of AISC-360-16.</dd>
 </dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -475,6 +522,33 @@ twist of the cross section.</li>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getDesignShearStrengthWithoutTensionFieldAction">
+<code class="descname">getDesignShearStrengthWithoutTensionFieldAction</code><span class="sig-paren">(</span><em>a=1000000.0</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getDesignShearStrengthWithoutTensionFieldAction" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design shear strength according to section G1 </dt>
+<dd>of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>a</strong> – clear distance between transverse stiffeners.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.CShape.getFlangeWidth">
+<code class="descname">getFlangeWidth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.CShape.getFlangeWidth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the width of the flange.</p>
 </dd></dl>
 
 <dl class="method">
@@ -888,6 +962,40 @@ section according to table B4.1a of AISC 360-16.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getCompressionEffectiveArea">
+<code class="descname">getCompressionEffectiveArea</code><span class="sig-paren">(</span><em>Fcr</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getCompressionEffectiveArea" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the effective area of the shape according to the “b” </dt>
+<dd>walls of the shape according to clause E7.1 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Fcr</strong> – compressive critical stress of the member.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getCompressiveBucklingReductionLimit">
+<code class="descname">getCompressiveBucklingReductionLimit</code><span class="sig-paren">(</span><em>Fcr</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getCompressiveBucklingReductionLimit" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the compressive buckling reduction limit used in</dt>
+<dd>equations E7-2 and E7-3 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Fcr</strong> – compressive critical stress of the member.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getDesignFlexuralStrength">
 <code class="descname">getDesignFlexuralStrength</code><span class="sig-paren">(</span><em>lateralUnbracedLength</em>, <em>Cb</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getDesignFlexuralStrength" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
@@ -916,23 +1024,17 @@ twist of the cross section.</li>
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getDesignShearStrength">
 <code class="descname">getDesignShearStrength</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getDesignShearStrength" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>Return the design shear strength according to equation</dt>
-<dd>section G1 of AISC-360-16.</dd>
+<dt>Return the design shear strength according to section G1 </dt>
+<dd>of AISC-360-16.</dd>
 </dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>a</strong> – clear distance between transverse stiffeners.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
 </tr>
 </tbody>
 </table>
-</dd></dl>
-
-<dl class="method">
-<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getEffectiveArea">
-<code class="descname">getEffectiveArea</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getEffectiveArea" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the effective area.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1019,7 +1121,7 @@ of AISC 360-16.</p>
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getHFlexureClassification">
 <code class="descname">getHFlexureClassification</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getHFlexureClassification" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the classification for local buckling of the
-“h” wall of the section according to table B4.1b
+“h” wall of the section according to case 19 of table B4.1b
 of AISC 360-16.</p>
 </dd></dl>
 
@@ -1056,7 +1158,7 @@ according to table B4.1b of AISC 360-16.</p>
 <dl class="method">
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLambdaRCompression">
 <code class="descname">getLambdaRCompression</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLambdaRCompression" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the Limiting Width-to-Thickness Ratio
+<dd><p>Return the limiting width-to-thickness ratio
 between nonslender and slender elements
 according to case 6 of table B4.1a of AISC-360-16.</p>
 </dd></dl>
@@ -1078,9 +1180,8 @@ according to table B4.1b of AISC 360-16.</p>
 <dl class="method">
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLateralTorsionalBucklingLimit">
 <code class="descname">getLateralTorsionalBucklingLimit</code><span class="sig-paren">(</span><em>Lb</em>, <em>Cb</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getLateralTorsionalBucklingLimit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the maximum flexural strength
-due to lateral-torsional buckling according to
-expressions F7-10 to F7-11 of AISC 360-16</p>
+<dd><p>Return the maximum flexural strength due to lateral-torsional 
+buckling according to expressions F7-10 to F7-11 of AISC 360-16</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1210,16 +1311,46 @@ twist of the cross section.</li>
 
 <dl class="method">
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getReducedEffectiveB">
-<code class="descname">getReducedEffectiveB</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getReducedEffectiveB" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the reduced effective width corresponding
-to the “b” walls of the shape.</p>
+<code class="descname">getReducedEffectiveB</code><span class="sig-paren">(</span><em>reductionLimit</em>, <em>Fcr</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getReducedEffectiveB" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the reduced effective width corresponding to the “b” </dt>
+<dd>walls of the shape according to clause E7.1 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>reductionLimit</strong> – compressive buckling reduction limit used in
+equations E7-2 and E7-3 of AISC 360-16.</li>
+<li><strong>Fcr</strong> – compressive critical stress of the member.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getReducedEffectiveH">
-<code class="descname">getReducedEffectiveH</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getReducedEffectiveH" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the reduced effective width corresponding
-to the “h” walls of the shape.</p>
+<code class="descname">getReducedEffectiveH</code><span class="sig-paren">(</span><em>reductionLimit</em>, <em>Fcr</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.getReducedEffectiveH" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the reduced effective width corresponding to the “h” </dt>
+<dd>walls of the shape according to clause E7.1 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>reductionLimit</strong> – compressive buckling reduction limit used in
+equations E7-2 and E7-3 of AISC 360-16.</li>
+<li><strong>Fcr</strong> – compressive critical stress of the member.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -1279,6 +1410,12 @@ to section F7.3 of AISC-360-16.</dd>
 </table>
 </dd></dl>
 
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.t">
+<code class="descname">t</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.HSSShape.t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return HSS nominal wall thickess</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -1326,6 +1463,705 @@ table B4.1a of AISC-360-16 case 2.</p>
 </dd></dl>
 
 <dl class="class">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape">
+<em class="property">class </em><code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">LShape</code><span class="sig-paren">(</span><em>steel</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="materials.sections.html#materials.sections.structural_steel.LShape" title="materials.sections.structural_steel.LShape"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.sections.structural_steel.LShape</span></code></a></p>
+<p>L shape.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>steel</strong> – steel material.</li>
+<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – shape name (i.e. L4X4X1/4).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.beta_w_points">
+<code class="descname">beta_w_points</code><em class="property"> = [(0.064, 0.038), (0.064, 0.051), (0.076, 0.051), (0.076, 0.064), (0.089, 0.064), (0.089, 0.076), (0.102, 0.076), (0.102, 0.089), (0.127, 0.076), (0.127, 0.089), (0.152, 0.089), (0.152, 0.102), (0.178, 0.102), (0.203, 0.102), (0.203, 0.152)]</em><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.beta_w_points" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.beta_w_values">
+<code class="descname">beta_w_values</code><em class="property"> = [0.0378, 0.0216, 0.0396, 0.0218, 0.0411, 0.0221, 0.0419, 0.0221, 0.0759, 0.061, 0.0937, 0.0798, 0.111, 0.139, 0.0841]</em><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.beta_w_values" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.compressionSlendernessCheck">
+<code class="descname">compressionSlendernessCheck</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.compressionSlendernessCheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify that the section doesn’t contains slender elements
+according to table B4.1a of AISC-360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getAw">
+<code class="descname">getAw</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getAw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return area for shear strength calculation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getBetaW">
+<code class="descname">getBetaW</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getBetaW" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value of <span class="math notranslate nohighlight">\(\beta_w\)</span> according to table C-F10.1
+of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getCentroid">
+<code class="descname">getCentroid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getCentroid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the position of the shape centroid.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getCompressionEffectiveArea">
+<code class="descname">getCompressionEffectiveArea</code><span class="sig-paren">(</span><em>Fcr</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getCompressionEffectiveArea" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the effective area of the shape according to the “b” </dt>
+<dd>walls of the shape according to clause E7.1 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Fcr</strong> – compressive critical stress of the member.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getCompressiveBucklingReductionLimit">
+<code class="descname">getCompressiveBucklingReductionLimit</code><span class="sig-paren">(</span><em>Fcr</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getCompressiveBucklingReductionLimit" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the compressive buckling reduction limit for the web</dt>
+<dd>used in equations E7-2 and E7-3 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Fcr</strong> – compressive critical stress of the member.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getCriticalStressE">
+<code class="descname">getCriticalStressE</code><span class="sig-paren">(</span><em>effectiveLength</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getCriticalStressE" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the critical stress for the limit state </dt>
+<dd>of flexural buckling according to sections E3
+and E4 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>effectiveLength</strong> – effective length of member.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getDesignFlexuralStrength">
+<code class="descname">getDesignFlexuralStrength</code><span class="sig-paren">(</span><em>lateralUnbracedLength</em>, <em>Cb</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getDesignFlexuralStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design flexural strength of the section</dt>
+<dd>according to section F1 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lateralUnbracedLength</strong> – length between points that are either 
+braced against lateral displacement of
+the compression flange or braced against 
+twist of the cross section.</li>
+<li><strong>Cb</strong> – lateral-torsional buckling modification factor.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getDesignShearStrength">
+<code class="descname">getDesignShearStrength</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getDesignShearStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design shear strength according to section G1 </dt>
+<dd>of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getElasticLateralTorsionalBucklingMoment">
+<code class="descname">getElasticLateralTorsionalBucklingMoment</code><span class="sig-paren">(</span><em>Lb</em>, <em>Cb</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getElasticLateralTorsionalBucklingMoment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the elastic lateral-torsional buckling moment 
+according to equations F10-5a and F10-5b of AISC 360-16
+and assuming no lateral-torsional restraint.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Lb</strong> – laterally unbraced length of member</li>
+<li><strong>Cb</strong> – lateral-torsional buckling modification factor Cb
+for non uniform moment diagrams when both ends of the 
+segment are braced according to expression 
+F1-1 of AISC 360-16.</li>
+<li><strong>majorAxis</strong> – true if bending around the major GEOMETRIC axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getFlexureLegsClassification">
+<code class="descname">getFlexureLegsClassification</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getFlexureLegsClassification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the classification for local buckling of the
+legs of the section according to table B4.1b
+of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getGeometricABCPositions">
+<code class="descname">getGeometricABCPositions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getGeometricABCPositions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the positions of the points A, B and C according to the
+figure 3 of the AISC shapes database version 15.0.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getGeometricAxesMoments">
+<code class="descname">getGeometricAxesMoments</code><span class="sig-paren">(</span><em>MW</em>, <em>MZ</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getGeometricAxesMoments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the moments with respect ot the principal axes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>MW</strong> – moment around the principal axis W.</li>
+<li><strong>MZ</strong> – moment around the principal axis z.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getLambdaPLegBending">
+<code class="descname">getLambdaPLegBending</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getLambdaPLegBending" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting Width-to-Thickness Ratio (compact/noncompact)
+according to table B4.1b of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getLambdaRCompression">
+<code class="descname">getLambdaRCompression</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getLambdaRCompression" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting width-to-thickness ratio
+between nonslender and slender elements
+according to case 3 of table B4.1a of AISC-360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getLambdaRLegBending">
+<code class="descname">getLambdaRLegBending</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getLambdaRLegBending" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the limiting Width-to-Thickness Ratio (compact/noncompact)
+according to table B4.1b of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getLegLocalBucklingLimit">
+<code class="descname">getLegLocalBucklingLimit</code><span class="sig-paren">(</span><em>Lb</em>, <em>Cb</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getLegLocalBucklingLimit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the maximum flexural strength due to leg local 
+buckling according to expressions F10-6 to F10-8 of AISC 360-16</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Lb</strong> – Length between points that are either braced 
+against lateral displacement of compression 
+flange or braced against twist of the cross section.</li>
+<li><strong>Cb</strong> – lateral-torsional buckling modification factor Cb
+for non uniform moment diagrams when both ends of the 
+segment are braced according to expression 
+F1-1 of AISC 360-16.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getLegShearBucklingStrengthCoefficient">
+<code class="descname">getLegShearBucklingStrengthCoefficient</code><span class="sig-paren">(</span><em>kv</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getLegShearBucklingStrengthCoefficient" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the leg shear stress coefficient Cv2 according</dt>
+<dd>to section G2.2 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>kv</strong> – leg plate shear buckling coefficient.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getLegsCompressionClassification">
+<code class="descname">getLegsCompressionClassification</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getLegsCompressionClassification" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the classification for local buckling of the
+legs of the section according to table B4.1a
+of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getLegsSlendernessRatios">
+<code class="descname">getLegsSlendernessRatios</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getLegsSlendernessRatios" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the slenderness ratio of each leg.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getMetricName">
+<code class="descname">getMetricName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getMetricName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the metric label from the US customary one.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getNominalFlexuralStrength">
+<code class="descname">getNominalFlexuralStrength</code><span class="sig-paren">(</span><em>lateralUnbracedLength</em>, <em>Cb</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getNominalFlexuralStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the nominal flexural strength of the member</dt>
+<dd>according to equations F10-1 to F10-8 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lateralUnbracedLength</strong> – length between points that are either 
+braced against lateral displacement of
+the compression flange or braced against 
+twist of the cross section.</li>
+<li><strong>Cb</strong> – lateral-torsional buckling modification factor.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getNominalShearStrength">
+<code class="descname">getNominalShearStrength</code><span class="sig-paren">(</span><em>Lv=1000000.0</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getNominalShearStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the nominal shear strength according to equation</dt>
+<dd>G3-1 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getPrincipalAxesABCPositions">
+<code class="descname">getPrincipalAxesABCPositions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getPrincipalAxesABCPositions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the positions of the points A, B and C according to the
+figure 3 of the AISC shapes database version 15.0.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getPrincipalAxesAngle">
+<code class="descname">getPrincipalAxesAngle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getPrincipalAxesAngle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the angle between the principal axes of inertia
+and the GEOMETRIC axes.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getPrincipalAxesDirections">
+<code class="descname">getPrincipalAxesDirections</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getPrincipalAxesDirections" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the direction vectors of the W and Z principal axis.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getPrincipalAxesMoments">
+<code class="descname">getPrincipalAxesMoments</code><span class="sig-paren">(</span><em>Mz</em>, <em>My</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getPrincipalAxesMoments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the moments with respect ot the principal axes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Mz</strong> – moment around the GEOMETRIC axis z.</li>
+<li><strong>My</strong> – moment around the GEOMETRIC axis y.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getPrincipalRefSys">
+<code class="descname">getPrincipalRefSys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getPrincipalRefSys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the reference system with origin on the shape
+centroid and axes coincident with the principal axes.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getReducedEffectiveB">
+<code class="descname">getReducedEffectiveB</code><span class="sig-paren">(</span><em>reductionLimit</em>, <em>Fcr</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getReducedEffectiveB" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the reduced effective width corresponding to the “b” </dt>
+<dd>walls of the shape according to clause E7.1 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Fcr</strong> – compressive critical stress of the member.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getReducedEffectiveH">
+<code class="descname">getReducedEffectiveH</code><span class="sig-paren">(</span><em>reductionLimit</em>, <em>Fcr</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getReducedEffectiveH" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the reduced effective width corresponding to the web </dt>
+<dd>of the shape according to clause E7.1 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Fcr</strong> – compressive critical stress of the member.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getSlendernessRatio">
+<code class="descname">getSlendernessRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getSlendernessRatio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the slenderness ratio.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getWAxisElasticLateralTorsionalBucklingMoment">
+<code class="descname">getWAxisElasticLateralTorsionalBucklingMoment</code><span class="sig-paren">(</span><em>Lb</em>, <em>Cb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getWAxisElasticLateralTorsionalBucklingMoment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the elastic lateral-torsional buckling moment 
+for bending around the W principal axis acocrding to
+equation F10-4 of AlISC 360-16.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Lb</strong> – laterally unbraced length of member</li>
+<li><strong>Cb</strong> – lateral-torsional buckling modification factor Cb
+for non uniform moment diagrams when both ends of the 
+segment are braced according to expression 
+F1-1 of AISC 360-16.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getWAxisLateralTorsionalBucklingLimit">
+<code class="descname">getWAxisLateralTorsionalBucklingLimit</code><span class="sig-paren">(</span><em>Lb</em>, <em>Cb</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getWAxisLateralTorsionalBucklingLimit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the maximum flexural strength about W principal
+axis due to lateral-torsional buckling according to 
+expressions F10-2 and F10-3 of AISC 360-16.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Lb</strong> – Length between points that are either braced 
+against lateral displacement of compression 
+flange or braced against twist of the cross section.</li>
+<li><strong>Cb</strong> – lateral-torsional buckling modification factor Cb
+for non uniform moment diagrams when both ends of the 
+segment are braced according to expression 
+F1-1 of AISC 360-16.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getWAxisLegLocalBucklingLimit">
+<code class="descname">getWAxisLegLocalBucklingLimit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getWAxisLegLocalBucklingLimit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the maximum flexural strength due to leg local 
+buckling according to expressions F10-6 to F10-8 of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getWAxisNominalFlexuralStrength">
+<code class="descname">getWAxisNominalFlexuralStrength</code><span class="sig-paren">(</span><em>lateralUnbracedLength</em>, <em>Cb</em>, <em>MW</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getWAxisNominalFlexuralStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the nominal flexural strength of the member</dt>
+<dd>around its principal W axis according to equations F10-1 
+to F10-8 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lateralUnbracedLength</strong> – length between points that are either 
+braced against lateral displacement of
+the compression flange or braced against 
+twist of the cross section.</li>
+<li><strong>Cb</strong> – lateral-torsional buckling modification factor.</li>
+<li><strong>MW</strong> – moment around the W principal axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getWAxisPlasticMoment">
+<code class="descname">getWAxisPlasticMoment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getWAxisPlasticMoment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the plastic moment around the W principal axis of the shape
+according to equation F10-1 of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getWAxisYieldMoment">
+<code class="descname">getWAxisYieldMoment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getWAxisYieldMoment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the yield moment about the W principal axis.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getZAxisElasticLateralTorsionalBucklingMoment">
+<code class="descname">getZAxisElasticLateralTorsionalBucklingMoment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getZAxisElasticLateralTorsionalBucklingMoment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the elastic lateral-torsional buckling moment 
+for bending around the Z principal axis.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getZAxisLegLocalBucklingLimit">
+<code class="descname">getZAxisLegLocalBucklingLimit</code><span class="sig-paren">(</span><em>MZ</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getZAxisLegLocalBucklingLimit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the maximum flexural strength due to leg local 
+buckling according to expressions F10-6 to F10-8 of AISC 360-16.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>MZ</strong> – moment around the Z principal axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getZAxisNominalFlexuralStrength">
+<code class="descname">getZAxisNominalFlexuralStrength</code><span class="sig-paren">(</span><em>MZ</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getZAxisNominalFlexuralStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the nominal flexural strength of the member</dt>
+<dd>around its principal Z axis according to equations F10-1 
+to F10-8 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>MZ</strong> – moment around the Z principal axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getZAxisPlasticMoment">
+<code class="descname">getZAxisPlasticMoment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getZAxisPlasticMoment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the plastic moment around the Z principal axis of the shape
+according to equation F10-1 of AISC 360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.getZAxisYieldMoment">
+<code class="descname">getZAxisYieldMoment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.getZAxisYieldMoment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the yield moment about the Z principal axis.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.LShape.isEqualLeg">
+<code class="descname">isEqualLeg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape.isEqualLeg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return true if the angle legs are equal.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.SimpleLShape">
+<em class="property">class </em><code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">SimpleLShape</code><span class="sig-paren">(</span><em>steel</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.SimpleLShape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#materials.sections.structural_shapes.aisc_metric_shapes.LShape" title="materials.sections.structural_shapes.aisc_metric_shapes.LShape"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.sections.structural_shapes.aisc_metric_shapes.LShape</span></code></a></p>
+<p>L shape with simplified limit state checking.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>steel</strong> – steel material.</li>
+<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – shape name (i.e. L15X50).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.SimpleLShape.getDesignFlexuralStrength">
+<code class="descname">getDesignFlexuralStrength</code><span class="sig-paren">(</span><em>lateralUnbracedLength</em>, <em>Cb</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.SimpleLShape.getDesignFlexuralStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the design flexural strength of the section</dt>
+<dd>according to section F1 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lateralUnbracedLength</strong> – length between points that are either 
+braced against lateral displacement of
+the compression flange or braced against 
+twist of the cross section.</li>
+<li><strong>Cb</strong> – lateral-torsional buckling modification factor.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.SimpleLShape.getGeometricPlasticMoment">
+<code class="descname">getGeometricPlasticMoment</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.SimpleLShape.getGeometricPlasticMoment" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the plastic moment of the shape according to equation</dt>
+<dd>F10-1 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.SimpleLShape.getGeometricYieldMoment">
+<code class="descname">getGeometricYieldMoment</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.SimpleLShape.getGeometricYieldMoment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the yield moment of the shape according to
+section F10.2 of AISC 360-16.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>majorAxis</strong> – true if flexure about the major axis.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.SimpleLShape.getLateralTorsionalBucklingLimit">
+<code class="descname">getLateralTorsionalBucklingLimit</code><span class="sig-paren">(</span><em>Lb</em>, <em>Cb</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.SimpleLShape.getLateralTorsionalBucklingLimit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the maximum flexural strength due to lateral-torsional 
+buckling according to expressions F10-2 and F10-3 of AISC 360-16</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Lb</strong> – Length between points that are either braced 
+against lateral displacement of compression 
+flange or braced against twist of the cross section.</li>
+<li><strong>Cb</strong> – lateral-torsional buckling modification factor Cb
+for non uniform moment diagrams when both ends of the 
+segment are braced according to expression 
+F1-1 of AISC 360-16.</li>
+<li><strong>majorAxis</strong> – true if bending aroun the major GEOMETRIC axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.SimpleLShape.getNominalFlexuralStrength">
+<code class="descname">getNominalFlexuralStrength</code><span class="sig-paren">(</span><em>lateralUnbracedLength</em>, <em>Cb</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.SimpleLShape.getNominalFlexuralStrength" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the nominal flexural strength of the member</dt>
+<dd>according to equations F10-1 to F10-8 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lateralUnbracedLength</strong> – length between points that are either 
+braced against lateral displacement of
+the compression flange or braced against 
+twist of the cross section.</li>
+<li><strong>Cb</strong> – lateral-torsional buckling modification factor.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape">
 <em class="property">class </em><code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">WShape</code><span class="sig-paren">(</span><em>steel=None</em>, <em>name=''</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="materials.sections.html#materials.sections.structural_steel.IShape" title="materials.sections.structural_steel.IShape"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.sections.structural_steel.IShape</span></code></a></p>
@@ -1346,7 +2182,7 @@ table B4.1a of AISC-360-16 case 2.</p>
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.bendingCompactFlangeRatio">
 <code class="descname">bendingCompactFlangeRatio</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.bendingCompactFlangeRatio" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>If flanges are compact according to table 4.1b of </dt>
+<dt>If flanges are compact according to table B4.1b of </dt>
 <dd>AISC-360-16 return a value less than one.</dd>
 </dl>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1507,10 +2343,130 @@ ductile.</td>
 </dd></dl>
 
 <dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getBottomFlangeMidPlaneContourPoints">
+<code class="descname">getBottomFlangeMidPlaneContourPoints</code><span class="sig-paren">(</span><em>org</em>, <em>extrusionVDir</em>, <em>weakAxisVDir</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getBottomFlangeMidPlaneContourPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the bottom flange contour points at its mid plane.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>org</strong> – origin point.</li>
+<li><strong>extrusionVDir</strong> – extrusion direction vector.</li>
+<li><strong>weakAxisVDir</strong> – direction of the weak axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getCCoefficient">
 <code class="descname">getCCoefficient</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getCCoefficient" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the c coefficient according to equation
 F2-8a of AISC-360-16.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getClosingPlateContourPoints">
+<code class="descname">getClosingPlateContourPoints</code><span class="sig-paren">(</span><em>org</em>, <em>extrusionVDir</em>, <em>weakAxisVDir</em>, <em>positiveSide: bool</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getClosingPlateContourPoints" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the contour points of the plate that closes the shape</dt>
+<dd>connection the borders of the top and bottom flanges
+at the “positive” or “negative” sides of the web.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>org</strong> – origin point.</li>
+<li><strong>extrusionVDir</strong> – extrusion direction vector.</li>
+<li><strong>weakAxisVDir</strong> – direction of the weak axis.</li>
+<li><strong>positiveSide</strong> – if true return the plate at the positive side of 
+the web, otherwise return the plate at the negative side.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getClosingPlateMidPlane">
+<code class="descname">getClosingPlateMidPlane</code><span class="sig-paren">(</span><em>org</em>, <em>extrusionVDir</em>, <em>weakAxisVDir</em>, <em>positiveSide: bool</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getClosingPlateMidPlane" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the mid plane of the plate that closes the shape</dt>
+<dd>connection the borders of the top and bottom flanges
+at the “positive” or “negative” sides of the web.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>org</strong> – origin point.</li>
+<li><strong>extrusionVDir</strong> – extrusion direction vector.</li>
+<li><strong>weakAxisVDir</strong> – direction of the weak axis.</li>
+<li><strong>positiveSide</strong> – if true return the plate at the positive side of 
+the web, otherwise return the plate at the negative side.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getCompressionEffectiveArea">
+<code class="descname">getCompressionEffectiveArea</code><span class="sig-paren">(</span><em>Fcr</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getCompressionEffectiveArea" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the effective area of the shape according to the “b” </dt>
+<dd>walls of the shape according to clause E7.1 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Fcr</strong> – compressive critical stress of the member.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getCompressiveBucklingReductionLimitFlange">
+<code class="descname">getCompressiveBucklingReductionLimitFlange</code><span class="sig-paren">(</span><em>Fcr</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getCompressiveBucklingReductionLimitFlange" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the compressive buckling reduction limit for the flange</dt>
+<dd>used in equations E7-2 and E7-3 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Fcr</strong> – compressive critical stress of the member.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getCompressiveBucklingReductionLimitWeb">
+<code class="descname">getCompressiveBucklingReductionLimitWeb</code><span class="sig-paren">(</span><em>Fcr</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getCompressiveBucklingReductionLimitWeb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the compressive buckling reduction limit for the web</dt>
+<dd>used in equations E7-2 and E7-3 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Fcr</strong> – compressive critical stress of the member.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -1581,7 +2537,11 @@ twist of the cross section.</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>a</strong> – clear distance between transverse stiffeners.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>a</strong> – clear distance between transverse stiffeners.</li>
+<li><strong>majorAxis</strong> – true if bending around the major axis.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1591,17 +2551,28 @@ twist of the cross section.</li>
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getDesignShearStrengthWithoutTensionFieldAction">
 <code class="descname">getDesignShearStrengthWithoutTensionFieldAction</code><span class="sig-paren">(</span><em>a=1000000.0</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getDesignShearStrengthWithoutTensionFieldAction" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>Return the design shear strength according to equation</dt>
-<dd>section G1 of AISC-360-16.</dd>
+<dt>Return the design shear strength according to section G1 </dt>
+<dd>of AISC-360-16.</dd>
 </dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>a</strong> – clear distance between transverse stiffeners.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>a</strong> – clear distance between transverse stiffeners.</li>
+<li><strong>majorAxis</strong> – true if bending around the major axis.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getDistanceBetweenWebToes">
+<code class="descname">getDistanceBetweenWebToes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getDistanceBetweenWebToes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the distance between web toes of fillets at top 
+and bottom of web.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1614,6 +2585,48 @@ twist of the cross section.</li>
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getFlangeWidth">
 <code class="descname">getFlangeWidth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getFlangeWidth" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the width of the flange.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getHalfBottomFlangeMidPlaneContourPoints">
+<code class="descname">getHalfBottomFlangeMidPlaneContourPoints</code><span class="sig-paren">(</span><em>org</em>, <em>extrusionVDir</em>, <em>weakAxisVDir</em>, <em>positiveSide: bool</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getHalfBottomFlangeMidPlaneContourPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the bottom flange contour points at its mid plane.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>org</strong> – origin point.</li>
+<li><strong>extrusionVDir</strong> – extrusion direction vector.</li>
+<li><strong>weakAxisVDir</strong> – direction of the weak axis.</li>
+<li><strong>positiveSide</strong> – if true return the half at the positive side of 
+the web, otherwise return the half at the negative side.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getHalfTopFlangeMidPlaneContourPoints">
+<code class="descname">getHalfTopFlangeMidPlaneContourPoints</code><span class="sig-paren">(</span><em>org</em>, <em>extrusionVDir</em>, <em>weakAxisVDir</em>, <em>positiveSide</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getHalfTopFlangeMidPlaneContourPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the top flange contour points at its mid plane.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>org</strong> – origin point.</li>
+<li><strong>extrusionVDir</strong> – extrusion direction vector.</li>
+<li><strong>weakAxisVDir</strong> – direction of the weak axis.</li>
+<li><strong>positiveSide</strong> – if true return the half at the positive side of 
+the web, otherwise return the half at the negative side.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -1873,6 +2886,40 @@ twist of the cross section.</li>
 </dd></dl>
 
 <dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getReducedEffectiveB">
+<code class="descname">getReducedEffectiveB</code><span class="sig-paren">(</span><em>Fcr</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getReducedEffectiveB" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the reduced effective width corresponding to the “b” </dt>
+<dd>walls of the shape according to clause E7.1 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Fcr</strong> – compressive critical stress of the member.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getReducedEffectiveH">
+<code class="descname">getReducedEffectiveH</code><span class="sig-paren">(</span><em>Fcr</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getReducedEffectiveH" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the reduced effective width corresponding to the web </dt>
+<dd>of the shape according to clause E7.1 of AISC 360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Fcr</strong> – compressive critical stress of the member.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getRts">
 <code class="descname">getRts</code><span class="sig-paren">(</span><em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getRts" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
@@ -1899,7 +2946,26 @@ sections G1 and G2.1(a) of AISC-360-16.</p>
 <dl class="method">
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getTopFlangeMidPlane">
 <code class="descname">getTopFlangeMidPlane</code><span class="sig-paren">(</span><em>org</em>, <em>extrusionVDir</em>, <em>weakAxisVDir</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getTopFlangeMidPlane" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the mid plane of the bottom flange.</p>
+<dd><p>Return the mid plane of the top flange.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>org</strong> – origin point.</li>
+<li><strong>extrusionVDir</strong> – extrusion direction vector.</li>
+<li><strong>weakAxisVDir</strong> – direction of the weak axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getTopFlangeMidPlaneContourPoints">
+<code class="descname">getTopFlangeMidPlaneContourPoints</code><span class="sig-paren">(</span><em>org</em>, <em>extrusionVDir</em>, <em>weakAxisVDir</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getTopFlangeMidPlaneContourPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the top flange contour points at its mid plane.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1937,6 +3003,25 @@ about longitudinal axis.</td>
 <dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getWebMidPlane">
 <code class="descname">getWebMidPlane</code><span class="sig-paren">(</span><em>org</em>, <em>extrusionVDir</em>, <em>weakAxisVDir</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getWebMidPlane" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the mid plane of the web.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>org</strong> – origin point.</li>
+<li><strong>extrusionVDir</strong> – extrusion direction vector.</li>
+<li><strong>weakAxisVDir</strong> – direction of the weak axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.WShape.getWebMidPlaneContourPoints">
+<code class="descname">getWebMidPlaneContourPoints</code><span class="sig-paren">(</span><em>org</em>, <em>extrusionVDir</em>, <em>weakAxisVDir</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.WShape.getWebMidPlaneContourPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the contour points at mid plane of the web.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -2062,6 +3147,30 @@ ductile.</li>
 </table>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.structural_shapes.aisc_metric_shapes.getG22ShearBucklingStrengthCoefficient">
+<code class="descclassname">materials.sections.structural_shapes.aisc_metric_shapes.</code><code class="descname">getG22ShearBucklingStrengthCoefficient</code><span class="sig-paren">(</span><em>slendernessRatio</em>, <em>E</em>, <em>Fy</em>, <em>kv</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.aisc_metric_shapes.getG22ShearBucklingStrengthCoefficient" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the shear stress coefficient Cv2 according</dt>
+<dd>to section G2.2 of AISC-360-16.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>slendernessRatio</strong> – slenderness ratio (h/tw).</li>
+<li><strong>E</strong> – steel elastic modulus.</li>
+<li><strong>Fy</strong> – specified minimum yield stress.</li>
+<li><strong>kv</strong> – web plate shear buckling coefficient.</li>
+<li><strong>majorAxis</strong> – true if flexure about the major axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -2452,27 +3561,90 @@ twist of the cross section.</li>
 <dt id="materials.sections.structural_shapes.arcelor_metric_shapes.RHSShape">
 <em class="property">class </em><code class="descclassname">materials.sections.structural_shapes.arcelor_metric_shapes.</code><code class="descname">RHSShape</code><span class="sig-paren">(</span><em>steel</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.arcelor_metric_shapes.RHSShape" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="materials.sections.html#materials.sections.structural_steel.QHShape" title="materials.sections.structural_steel.QHShape"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.sections.structural_steel.QHShape</span></code></a></p>
+<dl class="method">
+<dt id="materials.sections.structural_shapes.arcelor_metric_shapes.RHSShape.t">
+<code class="descname">t</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.arcelor_metric_shapes.RHSShape.t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the thickness</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="materials.sections.structural_shapes.arcelor_metric_shapes.SHS">
-<code class="descclassname">materials.sections.structural_shapes.arcelor_metric_shapes.</code><code class="descname">SHS</code><em class="property"> = {'SHS100x100x3': {'A': 0.001149, 'AreaQy': 0.00041999999999999996, 'AreaQz': 0.00041999999999999996, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 2.738e-06, 'Iy': 1.827e-06, 'Iz': 1.827e-06, 'P': 9.02, 'Wyel': 3.654e-05, 'Wypl': 4.235e-05, 'Wzel': 3.654e-05, 'Wzpl': 4.235e-05, 'alpha': 0.4166666666666667, 'b': 0.1, 'e': 0.003, 'h': 0.1, 'iy': 0.0399, 'iz': 0.0399, 'nmb': 'SHS100x100x3', 'nu': 0.3}, 'SHS100x100x4': {'A': 0.00152, 'AreaQy': 0.00056, 'AreaQz': 0.00056, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 3.539e-06, 'Iy': 2.363e-06, 'Iz': 2.363e-06, 'P': 11.93, 'Wyel': 4.727e-05, 'Wypl': 5.533e-05, 'Wzel': 4.727e-05, 'Wzpl': 5.533e-05, 'alpha': 0.4166666666666667, 'b': 0.1, 'e': 0.004, 'h': 0.1, 'iy': 0.0394, 'iz': 0.0394, 'nmb': 'SHS100x100x4', 'nu': 0.3}, 'SHS100x100x5': {'A': 0.001884, 'AreaQy': 0.0007, 'AreaQz': 0.0007, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 4.287e-06, 'Iy': 2.866e-06, 'Iz': 2.866e-06, 'P': 14.79, 'Wyel': 5.732e-05, 'Wypl': 6.775e-05, 'Wzel': 5.732e-05, 'Wzpl': 6.775e-05, 'alpha': 0.4166666666666667, 'b': 0.1, 'e': 0.005, 'h': 0.1, 'iy': 0.039, 'iz': 0.039, 'nmb': 'SHS100x100x5', 'nu': 0.3}, 'SHS100x100x6': {'A': 0.002242, 'AreaQy': 0.0008399999999999999, 'AreaQz': 0.0008399999999999999, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 4.984e-06, 'Iy': 3.336e-06, 'Iz': 3.336e-06, 'P': 17.6, 'Wyel': 6.672e-05, 'Wypl': 7.963e-05, 'Wzel': 6.672e-05, 'Wzpl': 7.963e-05, 'alpha': 0.4166666666666667, 'b': 0.1, 'e': 0.006, 'h': 0.1, 'iy': 0.0386, 'iz': 0.0386, 'nmb': 'SHS100x100x6', 'nu': 0.3}, 'SHS100x100x7': {'A': 0.002594, 'AreaQy': 0.00098, 'AreaQz': 0.00098, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 5.63e-06, 'Iy': 3.775e-06, 'Iz': 3.775e-06, 'P': 20.36, 'Wyel': 7.55e-05, 'Wypl': 9.099e-05, 'Wzel': 7.55e-05, 'Wzpl': 9.099e-05, 'alpha': 0.4166666666666667, 'b': 0.1, 'e': 0.007, 'h': 0.1, 'iy': 0.0382, 'iz': 0.0382, 'nmb': 'SHS100x100x7', 'nu': 0.3}, 'SHS110x110x3': {'A': 0.001243, 'AreaQy': 0.000462, 'AreaQz': 0.000462, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 3.675e-06, 'Iy': 2.452e-06, 'Iz': 2.452e-06, 'P': 9.76, 'Wyel': 4.458e-05, 'Wypl': 5.153e-05, 'Wzel': 4.458e-05, 'Wzpl': 5.153e-05, 'alpha': 0.4166666666666667, 'b': 0.11, 'e': 0.003, 'h': 0.11, 'iy': 0.0444, 'iz': 0.0444, 'nmb': 'SHS110x110x3', 'nu': 0.3}, 'SHS110x110x4': {'A': 0.001645, 'AreaQy': 0.000616, 'AreaQz': 0.000616, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 4.764e-06, 'Iy': 3.181e-06, 'Iz': 3.181e-06, 'P': 12.92, 'Wyel': 5.783e-05, 'Wypl': 6.745e-05, 'Wzel': 5.783e-05, 'Wzpl': 6.745e-05, 'alpha': 0.4166666666666667, 'b': 0.11, 'e': 0.004, 'h': 0.11, 'iy': 0.044, 'iz': 0.044, 'nmb': 'SHS110x110x4', 'nu': 0.3}, 'SHS110x110x5': {'A': 0.002041, 'AreaQy': 0.00077, 'AreaQz': 0.00077, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 5.788e-06, 'Iy': 3.868e-06, 'Iz': 3.868e-06, 'P': 16.02, 'Wyel': 7.032e-05, 'Wypl': 8.275e-05, 'Wzel': 7.032e-05, 'Wzpl': 8.275e-05, 'alpha': 0.4166666666666667, 'b': 0.11, 'e': 0.005, 'h': 0.11, 'iy': 0.0435, 'iz': 0.0435, 'nmb': 'SHS110x110x5', 'nu': 0.3}, 'SHS110x110x6': {'A': 0.00243, 'AreaQy': 0.000924, 'AreaQz': 0.000924, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 6.749e-06, 'Iy': 4.514e-06, 'Iz': 4.514e-06, 'P': 19.08, 'Wyel': 8.208e-05, 'Wypl': 9.745e-05, 'Wzel': 8.208e-05, 'Wzpl': 9.745e-05, 'alpha': 0.4166666666666667, 'b': 0.11, 'e': 0.006, 'h': 0.11, 'iy': 0.0431, 'iz': 0.0431, 'nmb': 'SHS110x110x6', 'nu': 0.3}, 'SHS110x110x7': {'A': 0.002813, 'AreaQy': 0.001078, 'AreaQz': 0.001078, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 7.649e-06, 'Iy': 5.123e-06, 'Iz': 5.123e-06, 'P': 22.09, 'Wyel': 9.314e-05, 'Wypl': 0.00011157, 'Wzel': 9.314e-05, 'Wzpl': 0.00011157, 'alpha': 0.4166666666666667, 'b': 0.11, 'e': 0.007, 'h': 0.11, 'iy': 0.0427, 'iz': 0.0427, 'nmb': 'SHS110x110x7', 'nu': 0.3}, 'SHS120x120x3': {'A': 0.001385, 'AreaQy': 0.000504, 'AreaQz': 0.000504, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 4.805e-06, 'Iy': 3.205e-06, 'Iz': 3.205e-06, 'P': 10.87, 'Wyel': 5.342e-05, 'Wypl': 6.161e-05, 'Wzel': 5.342e-05, 'Wzpl': 6.161e-05, 'alpha': 0.4166666666666667, 'b': 0.12, 'e': 0.003, 'h': 0.12, 'iy': 0.0481, 'iz': 0.0481, 'nmb': 'SHS120x120x3', 'nu': 0.3}, 'SHS120x120x4': {'A': 0.001834, 'AreaQy': 0.000672, 'AreaQz': 0.000672, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 6.244e-06, 'Iy': 4.167e-06, 'Iz': 4.167e-06, 'P': 14.4, 'Wyel': 6.946e-05, 'Wypl': 8.077e-05, 'Wzel': 6.946e-05, 'Wzpl': 8.077e-05, 'alpha': 0.4166666666666667, 'b': 0.12, 'e': 0.004, 'h': 0.12, 'iy': 0.0477, 'iz': 0.0477, 'nmb': 'SHS120x120x4', 'nu': 0.3}, 'SHS120x120x5': {'A': 0.002277, 'AreaQy': 0.0008399999999999999, 'AreaQz': 0.0008399999999999999, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 7.604e-06, 'Iy': 5.079e-06, 'Iz': 5.079e-06, 'P': 17.87, 'Wyel': 8.465e-05, 'Wypl': 9.925e-05, 'Wzel': 8.465e-05, 'Wzpl': 9.925e-05, 'alpha': 0.4166666666666667, 'b': 0.12, 'e': 0.005, 'h': 0.12, 'iy': 0.0472, 'iz': 0.0472, 'nmb': 'SHS120x120x5', 'nu': 0.3}, 'SHS120x120x6': {'A': 0.002713, 'AreaQy': 0.001008, 'AreaQz': 0.001008, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 8.889e-06, 'Iy': 5.943e-06, 'Iz': 5.943e-06, 'P': 21.3, 'Wyel': 9.904e-05, 'Wypl': 0.00011707, 'Wzel': 9.904e-05, 'Wzpl': 0.00011707, 'alpha': 0.4166666666666667, 'b': 0.12, 'e': 0.006, 'h': 0.12, 'iy': 0.0468, 'iz': 0.0468, 'nmb': 'SHS120x120x6', 'nu': 0.3}, 'SHS120x120x7': {'A': 0.003143, 'AreaQy': 0.001176, 'AreaQz': 0.001176, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 1.01e-05, 'Iy': 6.759e-06, 'Iz': 6.759e-06, 'P': 24.67, 'Wyel': 0.00011266, 'Wypl': 0.00013425, 'Wzel': 0.00011266, 'Wzpl': 0.00013425, 'alpha': 0.4166666666666667, 'b': 0.12, 'e': 0.007, 'h': 0.12, 'iy': 0.0464, 'iz': 0.0464, 'nmb': 'SHS120x120x7', 'nu': 0.3}, 'SHS125x125x3': {'A': 0.001432, 'AreaQy': 0.000525, 'AreaQz': 0.000525, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 5.448e-06, 'Iy': 3.634e-06, 'Iz': 3.634e-06, 'P': 11.24, 'Wyel': 5.814e-05, 'Wypl': 6.699e-05, 'Wzel': 5.814e-05, 'Wzpl': 6.699e-05, 'alpha': 0.4166666666666667, 'b': 0.125, 'e': 0.003, 'h': 0.125, 'iy': 0.0504, 'iz': 0.0504, 'nmb': 'SHS125x125x3', 'nu': 0.3}, 'SHS125x125x4': {'A': 0.001897, 'AreaQy': 0.0007, 'AreaQz': 0.0007, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 7.086e-06, 'Iy': 4.729e-06, 'Iz': 4.729e-06, 'P': 14.89, 'Wyel': 7.567e-05, 'Wypl': 8.788e-05, 'Wzel': 7.567e-05, 'Wzpl': 8.788e-05, 'alpha': 0.4166666666666667, 'b': 0.125, 'e': 0.004, 'h': 0.125, 'iy': 0.0499, 'iz': 0.0499, 'nmb': 'SHS125x125x4', 'nu': 0.3}, 'SHS125x125x5': {'A': 0.002355, 'AreaQy': 0.0008749999999999999, 'AreaQz': 0.0008749999999999999, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 8.64e-06, 'Iy': 5.77e-06, 'Iz': 5.77e-06, 'P': 18.49, 'Wyel': 9.232e-05, 'Wypl': 0.00010806, 'Wzel': 9.232e-05, 'Wzpl': 0.00010806, 'alpha': 0.4166666666666667, 'b': 0.125, 'e': 0.005, 'h': 0.125, 'iy': 0.0495, 'iz': 0.0495, 'nmb': 'SHS125x125x5', 'nu': 0.3}, 'SHS125x125x6': {'A': 0.002807, 'AreaQy': 0.00105, 'AreaQz': 0.00105, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 1.0111e-05, 'Iy': 6.758e-06, 'Iz': 6.758e-06, 'P': 22.04, 'Wyel': 0.00010812, 'Wypl': 0.00012756, 'Wzel': 0.00010812, 'Wzpl': 0.00012756, 'alpha': 0.4166666666666667, 'b': 0.125, 'e': 0.006, 'h': 0.125, 'iy': 0.0491, 'iz': 0.0491, 'nmb': 'SHS125x125x6', 'nu': 0.3}, 'SHS125x125x7': {'A': 0.003253, 'AreaQy': 0.001225, 'AreaQz': 0.001225, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 1.1501e-05, 'Iy': 7.694e-06, 'Iz': 7.694e-06, 'P': 25.54, 'Wyel': 0.00012311, 'Wypl': 0.00014637, 'Wzel': 0.00012311, 'Wzpl': 0.00014637, 'alpha': 0.4166666666666667, 'b': 0.125, 'e': 0.007, 'h': 0.125, 'iy': 0.0486, 'iz': 0.0486, 'nmb': 'SHS125x125x7', 'nu': 0.3}, 'SHS127x127x3': {'A': 0.00147, 'AreaQy': 0.0005334, 'AreaQz': 0.0005334, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 5.72e-06, 'Iy': 3.815e-06, 'Iz': 3.815e-06, 'P': 11.54, 'Wyel': 6.009e-05, 'Wypl': 6.921e-05, 'Wzel': 6.009e-05, 'Wzpl': 6.921e-05, 'alpha': 0.4166666666666667, 'b': 0.127, 'e': 0.003, 'h': 0.127, 'iy': 0.051, 'iz': 0.051, 'nmb': 'SHS127x127x3', 'nu': 0.3}, 'SHS127x127x4': {'A': 0.001947, 'AreaQy': 0.0007111999999999999, 'AreaQz': 0.0007111999999999999, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 7.443e-06, 'Iy': 4.968e-06, 'Iz': 4.968e-06, 'P': 15.28, 'Wyel': 7.823e-05, 'Wypl': 9.081e-05, 'Wzel': 7.823e-05, 'Wzpl': 9.081e-05, 'alpha': 0.4166666666666667, 'b': 0.127, 'e': 0.004, 'h': 0.127, 'iy': 0.0505, 'iz': 0.0505, 'nmb': 'SHS127x127x4', 'nu': 0.3}, 'SHS127x127x5': {'A': 0.002418, 'AreaQy': 0.0008889999999999999, 'AreaQz': 0.0008889999999999999, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 9.079e-06, 'Iy': 6.063e-06, 'Iz': 6.063e-06, 'P': 18.98, 'Wyel': 9.548e-05, 'Wypl': 0.00011169, 'Wzel': 9.548e-05, 'Wzpl': 0.00011169, 'alpha': 0.4166666666666667, 'b': 0.127, 'e': 0.005, 'h': 0.127, 'iy': 0.0501, 'iz': 0.0501, 'nmb': 'SHS127x127x5', 'nu': 0.3}, 'SHS127x127x6': {'A': 0.002883, 'AreaQy': 0.0010668, 'AreaQz': 0.0010668, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 1.0629e-05, 'Iy': 7.104e-06, 'Iz': 7.104e-06, 'P': 22.63, 'Wyel': 0.00011187, 'Wypl': 0.00013188, 'Wzel': 0.00011187, 'Wzpl': 0.00013188, 'alpha': 0.4166666666666667, 'b': 0.127, 'e': 0.006, 'h': 0.127, 'iy': 0.0496, 'iz': 0.0496, 'nmb': 'SHS127x127x6', 'nu': 0.3}, 'SHS127x127x7': {'A': 0.003341, 'AreaQy': 0.0012446, 'AreaQz': 0.0012446, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 1.2096e-05, 'Iy': 8.091e-06, 'Iz': 8.091e-06, 'P': 26.23, 'Wyel': 0.00012742, 'Wypl': 0.00015137, 'Wzel': 0.00012742, 'Wzpl': 0.00015137, 'alpha': 0.4166666666666667, 'b': 0.127, 'e': 0.007, 'h': 0.127, 'iy': 0.0492, 'iz': 0.0492, 'nmb': 'SHS127x127x7', 'nu': 0.3}, 'SHS135x135x3': {'A': 0.001526, 'AreaQy': 0.000567, 'AreaQz': 0.000567, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 6.9e-06, 'Iy': 4.602e-06, 'Iz': 4.602e-06, 'P': 11.98, 'Wyel': 6.818e-05, 'Wypl': 7.842e-05, 'Wzel': 6.818e-05, 'Wzpl': 7.842e-05, 'alpha': 0.4166666666666667, 'b': 0.135, 'e': 0.003, 'h': 0.135, 'iy': 0.0549, 'iz': 0.0549, 'nmb': 'SHS135x135x3', 'nu': 0.3}, 'SHS135x135x4': {'A': 0.002022, 'AreaQy': 0.000756, 'AreaQz': 0.000756, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 8.992e-06, 'Iy': 6e-06, 'Iz': 6e-06, 'P': 15.87, 'Wyel': 8.89e-05, 'Wypl': 0.000103, 'Wzel': 8.89e-05, 'Wzpl': 0.000103, 'alpha': 0.4166666666666667, 'b': 0.135, 'e': 0.004, 'h': 0.135, 'iy': 0.0545, 'iz': 0.0545, 'nmb': 'SHS135x135x4', 'nu': 0.3}, 'SHS135x135x5': {'A': 0.002512, 'AreaQy': 0.000945, 'AreaQz': 0.000945, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 1.0985e-05, 'Iy': 7.334e-06, 'Iz': 7.334e-06, 'P': 19.72, 'Wyel': 0.00010865, 'Wypl': 0.00012681, 'Wzel': 0.00010865, 'Wzpl': 0.00012681, 'alpha': 0.4166666666666667, 'b': 0.135, 'e': 0.005, 'h': 0.135, 'iy': 0.054, 'iz': 0.054, 'nmb': 'SHS135x135x5', 'nu': 0.3}, 'SHS135x135x6': {'A': 0.002996, 'AreaQy': 0.001134, 'AreaQz': 0.001134, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 1.288e-05, 'Iy': 8.605e-06, 'Iz': 8.605e-06, 'P': 23.52, 'Wyel': 0.00012749, 'Wypl': 0.00014988, 'Wzel': 0.00012749, 'Wzpl': 0.00014988, 'alpha': 0.4166666666666667, 'b': 0.135, 'e': 0.006, 'h': 0.135, 'iy': 0.0536, 'iz': 0.0536, 'nmb': 'SHS135x135x6', 'nu': 0.3}, 'SHS135x135x7': {'A': 0.003473, 'AreaQy': 0.001323, 'AreaQz': 0.001323, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 1.468e-05, 'Iy': 9.816e-06, 'Iz': 9.816e-06, 'P': 27.26, 'Wyel': 0.00014542, 'Wypl': 0.0001722, 'Wzel': 0.00014542, 'Wzpl': 0.0001722, 'alpha': 0.4166666666666667, 'b': 0.135, 'e': 0.007, 'h': 0.135, 'iy': 0.0532, 'iz': 0.0532, 'nmb': 'SHS135x135x7', 'nu': 0.3}, 'SHS140x140x4': {'A': 0.002148, 'AreaQy': 0.0007840000000000001, 'AreaQz': 0.0007840000000000001, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 1.0062e-05, 'Iy': 6.714e-06, 'Iz': 6.714e-06, 'P': 16.86, 'Wyel': 9.591e-05, 'Wypl': 0.00011101, 'Wzel': 9.591e-05, 'Wzpl': 0.00011101, 'alpha': 0.4166666666666667, 'b': 0.14, 'e': 0.004, 'h': 0.14, 'iy': 0.0559, 'iz': 0.0559, 'nmb': 'SHS140x140x4', 'nu': 0.3}, 'SHS140x140x5': {'A': 0.002669, 'AreaQy': 0.00098, 'AreaQz': 0.00098, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 1.2302e-05, 'Iy': 8.213e-06, 'Iz': 8.213e-06, 'P': 20.95, 'Wyel': 0.00011732, 'Wypl': 0.00013675, 'Wzel': 0.00011732, 'Wzpl': 0.00013675, 'alpha': 0.4166666666666667, 'b': 0.14, 'e': 0.005, 'h': 0.14, 'iy': 0.0555, 'iz': 0.0555, 'nmb': 'SHS140x140x5', 'nu': 0.3}, 'SHS140x140x6': {'A': 0.003184, 'AreaQy': 0.001176, 'AreaQz': 0.001176, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 1.4437e-05, 'Iy': 9.644e-06, 'Iz': 9.644e-06, 'P': 25, 'Wyel': 0.00013777, 'Wypl': 0.00016171, 'Wzel': 0.00013777, 'Wzpl': 0.00016171, 'alpha': 0.4166666666666667, 'b': 0.14, 'e': 0.006, 'h': 0.14, 'iy': 0.055, 'iz': 0.055, 'nmb': 'SHS140x140x6', 'nu': 0.3}, 'SHS140x140x7': {'A': 0.003693, 'AreaQy': 0.0013720000000000002, 'AreaQz': 0.0013720000000000002, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 1.6468e-05, 'Iy': 1.1009e-05, 'Iz': 1.1009e-05, 'P': 28.99, 'Wyel': 0.00015728, 'Wypl': 0.00018591, 'Wzel': 0.00015728, 'Wzpl': 0.00018591, 'alpha': 0.4166666666666667, 'b': 0.14, 'e': 0.007, 'h': 0.14, 'iy': 0.0546, 'iz': 0.0546, 'nmb': 'SHS140x140x7', 'nu': 0.3}, 'SHS140x140x8': {'A': 0.004195, 'AreaQy': 0.0015680000000000002, 'AreaQz': 0.0015680000000000002, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 1.84e-05, 'Iy': 1.2312e-05, 'Iz': 1.2312e-05, 'P': 32.93, 'Wyel': 0.00017588, 'Wypl': 0.00020934, 'Wzel': 0.00017588, 'Wzpl': 0.00020934, 'alpha': 0.4166666666666667, 'b': 0.14, 'e': 0.008, 'h': 0.14, 'iy': 0.0542, 'iz': 0.0542, 'nmb': 'SHS140x140x8', 'nu': 0.3}, 'SHS150x150x4': {'A': 0.002311, 'AreaQy': 0.00084, 'AreaQz': 0.00084, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 1.2449e-05, 'Iy': 8.305e-06, 'Iz': 8.305e-06, 'P': 18.14, 'Wyel': 0.00011074, 'Wypl': 0.00012793, 'Wzel': 0.00011074, 'Wzpl': 0.00012793, 'alpha': 0.4166666666666667, 'b': 0.15, 'e': 0.004, 'h': 0.15, 'iy': 0.0599, 'iz': 0.0599, 'nmb': 'SHS150x150x4', 'nu': 0.3}, 'SHS150x150x5': {'A': 0.002873, 'AreaQy': 0.00105, 'AreaQz': 0.00105, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 1.5243e-05, 'Iy': 1.0174e-05, 'Iz': 1.0174e-05, 'P': 22.55, 'Wyel': 0.00013566, 'Wypl': 0.00015775, 'Wzel': 0.00013566, 'Wzpl': 0.00015775, 'alpha': 0.4166666666666667, 'b': 0.15, 'e': 0.005, 'h': 0.15, 'iy': 0.0595, 'iz': 0.0595, 'nmb': 'SHS150x150x5', 'nu': 0.3}, 'SHS150x150x6': {'A': 0.003429, 'AreaQy': 0.00126, 'AreaQz': 0.00126, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 1.7916e-05, 'Iy': 1.1965e-05, 'Iz': 1.1965e-05, 'P': 26.92, 'Wyel': 0.00015953, 'Wypl': 0.00018673, 'Wzel': 0.00015953, 'Wzpl': 0.00018673, 'alpha': 0.4166666666666667, 'b': 0.15, 'e': 0.006, 'h': 0.15, 'iy': 0.0591, 'iz': 0.0591, 'nmb': 'SHS150x150x6', 'nu': 0.3}, 'SHS150x150x7': {'A': 0.003978, 'AreaQy': 0.00147, 'AreaQz': 0.00147, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 2.0469e-05, 'Iy': 1.3679e-05, 'Iz': 1.3679e-05, 'P': 31.23, 'Wyel': 0.00018239, 'Wypl': 0.00021489, 'Wzel': 0.00018239, 'Wzpl': 0.00021489, 'alpha': 0.4166666666666667, 'b': 0.15, 'e': 0.007, 'h': 0.15, 'iy': 0.0586, 'iz': 0.0586, 'nmb': 'SHS150x150x7', 'nu': 0.3}, 'SHS150x150x8': {'A': 0.004522, 'AreaQy': 0.00168, 'AreaQz': 0.00168, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 2.2906e-05, 'Iy': 1.5319e-05, 'Iz': 1.5319e-05, 'P': 35.5, 'Wyel': 0.00020426, 'Wypl': 0.00024222, 'Wzel': 0.00020426, 'Wzpl': 0.00024222, 'alpha': 0.4166666666666667, 'b': 0.15, 'e': 0.008, 'h': 0.15, 'iy': 0.0582, 'iz': 0.0582, 'nmb': 'SHS150x150x8', 'nu': 0.3}, 'SHS160x160x4': {'A': 0.002462, 'AreaQy': 0.0008959999999999999, 'AreaQz': 0.0008959999999999999, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 1.5186e-05, 'Iy': 1.013e-05, 'Iz': 1.013e-05, 'P': 19.33, 'Wyel': 0.00012663, 'Wypl': 0.00014605, 'Wzel': 0.00012663, 'Wzpl': 0.00014605, 'alpha': 0.4166666666666667, 'b': 0.16, 'e': 0.004, 'h': 0.16, 'iy': 0.0641, 'iz': 0.0641, 'nmb': 'SHS160x160x4', 'nu': 0.3}, 'SHS160x160x5': {'A': 0.003062, 'AreaQy': 0.00112, 'AreaQz': 0.00112, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 1.8619e-05, 'Iy': 1.2426e-05, 'Iz': 1.2426e-05, 'P': 24.03, 'Wyel': 0.00015532, 'Wypl': 0.00018025, 'Wzel': 0.00015532, 'Wzpl': 0.00018025, 'alpha': 0.4166666666666667, 'b': 0.16, 'e': 0.005, 'h': 0.16, 'iy': 0.0637, 'iz': 0.0637, 'nmb': 'SHS160x160x5', 'nu': 0.3}, 'SHS160x160x6': {'A': 0.003655, 'AreaQy': 0.001344, 'AreaQz': 0.001344, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 2.1914e-05, 'Iy': 1.4631e-05, 'Iz': 1.4631e-05, 'P': 28.69, 'Wyel': 0.00018289, 'Wypl': 0.00021355, 'Wzel': 0.00018289, 'Wzpl': 0.00021355, 'alpha': 0.4166666666666667, 'b': 0.16, 'e': 0.006, 'h': 0.16, 'iy': 0.0633, 'iz': 0.0633, 'nmb': 'SHS160x160x6', 'nu': 0.3}, 'SHS160x160x7': {'A': 0.004242, 'AreaQy': 0.001568, 'AreaQz': 0.001568, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 2.5071e-05, 'Iy': 1.6749e-05, 'Iz': 1.6749e-05, 'P': 33.3, 'Wyel': 0.00020936, 'Wypl': 0.00024597, 'Wzel': 0.00020936, 'Wzpl': 0.00024597, 'alpha': 0.4166666666666667, 'b': 0.16, 'e': 0.007, 'h': 0.16, 'iy': 0.0628, 'iz': 0.0628, 'nmb': 'SHS160x160x7', 'nu': 0.3}, 'SHS160x160x8': {'A': 0.004823, 'AreaQy': 0.0017919999999999998, 'AreaQz': 0.0017919999999999998, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 2.8094e-05, 'Iy': 1.8782e-05, 'Iz': 1.8782e-05, 'P': 37.86, 'Wyel': 0.00023477, 'Wypl': 0.0002775, 'Wzel': 0.00023477, 'Wzpl': 0.0002775, 'alpha': 0.4166666666666667, 'b': 0.16, 'e': 0.008, 'h': 0.16, 'iy': 0.0624, 'iz': 0.0624, 'nmb': 'SHS160x160x8', 'nu': 0.3}, 'SHS175x175x5': {'A': 0.003361, 'AreaQy': 0.001225, 'AreaQz': 0.001225, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 2.4565e-05, 'Iy': 1.6391e-05, 'Iz': 1.6391e-05, 'P': 26.39, 'Wyel': 0.00018732, 'Wypl': 0.00021681, 'Wzel': 0.00018732, 'Wzpl': 0.00021681, 'alpha': 0.4166666666666667, 'b': 0.175, 'e': 0.005, 'h': 0.175, 'iy': 0.0698, 'iz': 0.0698, 'nmb': 'SHS175x175x5', 'nu': 0.3}, 'SHS175x175x6': {'A': 0.004015, 'AreaQy': 0.0014699999999999997, 'AreaQz': 0.0014699999999999997, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 2.8961e-05, 'Iy': 1.9332e-05, 'Iz': 1.9332e-05, 'P': 31.52, 'Wyel': 0.00022093, 'Wypl': 0.00025716, 'Wzel': 0.00022093, 'Wzpl': 0.00025716, 'alpha': 0.4166666666666667, 'b': 0.175, 'e': 0.006, 'h': 0.175, 'iy': 0.0694, 'iz': 0.0694, 'nmb': 'SHS175x175x6', 'nu': 0.3}, 'SHS175x175x7': {'A': 0.004662, 'AreaQy': 0.0017149999999999997, 'AreaQz': 0.0017149999999999997, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 3.3191e-05, 'Iy': 2.2166e-05, 'Iz': 2.2166e-05, 'P': 36.6, 'Wyel': 0.00025333, 'Wypl': 0.00029652, 'Wzel': 0.00025333, 'Wzpl': 0.00029652, 'alpha': 0.4166666666666667, 'b': 0.175, 'e': 0.007, 'h': 0.175, 'iy': 0.069, 'iz': 0.069, 'nmb': 'SHS175x175x7', 'nu': 0.3}, 'SHS175x175x8': {'A': 0.005303, 'AreaQy': 0.00196, 'AreaQz': 0.00196, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 3.726e-05, 'Iy': 2.4897e-05, 'Iz': 2.4897e-05, 'P': 41.63, 'Wyel': 0.00028453, 'Wypl': 0.00033492, 'Wzel': 0.00028453, 'Wzpl': 0.00033492, 'alpha': 0.4166666666666667, 'b': 0.175, 'e': 0.008, 'h': 0.175, 'iy': 0.0685, 'iz': 0.0685, 'nmb': 'SHS175x175x8', 'nu': 0.3}, 'SHS50x50x2_5': {'A': 0.000451, 'AreaQy': 0.000175, 'AreaQz': 0.000175, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 2.68e-07, 'Iy': 1.79e-07, 'Iz': 1.79e-07, 'P': 3.54, 'Wyel': 7.16e-06, 'Wypl': 8.47e-06, 'Wzel': 7.16e-06, 'Wzpl': 8.47e-06, 'alpha': 0.4166666666666667, 'b': 0.05, 'e': 0.0025, 'h': 0.05, 'iy': 0.0199, 'iz': 0.0199, 'nmb': 'SHS50x50x2.5', 'nu': 0.3}, 'SHS50x50x3': {'A': 0.000537, 'AreaQy': 0.00020999999999999998, 'AreaQz': 0.00020999999999999998, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 3.11e-07, 'Iy': 2.08e-07, 'Iz': 2.08e-07, 'P': 4.22, 'Wyel': 8.34e-06, 'Wypl': 9.95e-06, 'Wzel': 8.34e-06, 'Wzpl': 9.95e-06, 'alpha': 0.4166666666666667, 'b': 0.05, 'e': 0.003, 'h': 0.05, 'iy': 0.0197, 'iz': 0.0197, 'nmb': 'SHS50x50x3', 'nu': 0.3}, 'SHS50x50x4': {'A': 0.000703, 'AreaQy': 0.00028, 'AreaQz': 0.00028, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 3.89e-07, 'Iy': 2.62e-07, 'Iz': 2.62e-07, 'P': 5.52, 'Wyel': 1.046e-05, 'Wypl': 1.273e-05, 'Wzel': 1.046e-05, 'Wzpl': 1.273e-05, 'alpha': 0.4166666666666667, 'b': 0.05, 'e': 0.004, 'h': 0.05, 'iy': 0.0193, 'iz': 0.0193, 'nmb': 'SHS50x50x4', 'nu': 0.3}, 'SHS50x50x5': {'A': 0.000864, 'AreaQy': 0.00035, 'AreaQz': 0.00035, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 4.56e-07, 'Iy': 3.08e-07, 'Iz': 3.08e-07, 'P': 6.78, 'Wyel': 1.23e-05, 'Wypl': 1.525e-05, 'Wzel': 1.23e-05, 'Wzpl': 1.525e-05, 'alpha': 0.4166666666666667, 'b': 0.05, 'e': 0.005, 'h': 0.05, 'iy': 0.0189, 'iz': 0.0189, 'nmb': 'SHS50x50x5', 'nu': 0.3}, 'SHS60x60x2': {'A': 0.000458, 'AreaQy': 0.000168, 'AreaQz': 0.000168, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 3.9e-07, 'Iy': 2.6e-07, 'Iz': 2.6e-07, 'P': 3.6, 'Wyel': 8.68e-06, 'Wypl': 1.01e-05, 'Wzel': 8.68e-06, 'Wzpl': 1.01e-05, 'alpha': 0.4166666666666667, 'b': 0.06, 'e': 0.002, 'h': 0.06, 'iy': 0.0238, 'iz': 0.0238, 'nmb': 'SHS60x60x2', 'nu': 0.3}, 'SHS60x60x3': {'A': 0.000678, 'AreaQy': 0.000252, 'AreaQz': 0.000252, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 5.56e-07, 'Iy': 3.71e-07, 'Iz': 3.71e-07, 'P': 5.32, 'Wyel': 1.238e-05, 'Wypl': 1.463e-05, 'Wzel': 1.238e-05, 'Wzpl': 1.463e-05, 'alpha': 0.4166666666666667, 'b': 0.06, 'e': 0.003, 'h': 0.06, 'iy': 0.0234, 'iz': 0.0234, 'nmb': 'SHS60x60x3', 'nu': 0.3}, 'SHS60x60x4': {'A': 0.000892, 'AreaQy': 0.000336, 'AreaQz': 0.000336, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 7.02e-07, 'Iy': 4.71e-07, 'Iz': 4.71e-07, 'P': 7, 'Wyel': 1.569e-05, 'Wypl': 1.885e-05, 'Wzel': 1.569e-05, 'Wzpl': 1.885e-05, 'alpha': 0.4166666666666667, 'b': 0.06, 'e': 0.004, 'h': 0.06, 'iy': 0.023, 'iz': 0.023, 'nmb': 'SHS60x60x4', 'nu': 0.3}, 'SHS60x60x5': {'A': 0.001099, 'AreaQy': 0.00041999999999999996, 'AreaQz': 0.00041999999999999996, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 8.32e-07, 'Iy': 5.59e-07, 'Iz': 5.59e-07, 'P': 8.63, 'Wyel': 1.864e-05, 'Wypl': 2.275e-05, 'Wzel': 1.864e-05, 'Wzpl': 2.275e-05, 'alpha': 0.4166666666666667, 'b': 0.06, 'e': 0.005, 'h': 0.06, 'iy': 0.0226, 'iz': 0.0226, 'nmb': 'SHS60x60x5', 'nu': 0.3}, 'SHS70x70x2': {'A': 0.000553, 'AreaQy': 0.00019600000000000002, 'AreaQz': 0.00019600000000000002, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 6.29e-07, 'Iy': 4.2e-07, 'Iz': 4.2e-07, 'P': 4.34, 'Wyel': 1.199e-05, 'Wypl': 1.388e-05, 'Wzel': 1.199e-05, 'Wzpl': 1.388e-05, 'alpha': 0.4166666666666667, 'b': 0.07, 'e': 0.002, 'h': 0.07, 'iy': 0.0276, 'iz': 0.0276, 'nmb': 'SHS70x70x2', 'nu': 0.3}, 'SHS70x70x3': {'A': 0.00082, 'AreaQy': 0.000294, 'AreaQz': 0.000294, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 9.02e-07, 'Iy': 6.03e-07, 'Iz': 6.03e-07, 'P': 6.43, 'Wyel': 1.722e-05, 'Wypl': 2.021e-05, 'Wzel': 1.722e-05, 'Wzpl': 2.021e-05, 'alpha': 0.4166666666666667, 'b': 0.07, 'e': 0.003, 'h': 0.07, 'iy': 0.0271, 'iz': 0.0271, 'nmb': 'SHS70x70x3', 'nu': 0.3}, 'SHS70x70x4': {'A': 0.00108, 'AreaQy': 0.00039200000000000004, 'AreaQz': 0.00039200000000000004, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 1.15e-06, 'Iy': 7.69e-07, 'Iz': 7.69e-07, 'P': 8.48, 'Wyel': 2.198e-05, 'Wypl': 2.617e-05, 'Wzel': 2.198e-05, 'Wzpl': 2.617e-05, 'alpha': 0.4166666666666667, 'b': 0.07, 'e': 0.004, 'h': 0.07, 'iy': 0.0267, 'iz': 0.0267, 'nmb': 'SHS70x70x4', 'nu': 0.3}, 'SHS70x70x5': {'A': 0.001335, 'AreaQy': 0.00049, 'AreaQz': 0.00049, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 1.373e-06, 'Iy': 9.21e-07, 'Iz': 9.21e-07, 'P': 10.48, 'Wyel': 2.631e-05, 'Wypl': 3.175e-05, 'Wzel': 2.631e-05, 'Wzpl': 3.175e-05, 'alpha': 0.4166666666666667, 'b': 0.07, 'e': 0.005, 'h': 0.07, 'iy': 0.0263, 'iz': 0.0263, 'nmb': 'SHS70x70x5', 'nu': 0.3}, 'SHS75x75x2': {'A': 0.000578, 'AreaQy': 0.00021, 'AreaQz': 0.00021, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 7.78e-07, 'Iy': 5.19e-07, 'Iz': 5.19e-07, 'P': 4.54, 'Wyel': 1.384e-05, 'Wypl': 1.599e-05, 'Wzel': 1.384e-05, 'Wzpl': 1.599e-05, 'alpha': 0.4166666666666667, 'b': 0.075, 'e': 0.002, 'h': 0.075, 'iy': 0.03, 'iz': 0.03, 'nmb': 'SHS75x75x2', 'nu': 0.3}, 'SHS75x75x3': {'A': 0.000857, 'AreaQy': 0.000315, 'AreaQz': 0.000315, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 1.12e-06, 'Iy': 7.48e-07, 'Iz': 7.48e-07, 'P': 6.73, 'Wyel': 1.994e-05, 'Wypl': 2.334e-05, 'Wzel': 1.994e-05, 'Wzpl': 2.334e-05, 'alpha': 0.4166666666666667, 'b': 0.075, 'e': 0.003, 'h': 0.075, 'iy': 0.0295, 'iz': 0.0295, 'nmb': 'SHS75x75x3', 'nu': 0.3}, 'SHS75x75x4': {'A': 0.00113, 'AreaQy': 0.00042, 'AreaQz': 0.00042, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 1.432e-06, 'Iy': 9.57e-07, 'Iz': 9.57e-07, 'P': 8.87, 'Wyel': 2.553e-05, 'Wypl': 3.028e-05, 'Wzel': 2.553e-05, 'Wzpl': 3.028e-05, 'alpha': 0.4166666666666667, 'b': 0.075, 'e': 0.004, 'h': 0.075, 'iy': 0.0291, 'iz': 0.0291, 'nmb': 'SHS75x75x4', 'nu': 0.3}, 'SHS75x75x5': {'A': 0.001397, 'AreaQy': 0.000525, 'AreaQz': 0.000525, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 1.715e-06, 'Iy': 1.149e-06, 'Iz': 1.149e-06, 'P': 10.97, 'Wyel': 3.064e-05, 'Wypl': 3.681e-05, 'Wzel': 3.064e-05, 'Wzpl': 3.681e-05, 'alpha': 0.4166666666666667, 'b': 0.075, 'e': 0.005, 'h': 0.075, 'iy': 0.0287, 'iz': 0.0287, 'nmb': 'SHS75x75x5', 'nu': 0.3}, 'SHS80x80x2': {'A': 0.000615, 'AreaQy': 0.00022399999999999997, 'AreaQz': 0.00022399999999999997, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 9.49e-07, 'Iy': 6.33e-07, 'Iz': 6.33e-07, 'P': 4.83, 'Wyel': 1.583e-05, 'Wypl': 1.826e-05, 'Wzel': 1.583e-05, 'Wzpl': 1.826e-05, 'alpha': 0.4166666666666667, 'b': 0.08, 'e': 0.002, 'h': 0.08, 'iy': 0.0321, 'iz': 0.0321, 'nmb': 'SHS80x80x2', 'nu': 0.3}, 'SHS80x80x3': {'A': 0.000914, 'AreaQy': 0.000336, 'AreaQz': 0.000336, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 1.37e-06, 'Iy': 9.14e-07, 'Iz': 9.14e-07, 'P': 7.17, 'Wyel': 2.286e-05, 'Wypl': 2.669e-05, 'Wzel': 2.286e-05, 'Wzpl': 2.669e-05, 'alpha': 0.4166666666666667, 'b': 0.08, 'e': 0.003, 'h': 0.08, 'iy': 0.0316, 'iz': 0.0316, 'nmb': 'SHS80x80x3', 'nu': 0.3}, 'SHS80x80x4': {'A': 0.001206, 'AreaQy': 0.00044799999999999994, 'AreaQz': 0.00044799999999999994, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 1.756e-06, 'Iy': 1.174e-06, 'Iz': 1.174e-06, 'P': 9.47, 'Wyel': 2.935e-05, 'Wypl': 3.469e-05, 'Wzel': 2.935e-05, 'Wzpl': 3.469e-05, 'alpha': 0.4166666666666667, 'b': 0.08, 'e': 0.004, 'h': 0.08, 'iy': 0.0312, 'iz': 0.0312, 'nmb': 'SHS80x80x4', 'nu': 0.3}, 'SHS80x80x5': {'A': 0.001492, 'AreaQy': 0.00056, 'AreaQz': 0.00056, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 2.109e-06, 'Iy': 1.413e-06, 'Iz': 1.413e-06, 'P': 11.71, 'Wyel': 3.531e-05, 'Wypl': 4.225e-05, 'Wzel': 3.531e-05, 'Wzpl': 4.225e-05, 'alpha': 0.4166666666666667, 'b': 0.08, 'e': 0.005, 'h': 0.08, 'iy': 0.0308, 'iz': 0.0308, 'nmb': 'SHS80x80x5', 'nu': 0.3}, 'SHS80x80x6': {'A': 0.001771, 'AreaQy': 0.000672, 'AreaQz': 0.000672, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 2.431e-06, 'Iy': 1.632e-06, 'Iz': 1.632e-06, 'P': 13.9, 'Wyel': 4.079e-05, 'Wypl': 4.939e-05, 'Wzel': 4.079e-05, 'Wzpl': 4.939e-05, 'alpha': 0.4166666666666667, 'b': 0.08, 'e': 0.006, 'h': 0.08, 'iy': 0.0304, 'iz': 0.0304, 'nmb': 'SHS80x80x6', 'nu': 0.3}, 'SHS90x90x2': {'A': 0.00071, 'AreaQy': 0.000252, 'AreaQz': 0.000252, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 1.363e-06, 'Iy': 9.09e-07, 'Iz': 9.09e-07, 'P': 5.57, 'Wyel': 2.02e-05, 'Wypl': 2.324e-05, 'Wzel': 2.02e-05, 'Wzpl': 2.324e-05, 'alpha': 0.4166666666666667, 'b': 0.09, 'e': 0.002, 'h': 0.09, 'iy': 0.0358, 'iz': 0.0358, 'nmb': 'SHS90x90x2', 'nu': 0.3}, 'SHS90x90x3': {'A': 0.001055, 'AreaQy': 0.000378, 'AreaQz': 0.000378, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 1.976e-06, 'Iy': 1.319e-06, 'Iz': 1.319e-06, 'P': 8.28, 'Wyel': 2.93e-05, 'Wypl': 3.407e-05, 'Wzel': 2.93e-05, 'Wzpl': 3.407e-05, 'alpha': 0.4166666666666667, 'b': 0.09, 'e': 0.003, 'h': 0.09, 'iy': 0.0354, 'iz': 0.0354, 'nmb': 'SHS90x90x3', 'nu': 0.3}, 'SHS90x90x4': {'A': 0.001394, 'AreaQy': 0.000504, 'AreaQz': 0.000504, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 2.544e-06, 'Iy': 1.7e-06, 'Iz': 1.7e-06, 'P': 10.94, 'Wyel': 3.777e-05, 'Wypl': 4.441e-05, 'Wzel': 3.777e-05, 'Wzpl': 4.441e-05, 'alpha': 0.4166666666666667, 'b': 0.09, 'e': 0.004, 'h': 0.09, 'iy': 0.0349, 'iz': 0.0349, 'nmb': 'SHS90x90x4', 'nu': 0.3}, 'SHS90x90x5': {'A': 0.001727, 'AreaQy': 0.00063, 'AreaQz': 0.00063, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 3.071e-06, 'Iy': 2.054e-06, 'Iz': 2.054e-06, 'P': 13.56, 'Wyel': 4.565e-05, 'Wypl': 5.425e-05, 'Wzel': 4.565e-05, 'Wzpl': 5.425e-05, 'alpha': 0.4166666666666667, 'b': 0.09, 'e': 0.005, 'h': 0.09, 'iy': 0.0345, 'iz': 0.0345, 'nmb': 'SHS90x90x5', 'nu': 0.3}, 'SHS90x90x6': {'A': 0.002054, 'AreaQy': 0.000756, 'AreaQz': 0.000756, 'E': 210000000000.0, 'G': 80769230769.23077, 'It': 3.556e-06, 'Iy': 2.383e-06, 'Iz': 2.383e-06, 'P': 16.12, 'Wyel': 5.295e-05, 'Wypl': 6.361e-05, 'Wzel': 5.295e-05, 'Wzpl': 6.361e-05, 'alpha': 0.4166666666666667, 'b': 0.09, 'e': 0.006, 'h': 0.09, 'iy': 0.0341, 'iz': 0.0341, 'nmb': 'SHS90x90x6', 'nu': 0.3}}</em><a class="headerlink" href="#materials.sections.structural_shapes.arcelor_metric_shapes.SHS" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>XXX Control shear distortion constants</dt>
-<dd>alpha-&gt; alphaZ,alphaY</dd>
-</dl>
 </dd></dl>
 
 <dl class="class">
 <dt id="materials.sections.structural_shapes.arcelor_metric_shapes.SHSShape">
 <em class="property">class </em><code class="descclassname">materials.sections.structural_shapes.arcelor_metric_shapes.</code><code class="descname">SHSShape</code><span class="sig-paren">(</span><em>steel</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.arcelor_metric_shapes.SHSShape" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="materials.sections.html#materials.sections.structural_steel.QHShape" title="materials.sections.structural_steel.QHShape"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.sections.structural_steel.QHShape</span></code></a></p>
+<dl class="method">
+<dt id="materials.sections.structural_shapes.arcelor_metric_shapes.SHSShape.t">
+<code class="descname">t</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.arcelor_metric_shapes.SHSShape.t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the thickness</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="materials.sections.structural_shapes.arcelor_metric_shapes.UPNShape">
 <em class="property">class </em><code class="descclassname">materials.sections.structural_shapes.arcelor_metric_shapes.</code><code class="descname">UPNShape</code><span class="sig-paren">(</span><em>steel</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.arcelor_metric_shapes.UPNShape" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="materials.sections.html#materials.sections.structural_steel.UShape" title="materials.sections.structural_steel.UShape"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.sections.structural_steel.UShape</span></code></a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.structural_shapes.arcelor_metric_shapes.common_prefix">
+<code class="descclassname">materials.sections.structural_shapes.arcelor_metric_shapes.</code><code class="descname">common_prefix</code><span class="sig-paren">(</span><em>a: str</em>, <em>b: str</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.arcelor_metric_shapes.common_prefix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the common prefix of both strings.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>a</strong> – first string.</li>
+<li><strong>b</strong> – second string.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.structural_shapes.arcelor_metric_shapes.findNearestSteelShapeByDepth">
+<code class="descclassname">materials.sections.structural_shapes.arcelor_metric_shapes.</code><code class="descname">findNearestSteelShapeByDepth</code><span class="sig-paren">(</span><em>namePattern: str</em>, <em>depth: float</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.arcelor_metric_shapes.findNearestSteelShapeByDepth" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the steel shape whose name matches the pattern argument</dt>
+<dd>and whose depth is the nearest to the argument.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>namePattern</strong> – regular expression to match.</li>
+<li><strong>depth</strong> – depth of the steel shape.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="materials.sections.structural_shapes.arcelor_metric_shapes.getSteelShapeDepthRange">
+<code class="descclassname">materials.sections.structural_shapes.arcelor_metric_shapes.</code><code class="descname">getSteelShapeDepthRange</code><span class="sig-paren">(</span><em>namePattern: str</em>, <em>minDepth: float</em>, <em>maxDepth</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.structural_shapes.arcelor_metric_shapes.getSteelShapeDepthRange" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return the steel shapes whose name matches the pattern argument</dt>
+<dd>and whose depth is belongs to the range (minDepth, maxDepth)</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>namePattern</strong> – regular expression to match.</li>
+<li><strong>depth</strong> – depth of the steel shape.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>

@@ -15,6 +15,7 @@
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -50,6 +51,7 @@
 <h1>Materials according to Eurocode-3<a class="headerlink" href="#materials-according-to-eurocode-3" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-materials.ec3.EC3_materials">
 <span id="ec3-materials"></span><h2>EC3 materials<a class="headerlink" href="#module-materials.ec3.EC3_materials" title="Permalink to this headline">¶</a></h2>
+<p>Structural steel as specified in EC3 standard.</p>
 <dl class="class">
 <dt id="materials.ec3.EC3_materials.AUShape">
 <em class="property">class </em><code class="descclassname">materials.ec3.EC3_materials.</code><code class="descname">AUShape</code><span class="sig-paren">(</span><em>steel</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec3.EC3_materials.AUShape" title="Permalink to this definition">¶</a></dt>
@@ -402,15 +404,19 @@ the moment gradient factor.
 
 <dl class="method">
 <dt id="materials.ec3.EC3_materials.EC3Shape.getZBendingEfficiency">
-<code class="descname">getZBendingEfficiency</code><span class="sig-paren">(</span><em>sectionClass</em>, <em>Mzd</em>, <em>Vyd=0.0</em>, <em>chiLT=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec3.EC3_materials.EC3Shape.getZBendingEfficiency" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getZBendingEfficiency</code><span class="sig-paren">(</span><em>Nd</em>, <em>Mzd</em>, <em>Vyd=0.0</em>, <em>chiN=1.0</em>, <em>chiLT=1.0</em>, <em>sectionClass=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec3.EC3_materials.EC3Shape.getZBendingEfficiency" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return major axis bending efficiency</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>sectionClass</strong> – section classification (1,2,3 or 4)</li>
+<li><strong>Nd</strong> – required axial strength.</li>
+<li><strong>Mzd</strong> – required bending strength (major axis).</li>
+<li><strong>Vyd</strong> – required shear strength (major axis)</li>
+<li><strong>chiN</strong> – axial strength reduction factor (default= 1.0).</li>
 <li><strong>chiLT</strong> – lateral buckling reduction factor (default= 1.0).</li>
+<li><strong>sectionClass</strong> – section classification (1,2,3 or 4)</li>
 </ul>
 </td>
 </tr>
@@ -563,6 +569,18 @@ the moment gradient factor.
 <code class="descclassname">materials.ec3.EC3_materials.</code><code class="descname">fuEC3</code><span class="sig-paren">(</span><em>desig</em>, <em>t</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec3.EC3_materials.fuEC3" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return steel ultimate strength from its name and the part thickness 
 (see table 3.1).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>desig</strong> – steel designation (235, 275, 355).</li>
+<li><strong>t</strong> – part thickness.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="function">
@@ -578,7 +596,7 @@ the moment gradient factor.
 <dl class="class">
 <dt id="materials.ec3.EC3Beam.EC3Beam">
 <em class="property">class </em><code class="descclassname">materials.ec3.EC3Beam.</code><code class="descname">EC3Beam</code><span class="sig-paren">(</span><em>name</em>, <em>ec3Shape</em>, <em>sectionClass=1</em>, <em>supportCoefs=&lt;materials.ec3.EC3_limit_state_checking.SupportCoefficients object&gt;</em>, <em>typo='rolled'</em>, <em>lstLines=None</em>, <em>lstPoints=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.ec3.EC3Beam.EC3Beam" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="matGenTopics.html#materials.buckling_base.MemberBase" title="materials.buckling_base.MemberBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.buckling_base.MemberBase</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">materials.steel_member_base.BucklingMember</span></code></p>
 <p>Steel beam defined by an arbitrary name, a cross-section shape, 
 its section class, the coefficients of supports and the type</p>
 <table class="docutils field-list" frame="void" rules="none">

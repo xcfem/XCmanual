@@ -15,6 +15,7 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -691,7 +692,7 @@ as an approximation for the compressive force in the arch at any location</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
 <li><strong>sphRadius</strong> – radius of curvature (spherical radius)</li>
-<li><a class="reference internal" href="../preprocessor/python_modules/actions.quake.html#actions.quake.seismeSIA.alpha" title="actions.quake.seismeSIA.alpha"><strong>alpha</strong></a> – angle from the top of the dome to the bottom of the dome
+<li><a class="reference internal" href="#rough_calculations.masonry_vault.FillingCharacteristics.alpha" title="rough_calculations.masonry_vault.FillingCharacteristics.alpha"><strong>alpha</strong></a> – angle from the top of the dome to the bottom of the dome
 measured along the meridian [radians]</li>
 </ul>
 </td>
@@ -1011,7 +1012,7 @@ uniform load.</p>
 <span id="beam"></span><h1>Beam<a class="headerlink" href="#module-rough_calculations.ng_beam" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="rough_calculations.ng_beam.Beam">
-<em class="property">class </em><code class="descclassname">rough_calculations.ng_beam.</code><code class="descname">Beam</code><span class="sig-paren">(</span><em>E=1.0</em>, <em>I=1.0</em>, <em>l=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_beam.Beam" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">rough_calculations.ng_beam.</code><code class="descname">Beam</code><span class="sig-paren">(</span><em>E: float = 1.0</em>, <em>I: float = 1.0</em>, <em>l: float = 1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_beam.Beam" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Base class for beam formulas.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1040,7 +1041,7 @@ uniform load.</p>
 <span id="cantilever"></span><h1>Cantilever<a class="headerlink" href="#module-rough_calculations.ng_cantilever" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="rough_calculations.ng_cantilever.Cantilever">
-<em class="property">class </em><code class="descclassname">rough_calculations.ng_cantilever.</code><code class="descname">Cantilever</code><span class="sig-paren">(</span><em>E=1.0</em>, <em>I=1.0</em>, <em>l=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_cantilever.Cantilever" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">rough_calculations.ng_cantilever.</code><code class="descname">Cantilever</code><span class="sig-paren">(</span><em>E: float = 1.0</em>, <em>I: float = 1.0</em>, <em>l: float = 1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_cantilever.Cantilever" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#rough_calculations.ng_beam.Beam" title="rough_calculations.ng_beam.Beam"><code class="xref py py-class docutils literal notranslate"><span class="pre">rough_calculations.ng_beam.Beam</span></code></a></p>
 <p>Cantilever formulas.</p>
 <dl class="method">
@@ -1110,6 +1111,24 @@ uniform load.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>q</strong> – value of the uniform load.</li>
 <li><strong>x</strong> – position of the section.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_cantilever.Cantilever.getFundamentalBendingFrequencies">
+<code class="descname">getFundamentalBendingFrequencies</code><span class="sig-paren">(</span><em>numModes</em>, <em>linearRho</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_cantilever.Cantilever.getFundamentalBendingFrequencies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the fundamental bending frequencies of the beam.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>numModes</strong> – number of oscillation modes to compute.</li>
+<li><strong>linearRho</strong> – mass density per unit length.</li>
 </ul>
 </td>
 </tr>
@@ -2512,7 +2531,7 @@ in the list.</p>
 <p>Simple beam formulas.</p>
 <dl class="class">
 <dt id="rough_calculations.ng_simple_beam.SimpleBeam">
-<em class="property">class </em><code class="descclassname">rough_calculations.ng_simple_beam.</code><code class="descname">SimpleBeam</code><span class="sig-paren">(</span><em>E=1.0</em>, <em>I=1.0</em>, <em>l=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_simple_beam.SimpleBeam" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">rough_calculations.ng_simple_beam.</code><code class="descname">SimpleBeam</code><span class="sig-paren">(</span><em>E: float = 1.0</em>, <em>I: float = 1.0</em>, <em>l: float = 1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_simple_beam.SimpleBeam" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#rough_calculations.ng_beam.Beam" title="rough_calculations.ng_beam.Beam"><code class="xref py py-class docutils literal notranslate"><span class="pre">rough_calculations.ng_beam.Beam</span></code></a></p>
 <p>Beam pinned in both ends.</p>
 <dl class="method">
@@ -2587,6 +2606,24 @@ in the list.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>q</strong> – value of the uniform load.</li>
 <li><strong>x</strong> – position of the section.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rough_calculations.ng_simple_beam.SimpleBeam.getFundamentalBendingFrequencies">
+<code class="descname">getFundamentalBendingFrequencies</code><span class="sig-paren">(</span><em>numModes</em>, <em>linearRho</em><span class="sig-paren">)</span><a class="headerlink" href="#rough_calculations.ng_simple_beam.SimpleBeam.getFundamentalBendingFrequencies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the fundamental bending frequencies of the beam.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>numModes</strong> – number of oscillation modes to compute.</li>
+<li><strong>linearRho</strong> – mass density per unit length.</li>
 </ul>
 </td>
 </tr>

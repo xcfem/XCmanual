@@ -15,6 +15,7 @@
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -436,13 +437,18 @@ defining the shear reinforcement in Y direction</li>
 
 <dl class="method">
 <dt id="materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.defElasticSection1d">
-<code class="descname">defElasticSection1d</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.defElasticSection1d" title="Permalink to this definition">¶</a></dt>
+<code class="descname">defElasticSection1d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.defElasticSection1d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an elastic section appropiate for truss analysis.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor object.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – preprocessor of the finite element problem.</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -450,7 +456,7 @@ defining the shear reinforcement in Y direction</li>
 
 <dl class="method">
 <dt id="materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.defElasticSection2d">
-<code class="descname">defElasticSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.defElasticSection2d" title="Permalink to this definition">¶</a></dt>
+<code class="descname">defElasticSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>majorAxis=True</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.defElasticSection2d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an elastic section appropiate for 2D beam analysis</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -459,6 +465,8 @@ defining the shear reinforcement in Y direction</li>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>preprocessor</strong> – XC preprocessor for the finite element problem.</li>
 <li><strong>majorAxis</strong> – true if bending occurs in the section major axis.</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
 </ul>
 </td>
 </tr>
@@ -468,15 +476,16 @@ defining the shear reinforcement in Y direction</li>
 
 <dl class="method">
 <dt id="materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.defElasticSection3d">
-<code class="descname">defElasticSection3d</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.defElasticSection3d" title="Permalink to this definition">¶</a></dt>
+<code class="descname">defElasticSection3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.defElasticSection3d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an elastic section appropiate for 3D beam analysis</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>preprocessor</strong> – preprocessor object.</li>
-<li><strong>material</strong> – material (for which E is the Young’s modulus and G() the shear modulus)</li>
+<li><strong>preprocessor</strong> – preprocessor of the finite element problem.</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
 </ul>
 </td>
 </tr>
@@ -486,8 +495,11 @@ defining the shear reinforcement in Y direction</li>
 
 <dl class="method">
 <dt id="materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.defElasticShearSection2d">
-<code class="descname">defElasticShearSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em>, <em>majorAxis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.defElasticShearSection2d" title="Permalink to this definition">¶</a></dt>
-<dd><p>elastic section appropiate for 2D beam analysis, including shear deformations</p>
+<code class="descname">defElasticShearSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>material</em>, <em>majorAxis=True</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.defElasticShearSection2d" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>elastic section appropiate for 2D beam analysis, including </dt>
+<dd>shear deformations.</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -495,6 +507,8 @@ defining the shear reinforcement in Y direction</li>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>preprocessor</strong> – XC preprocessor for the finite element problem.</li>
 <li><strong>majorAxis</strong> – true if bending occurs in the section major axis.</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
 </ul>
 </td>
 </tr>
@@ -504,7 +518,7 @@ defining the shear reinforcement in Y direction</li>
 
 <dl class="method">
 <dt id="materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.defElasticShearSection3d">
-<code class="descname">defElasticShearSection3d</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.defElasticShearSection3d" title="Permalink to this definition">¶</a></dt>
+<code class="descname">defElasticShearSection3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.defElasticShearSection3d" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>elastic section appropiate for 3D beam analysis, including shear </dt>
 <dd>deformations</dd>
@@ -513,7 +527,12 @@ defining the shear reinforcement in Y direction</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – XC preprocessor for the finite element problem.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – XC preprocessor for the finite element problem.</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -522,13 +541,29 @@ defining the shear reinforcement in Y direction</li>
 <dl class="method">
 <dt id="materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.getRespT">
 <code class="descname">getRespT</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.getRespT" title="Permalink to this definition">¶</a></dt>
-<dd><p>Material for modeling torsional response of section</p>
+<dd><p>Material for modeling torsional response of section.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor of the finite element problem.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.getRespVy">
 <code class="descname">getRespVy</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection.getRespVy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Material for modeling Y shear response of section</p>
+<dd><p>Material for modeling Y shear response of section.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor of the finite element problem.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -539,7 +574,7 @@ defining the shear reinforcement in Y direction</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor object.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor of the finite element problem.</td>
 </tr>
 </tbody>
 </table>
@@ -706,8 +741,12 @@ direction</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>matDiagType</strong> – type of stress-strain diagram 
-(“k” for characteristic diagram, “d” for design diagram)</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – preprocessor of the finite element problem.</li>
+<li><strong>matDiagType</strong> – type of stress-strain diagram 
+(“k” for characteristic diagram, “d” for design diagram)</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -717,22 +756,57 @@ direction</li>
 <dt id="materials.sections.fiber_section.def_simple_RC_section.RCFiberSectionParameters.defInteractionDiagramParameters">
 <code class="descname">defInteractionDiagramParameters</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCFiberSectionParameters.defInteractionDiagramParameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Defines the parameters for interaction diagrams.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor of the finite element problem.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.fiber_section.def_simple_RC_section.RCFiberSectionParameters.getConcreteDiagram">
 <code class="descname">getConcreteDiagram</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCFiberSectionParameters.getConcreteDiagram" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the concrete strain-stress diagram.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor of the finite element problem.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.fiber_section.def_simple_RC_section.RCFiberSectionParameters.getSteelDiagram">
 <code class="descname">getSteelDiagram</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCFiberSectionParameters.getSteelDiagram" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the steel strain-stress diagram.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor of the finite element problem.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.fiber_section.def_simple_RC_section.RCFiberSectionParameters.getSteelEquivalenceCoefficient">
 <code class="descname">getSteelEquivalenceCoefficient</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCFiberSectionParameters.getSteelEquivalenceCoefficient" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the equivalence coefficiente for the steel (Es/Ec).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor of the finite element problem.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.fiber_section.def_simple_RC_section.RCFiberSectionParameters.nDivCirc">
@@ -752,8 +826,10 @@ direction</li>
 <dt id="materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection">
 <em class="property">class </em><code class="descclassname">materials.sections.fiber_section.def_simple_RC_section.</code><code class="descname">RCRectangularSection</code><span class="sig-paren">(</span><em>name=None</em>, <em>sectionDescr=None</em>, <em>width=0.25</em>, <em>depth=0.25</em>, <em>concrType=None</em>, <em>reinfSteelType=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCRectangularSection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection" title="materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.sections.fiber_section.def_simple_RC_section.BasicRectangularRCSection</span></code></a></p>
-<p>This class is used to define the variables that make up a reinforced 
-concrete section with top and bottom reinforcement layers.</p>
+<dl class="docutils">
+<dt>This class is used to define the variables that make up a reinforced </dt>
+<dd>concrete section with top and bottom reinforcement layers.</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -793,8 +869,12 @@ face</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>matDiagType</strong> – type of stress-strain diagram 
-(“k” for characteristic diagram, “d” for design diagram)</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – preprocessor of the finite element problem.</li>
+<li><strong>matDiagType</strong> – type of stress-strain diagram 
+(“k” for characteristic diagram, “d” for design diagram)</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1038,8 +1118,12 @@ concrete fiber section.</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>matDiagType</strong> – type of stress-strain diagram 
-(“k” for characteristic diagram, “d” for design diagram)</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – preprocessor of the finite element problem.</li>
+<li><strong>matDiagType</strong> – type of stress-strain diagram 
+(“k” for characteristic diagram, “d” for design diagram)</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1049,30 +1133,70 @@ concrete fiber section.</li>
 <dt id="materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defFiberSection">
 <code class="descname">defFiberSection</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defFiberSection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Define fiber section from geometry data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor of the finite element problem.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defInteractionDiagram">
 <code class="descname">defInteractionDiagram</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defInteractionDiagram" title="Permalink to this definition">¶</a></dt>
 <dd><p>Defines 3D interaction diagram.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor of the finite element problem.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defInteractionDiagramNMy">
 <code class="descname">defInteractionDiagramNMy</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defInteractionDiagramNMy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Defines N-My interaction diagram.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor of the finite element problem.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defInteractionDiagramNMz">
 <code class="descname">defInteractionDiagramNMz</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defInteractionDiagramNMz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Defines N-Mz interaction diagram.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor of the finite element problem.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defInteractionDiagramParameters">
 <code class="descname">defInteractionDiagramParameters</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defInteractionDiagramParameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>parameters for interaction diagrams.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor of the finite element problem.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -1083,8 +1207,12 @@ concrete fiber section.</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>matDiagType</strong> – type of stress-strain diagram 
-(“k” for characteristic diagram, “d” for design diagram)</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – preprocessor of the finite element problem.</li>
+<li><strong>matDiagType</strong> – type of stress-strain diagram 
+(“k” for characteristic diagram, “d” for design diagram)</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1094,24 +1222,56 @@ concrete fiber section.</li>
 <dt id="materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defShearResponse">
 <code class="descname">defShearResponse</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.defShearResponse" title="Permalink to this definition">¶</a></dt>
 <dd><p>Define the shear/torsional response of the section.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor of the finite element problem.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.getConcreteDiagram">
 <code class="descname">getConcreteDiagram</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.getConcreteDiagram" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the concrete stress-strain diagram.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor of the finite element problem.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.getSteelDiagram">
 <code class="descname">getSteelDiagram</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.getSteelDiagram" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the reinforcing steel stress-strain diagram.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor of the finite element problem.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.getSteelEquivalenceCoefficient">
 <code class="descname">getSteelEquivalenceCoefficient</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.getSteelEquivalenceCoefficient" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the equivalence coefficient: Es/Ec.</p>
+<dd><p>Return the steel equivalence coefficient: Es/Ec.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor of the finite element problem.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -1124,6 +1284,14 @@ concrete fiber section.</li>
 <dt id="materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.isCircular">
 <code class="descname">isCircular</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.sections.fiber_section.def_simple_RC_section.RCSectionBase.isCircular" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return true if it’s a circular section.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>preprocessor</strong> – preprocessor of the finite element problem.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

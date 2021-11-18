@@ -15,6 +15,7 @@
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -58,7 +59,7 @@
 <p>VERIFICATION TESTS REQUIRED!!!.</p>
 <dl class="class">
 <dt id="materials.awc_nds.AWCNDS_materials.BeamMember">
-<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">BeamMember</code><span class="sig-paren">(</span><em>unbracedLength</em>, <em>section</em>, <em>connection=&lt;materials.buckling_base.MemberConnection object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.BeamMember" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">BeamMember</code><span class="sig-paren">(</span><em>unbracedLength</em>, <em>section</em>, <em>connection=&lt;materials.steel_member_base.MemberConnection object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.BeamMember" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#materials.awc_nds.AWCNDS_materials.MemberBase" title="materials.awc_nds.AWCNDS_materials.MemberBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.awc_nds.AWCNDS_materials.MemberBase</span></code></a></p>
 <p>Beam member according to chapter 3.3 of NDS-2018.</p>
 <dl class="method">
@@ -157,7 +158,7 @@ spaced along the beam (0: uniform load).</li>
 
 <dl class="class">
 <dt id="materials.awc_nds.AWCNDS_materials.ColumnMember">
-<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">ColumnMember</code><span class="sig-paren">(</span><em>unbracedLengthB</em>, <em>unbracedLengthH</em>, <em>section</em>, <em>connection=&lt;materials.buckling_base.MemberConnection object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.ColumnMember" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">ColumnMember</code><span class="sig-paren">(</span><em>unbracedLengthB</em>, <em>unbracedLengthH</em>, <em>section</em>, <em>connection=&lt;materials.steel_member_base.MemberConnection object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.ColumnMember" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#materials.awc_nds.AWCNDS_materials.MemberBase" title="materials.awc_nds.AWCNDS_materials.MemberBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.awc_nds.AWCNDS_materials.MemberBase</span></code></a></p>
 <p>Column member according to chapter 3.7 and 3.9 of NDS-2018.</p>
 <dl class="method">
@@ -328,17 +329,19 @@ stability and column stability calculations.</td>
 <p>Section of a lumber member with custom dimensions.</p>
 <dl class="method">
 <dt id="materials.awc_nds.AWCNDS_materials.CustomLumberSection.defElasticShearSection2d">
-<code class="descname">defElasticShearSection2d</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.CustomLumberSection.defElasticShearSection2d" title="Permalink to this definition">¶</a></dt>
-<dd><p>elastic section appropiate for 2D beam analysis, including shear deformations</p>
+<code class="descname">defElasticShearSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.CustomLumberSection.defElasticShearSection2d" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Defines a elastic shear section for two-dimensional</dt>
+<dd>problems.</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>preprocessor</strong> – preprocessor object.</li>
-<li><strong>material</strong> – material constitutive model (for which 
-E is the Young’s modulus and G() the shear modulus).</li>
-<li><strong>majorAxis</strong> – true if bending occurs in the section major axis.</li>
+<li><strong>preprocessor</strong> – pre-processor for the finite element problem.</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
 </ul>
 </td>
 </tr>
@@ -348,18 +351,19 @@ E is the Young’s modulus and G() the shear modulus).</li>
 
 <dl class="method">
 <dt id="materials.awc_nds.AWCNDS_materials.CustomLumberSection.defElasticShearSection3d">
-<code class="descname">defElasticShearSection3d</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.CustomLumberSection.defElasticShearSection3d" title="Permalink to this definition">¶</a></dt>
+<code class="descname">defElasticShearSection3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.CustomLumberSection.defElasticShearSection3d" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>elastic section appropiate for 3D beam analysis, including shear </dt>
-<dd>deformations</dd>
+<dt>Defines a elastic shear section for three-dimensional</dt>
+<dd>problems.</dd>
 </dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>preprocessor</strong> – preprocessor object.</li>
-<li><strong>material</strong> – material (for which E is the Young’s modulus and G() the shear modulus)</li>
+<li><strong>preprocessor</strong> – pre-processor for the finite element problem.</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
 </ul>
 </td>
 </tr>
@@ -474,17 +478,19 @@ value Ft.</p>
 <p>Structural beam/header.</p>
 <dl class="method">
 <dt id="materials.awc_nds.AWCNDS_materials.HeaderSection.defElasticShearSection2d">
-<code class="descname">defElasticShearSection2d</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.HeaderSection.defElasticShearSection2d" title="Permalink to this definition">¶</a></dt>
-<dd><p>elastic section appropiate for 2D beam analysis, including shear deformations</p>
+<code class="descname">defElasticShearSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.HeaderSection.defElasticShearSection2d" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Defines a elastic shear section for two-dimensional</dt>
+<dd>problems.</dd>
+</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>preprocessor</strong> – preprocessor object.</li>
-<li><strong>material</strong> – material constitutive model (for which 
-E is the Young’s modulus and G() the shear modulus).</li>
-<li><strong>majorAxis</strong> – true if bending occurs in the section major axis.</li>
+<li><strong>preprocessor</strong> – pre-processor for the finite element problem.</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
 </ul>
 </td>
 </tr>
@@ -494,18 +500,19 @@ E is the Young’s modulus and G() the shear modulus).</li>
 
 <dl class="method">
 <dt id="materials.awc_nds.AWCNDS_materials.HeaderSection.defElasticShearSection3d">
-<code class="descname">defElasticShearSection3d</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.HeaderSection.defElasticShearSection3d" title="Permalink to this definition">¶</a></dt>
+<code class="descname">defElasticShearSection3d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.HeaderSection.defElasticShearSection3d" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
-<dt>elastic section appropiate for 3D beam analysis, including shear </dt>
-<dd>deformations</dd>
+<dt>Defines a elastic shear section for three-dimensional</dt>
+<dd>problems.</dd>
 </dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>preprocessor</strong> – preprocessor object.</li>
-<li><strong>material</strong> – material (for which E is the Young’s modulus and G() the shear modulus)</li>
+<li><strong>preprocessor</strong> – pre-processor for the finite element problem.</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
 </ul>
 </td>
 </tr>
@@ -515,8 +522,17 @@ E is the Young’s modulus and G() the shear modulus).</li>
 
 <dl class="method">
 <dt id="materials.awc_nds.AWCNDS_materials.HeaderSection.defXCMaterial">
-<code class="descname">defXCMaterial</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.HeaderSection.defXCMaterial" title="Permalink to this definition">¶</a></dt>
+<code class="descname">defXCMaterial</code><span class="sig-paren">(</span><em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.HeaderSection.defXCMaterial" title="Permalink to this definition">¶</a></dt>
 <dd><p>Defines the material in XC.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -753,7 +769,7 @@ E is the Young’s modulus and G() the shear modulus).</li>
 
 <dl class="class">
 <dt id="materials.awc_nds.AWCNDS_materials.MemberBase">
-<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">MemberBase</code><span class="sig-paren">(</span><em>unbracedLength</em>, <em>section</em>, <em>connection=&lt;materials.buckling_base.MemberConnection object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.MemberBase" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">MemberBase</code><span class="sig-paren">(</span><em>unbracedLength</em>, <em>section</em>, <em>connection=&lt;materials.steel_member_base.MemberConnection object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.MemberBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Base class for beam and column members according to chapter 
 3 of NDS-2018.</p>
@@ -766,19 +782,44 @@ E is the Young’s modulus and G() the shear modulus).</li>
 <p>Oriented strand board panel.</p>
 <dl class="method">
 <dt id="materials.awc_nds.AWCNDS_materials.OSBPanelSection.defElasticShearSection2d">
-<code class="descname">defElasticShearSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>angle=1.5707963267948966</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.OSBPanelSection.defElasticShearSection2d" title="Permalink to this definition">¶</a></dt>
-<dd><p>Defines a elastic shear section for two-dimensional
-problems.</p>
+<code class="descname">defElasticShearSection2d</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>angle=1.5707963267948966</em>, <em>overrideRho=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.OSBPanelSection.defElasticShearSection2d" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Defines a elastic shear section for two-dimensional</dt>
+<dd>problems.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>preprocessor</strong> – pre-processor for the finite element problem.</li>
+<li><strong>angle</strong> – angle of the stress with the strength axis.</li>
+<li><strong>overrideRho</strong> – if defined (not None), override the value of 
+the material density.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="materials.awc_nds.AWCNDS_materials.OSBPanelSection.getE">
 <code class="descname">getE</code><span class="sig-paren">(</span><em>angle=1.5707963267948966</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.OSBPanelSection.getE" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the bending stress Fb or the panel according
-to the table A of the document:
+<dd><dl class="docutils">
+<dt>Return the bending stress Fb or the panel according</dt>
+<dd>to the table A of the document:
 “Design Capacities for Oriented Strand Board V1.0 – 01/2008”
-from PFS TECO • 1507 Matt Pass, Cottage Grove, WI 53527, USA</p>
-<p>angle: angle of the stress with the strength axis.</p>
+from PFS TECO • 1507 Matt Pass, Cottage Grove, WI 53527, USA</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>angle</strong> – angle of the stress with the strength axis.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -822,24 +863,9 @@ from PFS TECO • 1507 Matt Pass, Cottage Grove, WI 53527, USA</p>
 <dl class="class">
 <dt id="materials.awc_nds.AWCNDS_materials.Wood">
 <em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">Wood</code><span class="sig-paren">(</span><em>name</em>, <em>specificGravity=None</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.Wood" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="docutils">
-<dt>Base class for wood materials according</dt>
-<dd>to AWC-NDS2018.</dd>
-</dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="../cpp_classes/domain/load/pattern/pattern.html#xc.LoadPattern.name" title="xc.LoadPattern.name"><strong>name</strong></a> – wood name.</li>
-<li><strong>specificGravity</strong> – specific gravity of the wood
-member.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">materials.wood_base.Wood</span></code></p>
+<p>Base class for wood materials according
+to AWC-NDS2018.</p>
 <dl class="method">
 <dt id="materials.awc_nds.AWCNDS_materials.Wood.getDowelBearingStrength">
 <code class="descname">getDowelBearingStrength</code><span class="sig-paren">(</span><em>diameter</em>, <em>theta</em>, <em>endGrain=False</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.Wood.getDowelBearingStrength" title="Permalink to this definition">¶</a></dt>
@@ -874,7 +900,7 @@ See clause 12.3.3.4 of NDS.</li>
 <dt id="materials.awc_nds.AWCNDS_materials.WoodPanelSection">
 <em class="property">class </em><code class="descclassname">materials.awc_nds.AWCNDS_materials.</code><code class="descname">WoodPanelSection</code><span class="sig-paren">(</span><em>name</em>, <em>b</em>, <em>h</em>, <em>shear_constant</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.WoodPanelSection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="materials.sections.html#materials.sections.section_properties.RectangularSection" title="materials.sections.section_properties.RectangularSection"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.sections.section_properties.RectangularSection</span></code></a></p>
-<p>Plywood structural panel.</p>
+<p>Wood structural panel.</p>
 <dl class="method">
 <dt id="materials.awc_nds.AWCNDS_materials.WoodPanelSection.getAPARatedSturdIFloor">
 <code class="descname">getAPARatedSturdIFloor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.AWCNDS_materials.WoodPanelSection.getAPARatedSturdIFloor" title="Permalink to this definition">¶</a></dt>
@@ -1348,6 +1374,21 @@ of the American Wood Council.</p>
 <em class="property">class </em><code class="descclassname">materials.awc_nds.dowel_type_fasteners.</code><code class="descname">DowelFastener</code><span class="sig-paren">(</span><em>diameter</em>, <em>length</em>, <em>tip</em>, <em>bendingYieldStrength</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.dowel_type_fasteners.DowelFastener" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Dowel-Type fastener as defined in chapter 12 of NDS-2018.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="../cpp_classes/material/section/repres/geom_section/reinfBar/reinfBar.html#xc.ReinfBar.diameter" title="xc.ReinfBar.diameter"><strong>diameter</strong></a> – fastener diameter.</li>
+<li><a class="reference internal" href="../geom_cpp_classes/d2/d2.html#geom.BND2d.length" title="geom.BND2d.length"><strong>length</strong></a> – fastener length.</li>
+<li><strong>tip</strong> – fastener tapered tip length.</li>
+<li><strong>bendingYieldStrength</strong> – fastener bending yield strength (see
+table I1 NDS-2018).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="materials.awc_nds.dowel_type_fasteners.DowelFastener.getDiameterForYield">
 <code class="descname">getDiameterForYield</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.dowel_type_fasteners.DowelFastener.getDiameterForYield" title="Permalink to this definition">¶</a></dt>
@@ -1637,6 +1678,14 @@ to clause 12.1.6.4 of NDS-2018.</p>
 <em class="property">class </em><code class="descclassname">materials.awc_nds.dowel_type_fasteners.</code><code class="descname">Screw</code><span class="sig-paren">(</span><em>diameter</em>, <em>length</em>, <em>tip</em>, <em>rootDiameter</em>, <em>bendingYieldStrength=310264200.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.dowel_type_fasteners.Screw" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#materials.awc_nds.dowel_type_fasteners.DowelFastener" title="materials.awc_nds.dowel_type_fasteners.DowelFastener"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.awc_nds.dowel_type_fasteners.DowelFastener</span></code></a></p>
 <p>Screw as defined in NDS-2018.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>rootDiameter</strong> – root diameter.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="class">
@@ -1644,6 +1693,18 @@ to clause 12.1.6.4 of NDS-2018.</p>
 <em class="property">class </em><code class="descclassname">materials.awc_nds.dowel_type_fasteners.</code><code class="descname">WoodScrew</code><span class="sig-paren">(</span><em>diameter</em>, <em>length</em>, <em>headDiameter</em>, <em>rootDiameter</em>, <em>threadLength=None</em>, <em>bendingYieldStrength=310264200.0</em><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.dowel_type_fasteners.WoodScrew" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#materials.awc_nds.dowel_type_fasteners.Screw" title="materials.awc_nds.dowel_type_fasteners.Screw"><code class="xref py py-class docutils literal notranslate"><span class="pre">materials.awc_nds.dowel_type_fasteners.Screw</span></code></a></p>
 <p>Wood screw as defined in NDS-2018.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>headDiameter</strong> – head diameter.</li>
+<li><strong>threadLength</strong> – thread length.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="materials.awc_nds.dowel_type_fasteners.WoodScrew.getDiameterForYield">
 <code class="descname">getDiameterForYield</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.dowel_type_fasteners.WoodScrew.getDiameterForYield" title="Permalink to this definition">¶</a></dt>
@@ -1654,7 +1715,7 @@ expressions accorcing to clause 12.3.7 of NDS-2018.</p>
 <dl class="method">
 <dt id="materials.awc_nds.dowel_type_fasteners.WoodScrew.getMinPenetration">
 <code class="descname">getMinPenetration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#materials.awc_nds.dowel_type_fasteners.WoodScrew.getMinPenetration" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the inimum length of wood screw pentration, p_min,
+<dd><p>Return the minimum length of wood screw pentration, p_min,
 including the length of the tapered tip where part of the 
 penetration into the main member for single shear connections
 and the side members for double shear connection according
@@ -1670,8 +1731,17 @@ to clause 12.1.5.6 of NDS-2018.</p>
 “NATIONAL DESIGN SPECIFICATION FOR WOOD CONSTRUCTION 2018”
 of the American Wood Council.</p>
 </div>
-<div class="section" id="structural-panels">
-<h2>Structural_panels<a class="headerlink" href="#structural-panels" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-materials.awc_nds.structural_panels">
+<span id="structural-panels"></span><h2>Structural_panels<a class="headerlink" href="#module-materials.awc_nds.structural_panels" title="Permalink to this headline">¶</a></h2>
+<p>Properties of Plywood structural panels taken from:
+<a class="reference external" href="http://www.pfsteco.com/techtips/pdf/tt_plywooddesigncapacities">http://www.pfsteco.com/techtips/pdf/tt_plywooddesigncapacities</a>
+table C.</p>
+<p>Oriented strand board panels according to document:
+“Panel design specification” Form No. D510C/Revised May 2012/0300</p>
+<p>Properties of LSL beams and headers taken from:
+LP SolidStart LSL Beam &amp; Header Technical Guide</p>
+<p>Properties of LVL beams and headers taken from:
+LP SolidStart LVL Beam &amp; Header Technical Guide</p>
 </div>
 </div>
 
@@ -1688,7 +1758,7 @@ of the American Wood Council.</p>
 <li><a class="reference internal" href="#module-materials.awc_nds.dimensional_lumber">Dimensional lumber reference design values</a></li>
 <li><a class="reference internal" href="#module-materials.awc_nds.dowel_type_fasteners">Dowel type fasteners</a></li>
 <li><a class="reference internal" href="#module-materials.awc_nds.specific_gravity">Lumber types specific gravity</a></li>
-<li><a class="reference internal" href="#structural-panels">Structural_panels</a></li>
+<li><a class="reference internal" href="#module-materials.awc_nds.structural_panels">Structural_panels</a></li>
 </ul>
 </li>
 </ul>

@@ -15,6 +15,7 @@
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -903,11 +904,45 @@ that define the surface</td>
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="model.geometry.grid_model.GridModel.moveAllPoints">
+<code class="descname">moveAllPoints</code><span class="sig-paren">(</span><em>vDisp</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.moveAllPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move all points in the grid to a new position
+by pplying a 3D displacement.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>vDisp</strong> – xc vector displacement</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.geometry.grid_model.GridModel.moveCylPointsRadius">
 <code class="descname">moveCylPointsRadius</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>radius</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.moveCylPointsRadius" title="Permalink to this definition">¶</a></dt>
 <dd><p>Move points in a 3D grid-region limited by the ijkRange 
 in the cylindrical coordinate system to radius coordinate 
 given as parameter</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.movePointXYZ">
+<code class="descname">movePointXYZ</code><span class="sig-paren">(</span><em>xyz</em>, <em>vDisp</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.movePointXYZ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move the nearest point in grid xyz=(x,y,z) coordinates
+to a new position by applying a 3D displacement.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>xyz</strong> – grid (x,y,z) coordinates of the point</li>
+<li><strong>vDisp</strong> – xc vector displacement xc.Vector([vx,vy,vz])</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -964,6 +999,26 @@ through the point (xCent,yCent,0).</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.geometry.grid_model.GridModel.movePointsXYZRange">
+<code class="descname">movePointsXYZRange</code><span class="sig-paren">(</span><em>XYZrange</em>, <em>vDisp</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.movePointsXYZRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move points  in a 3D grid-region limited by an
+xyzRange=((xmin,ymin,zmin),(xmax,ymax,zmax))
+to a new position by applying a 3D displacement.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ijkRange</strong> – range for the search</li>
+<li><strong>vDisp</strong> – xc vector displacement</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.geometry.grid_model.GridModel.newGridLine">
 <code class="descname">newGridLine</code><span class="sig-paren">(</span><em>linName</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.newGridLine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate the line defined by the 2 end-points whose tags
@@ -993,6 +1048,98 @@ are implicit in the name of the surface.</p>
 </tbody>
 </table>
 <p>return the quadrangle surface</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.rotAllPntsXAxis">
+<code class="descname">rotAllPntsXAxis</code><span class="sig-paren">(</span><em>angle</em>, <em>yzRotCent</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.rotAllPntsXAxis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotates all points in the grid around a X axis passing by yzRotCent.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>angle</strong> – rotation angle (degrees)</li>
+<li><strong>yzRotCent</strong> – coordinates [y,z] of the axis X of rotation</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.rotAllPntsYAxis">
+<code class="descname">rotAllPntsYAxis</code><span class="sig-paren">(</span><em>angle</em>, <em>xzRotCent</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.rotAllPntsYAxis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotates all points in the grid around a X axis passing by yzRotCent.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>angle</strong> – rotation angle (degrees)</li>
+<li><strong>xzRotCent</strong> – coordinates [z,z] of the axis Y of rotation</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.rotAllPntsZAxis">
+<code class="descname">rotAllPntsZAxis</code><span class="sig-paren">(</span><em>angle</em>, <em>xyRotCent</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.rotAllPntsZAxis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotates all points in the grid around a Z axis passing by xyRotCent.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>angle</strong> – rotation angle (degrees)</li>
+<li><strong>xyRotCent</strong> – coordinates [x,y] of the axis Z of rotation</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.rotPntsXAxis">
+<code class="descname">rotPntsXAxis</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>angle</em>, <em>yzRotCent</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.rotPntsXAxis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotates points in ijkRange around a X axis passing by yzRotCent.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ijkRange</strong> – range for the search.</li>
+<li><strong>angle</strong> – rotation angle (degrees)</li>
+<li><strong>yzRotCent</strong> – coordinates [y,z] of the axis X of rotation</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.rotPntsYAxis">
+<code class="descname">rotPntsYAxis</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>angle</em>, <em>xzRotCent</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.rotPntsYAxis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotates points in ijkRange around a Y axis passing by xzRotCent.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ijkRange</strong> – range for the search.</li>
+<li><strong>angle</strong> – rotation angle (degrees)</li>
+<li><strong>xzRotCent</strong> – coordinates [x,z] of the axis Y of rotation</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -1040,6 +1187,28 @@ are not affected by the transformation</li>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.geometry.grid_model.GridModel.scaleCoorXPointsXYZRange">
+<code class="descname">scaleCoorXPointsXYZRange</code><span class="sig-paren">(</span><em>XYZrange</em>, <em>xOrig</em>, <em>scale</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.scaleCoorXPointsXYZRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies a scale in X with origin xOrig (fixed axis: X=xOrig) 
+to the points in a 3D grid-region limited by
+one XYZrange defined as ((xmin,ymin,zmin),(xmax,ymax,zmax))
+Only X coordinate of points is modified in the following way:
+x_scaled=xOrig+scale*(x_inic-xOrig)</p>
+<p>:param XYZrange:((xmin,ymin,zmin),(xmax,ymax,zmax)) range for the search.
+:param xOrig: origin X to apply scale (point in axis X=xOrig)</p>
+<blockquote>
+<div>are not affected by the transformation</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>scale</strong> – scale to apply to X coordinate</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.geometry.grid_model.GridModel.scaleCoorYPointsRange">
 <code class="descname">scaleCoorYPointsRange</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>yOrig</em>, <em>scale</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.scaleCoorYPointsRange" title="Permalink to this definition">¶</a></dt>
 <dd><p>Applies a scale in Y with origin yOrig (fixed axis: y=yOrig) 
@@ -1065,6 +1234,28 @@ are not affected by the transformation</li>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.geometry.grid_model.GridModel.scaleCoorYPointsXYZrange">
+<code class="descname">scaleCoorYPointsXYZrange</code><span class="sig-paren">(</span><em>XYZrange</em>, <em>yOrig</em>, <em>scale</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.scaleCoorYPointsXYZrange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies a scale in Y with origin yOrig (fixed axis: y=yOrig) 
+to the points in a 3D grid-region limited by 
+an XYZrange defined as ((xmin,ymin,zmin),(xmax,ymax,zmax))
+Only Y coordinate of points is modified in the following way:
+y_scaled=yOrig+scale*(y_inic-yOrig)</p>
+<p>:param XYZrange:((xmin,ymin,zmin),(xmax,ymax,zmax)) range for the search.
+:param yOrig: origin Y to apply scale (point in axis Y=yOrig)</p>
+<blockquote>
+<div>are not affected by the transformation</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>scale</strong> – scale to apply to Y coordinate</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.geometry.grid_model.GridModel.scaleCoorZPointsRange">
 <code class="descname">scaleCoorZPointsRange</code><span class="sig-paren">(</span><em>ijkRange</em>, <em>zOrig</em>, <em>scale</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.scaleCoorZPointsRange" title="Permalink to this definition">¶</a></dt>
 <dd><p>Applies a scale in Z with origin zOrig (fixed axis: z=zOrig) 
@@ -1084,6 +1275,28 @@ are not affected by the transformation</li>
 <li><strong>scale</strong> – scale to apply to Z coordinate</li>
 </ul>
 </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.geometry.grid_model.GridModel.scaleCoorZPointsXYZrange">
+<code class="descname">scaleCoorZPointsXYZrange</code><span class="sig-paren">(</span><em>XYZrange</em>, <em>zOrig</em>, <em>scale</em><span class="sig-paren">)</span><a class="headerlink" href="#model.geometry.grid_model.GridModel.scaleCoorZPointsXYZrange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies a scale in Z with origin zOrig (fixed axis: z=zOrig) 
+to the points in a 3D grid-region limited by 
+one XYZrange defined as ((xmin,ymin,zmin),(xmax,ymax,zmax))
+Only Z coordinate of points is modified in the following way:
+z_scaled=zOrig+scale*(z_inic-zOrig)</p>
+<p>:param XYZrange:((xmin,ymin,zmin),(xmax,ymax,zmax)) range for the search.
+:param zOrig: origin Z to apply scale (point in axis Z=zOrig)</p>
+<blockquote>
+<div>are not affected by the transformation</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>scale</strong> – scale to apply to Z coordinate</td>
 </tr>
 </tbody>
 </table>

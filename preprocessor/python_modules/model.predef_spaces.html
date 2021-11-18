@@ -15,6 +15,7 @@
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -267,6 +268,28 @@ effects.</li>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.fixNode">
+<code class="descname">fixNode</code><span class="sig-paren">(</span><em>DOFpattern</em>, <em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.fixNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restrain DOF of a node according to the DOFpattern, which is a given
+string of type ‘0FF’ that matches the DOFs (uX,uY,uZ)
+where ‘F’ means FREE and ‘0’ means constrained with value=0
+Note: DOFpaterns ‘0FF’,’0_FF’, … are equivalent</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.predefined_spaces.PredefinedSpace.getActiveLoadPatternNames">
 <code class="descname">getActiveLoadPatternNames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getActiveLoadPatternNames" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of the active load patterns.</p>
@@ -314,6 +337,23 @@ effects.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tags</strong> – element tags.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.getFloatingNodes">
+<code class="descname">getFloatingNodes</code><span class="sig-paren">(</span><em>xcSet=None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getFloatingNodes" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return a list of the nodes that are not connected to any</dt>
+<dd>element nor any constraint.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>xcSet</strong> – search only on the nodes in this set.</td>
 </tr>
 </tbody>
 </table>
@@ -488,6 +528,12 @@ in the set.</td>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.getSetsNames">
+<code class="descname">getSetsNames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getSetsNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the names of the currently defined sets.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.predefined_spaces.PredefinedSpace.getSpaceDimension">
 <code class="descname">getSpaceDimension</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getSpaceDimension" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the dimensions of the problem space.</p>
@@ -526,6 +572,13 @@ entities.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.getVerbosityLevel">
+<code class="descname">getVerbosityLevel</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.getVerbosityLevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current verbosity level.. A higher verbosity
+level means more info printed out.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.predefined_spaces.PredefinedSpace.illConditioningAnalysis">
 <code class="descname">illConditioningAnalysis</code><span class="sig-paren">(</span><em>numModes=1</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.illConditioningAnalysis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform an ill-conditioning analysis on the finite element model.</p>
@@ -534,6 +587,27 @@ entities.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>numModes</strong> – number of ill-conditioned modes to obtain.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.locateEquationNumber">
+<code class="descname">locateEquationNumber</code><span class="sig-paren">(</span><em>eqNumber</em>, <em>xcSet=None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.locateEquationNumber" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Locate the node that contains the DOF that correspond to</dt>
+<dd>the equation number argument.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>eqNumber</strong> – number of the equation to locate.</li>
+<li><strong>xcSet</strong> – search only on the nodes in this set.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -669,6 +743,24 @@ multi_support_pattern, pbowl_loading-.</li>
 <li><strong>x</strong> – x coordinate for the new node.</li>
 <li><strong>y</strong> – y coordinate for the new node.</li>
 <li><strong>z</strong> – z coordinate for the new node.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.newQuadSurface">
+<code class="descname">newQuadSurface</code><span class="sig-paren">(</span><em>p1: xc.Pnt</em>, <em>p2: xc.Pnt</em>, <em>p3: xc.Pnt</em>, <em>p4: xc.Pnt</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.newQuadSurface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a quad surface between the argument points.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>p1</strong> – first point.</li>
+<li><strong>p2</strong> – second point.</li>
 </ul>
 </td>
 </tr>
@@ -977,6 +1069,61 @@ It’s called fulcrum because it’s pinned on pivotNodeTag.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.setImperfectionsX">
+<code class="descname">setImperfectionsX</code><span class="sig-paren">(</span><em>slopeX=0.002</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.setImperfectionsX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the initial imperfection of the model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeSet</strong> – set which nodes will be moved.</li>
+<li><strong>slopeX</strong> – out of plumbness on x axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.setImperfectionsXY">
+<code class="descname">setImperfectionsXY</code><span class="sig-paren">(</span><em>nodeSet</em>, <em>slopeX=0.002</em>, <em>slopeY=0.002</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.setImperfectionsXY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the initial imperfection of the model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeSet</strong> – set which nodes will be moved.</li>
+<li><strong>slopeX</strong> – out of plumbness on x axis.</li>
+<li><strong>slopeY</strong> – out of plumbness on y axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.setImperfectionsY">
+<code class="descname">setImperfectionsY</code><span class="sig-paren">(</span><em>slopeY=0.002</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.setImperfectionsY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the initial imperfection of the model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeSet</strong> – set which nodes will be moved.</li>
+<li><strong>slopeY</strong> – out of plumbness on y axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.predefined_spaces.PredefinedSpace.setIntersection">
 <code class="descname">setIntersection</code><span class="sig-paren">(</span><em>setName: str, setsToIntersect: Sequence[xc.Set]</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.setIntersection" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
@@ -1150,6 +1297,23 @@ element.</li>
 </dd></dl>
 
 <dl class="method">
+<dt id="model.predefined_spaces.PredefinedSpace.setVerbosityLevel">
+<code class="descname">setVerbosityLevel</code><span class="sig-paren">(</span><em>level</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.setVerbosityLevel" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Set the verbosity level (0 to 1000). A higher verbosity</dt>
+<dd>level means more info printed out.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>level</strong> – verbosity level.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="model.predefined_spaces.PredefinedSpace.zeroEnergyModes">
 <code class="descname">zeroEnergyModes</code><span class="sig-paren">(</span><em>numModes=1</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.PredefinedSpace.zeroEnergyModes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Obtains the zero energy modes of the finite element model.</p>
@@ -1171,13 +1335,18 @@ element.</li>
 <dd><p>Bases: <a class="reference internal" href="#model.predefined_spaces.PredefinedSpace" title="model.predefined_spaces.PredefinedSpace"><code class="xref py py-class docutils literal notranslate"><span class="pre">model.predefined_spaces.PredefinedSpace</span></code></a></p>
 <dl class="method">
 <dt id="model.predefined_spaces.SolidMechanics2D.fixNode00">
-<code class="descname">fixNode00</code><span class="sig-paren">(</span><em>nodeTag: int</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.SolidMechanics2D.fixNode00" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNode00</code><span class="sig-paren">(</span><em>nodeTag: int</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.SolidMechanics2D.fixNode00" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain both node DOFs (i. e. make them zero).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1185,13 +1354,18 @@ element.</li>
 
 <dl class="method">
 <dt id="model.predefined_spaces.SolidMechanics2D.fixNode0F">
-<code class="descname">fixNode0F</code><span class="sig-paren">(</span><em>nodeTag: int</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.SolidMechanics2D.fixNode0F" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNode0F</code><span class="sig-paren">(</span><em>nodeTag: int</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.SolidMechanics2D.fixNode0F" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain only displacement DOFs (i. e. Ux= 0 and Uy= 0).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1199,13 +1373,18 @@ element.</li>
 
 <dl class="method">
 <dt id="model.predefined_spaces.SolidMechanics2D.fixNodeF0">
-<code class="descname">fixNodeF0</code><span class="sig-paren">(</span><em>nodeTag: int</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.SolidMechanics2D.fixNodeF0" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNodeF0</code><span class="sig-paren">(</span><em>nodeTag: int</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.SolidMechanics2D.fixNodeF0" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain only displacement DOFs (i. e. Ux= 0 and Uy= 0).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1323,31 +1502,19 @@ displacement components.</p>
 <em class="property">class </em><code class="descclassname">model.predefined_spaces.</code><code class="descname">SolidMechanics3D</code><span class="sig-paren">(</span><em>nodes</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.SolidMechanics3D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#model.predefined_spaces.PredefinedSpace" title="model.predefined_spaces.PredefinedSpace"><code class="xref py py-class docutils literal notranslate"><span class="pre">model.predefined_spaces.PredefinedSpace</span></code></a></p>
 <dl class="method">
-<dt id="model.predefined_spaces.SolidMechanics3D.fixNode">
-<code class="descname">fixNode</code><span class="sig-paren">(</span><em>DOFpattern</em>, <em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.SolidMechanics3D.fixNode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Restrain DOF of a node according to the DOFpattern, which is a given
-string of type ‘0FF’ that matches the DOFs (uX,uY,uZ)
-where ‘F’ means FREE and ‘0’ means constrained with value=0
-Note: DOFpaterns ‘0FF’,’0_FF’, … are equivalent</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
 <dt id="model.predefined_spaces.SolidMechanics3D.fixNode000">
-<code class="descname">fixNode000</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.SolidMechanics3D.fixNode000" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNode000</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.SolidMechanics3D.fixNode000" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain all three node DOFs (i. e. make them zero).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1511,13 +1678,18 @@ between the node arguments.</dd>
 <dd><p>Bases: <a class="reference internal" href="#model.predefined_spaces.StructuralMechanics" title="model.predefined_spaces.StructuralMechanics"><code class="xref py py-class docutils literal notranslate"><span class="pre">model.predefined_spaces.StructuralMechanics</span></code></a></p>
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics2D.fixNode000">
-<code class="descname">fixNode000</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics2D.fixNode000" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNode000</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics2D.fixNode000" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain all three node DOFs (i. e. make them zero).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1525,13 +1697,18 @@ between the node arguments.</dd>
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics2D.fixNode00F">
-<code class="descname">fixNode00F</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics2D.fixNode00F" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNode00F</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics2D.fixNode00F" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain only displacement DOFs (i. e. Ux= 0 and Uy= 0).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1539,13 +1716,18 @@ between the node arguments.</dd>
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics2D.fixNode0F0">
-<code class="descname">fixNode0F0</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics2D.fixNode0F0" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNode0F0</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics2D.fixNode0F0" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain all three node DOFs (i. e. make them zero).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1553,13 +1735,18 @@ between the node arguments.</dd>
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics2D.fixNode0FF">
-<code class="descname">fixNode0FF</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics2D.fixNode0FF" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNode0FF</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics2D.fixNode0FF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain only X displacement DOF (i. e. Ux= 0).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1567,13 +1754,18 @@ between the node arguments.</dd>
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics2D.fixNodeF0F">
-<code class="descname">fixNodeF0F</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics2D.fixNodeF0F" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNodeF0F</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics2D.fixNodeF0F" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain only Y displacement DOF (i. e. Uy= 0).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1581,13 +1773,18 @@ between the node arguments.</dd>
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics2D.fixNodeFF0">
-<code class="descname">fixNodeFF0</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics2D.fixNodeFF0" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNodeFF0</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics2D.fixNodeFF0" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain only rotation DOF (i. e. Theta= 0).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1595,8 +1792,21 @@ between the node arguments.</dd>
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics2D.fixNodesLine">
-<code class="descname">fixNodesLine</code><span class="sig-paren">(</span><em>line</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics2D.fixNodesLine" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNodesLine</code><span class="sig-paren">(</span><em>line</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics2D.fixNodesLine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain all DOFs of the line nodes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>line</strong> – line whose nodes will be restrained.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -1789,31 +1999,19 @@ use the current load pattern.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="model.predefined_spaces.StructuralMechanics3D.fixNode">
-<code class="descname">fixNode</code><span class="sig-paren">(</span><em>DOFpattern</em>, <em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Restrain DOF of a node according to the DOFpattern, which is a given
-string of type ‘0FF_00F’ that matches the DOFs (uX,uY,uZ,rotX,rotY,rotZ)
-where ‘F’ means FREE and ‘0’ means constrained with value=0
-Note: DOFpaterns ‘0FF_00F’,’0FF00F’,’0_FF_0_0F’, … are equivalent</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics3D.fixNode000_000">
-<code class="descname">fixNode000_000</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode000_000" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNode000_000</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode000_000" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain all six node DOFs (i. e. make them zero).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1821,13 +2019,18 @@ Note: DOFpaterns ‘0FF_00F’,’0FF00F’,’0_FF_0_0F’, … are equivalent<
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics3D.fixNode000_00F">
-<code class="descname">fixNode000_00F</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode000_00F" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNode000_00F</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode000_00F" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain all DOFs except for the rotation about Z axis.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1835,13 +2038,18 @@ Note: DOFpaterns ‘0FF_00F’,’0FF00F’,’0_FF_0_0F’, … are equivalent<
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics3D.fixNode000_0F0">
-<code class="descname">fixNode000_0F0</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode000_0F0" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNode000_0F0</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode000_0F0" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain all DOFs except for the rotation about Y axis.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1849,14 +2057,19 @@ Note: DOFpaterns ‘0FF_00F’,’0FF00F’,’0_FF_0_0F’, … are equivalent<
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics3D.fixNode000_0FF">
-<code class="descname">fixNode000_0FF</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode000_0FF" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNode000_0FF</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode000_0FF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain the displacements (Ux,Uy and Uz) and
 the rotation about X axis.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1864,13 +2077,18 @@ the rotation about X axis.</p>
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics3D.fixNode000_F00">
-<code class="descname">fixNode000_F00</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode000_F00" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNode000_F00</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode000_F00" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain all DOFs except for the rotation about X axis.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1878,14 +2096,19 @@ the rotation about X axis.</p>
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics3D.fixNode000_F0F">
-<code class="descname">fixNode000_F0F</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode000_F0F" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNode000_F0F</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode000_F0F" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain the displacements (Ux,Uy and Uz) and
 the rotation about Y axis.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1893,14 +2116,19 @@ the rotation about Y axis.</p>
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics3D.fixNode000_FF0">
-<code class="descname">fixNode000_FF0</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode000_FF0" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNode000_FF0</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode000_FF0" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain the displacements (Ux,Uy and Uz) and
 the rotation about Z axis.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1908,13 +2136,18 @@ the rotation about Z axis.</p>
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics3D.fixNode000_FFF">
-<code class="descname">fixNode000_FFF</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode000_FFF" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNode000_FFF</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode000_FFF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain only displacement DOFs (i. e. Ux= 0, Uy= 0 and Uz= 0).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1922,14 +2155,19 @@ the rotation about Z axis.</p>
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics3D.fixNode0F0_00F">
-<code class="descname">fixNode0F0_00F</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode0F0_00F" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNode0F0_00F</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode0F0_00F" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain all DOFs except for Y displacement and the
 rotation about Z axis.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1937,14 +2175,19 @@ rotation about Z axis.</p>
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics3D.fixNode0F0_0F0">
-<code class="descname">fixNode0F0_0F0</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode0F0_0F0" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNode0F0_0F0</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode0F0_0F0" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain all DOFs except for Y displacement and the
 rotation about Y axis.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1952,14 +2195,19 @@ rotation about Y axis.</p>
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics3D.fixNode0F0_0FF">
-<code class="descname">fixNode0F0_0FF</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode0F0_0FF" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNode0F0_0FF</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode0F0_0FF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain all DOFs except for Y displacement and the
 rotations about Y and Z axis.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1967,14 +2215,19 @@ rotations about Y and Z axis.</p>
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics3D.fixNode0F0_F00">
-<code class="descname">fixNode0F0_F00</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode0F0_F00" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNode0F0_F00</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode0F0_F00" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain all DOFs except for Y displacement and the
 rotation about X axis.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1982,14 +2235,19 @@ rotation about X axis.</p>
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics3D.fixNode0F0_FFF">
-<code class="descname">fixNode0F0_FFF</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode0F0_FFF" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNode0F0_FFF</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode0F0_FFF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain all DOFs except for Y displacement and the
 rotations about Y and Z axis.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -1997,13 +2255,18 @@ rotations about Y and Z axis.</p>
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics3D.fixNode0FF_FFF">
-<code class="descname">fixNode0FF_FFF</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode0FF_FFF" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNode0FF_FFF</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNode0FF_FFF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain only X displacement DOF (i. e. Ux= 0).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2011,14 +2274,19 @@ rotations about Y and Z axis.</p>
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics3D.fixNodeF00_00F">
-<code class="descname">fixNodeF00_00F</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNodeF00_00F" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNodeF00_00F</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNodeF00_00F" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain all DOFs except for X displacement and the
 rotation about Z axis.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2026,14 +2294,19 @@ rotation about Z axis.</p>
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics3D.fixNodeF00_0F0">
-<code class="descname">fixNodeF00_0F0</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNodeF00_0F0" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNodeF00_0F0</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNodeF00_0F0" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain all DOFs except for X displacement and the
 rotation about Y axis.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2041,14 +2314,19 @@ rotation about Y axis.</p>
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics3D.fixNodeF00_0FF">
-<code class="descname">fixNodeF00_0FF</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNodeF00_0FF" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNodeF00_0FF</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNodeF00_0FF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain all DOFs except for X displacement and the
 rotations about Y and Z axis.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2056,14 +2334,19 @@ rotations about Y and Z axis.</p>
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics3D.fixNodeF00_F00">
-<code class="descname">fixNodeF00_F00</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNodeF00_F00" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNodeF00_F00</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNodeF00_F00" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain all DOFs except for X displacement and the
 rotation about X axis.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2071,14 +2354,19 @@ rotation about X axis.</p>
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics3D.fixNodeF00_FFF">
-<code class="descname">fixNodeF00_FFF</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNodeF00_FFF" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNodeF00_FFF</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNodeF00_FFF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain all DOFs except for X displacement and the
 rotations about Y and Z axis.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2086,13 +2374,18 @@ rotations about Y and Z axis.</p>
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics3D.fixNodeFFF_000">
-<code class="descname">fixNodeFFF_000</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNodeFFF_000" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNodeFFF_000</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNodeFFF_000" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain only rotations (i. e. ThetaX= 0, ThetaY= 0 and ThetaZ= 0).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2100,13 +2393,18 @@ rotations about Y and Z axis.</p>
 
 <dl class="method">
 <dt id="model.predefined_spaces.StructuralMechanics3D.fixNodeFFF_0F0">
-<code class="descname">fixNodeFFF_0F0</code><span class="sig-paren">(</span><em>nodeTag</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNodeFFF_0F0" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fixNodeFFF_0F0</code><span class="sig-paren">(</span><em>nodeTag</em>, <em>restrainedNodeId: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.StructuralMechanics3D.fixNodeFFF_0F0" title="Permalink to this definition">¶</a></dt>
 <dd><p>Restrain only X and Z rotations (i. e. ThetaX= 0, and ThetaZ= 0).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>nodeTag</strong> – node identifier.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeTag</strong> – node identifier.</li>
+<li><strong>restrainedNodeId</strong> – identifier of the node to display with
+the reaction values.</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2491,6 +2789,28 @@ already defined preprocessor.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="model.predefined_spaces.getSuitableXZVector">
+<code class="descclassname">model.predefined_spaces.</code><code class="descname">getSuitableXZVector</code><span class="sig-paren">(</span><em>iNode</em>, <em>jNode</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.getSuitableXZVector" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Return a vector that can be used to define</dt>
+<dd>a coordinate transformation for an element
+between the node arguments.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>iNode</strong> – first node.</li>
+<li><strong>jNode</strong> – second node.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
 <dt id="model.predefined_spaces.glueSets">
 <code class="descclassname">model.predefined_spaces.</code><code class="descname">glueSets</code><span class="sig-paren">(</span><em>preprocessor: xc.Preprocessor</em>, <em>DOF2Glue</em>, <em>masterSet</em>, <em>slaveSet</em>, <em>onCoord=None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.glueSets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates rigid links between nodes in masterSet and their 
@@ -2510,6 +2830,103 @@ DOF 1 and 4 between coupled nodes.</li>
 <li><strong>onCoord</strong> – coordinate on which the search of the nearest node is 
 based (‘X’,’Y’,’Z’). If None or other value, the search is
 based on the minimum distance. (Defaults to None)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="model.predefined_spaces.setBearingBetweenNodes">
+<code class="descclassname">model.predefined_spaces.</code><code class="descname">setBearingBetweenNodes</code><span class="sig-paren">(</span><em>prep</em>, <em>iNodA</em>, <em>iNodB</em>, <em>bearingMaterialNames</em>, <em>orientation=None</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.setBearingBetweenNodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modelize a bearing between the nodes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>prep</strong> – preprocessor</li>
+<li><strong>iNodA</strong> – (int) first node identifier (tag).</li>
+<li><strong>iNodB</strong> – (int) second node identifier (tag).</li>
+<li><strong>bearingMaterialNames</strong> – (list) material names for the zero 
+length element [mat1,mat2,mat3,mat4,mat5,mat6], where:
+mat1,mat2,mat3 correspond to translations along local x,y,z 
+axes, respectively,
+mat3,mat4,mat5 correspond to rotation about local x,y,z 
+axes, respectively.</li>
+<li><strong>orientation</strong> – <dl class="docutils">
+<dt>(list) of two vectors [x,yp] used to orient </dt>
+<dd>the zero length element, where: 
+x: are the vector components in global coordinates defining<blockquote>
+<div>local x-axis (optional)</div></blockquote>
+<dl class="last docutils">
+<dt>yp: vector components in global coordinates defining a  vector</dt>
+<dd>that lies in the local x-y plane of the element(optional).</dd>
+</dl>
+</dd>
+</dl>
+<p>If the optional orientation vector are not specified, the local
+element axes coincide with the global axes. Otherwise, the local
+z-axis is defined by the cross product between the vectors x 
+and yp specified in the command line.
+:return: newly created zero length element that represents the bearing.</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="model.predefined_spaces.setImperfectionsX">
+<code class="descclassname">model.predefined_spaces.</code><code class="descname">setImperfectionsX</code><span class="sig-paren">(</span><em>nodeSet</em>, <em>slopeX=0.002</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.setImperfectionsX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the initial imperfection of the model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeSet</strong> – set which nodes will be moved.</li>
+<li><strong>slopeX</strong> – out of plumbness on x axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="model.predefined_spaces.setImperfectionsXY">
+<code class="descclassname">model.predefined_spaces.</code><code class="descname">setImperfectionsXY</code><span class="sig-paren">(</span><em>nodeSet</em>, <em>slopeX=0.002</em>, <em>slopeY=0.002</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.setImperfectionsXY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the initial imperfection of the model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeSet</strong> – set which nodes will be moved.</li>
+<li><strong>slopeX</strong> – out of plumbness on x axis.</li>
+<li><strong>slopeY</strong> – out of plumbness on y axis.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="model.predefined_spaces.setImperfectionsY">
+<code class="descclassname">model.predefined_spaces.</code><code class="descname">setImperfectionsY</code><span class="sig-paren">(</span><em>nodeSet</em>, <em>slopeY=0.002</em><span class="sig-paren">)</span><a class="headerlink" href="#model.predefined_spaces.setImperfectionsY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the initial imperfection of the model.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nodeSet</strong> – set which nodes will be moved.</li>
+<li><strong>slopeY</strong> – out of plumbness on y axis.</li>
 </ul>
 </td>
 </tr>

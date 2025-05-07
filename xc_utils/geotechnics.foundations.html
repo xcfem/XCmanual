@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Foundation utils &#8212; XC 3.0 documentation</title>
-    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/classic.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -37,7 +35,8 @@
         <li class="right" >
           <a href="geotechnics.html" title="Geotechnic utils"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">XC 3.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">XC 3.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Foundation utils</a></li> 
       </ul>
     </div>  
 
@@ -46,67 +45,163 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="foundation-utils">
+  <section id="foundation-utils">
 <h1>Foundation utils<a class="headerlink" href="#foundation-utils" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-geotechnics.foundations.settlement_found">
+<section id="module-geotechnics.foundations.settlement_found">
 <span id="foundation-settlement"></span><h2>Foundation settlement<a class="headerlink" href="#module-geotechnics.foundations.settlement_found" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="geotechnics.foundations.settlement_found.asientoZapRectangularFlexible">
-<code class="descclassname">geotechnics.foundations.settlement_found.</code><code class="descname">asientoZapRectangularFlexible</code><span class="sig-paren">(</span><em>L</em>, <em>B</em>, <em>p</em>, <em>E</em>, <em>nu</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.foundations.settlement_found.asientoZapRectangularFlexible" title="Permalink to this definition">¶</a></dt>
-<dd><p>asientoZapRectangularFlexible(L,B,p,E,nu):
-Devuelve el asiento de una cimentación superficial flexible rectangular de
-acuerdo con el apartado 4.8.1 de la Guia de
-cimentaciones en obras de carretera, figura 4.10 de la página 113</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="geotechnics.foundations.settlement_found.deltaSigmaSoilLayer">
+<span class="sig-prename descclassname"><span class="pre">geotechnics.foundations.settlement_found.</span></span><span class="sig-name descname"><span class="pre">deltaSigmaSoilLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zmean</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.foundations.settlement_found.deltaSigmaSoilLayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the increase in the total vertical pressure, in the center of a soil-layer, in the vertical of the center of the foundation, created by the load applied to it (used to calculate the average elastic modulus and poisson coefficient).(Guía dimentaciones OC, 4.8.1)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p</strong> – average pressure transmitted by the foundation</p></li>
+<li><p><strong>area</strong> – area of the foundation</p></li>
+<li><p><strong>zmean</strong> – average depth of the soil-layer</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="geotechnics.foundations.settlement_found.coefRAsientoZapRectangularFlexible">
-<code class="descclassname">geotechnics.foundations.settlement_found.</code><code class="descname">coefRAsientoZapRectangularFlexible</code><span class="sig-paren">(</span><em>l</em>, <em>b</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.foundations.settlement_found.coefRAsientoZapRectangularFlexible" title="Permalink to this definition">¶</a></dt>
-<dd><p>coefRAsientoZapRectangularFlexible(l,b):
-Devuelve el coeficiente R de la expresión del asiento
-de una cimentación superficial flexible rectangular de
-acuerdo con el apartado 4.8.1 de la Guia de
-cimentaciones en obras de carretera, figura 4.10 de la página 113</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="geotechnics.foundations.settlement_found.deltaSigmaSoilLayerLongFound">
+<span class="sig-prename descclassname"><span class="pre">geotechnics.foundations.settlement_found.</span></span><span class="sig-name descname"><span class="pre">deltaSigmaSoilLayerLongFound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zmean</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.foundations.settlement_found.deltaSigmaSoilLayerLongFound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the increase in the total vertical pressure, in long rectangular foundations (L/B&gt;=10) in the center of a soil-layer, in the vertical of the center of the foundation, created by the load applied to it (used to calculate the average elastic modulus and poisson coefficient).(Guía dimentaciones OC, 4.8.1)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p</strong> – average pressure transmitted by the foundation</p></li>
+<li><p><strong>B</strong> – width of the long foundation</p></li>
+<li><p><strong>zmean</strong> – average depth of the soil-layer</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
-</div>
-<div class="section" id="module-geotechnics.foundations.footing_soil_contact_friction_angle">
+<dl class="py function">
+<dt class="sig sig-object py" id="geotechnics.foundations.settlement_found.meanEquivE">
+<span class="sig-prename descclassname"><span class="pre">geotechnics.foundations.settlement_found.</span></span><span class="sig-name descname"><span class="pre">meanEquivE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">soilLayers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">widhtLongFound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.foundations.settlement_found.meanEquivE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Equivalent average modulus of elasticity. (Guía dimentaciones OC, 4.8.1)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>soilLayers</strong> – <p>dictionary that defines the soil-layers geothecnical parameters
+example: soils={‘soil01’:{‘zTop’: , ‘zBottom’, ‘E’:, ‘nu’:}, …}
+where:</p>
+<blockquote>
+<div><p>zTop: depth of the soil-layer top face (depths positive)
+zBottom: depth of the soil-layer bottom face
+E: elastic modulues of the soil
+nu= poisson coefficient of the layer</p>
+</div></blockquote>
+</p></li>
+<li><p><strong>area</strong> – area of the foundation</p></li>
+<li><p><strong>p</strong> – average pressure transmitted by the foundation</p></li>
+<li><p><strong>widhtLongFound</strong> – is the width of the rectangular foundation when B&lt;10L</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geotechnics.foundations.settlement_found.meanEquivNu">
+<span class="sig-prename descclassname"><span class="pre">geotechnics.foundations.settlement_found.</span></span><span class="sig-name descname"><span class="pre">meanEquivNu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">soilLayers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">widhtLongFound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.foundations.settlement_found.meanEquivNu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Equivalent average modulus of Poisson (Guía dimentaciones OC, 4.8.1)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>soilLayers</strong> – <p>dictionary that defines the soil-layers geothecnical parameters
+example: soils={‘soil01’:{‘zTop’: , ‘zBottom’, ‘E’:, ‘nu’:}, …}
+where:</p>
+<blockquote>
+<div><p>zTop: depth of the soil-layer top face (depths positive)
+zBottom: depth of the soil-layer bottom face
+E: elastic modulues of the soil
+nu= poisson coefficient of the layer</p>
+</div></blockquote>
+</p></li>
+<li><p><strong>area</strong> – area of the foundation</p></li>
+<li><p><strong>p</strong> – average pressure transmitted by the foundation</p></li>
+<li><p><strong>widhtLongFound</strong> – is the width of the rectangular foundation when B&lt;10L</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geotechnics.foundations.settlement_found.settlementFlexibleCircFound">
+<span class="sig-prename descclassname"><span class="pre">geotechnics.foundations.settlement_found.</span></span><span class="sig-name descname"><span class="pre">settlementFlexibleCircFound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">soilLayers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Rad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.foundations.settlement_found.settlementFlexibleCircFound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the settlement in a flexible circular foundation
+(Guia de cimentaciones en obras de carretera, 4.8.1, fig. 4.10
+:param soilLayers: dictionary that defines the soil-layers geothecnical parameters</p>
+<blockquote>
+<div><p>example: soils={‘soil01’:{‘zTop’: , ‘zBottom’, ‘E’:, ‘nu’:}, …}
+where:</p>
+<blockquote>
+<div><p>zTop: positive depth of the soil-layer top face taken from the foundation bottom face
+zBottom: positive depth of the soil-layer bottom face taken from the foundation bottom face
+E: elastic modulues of the soil
+nu= poisson coefficient of the layer</p>
+</div></blockquote>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Rad</strong> – radius of the foundation</p></li>
+<li><p><strong>p</strong> – average pressure transmitted by the foundation</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="geotechnics.foundations.settlement_found.settlementFlexibleRectFound">
+<span class="sig-prename descclassname"><span class="pre">geotechnics.foundations.settlement_found.</span></span><span class="sig-name descname"><span class="pre">settlementFlexibleRectFound</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">soilLayers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.foundations.settlement_found.settlementFlexibleRectFound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the settlement in a flexible rectangular foundation
+(Guia de cimentaciones en obras de carretera, 4.8.1, fig. 4.10
+:param soilLayers: dictionary that defines the soil-layers geothecnical parameters</p>
+<blockquote>
+<div><p>example: soils={‘soil01’:{‘zTop’: , ‘zBottom’, ‘E’:, ‘nu’:}, …}
+where:</p>
+<blockquote>
+<div><p>zTop: depth of the soil-layer top face (depths positive)
+zBottom: depth of the soil-layer bottom face
+E: elastic modulues of the soil
+nu= poisson coefficient of the layer</p>
+</div></blockquote>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>L</strong> – length of the foundation</p></li>
+<li><p><strong>B</strong> – width of the foundation</p></li>
+<li><p><strong>p</strong> – average pressure transmitted by the foundation</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-geotechnics.foundations.footing_soil_contact_friction_angle">
 <span id="friction-angle-contact-footing-soil"></span><h2>Friction angle contact footing-soil<a class="headerlink" href="#module-geotechnics.foundations.footing_soil_contact_friction_angle" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="geotechnics.foundations.footing_soil_contact_friction_angle.angRozCimTerrIGP2011">
-<code class="descclassname">geotechnics.foundations.footing_soil_contact_friction_angle.</code><code class="descname">angRozCimTerrIGP2011</code><span class="sig-paren">(</span><em>tipoTerr</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.foundations.footing_soil_contact_friction_angle.angRozCimTerrIGP2011" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="data">
-<dt id="geotechnics.foundations.footing_soil_contact_friction_angle.mapAngRozCimTerrIGP2011">
-<code class="descclassname">geotechnics.foundations.footing_soil_contact_friction_angle.</code><code class="descname">mapAngRozCimTerrIGP2011</code><em class="property"> = {'Arena': 0.5404195002705842, 'Grava': 0.5404195002705842, 'RecaDescomp': 0.3805063771123649, 'RocaSana': 0.6107259643892086, 'SueloArcilloso': 0.2914567944778671, 'SueloLimoso': 0.3805063771123649}</em><a class="headerlink" href="#geotechnics.foundations.footing_soil_contact_friction_angle.mapAngRozCimTerrIGP2011" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="geotechnics.foundations.footing_soil_contact_friction_angle.angRozCimTerrIGP2011">
+<span class="sig-prename descclassname"><span class="pre">geotechnics.foundations.footing_soil_contact_friction_angle.</span></span><span class="sig-name descname"><span class="pre">angRozCimTerrIGP2011</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tipoTerr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.foundations.footing_soil_contact_friction_angle.angRozCimTerrIGP2011" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the friction angle between the concrete foundation and the soil
 according to the 2011 version of the IGP from Adif.
 See IGP-5.2 Bases de cálculo para estructuras de ferrocarril
 page 5</p>
 </dd></dl>
 
-</div>
-<div class="section" id="module-geotechnics.foundations.pile_elastic_length">
-<span id="elastic-length-of-pile"></span><h2>Elastic length of pile<a class="headerlink" href="#module-geotechnics.foundations.pile_elastic_length" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="geotechnics.foundations.pile_elastic_length.longElasticaPiloteArcillas">
-<code class="descclassname">geotechnics.foundations.pile_elastic_length.</code><code class="descname">longElasticaPiloteArcillas</code><span class="sig-paren">(</span><em>Epilote</em>, <em>Ipilote</em>, <em>Eterreno</em>, <em>L</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.foundations.pile_elastic_length.longElasticaPiloteArcillas" title="Permalink to this definition">¶</a></dt>
-<dd><p>longElasticaPiloteArcillas(Epilote,Ipilote,Eterreno,L):
-Elastic length of the pile in clay</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="geotechnics.foundations.pile_elastic_length.longEmpotramientoPiloteArcillas">
-<code class="descclassname">geotechnics.foundations.pile_elastic_length.</code><code class="descname">longEmpotramientoPiloteArcillas</code><span class="sig-paren">(</span><em>Epilote</em>, <em>Ipilote</em>, <em>Eterreno</em>, <em>L</em><span class="sig-paren">)</span><a class="headerlink" href="#geotechnics.foundations.pile_elastic_length.longEmpotramientoPiloteArcillas" title="Permalink to this definition">¶</a></dt>
-<dd><p>longEmpotramientoPiloteArcillas(Epilote,Ipilote,Eterreno,L): 
-Anchorage length of the pile in clay</p>
-</dd></dl>
-
-</div>
-</div>
+</section>
+<section id="elastic-length-of-pile">
+<h2>Elastic length of pile<a class="headerlink" href="#elastic-length-of-pile" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -117,7 +212,7 @@ Anchorage length of the pile in clay</p>
 <li><a class="reference internal" href="#">Foundation utils</a><ul>
 <li><a class="reference internal" href="#module-geotechnics.foundations.settlement_found">Foundation settlement</a></li>
 <li><a class="reference internal" href="#module-geotechnics.foundations.footing_soil_contact_friction_angle">Friction angle contact footing-soil</a></li>
-<li><a class="reference internal" href="#module-geotechnics.foundations.pile_elastic_length">Elastic length of pile</a></li>
+<li><a class="reference internal" href="#elastic-length-of-pile">Elastic length of pile</a></li>
 </ul>
 </li>
 </ul>
@@ -136,17 +231,15 @@ Anchorage length of the pile in clay</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -166,12 +259,13 @@ Anchorage length of the pile in clay</p>
         <li class="right" >
           <a href="geotechnics.html" title="Geotechnic utils"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">XC 3.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">XC 3.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Foundation utils</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
     </div>
   </body>
 </html>

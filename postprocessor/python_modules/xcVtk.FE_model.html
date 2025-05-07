@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Quick graphics &#8212; XC 3.0 documentation</title>
-    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/classic.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -38,7 +36,8 @@
           <a href="xcVtk.CAD_model.html" title="vtk CAD graphic"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="xcVtk.html" accesskey="U">Graphics XC_Vtk</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="xcVtk.html" accesskey="U">Graphics XC_Vtk</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Quick graphics</a></li> 
       </ul>
     </div>  
 
@@ -47,438 +46,391 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-postprocess.xcVtk.FE_model.quick_graphics">
+  <section id="module-postprocess.xcVtk.FE_model.quick_graphics">
 <span id="quick-graphics"></span><h1>Quick graphics<a class="headerlink" href="#module-postprocess.xcVtk.FE_model.quick_graphics" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="postprocess.xcVtk.FE_model.quick_graphics.LoadCaseResults">
-<em class="property">class </em><code class="descclassname">postprocess.xcVtk.FE_model.quick_graphics.</code><code class="descname">LoadCaseResults</code><span class="sig-paren">(</span><em>feProblem</em>, <em>loadCaseName=''</em>, <em>loadCaseExpr=''</em>, <em>outputStyle=&lt;postprocess.output_styles.OutputStyle object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.LoadCaseResults" title="Permalink to this definition">¶</a></dt>
+<p>Provide the user with a quick and easy way to 
+display results (internal forces, displacements) of an user-defined
+load case.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="postprocess.xcVtk.FE_model.quick_graphics.LoadCaseResults">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">postprocess.xcVtk.FE_model.quick_graphics.</span></span><span class="sig-name descname"><span class="pre">LoadCaseResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feProblem</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loadCaseName=''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loadCaseExpr=''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputStyle=&lt;postprocess.output_styles.OutputStyle</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.LoadCaseResults" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics" title="postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics</span></code></a></p>
 <p>This class is aimed at providing the user with a quick and easy way to 
 display results (internal forces, displacements) of an user-defined
 load case.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>feProblem</strong> – finite element problem</li>
-<li><strong>loadCaseName</strong> – name of the load case to be created</li>
-<li><strong>loadCaseExpr</strong> – expression that defines de load case as a
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>feProblem</strong> – finite element problem</p></li>
+<li><p><strong>loadCaseName</strong> – name of the load case to be created</p></li>
+<li><p><strong>loadCaseExpr</strong> – expression that defines de load case as a
 combination of previously defined actions
-e.g. ‘1.0*GselfWeight+1.0*GearthPress’</li>
+e.g. ‘1.0*GselfWeight+1.0*GearthPress’</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="postprocess.xcVtk.FE_model.quick_graphics.LoadCaseResults.checkSetToDisp">
-<code class="descname">checkSetToDisp</code><span class="sig-paren">(</span><em>setToDisplay</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.LoadCaseResults.checkSetToDisp" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="postprocess.xcVtk.FE_model.quick_graphics.LoadCaseResults.checkSetToDisp">
+<span class="sig-name descname"><span class="pre">checkSetToDisp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setToDisplay</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.LoadCaseResults.checkSetToDisp" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
-<dt id="postprocess.xcVtk.FE_model.quick_graphics.LoadCaseResults.solve">
-<code class="descname">solve</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.LoadCaseResults.solve" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="postprocess.xcVtk.FE_model.quick_graphics.LoadCaseResults.solve">
+<span class="sig-name descname"><span class="pre">solve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.LoadCaseResults.solve" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics">
-<em class="property">class </em><code class="descclassname">postprocess.xcVtk.FE_model.quick_graphics.</code><code class="descname">QuickGraphics</code><span class="sig-paren">(</span><em>modelSpace=None</em>, <em>loadCaseName=''</em>, <em>loadCaseExpr=''</em>, <em>outputStyle=&lt;postprocess.output_styles.OutputStyle object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">postprocess.xcVtk.FE_model.quick_graphics.</span></span><span class="sig-name descname"><span class="pre">QuickGraphics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modelSpace=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loadCaseName=''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loadCaseExpr=''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputStyle=&lt;postprocess.output_styles.OutputStyle</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.quick_graphics.QuickGraphics" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="postprGenTopics.html#postprocess.output_handler.OutputHandler" title="postprocess.output_handler.OutputHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.output_handler.OutputHandler</span></code></a></p>
 <p>This class is aimed at providing the user with a quick and easy way to 
 display results (internal forces, displacements).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>loadCaseName</strong> – OPTIONAL. name of the load case to be created</li>
-<li><strong>loadCaseExpr</strong> – OPTIONAL. expression that defines de load case as a
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>loadCaseName</strong> – OPTIONAL. name of the load case to be created</p></li>
+<li><p><strong>loadCaseExpr</strong> – OPTIONAL. expression that defines de load case as a
 combination of previously defined actions
-e.g. ‘1.0*GselfWeight+1.0*GearthPress’</li>
+e.g. ‘1.0*GselfWeight+1.0*GearthPress’</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-</div>
-<div class="section" id="module-postprocess.xcVtk.FE_model.vtk_FE_graphic">
+</section>
+<section id="module-postprocess.xcVtk.FE_model.vtk_FE_graphic">
 <span id="vtk-fe-model-graphics"></span><h1>vtk FE model graphics<a class="headerlink" href="#module-postprocess.xcVtk.FE_model.vtk_FE_graphic" title="Permalink to this headline">¶</a></h1>
 <p>Graphics of the finite element model.</p>
-<dl class="class">
-<dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE">
-<em class="property">class </em><code class="descclassname">postprocess.xcVtk.FE_model.vtk_FE_graphic.</code><code class="descname">DisplaySettingsFE</code><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">postprocess.xcVtk.FE_model.vtk_FE_graphic.</span></span><span class="sig-name descname"><span class="pre">DisplaySettingsFE</span></span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="xcVtkGenTopics.html#postprocess.xcVtk.vtk_graphic_base.DisplaySettings" title="postprocess.xcVtk.vtk_graphic_base.DisplaySettings"><code class="xref py py-class docutils literal notranslate"><span class="pre">postprocess.xcVtk.vtk_graphic_base.DisplaySettings</span></code></a></p>
-<p>Define the parameters to configure the output for
-displaying the finite element mesh.</p>
-<dl class="method">
-<dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.FEmeshGraphic">
-<code class="descname">FEmeshGraphic</code><span class="sig-paren">(</span><em>setToDisplay</em>, <em>caption=''</em>, <em>cameraParameters=&lt;postprocess.xcVtk.vtk_graphic_base.CameraParameters object&gt;</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.FEmeshGraphic" title="Permalink to this definition">¶</a></dt>
+<dl class="simple">
+<dt>Define the parameters to configure the output for</dt><dd><p>displaying the finite element mesh.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nodes</strong> – 3D representation of points in VTK.</p></li>
+<li><p><strong>gridMapper</strong> – VTK unstructured grid used to represent the FE mesh.</p></li>
+<li><p><strong>field</strong> – scalar field to be represented.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.FEmeshGraphic">
+<span class="sig-name descname"><span class="pre">FEmeshGraphic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setToDisplay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">caption=''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cameraParameters=&lt;postprocess.xcVtk.vtk_graphic_base.CameraParameters</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">defFScale=0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.FEmeshGraphic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Graphic of the FE mesh</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>setToDisplay</strong> – XC set of elements to be displayed</li>
-<li><strong>caption</strong> – text to write in the graphic</li>
-<li><strong>cameraParameters</strong> – camera parameters (position, orientation,…).</li>
-<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>setToDisplay</strong> – XC set of elements to be displayed</p></li>
+<li><p><strong>caption</strong> – text to write in the graphic</p></li>
+<li><p><strong>cameraParameters</strong> – camera parameters (position, orientation,…).</p></li>
+<li><p><strong>defFScale</strong> – factor to apply to current displacement of nodes 
 so that the display position of each node equals to
 the initial position plus its displacement multiplied
 by this factor. (Defaults to 0.0, i.e. display of 
-initial/undeformed shape)</li>
+initial/undeformed shape)</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.VtkDefineElementsActor">
-<code class="descname">VtkDefineElementsActor</code><span class="sig-paren">(</span><em>reprType</em>, <em>field: postprocess.xcVtk.fields.fields.ScalarField</em>, <em>color=&lt;xc.Vector object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.VtkDefineElementsActor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Define the actor to display elements</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>reprType</strong> – type of representation (“points”, “wireframe” or
-“surface”)</li>
-<li><strong>field</strong> – scalar field to be represented.</li>
-<li><strong>color</strong> – RGB color to represent the elements (defaults to random
-color)</li>
+<dl class="py method">
+<dt class="sig sig-object py" id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.appendDiagram">
+<span class="sig-name descname"><span class="pre">appendDiagram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">diagram</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientScbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">titleScbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.appendDiagram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the diagrams to the actors to display.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>diagram</strong> – diagram to append.</p></li>
+<li><p><strong>orientScbar</strong> – orientation of the scalar bar (defaults to 1-horiz)</p></li>
+<li><p><strong>titleScbar</strong> – title for the scalar bar (defaults to None)</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.VtkDefineNodesActor">
-<code class="descname">VtkDefineNodesActor</code><span class="sig-paren">(</span><em>radius</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.VtkDefineNodesActor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Define the actor to display nodes.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>radius</strong> – radius of the sphere used as symbol to represent nodes.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.VtkLoadElemMesh">
-<code class="descname">VtkLoadElemMesh</code><span class="sig-paren">(</span><em>field: postprocess.xcVtk.fields.fields.ScalarField</em>, <em>defFScale=0.0</em>, <em>eigenMode=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.VtkLoadElemMesh" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load the element mesh</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>field</strong> – scalar field to be represented</li>
-<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
-so that the display position of each node equals to
-the initial position plus its displacement multiplied
-by this factor. In case of modal analysis, the displayed 
-position of each node equals to the initial position plus
-its eigenVector multiplied by this factor.
-(Defaults to 0.0, i.e. display of initial/undeformed shape)</li>
-<li><strong>eigenMode</strong> – eigenvibration mode if we want to display the 
-deformed shape associated with it when a modal 
-analysis has been carried out. 
-Defaults to None: no modal analysis.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.appendDiagram">
-<code class="descname">appendDiagram</code><span class="sig-paren">(</span><em>diagram</em>, <em>orientScbar=1</em>, <em>titleScbar=None</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.appendDiagram" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>orientScbar</strong> – orientation of the scalar bar (defaults to 1-horiz)</li>
-<li><strong>titleScbar</strong> – title for the scalar bar (defaults to None)</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.defineMeshActorsSet">
-<code class="descname">defineMeshActorsSet</code><span class="sig-paren">(</span><em>elemSet</em>, <em>field: postprocess.xcVtk.fields.fields.ScalarField</em>, <em>defFScale</em>, <em>nodeSize</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.defineMeshActorsSet" title="Permalink to this definition">¶</a></dt>
-<dd><p>Define mesh</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>elemSet</strong> – set of elements that form the mesh to display.</li>
-<li><strong>field</strong> – scalar field to be represented</li>
-<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
-so that the display position of each node equals to
-the initial position plus its displacement multiplied
-by this factor. (Defaults to 0.0, i.e. display of 
-initial/undeformed shape)</li>
-<li><strong>nodeSize</strong> – size of the spheres that represent nodes.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.defineMeshScene">
-<code class="descname">defineMeshScene</code><span class="sig-paren">(</span><em>field: postprocess.xcVtk.fields.fields.ScalarField</em>, <em>defFScale=0.0</em>, <em>eigenMode=None</em>, <em>color=&lt;xc.Vector object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.defineMeshScene" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.defineMeshScene">
+<span class="sig-name descname"><span class="pre">defineMeshScene</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">defFScale=0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eigenMode=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color=&lt;xc.Vector</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.defineMeshScene" title="Permalink to this definition">¶</a></dt>
 <dd><p>Define the scene for the mesh</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>field</strong> – scalar field to be represented</li>
-<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>defFScale</strong> – factor to apply to current displacement of nodes 
 so that the display position of each node equals to
 the initial position plus its displacement multiplied
 by this factor. (Defaults to 0.0, i.e. display of 
-initial/undeformed shape)</li>
-<li><strong>eigenMode</strong> – eigenvibration mode if we want to display the 
+initial/undeformed shape)</p></li>
+<li><p><strong>eigenMode</strong> – eigenvibration mode if we want to display the 
 deformed shape associated with it when a modal 
 analysis has been carried out. 
-Defaults to None: no modal analysis.</li>
-<li><strong>color</strong> – RGB color to represent the elements (defaults to random
-color)</li>
+Defaults to None: no modal analysis.</p></li>
+<li><p><strong>color</strong> – RGB color to represent the elements (defaults to random
+color)</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayElementPunctualLoad">
-<code class="descname">displayElementPunctualLoad</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>pLoad</em>, <em>loadPattern</em>, <em>renderer</em>, <em>color</em>, <em>force</em>, <em>fScale</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayElementPunctualLoad" title="Permalink to this definition">¶</a></dt>
-<dd><p>Display punctual loads on elements</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayElementUniformLoad">
-<code class="descname">displayElementUniformLoad</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>unifLoad</em>, <em>loadPattern</em>, <em>color</em>, <em>force</em>, <em>fScale</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayElementUniformLoad" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayElementalLoads">
-<code class="descname">displayElementalLoads</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>loadPattern</em>, <em>color</em>, <em>fScale</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayElementalLoads" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayFEMesh">
-<code class="descname">displayFEMesh</code><span class="sig-paren">(</span><em>setToDisplay</em>, <em>caption=''</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayFEMesh" title="Permalink to this definition">¶</a></dt>
-<dd><p>Graphic of the FE mesh</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>setToDisplay</strong> – XC set of elements to be displayed</li>
-<li><strong>caption</strong> – text to write in the graphic</li>
-<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
-so that the display position of each node equals to
-the initial position plus its displacement multiplied
-by this factor. (Defaults to 0.0, i.e. display of 
-initial/undeformed shape)</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayLoadOnNode">
-<code class="descname">displayLoadOnNode</code><span class="sig-paren">(</span><em>nod</em>, <em>color</em>, <em>force</em>, <em>moment</em>, <em>fScale</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayLoadOnNode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Display loads on one node</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>nod</strong> – node instance</li>
-<li><strong>color</strong> – color</li>
-<li><strong>force</strong> – force (displayed as a single arrow)</li>
-<li><strong>moment</strong> – moment (displayed as a double arrow)</li>
-<li><strong>fScale</strong> – scaling factor (forces and moments)</li>
-<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
-so that the display position of each node equals to
-the initial position plus its displacement multiplied
-by this factor. (Defaults to 0.0, i.e. display of 
-initial/undeformed shape)</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayLoads">
-<code class="descname">displayLoads</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>loadPattern</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayLoads" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayLocalAxes">
-<code class="descname">displayLocalAxes</code><span class="sig-paren">(</span><em>setToDisplay</em>, <em>caption='local axis'</em>, <em>vectorScale=1.0</em>, <em>fileName=None</em>, <em>defFScale=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayLocalAxes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Display the element local axes.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>setToDisplay</strong> – set of elements to be displayed (defaults to total set)</li>
-<li><strong>caption</strong> – text to display in the graphic</li>
-<li><strong>vectorScale</strong> – factor to apply to the vectors length in the representation</li>
-<li><strong>fileName</strong> – file name to store the image. If none -&gt; window on screen.</li>
-<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
-so that the display position of each node equals to
-the initial position plus its displacement multiplied
-by this factor. (Defaults to 0.0, i.e. display of 
-initial/undeformed shape)</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayMesh">
-<code class="descname">displayMesh</code><span class="sig-paren">(</span><em>xcSets</em>, <em>field: postprocess.xcVtk.fields.fields.ScalarField = None</em>, <em>diagrams=None</em>, <em>caption=''</em>, <em>fileName=None</em>, <em>defFScale=0.0</em>, <em>nodeSize=0.01</em>, <em>scaleConstr=0.2</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayMesh" title="Permalink to this definition">¶</a></dt>
-<dd><p>Display the finite element mesh</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>xcSets</strong> – set or list of sets to be displayed</li>
-<li><strong>field</strong> – scalar field to show (optional)</li>
-<li><strong>diagrams</strong> – diagrams to show (optional)</li>
-<li><strong>caption</strong> – text to display in the graphic.</li>
-<li><strong>fileName</strong> – name of the graphic file to create (if None -&gt; screen window).</li>
-<li><strong>defFScale</strong> – factor to apply to current displacement of nodes 
-so that the display position of each node equals to
-the initial position plus its displacement multiplied
-by this factor. (Defaults to 0.0, i.e. display of 
-initial/undeformed shape)</li>
-<li><strong>nodeSize</strong> – size of the spheres that represent nodes (defaults to
-0.01)</li>
-<li><strong>scaleConstr</strong> – scale of SPConstraints symbols (defaults to 0.2)</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayNodalLoads">
-<code class="descname">displayNodalLoads</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>loadPattern</em>, <em>color</em>, <em>fScale</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayNodalLoads" title="Permalink to this definition">¶</a></dt>
-<dd><p>Display the all nodal loads defined in a load pattern</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>preprocessor</strong> – preprocessor</li>
-<li><strong>loadPattern</strong> – load pattern</li>
-<li><strong>color</strong> – color of the symbols (arrows)</li>
-<li><strong>fScale</strong> – factor to apply to current displacement of nodes 
-so that the display position of each node equals to
-the initial position plus its displacement multiplied
-by this factor. (Defaults to 0.0, i.e. display of 
-initial/undeformed shape)</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displaySPconstraints">
-<code class="descname">displaySPconstraints</code><span class="sig-paren">(</span><em>setToDisplay</em>, <em>scale</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displaySPconstraints" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayConstraints">
+<span class="sig-name descname"><span class="pre">displayConstraints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setToDisplay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">defFScale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayConstraints" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display single point constraints.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>setToDisplay</strong> – set to be displayed</li>
-<li><strong>scale</strong> – scale for SPConstraints symbols.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>setToDisplay</strong> – set to be displayed</p></li>
+<li><p><strong>scale</strong> – scale for SPConstraints symbols.</p></li>
+<li><p><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayStrongWeakAxis">
-<code class="descname">displayStrongWeakAxis</code><span class="sig-paren">(</span><em>setToDisplay</em>, <em>caption='strong [red] and weak [blue] axes'</em>, <em>vectorScale=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayStrongWeakAxis" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayElementPunctualLoad">
+<span class="sig-name descname"><span class="pre">displayElementPunctualLoad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preprocessor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loadedElements</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fScale</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayElementPunctualLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display punctual loads on elements</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>preprocessor</strong> – pre-processor of the finite element problem.</p></li>
+<li><p><strong>loadedElements</strong> – punctual load to display (as a single arrow).</p></li>
+<li><p><strong>renderer</strong> – vtk renderer.</p></li>
+<li><p><strong>color</strong> – color</p></li>
+<li><p><strong>force</strong> – force to displaay (as a single arrow)</p></li>
+<li><p><strong>fScale</strong> – scaling factor (applied to displayed arrows)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayElementUniformLoad">
+<span class="sig-name descname"><span class="pre">displayElementUniformLoad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preprocessor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unifLoad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fScale</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayElementUniformLoad" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayElementalLoads">
+<span class="sig-name descname"><span class="pre">displayElementalLoads</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preprocessor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loadPattern</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fScale</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayElementalLoads" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayFEMesh">
+<span class="sig-name descname"><span class="pre">displayFEMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setToDisplay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">caption</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">defFScale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayFEMesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Graphic of the FE mesh</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>setToDisplay</strong> – XC set of elements to be displayed.</p></li>
+<li><p><strong>caption</strong> – text title to write in the graphic.</p></li>
+<li><p><strong>fileName</strong> – file name to store the image. If none -&gt; window on screen.</p></li>
+<li><p><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayLoadOnNode">
+<span class="sig-name descname"><span class="pre">displayLoadOnNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nod</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fScale</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">defFScale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayLoadOnNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display loads on one node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nod</strong> – node instance</p></li>
+<li><p><strong>color</strong> – color</p></li>
+<li><p><strong>force</strong> – force (displayed as a single arrow)</p></li>
+<li><p><strong>moment</strong> – moment (displayed as a torque arrow)</p></li>
+<li><p><strong>fScale</strong> – scaling factor (forces and moments)</p></li>
+<li><p><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayLoads">
+<span class="sig-name descname"><span class="pre">displayLoads</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preprocessor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loadPattern</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayLoads" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayLocalAxes">
+<span class="sig-name descname"><span class="pre">displayLocalAxes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setToDisplay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">caption</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'local</span> <span class="pre">axis'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vectorScale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">defFScale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayLocalAxes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the element local axes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>setToDisplay</strong> – set of elements to be displayed (defaults to total set)</p></li>
+<li><p><strong>caption</strong> – text to display in the graphic</p></li>
+<li><p><strong>vectorScale</strong> – factor to apply to the vectors length in the representation</p></li>
+<li><p><strong>fileName</strong> – file name to store the image. If none -&gt; window on screen.</p></li>
+<li><p><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayMesh">
+<span class="sig-name descname"><span class="pre">displayMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xcSets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="xcVtk.fields.html#postprocess.xcVtk.fields.fields.ScalarField" title="postprocess.xcVtk.fields.fields.ScalarField"><span class="pre">postprocess.xcVtk.fields.fields.ScalarField</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">diagrams</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">caption</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unitDescription</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">defFScale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodeSize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaleConstr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayMesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the finite element mesh</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xcSets</strong> – set or list of sets to be displayed</p></li>
+<li><p><strong>field</strong> – scalar field to show (optional)</p></li>
+<li><p><strong>diagrams</strong> – diagrams to show (optional)</p></li>
+<li><p><strong>caption</strong> – text to display in the graphic.</p></li>
+<li><p><strong>unitDescription</strong> – description of the units.</p></li>
+<li><p><strong>fileName</strong> – name of the graphic file to create (if None -&gt; screen window).</p></li>
+<li><p><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</p></li>
+<li><p><strong>nodeSize</strong> – size of the spheres that represent nodes (defaults to
+0.01)</p></li>
+<li><p><strong>scaleConstr</strong> – scale of SPConstraints symbols (defaults to 0.2)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayNodalLoads">
+<span class="sig-name descname"><span class="pre">displayNodalLoads</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preprocessor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loadPattern</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fScale</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayNodalLoads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Display the all nodal loads defined in a load pattern</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>preprocessor</strong> – preprocessor for the FE problem.</p></li>
+<li><p><strong>loadPattern</strong> – load pattern</p></li>
+<li><p><strong>color</strong> – color of the symbols (arrows)</p></li>
+<li><p><strong>fScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayStrongWeakAxis">
+<span class="sig-name descname"><span class="pre">displayStrongWeakAxis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">setToDisplay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">caption</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'strong</span> <span class="pre">[red]</span> <span class="pre">and</span> <span class="pre">weak</span> <span class="pre">[blue]</span> <span class="pre">axes'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vectorScale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fileName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.displayStrongWeakAxis" title="Permalink to this definition">¶</a></dt>
 <dd><p>vector field display of the loads applied to the chosen set of elements in the load case passed as parameter</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>setToDisplay</strong> – set of elements to be displayed (defaults to total set)</li>
-<li><strong>caption</strong> – text to display in the graphic</li>
-<li><strong>vectorScale</strong> – factor to apply to the vectors length in the representation</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>setToDisplay</strong> – set of elements to be displayed (defaults to total set)</p></li>
+<li><p><strong>caption</strong> – text to display in the graphic</p></li>
+<li><p><strong>vectorScale</strong> – factor to apply to the vectors length in the representation</p></li>
+<li><p><strong>fileName</strong> – file name to store the image. If none -&gt; window on screen.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.getSingleFreedomConstraintsData">
+<span class="sig-name descname"><span class="pre">getSingleFreedomConstraintsData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preprocessor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodsInSet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.getSingleFreedomConstraintsData" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Return the data to define the symbols of the single-fredom</dt><dd><p>boundary conditions.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>preprocessor</strong> – preprocessor for the FE problem.</p></li>
+<li><p><strong>nodsInSet</strong> – set of node tags whose constrains will
+be displayed.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.getSkewConstraintsData">
+<span class="sig-name descname"><span class="pre">getSkewConstraintsData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preprocessor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodsInSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">defFScale</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.getSkewConstraintsData" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Return the data to define the symbols of the skew</dt><dd><p>boundary conditions.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>preprocessor</strong> – preprocessor for the FE problem.</p></li>
+<li><p><strong>nodsInSet</strong> – set of node tags whose constrains will
+be displayed.</p></li>
+<li><p><strong>defFScale</strong> – factor to apply to current displacement of nodes 
+so that the display position of each node equals to
+the initial position plus its displacement multiplied
+by this factor. (Defaults to 0.0, i.e. display of 
+initial/undeformed shape)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.setField">
+<span class="sig-name descname"><span class="pre">setField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.DisplaySettingsFE.setField" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assigns the field to be represented.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>field</strong> – scalar field to be represented</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="function">
-<dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.VtkDisplayIdsElements">
-<code class="descclassname">postprocess.xcVtk.FE_model.vtk_FE_graphic.</code><code class="descname">VtkDisplayIdsElements</code><span class="sig-paren">(</span><em>ids</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.VtkDisplayIdsElements" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="postprocess.xcVtk.FE_model.vtk_FE_graphic.VtkDisplayIdsElements">
+<span class="sig-prename descclassname"><span class="pre">postprocess.xcVtk.FE_model.vtk_FE_graphic.</span></span><span class="sig-name descname"><span class="pre">VtkDisplayIdsElements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ids</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.VtkDisplayIdsElements" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display element labels. Not implemented yet.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.VtkDisplayIdsNodes">
-<code class="descclassname">postprocess.xcVtk.FE_model.vtk_FE_graphic.</code><code class="descname">VtkDisplayIdsNodes</code><span class="sig-paren">(</span><em>recordGrid</em>, <em>renderer</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.VtkDisplayIdsNodes" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="postprocess.xcVtk.FE_model.vtk_FE_graphic.VtkDisplayIdsNodes">
+<span class="sig-prename descclassname"><span class="pre">postprocess.xcVtk.FE_model.vtk_FE_graphic.</span></span><span class="sig-name descname"><span class="pre">VtkDisplayIdsNodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recordGrid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.VtkDisplayIdsNodes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Display node labels (not implemented yet)</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="postprocess.xcVtk.FE_model.vtk_FE_graphic.VtkLoadIdsNodes">
-<code class="descclassname">postprocess.xcVtk.FE_model.vtk_FE_graphic.</code><code class="descname">VtkLoadIdsNodes</code><span class="sig-paren">(</span><em>recordGrid</em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.VtkLoadIdsNodes" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="postprocess.xcVtk.FE_model.vtk_FE_graphic.VtkLoadIdsNodes">
+<span class="sig-prename descclassname"><span class="pre">postprocess.xcVtk.FE_model.vtk_FE_graphic.</span></span><span class="sig-name descname"><span class="pre">VtkLoadIdsNodes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recordGrid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#postprocess.xcVtk.FE_model.vtk_FE_graphic.VtkLoadIdsNodes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load node labels. Not yet implemented.</p>
 </dd></dl>
 
-</div>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -504,17 +456,15 @@ initial/undeformed shape)</li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -535,12 +485,13 @@ initial/undeformed shape)</li>
           <a href="xcVtk.CAD_model.html" title="vtk CAD graphic"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="xcVtk.html" >Graphics XC_Vtk</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="xcVtk.html" >Graphics XC_Vtk</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Quick graphics</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
     </div>
   </body>
 </html>

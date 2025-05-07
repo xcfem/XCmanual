@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Railway traffic &#8212; XC 3.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/classic.css" />
+    
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Earthquake" href="actions.quake.html" />
+    <link rel="prev" title="Roadway traffic" href="actions.roadway_traffic.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="actions.quake.html" title="Earthquake"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="actions.roadway_traffic.html" title="Roadway traffic"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../actions.html" accesskey="U">Actions</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Railway traffic</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="railway-traffic">
+<h1>Railway traffic<a class="headerlink" href="#railway-traffic" title="Permalink to this headline">¶</a></h1>
+<section id="module-actions.railway_traffic.IAPF_rail_load_models">
+<span id="iapf-rail-load-models"></span><h2>IAPF rail load models<a class="headerlink" href="#module-actions.railway_traffic.IAPF_rail_load_models" title="Permalink to this headline">¶</a></h2>
+<p>Functions to model railway loads according to spanish code IAPF.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.railway_traffic.IAPF_rail_load_models.centrifugal_force_reduction_factor">
+<span class="sig-prename descclassname"><span class="pre">actions.railway_traffic.IAPF_rail_load_models.</span></span><span class="sig-name descname"><span class="pre">centrifugal_force_reduction_factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Lf</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.railway_traffic.IAPF_rail_load_models.centrifugal_force_reduction_factor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Returns the reduction factor of the centrifugal force</dt><dd><p>(according to expr. 2.3. IAPF)</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v</strong> – speed (m/s).</p></li>
+<li><p><strong>Lf</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.railway_traffic.IAPF_rail_load_models.get_centrifugal_forces">
+<span class="sig-prename descclassname"><span class="pre">actions.railway_traffic.IAPF_rail_load_models.</span></span><span class="sig-name descname"><span class="pre">get_centrifugal_forces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Lf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Qvk</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qvk</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.railway_traffic.IAPF_rail_load_models.get_centrifugal_forces" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Compute the characteristic values of the concentrated (Qtk) and </dt><dd><p>distributed (qtk) centrifugal forces according to clause 2.3.2.2
+of IAPF.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v</strong> – speed (m/s).</p></li>
+<li><p><strong>Lf</strong> – influence length of the loaded part of curved track on the 
+bridge, which is most unfavourable for the design of the 
+structural element under consideration (m).</p></li>
+<li><p><strong>r</strong> – radius of curvature (m).</p></li>
+<li><p><strong>Qvk</strong> – characteristic value of the vertical concentrated load 
+specified in clause 6.3 (excluding any enhancement for 
+dynamic effects).</p></li>
+<li><p><strong>qvk</strong> – characteristic value of the vertical distributed load 
+specified in clause 6.3 (excluding any enhancement for 
+dynamic effects).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-actions.railway_traffic.SIA_rail_load_models">
+<span id="sia-rail-load-models"></span><h2>SIA rail load models<a class="headerlink" href="#module-actions.railway_traffic.SIA_rail_load_models" title="Permalink to this headline">¶</a></h2>
+<p>Railway traffic load models from SIA 261 2003.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="actions.railway_traffic.SIA_rail_load_models.LoadModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">actions.railway_traffic.SIA_rail_load_models.</span></span><span class="sig-name descname"><span class="pre">LoadModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Qk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">160000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nA</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dQk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">70000.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dQq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.8</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.railway_traffic.SIA_rail_load_models.LoadModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Railway load model SIA 261.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>loadModelNumber</strong> – number of the load model.</p></li>
+<li><p><strong>Qk</strong> – concentrated load.</p></li>
+<li><p><strong>nA</strong> – number of concentrated loads.</p></li>
+<li><p><strong>dQk</strong> – distance between loads.</p></li>
+<li><p><strong>qk</strong> – uniform load.</p></li>
+<li><p><strong>dQq</strong> – distance between Qk and qk loads (m)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.railway_traffic.SIA_rail_load_models.LoadModel.accelerationLoad">
+<span class="sig-name descname"><span class="pre">accelerationLoad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">l</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.railway_traffic.SIA_rail_load_models.LoadModel.accelerationLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns acceleration load</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.railway_traffic.SIA_rail_load_models.LoadModel.brakingLoad">
+<span class="sig-name descname"><span class="pre">brakingLoad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">l</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.railway_traffic.SIA_rail_load_models.LoadModel.brakingLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns braking load</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.railway_traffic.SIA_rail_load_models.LoadModel.centrifugalAcceleration">
+<span class="sig-name descname"><span class="pre">centrifugalAcceleration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.railway_traffic.SIA_rail_load_models.LoadModel.centrifugalAcceleration" title="Permalink to this definition">¶</a></dt>
+<dd><p>centrifugal acceleration 11.2.4.3</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.railway_traffic.SIA_rail_load_models.LoadModel.centrifugalForceReductionFactor">
+<span class="sig-name descname"><span class="pre">centrifugalForceReductionFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.railway_traffic.SIA_rail_load_models.LoadModel.centrifugalForceReductionFactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>centrifugal force reduction factor (11.3.2)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.railway_traffic.SIA_rail_load_models.LoadModel.locomotiveAccelerationLoad456">
+<span class="sig-name descname"><span class="pre">locomotiveAccelerationLoad456</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.railway_traffic.SIA_rail_load_models.LoadModel.locomotiveAccelerationLoad456" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns locomotive acceleration load for models 4, 5 and 6 (table 19)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.railway_traffic.SIA_rail_load_models.LoadModel.locomotiveAccelerationLoadByAxe456">
+<span class="sig-name descname"><span class="pre">locomotiveAccelerationLoadByAxe456</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.railway_traffic.SIA_rail_load_models.LoadModel.locomotiveAccelerationLoadByAxe456" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns locomotive acceleration load in each axe for models 4, 5 and 6 (table 19)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.railway_traffic.SIA_rail_load_models.LoadModel.locomotiveCentrifugalForce">
+<span class="sig-name descname"><span class="pre">locomotiveCentrifugalForce</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.railway_traffic.SIA_rail_load_models.LoadModel.locomotiveCentrifugalForce" title="Permalink to this definition">¶</a></dt>
+<dd><p>centrifugal force for Qk loads 11.2.4.3</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.railway_traffic.SIA_rail_load_models.LoadModel.locomotiveDerailmentModel1">
+<span class="sig-name descname"><span class="pre">locomotiveDerailmentModel1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.railway_traffic.SIA_rail_load_models.LoadModel.locomotiveDerailmentModel1" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns locomotive loads dues to derailment model 1 
+-tables 16 (standard gauge) and 19 (narrow-gauge)-</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.railway_traffic.SIA_rail_load_models.LoadModel.locomotiveDerailmentModel2">
+<span class="sig-name descname"><span class="pre">locomotiveDerailmentModel2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.railway_traffic.SIA_rail_load_models.LoadModel.locomotiveDerailmentModel2" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns locomotive loads dues to derailment model 2 
+-tables 16 (standard gauge) and 19 (narrow-gauge)-</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.railway_traffic.SIA_rail_load_models.LoadModel.nosingForce">
+<span class="sig-name descname"><span class="pre">nosingForce</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.railway_traffic.SIA_rail_load_models.LoadModel.nosingForce" title="Permalink to this definition">¶</a></dt>
+<dd><p>nosing force (11.2.3 et 12.2.3).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.railway_traffic.SIA_rail_load_models.LoadModel.trainAccelerationLoad123">
+<span class="sig-name descname"><span class="pre">trainAccelerationLoad123</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">l</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.railway_traffic.SIA_rail_load_models.LoadModel.trainAccelerationLoad123" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns locomotive acceleration load for models 1, 2 and 3 (table 14)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.railway_traffic.SIA_rail_load_models.LoadModel.trainBrakingLoad123">
+<span class="sig-name descname"><span class="pre">trainBrakingLoad123</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">l</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.railway_traffic.SIA_rail_load_models.LoadModel.trainBrakingLoad123" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns train braking load for models 1, 2 and 3 (table 14)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.railway_traffic.SIA_rail_load_models.LoadModel.trainBrakingLoad456">
+<span class="sig-name descname"><span class="pre">trainBrakingLoad456</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">l</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.railway_traffic.SIA_rail_load_models.LoadModel.trainBrakingLoad456" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns train braking load for models 4, 5 and 6</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.railway_traffic.SIA_rail_load_models.LoadModel.trainCentrifugalForce">
+<span class="sig-name descname"><span class="pre">trainCentrifugalForce</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.railway_traffic.SIA_rail_load_models.LoadModel.trainCentrifugalForce" title="Permalink to this definition">¶</a></dt>
+<dd><p>centrifugal force for qk loads 11.2.4.3</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.railway_traffic.SIA_rail_load_models.LoadModel.trainDerailmentModel1">
+<span class="sig-name descname"><span class="pre">trainDerailmentModel1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.railway_traffic.SIA_rail_load_models.LoadModel.trainDerailmentModel1" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns train loads dues to derailment model 1 
+-tables 16 (standard gauge) and 19 (narrow-gauge)-</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.railway_traffic.SIA_rail_load_models.LoadModel.trainDerailmentModel2">
+<span class="sig-name descname"><span class="pre">trainDerailmentModel2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">l</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.railway_traffic.SIA_rail_load_models.LoadModel.trainDerailmentModel2" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns train loads dues to derailment model 2 
+-tables 16 (standard gauge) and 19 (narrow-gauge)-</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>l</strong> – length of the structure (in meters).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.railway_traffic.SIA_rail_load_models.LoadModel.writeData">
+<span class="sig-name descname"><span class="pre">writeData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">l</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.railway_traffic.SIA_rail_load_models.LoadModel.writeData" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.railway_traffic.SIA_rail_load_models.determinantLengthSingleSpanPortalFrame">
+<span class="sig-prename descclassname"><span class="pre">actions.railway_traffic.SIA_rail_load_models.</span></span><span class="sig-name descname"><span class="pre">determinantLengthSingleSpanPortalFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ls1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ls2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.railway_traffic.SIA_rail_load_models.determinantLengthSingleSpanPortalFrame" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.railway_traffic.SIA_rail_load_models.dynamicFactor">
+<span class="sig-prename descclassname"><span class="pre">actions.railway_traffic.SIA_rail_load_models.</span></span><span class="sig-name descname"><span class="pre">dynamicFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lPhi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.railway_traffic.SIA_rail_load_models.dynamicFactor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Railway traffic</a><ul>
+<li><a class="reference internal" href="#module-actions.railway_traffic.IAPF_rail_load_models">IAPF rail load models</a></li>
+<li><a class="reference internal" href="#module-actions.railway_traffic.SIA_rail_load_models">SIA rail load models</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="actions.roadway_traffic.html"
+                        title="previous chapter">Roadway traffic</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="actions.quake.html"
+                        title="next chapter">Earthquake</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/preprocessor/python_modules/actions.railway_traffic.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="actions.quake.html" title="Earthquake"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="actions.roadway_traffic.html" title="Roadway traffic"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../actions.html" >Actions</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Railway traffic</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
+    </div>
+  </body>
+</html>

@@ -1,2 +1,2 @@
 #!/bin/sh
-rsync -avz ../xc/doc/sphinxDoc/build/html/ .
+rsync -avz ../../../prg/xc/doc/sphinxDoc/build/html/ .

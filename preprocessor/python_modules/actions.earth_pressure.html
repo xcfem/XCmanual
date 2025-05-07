@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Earth pressure &#8212; XC 3.0 documentation</title>
-    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/classic.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -38,7 +36,8 @@
           <a href="actions.weight.html" title="Weight"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../actions.html" accesskey="U">Actions</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../actions.html" accesskey="U">Actions</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Earth pressure</a></li> 
       </ul>
     </div>  
 
@@ -47,412 +46,788 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="earth-pressure">
+  <section id="earth-pressure">
 <h1>Earth pressure<a class="headerlink" href="#earth-pressure" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-actions.earth_pressure.earth_pressure">
+<section id="module-actions.earth_pressure.earth_pressure">
 <span id="earth-pressure-models"></span><h2>Earth pressure models<a class="headerlink" href="#module-actions.earth_pressure.earth_pressure" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="actions.earth_pressure.earth_pressure.EarthPressureBase">
-<em class="property">class </em><code class="descclassname">actions.earth_pressure.earth_pressure.</code><code class="descname">EarthPressureBase</code><span class="sig-paren">(</span><em>zGround</em>, <em>gammaSoil</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.EarthPressureBase" title="Permalink to this definition">¶</a></dt>
+<p>Calculation of lateral earth pressures on vertical walls (retaining, 
+basement, earth support system, …) exerced by a given back soil with 
+or without water level</p>
+<p>Calculation of lateral earth pressures on vertical walls (retaining, 
+basement, earth support system, …) due to different kind of loads 
+on the backfill.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.EarthPressureBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">actions.earth_pressure.earth_pressure.</span></span><span class="sig-name descname"><span class="pre">EarthPressureBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zGround</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gammaSoil</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.EarthPressureBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#actions.earth_pressure.earth_pressure.PressureModelBase" title="actions.earth_pressure.earth_pressure.PressureModelBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">actions.earth_pressure.earth_pressure.PressureModelBase</span></code></a></p>
 <p>Parameters to define a load of type earth pressure</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>zGround</strong> – global Z coordinate of ground level</li>
-<li><strong>gammaSoil</strong> – weight density of soil</li>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>zGround</strong> – global Z coordinate of ground level</p></li>
+<li><p><strong>gammaSoil</strong> – weight density of soil.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="class">
-<dt id="actions.earth_pressure.earth_pressure.EarthPressureModel">
-<em class="property">class </em><code class="descclassname">actions.earth_pressure.earth_pressure.</code><code class="descname">EarthPressureModel</code><span class="sig-paren">(</span><em>zGround</em>, <em>zBottomSoils</em>, <em>KSoils</em>, <em>gammaSoils</em>, <em>zWater</em>, <em>gammaWater</em>, <em>qUnif=0</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.EarthPressureModel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#actions.earth_pressure.earth_pressure.PressureModelBase" title="actions.earth_pressure.earth_pressure.PressureModelBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">actions.earth_pressure.earth_pressure.PressureModelBase</span></code></a></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.EarthPressureModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">actions.earth_pressure.earth_pressure.</span></span><span class="sig-name descname"><span class="pre">EarthPressureModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zGround</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zBottomSoils</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KSoils</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gammaSoils</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zWater</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gammaWater</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qUnif</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.EarthPressureModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#actions.earth_pressure.earth_pressure.UniformPressureOnBackfill" title="actions.earth_pressure.earth_pressure.UniformPressureOnBackfill"><code class="xref py py-class docutils literal notranslate"><span class="pre">actions.earth_pressure.earth_pressure.UniformPressureOnBackfill</span></code></a></p>
 <p>Parameters to define a load of type earth pressure</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>zGround</strong> – global Z coordinate of ground level</li>
-<li><strong>zBottomSoils</strong> – list of global Z coordinates of the bottom level
-for each soil (from top to bottom)</li>
-<li><strong>KSoils</strong> – list of pressure coefficients for each soil (from top 
-to bottom)</li>
-<li><strong>gammaSoils</strong> – list of weight density for each soil (from top to
-bottom)</li>
-<li><strong>zWater</strong> – global Z coordinate of groundwater level 
-(if zGroundwater&lt;minimum z of model =&gt; there is no groundwater)</li>
-<li><strong>gammaWater</strong> – weight density of water</li>
-<li><strong>qUnif</strong> – uniform load over the backfill surface (defaults to 0)</li>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gammaSoils</strong> – list of weight density for each soil (from top to
+bottom)</p></li>
+<li><p><strong>zWater</strong> – global Z coordinate of groundwater level 
+(if zGroundwater&lt;minimum z of model =&gt; there is no groundwater)</p></li>
+<li><p><strong>gammaWater</strong> – weight density of water</p></li>
+<li><p><strong>qUnif</strong> – uniform load over the backfill surface (defaults to 0)</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="actions.earth_pressure.earth_pressure.EarthPressureModel.getPressure">
-<code class="descname">getPressure</code><span class="sig-paren">(</span><em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.EarthPressureModel.getPressure" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.EarthPressureModel.getEffectivePressure">
+<span class="sig-name descname"><span class="pre">getEffectivePressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.EarthPressureModel.getEffectivePressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the effective pressure acting on the points at global coordinate z.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>z</strong> – global z coordinate.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.EarthPressureModel.getEffectiveVerticalPressure">
+<span class="sig-name descname"><span class="pre">getEffectiveVerticalPressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.EarthPressureModel.getEffectiveVerticalPressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the effective vertical pressure at the given z.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>z</strong> – global z coordinate.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.EarthPressureModel.getPressure">
+<span class="sig-name descname"><span class="pre">getPressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.EarthPressureModel.getPressure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the earth pressure acting on the points at global coordinate z.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>z</strong> – global z coordinate.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.EarthPressureModel.getVerticalPressure">
+<span class="sig-name descname"><span class="pre">getVerticalPressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.EarthPressureModel.getVerticalPressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the vertical pressure at the given z.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>z</strong> – global z coordinate.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.EarthPressureModel.getWaterPressure">
+<span class="sig-name descname"><span class="pre">getWaterPressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.EarthPressureModel.getWaterPressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the pressure of the water at the given z.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>z</strong> – global z coordinate.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="actions.earth_pressure.earth_pressure.EarthPressureSlopedWall">
-<em class="property">class </em><code class="descclassname">actions.earth_pressure.earth_pressure.</code><code class="descname">EarthPressureSlopedWall</code><span class="sig-paren">(</span><em>Ksoil</em>, <em>gammaSoil</em>, <em>zGroundPnt1</em>, <em>XYpnt1</em>, <em>zGroundPnt2</em>, <em>XYpnt2</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.EarthPressureSlopedWall" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.EarthPressureSlopedBackfill">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">actions.earth_pressure.earth_pressure.</span></span><span class="sig-name descname"><span class="pre">EarthPressureSlopedBackfill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Ksoil</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gammaSoil</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zGroundPnt1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">XYpnt1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zGroundPnt2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">XYpnt2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.EarthPressureSlopedBackfill" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Earth pressure on a sloped wall. A single soil type with no freatic
-is considered.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>Ksoil</strong> – pressure coefficient of the soil</li>
-<li><strong>gammaSoil</strong> – weight density of the soil</li>
-<li><strong>zGroundPnt1</strong> – global Z coordinate of ground level at point of 
-coordinates XYpnt1</li>
-<li><strong>XYpnt1</strong> – (x,y) coordinates of point 1</li>
-<li><strong>zGroundPnt2</strong> – global Z coordinate of ground level at point of 
-coordinates XYpnt2</li>
-<li><strong>XYpnt2</strong> – (x,y) coordinates of point 2</li>
+<p>Earth pressure on a wall with sloped backfill. A single soil type with no water table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Ksoil</strong> – pressure coefficient of the soil.</p></li>
+<li><p><strong>gammaSoil</strong> – weight density of the soil</p></li>
+<li><p><strong>zGroundPnt1</strong> – global Z coordinate of ground level at point of 
+coordinates XYpnt1</p></li>
+<li><p><strong>XYpnt1</strong> – (x,y) coordinates of point 1</p></li>
+<li><p><strong>zGroundPnt2</strong> – global Z coordinate of ground level at point of 
+coordinates XYpnt2</p></li>
+<li><p><strong>XYpnt2</strong> – (x,y) coordinates of point 2</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="actions.earth_pressure.earth_pressure.EarthPressureSlopedWall.appendLoadToCurrentLoadPattern">
-<code class="descname">appendLoadToCurrentLoadPattern</code><span class="sig-paren">(</span><em>xcSet</em>, <em>vDir</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.EarthPressureSlopedWall.appendLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.EarthPressureSlopedBackfill.appendLoadToCurrentLoadPattern">
+<span class="sig-name descname"><span class="pre">appendLoadToCurrentLoadPattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xcSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vDir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.EarthPressureSlopedBackfill.appendLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Append pressure on a set of elements to the current</dt><dd><p>load pattern.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xcSet</strong> – set of elements to which apply the loads</p></li>
+<li><p><strong>vDir</strong> – unit xc vector defining pressures direction</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 
-<dl class="method">
-<dt id="actions.earth_pressure.earth_pressure.EarthPressureSlopedWall.getPressure">
-<code class="descname">getPressure</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.EarthPressureSlopedWall.getPressure" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.EarthPressureSlopedBackfill.getPressure">
+<span class="sig-name descname"><span class="pre">getPressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.EarthPressureSlopedBackfill.getPressure" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="actions.earth_pressure.earth_pressure.HorizontalLoadOnBackfill">
-<em class="property">class </em><code class="descclassname">actions.earth_pressure.earth_pressure.</code><code class="descname">HorizontalLoadOnBackfill</code><span class="sig-paren">(</span><em>soilIntFi</em>, <em>qLoad</em>, <em>zLoad</em>, <em>distWall</em>, <em>widthLoadArea</em>, <em>lengthLoadArea=1</em>, <em>horDistrAngle=0</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.HorizontalLoadOnBackfill" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.HorizontalLoadOnBackfill">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">actions.earth_pressure.earth_pressure.</span></span><span class="sig-name descname"><span class="pre">HorizontalLoadOnBackfill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">soilIntFi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qLoad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zLoad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distWall</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">widthLoadArea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lengthLoadArea</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">horDistrAngle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.HorizontalLoadOnBackfill" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#actions.earth_pressure.earth_pressure.PressureModelBase" title="actions.earth_pressure.earth_pressure.PressureModelBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">actions.earth_pressure.earth_pressure.PressureModelBase</span></code></a></p>
 <p>Lateral earth pressure on a retaining wall due to a surcharge 
 load acting in horizontal direction on the backfill.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>soilIntFi</strong> – agle of internal friction of the soil (º)</li>
-<li><strong>qLoad</strong> – surcharge load (force per unit length)</li>
-<li><strong>zLoad</strong> – global Z coordinate where the line load acts</li>
-<li><strong>distWall</strong> – minimal horizontal distance between the wall and
-the area where the surcharge load acts (e.g.: a foundation)</li>
-<li><strong>widthLoadArea</strong> – width (perperdicular to wall) of the area on
-which the horizontal load acts (e.g.: a foundation).</li>
-<li><strong>lengthLoadArea</strong> – width (parallel to wall) of the area on
+<blockquote>
+<div><p>See: <a class="reference external" href="https://estructurando.net/2017/04/18/empujes-muros-sobrecarga-horizontal/">https://estructurando.net/2017/04/18/empujes-muros-sobrecarga-horizontal/</a></p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>soilIntFi</strong> – agle of internal friction of the soil (º)</p></li>
+<li><p><strong>qLoad</strong> – surcharge load (force per unit length)</p></li>
+<li><p><strong>zLoad</strong> – global Z coordinate where the line load acts</p></li>
+<li><p><strong>distWall</strong> – minimal horizontal distance between the wall and
+the area where the surcharge load acts (e.g.: a foundation)</p></li>
+<li><p><strong>widthLoadArea</strong> – width (perperdicular to wall) of the area on
+which the horizontal load acts (e.g.: a foundation).</p></li>
+<li><p><strong>lengthLoadArea</strong> – length (normal to wall) of the area on
 which the horizontal load acts (e.g.: a foundation). We can
-take lengthLoadArea=1 (default) for a continous load</li>
-<li><strong>horDistrAngle</strong> – angle to distribute load in the direction of
+take lengthLoadArea=1 (default) for a continous load</p></li>
+<li><p><strong>horDistrAngle</strong> – angle to distribute load in the direction of
 the lengthLoadArea (defaults to 0 to apply all the load to a
 length of wall =lengthLoadArea, which would be the case of a
-continous load)</li>
+continous load)</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="actions.earth_pressure.earth_pressure.HorizontalLoadOnBackfill.appendLoadToCurrentLoadPattern">
-<code class="descname">appendLoadToCurrentLoadPattern</code><span class="sig-paren">(</span><em>xcSet</em>, <em>vDir</em>, <em>iCoo=2</em>, <em>delta=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.HorizontalLoadOnBackfill.appendLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.HorizontalLoadOnBackfill.appendLoadToCurrentLoadPattern">
+<span class="sig-name descname"><span class="pre">appendLoadToCurrentLoadPattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xcSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vDir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iCoo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.HorizontalLoadOnBackfill.appendLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
 <dd><p>Append to the current load pattern the earth thrust on a set of 
 elements due to the horizontal load.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>xcSet</strong> – set that contains the elements (shells and/or beams)</li>
-<li><strong>vDir</strong> – unit xc vector defining pressures direction</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xcSet</strong> – set that contains the elements (shells and/or beams)</p></li>
+<li><p><strong>vDir</strong> – unit xc vector defining pressures direction</p></li>
+<li><p><strong>iCoo</strong> – index of the coordinate that represents depth.</p></li>
+<li><p><strong>delta</strong> – soil-wall friction angle (usually: delta= 2/3*Phi).</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="actions.earth_pressure.earth_pressure.HorizontalLoadOnBackfill.getMaxMagnitude">
-<code class="descname">getMaxMagnitude</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.HorizontalLoadOnBackfill.getMaxMagnitude" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.HorizontalLoadOnBackfill.getMaxMagnitude">
+<span class="sig-name descname"><span class="pre">getMaxMagnitude</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.HorizontalLoadOnBackfill.getMaxMagnitude" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the maximum magnitude of the vector loads</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="actions.earth_pressure.earth_pressure.HorizontalLoadOnBackfill.getPressure">
-<code class="descname">getPressure</code><span class="sig-paren">(</span><em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.HorizontalLoadOnBackfill.getPressure" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the earth pressure acting on the points at global coordinate z</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.HorizontalLoadOnBackfill.getPressure">
+<span class="sig-name descname"><span class="pre">getPressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.HorizontalLoadOnBackfill.getPressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the earth pressure acting on the points at global coordinate z.
+:param z: global z coordinate.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="actions.earth_pressure.earth_pressure.HorizontalLoadOnBackfill.setup">
-<code class="descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.HorizontalLoadOnBackfill.setup" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate basic parameters</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="actions.earth_pressure.earth_pressure.LineVerticalLoadOnBackfill">
-<em class="property">class </em><code class="descclassname">actions.earth_pressure.earth_pressure.</code><code class="descname">LineVerticalLoadOnBackfill</code><span class="sig-paren">(</span><em>qLoad</em>, <em>zLoad</em>, <em>distWall</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.LineVerticalLoadOnBackfill" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#actions.earth_pressure.earth_pressure.PressureModelBase" title="actions.earth_pressure.earth_pressure.PressureModelBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">actions.earth_pressure.earth_pressure.PressureModelBase</span></code></a></p>
-<p>Lateral earth pressure on a retaining wall due to line surcharge 
-load acting in vertical direction on the backfill. (J.Calavera, pg.41)</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>qLoad</strong> – surcharge load (force per unit length)</li>
-<li><strong>zLoad</strong> – global Z coordinate where the line load acts</li>
-<li><strong>distWall</strong> – horizontal distance between the wall and the line 
-surcharge load</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="actions.earth_pressure.earth_pressure.LineVerticalLoadOnBackfill.getMaxMagnitude">
-<code class="descname">getMaxMagnitude</code><span class="sig-paren">(</span><em>xcSet</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.LineVerticalLoadOnBackfill.getMaxMagnitude" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return an estimation of the maximum magnitude of the vector loads 
-(it’s supposed to occur in a point placed 1/3L from the top)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="actions.earth_pressure.earth_pressure.LineVerticalLoadOnBackfill.getPressure">
-<code class="descname">getPressure</code><span class="sig-paren">(</span><em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.LineVerticalLoadOnBackfill.getPressure" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the earth pressure acting on the points at global coordinate z</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.HorizontalLoadOnBackfill.setup">
+<span class="sig-name descname"><span class="pre">setup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.HorizontalLoadOnBackfill.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate basic parameters.</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="actions.earth_pressure.earth_pressure.MononobeOkabePressureDistribution">
-<em class="property">class </em><code class="descclassname">actions.earth_pressure.earth_pressure.</code><code class="descname">MononobeOkabePressureDistribution</code><span class="sig-paren">(</span><em>zGround</em>, <em>gamma_soil</em>, <em>H</em>, <em>kv</em>, <em>kh</em>, <em>psi</em>, <em>phi</em>, <em>delta_ad</em>, <em>beta</em>, <em>Kas</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.MononobeOkabePressureDistribution" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#actions.earth_pressure.earth_pressure.EarthPressureBase" title="actions.earth_pressure.earth_pressure.EarthPressureBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">actions.earth_pressure.earth_pressure.EarthPressureBase</span></code></a></p>
-<p>Overpressure due to seismic action according to Mononobe-Okabe</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>H</strong> – height of the structure.</li>
-<li><strong>kv</strong> – seismic coefficient of vertical acceleration.</li>
-<li><strong>kh</strong> – seismic coefficient of horizontal acceleration.</li>
-<li><strong>psi</strong> – back face inclination of the structure (&lt; PI/2)</li>
-<li><a class="reference internal" href="materials.aci.html#materials.aci.ACI_limit_state_checking.ShearPlane.phi" title="materials.aci.ACI_limit_state_checking.ShearPlane.phi"><strong>phi</strong></a> – angle of internal friction of soil.</li>
-<li><strong>delta_ad</strong> – angle of friction soil - structure.</li>
-<li><a class="reference internal" href="../../miscellany/roughCalcGenTopics.html#rough_calculations.masonry_vault.FillingCharacteristics.beta" title="rough_calculations.masonry_vault.FillingCharacteristics.beta"><strong>beta</strong></a> – slope inclination of backfill.</li>
-<li><strong>Kas</strong> – static earth pressure coefficient</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="actions.earth_pressure.earth_pressure.MononobeOkabePressureDistribution.getPressure">
-<code class="descname">getPressure</code><span class="sig-paren">(</span><em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.MononobeOkabePressureDistribution.getPressure" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the earth pressure acting on the points at global coordinate z</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.IskanderPressureDistribution">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">actions.earth_pressure.earth_pressure.</span></span><span class="sig-name descname"><span class="pre">IskanderPressureDistribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zGround</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gammaSoil</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.IskanderPressureDistribution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#actions.earth_pressure.earth_pressure.SeismicPressureDistribution" title="actions.earth_pressure.earth_pressure.SeismicPressureDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">actions.earth_pressure.earth_pressure.SeismicPressureDistribution</span></code></a></p>
+<dl class="simple">
+<dt>Overpressure due to seismic action according to Iskander et al.</dt><dd><dl class="simple">
+<dt>(Active static and seismic earth pressure for c–φ soils Magued Iskander, </dt><dd><p>Zhibo (Chris) Chen , Mehdi Omidvar, Ivan Guzman, Omar Elsheri. 
+Polytechnic Institute of New York University, USA)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><strong>c</strong> – cohesion</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.IskanderPressureDistribution.getPressure">
+<span class="sig-name descname"><span class="pre">getPressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.IskanderPressureDistribution.getPressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the earth pressure acting on the points at global coordinate z.
+:param z: global z coordinate.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="actions.earth_pressure.earth_pressure.MononobeOkabePressureDistribution.update">
-<code class="descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.MononobeOkabePressureDistribution.update" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.IskanderPressureDistribution.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.IskanderPressureDistribution.update" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="actions.earth_pressure.earth_pressure.PeckPressureEnvelope">
-<em class="property">class </em><code class="descclassname">actions.earth_pressure.earth_pressure.</code><code class="descname">PeckPressureEnvelope</code><span class="sig-paren">(</span><em>phi</em>, <em>zGround</em>, <em>gammaSoil</em>, <em>zWater</em>, <em>gammaWater</em>, <em>H</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.PeckPressureEnvelope" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#actions.earth_pressure.earth_pressure.EarthPressureBase" title="actions.earth_pressure.earth_pressure.EarthPressureBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">actions.earth_pressure.earth_pressure.EarthPressureBase</span></code></a></p>
-<dl class="docutils">
-<dt>Envelope of apparent lateral pressure diagrams for design </dt>
-<dd>of cuts in sand. See 10.2 in the book “Principles of Foundation
-Engineering” from Braja M. Das.</dd>
+<dl class="py class">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.LineVerticalLoadOnBackfill">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">actions.earth_pressure.earth_pressure.</span></span><span class="sig-name descname"><span class="pre">LineVerticalLoadOnBackfill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qLoad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zLoad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distWall</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.LineVerticalLoadOnBackfill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#actions.earth_pressure.earth_pressure.PressureModelBase" title="actions.earth_pressure.earth_pressure.PressureModelBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">actions.earth_pressure.earth_pressure.PressureModelBase</span></code></a></p>
+<p>Lateral earth pressure on a retaining wall due to line surcharge 
+load acting in vertical direction on the backfill. (J.Calavera, pg.41)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qLoad</strong> – surcharge load (force per unit length)</p></li>
+<li><p><strong>zLoad</strong> – global Z coordinate where the line load acts</p></li>
+<li><p><strong>distWall</strong> – horizontal distance between the wall and the line 
+surcharge load</p></li>
+</ul>
+</dd>
 </dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>H</strong> – height of the cut.</li>
-<li><a class="reference internal" href="materials.aci.html#materials.aci.ACI_limit_state_checking.ShearPlane.phi" title="materials.aci.ACI_limit_state_checking.ShearPlane.phi"><strong>phi</strong></a> – effective friction angle of sand.</li>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.LineVerticalLoadOnBackfill.getMaxMagnitude">
+<span class="sig-name descname"><span class="pre">getMaxMagnitude</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xcSet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.LineVerticalLoadOnBackfill.getMaxMagnitude" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an estimation of the maximum magnitude of the vector loads 
+(it’s supposed to occur in a point placed 1/3L from the top).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xcSet</strong> – set containing the elements.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.LineVerticalLoadOnBackfill.getPressure">
+<span class="sig-name descname"><span class="pre">getPressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.LineVerticalLoadOnBackfill.getPressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the earth pressure acting on the points at global coordinate z.
+:param z: global z coordinate.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.MononobeOkabePressureDistribution">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">actions.earth_pressure.earth_pressure.</span></span><span class="sig-name descname"><span class="pre">MononobeOkabePressureDistribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zGround</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gammaSoil</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_ad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">earthCover</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.MononobeOkabePressureDistribution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#actions.earth_pressure.earth_pressure.SeismicPressureDistribution" title="actions.earth_pressure.earth_pressure.SeismicPressureDistribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">actions.earth_pressure.earth_pressure.SeismicPressureDistribution</span></code></a></p>
+<p>Overpressure due to seismic action according to Mononobe-Okabe</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>delta_ad</strong> – angle of friction soil - structure.</p></li>
+<li><p><strong>Kas</strong> – static earth pressure coefficient.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="actions.earth_pressure.earth_pressure.PeckPressureEnvelope.getPressure">
-<code class="descname">getPressure</code><span class="sig-paren">(</span><em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.PeckPressureEnvelope.getPressure" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<p>:ivar</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.MononobeOkabePressureDistribution.getPressure">
+<span class="sig-name descname"><span class="pre">getPressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.MononobeOkabePressureDistribution.getPressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the earth pressure acting on the points at global coordinate z.
+:param z: global z coordinate.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.MononobeOkabePressureDistribution.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.MononobeOkabePressureDistribution.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.PeckPressureEnvelope">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">actions.earth_pressure.earth_pressure.</span></span><span class="sig-name descname"><span class="pre">PeckPressureEnvelope</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zGround</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gammaSoil</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zWater</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gammaWater</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.PeckPressureEnvelope" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#actions.earth_pressure.earth_pressure.EarthPressureBase" title="actions.earth_pressure.earth_pressure.EarthPressureBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">actions.earth_pressure.earth_pressure.EarthPressureBase</span></code></a></p>
+<dl class="simple">
+<dt>Envelope of apparent lateral pressure diagrams for design </dt><dd><p>of cuts in sand. See 10.2 in the book “Principles of Foundation
+Engineering” from Braja M. Das.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>H</strong> – height of the cut.</p></li>
+<li><p><strong>phi</strong> – effective friction angle of sand [radians].</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.PeckPressureEnvelope.getPressure">
+<span class="sig-name descname"><span class="pre">getPressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.PeckPressureEnvelope.getPressure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the earth pressure acting on the points at global coordinate z.</p>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.PeckPressureEnvelope.getVerticalPressure">
+<span class="sig-name descname"><span class="pre">getVerticalPressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.PeckPressureEnvelope.getVerticalPressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the vertical pressure at the given z.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>z</strong> – global z coordinate.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="class">
-<dt id="actions.earth_pressure.earth_pressure.PressureModelBase">
-<em class="property">class </em><code class="descclassname">actions.earth_pressure.earth_pressure.</code><code class="descname">PressureModelBase</code><a class="headerlink" href="#actions.earth_pressure.earth_pressure.PressureModelBase" title="Permalink to this definition">¶</a></dt>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.PointVerticalLoadOnBackfill">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">actions.earth_pressure.earth_pressure.</span></span><span class="sig-name descname"><span class="pre">PointVerticalLoadOnBackfill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xcSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Qload</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loadAppPnt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zBaseWall</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distWall</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vdir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.PointVerticalLoadOnBackfill" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Basse class for objects defining earth pressures.</p>
-<dl class="method">
-<dt id="actions.earth_pressure.earth_pressure.PressureModelBase.appendLoadToCurrentLoadPattern">
-<code class="descname">appendLoadToCurrentLoadPattern</code><span class="sig-paren">(</span><em>xcSet</em>, <em>vDir</em>, <em>iCoo=2</em>, <em>delta=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.PressureModelBase.appendLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
-<dd><p>Append earth thrust on a set of elements to the current
-load pattern.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>xcSet</strong> – set that contains the elements (shells and/or beams)</li>
-<li><strong>vDir</strong> – unit xc vector defining pressures direction</li>
-<li><strong>iCoo</strong> – index of the coordinate that represents depth.</li>
-<li><strong>delta</strong> – soil-wall friction angle (usually: delta= 2/3*Phi).</li>
+<p>Lateral earth pressure on a retaining wall due to a point 
+load acting in vertical direction on the backfill. (J.Calavera)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Qload</strong> – value of the point load</p></li>
+<li><p><strong>loadAppPnt</strong> – load application point (xc.Vector([x,y,z])</p></li>
+<li><p><strong>zBaseWall</strong> – global Z coordinate of the base of the wall</p></li>
+<li><p><strong>distWall</strong> – horizontal distance between the wall and the point 
+load</p></li>
+<li><p><strong>vdir</strong> – xc unit vector prependicular to the wall pointing to its back
+(xc.Vector([ux,uy,0])</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.PointVerticalLoadOnBackfill.appendLoadToCurrentLoadPattern">
+<span class="sig-name descname"><span class="pre">appendLoadToCurrentLoadPattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xcSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vDir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.PointVerticalLoadOnBackfill.appendLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Append earth thrust on a set of elements to the current</dt><dd><p>load pattern.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xcSet</strong> – set that contains the elements (shells and/or beams)</p></li>
+<li><p><strong>vDir</strong> – unit xc vector defining pressures direction</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="actions.earth_pressure.earth_pressure.PressureModelBase.getPressure">
-<code class="descname">getPressure</code><span class="sig-paren">(</span><em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.PressureModelBase.getPressure" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the earth pressure acting on the points at global coordinate z.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.PointVerticalLoadOnBackfill.getAngPsi">
+<span class="sig-name descname"><span class="pre">getAngPsi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.PointVerticalLoadOnBackfill.getAngPsi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the angle used to distribute pressures horizontally</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.PointVerticalLoadOnBackfill.getPressure">
+<span class="sig-name descname"><span class="pre">getPressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.PointVerticalLoadOnBackfill.getPressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the earth pressure acting on the point of the wall
+placed at global coordinates (x,y,z).</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="actions.earth_pressure.earth_pressure.StripLoadOnBackfill">
-<em class="property">class </em><code class="descclassname">actions.earth_pressure.earth_pressure.</code><code class="descname">StripLoadOnBackfill</code><span class="sig-paren">(</span><em>qLoad</em>, <em>zLoad</em>, <em>distWall</em>, <em>stripWidth</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.StripLoadOnBackfill" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.PressureModelBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">actions.earth_pressure.earth_pressure.</span></span><span class="sig-name descname"><span class="pre">PressureModelBase</span></span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.PressureModelBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for objects defining earth pressures.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.PressureModelBase.appendLoadToCurrentLoadPattern">
+<span class="sig-name descname"><span class="pre">appendLoadToCurrentLoadPattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xcSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vDir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iCoo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.PressureModelBase.appendLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append earth thrust on a set of elements to the current load pattern.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xcSet</strong> – set that contains the elements (shells and/or beams)</p></li>
+<li><p><strong>vDir</strong> – unit xc vector defining pressures direction</p></li>
+<li><p><strong>iCoo</strong> – index of the coordinate that represents depth.</p></li>
+<li><p><strong>delta</strong> – soil-wall friction angle (usually: delta= 2/3*Phi).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.PressureModelBase.appendVerticalLoadToCurrentLoadPattern">
+<span class="sig-name descname"><span class="pre">appendVerticalLoadToCurrentLoadPattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vLoad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xcSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vDir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iXCoo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iZCoo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5235987755982988</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.PressureModelBase.appendVerticalLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Append to the current load pattern the vertical pressures on </dt><dd><p>a set of elements due to this load.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vLoad</strong> – vertical load.</p></li>
+<li><p><strong>xcSet</strong> – set that contains the elements.</p></li>
+<li><p><strong>vDir</strong> – unit xc vector defining pressures direction.</p></li>
+<li><p><strong>iXCoo</strong> – index of the horizontal coordinate.</p></li>
+<li><p><strong>iZCoo</strong> – index of the vertical coordinate.</p></li>
+<li><p><strong>alph</strong> – angle of stress spreading.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.PressureModelBase.getForces2D">
+<span class="sig-name descname"><span class="pre">getForces2D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">segment2d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numDiv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.PressureModelBase.getForces2D" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Return the sliding vector system which is equivalent to the </dt><dd><p>pressures acting on the surface represented by the 2D segment
+argument.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>segment2d</strong> – two-dimensional segment that represents the surface
+under pressure.</p></li>
+<li><p><strong>numDiv</strong> – number of sample points along the segment.</p></li>
+<li><p><strong>beta</strong> – slope inclination of backfill.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.PressureModelBase.getPressure">
+<span class="sig-name descname"><span class="pre">getPressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.PressureModelBase.getPressure" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Return the earth pressure acting on the points at global </dt><dd><p>coordinate z.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>z</strong> – global z coordinate.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.PressureModelBase.getVerticalPressure">
+<span class="sig-name descname"><span class="pre">getVerticalPressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.PressureModelBase.getVerticalPressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the vertival pressure at the given z.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>z</strong> – global z coordinate.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.SeismicPressureDistribution">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">actions.earth_pressure.earth_pressure.</span></span><span class="sig-name descname"><span class="pre">SeismicPressureDistribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zGround</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gammaSoil</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">earthCover</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.SeismicPressureDistribution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#actions.earth_pressure.earth_pressure.EarthPressureBase" title="actions.earth_pressure.earth_pressure.EarthPressureBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">actions.earth_pressure.earth_pressure.EarthPressureBase</span></code></a></p>
+<p>Base class for soil overpressure due to seismic action</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>H</strong> – height of the structure.</p></li>
+<li><p><strong>kv</strong> – seismic coefficient of vertical acceleration.</p></li>
+<li><p><strong>kh</strong> – seismic coefficient of horizontal acceleration.</p></li>
+<li><p><strong>psi</strong> – back face inclination of the structure (&lt;= PI/2) [radians]</p></li>
+<li><p><strong>phi</strong> – angle of internal friction of soil [radians]</p></li>
+<li><p><strong>beta</strong> – slope inclination of backfill.</p></li>
+<li><p><strong>earthCover</strong> – earth cover over the structure.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.SeismicPressureDistribution.getThrust">
+<span class="sig-name descname"><span class="pre">getThrust</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.SeismicPressureDistribution.getThrust" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value of the earthquake thrust.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.SeismicPressureDistribution.setKh">
+<span class="sig-name descname"><span class="pre">setKh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kh</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.SeismicPressureDistribution.setKh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assigns the value of the horizontal seismic coefficient.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kh</strong> – seismic coefficient of horizontal acceleration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.SeismicPressureDistribution.setKv">
+<span class="sig-name descname"><span class="pre">setKv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kv</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.SeismicPressureDistribution.setKv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assigns the value of the vertical seismic coefficient.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kv</strong> – seismic coefficient of vertical acceleration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.SeismicPressureDistribution.setPhi">
+<span class="sig-name descname"><span class="pre">setPhi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.SeismicPressureDistribution.setPhi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assigns the value of the angle of internal friction of soil.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>phi</strong> – angle of internal friction of soil  [radians].</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.StripLoadOnBackfill">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">actions.earth_pressure.earth_pressure.</span></span><span class="sig-name descname"><span class="pre">StripLoadOnBackfill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qLoad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zLoad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distWall</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stripWidth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.StripLoadOnBackfill" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#actions.earth_pressure.earth_pressure.UniformLoadOnStem" title="actions.earth_pressure.earth_pressure.UniformLoadOnStem"><code class="xref py py-class docutils literal notranslate"><span class="pre">actions.earth_pressure.earth_pressure.UniformLoadOnStem</span></code></a></p>
 <p>Lateral earth pressure on a retaining wall due to a strip surcharge 
 load on the backfill. (J.Calavera, pg.40)</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>zLoad</strong> – global Z coordinate where the surcharge load acts</li>
-<li><strong>distWall</strong> – minimal horizontal distance between the wall and the 
-surcharge load</li>
-<li><strong>stripWidth</strong> – width of the strip</li>
-<li><strong>coef</strong> – is a coefficient = 1.5 (default) for the usual case of non-rigid
-walls. It can be redefined =2 for rigid walls</li>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>zLoad</strong> – global Z coordinate where the surcharge load acts</p></li>
+<li><p><strong>distWall</strong> – minimal horizontal distance between the wall and the 
+surcharge load</p></li>
+<li><p><strong>stripWidth</strong> – width of the strip</p></li>
+<li><p><strong>coef</strong> – is a coefficient = 1.5 (default) for the usual case of non-rigid
+walls. It can be redefined =2 for rigid walls</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="actions.earth_pressure.earth_pressure.StripLoadOnBackfill.appendVerticalLoadToCurrentLoadPattern">
-<code class="descname">appendVerticalLoadToCurrentLoadPattern</code><span class="sig-paren">(</span><em>xcSet</em>, <em>vDir</em>, <em>iXCoo=0</em>, <em>iZCoo=2</em>, <em>alph=0.5235987755982988</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.StripLoadOnBackfill.appendVerticalLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Append to the current load pattern the vertical pressures on </dt>
-<dd>a set of elements due to the strip load. According to
-11.3.4 in the book “Mecánica de suelos” of Llano, J.J.S.
-isbn= 9788471461650 (<a class="reference external" href="https://books.google.ch/books?id=oQFZRKlix_EC">https://books.google.ch/books?id=oQFZRKlix_EC</a>)</dd>
+</dd>
 </dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>xcSet</strong> – set that contains the elements.</li>
-<li><strong>vDir</strong> – unit xc vector defining pressures direction</li>
-<li><strong>alph</strong> – angle of stress spreading.</li>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.StripLoadOnBackfill.appendVerticalLoadToCurrentLoadPattern">
+<span class="sig-name descname"><span class="pre">appendVerticalLoadToCurrentLoadPattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xcSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vDir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iXCoo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iZCoo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5235987755982988</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.StripLoadOnBackfill.appendVerticalLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Append to the current load pattern the vertical pressures on </dt><dd><p>a set of elements due to the strip load. According to
+11.3.4 in the book “Mecánica de suelos” of Llano, J.J.S.
+isbn= 9788471461650 (<a class="reference external" href="https://books.google.ch/books?id=oQFZRKlix_EC">https://books.google.ch/books?id=oQFZRKlix_EC</a>)</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xcSet</strong> – set that contains the elements.</p></li>
+<li><p><strong>vDir</strong> – unit xc vector defining pressures direction.</p></li>
+<li><p><strong>iXCoo</strong> – index of the horizontal coordinate.</p></li>
+<li><p><strong>iZCoo</strong> – index of the vertical coordinate.</p></li>
+<li><p><strong>alph</strong> – angle of stress spreading.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="actions.earth_pressure.earth_pressure.StripLoadOnBackfill.getMaxMagnitude">
-<code class="descname">getMaxMagnitude</code><span class="sig-paren">(</span><em>xcSet</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.StripLoadOnBackfill.getMaxMagnitude" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.StripLoadOnBackfill.getMaxMagnitude">
+<span class="sig-name descname"><span class="pre">getMaxMagnitude</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xcSet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.StripLoadOnBackfill.getMaxMagnitude" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an estimation of the maximum magnitude of the vector loads 
 (it’s supposed to occur in a point placed 1/3L from the top)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="actions.earth_pressure.earth_pressure.StripLoadOnBackfill.getPressure">
-<code class="descname">getPressure</code><span class="sig-paren">(</span><em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.StripLoadOnBackfill.getPressure" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the earth pressure acting on the points at global coordinate z</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="actions.earth_pressure.earth_pressure.UniformLoadOnBackfill">
-<em class="property">class </em><code class="descclassname">actions.earth_pressure.earth_pressure.</code><code class="descname">UniformLoadOnBackfill</code><span class="sig-paren">(</span><em>K</em>, <em>qLoad</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.UniformLoadOnBackfill" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#actions.earth_pressure.earth_pressure.UniformLoadOnStem" title="actions.earth_pressure.earth_pressure.UniformLoadOnStem"><code class="xref py py-class docutils literal notranslate"><span class="pre">actions.earth_pressure.earth_pressure.UniformLoadOnStem</span></code></a></p>
-<dl class="docutils">
-<dt>Lateral earth pressure on a retaining wall due to a uniform indefinite</dt>
-<dd>load on the backfill.</dd>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xcSet</strong> – set containing the elements.</p>
+</dd>
 </dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>qLoad</strong> – surcharge load (force per unit area)</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="actions.earth_pressure.earth_pressure.UniformLoadOnBackfill.getPressure">
-<code class="descname">getPressure</code><span class="sig-paren">(</span><em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.UniformLoadOnBackfill.getPressure" title="Permalink to this definition">¶</a></dt>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.StripLoadOnBackfill.getPressure">
+<span class="sig-name descname"><span class="pre">getPressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.StripLoadOnBackfill.getPressure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the earth pressure acting on the points at global coordinate z.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>z</strong> – global z coordinate.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="actions.earth_pressure.earth_pressure.UniformLoadOnStem">
-<em class="property">class </em><code class="descclassname">actions.earth_pressure.earth_pressure.</code><code class="descname">UniformLoadOnStem</code><span class="sig-paren">(</span><em>qLoad</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.UniformLoadOnStem" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.UniformLoadOnBackfill">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">actions.earth_pressure.earth_pressure.</span></span><span class="sig-name descname"><span class="pre">UniformLoadOnBackfill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">K</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qLoad</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.UniformLoadOnBackfill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#actions.earth_pressure.earth_pressure.UniformPressureOnBackfill" title="actions.earth_pressure.earth_pressure.UniformPressureOnBackfill"><code class="xref py py-class docutils literal notranslate"><span class="pre">actions.earth_pressure.earth_pressure.UniformPressureOnBackfill</span></code></a></p>
+<dl class="simple">
+<dt>Lateral earth pressure on a retaining wall due to a uniform indefinite</dt><dd><p>load on the backfill.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><strong>K</strong> – pressure coefficient.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.UniformLoadOnStem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">actions.earth_pressure.earth_pressure.</span></span><span class="sig-name descname"><span class="pre">UniformLoadOnStem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qLoad</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.UniformLoadOnStem" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#actions.earth_pressure.earth_pressure.PressureModelBase" title="actions.earth_pressure.earth_pressure.PressureModelBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">actions.earth_pressure.earth_pressure.PressureModelBase</span></code></a></p>
 <p>Uniform lateral earth pressure on a retaining wall.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><strong>qLoad</strong> – surcharge load (force per unit area)</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="actions.earth_pressure.earth_pressure.UniformLoadOnStem.getPressure">
-<code class="descname">getPressure</code><span class="sig-paren">(</span><em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.UniformLoadOnStem.getPressure" title="Permalink to this definition">¶</a></dt>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><p><strong>qLoad</strong> – surcharge load (force per unit area).</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.UniformLoadOnStem.getPressure">
+<span class="sig-name descname"><span class="pre">getPressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.UniformLoadOnStem.getPressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the earth pressure acting on the points at global coordinate z.
+:param z: global z coordinate.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.UniformPressureOnBackfill">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">actions.earth_pressure.earth_pressure.</span></span><span class="sig-name descname"><span class="pre">UniformPressureOnBackfill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zGround</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zBottomSoils</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KSoils</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qUnif</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.UniformPressureOnBackfill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#actions.earth_pressure.earth_pressure.PressureModelBase" title="actions.earth_pressure.earth_pressure.PressureModelBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">actions.earth_pressure.earth_pressure.PressureModelBase</span></code></a></p>
+<dl class="simple">
+<dt>Parameters to define a uniform pressure over the backfill surface</dt><dd><p>type earth pressure</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>zGround</strong> – global Z coordinate of ground level</p></li>
+<li><p><strong>zBottomSoils</strong> – list of global Z coordinates of the bottom level
+for each soil (from top to bottom)</p></li>
+<li><p><strong>KSoils</strong> – list of pressure coefficients for each soil (from top 
+to bottom)</p></li>
+<li><p><strong>qUnif</strong> – uniform load over the backfill surface (defaults to 0)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.UniformPressureOnBackfill.appendVerticalLoadToCurrentLoadPattern">
+<span class="sig-name descname"><span class="pre">appendVerticalLoadToCurrentLoadPattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xcSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vDir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iXCoo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iZCoo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5235987755982988</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.UniformPressureOnBackfill.appendVerticalLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Append to the current load pattern the vertical pressures on </dt><dd><p>a set of elements due to the uniform load. According to
+11.3.4 in the book “Mecánica de suelos” of Llano, J.J.S.
+isbn= 9788471461650 (<a class="reference external" href="https://books.google.ch/books?id=oQFZRKlix_EC">https://books.google.ch/books?id=oQFZRKlix_EC</a>)</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xcSet</strong> – set that contains the elements.</p></li>
+<li><p><strong>vDir</strong> – unit xc vector defining pressures direction.</p></li>
+<li><p><strong>iXCoo</strong> – index of the horizontal coordinate.</p></li>
+<li><p><strong>iZCoo</strong> – index of the vertical coordinate.</p></li>
+<li><p><strong>alph</strong> – angle of stress spreading.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.UniformPressureOnBackfill.getKSoil">
+<span class="sig-name descname"><span class="pre">getKSoil</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.UniformPressureOnBackfill.getKSoil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the earth pressure coefficient at the given z.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>z</strong> – global z coordinate.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.UniformPressureOnBackfill.getLayerIndex">
+<span class="sig-name descname"><span class="pre">getLayerIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.UniformPressureOnBackfill.getLayerIndex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the soil layer that corresponds to z.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>z</strong> – global z coordinate.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.UniformPressureOnBackfill.getPressure">
+<span class="sig-name descname"><span class="pre">getPressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.UniformPressureOnBackfill.getPressure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the earth pressure acting on the points at global coordinate z.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>z</strong> – global z coordinate.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.UniformPressureOnBackfill.getVerticalPressure">
+<span class="sig-name descname"><span class="pre">getVerticalPressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.UniformPressureOnBackfill.getVerticalPressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the vertical pressure of the earth at the given z.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>z</strong> – global z coordinate.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
-</div>
-</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.WeightDistrEmbankment">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">actions.earth_pressure.earth_pressure.</span></span><span class="sig-name descname"><span class="pre">WeightDistrEmbankment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gammaSoil</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coordSoilSurf</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.WeightDistrEmbankment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="simple">
+<dt>Distribution of pressure on a set of shells due to the weight of a</dt><dd><p>the soil on the shell elements. 
+The surface of the embankment is a a strip defined
+by the angle that its transversal section forms with the X global axis 
+(counterclockwise) and a list of coordinates [[xp1,z1],[xp2,z2], …],
+where xp coordinates are expressed in a coordinate system obtained 
+rotating theta radians the global system.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gammaSoil</strong> – weight density of the soil</p></li>
+<li><p><strong>theta</strong> – angle counterclockwise in radians that forms the transversal
+section of the embankment with the global X-axis</p></li>
+<li><p><strong>coordSoilSurf</strong> – list of coordinates [[xp1,z1],[xp2,z2], …] 
+that defines the soil surface, where xp are the x coordinates of the
+vertices of a transversal section in the surface, expressed in 
+the rotated reference system.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.WeightDistrEmbankment.appendLoadToCurrentLoadPattern">
+<span class="sig-name descname"><span class="pre">appendLoadToCurrentLoadPattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xcSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vDir=&lt;xc.Vector</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.WeightDistrEmbankment.appendLoadToCurrentLoadPattern" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Append pressure on a set of elements to the current</dt><dd><p>load pattern.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xcSet</strong> – set of elements to which apply the loads</p></li>
+<li><p><strong>vDir</strong> – unit xc vector defining pressures direction</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.earth_pressure.earth_pressure.WeightDistrEmbankment.getPressure">
+<span class="sig-name descname"><span class="pre">getPressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.earth_pressure.earth_pressure.WeightDistrEmbankment.getPressure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -480,17 +855,15 @@ isbn= 9788471461650 (<a class="reference external" href="https://books.google.ch
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -511,12 +884,13 @@ isbn= 9788471461650 (<a class="reference external" href="https://books.google.ch
           <a href="actions.weight.html" title="Weight"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../actions.html" >Actions</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../actions.html" >Actions</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Earth pressure</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
     </div>
   </body>
 </html>

@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Truss, beam and column elements &#8212; XC 3.0 documentation</title>
-    <link rel="stylesheet" href="../../../../../../_static/classic.css" type="text/css" />
-    <link rel="stylesheet" href="../../../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/classic.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../../../../../../" src="../../../../../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../../../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../../../../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
     
     <link rel="index" title="Index" href="../../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../../search.html" />
@@ -39,7 +37,8 @@
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../../../../index.html">XC 3.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../../../../FE_model.html" >FE model</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../../../elem_types.html" accesskey="U">Element types</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../../../elem_types.html" accesskey="U">Element types</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Truss, beam and column elements</a></li> 
       </ul>
     </div>  
 
@@ -48,494 +47,517 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-xc">
+  <section id="module-xc">
 <span id="truss-beam-and-column-elements"></span><h1>Truss, beam and column elements<a class="headerlink" href="#module-xc" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="xc.ProtoBeam2d">
-<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">ProtoBeam2d</code><a class="headerlink" href="#xc.ProtoBeam2d" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="../element.html#xc.Element1D" title="xc.Element1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">xc.Element1D</span></code></a></p>
-<dl class="attribute">
-<dt id="xc.ProtoBeam2d.getPhysicalProperties">
-<code class="descname">getPhysicalProperties</code><a class="headerlink" href="#xc.ProtoBeam2d.getPhysicalProperties" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="xc.ProtoBeam2d">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">xc.</span></span><span class="sig-name descname"><span class="pre">ProtoBeam2d</span></span><a class="headerlink" href="#xc.ProtoBeam2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">xc.BeamColumn</span></code></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.ProtoBeam2d.getPhysicalProperties">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getPhysicalProperties</span></span><a class="headerlink" href="#xc.ProtoBeam2d.getPhysicalProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>TO DEPRECATE: use physicalProperties. Returns materials at integration points (gauss points).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="xc.ProtoBeam2d.getStrongAxisAngle">
+<span class="sig-name descname"><span class="pre">getStrongAxisAngle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(ProtoBeam2d)arg1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span> <span class="pre">:</span></span></span><a class="headerlink" href="#xc.ProtoBeam2d.getStrongAxisAngle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the angle between element strong axis and local XZ plane.</p>
+<dl class="simple">
+<dt>C++ signature :</dt><dd><p>double getStrongAxisAngle(XC::ProtoBeam2d {lvalue})</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="xc.ProtoBeam2d.getVDirStrongAxisLocalCoord">
+<span class="sig-name descname"><span class="pre">getVDirStrongAxisLocalCoord</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(ProtoBeam2d)arg1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Vector</span> <span class="pre">:</span></span></span><a class="headerlink" href="#xc.ProtoBeam2d.getVDirStrongAxisLocalCoord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the direction vector of element strong axis expressed in the local coordinate system.</p>
+<dl class="simple">
+<dt>C++ signature :</dt><dd><p>XC::Vector getVDirStrongAxisLocalCoord(XC::ProtoBeam2d {lvalue})</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="xc.ProtoBeam2d.getVDirWeakAxisLocalCoord">
+<span class="sig-name descname"><span class="pre">getVDirWeakAxisLocalCoord</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(ProtoBeam2d)arg1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Vector</span> <span class="pre">:</span></span></span><a class="headerlink" href="#xc.ProtoBeam2d.getVDirWeakAxisLocalCoord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the direction vector of element weak axis expressed in the local coordinate system.</p>
+<dl class="simple">
+<dt>C++ signature :</dt><dd><p>XC::Vector getVDirWeakAxisLocalCoord(XC::ProtoBeam2d {lvalue})</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="xc.ProtoBeam2d.getWeakAxisAngle">
+<span class="sig-name descname"><span class="pre">getWeakAxisAngle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(ProtoBeam2d)arg1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span> <span class="pre">:</span></span></span><a class="headerlink" href="#xc.ProtoBeam2d.getWeakAxisAngle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the angle between element weak axis and local XZ plane.</p>
+<dl class="simple">
+<dt>C++ signature :</dt><dd><p>double getWeakAxisAngle(XC::ProtoBeam2d {lvalue})</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.ProtoBeam2d.physicalProperties">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">physicalProperties</span></span><a class="headerlink" href="#xc.ProtoBeam2d.physicalProperties" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns materials at integration points (gauss points).</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="xc.ProtoBeam2d.getStrongAxisAngle">
-<code class="descname">getStrongAxisAngle</code><span class="sig-paren">(</span><em>(ProtoBeam2d)arg1</em><span class="sig-paren">)</span> &#x2192; float :<a class="headerlink" href="#xc.ProtoBeam2d.getStrongAxisAngle" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the angle between element strong axis and local XZ plane.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>double getStrongAxisAngle(XC::ProtoBeam2d {lvalue})</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.ProtoBeam2d.getVDirStrongAxisLocalCoord">
-<code class="descname">getVDirStrongAxisLocalCoord</code><span class="sig-paren">(</span><em>(ProtoBeam2d)arg1</em><span class="sig-paren">)</span> &#x2192; Vector :<a class="headerlink" href="#xc.ProtoBeam2d.getVDirStrongAxisLocalCoord" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the direction vector of element strong axis expressed in the local coordinate system.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::Vector getVDirStrongAxisLocalCoord(XC::ProtoBeam2d {lvalue})</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.ProtoBeam2d.getVDirWeakAxisLocalCoord">
-<code class="descname">getVDirWeakAxisLocalCoord</code><span class="sig-paren">(</span><em>(ProtoBeam2d)arg1</em><span class="sig-paren">)</span> &#x2192; Vector :<a class="headerlink" href="#xc.ProtoBeam2d.getVDirWeakAxisLocalCoord" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the direction vector of element weak axis expressed in the local coordinate system.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::Vector getVDirWeakAxisLocalCoord(XC::ProtoBeam2d {lvalue})</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.ProtoBeam2d.getWeakAxisAngle">
-<code class="descname">getWeakAxisAngle</code><span class="sig-paren">(</span><em>(ProtoBeam2d)arg1</em><span class="sig-paren">)</span> &#x2192; float :<a class="headerlink" href="#xc.ProtoBeam2d.getWeakAxisAngle" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the angle between element weak axis and local XZ plane.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>double getWeakAxisAngle(XC::ProtoBeam2d {lvalue})</dd>
-</dl>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="xc.ProtoBeam2d.sectionProperties">
-<code class="descname">sectionProperties</code><a class="headerlink" href="#xc.ProtoBeam2d.sectionProperties" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.ProtoBeam2d.sectionProperties">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sectionProperties</span></span><a class="headerlink" href="#xc.ProtoBeam2d.sectionProperties" title="Permalink to this definition">¶</a></dt>
 <dd><p>Access to section properties.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="xc.ProtoBeam2d.setMaterial">
-<code class="descname">setMaterial</code><span class="sig-paren">(</span><em>(ProtoBeam2d)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &#x2192; None :<a class="headerlink" href="#xc.ProtoBeam2d.setMaterial" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="xc.ProtoBeam2d.setMaterial">
+<span class="sig-name descname"><span class="pre">setMaterial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(ProtoBeam2d)arg1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">(str)arg2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span> <span class="pre">:</span></span></span><a class="headerlink" href="#xc.ProtoBeam2d.setMaterial" title="Permalink to this definition">¶</a></dt>
 <dd><p>Assigns a different material to the element.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>void setMaterial(XC::ProtoBeam2d {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
+<dl class="simple">
+<dt>C++ signature :</dt><dd><p>void setMaterial(XC::ProtoBeam2d {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</p>
+</dd>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="xc.ProtoBeam2d.setSectionProperties">
-<code class="descname">setSectionProperties</code><span class="sig-paren">(</span><em>(ProtoBeam2d)arg1</em>, <em>(CrossSectionProperties2d)arg2</em><span class="sig-paren">)</span> &#x2192; None :<a class="headerlink" href="#xc.ProtoBeam2d.setSectionProperties" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="xc.ProtoBeam2d.setSectionProperties">
+<span class="sig-name descname"><span class="pre">setSectionProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(ProtoBeam2d)arg1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">(CrossSectionProperties2d)arg2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span> <span class="pre">:</span></span></span><a class="headerlink" href="#xc.ProtoBeam2d.setSectionProperties" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set cross section properties.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>void setSectionProperties(XC::ProtoBeam2d {lvalue},XC::CrossSectionProperties2d)</dd>
+<dl class="simple">
+<dt>C++ signature :</dt><dd><p>void setSectionProperties(XC::ProtoBeam2d {lvalue},XC::CrossSectionProperties2d)</p>
+</dd>
 </dl>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="xc.ProtoBeam3d">
-<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">ProtoBeam3d</code><a class="headerlink" href="#xc.ProtoBeam3d" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="../element.html#xc.Element1D" title="xc.Element1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">xc.Element1D</span></code></a></p>
-<dl class="attribute">
-<dt id="xc.ProtoBeam3d.getPhysicalProperties">
-<code class="descname">getPhysicalProperties</code><a class="headerlink" href="#xc.ProtoBeam3d.getPhysicalProperties" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="xc.ProtoBeam3d">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">xc.</span></span><span class="sig-name descname"><span class="pre">ProtoBeam3d</span></span><a class="headerlink" href="#xc.ProtoBeam3d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">xc.BeamColumn</span></code></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.ProtoBeam3d.getPhysicalProperties">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getPhysicalProperties</span></span><a class="headerlink" href="#xc.ProtoBeam3d.getPhysicalProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>TO DEPRECATE: use physicalProperties. Returns materials at integration points (gauss points).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="xc.ProtoBeam3d.getStrongAxisAngle">
+<span class="sig-name descname"><span class="pre">getStrongAxisAngle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(ProtoBeam3d)arg1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span> <span class="pre">:</span></span></span><a class="headerlink" href="#xc.ProtoBeam3d.getStrongAxisAngle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the angle between element strong axis and local XZ plane.</p>
+<dl class="simple">
+<dt>C++ signature :</dt><dd><p>double getStrongAxisAngle(XC::ProtoBeam3d {lvalue})</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="xc.ProtoBeam3d.getVDirStrongAxisLocalCoord">
+<span class="sig-name descname"><span class="pre">getVDirStrongAxisLocalCoord</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(ProtoBeam3d)arg1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Vector</span> <span class="pre">:</span></span></span><a class="headerlink" href="#xc.ProtoBeam3d.getVDirStrongAxisLocalCoord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the direction vector of element strong axis expressed in the local coordinate system.</p>
+<dl class="simple">
+<dt>C++ signature :</dt><dd><p>XC::Vector getVDirStrongAxisLocalCoord(XC::ProtoBeam3d {lvalue})</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="xc.ProtoBeam3d.getVDirWeakAxisLocalCoord">
+<span class="sig-name descname"><span class="pre">getVDirWeakAxisLocalCoord</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(ProtoBeam3d)arg1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Vector</span> <span class="pre">:</span></span></span><a class="headerlink" href="#xc.ProtoBeam3d.getVDirWeakAxisLocalCoord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the direction vector of element weak axis expressed in the local coordinate system.</p>
+<dl class="simple">
+<dt>C++ signature :</dt><dd><p>XC::Vector getVDirWeakAxisLocalCoord(XC::ProtoBeam3d {lvalue})</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="xc.ProtoBeam3d.getWeakAxisAngle">
+<span class="sig-name descname"><span class="pre">getWeakAxisAngle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(ProtoBeam3d)arg1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span> <span class="pre">:</span></span></span><a class="headerlink" href="#xc.ProtoBeam3d.getWeakAxisAngle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the angle between element weak axis and local XZ plane.</p>
+<dl class="simple">
+<dt>C++ signature :</dt><dd><p>double getWeakAxisAngle(XC::ProtoBeam3d {lvalue})</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.ProtoBeam3d.physicalProperties">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">physicalProperties</span></span><a class="headerlink" href="#xc.ProtoBeam3d.physicalProperties" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns materials at integration points (gauss points).</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="xc.ProtoBeam3d.getStrongAxisAngle">
-<code class="descname">getStrongAxisAngle</code><span class="sig-paren">(</span><em>(ProtoBeam3d)arg1</em><span class="sig-paren">)</span> &#x2192; float :<a class="headerlink" href="#xc.ProtoBeam3d.getStrongAxisAngle" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the angle between element strong axis and local XZ plane.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>double getStrongAxisAngle(XC::ProtoBeam3d {lvalue})</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.ProtoBeam3d.getVDirStrongAxisLocalCoord">
-<code class="descname">getVDirStrongAxisLocalCoord</code><span class="sig-paren">(</span><em>(ProtoBeam3d)arg1</em><span class="sig-paren">)</span> &#x2192; Vector :<a class="headerlink" href="#xc.ProtoBeam3d.getVDirStrongAxisLocalCoord" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the direction vector of element strong axis expressed in the local coordinate system.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::Vector getVDirStrongAxisLocalCoord(XC::ProtoBeam3d {lvalue})</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.ProtoBeam3d.getVDirWeakAxisLocalCoord">
-<code class="descname">getVDirWeakAxisLocalCoord</code><span class="sig-paren">(</span><em>(ProtoBeam3d)arg1</em><span class="sig-paren">)</span> &#x2192; Vector :<a class="headerlink" href="#xc.ProtoBeam3d.getVDirWeakAxisLocalCoord" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the direction vector of element weak axis expressed in the local coordinate system.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::Vector getVDirWeakAxisLocalCoord(XC::ProtoBeam3d {lvalue})</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="xc.ProtoBeam3d.getWeakAxisAngle">
-<code class="descname">getWeakAxisAngle</code><span class="sig-paren">(</span><em>(ProtoBeam3d)arg1</em><span class="sig-paren">)</span> &#x2192; float :<a class="headerlink" href="#xc.ProtoBeam3d.getWeakAxisAngle" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the angle between element weak axis and local XZ plane.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>double getWeakAxisAngle(XC::ProtoBeam3d {lvalue})</dd>
-</dl>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="xc.ProtoBeam3d.sectionProperties">
-<code class="descname">sectionProperties</code><a class="headerlink" href="#xc.ProtoBeam3d.sectionProperties" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.ProtoBeam3d.sectionProperties">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sectionProperties</span></span><a class="headerlink" href="#xc.ProtoBeam3d.sectionProperties" title="Permalink to this definition">¶</a></dt>
 <dd><p>Access to section properties.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="xc.ProtoBeam3d.setMaterial">
-<code class="descname">setMaterial</code><span class="sig-paren">(</span><em>(ProtoBeam3d)arg1</em>, <em>(str)arg2</em><span class="sig-paren">)</span> &#x2192; None :<a class="headerlink" href="#xc.ProtoBeam3d.setMaterial" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="xc.ProtoBeam3d.setMaterial">
+<span class="sig-name descname"><span class="pre">setMaterial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(ProtoBeam3d)arg1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">(str)arg2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span> <span class="pre">:</span></span></span><a class="headerlink" href="#xc.ProtoBeam3d.setMaterial" title="Permalink to this definition">¶</a></dt>
 <dd><p>Assigns a different material to the element.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>void setMaterial(XC::ProtoBeam3d {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</dd>
+<dl class="simple">
+<dt>C++ signature :</dt><dd><p>void setMaterial(XC::ProtoBeam3d {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</p>
+</dd>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="xc.ProtoBeam3d.setSectionProperties">
-<code class="descname">setSectionProperties</code><span class="sig-paren">(</span><em>(ProtoBeam3d)arg1</em>, <em>(CrossSectionProperties3d)arg2</em><span class="sig-paren">)</span> &#x2192; None :<a class="headerlink" href="#xc.ProtoBeam3d.setSectionProperties" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="xc.ProtoBeam3d.setSectionProperties">
+<span class="sig-name descname"><span class="pre">setSectionProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(ProtoBeam3d)arg1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">(CrossSectionProperties3d)arg2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span> <span class="pre">:</span></span></span><a class="headerlink" href="#xc.ProtoBeam3d.setSectionProperties" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set cross section properties.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>void setSectionProperties(XC::ProtoBeam3d {lvalue},XC::CrossSectionProperties3d)</dd>
+<dl class="simple">
+<dt>C++ signature :</dt><dd><p>void setSectionProperties(XC::ProtoBeam3d {lvalue},XC::CrossSectionProperties3d)</p>
+</dd>
 </dl>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="xc.BeamColumnWithSectionFD">
-<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">BeamColumnWithSectionFD</code><a class="headerlink" href="#xc.BeamColumnWithSectionFD" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="../element.html#xc.Element1D" title="xc.Element1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">xc.Element1D</span></code></a></p>
-<dl class="method">
-<dt id="xc.BeamColumnWithSectionFD.getNumSections">
-<code class="descname">getNumSections</code><span class="sig-paren">(</span><em>(BeamColumnWithSectionFD)arg1</em><span class="sig-paren">)</span> &#x2192; int :<a class="headerlink" href="#xc.BeamColumnWithSectionFD.getNumSections" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>unsigned long getNumSections(XC::BeamColumnWithSectionFD {lvalue})</dd>
+<dl class="py class">
+<dt class="sig sig-object py" id="xc.BeamColumnWithSectionFD">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">xc.</span></span><span class="sig-name descname"><span class="pre">BeamColumnWithSectionFD</span></span><a class="headerlink" href="#xc.BeamColumnWithSectionFD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">xc.BeamColumn</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="xc.BeamColumnWithSectionFD.getNumSections">
+<span class="sig-name descname"><span class="pre">getNumSections</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(BeamColumnWithSectionFD)arg1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span> <span class="pre">:</span></span></span><a class="headerlink" href="#xc.BeamColumnWithSectionFD.getNumSections" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>C++ signature :</dt><dd><p>unsigned long getNumSections(XC::BeamColumnWithSectionFD {lvalue})</p>
+</dd>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="xc.BeamColumnWithSectionFD.getSections">
-<code class="descname">getSections</code><span class="sig-paren">(</span><em>(BeamColumnWithSectionFD)arg1</em><span class="sig-paren">)</span> &#x2192; PrismaticBarCrossSectionsVector :<a class="headerlink" href="#xc.BeamColumnWithSectionFD.getSections" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="xc.BeamColumnWithSectionFD.getSections">
+<span class="sig-name descname"><span class="pre">getSections</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(BeamColumnWithSectionFD)arg1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">PrismaticBarCrossSectionsVector</span> <span class="pre">:</span></span></span><a class="headerlink" href="#xc.BeamColumnWithSectionFD.getSections" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns element’s sections.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::PrismaticBarCrossSectionsVector {lvalue} getSections(XC::BeamColumnWithSectionFD {lvalue})</dd>
+<dl class="simple">
+<dt>C++ signature :</dt><dd><p>XC::PrismaticBarCrossSectionsVector {lvalue} getSections(XC::BeamColumnWithSectionFD {lvalue})</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="xc.BeamColumnWithSectionFD.setMaterial">
+<span class="sig-name descname"><span class="pre">setMaterial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(BeamColumnWithSectionFD)arg1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">(str)arg2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span> <span class="pre">:</span></span></span><a class="headerlink" href="#xc.BeamColumnWithSectionFD.setMaterial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assigns a different material to the element.</p>
+<dl class="simple">
+<dt>C++ signature :</dt><dd><p>void setMaterial(XC::BeamColumnWithSectionFD {lvalue},std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;)</p>
+</dd>
 </dl>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="xc.BeamColumnWithSectionFDTrf2d">
-<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">BeamColumnWithSectionFDTrf2d</code><a class="headerlink" href="#xc.BeamColumnWithSectionFDTrf2d" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="xc.BeamColumnWithSectionFDTrf2d">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">xc.</span></span><span class="sig-name descname"><span class="pre">BeamColumnWithSectionFDTrf2d</span></span><a class="headerlink" href="#xc.BeamColumnWithSectionFDTrf2d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#xc.BeamColumnWithSectionFD" title="xc.BeamColumnWithSectionFD"><code class="xref py py-class docutils literal notranslate"><span class="pre">xc.BeamColumnWithSectionFD</span></code></a></p>
 </dd></dl>
 
-<dl class="class">
-<dt id="xc.BeamColumnWithSectionFDTrf3d">
-<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">BeamColumnWithSectionFDTrf3d</code><a class="headerlink" href="#xc.BeamColumnWithSectionFDTrf3d" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="xc.BeamColumnWithSectionFDTrf3d">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">xc.</span></span><span class="sig-name descname"><span class="pre">BeamColumnWithSectionFDTrf3d</span></span><a class="headerlink" href="#xc.BeamColumnWithSectionFDTrf3d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#xc.BeamColumnWithSectionFD" title="xc.BeamColumnWithSectionFD"><code class="xref py py-class docutils literal notranslate"><span class="pre">xc.BeamColumnWithSectionFD</span></code></a></p>
-<dl class="method">
-<dt id="xc.BeamColumnWithSectionFDTrf3d.getStrongAxisAngle">
-<code class="descname">getStrongAxisAngle</code><span class="sig-paren">(</span><em>(BeamColumnWithSectionFDTrf3d)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; float :<a class="headerlink" href="#xc.BeamColumnWithSectionFDTrf3d.getStrongAxisAngle" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>double getStrongAxisAngle(XC::BeamColumnWithSectionFDTrf3d {lvalue},unsigned long)</dd>
+<dl class="py method">
+<dt class="sig sig-object py" id="xc.BeamColumnWithSectionFDTrf3d.getStrongAxisAngle">
+<span class="sig-name descname"><span class="pre">getStrongAxisAngle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(BeamColumnWithSectionFDTrf3d)arg1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">(int)arg2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span> <span class="pre">:</span></span></span><a class="headerlink" href="#xc.BeamColumnWithSectionFDTrf3d.getStrongAxisAngle" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>C++ signature :</dt><dd><p>double getStrongAxisAngle(XC::BeamColumnWithSectionFDTrf3d {lvalue},unsigned long)</p>
+</dd>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="xc.BeamColumnWithSectionFDTrf3d.getVDirStrongAxisGlobalCoord">
-<code class="descname">getVDirStrongAxisGlobalCoord</code><span class="sig-paren">(</span><em>(BeamColumnWithSectionFDTrf3d)arg1</em>, <em>(int)arg2</em>, <em>(bool)arg3</em><span class="sig-paren">)</span> &#x2192; Vector :<a class="headerlink" href="#xc.BeamColumnWithSectionFDTrf3d.getVDirStrongAxisGlobalCoord" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::Vector getVDirStrongAxisGlobalCoord(XC::BeamColumnWithSectionFDTrf3d {lvalue},unsigned long,bool)</dd>
+<dl class="py method">
+<dt class="sig sig-object py" id="xc.BeamColumnWithSectionFDTrf3d.getVDirStrongAxisGlobalCoord">
+<span class="sig-name descname"><span class="pre">getVDirStrongAxisGlobalCoord</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(BeamColumnWithSectionFDTrf3d)arg1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">(int)arg2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">(bool)arg3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Vector</span> <span class="pre">:</span></span></span><a class="headerlink" href="#xc.BeamColumnWithSectionFDTrf3d.getVDirStrongAxisGlobalCoord" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>C++ signature :</dt><dd><p>XC::Vector getVDirStrongAxisGlobalCoord(XC::BeamColumnWithSectionFDTrf3d {lvalue},unsigned long,bool)</p>
+</dd>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="xc.BeamColumnWithSectionFDTrf3d.getVDirStrongAxisLocalCoord">
-<code class="descname">getVDirStrongAxisLocalCoord</code><span class="sig-paren">(</span><em>(BeamColumnWithSectionFDTrf3d)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; Vector :<a class="headerlink" href="#xc.BeamColumnWithSectionFDTrf3d.getVDirStrongAxisLocalCoord" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::Vector getVDirStrongAxisLocalCoord(XC::BeamColumnWithSectionFDTrf3d {lvalue},unsigned long)</dd>
+<dl class="py method">
+<dt class="sig sig-object py" id="xc.BeamColumnWithSectionFDTrf3d.getVDirStrongAxisLocalCoord">
+<span class="sig-name descname"><span class="pre">getVDirStrongAxisLocalCoord</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(BeamColumnWithSectionFDTrf3d)arg1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">(int)arg2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Vector</span> <span class="pre">:</span></span></span><a class="headerlink" href="#xc.BeamColumnWithSectionFDTrf3d.getVDirStrongAxisLocalCoord" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>C++ signature :</dt><dd><p>XC::Vector getVDirStrongAxisLocalCoord(XC::BeamColumnWithSectionFDTrf3d {lvalue},unsigned long)</p>
+</dd>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="xc.BeamColumnWithSectionFDTrf3d.getVDirWeakAxisGlobalCoord">
-<code class="descname">getVDirWeakAxisGlobalCoord</code><span class="sig-paren">(</span><em>(BeamColumnWithSectionFDTrf3d)arg1</em>, <em>(int)arg2</em>, <em>(bool)arg3</em><span class="sig-paren">)</span> &#x2192; Vector :<a class="headerlink" href="#xc.BeamColumnWithSectionFDTrf3d.getVDirWeakAxisGlobalCoord" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::Vector getVDirWeakAxisGlobalCoord(XC::BeamColumnWithSectionFDTrf3d {lvalue},unsigned long,bool)</dd>
+<dl class="py method">
+<dt class="sig sig-object py" id="xc.BeamColumnWithSectionFDTrf3d.getVDirWeakAxisGlobalCoord">
+<span class="sig-name descname"><span class="pre">getVDirWeakAxisGlobalCoord</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(BeamColumnWithSectionFDTrf3d)arg1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">(int)arg2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">(bool)arg3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Vector</span> <span class="pre">:</span></span></span><a class="headerlink" href="#xc.BeamColumnWithSectionFDTrf3d.getVDirWeakAxisGlobalCoord" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>C++ signature :</dt><dd><p>XC::Vector getVDirWeakAxisGlobalCoord(XC::BeamColumnWithSectionFDTrf3d {lvalue},unsigned long,bool)</p>
+</dd>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="xc.BeamColumnWithSectionFDTrf3d.getVDirWeakAxisLocalCoord">
-<code class="descname">getVDirWeakAxisLocalCoord</code><span class="sig-paren">(</span><em>(BeamColumnWithSectionFDTrf3d)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; Vector :<a class="headerlink" href="#xc.BeamColumnWithSectionFDTrf3d.getVDirWeakAxisLocalCoord" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>XC::Vector getVDirWeakAxisLocalCoord(XC::BeamColumnWithSectionFDTrf3d {lvalue},unsigned long)</dd>
+<dl class="py method">
+<dt class="sig sig-object py" id="xc.BeamColumnWithSectionFDTrf3d.getVDirWeakAxisLocalCoord">
+<span class="sig-name descname"><span class="pre">getVDirWeakAxisLocalCoord</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(BeamColumnWithSectionFDTrf3d)arg1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">(int)arg2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Vector</span> <span class="pre">:</span></span></span><a class="headerlink" href="#xc.BeamColumnWithSectionFDTrf3d.getVDirWeakAxisLocalCoord" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>C++ signature :</dt><dd><p>XC::Vector getVDirWeakAxisLocalCoord(XC::BeamColumnWithSectionFDTrf3d {lvalue},unsigned long)</p>
+</dd>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="xc.BeamColumnWithSectionFDTrf3d.getWeakAxisAngle">
-<code class="descname">getWeakAxisAngle</code><span class="sig-paren">(</span><em>(BeamColumnWithSectionFDTrf3d)arg1</em>, <em>(int)arg2</em><span class="sig-paren">)</span> &#x2192; float :<a class="headerlink" href="#xc.BeamColumnWithSectionFDTrf3d.getWeakAxisAngle" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>double getWeakAxisAngle(XC::BeamColumnWithSectionFDTrf3d {lvalue},unsigned long)</dd>
+<dl class="py method">
+<dt class="sig sig-object py" id="xc.BeamColumnWithSectionFDTrf3d.getWeakAxisAngle">
+<span class="sig-name descname"><span class="pre">getWeakAxisAngle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(BeamColumnWithSectionFDTrf3d)arg1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">(int)arg2</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span> <span class="pre">:</span></span></span><a class="headerlink" href="#xc.BeamColumnWithSectionFDTrf3d.getWeakAxisAngle" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>C++ signature :</dt><dd><p>double getWeakAxisAngle(XC::BeamColumnWithSectionFDTrf3d {lvalue},unsigned long)</p>
+</dd>
 </dl>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="xc.NLForceBeamColumn2dBase">
-<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">NLForceBeamColumn2dBase</code><a class="headerlink" href="#xc.NLForceBeamColumn2dBase" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn2dBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">xc.</span></span><span class="sig-name descname"><span class="pre">NLForceBeamColumn2dBase</span></span><a class="headerlink" href="#xc.NLForceBeamColumn2dBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#xc.BeamColumnWithSectionFDTrf2d" title="xc.BeamColumnWithSectionFDTrf2d"><code class="xref py py-class docutils literal notranslate"><span class="pre">xc.BeamColumnWithSectionFDTrf2d</span></code></a></p>
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn2dBase.getM1">
-<code class="descname">getM1</code><a class="headerlink" href="#xc.NLForceBeamColumn2dBase.getM1" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn2dBase.getM1">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getM1</span></span><a class="headerlink" href="#xc.NLForceBeamColumn2dBase.getM1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal bending moment at back end.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn2dBase.getM2">
-<code class="descname">getM2</code><a class="headerlink" href="#xc.NLForceBeamColumn2dBase.getM2" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn2dBase.getM2">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getM2</span></span><a class="headerlink" href="#xc.NLForceBeamColumn2dBase.getM2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal bending moment at front end.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn2dBase.getMz1">
-<code class="descname">getMz1</code><a class="headerlink" href="#xc.NLForceBeamColumn2dBase.getMz1" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn2dBase.getMz1">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getMz1</span></span><a class="headerlink" href="#xc.NLForceBeamColumn2dBase.getMz1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal bending moment at back end.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn2dBase.getMz2">
-<code class="descname">getMz2</code><a class="headerlink" href="#xc.NLForceBeamColumn2dBase.getMz2" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn2dBase.getMz2">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getMz2</span></span><a class="headerlink" href="#xc.NLForceBeamColumn2dBase.getMz2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal bending moment at front end.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn2dBase.getN1">
-<code class="descname">getN1</code><a class="headerlink" href="#xc.NLForceBeamColumn2dBase.getN1" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn2dBase.getN1">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getN1</span></span><a class="headerlink" href="#xc.NLForceBeamColumn2dBase.getN1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal axial force at front end.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn2dBase.getN2">
-<code class="descname">getN2</code><a class="headerlink" href="#xc.NLForceBeamColumn2dBase.getN2" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn2dBase.getN2">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getN2</span></span><a class="headerlink" href="#xc.NLForceBeamColumn2dBase.getN2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal axial force at back end.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="xc.NLForceBeamColumn2dBase.getV">
-<code class="descname">getV</code><span class="sig-paren">(</span><em>(NLForceBeamColumn2dBase)arg1</em><span class="sig-paren">)</span> &#x2192; float :<a class="headerlink" href="#xc.NLForceBeamColumn2dBase.getV" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn2dBase.getV">
+<span class="sig-name descname"><span class="pre">getV</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(NLForceBeamColumn2dBase)arg1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span> <span class="pre">:</span></span></span><a class="headerlink" href="#xc.NLForceBeamColumn2dBase.getV" title="Permalink to this definition">¶</a></dt>
 <dd><p>Mean shear force.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>double getV(XC::NLForceBeamColumn2dBase {lvalue})</dd>
+<dl class="simple">
+<dt>C++ signature :</dt><dd><p>double getV(XC::NLForceBeamColumn2dBase {lvalue})</p>
+</dd>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn2dBase.getV1">
-<code class="descname">getV1</code><a class="headerlink" href="#xc.NLForceBeamColumn2dBase.getV1" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn2dBase.getV1">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getV1</span></span><a class="headerlink" href="#xc.NLForceBeamColumn2dBase.getV1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal shear force at back end.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn2dBase.getV2">
-<code class="descname">getV2</code><a class="headerlink" href="#xc.NLForceBeamColumn2dBase.getV2" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn2dBase.getV2">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getV2</span></span><a class="headerlink" href="#xc.NLForceBeamColumn2dBase.getV2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal shear force at front end.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn2dBase.getVy1">
-<code class="descname">getVy1</code><a class="headerlink" href="#xc.NLForceBeamColumn2dBase.getVy1" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn2dBase.getVy1">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getVy1</span></span><a class="headerlink" href="#xc.NLForceBeamColumn2dBase.getVy1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal shear force at back end.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn2dBase.getVy2">
-<code class="descname">getVy2</code><a class="headerlink" href="#xc.NLForceBeamColumn2dBase.getVy2" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn2dBase.getVy2">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getVy2</span></span><a class="headerlink" href="#xc.NLForceBeamColumn2dBase.getVy2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal shear force at front end.</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="xc.NLForceBeamColumn3dBase">
-<em class="property">class </em><code class="descclassname">xc.</code><code class="descname">NLForceBeamColumn3dBase</code><a class="headerlink" href="#xc.NLForceBeamColumn3dBase" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn3dBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">xc.</span></span><span class="sig-name descname"><span class="pre">NLForceBeamColumn3dBase</span></span><a class="headerlink" href="#xc.NLForceBeamColumn3dBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#xc.BeamColumnWithSectionFDTrf3d" title="xc.BeamColumnWithSectionFDTrf3d"><code class="xref py py-class docutils literal notranslate"><span class="pre">xc.BeamColumnWithSectionFDTrf3d</span></code></a></p>
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn3dBase.getAMz1">
-<code class="descname">getAMz1</code><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getAMz1" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn3dBase.getAMz1">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getAMz1</span></span><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getAMz1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Z bending moment which acts over the back end of the element.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn3dBase.getAMz2">
-<code class="descname">getAMz2</code><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getAMz2" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn3dBase.getAMz2">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getAMz2</span></span><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getAMz2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Z bending moment which acts over the front end of the element.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn3dBase.getAN2">
-<code class="descname">getAN2</code><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getAN2" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn3dBase.getAN2">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getAN2</span></span><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getAN2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Axial force which acts over the front end of the element.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn3dBase.getAVy1">
-<code class="descname">getAVy1</code><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getAVy1" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn3dBase.getAVy1">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getAVy1</span></span><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getAVy1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Y shear force which acts at the back end of the element.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn3dBase.getAVy2">
-<code class="descname">getAVy2</code><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getAVy2" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn3dBase.getAVy2">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getAVy2</span></span><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getAVy2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Y shear force which acts at the front end of the element.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn3dBase.getAVz1">
-<code class="descname">getAVz1</code><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getAVz1" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn3dBase.getAVz1">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getAVz1</span></span><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getAVz1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Z shear force which acts at the back end of the element.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn3dBase.getAVz2">
-<code class="descname">getAVz2</code><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getAVz2" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn3dBase.getAVz2">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getAVz2</span></span><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getAVz2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Z shear force which acts at the back end of the element.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn3dBase.getMy1">
-<code class="descname">getMy1</code><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getMy1" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn3dBase.getMy1">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getMy1</span></span><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getMy1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal Y bending moment at the back end of the element.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn3dBase.getMy2">
-<code class="descname">getMy2</code><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getMy2" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn3dBase.getMy2">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getMy2</span></span><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getMy2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal Y bending moment at the front end of the element.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn3dBase.getMz1">
-<code class="descname">getMz1</code><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getMz1" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn3dBase.getMz1">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getMz1</span></span><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getMz1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal Z bending moment at the back end of the element.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn3dBase.getMz2">
-<code class="descname">getMz2</code><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getMz2" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn3dBase.getMz2">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getMz2</span></span><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getMz2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal Z bending moment at the front end of the element.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="xc.NLForceBeamColumn3dBase.getN">
-<code class="descname">getN</code><span class="sig-paren">(</span><em>(NLForceBeamColumn3dBase)arg1</em><span class="sig-paren">)</span> &#x2192; float :<a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getN" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn3dBase.getN">
+<span class="sig-name descname"><span class="pre">getN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(NLForceBeamColumn3dBase)arg1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span> <span class="pre">:</span></span></span><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getN" title="Permalink to this definition">¶</a></dt>
 <dd><p>Average internal axial force.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>double getN(XC::NLForceBeamColumn3dBase {lvalue})</dd>
+<dl class="simple">
+<dt>C++ signature :</dt><dd><p>double getN(XC::NLForceBeamColumn3dBase {lvalue})</p>
+</dd>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn3dBase.getN1">
-<code class="descname">getN1</code><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getN1" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn3dBase.getN1">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getN1</span></span><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getN1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal axial force in the back end of the element.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn3dBase.getN2">
-<code class="descname">getN2</code><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getN2" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn3dBase.getN2">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getN2</span></span><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getN2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal axial force in the front end of the element.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="xc.NLForceBeamColumn3dBase.getT">
-<code class="descname">getT</code><span class="sig-paren">(</span><em>(NLForceBeamColumn3dBase)arg1</em><span class="sig-paren">)</span> &#x2192; float :<a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getT" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn3dBase.getT">
+<span class="sig-name descname"><span class="pre">getT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(NLForceBeamColumn3dBase)arg1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span> <span class="pre">:</span></span></span><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal mean torque at the element.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>double getT(XC::NLForceBeamColumn3dBase {lvalue})</dd>
+<dl class="simple">
+<dt>C++ signature :</dt><dd><p>double getT(XC::NLForceBeamColumn3dBase {lvalue})</p>
+</dd>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn3dBase.getT1">
-<code class="descname">getT1</code><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getT1" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn3dBase.getT1">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getT1</span></span><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getT1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal torque at the back end of the element.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn3dBase.getT2">
-<code class="descname">getT2</code><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getT2" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn3dBase.getT2">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getT2</span></span><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getT2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal torque at the front end of the element.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="xc.NLForceBeamColumn3dBase.getVy">
-<code class="descname">getVy</code><span class="sig-paren">(</span><em>(NLForceBeamColumn3dBase)arg1</em><span class="sig-paren">)</span> &#x2192; float :<a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getVy" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn3dBase.getVy">
+<span class="sig-name descname"><span class="pre">getVy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(NLForceBeamColumn3dBase)arg1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span> <span class="pre">:</span></span></span><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getVy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal mean Y shear force.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>double getVy(XC::NLForceBeamColumn3dBase {lvalue})</dd>
+<dl class="simple">
+<dt>C++ signature :</dt><dd><p>double getVy(XC::NLForceBeamColumn3dBase {lvalue})</p>
+</dd>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn3dBase.getVy1">
-<code class="descname">getVy1</code><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getVy1" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn3dBase.getVy1">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getVy1</span></span><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getVy1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal Y shear force at the back end of the element.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn3dBase.getVy2">
-<code class="descname">getVy2</code><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getVy2" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn3dBase.getVy2">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getVy2</span></span><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getVy2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal Y shear force at the front end of the element.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="xc.NLForceBeamColumn3dBase.getVz">
-<code class="descname">getVz</code><span class="sig-paren">(</span><em>(NLForceBeamColumn3dBase)arg1</em><span class="sig-paren">)</span> &#x2192; float :<a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getVz" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn3dBase.getVz">
+<span class="sig-name descname"><span class="pre">getVz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">(NLForceBeamColumn3dBase)arg1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span> <span class="pre">:</span></span></span><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getVz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal mean Z shear force.</p>
-<dl class="docutils">
-<dt>C++ signature :</dt>
-<dd>double getVz(XC::NLForceBeamColumn3dBase {lvalue})</dd>
+<dl class="simple">
+<dt>C++ signature :</dt><dd><p>double getVz(XC::NLForceBeamColumn3dBase {lvalue})</p>
+</dd>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn3dBase.getVz1">
-<code class="descname">getVz1</code><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getVz1" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn3dBase.getVz1">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getVz1</span></span><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getVz1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal Z shear force at the back end of the element.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="xc.NLForceBeamColumn3dBase.getVz2">
-<code class="descname">getVz2</code><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getVz2" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="xc.NLForceBeamColumn3dBase.getVz2">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getVz2</span></span><a class="headerlink" href="#xc.NLForceBeamColumn3dBase.getVz2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Internal Z shear force at the front end of the element.</p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -555,17 +577,15 @@
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../../../../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -587,12 +607,13 @@
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../../../../index.html">XC 3.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../../../../FE_model.html" >FE model</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../../../elem_types.html" >Element types</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../../../elem_types.html" >Element types</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Truss, beam and column elements</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
     </div>
   </body>
 </html>

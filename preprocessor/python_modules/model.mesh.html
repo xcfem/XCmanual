@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Mesh utils &#8212; XC 3.0 documentation</title>
-    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/classic.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -39,7 +37,8 @@
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../FE_model.html" >FE model</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../FE_model.mesh.html" accesskey="U">Mesh</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../FE_model.mesh.html" accesskey="U">Mesh</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Mesh utils</a></li> 
       </ul>
     </div>  
 
@@ -48,226 +47,198 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-model.mesh.finit_el_model">
+  <section id="module-model.mesh.finit_el_model">
 <span id="mesh-utils"></span><h1>Mesh utils<a class="headerlink" href="#module-model.mesh.finit_el_model" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="model.mesh.finit_el_model.LinSetToMesh">
-<em class="property">class </em><code class="descclassname">model.mesh.finit_el_model.</code><code class="descname">LinSetToMesh</code><span class="sig-paren">(</span><em>linSet</em>, <em>matSect</em>, <em>elemSize</em>, <em>vDirLAxZ</em>, <em>elemType='ElasticBeam3d'</em>, <em>dimElemSpace=3</em>, <em>coordTransfType='linear'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.LinSetToMesh" title="Permalink to this definition">¶</a></dt>
+<p>Utilities to make FE model creation easier.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="model.mesh.finit_el_model.LinSetToMesh">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.mesh.finit_el_model.</span></span><span class="sig-name descname"><span class="pre">LinSetToMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">linSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matSect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elemSize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vDirLAxZ</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elemType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ElasticBeam3d'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimElemSpace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coordTransfType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.LinSetToMesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#model.mesh.finit_el_model.RawLineSetToMesh" title="model.mesh.finit_el_model.RawLineSetToMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">model.mesh.finit_el_model.RawLineSetToMesh</span></code></a></p>
 <p>Define the parameters to mesh a set of lines. The method generateMesh
 meshes those lines and adds the nodes and elements created to the set .</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>matSect</strong> – instance of the class BeamMaterialData that defines the 
-material-section to be applied to the set of lines.</li>
-<li><strong>elemSize</strong> – mean size of the elements (in elemSize= None do not 
-change number of divisions).</li>
-<li><strong>vDirLAxZ</strong> – direction vector for the element local axis Z 
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>matSect</strong> – instance of the class BeamMaterialData that defines the 
+material-section to be applied to the set of lines.</p></li>
+<li><p><strong>elemSize</strong> – mean size of the elements (in elemSize= None do not 
+change number of divisions).</p></li>
+<li><p><strong>vDirLAxZ</strong> – direction vector for the element local axis Z 
 defined as xc.Vector([x,y,z]). This is the direction in which
 the Z local axis of the sections will be
 oriented (i.e. in the case of rectangular sections this Z 
 local axis of the section is parallel to the dimension
-defined as width of the rectangle)</li>
-<li><strong>dimElemSpace</strong> – dimension of the element space (defaults to 3)</li>
-<li><strong>coordTransfType</strong> – type of coordinate transformation. Available 
-types: ‘linear’, ‘PDelta’ and ‘corot’ (defaults to 
-‘linear’)</li>
+defined as width of the rectangle)</p></li>
+<li><p><strong>dimElemSpace</strong> – dimension of the element space (defaults to 3)</p></li>
+<li><p><strong>coordTransfType</strong> – type of coordinate transformation. Available 
+types: ‘linear’, ‘PDelta’ and ‘corotational’ (defaults to 
+‘linear’)</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="class">
-<dt id="model.mesh.finit_el_model.RawLineSetToMesh">
-<em class="property">class </em><code class="descclassname">model.mesh.finit_el_model.</code><code class="descname">RawLineSetToMesh</code><span class="sig-paren">(</span><em>linSet</em>, <em>matSect</em>, <em>elemSize</em>, <em>coordTransf</em>, <em>elemType='ElasticBeam3d'</em>, <em>dimElemSpace=3</em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.RawLineSetToMesh" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="model.mesh.finit_el_model.RawLineSetToMesh">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.mesh.finit_el_model.</span></span><span class="sig-name descname"><span class="pre">RawLineSetToMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">linSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matSect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elemSize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coordTransf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elemType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ElasticBeam3d'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimElemSpace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.RawLineSetToMesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#model.mesh.finit_el_model.SetToMesh" title="model.mesh.finit_el_model.SetToMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">model.mesh.finit_el_model.SetToMesh</span></code></a></p>
 <p>Define the parameters to mesh a set of lines. The method generateMesh
 meshes those lines and adds the nodes and elements created to the set .</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>matSect</strong> – instance of the class BeamMaterialData that defines the 
-material-section to be applied to the set of lines.</li>
-<li><strong>elemSize</strong> – mean size of the elements (in elemSize= None do not 
-change number of divisions).</li>
-<li><strong>coordTransf</strong> – coordinate transformation for the elements.</li>
-<li><strong>elemType</strong> – type of element for the mesh (defaults to ‘ElasticBeam3d’).</li>
-<li><strong>dimElemSpace</strong> – dimension of the element space (defaults to 3)</li>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>matSect</strong> – instance of the class BeamMaterialData that defines the 
+material-section to be applied to the set of lines.</p></li>
+<li><p><strong>elemSize</strong> – mean size of the elements (in elemSize= None do not 
+change number of divisions).</p></li>
+<li><p><strong>coordTransf</strong> – coordinate transformation for the elements.</p></li>
+<li><p><strong>elemType</strong> – type of element for the mesh (defaults to ‘ElasticBeam3d’).</p></li>
+<li><p><strong>dimElemSpace</strong> – dimension of the element space (defaults to 3)</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="model.mesh.finit_el_model.RawLineSetToMesh.generateMesh">
-<code class="descname">generateMesh</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>sectGeom='N'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.RawLineSetToMesh.generateMesh" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="model.mesh.finit_el_model.RawLineSetToMesh.generateMesh">
+<span class="sig-name descname"><span class="pre">generateMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preprocessor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sectGeom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'N'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.RawLineSetToMesh.generateMesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate the mesh for the line set.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectGeom</strong> – =’Y’ if want to create the property  ‘crossSection’
-for each element (defaults to ‘N’)</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sectGeom</strong> – =’Y’ if want to create the property  ‘crossSection’
+for each element (defaults to ‘N’)</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="model.mesh.finit_el_model.RawLineSetToMesh.getSeedElement">
-<code class="descname">getSeedElement</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.RawLineSetToMesh.getSeedElement" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="model.mesh.finit_el_model.RawLineSetToMesh.getSeedElement">
+<span class="sig-name descname"><span class="pre">getSeedElement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preprocessor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.RawLineSetToMesh.getSeedElement" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the element that will be use to mesh the set.</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="model.mesh.finit_el_model.SetToMesh">
-<em class="property">class </em><code class="descclassname">model.mesh.finit_el_model.</code><code class="descname">SetToMesh</code><span class="sig-paren">(</span><em>primitiveSet</em>, <em>elemSize</em>, <em>elemType</em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.SetToMesh" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="model.mesh.finit_el_model.SetToMesh">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.mesh.finit_el_model.</span></span><span class="sig-name descname"><span class="pre">SetToMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">primitiveSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elemSize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elemType</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.SetToMesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Base for classes that mesh a primitive set.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>primitiveSet</strong> – set of lines/surfaces/blocks.</li>
-<li><strong>elemSize</strong> – mean size of the elements (in elemSize= None do not 
-change number of divisions).</li>
-<li><strong>elemType</strong> – type of element for the mesh.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>primitiveSet</strong> – set of lines/surfaces/blocks.</p></li>
+<li><p><strong>elemSize</strong> – mean size of the elements (in elemSize= None do not 
+change number of divisions).</p></li>
+<li><p><strong>elemType</strong> – type of element for the mesh.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="class">
-<dt id="model.mesh.finit_el_model.SurfSetToMesh">
-<em class="property">class </em><code class="descclassname">model.mesh.finit_el_model.</code><code class="descname">SurfSetToMesh</code><span class="sig-paren">(</span><em>surfSet</em>, <em>matSect</em>, <em>elemSize</em>, <em>elemType='ShellMITC4'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.SurfSetToMesh" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="model.mesh.finit_el_model.SurfSetToMesh">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.mesh.finit_el_model.</span></span><span class="sig-name descname"><span class="pre">SurfSetToMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surfSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matSect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elemSize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elemType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ShellMITC4'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.SurfSetToMesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#model.mesh.finit_el_model.SetToMesh" title="model.mesh.finit_el_model.SetToMesh"><code class="xref py py-class docutils literal notranslate"><span class="pre">model.mesh.finit_el_model.SetToMesh</span></code></a></p>
 <p>Define the parameters to mesh a set of surfaces. The method generateMesh
 meshes those surfaces and adds the nodes and elements created to the set .</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>surfSet</strong> – set of surfaces.</li>
-<li><strong>matSect</strong> – instance of the class DeckMaterialData that defines the 
-material-section to be applied to the set of surfaces.</li>
-<li><strong>elemSize</strong> – mean size of the elements (in elemSize= None do not 
-change number of divisions).</li>
-<li><strong>elemType</strong> – type of element for the mesh (defaults to ‘ShellMITC4’)</li>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>surfSet</strong> – set of surfaces.</p></li>
+<li><p><strong>matSect</strong> – instance of the class DeckMaterialData that defines the 
+material-section to be applied to the set of surfaces.</p></li>
+<li><p><strong>elemSize</strong> – mean size of the elements (in elemSize= None do not 
+change number of divisions).</p></li>
+<li><p><strong>elemType</strong> – type of element for the mesh (defaults to ‘ShellMITC4’)</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="model.mesh.finit_el_model.SurfSetToMesh.generateMesh">
-<code class="descname">generateMesh</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>sectGeom='N'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.SurfSetToMesh.generateMesh" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="model.mesh.finit_el_model.SurfSetToMesh.generateMesh">
+<span class="sig-name descname"><span class="pre">generateMesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preprocessor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sectGeom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'N'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.SurfSetToMesh.generateMesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate the mesh for the surface set.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sectGeom</strong> – =’Y’ if want to create the property  ‘crossSection’
-for each element (defaults to ‘N’)</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sectGeom</strong> – =’Y’ if want to create the property  ‘crossSection’
+for each element (defaults to ‘N’)</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="model.mesh.finit_el_model.SurfSetToMesh.getSeedElement">
-<code class="descname">getSeedElement</code><span class="sig-paren">(</span><em>preprocessor</em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.SurfSetToMesh.getSeedElement" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="model.mesh.finit_el_model.SurfSetToMesh.getSeedElement">
+<span class="sig-name descname"><span class="pre">getSeedElement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preprocessor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.SurfSetToMesh.getSeedElement" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the element that will be use to mesh the set.</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="function">
-<dt id="model.mesh.finit_el_model.assign_ndiv_to_lines_in_set">
-<code class="descclassname">model.mesh.finit_el_model.</code><code class="descname">assign_ndiv_to_lines_in_set</code><span class="sig-paren">(</span><em>lnSet</em>, <em>ndiv</em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.assign_ndiv_to_lines_in_set" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="model.mesh.finit_el_model.assign_ndiv_to_lines_in_set">
+<span class="sig-prename descclassname"><span class="pre">model.mesh.finit_el_model.</span></span><span class="sig-name descname"><span class="pre">assign_ndiv_to_lines_in_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lnSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ndiv</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.assign_ndiv_to_lines_in_set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Assign a number of divisions = ndiv to all the lines included 
 in set linSet</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="model.mesh.finit_el_model.createBeam2Pnts">
-<code class="descclassname">model.mesh.finit_el_model.</code><code class="descname">createBeam2Pnts</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>startPnt</em>, <em>endPnt</em>, <em>setName</em>, <em>matSect</em>, <em>elemSize</em>, <em>vDirLAxZ</em>, <em>elemType='ElasticBeam3d'</em>, <em>dimElemSpace=3</em>, <em>coordTransfType='linear'</em>, <em>sectGeom='N'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.createBeam2Pnts" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="model.mesh.finit_el_model.createBeam2Pnts">
+<span class="sig-prename descclassname"><span class="pre">model.mesh.finit_el_model.</span></span><span class="sig-name descname"><span class="pre">createBeam2Pnts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preprocessor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">startPnt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">endPnt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">matSect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elemSize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vDirLAxZ</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elemType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ElasticBeam3d'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimElemSpace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coordTransfType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sectGeom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'N'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.createBeam2Pnts" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a set of beam elements created from startPnt to endPnt.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>preprocessor</strong> – preprocessor</li>
-<li><strong>startPnt</strong> – coordinates of first beam extremity (defined as 
-geom.Pos3d(x,y,z)</li>
-<li><strong>startPnt</strong> – coordinates of end beam extremity (defined as 
-geom.Pos3d(x,y,z)</li>
-<li><strong>setName</strong> – name of the set of entities created</li>
-<li><strong>matSect</strong> – instance of the class BeamMaterialData that defines the 
-material-section to be applied to the set of lines.</li>
-<li><strong>elemSize</strong> – mean size of the elements</li>
-<li><strong>vDirLAxZ</strong> – direction vector for the element local axis Z 
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>preprocessor</strong> – preprocessor</p></li>
+<li><p><strong>startPnt</strong> – coordinates of first beam extremity (defined as 
+geom.Pos3d(x,y,z)</p></li>
+<li><p><strong>startPnt</strong> – coordinates of end beam extremity (defined as 
+geom.Pos3d(x,y,z)</p></li>
+<li><p><strong>setName</strong> – name of the set of entities created</p></li>
+<li><p><strong>matSect</strong> – instance of the class BeamMaterialData that defines the 
+material-section to be applied to the set of lines.</p></li>
+<li><p><strong>elemSize</strong> – mean size of the elements</p></li>
+<li><p><strong>vDirLAxZ</strong> – direction vector for the element local axis Z 
 defined as xc.Vector([x,y,z]). This is the direction in which
 the Z local axis of the sections will be
 oriented (i.e. in the case of rectangular sections this Z 
 local axis of the section is parallel to the dimension
-defined as width of the rectangle)</li>
-<li><strong>dimElemSpace</strong> – dimension of the element space (defaults to 3)</li>
-<li><strong>coordTransfType</strong> – type of coordinate transformation. Available 
-types: ‘linear’, ‘PDelta’ and ‘corot’ (defaults to 
-‘linear’)</li>
-<li><strong>sectGeom</strong> – =’Y’ if want to create the property ‘crossSection’
-for each element (defaults to ‘N’)</li>
+defined as width of the rectangle)</p></li>
+<li><p><strong>dimElemSpace</strong> – dimension of the element space (defaults to 3)</p></li>
+<li><p><strong>coordTransfType</strong> – type of coordinate transformation. Available 
+types: ‘linear’, ‘PDelta’ and ‘corotational’ (defaults to 
+‘linear’)</p></li>
+<li><p><strong>sectGeom</strong> – =’Y’ if want to create the property ‘crossSection’
+for each element (defaults to ‘N’)</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="model.mesh.finit_el_model.getDefaultCoordinateTransformation">
-<code class="descclassname">model.mesh.finit_el_model.</code><code class="descname">getDefaultCoordinateTransformation</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>coordTransfName</em>, <em>coordTransfType</em>, <em>vDir</em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.getDefaultCoordinateTransformation" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="model.mesh.finit_el_model.getDefaultCoordinateTransformation">
+<span class="sig-prename descclassname"><span class="pre">model.mesh.finit_el_model.</span></span><span class="sig-name descname"><span class="pre">getDefaultCoordinateTransformation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preprocessor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coordTransfName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coordTransfType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vDir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.getDefaultCoordinateTransformation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a default coordinate transformation.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="model.mesh.finit_el_model.multi_mesh">
-<code class="descclassname">model.mesh.finit_el_model.</code><code class="descname">multi_mesh</code><span class="sig-paren">(</span><em>preprocessor</em>, <em>lstMeshSets</em>, <em>sectGeom='N'</em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.multi_mesh" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="model.mesh.finit_el_model.multi_mesh">
+<span class="sig-prename descclassname"><span class="pre">model.mesh.finit_el_model.</span></span><span class="sig-name descname"><span class="pre">multi_mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preprocessor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lstMeshSets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sectGeom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'N'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.mesh.finit_el_model.multi_mesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Mesh all the mesh-sets included in lstMeshSets</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>preprocessor</strong> – preprocessor</li>
-<li><strong>lstMeshSets</strong> – list of instances of classes LinSetToMesh or 
-SurfSetToMesh to be meshed</li>
-<li><strong>sectGeom</strong> – =’Y’ if want to create the property  ‘crossSection’
-for each element (defaults to ‘N’)</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>preprocessor</strong> – preprocessor</p></li>
+<li><p><strong>lstMeshSets</strong> – list of instances of classes LinSetToMesh or 
+SurfSetToMesh to be meshed</p></li>
+<li><p><strong>sectGeom</strong> – =’Y’ if want to create the property  ‘crossSection’
+for each element (defaults to ‘N’)</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-</div>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -287,17 +258,15 @@ for each element (defaults to ‘N’)</li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -319,12 +288,13 @@ for each element (defaults to ‘N’)</li>
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../FE_model.html" >FE model</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="../FE_model.mesh.html" >Mesh</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="../FE_model.mesh.html" >Mesh</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Mesh utils</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
     </div>
   </body>
 </html>

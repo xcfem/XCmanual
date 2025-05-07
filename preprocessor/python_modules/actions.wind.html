@@ -1,21 +1,19 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Wind &#8212; XC 3.0 documentation</title>
-    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/classic.css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../_static/language_data.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -38,7 +36,8 @@
           <a href="actions.earth_pressure.html" title="Earth pressure"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../actions.html" accesskey="U">Actions</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../actions.html" accesskey="U">Actions</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Wind</a></li> 
       </ul>
     </div>  
 
@@ -47,799 +46,1050 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="wind">
+  <section id="wind">
 <h1>Wind<a class="headerlink" href="#wind" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-actions.wind.base_wind">
+<section id="module-actions.wind.base_wind">
 <span id="basic-wind-parameters-and-cylindrical-pressure-distribution"></span><h2>Basic wind parameters and cylindrical pressure distribution<a class="headerlink" href="#module-actions.wind.base_wind" title="Permalink to this headline">¶</a></h2>
 <p>Base classes for wind load calculations</p>
-<dl class="class">
-<dt id="actions.wind.base_wind.cylindrWind">
-<em class="property">class </em><code class="descclassname">actions.wind.base_wind.</code><code class="descname">cylindrWind</code><span class="sig-paren">(</span><em>diam, height, windParams, windComp=[1, 0], zGround=0, xCent=0, yCent=0</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.base_wind.cylindrWind" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="actions.wind.base_wind.cylindrWind">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">actions.wind.base_wind.</span></span><span class="sig-name descname"><span class="pre">cylindrWind</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">diam</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windParams</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">windComp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zGround</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xCent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yCent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.base_wind.cylindrWind" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Distribution of wind pressures in the cylindrical body and roof of a tank (according to CIRSOC 102). Reference article: ‘Efectos de la modelación de presiones por viento en altura sobre la estabilidad de tanques de almacenamiento de fluidos’ , by Carlos A. Burgos, Rossana C. Jacab y Luis A. Godoy.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>diam</strong> – diameter of the cylindrical tank</li>
-<li><a class="reference internal" href="../geom_cpp_classes/d2/d2.html#geom.BND2d.height" title="geom.BND2d.height"><strong>height</strong></a> – height of the cylindrical tank</li>
-<li><strong>windComp</strong> – components [x,y] of a vector in wind direction 
-(defaults to [1,0] -&gt; wind in X direction)</li>
-<li><a class="reference internal" href="#actions.wind.base_wind.windParams" title="actions.wind.base_wind.windParams"><strong>windParams</strong></a> – instance of windParams class defining the basic parameters of the wind</li>
-<li><strong>zGround</strong> – ground level (defaults to 0)</li>
-<li><strong>xCent</strong> – x-coordinate of the cylinder axis (defaults to 0)</li>
-<li><strong>yCent</strong> – y-coordinate of the cylinder axis (defaults to 0)</li>
+<p><a class="reference external" href="https://cimec.org.ar/ojs/index.php/mc/article/view/4697">https://cimec.org.ar/ojs/index.php/mc/article/view/4697</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>diam</strong> – diameter of the cylindrical tank</p></li>
+<li><p><strong>height</strong> – height of the cylindrical tank</p></li>
+<li><p><strong>windComp</strong> – components [x,y] of a vector in wind direction 
+(defaults to [1,0] -&gt; wind in X direction)</p></li>
+<li><p><strong>windParams</strong> – instance of windParams class defining the basic parameters of the wind</p></li>
+<li><p><strong>zGround</strong> – ground level (defaults to 0)</p></li>
+<li><p><strong>xCent</strong> – x-coordinate of the cylinder axis (defaults to 0)</p></li>
+<li><p><strong>yCent</strong> – y-coordinate of the cylinder axis (defaults to 0)</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="actions.wind.base_wind.cylindrWind.Cp">
-<code class="descname">Cp</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.base_wind.cylindrWind.Cp" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.wind.base_wind.cylindrWind.Cp">
+<span class="sig-name descname"><span class="pre">Cp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.base_wind.cylindrWind.Cp" title="Permalink to this definition">¶</a></dt>
 <dd><p>External wind pressure coefficient in a point of the cylinder 
 with coordinates (x,y)</p>
 <ul class="simple">
-<li>Cp (+) -&gt; pressure acts toward external surface</li>
-<li>Cp (-) -&gt; pressure acts away from external surface</li>
+<li><p>Cp (+) -&gt; pressure acts toward external surface</p></li>
+<li><p>Cp (-) -&gt; pressure acts away from external surface</p></li>
 </ul>
 </dd></dl>
 
-<dl class="method">
-<dt id="actions.wind.base_wind.cylindrWind.Cp1_theta">
-<code class="descname">Cp1_theta</code><span class="sig-paren">(</span><em>theta</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.base_wind.cylindrWind.Cp1_theta" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.wind.base_wind.cylindrWind.Cp1_theta">
+<span class="sig-name descname"><span class="pre">Cp1_theta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.base_wind.cylindrWind.Cp1_theta" title="Permalink to this definition">¶</a></dt>
 <dd><p>Circumferential variation of the pressure coefficient</p>
 <ul class="simple">
-<li>Cp1_theta (+) -&gt; pressure acts toward external surface</li>
-<li>Cp1_theta (-) -&gt; pressure acts away from external surface</li>
+<li><p>Cp1_theta (+) -&gt; pressure acts toward external surface</p></li>
+<li><p>Cp1_theta (-) -&gt; pressure acts away from external surface</p></li>
 </ul>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>theta</strong> – angle measured from the windward meridian passing through the centre of the cylinder [radians]</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>theta</strong> – angle measured from the windward meridian passing through the centre of the cylinder [radians]</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="actions.wind.base_wind.cylindrWind.getWindPress">
-<code class="descname">getWindPress</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.base_wind.cylindrWind.getWindPress" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.wind.base_wind.cylindrWind.getWindPress">
+<span class="sig-name descname"><span class="pre">getWindPress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.base_wind.cylindrWind.getWindPress" title="Permalink to this definition">¶</a></dt>
 <dd><p>External wind pressure in a point of the cylinder with 
 coordinates (x,y,z)</p>
 <ul class="simple">
-<li>Wpress (+) -&gt; pressure acts toward external surface</li>
-<li>Wpress (-) -&gt; pressure acts away from external surface</li>
+<li><p>Wpress (+) -&gt; pressure acts toward external surface</p></li>
+<li><p>Wpress (-) -&gt; pressure acts away from external surface</p></li>
 </ul>
 </dd></dl>
 
-<dl class="method">
-<dt id="actions.wind.base_wind.cylindrWind.kc">
-<code class="descname">kc</code><span class="sig-paren">(</span><em>Cp1</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.base_wind.cylindrWind.kc" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.wind.base_wind.cylindrWind.kc">
+<span class="sig-name descname"><span class="pre">kc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Cp1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.base_wind.cylindrWind.kc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Coefficient depending on the selenderness (H/D) of the tank</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>Cp1</strong> – Circumferential variation of the pressure coefficient</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>Cp1</strong> – Circumferential variation of the pressure coefficient</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="actions.wind.base_wind.windParams">
-<em class="property">class </em><code class="descclassname">actions.wind.base_wind.</code><code class="descname">windParams</code><span class="sig-paren">(</span><em>v</em>, <em>Kd</em>, <em>Kzt</em>, <em>I</em>, <em>alpha</em>, <em>zg</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.base_wind.windParams" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.base_wind.def_vertical_pressure_load">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.base_wind.</span></span><span class="sig-name descname"><span class="pre">def_vertical_pressure_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surfaces</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pressureDistribution</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">horizontalWindDirection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verticalWindDirection=&lt;xc.Vector</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angleThreshold=1.0471975511965976</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.base_wind.def_vertical_pressure_load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the vertical pressure due to wind on the given surfaces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>surfaces</strong> – surfaces whose elements will receive the wind vertical
+pressure.</p></li>
+<li><p><strong>pressureDistribution</strong> – functions that returns the vertical pressure
+over a point given its distance from the
+winward border of the surface.</p></li>
+<li><p><strong>horizontalWindDirection</strong> – wind direction vector on the horizontal 
+plate.</p></li>
+<li><p><strong>angleThreshold</strong> – minimum angle between the face border and the wind
+direction to consider that the border is “normal”
+to the wind.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.base_wind.getLinearDistribution">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.base_wind.</span></span><span class="sig-name descname"><span class="pre">getLinearDistribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hR</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.base_wind.getLinearDistribution" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Return the values (a,b) of a linear pressure distribution whose</dt><dd><p>resultant passes through a point at heigth= hR.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h</strong> – height of the pressure distribution.</p></li>
+<li><p><strong>hR</strong> – height of the resultant.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.base_wind.get_windward_borders">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.base_wind.</span></span><span class="sig-name descname"><span class="pre">get_windward_borders</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">windDirection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">face</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angleThreshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0471975511965976</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.base_wind.get_windward_borders" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Return the borders of the face that lie at the windward side with</dt><dd><p>respect to the centroid of the face.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>windDirection</strong> – wind direction vector.</p></li>
+<li><p><strong>face</strong> – face to get the windward sides from.</p></li>
+<li><p><strong>angleThreshold</strong> – minimum angle between the face border and the wind
+direction to consider that the border is “normal”
+to the wind.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="actions.wind.base_wind.windParams">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">actions.wind.base_wind.</span></span><span class="sig-name descname"><span class="pre">windParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Kzt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">I</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.base_wind.windParams" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Basic wind parameters to define wind load.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>v</strong> – basic speed wind [m/s]</li>
-<li><strong>Kd</strong> – wind directionality factor</li>
-<li><strong>Kzt</strong> – topographic factor</li>
-<li><a class="reference internal" href="../cpp_classes/material/section/repres/repres.html#xc.CrossSectionProperties2d.I" title="xc.CrossSectionProperties2d.I"><strong>I</strong></a> – importance factor</li>
-<li><a class="reference internal" href="../../miscellany/roughCalcGenTopics.html#rough_calculations.masonry_vault.FillingCharacteristics.alpha" title="rough_calculations.masonry_vault.FillingCharacteristics.alpha"><strong>alpha</strong></a> – terrain exposure constant (according to exposure category)</li>
-<li><strong>zg</strong> – terrain exposure constant (according to exposure category)</li>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v</strong> – basic speed wind [m/s]</p></li>
+<li><p><strong>Kd</strong> – wind directionality factor</p></li>
+<li><p><strong>Kzt</strong> – topographic factor</p></li>
+<li><p><strong>I</strong> – importance factor</p></li>
+<li><p><strong>alpha</strong> – terrain exposure constant (according to exposure category)</p></li>
+<li><p><strong>zg</strong> – terrain exposure constant (according to exposure category)</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="actions.wind.base_wind.windParams.Kz">
-<code class="descname">Kz</code><span class="sig-paren">(</span><em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.base_wind.windParams.Kz" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.wind.base_wind.windParams.Kz">
+<span class="sig-name descname"><span class="pre">Kz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.base_wind.windParams.Kz" title="Permalink to this definition">¶</a></dt>
 <dd><p>velocity pressure exposure coefficient evaluated at height z above ground level</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>z</strong> – height of the point above the ground level [m]</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>z</strong> – height of the point above the ground level [m]</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="actions.wind.base_wind.windParams.qz">
-<code class="descname">qz</code><span class="sig-paren">(</span><em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.base_wind.windParams.qz" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="actions.wind.base_wind.windParams.qz">
+<span class="sig-name descname"><span class="pre">qz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.base_wind.windParams.qz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Velocity wind pressure evaluated at height z above ground level [N/m2]</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>z</strong> – height of the point above the ground level [m]</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>z</strong> – height of the point above the ground level [m]</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="actions.wind.base_wind.windSurfaceOrientation">
-<em class="property">class </em><code class="descclassname">actions.wind.base_wind.</code><code class="descname">windSurfaceOrientation</code><a class="headerlink" href="#actions.wind.base_wind.windSurfaceOrientation" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="actions.wind.base_wind.windSurfaceOrientation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">actions.wind.base_wind.</span></span><span class="sig-name descname"><span class="pre">windSurfaceOrientation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.base_wind.windSurfaceOrientation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
 <p>An enumeration.</p>
-<dl class="attribute">
-<dt id="actions.wind.base_wind.windSurfaceOrientation.leeward">
-<code class="descname">leeward</code><em class="property"> = 2</em><a class="headerlink" href="#actions.wind.base_wind.windSurfaceOrientation.leeward" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actions.wind.base_wind.windSurfaceOrientation.leeward">
+<span class="sig-name descname"><span class="pre">leeward</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#actions.wind.base_wind.windSurfaceOrientation.leeward" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
-<dt id="actions.wind.base_wind.windSurfaceOrientation.side">
-<code class="descname">side</code><em class="property"> = 1</em><a class="headerlink" href="#actions.wind.base_wind.windSurfaceOrientation.side" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actions.wind.base_wind.windSurfaceOrientation.side">
+<span class="sig-name descname"><span class="pre">side</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#actions.wind.base_wind.windSurfaceOrientation.side" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
-<dt id="actions.wind.base_wind.windSurfaceOrientation.windward">
-<code class="descname">windward</code><em class="property"> = 0</em><a class="headerlink" href="#actions.wind.base_wind.windSurfaceOrientation.windward" title="Permalink to this definition">¶</a></dt>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="actions.wind.base_wind.windSurfaceOrientation.windward">
+<span class="sig-name descname"><span class="pre">windward</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#actions.wind.base_wind.windSurfaceOrientation.windward" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-</div>
-<div class="section" id="module-actions.wind.CTE_wind">
+</section>
+<section id="module-actions.wind.CTE_wind">
 <span id="wind-action-according-to-cte-code"></span><h2>Wind action according to CTE code<a class="headerlink" href="#module-actions.wind.CTE_wind" title="Permalink to this headline">¶</a></h2>
 <p>Functions to compute wind actions according to Spanish CTE</p>
-<dl class="function">
-<dt id="actions.wind.CTE_wind.CoefExp">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">CoefExp</code><span class="sig-paren">(</span><em>gae</em>, <em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.CoefExp" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.CoefExp">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">CoefExp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gae</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.CoefExp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Coeficiente de exposición en función del grado de aspereza del entorno
 and of the height of the point over the terrain according 
 to CTE (expression D.2).</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.ParamF">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">ParamF</code><span class="sig-paren">(</span><em>gae</em>, <em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.ParamF" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.ParamF">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">ParamF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gae</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.ParamF" title="Permalink to this definition">¶</a></dt>
 <dd><p>F parameter en función del grado de aspereza del entorno
 and of the height of the point according to CTE (expression D.3).</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.ParamK">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">ParamK</code><span class="sig-paren">(</span><em>gae</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.ParamK" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.ParamK">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">ParamK</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gae</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.ParamK" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parámetro k en función del grado de aspereza del entorno
 according to CTE (table D.2).</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.ParamL">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">ParamL</code><span class="sig-paren">(</span><em>gae</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.ParamL" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.ParamL">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">ParamL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gae</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.ParamL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parámetro L en función del grado de aspereza del entorno
 according to CTE (table D.2).}</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.ParamZ">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">ParamZ</code><span class="sig-paren">(</span><em>gae</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.ParamZ" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.ParamZ">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">ParamZ</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gae</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.ParamZ" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parámetro Z en función del grado de aspereza del entorno
 according to CTE (table D.2).</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.cpDosAguasZonaFVLong">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpDosAguasZonaFVLong</code><span class="sig-paren">(</span><em>A</em>, <em>alpha</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaFVLong" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpDosAguasZonaFVLong">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpDosAguasZonaFVLong</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaFVLong" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpDosAguasZonaFVLongAGrande">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpDosAguasZonaFVLongAGrande</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaFVLongAGrande" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpDosAguasZonaFVLongAGrande">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpDosAguasZonaFVLongAGrande</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaFVLongAGrande" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive downwards) in the F zone of the roof 
 para viento sensiblemente longitudinal (45&lt;theta&lt;135) y
 area smaller or equal to 1 square meter according to table D.6.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpDosAguasZonaFVLongAPeq">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpDosAguasZonaFVLongAPeq</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaFVLongAPeq" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpDosAguasZonaFVLongAPeq">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpDosAguasZonaFVLongAPeq</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaFVLongAPeq" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive downwards) in the F zone of the roof 
 para viento sensiblemente longitudinal (45&lt;theta&lt;135) according to table D.6.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.cpDosAguasZonaFVTrsv">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpDosAguasZonaFVTrsv</code><span class="sig-paren">(</span><em>A</em>, <em>alpha</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaFVTrsv" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpDosAguasZonaFVTrsv">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpDosAguasZonaFVTrsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaFVTrsv" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpDosAguasZonaFVTrsvAGrande">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpDosAguasZonaFVTrsvAGrande</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaFVTrsvAGrande" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpDosAguasZonaFVTrsvAGrande">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpDosAguasZonaFVTrsvAGrande</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaFVTrsvAGrande" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive downwards) in the F zone of the roof 
 for mostly transverse winds (-45&lt;theta&lt;45) and area
 smaller or equal to 1 square meter according to table D.6.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.cpDosAguasZonaGVLong">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpDosAguasZonaGVLong</code><span class="sig-paren">(</span><em>A</em>, <em>alpha</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaGVLong" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpDosAguasZonaGVLong">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpDosAguasZonaGVLong</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaGVLong" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpDosAguasZonaGVLongAGrande">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpDosAguasZonaGVLongAGrande</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaGVLongAGrande" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpDosAguasZonaGVLongAGrande">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpDosAguasZonaGVLongAGrande</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaGVLongAGrande" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive downwards) in the G zone of the roof 
 para viento sensiblemente longitudinal (45&lt;theta&lt;135) y
 area smaller or equal to 1 square meter according to table D.6.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpDosAguasZonaGVLongAPeq">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpDosAguasZonaGVLongAPeq</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaGVLongAPeq" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpDosAguasZonaGVLongAPeq">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpDosAguasZonaGVLongAPeq</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaGVLongAPeq" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive downwards) in the G zone of the roof 
 para viento sensiblemente longitudinal (45&lt;theta&lt;135) according to table D.6.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.cpDosAguasZonaGVTrsv">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpDosAguasZonaGVTrsv</code><span class="sig-paren">(</span><em>A</em>, <em>alpha</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaGVTrsv" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpDosAguasZonaGVTrsv">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpDosAguasZonaGVTrsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaGVTrsv" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpDosAguasZonaGVTrsvAGrande">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpDosAguasZonaGVTrsvAGrande</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaGVTrsvAGrande" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpDosAguasZonaGVTrsvAGrande">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpDosAguasZonaGVTrsvAGrande</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaGVTrsvAGrande" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive downwards) in the G zone of the roof 
 for mostly transverse winds (-45&lt;theta&lt;45) and area
 smaller or equal to 1 square meter according to table D.6.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpDosAguasZonaGVTrsvAPeq">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpDosAguasZonaGVTrsvAPeq</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaGVTrsvAPeq" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpDosAguasZonaGVTrsvAPeq">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpDosAguasZonaGVTrsvAPeq</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaGVTrsvAPeq" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive downwards) in the G zone of the roof 
 para viento sensiblemente transversal (-45&lt;theta&lt;45) according to table D.6.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.cpDosAguasZonaHVLong">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpDosAguasZonaHVLong</code><span class="sig-paren">(</span><em>A</em>, <em>alpha</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaHVLong" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpDosAguasZonaHVLong">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpDosAguasZonaHVLong</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaHVLong" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpDosAguasZonaHVLongAGrande">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpDosAguasZonaHVLongAGrande</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaHVLongAGrande" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpDosAguasZonaHVLongAGrande">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpDosAguasZonaHVLongAGrande</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaHVLongAGrande" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive downwards) in the H zone of the roof 
 para viento sensiblemente longitudinal (45&lt;theta&lt;135) y
 area smaller or equal to 1 square meter according to table D.6.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpDosAguasZonaHVLongAPeq">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpDosAguasZonaHVLongAPeq</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaHVLongAPeq" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpDosAguasZonaHVLongAPeq">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpDosAguasZonaHVLongAPeq</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaHVLongAPeq" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive downwards) in the H zone of the roof 
 para viento sensiblemente longitudinal (45&lt;theta&lt;135) according to table D.6.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.cpDosAguasZonaHVTrsv">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpDosAguasZonaHVTrsv</code><span class="sig-paren">(</span><em>A</em>, <em>alpha</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaHVTrsv" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpDosAguasZonaHVTrsv">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpDosAguasZonaHVTrsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaHVTrsv" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpDosAguasZonaHVTrsvAGrande">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpDosAguasZonaHVTrsvAGrande</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaHVTrsvAGrande" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpDosAguasZonaHVTrsvAGrande">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpDosAguasZonaHVTrsvAGrande</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaHVTrsvAGrande" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive downwards) in the H zone of the roof 
 for mostly transverse winds (-45&lt;theta&lt;45) and
 area smaller or equal to 1 square meter according to table D.6.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpDosAguasZonaHVTrsvAPeq">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpDosAguasZonaHVTrsvAPeq</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaHVTrsvAPeq" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpDosAguasZonaHVTrsvAPeq">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpDosAguasZonaHVTrsvAPeq</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaHVTrsvAPeq" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive downwards) in the H zone of the roof 
 para viento sensiblemente transversal (-45&lt;theta&lt;45) according to table D.6.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.cpDosAguasZonaIVLong">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpDosAguasZonaIVLong</code><span class="sig-paren">(</span><em>A</em>, <em>alpha</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaIVLong" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpDosAguasZonaIVLong">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpDosAguasZonaIVLong</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaIVLong" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpDosAguasZonaIVLongAGrande">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpDosAguasZonaIVLongAGrande</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaIVLongAGrande" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpDosAguasZonaIVLongAGrande">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpDosAguasZonaIVLongAGrande</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaIVLongAGrande" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive downwards) in the I zone of the roof 
 para viento sensiblemente longitudinal (45&lt;theta&lt;135) y
 area smaller or equal to 1 square meter according to table D.6.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpDosAguasZonaIVLongAPeq">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpDosAguasZonaIVLongAPeq</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaIVLongAPeq" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpDosAguasZonaIVLongAPeq">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpDosAguasZonaIVLongAPeq</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaIVLongAPeq" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive downwards) in the I zone of the roof 
 for mostly longitudinal winds (45&lt;theta&lt;135) according to table D.6.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.cpDosAguasZonaIVTrsv">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpDosAguasZonaIVTrsv</code><span class="sig-paren">(</span><em>A</em>, <em>alpha</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaIVTrsv" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpDosAguasZonaIVTrsv">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpDosAguasZonaIVTrsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaIVTrsv" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpDosAguasZonaIVTrsvAGrande">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpDosAguasZonaIVTrsvAGrande</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaIVTrsvAGrande" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpDosAguasZonaIVTrsvAGrande">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpDosAguasZonaIVTrsvAGrande</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaIVTrsvAGrande" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive downwards) in the I zone of the roof 
 for mostly transverse winds (-45&lt;theta&lt;45) and
 area smaller or equal to 1 square meter according to table D.6.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpDosAguasZonaIVTrsvAPeq">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpDosAguasZonaIVTrsvAPeq</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaIVTrsvAPeq" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpDosAguasZonaIVTrsvAPeq">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpDosAguasZonaIVTrsvAPeq</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaIVTrsvAPeq" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive downwards) in the I zone of the roof 
 para viento sensiblemente transversal (-45&lt;theta&lt;45) according to table D.6.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.cpDosAguasZonaJVTrsv">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpDosAguasZonaJVTrsv</code><span class="sig-paren">(</span><em>A</em>, <em>alpha</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaJVTrsv" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpDosAguasZonaJVTrsv">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpDosAguasZonaJVTrsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaJVTrsv" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpDosAguasZonaJVTrsvAGrande">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpDosAguasZonaJVTrsvAGrande</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaJVTrsvAGrande" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpDosAguasZonaJVTrsvAGrande">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpDosAguasZonaJVTrsvAGrande</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaJVTrsvAGrande" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive downwards) in the J zone of the roof 
 for mostly transverse winds (-45&lt;theta&lt;45) and
 area smaller or equal to 1 square meter according to table D.6.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpDosAguasZonaJVTrsvAPeq">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpDosAguasZonaJVTrsvAPeq</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaJVTrsvAPeq" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpDosAguasZonaJVTrsvAPeq">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpDosAguasZonaJVTrsvAPeq</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpDosAguasZonaJVTrsvAPeq" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive downwards) in the J zone of the roof 
 para viento sensiblemente transversal (-45&lt;theta&lt;45) according to table D.6.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpMarq1AguaAbajoZonaA">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpMarq1AguaAbajoZonaA</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpMarq1AguaAbajoZonaA" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpMarq1AguaAbajoZonaA">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpMarq1AguaAbajoZonaA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpMarq1AguaAbajoZonaA" title="Permalink to this definition">¶</a></dt>
 <dd><p>Up external pressure in the A zone of a shed marquee
 with zero obstruction factor as a function of the slope 
 according to table table D.10.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.cpMarq1AguaArribaZonaA">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpMarq1AguaArribaZonaA</code><span class="sig-paren">(</span><em>alpha</em>, <em>fi</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpMarq1AguaArribaZonaA" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpMarq1AguaArribaZonaA">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpMarq1AguaArribaZonaA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpMarq1AguaArribaZonaA" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpMarq1AguaArribaZonaAFi0">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpMarq1AguaArribaZonaAFi0</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpMarq1AguaArribaZonaAFi0" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpMarq1AguaArribaZonaAFi0">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpMarq1AguaArribaZonaAFi0</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpMarq1AguaArribaZonaAFi0" title="Permalink to this definition">¶</a></dt>
 <dd><p>Up external pressure in the A zone of a shed marquee
 with obstruction factor equal 1 as a function of the slope 
 according to table table D.10.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpMarq1AguaArribaZonaAFi1">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpMarq1AguaArribaZonaAFi1</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpMarq1AguaArribaZonaAFi1" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpMarq1AguaArribaZonaAFi1">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpMarq1AguaArribaZonaAFi1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpMarq1AguaArribaZonaAFi1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Up external pressure in the A zone of a shed marquee
 as a function of the slope for any value of the obstruction
 factor according to table table D.10.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.cpParamVertZonaAVTrsv">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpParamVertZonaAVTrsv</code><span class="sig-paren">(</span><em>A</em>, <em>h</em>, <em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaAVTrsv" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpParamVertZonaAVTrsv">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpParamVertZonaAVTrsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaAVTrsv" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpParamVertZonaAVTrsvAEQ2">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpParamVertZonaAVTrsvAEQ2</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaAVTrsvAEQ2" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpParamVertZonaAVTrsvAEQ2">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpParamVertZonaAVTrsvAEQ2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaAVTrsvAEQ2" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive inwards) in zone A
 over a vertical surface for mostly transverse winds (-45&lt;theta&lt;45) and
 area smaller or equal to 1 square meter depending on h/d according to table D.3.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpParamVertZonaAVTrsvAEQ5">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpParamVertZonaAVTrsvAEQ5</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaAVTrsvAEQ5" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpParamVertZonaAVTrsvAEQ5">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpParamVertZonaAVTrsvAEQ5</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaAVTrsvAEQ5" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive inwards) in zone A
 over a vertical surface for mostly transverse winds (-45&lt;theta&lt;45) and
 area equal to 2 square meters depending on h/d according to table D.3.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpParamVertZonaAVTrsvAGE10">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpParamVertZonaAVTrsvAGE10</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaAVTrsvAGE10" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpParamVertZonaAVTrsvAGE10">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpParamVertZonaAVTrsvAGE10</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaAVTrsvAGE10" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive inwards) in zone A
 over a vertical surface for mostly transverse winds (-45&lt;theta&lt;45) and
 area equal to 5 square meters depending on h/d according to table D.3.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpParamVertZonaAVTrsvALE1">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpParamVertZonaAVTrsvALE1</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaAVTrsvALE1" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpParamVertZonaAVTrsvALE1">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpParamVertZonaAVTrsvALE1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaAVTrsvALE1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Coeficiente de presión exterior (positiva hacia abajo) en 
 over a vertical surface zona A for mostly transverse 
 winds (-45&lt;theta&lt;45) according to table D.3.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.cpParamVertZonaBVTrsv">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpParamVertZonaBVTrsv</code><span class="sig-paren">(</span><em>A</em>, <em>h</em>, <em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaBVTrsv" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpParamVertZonaBVTrsv">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpParamVertZonaBVTrsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaBVTrsv" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpParamVertZonaBVTrsvAEQ2">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpParamVertZonaBVTrsvAEQ2</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaBVTrsvAEQ2" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpParamVertZonaBVTrsvAEQ2">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpParamVertZonaBVTrsvAEQ2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaBVTrsvAEQ2" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive inwards) in zone B
 over a vertical surface for mostly transverse winds (-45&lt;theta&lt;45) and
 area smaller or equal to 1 square meter depending on h/d according to table D.3.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpParamVertZonaBVTrsvAEQ5">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpParamVertZonaBVTrsvAEQ5</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaBVTrsvAEQ5" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpParamVertZonaBVTrsvAEQ5">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpParamVertZonaBVTrsvAEQ5</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaBVTrsvAEQ5" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive inwards) in zone B
 over a vertical surface for mostly transverse winds (-45&lt;theta&lt;45) and
 area equal to 2 square meters depending on h/d according to table D.3.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpParamVertZonaBVTrsvAGE10">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpParamVertZonaBVTrsvAGE10</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaBVTrsvAGE10" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpParamVertZonaBVTrsvAGE10">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpParamVertZonaBVTrsvAGE10</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaBVTrsvAGE10" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive inwards) in zone B
 over a vertical surface for mostly transverse winds (-45&lt;theta&lt;45) and
 area equal to 5 square meters depending on h/d according to table D.3.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpParamVertZonaBVTrsvALE1">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpParamVertZonaBVTrsvALE1</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaBVTrsvALE1" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpParamVertZonaBVTrsvALE1">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpParamVertZonaBVTrsvALE1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaBVTrsvALE1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Coeficiente de presión exterior (positiva hacia abajo) en 
 over a vertical surface zona B for mostly transverse 
 winds (-45&lt;theta&lt;45) according to table D.3.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.cpParamVertZonaCVTrsv">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpParamVertZonaCVTrsv</code><span class="sig-paren">(</span><em>A</em>, <em>h</em>, <em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaCVTrsv" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpParamVertZonaCVTrsv">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpParamVertZonaCVTrsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaCVTrsv" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpParamVertZonaCVTrsvAEQ2">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpParamVertZonaCVTrsvAEQ2</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaCVTrsvAEQ2" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpParamVertZonaCVTrsvAEQ2">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpParamVertZonaCVTrsvAEQ2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaCVTrsvAEQ2" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive inwards) in zone C
 over a vertical surface for mostly transverse winds (-45&lt;theta&lt;45) and
 area smaller or equal to 1 square meter depending on h/d according to table D.3.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpParamVertZonaCVTrsvAEQ5">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpParamVertZonaCVTrsvAEQ5</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaCVTrsvAEQ5" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpParamVertZonaCVTrsvAEQ5">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpParamVertZonaCVTrsvAEQ5</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaCVTrsvAEQ5" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive inwards) in zone C
 over a vertical surface for mostly transverse winds (-45&lt;theta&lt;45) and
 area equal to 2 square meters depending on h/d according to table D.3.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpParamVertZonaCVTrsvAGE10">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpParamVertZonaCVTrsvAGE10</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaCVTrsvAGE10" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpParamVertZonaCVTrsvAGE10">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpParamVertZonaCVTrsvAGE10</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaCVTrsvAGE10" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive inwards) in zone C
 over a vertical surface for mostly transverse winds (-45&lt;theta&lt;45) and
 area equal to 5 square meters depending on h/d according to table D.3.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpParamVertZonaCVTrsvALE1">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpParamVertZonaCVTrsvALE1</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaCVTrsvALE1" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpParamVertZonaCVTrsvALE1">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpParamVertZonaCVTrsvALE1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaCVTrsvALE1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Coeficiente de presión exterior (positiva hacia abajo) en 
 over a vertical surface zona C for mostly transverse 
 winds (-45&lt;theta&lt;45) according to table D.3.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.cpParamVertZonaDVTrsv">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpParamVertZonaDVTrsv</code><span class="sig-paren">(</span><em>A</em>, <em>h</em>, <em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaDVTrsv" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpParamVertZonaDVTrsv">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpParamVertZonaDVTrsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaDVTrsv" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpParamVertZonaDVTrsvAEQ2">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpParamVertZonaDVTrsvAEQ2</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaDVTrsvAEQ2" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpParamVertZonaDVTrsvAEQ2">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpParamVertZonaDVTrsvAEQ2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaDVTrsvAEQ2" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive inwards) in zone D
 over a vertical surface for mostly transverse winds (-45&lt;theta&lt;45) and
 area smaller or equal to 1 square meter depending on h/d according to table D.3.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpParamVertZonaDVTrsvAEQ5">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpParamVertZonaDVTrsvAEQ5</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaDVTrsvAEQ5" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpParamVertZonaDVTrsvAEQ5">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpParamVertZonaDVTrsvAEQ5</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaDVTrsvAEQ5" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive inwards) in zone D
 over a vertical surface for mostly transverse winds (-45&lt;theta&lt;45) and
 area equal to 2 square meters depending on h/d according to table D.3.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpParamVertZonaDVTrsvAGE10">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpParamVertZonaDVTrsvAGE10</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaDVTrsvAGE10" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpParamVertZonaDVTrsvAGE10">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpParamVertZonaDVTrsvAGE10</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaDVTrsvAGE10" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive inwards) in zone D
 over a vertical surface for mostly transverse winds (-45&lt;theta&lt;45) and
 area equal to 5 square meters depending on h/d according to table D.3.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpParamVertZonaDVTrsvALE1">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpParamVertZonaDVTrsvALE1</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaDVTrsvALE1" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpParamVertZonaDVTrsvALE1">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpParamVertZonaDVTrsvALE1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaDVTrsvALE1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Coeficiente de presión exterior (positiva hacia abajo) en 
 over a vertical surface zona D for mostly transverse 
 winds (-45&lt;theta&lt;45) according to table D.3.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.cpParamVertZonaEVTrsv">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpParamVertZonaEVTrsv</code><span class="sig-paren">(</span><em>A</em>, <em>h</em>, <em>d</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaEVTrsv" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpParamVertZonaEVTrsv">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpParamVertZonaEVTrsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaEVTrsv" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpParamVertZonaEVTrsvAEQ2">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpParamVertZonaEVTrsvAEQ2</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaEVTrsvAEQ2" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpParamVertZonaEVTrsvAEQ2">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpParamVertZonaEVTrsvAEQ2</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaEVTrsvAEQ2" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive inwards) in zone E
 over a vertical surface for mostly transverse winds (-45&lt;theta&lt;45) and
 area smaller or equal to 1 square meter depending on h/d according to table D.3.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpParamVertZonaEVTrsvAEQ5">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpParamVertZonaEVTrsvAEQ5</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaEVTrsvAEQ5" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpParamVertZonaEVTrsvAEQ5">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpParamVertZonaEVTrsvAEQ5</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaEVTrsvAEQ5" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive inwards) in zone E
 over a vertical surface for mostly transverse winds (-45&lt;theta&lt;45) and
 area equal to 2 square meters depending on h/d according to table D.3.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpParamVertZonaEVTrsvAGE10">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpParamVertZonaEVTrsvAGE10</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaEVTrsvAGE10" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpParamVertZonaEVTrsvAGE10">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpParamVertZonaEVTrsvAGE10</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaEVTrsvAGE10" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive inwards) in zone E
 over a vertical surface for mostly transverse winds (-45&lt;theta&lt;45) and
 area equal to 5 square meters depending on h/d according to table D.3.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpParamVertZonaEVTrsvALE1">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpParamVertZonaEVTrsvALE1</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaEVTrsvALE1" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpParamVertZonaEVTrsvALE1">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpParamVertZonaEVTrsvALE1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpParamVertZonaEVTrsvALE1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Coeficiente de presión exterior (positiva hacia abajo) en 
 over a vertical surface zona E for mostly transverse 
 winds (-45&lt;theta&lt;45) according to table D.3.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.cpPlanaZonaFVLong">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpPlanaZonaFVLong</code><span class="sig-paren">(</span><em>A</em>, <em>hp</em>, <em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaFVLong" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpPlanaZonaFVLong">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpPlanaZonaFVLong</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaFVLong" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.cpPlanaZonaFVTrsv">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpPlanaZonaFVTrsv</code><span class="sig-paren">(</span><em>A</em>, <em>hp</em>, <em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaFVTrsv" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpPlanaZonaFVTrsv">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpPlanaZonaFVTrsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaFVTrsv" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpPlanaZonaFVTrsvAGrande">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpPlanaZonaFVTrsvAGrande</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaFVTrsvAGrande" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpPlanaZonaFVTrsvAGrande">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpPlanaZonaFVTrsvAGrande</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaFVTrsvAGrande" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive downwards) in the F zone of the roof 
 for mostly transverse winds (-45&lt;theta&lt;45) and
 area smaller or equal to 1 square meter according to table D.4.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpPlanaZonaFVTrsvAPeq">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpPlanaZonaFVTrsvAPeq</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaFVTrsvAPeq" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpPlanaZonaFVTrsvAPeq">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpPlanaZonaFVTrsvAPeq</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaFVTrsvAPeq" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive downwards) in the F zone of the roof 
 para viento sensiblemente transversal (-45&lt;theta&lt;45) according to table D.4.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.cpPlanaZonaGVLong">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpPlanaZonaGVLong</code><span class="sig-paren">(</span><em>A</em>, <em>hp</em>, <em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaGVLong" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpPlanaZonaGVLong">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpPlanaZonaGVLong</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaGVLong" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.cpPlanaZonaGVTrsv">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpPlanaZonaGVTrsv</code><span class="sig-paren">(</span><em>A</em>, <em>hp</em>, <em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaGVTrsv" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpPlanaZonaGVTrsv">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpPlanaZonaGVTrsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaGVTrsv" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpPlanaZonaGVTrsvAGrande">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpPlanaZonaGVTrsvAGrande</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaGVTrsvAGrande" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpPlanaZonaGVTrsvAGrande">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpPlanaZonaGVTrsvAGrande</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaGVTrsvAGrande" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive downwards) in the G zone of the roof 
 for mostly transverse winds (-45&lt;theta&lt;45) and
 area smaller or equal to 1 square meter according to table D.4.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpPlanaZonaGVTrsvAPeq">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpPlanaZonaGVTrsvAPeq</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaGVTrsvAPeq" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpPlanaZonaGVTrsvAPeq">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpPlanaZonaGVTrsvAPeq</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaGVTrsvAPeq" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive downwards) in the G zone of the roof 
 para viento sensiblemente transversal (-45&lt;theta&lt;45) according to table D.4.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.cpPlanaZonaHVLong">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpPlanaZonaHVLong</code><span class="sig-paren">(</span><em>A</em>, <em>hp</em>, <em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaHVLong" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpPlanaZonaHVLong">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpPlanaZonaHVLong</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaHVLong" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.cpPlanaZonaHVTrsv">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpPlanaZonaHVTrsv</code><span class="sig-paren">(</span><em>A</em>, <em>hp</em>, <em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaHVTrsv" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpPlanaZonaHVTrsv">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpPlanaZonaHVTrsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaHVTrsv" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpPlanaZonaHVTrsvAGrande">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpPlanaZonaHVTrsvAGrande</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaHVTrsvAGrande" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpPlanaZonaHVTrsvAGrande">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpPlanaZonaHVTrsvAGrande</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaHVTrsvAGrande" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive downwards) in the H zone of the roof 
 for mostly transverse winds (-45&lt;theta&lt;45) and
 area smaller or equal to 1 square meter according to table D.4.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpPlanaZonaHVTrsvAPeq">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpPlanaZonaHVTrsvAPeq</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaHVTrsvAPeq" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpPlanaZonaHVTrsvAPeq">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpPlanaZonaHVTrsvAPeq</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaHVTrsvAPeq" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive downwards) in the H zone of the roof 
 para viento sensiblemente transversal (-45&lt;theta&lt;45) according to table D.4.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.cpPlanaZonaIVLong">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpPlanaZonaIVLong</code><span class="sig-paren">(</span><em>A</em>, <em>hp</em>, <em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaIVLong" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpPlanaZonaIVLong">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpPlanaZonaIVLong</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaIVLong" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.cpPlanaZonaIVTrsv">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpPlanaZonaIVTrsv</code><span class="sig-paren">(</span><em>A</em>, <em>hp</em>, <em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaIVTrsv" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpPlanaZonaIVTrsv">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpPlanaZonaIVTrsv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaIVTrsv" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpPlanaZonaIVTrsvAGrande">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpPlanaZonaIVTrsvAGrande</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaIVTrsvAGrande" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpPlanaZonaIVTrsvAGrande">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpPlanaZonaIVTrsvAGrande</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaIVTrsvAGrande" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive downwards) in the I zone of the roof 
 for mostly transverse winds (-45&lt;theta&lt;45) and
 area smaller or equal to 1 square meter according to table D.4.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="actions.wind.CTE_wind.cpPlanaZonaIVTrsvAPeq">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">cpPlanaZonaIVTrsvAPeq</code><em class="property"> = &lt;scipy.interpolate.interpolate.interp1d object&gt;</em><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaIVTrsvAPeq" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.cpPlanaZonaIVTrsvAPeq">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">cpPlanaZonaIVTrsvAPeq</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;scipy.interpolate._interpolate.interp1d</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#actions.wind.CTE_wind.cpPlanaZonaIVTrsvAPeq" title="Permalink to this definition">¶</a></dt>
 <dd><p>External pressure factor (positive downwards) in the I zone of the roof 
 para viento sensiblemente transversal (-45&lt;theta&lt;45) according to table D.4.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.ifte">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">ifte</code><span class="sig-paren">(</span><em>cond</em>, <em>v1</em>, <em>v2</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.ifte" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.ifte">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">ifte</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cond</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.ifte" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.CTE_wind.interpolaCoefsPresion">
-<code class="descclassname">actions.wind.CTE_wind.</code><code class="descname">interpolaCoefsPresion</code><span class="sig-paren">(</span><em>A</em>, <em>Cpe1</em>, <em>Cpe10</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.interpolaCoefsPresion" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.CTE_wind.interpolaCoefsPresion">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.CTE_wind.</span></span><span class="sig-name descname"><span class="pre">interpolaCoefsPresion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cpe1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cpe10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.CTE_wind.interpolaCoefsPresion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Función para interpolar coeficientes de presión 
 according to expression D.4 of CTE (SE-AE-27).</p>
 </dd></dl>
 
-</div>
-<div class="section" id="module-actions.wind.IAPF_wind">
+</section>
+<section id="module-actions.wind.IAPF_wind">
 <span id="wind-action-according-to-iapf-instruction"></span><h2>wind action according to IAPF instruction<a class="headerlink" href="#module-actions.wind.IAPF_wind" title="Permalink to this headline">¶</a></h2>
 <p>Functions to compute wind loads according to Spanish IAPF standard.</p>
-<dl class="function">
-<dt id="actions.wind.IAPF_wind.CdTableroAlmaLlenaIAPF">
-<code class="descclassname">actions.wind.IAPF_wind.</code><code class="descname">CdTableroAlmaLlenaIAPF</code><span class="sig-paren">(</span><em>B</em>, <em>h</em>, <em>angAlma</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.CdTableroAlmaLlenaIAPF" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.IAPF_wind.CdTableroAlmaLlenaIAPF">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.IAPF_wind.</span></span><span class="sig-name descname"><span class="pre">CdTableroAlmaLlenaIAPF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">B</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angAlma</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.CdTableroAlmaLlenaIAPF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Coeficiente de arrastre para empuje horizontal sobre tableros
 de alma llena according to clause 2.3.7.5.1 IAPF.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>B</strong> – total width of the bridge deck.</p></li>
+<li><p><strong>h</strong> – effective height of the bridge deck.</p></li>
+<li><p><strong>angAlma</strong> – web angle (radians).</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.IAPF_wind.CgIAPF">
-<code class="descclassname">actions.wind.IAPF_wind.</code><code class="descname">CgIAPF</code><span class="sig-paren">(</span><em>kz</em>, <em>Cz</em>, <em>Ct</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.CgIAPF" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.IAPF_wind.CgIAPF">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.IAPF_wind.</span></span><span class="sig-name descname"><span class="pre">CgIAPF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ct</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.CgIAPF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Factor de ráfaga according to clause 2.3.7.2 IAPF.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.IAPF_wind.CzIAPF">
-<code class="descclassname">actions.wind.IAPF_wind.</code><code class="descname">CzIAPF</code><span class="sig-paren">(</span><em>gae</em>, <em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.CzIAPF" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.IAPF_wind.CrIAPF">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.IAPF_wind.</span></span><span class="sig-name descname"><span class="pre">CrIAPF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.CrIAPF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Factor de riesgo en función del período de retorno T
+art. 2.3.7.2 IAPF</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.IAPF_wind.CzIAPF">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.IAPF_wind.</span></span><span class="sig-name descname"><span class="pre">CzIAPF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gae</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.CzIAPF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Heigth factor according to clause 2.3.7.2 of IAPF.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.IAPF_wind.FHkPorMetroIAPF">
-<code class="descclassname">actions.wind.IAPF_wind.</code><code class="descname">FHkPorMetroIAPF</code><span class="sig-paren">(</span><em>Cd</em>, <em>h</em>, <em>Vc</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.FHkPorMetroIAPF" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.IAPF_wind.FHkPorMetroIAPF">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.IAPF_wind.</span></span><span class="sig-name descname"><span class="pre">FHkPorMetroIAPF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Cd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Vc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.FHkPorMetroIAPF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Empuje horizontal per unit length sobre el tablero
 de alma llena according to clause 2.3.7.3 IAPF.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.IAPF_wind.FVkPorMetroIAPF">
-<code class="descclassname">actions.wind.IAPF_wind.</code><code class="descname">FVkPorMetroIAPF</code><span class="sig-paren">(</span><em>b</em>, <em>Vc</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.FVkPorMetroIAPF" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.IAPF_wind.FVkPorMetroIAPF">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.IAPF_wind.</span></span><span class="sig-name descname"><span class="pre">FVkPorMetroIAPF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Vc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.FVkPorMetroIAPF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Empuje vertical per unit length sobre el tablero
 de alma llena according to clause 2.3.7.5.2 IAPF.</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.IAPF_wind.ParamKIAPF">
-<code class="descclassname">actions.wind.IAPF_wind.</code><code class="descname">ParamKIAPF</code><span class="sig-paren">(</span><em>gae</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.ParamKIAPF" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.IAPF_wind.ParamKIAPF">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.IAPF_wind.</span></span><span class="sig-name descname"><span class="pre">ParamKIAPF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gae</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.ParamKIAPF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parámetro k en función del grado de aspereza del entorno
 according to IAPF standard (cuadro 2.4).</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.IAPF_wind.Z0IAPF">
-<code class="descclassname">actions.wind.IAPF_wind.</code><code class="descname">Z0IAPF</code><span class="sig-paren">(</span><em>gae</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.Z0IAPF" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.IAPF_wind.Z0IAPF">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.IAPF_wind.</span></span><span class="sig-name descname"><span class="pre">Z0IAPF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gae</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.Z0IAPF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Longitud de la rugosidad z_0 en función del grado de aspereza del entorno
 according to IAPF (cuadro 2.4).</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.IAPF_wind.ZminIAPF">
-<code class="descclassname">actions.wind.IAPF_wind.</code><code class="descname">ZminIAPF</code><span class="sig-paren">(</span><em>gae</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.ZminIAPF" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.IAPF_wind.ZminIAPF">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.IAPF_wind.</span></span><span class="sig-name descname"><span class="pre">ZminIAPF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gae</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.ZminIAPF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Altura mínima z_min en función del grado de aspereza del entorno
 according to IAPF (cuadro 2.4).}</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.IAPF_wind.alphaIAPF">
-<code class="descclassname">actions.wind.IAPF_wind.</code><code class="descname">alphaIAPF</code><span class="sig-paren">(</span><em>gae</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.alphaIAPF" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.IAPF_wind.alphaIAPF">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.IAPF_wind.</span></span><span class="sig-name descname"><span class="pre">alphaIAPF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gae</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.alphaIAPF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Valor del alpha en función del grado de aspereza del entorno
 according to IAPF (cuadro 2.4).}</p>
 </dd></dl>
 
-</div>
-<div class="section" id="module-actions.wind.SIA261_wind">
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.IAPF_wind.getAlpha">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.IAPF_wind.</span></span><span class="sig-name descname"><span class="pre">getAlpha</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terrainCategory</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.getAlpha" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the terrain factor according to table 2.4 of IAPF-10.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>terrainCategory</strong> – terrain category according to clause 2.3.7.2. 
+of IAPF-10.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.IAPF_wind.getDesignVelocity">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.IAPF_wind.</span></span><span class="sig-name descname"><span class="pre">getDesignVelocity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terrainCategory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_ref</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topographyFactor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">K</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.getDesignVelocity" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Return the design velocity of the wind according to clause 2.3.7.2.</dt><dd><p>of IAPF-10.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>terrainCategory</strong> – terrain category according to clause 2.3.7.2. 
+of IAPF-10.</p></li>
+<li><p><strong>v_ref</strong> – velocity of reference to figure 2.20 of IAPF-10.</p></li>
+<li><p><strong>z</strong> – height with respect to the terrain of the point for which the 
+speed is to be calculated.</p></li>
+<li><p><strong>topographyFactor</strong> – topography factor according to clause 2.3.7.2.
+of IAPF-10.</p></li>
+<li><p><strong>T</strong> – return period expressed in years.</p></li>
+<li><p><strong>K</strong> – parameter (defaults to 0.2).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.IAPF_wind.getGustFactor">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.IAPF_wind.</span></span><span class="sig-name descname"><span class="pre">getGustFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terrainCategory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topographyFactor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.getGustFactor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Return the gust factor (Cg) according to clause 2.3.7.2.</dt><dd><p>of IAPF-10.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>terrainCategory</strong> – terrain category according to clause 2.3.7.2. 
+of IAPF-10.</p></li>
+<li><p><strong>z</strong> – height with respect to the terrain of the point for which the 
+speed is to be calculated.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.IAPF_wind.getHeightFactor">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.IAPF_wind.</span></span><span class="sig-name descname"><span class="pre">getHeightFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terrainCategory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.getHeightFactor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Return the height factor (Cz) according to clause 2.3.7.2.</dt><dd><p>of IAPF-10.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>terrainCategory</strong> – terrain category according to clause 2.3.7.2. 
+of IAPF-10.</p></li>
+<li><p><strong>z</strong> – height with respect to the terrain of the point for which the 
+speed is to be calculated.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.IAPF_wind.getKz">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.IAPF_wind.</span></span><span class="sig-name descname"><span class="pre">getKz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terrainCategory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.getKz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the terrain factor according to table 2.4 of IAPF-10.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>terrainCategory</strong> – terrain category according to clause 2.3.7.2. 
+of IAPF-10.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.IAPF_wind.getRectangularShapeDragCoefficient">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.IAPF_wind.</span></span><span class="sig-name descname"><span class="pre">getRectangularShapeDragCoefficient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">B</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.getRectangularShapeDragCoefficient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the drag coeffient for a rectangular shape according to figure 2.21 of IAPF-10.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>B</strong> – dimension of the rectangle parallel to the wind.</p></li>
+<li><p><strong>h</strong> – dimension of the rectangle perpendicular to the wind.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.IAPF_wind.getRiskFactor">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.IAPF_wind.</span></span><span class="sig-name descname"><span class="pre">getRiskFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">K</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.getRiskFactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the probability factor according to clause 2.3.7.2 of IAPF-10.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> – return period expressed in years.</p></li>
+<li><p><strong>K</strong> – parameter (defaults to 0.2).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.IAPF_wind.getSolidWebBridgeDragForceCoefficient">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.IAPF_wind.</span></span><span class="sig-name descname"><span class="pre">getSolidWebBridgeDragForceCoefficient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">B</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_eq</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">webAngle</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.getSolidWebBridgeDragForceCoefficient" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Return the wind drag force coefficient according to </dt><dd><p>clause 2.3.7.5.1 Caso 1) of IAPF-10.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>B</strong> – total width of the bridge deck.</p></li>
+<li><p><strong>h_eq</strong> – effective height of the bridge deck.</p></li>
+<li><p><strong>webAngle</strong> – web angle (radians).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.IAPF_wind.getUnitWindLoadDeck">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.IAPF_wind.</span></span><span class="sig-name descname"><span class="pre">getUnitWindLoadDeck</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terrainCategory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_ref</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topographyFactor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">K</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rho</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.25</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.getUnitWindLoadDeck" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Return the wind load per square meter on a bridge member according </dt><dd><p>to clauses 2.3.7.3 of IAPF-10.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>terrainCategory</strong> – terrain category according to clause 2.3.7.2. 
+of IAPF-10.</p></li>
+<li><p><strong>v_ref</strong> – velocity of reference to figure 2.20 of IAPF-10.</p></li>
+<li><p><strong>z</strong> – average height of the deck with respect to the terrain.</p></li>
+<li><p><strong>Cd</strong> – drag force coefficient.</p></li>
+<li><p><strong>topographyFactor</strong> – topography factor according to clause 2.3.7.2.
+of IAPF-10.</p></li>
+<li><p><strong>T</strong> – return period expressed in years.</p></li>
+<li><p><strong>K</strong> – parameter (defaults to 0.2).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.IAPF_wind.getWindPressure">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.IAPF_wind.</span></span><span class="sig-name descname"><span class="pre">getWindPressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v_c</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rho</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.25</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.getWindPressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the wind pressure according to clause 2.3.7.3. of IAPF-10.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v_c</strong> – design wind velocity according to clause 2.3.7.2. of IAPF-10.</p></li>
+<li><p><strong>rho</strong> – density of air (defaults to 1.25 kg/m3).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.IAPF_wind.get_unit_wind_load">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.IAPF_wind.</span></span><span class="sig-name descname"><span class="pre">get_unit_wind_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">terrainCategory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_ref</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topographyFactor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">K</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rho</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.25</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.IAPF_wind.get_unit_wind_load" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Return the wind load per square meter on a bridge member according </dt><dd><p>to clauses 2.3.7.3 of IAPF-10.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>terrainCategory</strong> – terrain category according to clause 2.3.7.2. 
+of IAPF-10.</p></li>
+<li><p><strong>v_ref</strong> – velocity of reference to figure 2.20 of IAPF-10.</p></li>
+<li><p><strong>z</strong> – average height of the deck with respect to the terrain.</p></li>
+<li><p><strong>Cd</strong> – drag force coefficient.</p></li>
+<li><p><strong>topographyFactor</strong> – topography factor according to clause 2.3.7.2.
+of IAPF-10.</p></li>
+<li><p><strong>T</strong> – return period expressed in years.</p></li>
+<li><p><strong>K</strong> – parameter (defaults to 0.2).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-actions.wind.SIA261_wind">
 <span id="wind-action-according-to-sia261-code"></span><h2>wind action according to SIA261 code<a class="headerlink" href="#module-actions.wind.SIA261_wind" title="Permalink to this headline">¶</a></h2>
 <p>Wind according to SIA 261</p>
-<dl class="function">
-<dt id="actions.wind.SIA261_wind.Ch">
-<code class="descclassname">actions.wind.SIA261_wind.</code><code class="descname">Ch</code><span class="sig-paren">(</span><em>z</em>, <em>catTerrain</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.SIA261_wind.Ch" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.SIA261_wind.Ch">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.SIA261_wind.</span></span><span class="sig-name descname"><span class="pre">Ch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">catTerrain</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.SIA261_wind.Ch" title="Permalink to this definition">¶</a></dt>
 <dd><p>factor c_h as defined in expression 12 of SIA 261 6.2.1.2</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.SIA261_wind.Zg">
-<code class="descclassname">actions.wind.SIA261_wind.</code><code class="descname">Zg</code><span class="sig-paren">(</span><em>catTerrain</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.SIA261_wind.Zg" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.SIA261_wind.Zg">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.SIA261_wind.</span></span><span class="sig-name descname"><span class="pre">Zg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">catTerrain</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.SIA261_wind.Zg" title="Permalink to this definition">¶</a></dt>
 <dd><p>value for Zg (expression 12 of SIA 261 6.2.1.2) as defined in table 4</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.SIA261_wind.alphaR">
-<code class="descclassname">actions.wind.SIA261_wind.</code><code class="descname">alphaR</code><span class="sig-paren">(</span><em>catTerrain</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.SIA261_wind.alphaR" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.SIA261_wind.alphaR">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.SIA261_wind.</span></span><span class="sig-name descname"><span class="pre">alphaR</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">catTerrain</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.SIA261_wind.alphaR" title="Permalink to this definition">¶</a></dt>
 <dd><p>value for alpha_r (expression 12 of SIA 261 6.2.1.2) as defined in table 4</p>
 </dd></dl>
 
-<dl class="function">
-<dt id="actions.wind.SIA261_wind.qp">
-<code class="descclassname">actions.wind.SIA261_wind.</code><code class="descname">qp</code><span class="sig-paren">(</span><em>qp0</em>, <em>z</em>, <em>catTerrain</em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.SIA261_wind.qp" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="actions.wind.SIA261_wind.qp">
+<span class="sig-prename descclassname"><span class="pre">actions.wind.SIA261_wind.</span></span><span class="sig-name descname"><span class="pre">qp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qp0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">catTerrain</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#actions.wind.SIA261_wind.qp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dynamic wind pressure as defined in expression 11 of SIA 261 6.2.1.2</p>
 </dd></dl>
 
-</div>
-</div>
+</section>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
         </div>
       </div>
@@ -870,17 +1120,15 @@ according to IAPF (cuadro 2.4).}</p>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -901,12 +1149,13 @@ according to IAPF (cuadro 2.4).}</p>
           <a href="actions.earth_pressure.html" title="Earth pressure"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../index.html">XC 3.0 documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../actions.html" >Actions</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../actions.html" >Actions</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Wind</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Luis Pérez Tato (LCPT) &amp; Ana Ortega (AO_O).
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
     </div>
   </body>
 </html>
